@@ -489,6 +489,29 @@ body {
   opacity: 1;
 }
 
+/* MC Option - Romaji hint */
+.mc-option-main {
+  display: block;
+  font-family: var(--font-jp);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.mc-option-romaji {
+  display: block;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+/* Dark mode adjustment */
+.mc-option:hover:not(.disabled) .mc-option-romaji {
+  color: var(--primary);
+}
+
 /* ---------- Feedback ---------- */
 .feedback {
   padding: .8rem 1rem;

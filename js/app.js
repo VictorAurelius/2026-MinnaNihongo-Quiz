@@ -607,9 +607,27 @@
       btn.className = "mc-option";
 
       if (isGrammarMode) {
+        // Grammar mode: No romaji (pattern or vietnamese text only)
         btn.textContent = isJpToVi ? opt.vietnamese : opt.pattern;
       } else {
-        btn.textContent = isJpToVi ? opt.vietnamese : opt.japanese;
+        // Vocabulary mode
+        if (isJpToVi) {
+          // JP→VN: Show Vietnamese only (no romaji needed)
+          btn.textContent = opt.vietnamese;
+        } else {
+          // VN→JP: Show Japanese with romaji hint
+          const japaneseSpan = document.createElement("span");
+          japaneseSpan.className = "mc-option-main";
+          japaneseSpan.textContent = opt.japanese;
+
+          const romajiSpan = document.createElement("span");
+          romajiSpan.className = "mc-option-romaji";
+          romajiSpan.textContent = `(${kanaToRomaji(opt.kana)})`;
+
+          btn.innerHTML = "";
+          btn.appendChild(japaneseSpan);
+          btn.appendChild(romajiSpan);
+        }
       }
 
       btn.dataset.correct = (opt === item) ? "true" : "false";
