@@ -1,0 +1,9620 @@
+[
+  {
+    "num": 1,
+    "chinese": "阿姨",
+    "pinyin": "āyí",
+    "vietnamese": "Dì"
+  },
+  {
+    "num": 2,
+    "chinese": "啊",
+    "pinyin": "a",
+    "vietnamese": "à"
+  },
+  {
+    "num": 3,
+    "chinese": "唤",
+    "pinyin": "huàn",
+    "vietnamese": "gọi"
+  },
+  {
+    "num": 4,
+    "chinese": "矮",
+    "pinyin": "ǎi",
+    "vietnamese": "ngắn"
+  },
+  {
+    "num": 5,
+    "chinese": "爱",
+    "pinyin": "ài",
+    "vietnamese": "giống"
+  },
+  {
+    "num": 6,
+    "chinese": "爱好",
+    "pinyin": "àihào",
+    "vietnamese": "Sở thích"
+  },
+  {
+    "num": 7,
+    "chinese": "爱护",
+    "pinyin": "àihù",
+    "vietnamese": "quan tâm"
+  },
+  {
+    "num": 8,
+    "chinese": "爱情",
+    "pinyin": "àiqíng",
+    "vietnamese": "yêu"
+  },
+  {
+    "num": 9,
+    "chinese": "爱民",
+    "pinyin": "àimín",
+    "vietnamese": "Yêu mọi người"
+  },
+  {
+    "num": 10,
+    "chinese": "爱心",
+    "pinyin": "àixīn",
+    "vietnamese": "yêu"
+  },
+  {
+    "num": 11,
+    "chinese": "安静",
+    "pinyin": "ānjìng",
+    "vietnamese": "Im lặng"
+  },
+  {
+    "num": 12,
+    "chinese": "安排",
+    "pinyin": "ānpái",
+    "vietnamese": "sắp xếp"
+  },
+  {
+    "num": 13,
+    "chinese": "安全",
+    "pinyin": "ānquán",
+    "vietnamese": "Sự an toàn"
+  },
+  {
+    "num": 14,
+    "chinese": "安感",
+    "pinyin": "āngǎn",
+    "vietnamese": "Cảm thấy an toàn"
+  },
+  {
+    "num": 15,
+    "chinese": "安帮",
+    "pinyin": "ānbāng",
+    "vietnamese": "An Bàng"
+  },
+  {
+    "num": 16,
+    "chinese": "上岸",
+    "pinyin": "shàngàn",
+    "vietnamese": "Lên bờ"
+  },
+  {
+    "num": 17,
+    "chinese": "暗",
+    "pinyin": "àn",
+    "vietnamese": "tối tăm"
+  },
+  {
+    "num": 18,
+    "chinese": "按时",
+    "pinyin": "ànshí",
+    "vietnamese": "đúng giờ"
+  },
+  {
+    "num": 19,
+    "chinese": "按照",
+    "pinyin": "ànzhào",
+    "vietnamese": "theo"
+  },
+  {
+    "num": 20,
+    "chinese": "八",
+    "pinyin": "bā",
+    "vietnamese": "tám"
+  },
+  {
+    "num": 21,
+    "chinese": "把",
+    "pinyin": "bǎ",
+    "vietnamese": "Bó"
+  },
+  {
+    "num": 22,
+    "chinese": "把握",
+    "pinyin": "bǎwò",
+    "vietnamese": "nắm bắt"
+  },
+  {
+    "num": 23,
+    "chinese": "和爸爸",
+    "pinyin": "hébàbà",
+    "vietnamese": "và bố"
+  },
+  {
+    "num": 24,
+    "chinese": "吧",
+    "pinyin": "ba",
+    "vietnamese": "Thanh"
+  },
+  {
+    "num": 25,
+    "chinese": "白",
+    "pinyin": "bái",
+    "vietnamese": "trắng"
+  },
+  {
+    "num": 26,
+    "chinese": "百",
+    "pinyin": "bǎi",
+    "vietnamese": "trăm"
+  },
+  {
+    "num": 27,
+    "chinese": "摆",
+    "pinyin": "bǎi",
+    "vietnamese": "đặt"
+  },
+  {
+    "num": 28,
+    "chinese": "搬",
+    "pinyin": "bān",
+    "vietnamese": "di chuyển"
+  },
+  {
+    "num": 29,
+    "chinese": "班",
+    "pinyin": "bān",
+    "vietnamese": "lớp học"
+  },
+  {
+    "num": 30,
+    "chinese": "班主任",
+    "pinyin": "bānzhǔrèn",
+    "vietnamese": "giáo viên chủ nhiệm"
+  },
+  {
+    "num": 31,
+    "chinese": "半",
+    "pinyin": "bàn",
+    "vietnamese": "Một nửa"
+  },
+  {
+    "num": 32,
+    "chinese": "办法",
+    "pinyin": "bànfǎ",
+    "vietnamese": "đường"
+  },
+  {
+    "num": 33,
+    "chinese": "办公室",
+    "pinyin": "bàngōngshì",
+    "vietnamese": "văn phòng"
+  },
+  {
+    "num": 34,
+    "chinese": "办理",
+    "pinyin": "bànlǐ",
+    "vietnamese": "xử lý"
+  },
+  {
+    "num": 35,
+    "chinese": "帮忙",
+    "pinyin": "bāngmáng",
+    "vietnamese": "giúp đỡ"
+  },
+  {
+    "num": 36,
+    "chinese": "暖和",
+    "pinyin": "nuǎnhuo",
+    "vietnamese": "ấm"
+  },
+  {
+    "num": 37,
+    "chinese": "女儿",
+    "pinyin": "nǚér",
+    "vietnamese": "con gái"
+  },
+  {
+    "num": 38,
+    "chinese": "礼拜天",
+    "pinyin": "lǐbàitiān",
+    "vietnamese": "Chủ nhật"
+  },
+  {
+    "num": 39,
+    "chinese": "礼狐",
+    "pinyin": "lǐhú",
+    "vietnamese": "Lệ hồ"
+  },
+  {
+    "num": 40,
+    "chinese": "礼物",
+    "pinyin": "lǐwù",
+    "vietnamese": "Quà"
+  },
+  {
+    "num": 41,
+    "chinese": "理发",
+    "pinyin": "lǐfà",
+    "vietnamese": "cắt tóc"
+  },
+  {
+    "num": 42,
+    "chinese": "理解",
+    "pinyin": "lǐjiě",
+    "vietnamese": "hiểu"
+  },
+  {
+    "num": 43,
+    "chinese": "理论",
+    "pinyin": "lǐlùn",
+    "vietnamese": "lý thuyết"
+  },
+  {
+    "num": 44,
+    "chinese": "理想",
+    "pinyin": "lǐxiǎng",
+    "vietnamese": "lý tưởng"
+  },
+  {
+    "num": 45,
+    "chinese": "排列",
+    "pinyin": "páiliè",
+    "vietnamese": "sắp xếp"
+  },
+  {
+    "num": 46,
+    "chinese": "符合",
+    "pinyin": "fúhé",
+    "vietnamese": "phù hợp với"
+  },
+  {
+    "num": 47,
+    "chinese": "立方",
+    "pinyin": "lìfāng",
+    "vietnamese": "khối lập phương"
+  },
+  {
+    "num": 48,
+    "chinese": "立即",
+    "pinyin": "lìjí",
+    "vietnamese": "ngay lập tức"
+  },
+  {
+    "num": 49,
+    "chinese": "附近",
+    "pinyin": "fùjìn",
+    "vietnamese": "gần đó"
+  },
+  {
+    "num": 50,
+    "chinese": "厉害",
+    "pinyin": "lìhài",
+    "vietnamese": "sắc"
+  },
+  {
+    "num": 51,
+    "chinese": "力量",
+    "pinyin": "lìliàng",
+    "vietnamese": "sức mạnh"
+  },
+  {
+    "num": 52,
+    "chinese": "力气",
+    "pinyin": "lìqì",
+    "vietnamese": "sức mạnh"
+  },
+  {
+    "num": 53,
+    "chinese": "特",
+    "pinyin": "tè",
+    "vietnamese": "đặc biệt"
+  },
+  {
+    "num": 54,
+    "chinese": "适应",
+    "pinyin": "shìyìng",
+    "vietnamese": "thích nghi"
+  },
+  {
+    "num": 55,
+    "chinese": "差不多",
+    "pinyin": "chàbuduō",
+    "vietnamese": "hầu hết"
+  },
+  {
+    "num": 56,
+    "chinese": "人",
+    "pinyin": "rén",
+    "vietnamese": "mọi người"
+  },
+  {
+    "num": 57,
+    "chinese": "报告",
+    "pinyin": "bàogào",
+    "vietnamese": "Báo cáo"
+  },
+  {
+    "num": 58,
+    "chinese": "事实",
+    "pinyin": "shìshí",
+    "vietnamese": "sự thật"
+  },
+  {
+    "num": 59,
+    "chinese": "事物",
+    "pinyin": "shìwù",
+    "vietnamese": "điều"
+  },
+  {
+    "num": 60,
+    "chinese": "悲观",
+    "pinyin": "bēiguān",
+    "vietnamese": "bi quan"
+  },
+  {
+    "num": 61,
+    "chinese": "杯子",
+    "pinyin": "bēizi",
+    "vietnamese": "tách"
+  },
+  {
+    "num": 62,
+    "chinese": "北方",
+    "pinyin": "běifāng",
+    "vietnamese": "phía bắc"
+  },
+  {
+    "num": 63,
+    "chinese": "北京",
+    "pinyin": "běijīng",
+    "vietnamese": "Bắc Kinh"
+  },
+  {
+    "num": 64,
+    "chinese": "售",
+    "pinyin": "shòu",
+    "vietnamese": "để bán"
+  },
+  {
+    "num": 65,
+    "chinese": "情况",
+    "pinyin": "qíngkuàng",
+    "vietnamese": "Tình trạng"
+  },
+  {
+    "num": 66,
+    "chinese": "背景",
+    "pinyin": "bèijǐng",
+    "vietnamese": "lý lịch"
+  },
+  {
+    "num": 67,
+    "chinese": "被",
+    "pinyin": "bèi",
+    "vietnamese": "chăn bông"
+  },
+  {
+    "num": 68,
+    "chinese": "被子",
+    "pinyin": "bèizi",
+    "vietnamese": "Chăn"
+  },
+  {
+    "num": 69,
+    "chinese": "本",
+    "pinyin": "běn",
+    "vietnamese": "Sách"
+  },
+  {
+    "num": 70,
+    "chinese": "本科",
+    "pinyin": "běnkē",
+    "vietnamese": "Đại học"
+  },
+  {
+    "num": 71,
+    "chinese": "本来",
+    "pinyin": "běnlái",
+    "vietnamese": "ban đầu"
+  },
+  {
+    "num": 72,
+    "chinese": "本领",
+    "pinyin": "běnlǐng",
+    "vietnamese": "khả năng"
+  },
+  {
+    "num": 73,
+    "chinese": "本质",
+    "pinyin": "běnzhì",
+    "vietnamese": "thiên nhiên"
+  },
+  {
+    "num": 74,
+    "chinese": "和侍",
+    "pinyin": "héshì",
+    "vietnamese": "Hợp thập"
+  },
+  {
+    "num": 76,
+    "chinese": "比",
+    "pinyin": "bǐ",
+    "vietnamese": "So sánh"
+  },
+  {
+    "num": 77,
+    "chinese": "比较",
+    "pinyin": "bǐjiào",
+    "vietnamese": "So sánh"
+  },
+  {
+    "num": 78,
+    "chinese": "比例",
+    "pinyin": "bǐlì",
+    "vietnamese": "Tỷ lệ"
+  },
+  {
+    "num": 79,
+    "chinese": "比如",
+    "pinyin": "bǐrú",
+    "vietnamese": "Ví dụ"
+  },
+  {
+    "num": 80,
+    "chinese": "比赛",
+    "pinyin": "bǐsài",
+    "vietnamese": "Cuộc thi"
+  },
+  {
+    "num": 81,
+    "chinese": "彼此",
+    "pinyin": "bǐcǐ",
+    "vietnamese": "nhau"
+  },
+  {
+    "num": 82,
+    "chinese": "笔记本",
+    "pinyin": "bǐjìběn",
+    "vietnamese": "sổ tay"
+  },
+  {
+    "num": 83,
+    "chinese": "毕竟",
+    "pinyin": "bìjìng",
+    "vietnamese": "sau tất cả"
+  },
+  {
+    "num": 84,
+    "chinese": "毕业",
+    "pinyin": "bìyè",
+    "vietnamese": "tốt nghiệp"
+  },
+  {
+    "num": 85,
+    "chinese": "避免",
+    "pinyin": "bìmiǎn",
+    "vietnamese": "tránh xa"
+  },
+  {
+    "num": 86,
+    "chinese": "必然",
+    "pinyin": "bìrán",
+    "vietnamese": "không thể tránh khỏi"
+  },
+  {
+    "num": 87,
+    "chinese": "必须",
+    "pinyin": "bìxū",
+    "vietnamese": "phải"
+  },
+  {
+    "num": 88,
+    "chinese": "必需",
+    "pinyin": "bìxū",
+    "vietnamese": "yêu cầu"
+  },
+  {
+    "num": 89,
+    "chinese": "必要",
+    "pinyin": "bìyào",
+    "vietnamese": "cần thiết"
+  },
+  {
+    "num": 90,
+    "chinese": "编辑",
+    "pinyin": "biānjí",
+    "vietnamese": "biên tập"
+  },
+  {
+    "num": 91,
+    "chinese": "给炮",
+    "pinyin": "gěipào",
+    "vietnamese": "Hãy cho tôi một cơ hội"
+  },
+  {
+    "num": 92,
+    "chinese": "便",
+    "pinyin": "biàn",
+    "vietnamese": "thuận lợi"
+  },
+  {
+    "num": 93,
+    "chinese": "通",
+    "pinyin": "tōng",
+    "vietnamese": "Vượt qua"
+  },
+  {
+    "num": 94,
+    "chinese": "抱妆",
+    "pinyin": "bàozhuāng",
+    "vietnamese": "Giữ lớp trang điểm"
+  },
+  {
+    "num": 95,
+    "chinese": "孙水",
+    "pinyin": "sūnshuǐ",
+    "vietnamese": "Tôn Thủy"
+  },
+  {
+    "num": 96,
+    "chinese": "标点",
+    "pinyin": "biāodiǎn",
+    "vietnamese": "dấu câu"
+  },
+  {
+    "num": 97,
+    "chinese": "标志",
+    "pinyin": "biāozhì",
+    "vietnamese": "biểu tượng"
+  },
+  {
+    "num": 98,
+    "chinese": "标准",
+    "pinyin": "biāozhǔn",
+    "vietnamese": "tiêu chuẩn"
+  },
+  {
+    "num": 99,
+    "chinese": "芭萄",
+    "pinyin": "bātáo",
+    "vietnamese": "Badao"
+  },
+  {
+    "num": 121,
+    "chinese": "不但",
+    "pinyin": "bùdàn",
+    "vietnamese": "Không chỉ"
+  },
+  {
+    "num": 122,
+    "chinese": "不断",
+    "pinyin": "bùduàn",
+    "vietnamese": "liên tục"
+  },
+  {
+    "num": 123,
+    "chinese": "不过",
+    "pinyin": "bùguò",
+    "vietnamese": "Nhưng"
+  },
+  {
+    "num": 124,
+    "chinese": "见得",
+    "pinyin": "jiàndé",
+    "vietnamese": "xuất hiện"
+  },
+  {
+    "num": 125,
+    "chinese": "客气",
+    "pinyin": "kèqì",
+    "vietnamese": "lịch sự"
+  },
+  {
+    "num": 126,
+    "chinese": "了耐烦",
+    "pinyin": "lenàifán",
+    "vietnamese": "thiếu kiên nhẫn"
+  },
+  {
+    "num": 127,
+    "chinese": "要紧",
+    "pinyin": "yàojǐn",
+    "vietnamese": "quan trọng"
+  },
+  {
+    "num": 128,
+    "chinese": "补充",
+    "pinyin": "bǔchōng",
+    "vietnamese": "Bổ sung"
+  },
+  {
+    "num": 129,
+    "chinese": "布",
+    "pinyin": "bù",
+    "vietnamese": "vải"
+  },
+  {
+    "num": 130,
+    "chinese": "不",
+    "pinyin": "bù",
+    "vietnamese": "KHÔNG"
+  },
+  {
+    "num": 131,
+    "chinese": "不安",
+    "pinyin": "bùān",
+    "vietnamese": "băn khoăn"
+  },
+  {
+    "num": 132,
+    "chinese": "不得不",
+    "pinyin": "bùdébù",
+    "vietnamese": "phải"
+  },
+  {
+    "num": 133,
+    "chinese": "得了",
+    "pinyin": "déle",
+    "vietnamese": "Cố lên"
+  },
+  {
+    "num": 134,
+    "chinese": "不管",
+    "pinyin": "bùguǎn",
+    "vietnamese": "mặc dù"
+  },
+  {
+    "num": 135,
+    "chinese": "好意思",
+    "pinyin": "hǎoyìsi",
+    "vietnamese": "Lấy làm tiếc"
+  },
+  {
+    "num": 136,
+    "chinese": "不仅",
+    "pinyin": "bùjǐn",
+    "vietnamese": "không chỉ"
+  },
+  {
+    "num": 137,
+    "chinese": "不免",
+    "pinyin": "bùmiǎn",
+    "vietnamese": "Không thể tránh khỏi"
+  },
+  {
+    "num": 138,
+    "chinese": "不然",
+    "pinyin": "bùrán",
+    "vietnamese": "nếu không thì"
+  },
+  {
+    "num": 139,
+    "chinese": "不如",
+    "pinyin": "bùrú",
+    "vietnamese": "Không tốt bằng"
+  },
+  {
+    "num": 140,
+    "chinese": "不足",
+    "pinyin": "bùzú",
+    "vietnamese": "không đủ"
+  },
+  {
+    "num": 141,
+    "chinese": "部分",
+    "pinyin": "bùfèn",
+    "vietnamese": "phần"
+  },
+  {
+    "num": 142,
+    "chinese": "部门",
+    "pinyin": "bùmén",
+    "vietnamese": "phòng"
+  },
+  {
+    "num": 143,
+    "chinese": "步骤",
+    "pinyin": "bùzhòu",
+    "vietnamese": "bước chân"
+  },
+  {
+    "num": 144,
+    "chinese": "欣",
+    "pinyin": "xīn",
+    "vietnamese": "vui mừng"
+  },
+  {
+    "num": 145,
+    "chinese": "猜",
+    "pinyin": "cāi",
+    "vietnamese": "Đoán"
+  },
+  {
+    "num": 146,
+    "chinese": "才",
+    "pinyin": "cái",
+    "vietnamese": "tài năng"
+  },
+  {
+    "num": 147,
+    "chinese": "财产",
+    "pinyin": "cáichǎn",
+    "vietnamese": "tài sản"
+  },
+  {
+    "num": 148,
+    "chinese": "材料",
+    "pinyin": "cáiliào",
+    "vietnamese": "Vật liệu"
+  },
+  {
+    "num": 149,
+    "chinese": "踩",
+    "pinyin": "cǎi",
+    "vietnamese": "bước lên"
+  },
+  {
+    "num": 150,
+    "chinese": "采访",
+    "pinyin": "cǎifǎng",
+    "vietnamese": "phỏng vấn"
+  },
+  {
+    "num": 151,
+    "chinese": "采取",
+    "pinyin": "cǎiqǔ",
+    "vietnamese": "lấy"
+  },
+  {
+    "num": 152,
+    "chinese": "彩虹",
+    "pinyin": "cǎihóng",
+    "vietnamese": "cầu vồng"
+  },
+  {
+    "num": 153,
+    "chinese": "菜",
+    "pinyin": "cài",
+    "vietnamese": "rau quả"
+  },
+  {
+    "num": 154,
+    "chinese": "菜单",
+    "pinyin": "càidān",
+    "vietnamese": "thực đơn"
+  },
+  {
+    "num": 155,
+    "chinese": "参观",
+    "pinyin": "cānguān",
+    "vietnamese": "thăm nom"
+  },
+  {
+    "num": 156,
+    "chinese": "参加",
+    "pinyin": "cānjiā",
+    "vietnamese": "tham gia"
+  },
+  {
+    "num": 157,
+    "chinese": "参考",
+    "pinyin": "cānkǎo",
+    "vietnamese": "tham khảo"
+  },
+  {
+    "num": 158,
+    "chinese": "人参与",
+    "pinyin": "rénshēnyǔ",
+    "vietnamese": "mọi người tham gia"
+  },
+  {
+    "num": 160,
+    "chinese": "残疾",
+    "pinyin": "cánjí",
+    "vietnamese": "Khuyết tật"
+  },
+  {
+    "num": 161,
+    "chinese": "人敢收",
+    "pinyin": "réngǎnshōu",
+    "vietnamese": "Người ta dám chấp nhận"
+  },
+  {
+    "num": 162,
+    "chinese": "探场",
+    "pinyin": "tànchǎng",
+    "vietnamese": "Lĩnh vực thăm dò"
+  },
+  {
+    "num": 184,
+    "chinese": "场",
+    "pinyin": "chǎng",
+    "vietnamese": "cánh đồng"
+  },
+  {
+    "num": 186,
+    "chinese": "唱歌",
+    "pinyin": "chànggē",
+    "vietnamese": "Hát"
+  },
+  {
+    "num": 187,
+    "chinese": "抄",
+    "pinyin": "chāo",
+    "vietnamese": "sao chép"
+  },
+  {
+    "num": 188,
+    "chinese": "超过",
+    "pinyin": "chāoguò",
+    "vietnamese": "Quá"
+  },
+  {
+    "num": 189,
+    "chinese": "超市",
+    "pinyin": "chāoshì",
+    "vietnamese": "siêu thị"
+  },
+  {
+    "num": 190,
+    "chinese": "天",
+    "pinyin": "tiān",
+    "vietnamese": "bầu trời"
+  },
+  {
+    "num": 191,
+    "chinese": "于代",
+    "pinyin": "yúdài",
+    "vietnamese": "Ngọc Đại"
+  },
+  {
+    "num": 192,
+    "chinese": "炒",
+    "pinyin": "chǎo",
+    "vietnamese": "xào"
+  },
+  {
+    "num": 193,
+    "chinese": "吵",
+    "pinyin": "chǎo",
+    "vietnamese": "cãi vã"
+  },
+  {
+    "num": 194,
+    "chinese": "吵架",
+    "pinyin": "chǎojià",
+    "vietnamese": "cãi nhau"
+  },
+  {
+    "num": 195,
+    "chinese": "车库",
+    "pinyin": "chēkù",
+    "vietnamese": "ga-ra"
+  },
+  {
+    "num": 196,
+    "chinese": "车硒",
+    "pinyin": "chēxī",
+    "vietnamese": "xe selen"
+  },
+  {
+    "num": 197,
+    "chinese": "彻底",
+    "pinyin": "chèdǐ",
+    "vietnamese": "kỹ lưỡng"
+  },
+  {
+    "num": 198,
+    "chinese": "沉默",
+    "pinyin": "chénmò",
+    "vietnamese": "im lặng"
+  },
+  {
+    "num": 199,
+    "chinese": "趁",
+    "pinyin": "chèn",
+    "vietnamese": "tận dụng"
+  },
+  {
+    "num": 200,
+    "chinese": "衬衫",
+    "pinyin": "chènshān",
+    "vietnamese": "áo sơ mi"
+  },
+  {
+    "num": 201,
+    "chinese": "称",
+    "pinyin": "chēng",
+    "vietnamese": "nói"
+  },
+  {
+    "num": 202,
+    "chinese": "称呼",
+    "pinyin": "chēnghū",
+    "vietnamese": "gọi"
+  },
+  {
+    "num": 203,
+    "chinese": "称移",
+    "pinyin": "chēngyí",
+    "vietnamese": "ca cân"
+  },
+  {
+    "num": 204,
+    "chinese": "乘",
+    "pinyin": "chéng",
+    "vietnamese": "lấy"
+  },
+  {
+    "num": 205,
+    "chinese": "乘坐",
+    "pinyin": "chéngzuò",
+    "vietnamese": "lái"
+  },
+  {
+    "num": 206,
+    "chinese": "承担",
+    "pinyin": "chéngdān",
+    "vietnamese": "con gấu"
+  },
+  {
+    "num": 207,
+    "chinese": "承认",
+    "pinyin": "chéngrèn",
+    "vietnamese": "thừa nhận"
+  },
+  {
+    "num": 208,
+    "chinese": "承受",
+    "pinyin": "chéngshòu",
+    "vietnamese": "con gấu"
+  },
+  {
+    "num": 209,
+    "chinese": "程度",
+    "pinyin": "chéngdù",
+    "vietnamese": "bằng cấp"
+  },
+  {
+    "num": 210,
+    "chinese": "程序",
+    "pinyin": "chéngxù",
+    "vietnamese": "chương trình"
+  },
+  {
+    "num": 211,
+    "chinese": "成分",
+    "pinyin": "chéngfèn",
+    "vietnamese": "Yếu tố"
+  },
+  {
+    "num": 212,
+    "chinese": "成功",
+    "pinyin": "chénggōng",
+    "vietnamese": "thành công"
+  },
+  {
+    "num": 213,
+    "chinese": "成果",
+    "pinyin": "chéngguǒ",
+    "vietnamese": "Thành tựu"
+  },
+  {
+    "num": 214,
+    "chinese": "成绩",
+    "pinyin": "chéngjì",
+    "vietnamese": "điểm"
+  },
+  {
+    "num": 216,
+    "chinese": "成芯",
+    "pinyin": "chéngxīn",
+    "vietnamese": "Cốt lõi"
+  },
+  {
+    "num": 217,
+    "chinese": "成熟",
+    "pinyin": "chéngshú",
+    "vietnamese": "Trưởng thành"
+  },
+  {
+    "num": 218,
+    "chinese": "成为",
+    "pinyin": "chéngwéi",
+    "vietnamese": "trở nên"
+  },
+  {
+    "num": 219,
+    "chinese": "成语",
+    "pinyin": "chéngyǔ",
+    "vietnamese": "thành ngữ"
+  },
+  {
+    "num": 220,
+    "chinese": "成长",
+    "pinyin": "chéngzhǎng",
+    "vietnamese": "lớn lên"
+  },
+  {
+    "num": 221,
+    "chinese": "诚恳",
+    "pinyin": "chéngkěn",
+    "vietnamese": "chân thành"
+  },
+  {
+    "num": 222,
+    "chinese": "诚实",
+    "pinyin": "chéngshí",
+    "vietnamese": "trung thực"
+  },
+  {
+    "num": 223,
+    "chinese": "城市",
+    "pinyin": "chéngshì",
+    "vietnamese": "Thành phố"
+  },
+  {
+    "num": 224,
+    "chinese": "吃",
+    "pinyin": "chī",
+    "vietnamese": "ăn"
+  },
+  {
+    "num": 225,
+    "chinese": "吃怀",
+    "pinyin": "chīhuái",
+    "vietnamese": "ăn mang thai"
+  },
+  {
+    "num": 226,
+    "chinese": "吃亏",
+    "pinyin": "chīkuī",
+    "vietnamese": "chịu tổn thất"
+  },
+  {
+    "num": 227,
+    "chinese": "迟到",
+    "pinyin": "chídào",
+    "vietnamese": "đến muộn"
+  },
+  {
+    "num": 228,
+    "chinese": "持续",
+    "pinyin": "chíxù",
+    "vietnamese": "tiếp tục"
+  },
+  {
+    "num": 252,
+    "chinese": "出现",
+    "pinyin": "chūxiàn",
+    "vietnamese": "Xuất hiện"
+  },
+  {
+    "num": 253,
+    "chinese": "出租车",
+    "pinyin": "chūzūchē",
+    "vietnamese": "Taxi"
+  },
+  {
+    "num": 254,
+    "chinese": "初级",
+    "pinyin": "chūjí",
+    "vietnamese": "sơ đẳng"
+  },
+  {
+    "num": 255,
+    "chinese": "除",
+    "pinyin": "chú",
+    "vietnamese": "di dời"
+  },
+  {
+    "num": 256,
+    "chinese": "除非",
+    "pinyin": "chúfēi",
+    "vietnamese": "Trừ khi"
+  },
+  {
+    "num": 258,
+    "chinese": "除夕",
+    "pinyin": "chúxī",
+    "vietnamese": "Đêm giao thừa âm lịch"
+  },
+  {
+    "num": 260,
+    "chinese": "处理",
+    "pinyin": "chǔlǐ",
+    "vietnamese": "đối phó với"
+  },
+  {
+    "num": 262,
+    "chinese": "船",
+    "pinyin": "chuán",
+    "vietnamese": "Thuyền"
+  },
+  {
+    "num": 263,
+    "chinese": "传播",
+    "pinyin": "chuánbō",
+    "vietnamese": "lây lan"
+  },
+  {
+    "num": 264,
+    "chinese": "传闻",
+    "pinyin": "chuánwén",
+    "vietnamese": "tin đồn"
+  },
+  {
+    "num": 267,
+    "chinese": "传统",
+    "pinyin": "chuántǒng",
+    "vietnamese": "Truyền thống"
+  },
+  {
+    "num": 269,
+    "chinese": "窗户",
+    "pinyin": "chuānghù",
+    "vietnamese": "cửa sổ"
+  },
+  {
+    "num": 270,
+    "chinese": "窗帘",
+    "pinyin": "chuānglián",
+    "vietnamese": "tấm màn"
+  },
+  {
+    "num": 271,
+    "chinese": "浆",
+    "pinyin": "jiāng",
+    "vietnamese": "bột giấy"
+  },
+  {
+    "num": 272,
+    "chinese": "创造",
+    "pinyin": "chuàngzào",
+    "vietnamese": "tạo nên"
+  },
+  {
+    "num": 273,
+    "chinese": "吹",
+    "pinyin": "chuī",
+    "vietnamese": "thổi"
+  },
+  {
+    "num": 274,
+    "chinese": "春",
+    "pinyin": "chūn",
+    "vietnamese": "mùa xuân"
+  },
+  {
+    "num": 275,
+    "chinese": "磁带",
+    "pinyin": "cídài",
+    "vietnamese": "băng"
+  },
+  {
+    "num": 276,
+    "chinese": "词典",
+    "pinyin": "cídiǎn",
+    "vietnamese": "từ điển"
+  },
+  {
+    "num": 277,
+    "chinese": "词语",
+    "pinyin": "cíyǔ",
+    "vietnamese": "từ"
+  },
+  {
+    "num": 278,
+    "chinese": "辞职",
+    "pinyin": "cízhí",
+    "vietnamese": "Từ chức"
+  },
+  {
+    "num": 279,
+    "chinese": "此外",
+    "pinyin": "cǐwài",
+    "vietnamese": "Mà còn"
+  },
+  {
+    "num": 280,
+    "chinese": "次",
+    "pinyin": "cì",
+    "vietnamese": "hạng hai"
+  },
+  {
+    "num": 281,
+    "chinese": "次要",
+    "pinyin": "cìyào",
+    "vietnamese": "sơ trung"
+  },
+  {
+    "num": 282,
+    "chinese": "刺油",
+    "pinyin": "cìyóu",
+    "vietnamese": "Dầu gai"
+  },
+  {
+    "num": 283,
+    "chinese": "匆忙",
+    "pinyin": "cōngmáng",
+    "vietnamese": "sự vội vàng"
+  },
+  {
+    "num": 284,
+    "chinese": "聪明",
+    "pinyin": "cōngmíng",
+    "vietnamese": "thông minh"
+  },
+  {
+    "num": 285,
+    "chinese": "从",
+    "pinyin": "cóng",
+    "vietnamese": "từ"
+  },
+  {
+    "num": 286,
+    "chinese": "从此",
+    "pinyin": "cóngcǐ",
+    "vietnamese": "Từ đó trở đi"
+  },
+  {
+    "num": 287,
+    "chinese": "从而",
+    "pinyin": "cóngér",
+    "vietnamese": "qua đó"
+  },
+  {
+    "num": 288,
+    "chinese": "从来",
+    "pinyin": "cónglái",
+    "vietnamese": "không bao giờ"
+  },
+  {
+    "num": 289,
+    "chinese": "从前",
+    "pinyin": "cóngqián",
+    "vietnamese": "Ngày xửa ngày xưa"
+  },
+  {
+    "num": 290,
+    "chinese": "从事",
+    "pinyin": "cóngshì",
+    "vietnamese": "tham gia vào"
+  },
+  {
+    "num": 291,
+    "chinese": "粗心",
+    "pinyin": "cūxīn",
+    "vietnamese": "bất cẩn"
+  },
+  {
+    "num": 292,
+    "chinese": "本",
+    "pinyin": "běn",
+    "vietnamese": "Sách"
+  },
+  {
+    "num": 293,
+    "chinese": "促进",
+    "pinyin": "cùjìn",
+    "vietnamese": "Khuyến khích"
+  },
+  {
+    "num": 294,
+    "chinese": "促使",
+    "pinyin": "cùshǐ",
+    "vietnamese": "nhắc nhở"
+  },
+  {
+    "num": 315,
+    "chinese": "招呼",
+    "pinyin": "zhāohū",
+    "vietnamese": "gọi"
+  },
+  {
+    "num": 316,
+    "chinese": "打折",
+    "pinyin": "dǎzhé",
+    "vietnamese": "Giảm giá"
+  },
+  {
+    "num": 317,
+    "chinese": "打针",
+    "pinyin": "dǎzhēn",
+    "vietnamese": "tiêm"
+  },
+  {
+    "num": 318,
+    "chinese": "大",
+    "pinyin": "dà",
+    "vietnamese": "to lớn"
+  },
+  {
+    "num": 319,
+    "chinese": "大方",
+    "pinyin": "dàfāng",
+    "vietnamese": "Hào phóng"
+  },
+  {
+    "num": 320,
+    "chinese": "大概",
+    "pinyin": "dàgài",
+    "vietnamese": "có lẽ"
+  },
+  {
+    "num": 321,
+    "chinese": "大家",
+    "pinyin": "dàjiā",
+    "vietnamese": "Mọi người"
+  },
+  {
+    "num": 322,
+    "chinese": "大使馆",
+    "pinyin": "dàshǐguǎn",
+    "vietnamese": "đại sứ quán"
+  },
+  {
+    "num": 323,
+    "chinese": "大象",
+    "pinyin": "dàxiàng",
+    "vietnamese": "con voi"
+  },
+  {
+    "num": 324,
+    "chinese": "大型",
+    "pinyin": "dàxíng",
+    "vietnamese": "Lớn"
+  },
+  {
+    "num": 326,
+    "chinese": "志",
+    "pinyin": "zhì",
+    "vietnamese": "tham vọng"
+  },
+  {
+    "num": 327,
+    "chinese": "市",
+    "pinyin": "shì",
+    "vietnamese": "thành phố"
+  },
+  {
+    "num": 328,
+    "chinese": "戴",
+    "pinyin": "dài",
+    "vietnamese": "Mặc"
+  },
+  {
+    "num": 329,
+    "chinese": "代表",
+    "pinyin": "dàibiǎo",
+    "vietnamese": "đại diện"
+  },
+  {
+    "num": 330,
+    "chinese": "代替",
+    "pinyin": "dàitì",
+    "vietnamese": "thay thế"
+  },
+  {
+    "num": 332,
+    "chinese": "人伞款",
+    "pinyin": "rénsǎnkuǎn",
+    "vietnamese": "Loại ô của con người"
+  },
+  {
+    "num": 333,
+    "chinese": "待遇",
+    "pinyin": "dàiyù",
+    "vietnamese": "sự đối đãi"
+  },
+  {
+    "num": 334,
+    "chinese": "单纯",
+    "pinyin": "dānchún",
+    "vietnamese": "đơn giản"
+  },
+  {
+    "num": 336,
+    "chinese": "单独",
+    "pinyin": "dāndú",
+    "vietnamese": "một mình"
+  },
+  {
+    "num": 337,
+    "chinese": "单位",
+    "pinyin": "dānwèi",
+    "vietnamese": "đơn vị"
+  },
+  {
+    "num": 338,
+    "chinese": "单元",
+    "pinyin": "dānyuán",
+    "vietnamese": "đơn vị"
+  },
+  {
+    "num": 339,
+    "chinese": "担任",
+    "pinyin": "dānrèn",
+    "vietnamese": "phụ trách"
+  },
+  {
+    "num": 340,
+    "chinese": "担心",
+    "pinyin": "dānxīn",
+    "vietnamese": "Lo lắng"
+  },
+  {
+    "num": 341,
+    "chinese": "耽误",
+    "pinyin": "dānwù",
+    "vietnamese": "chờ đã"
+  },
+  {
+    "num": 342,
+    "chinese": "胆小鬼",
+    "pinyin": "dǎnxiǎoguǐ",
+    "vietnamese": "hèn nhát"
+  },
+  {
+    "num": 343,
+    "chinese": "淡",
+    "pinyin": "dàn",
+    "vietnamese": "ánh sáng"
+  },
+  {
+    "num": 344,
+    "chinese": "和蛋糕",
+    "pinyin": "hédàngāo",
+    "vietnamese": "và bánh"
+  },
+  {
+    "num": 345,
+    "chinese": "但是",
+    "pinyin": "dànshì",
+    "vietnamese": "Nhưng"
+  },
+  {
+    "num": 346,
+    "chinese": "当",
+    "pinyin": "dāng",
+    "vietnamese": "khi"
+  },
+  {
+    "num": 347,
+    "chinese": "当代",
+    "pinyin": "dāngdài",
+    "vietnamese": "đồng thời"
+  },
+  {
+    "num": 348,
+    "chinese": "当地",
+    "pinyin": "dāngdì",
+    "vietnamese": "địa phương"
+  },
+  {
+    "num": 349,
+    "chinese": "当然",
+    "pinyin": "dāngrán",
+    "vietnamese": "chắc chắn"
+  },
+  {
+    "num": 350,
+    "chinese": "当时",
+    "pinyin": "dāngshí",
+    "vietnamese": "sau đó"
+  },
+  {
+    "num": 351,
+    "chinese": "挡",
+    "pinyin": "dǎng",
+    "vietnamese": "khối"
+  },
+  {
+    "num": 352,
+    "chinese": "刀",
+    "pinyin": "dāo",
+    "vietnamese": "dao"
+  },
+  {
+    "num": 353,
+    "chinese": "岛",
+    "pinyin": "dǎo",
+    "vietnamese": "hòn đảo"
+  },
+  {
+    "num": 355,
+    "chinese": "努力",
+    "pinyin": "nǔlì",
+    "vietnamese": "cố gắng"
+  },
+  {
+    "num": 357,
+    "chinese": "导致",
+    "pinyin": "dǎozhì",
+    "vietnamese": "dẫn đến"
+  },
+  {
+    "num": 358,
+    "chinese": "倒",
+    "pinyin": "dào",
+    "vietnamese": "ngã"
+  },
+  {
+    "num": 381,
+    "chinese": "的确",
+    "pinyin": "díquè",
+    "vietnamese": "thực vậy"
+  },
+  {
+    "num": 382,
+    "chinese": "敌人",
+    "pinyin": "dírén",
+    "vietnamese": "kẻ thù"
+  },
+  {
+    "num": 383,
+    "chinese": "底",
+    "pinyin": "dǐ",
+    "vietnamese": "kết thúc"
+  },
+  {
+    "num": 384,
+    "chinese": "递",
+    "pinyin": "dì",
+    "vietnamese": "bàn giao"
+  },
+  {
+    "num": 385,
+    "chinese": "地道",
+    "pinyin": "dìdào",
+    "vietnamese": "đặc trưng"
+  },
+  {
+    "num": 386,
+    "chinese": "地方",
+    "pinyin": "dìfāng",
+    "vietnamese": "địa điểm"
+  },
+  {
+    "num": 387,
+    "chinese": "地理",
+    "pinyin": "dìlǐ",
+    "vietnamese": "địa lý"
+  },
+  {
+    "num": 388,
+    "chinese": "地球",
+    "pinyin": "dìqiú",
+    "vietnamese": "Trái đất"
+  },
+  {
+    "num": 389,
+    "chinese": "地区",
+    "pinyin": "dìqū",
+    "vietnamese": "khu vực"
+  },
+  {
+    "num": 390,
+    "chinese": "地禾",
+    "pinyin": "dìhé",
+    "vietnamese": "Địch Hòa"
+  },
+  {
+    "num": 391,
+    "chinese": "地铁",
+    "pinyin": "dìtiě",
+    "vietnamese": "tàu điện ngầm"
+  },
+  {
+    "num": 392,
+    "chinese": "地图",
+    "pinyin": "dìtú",
+    "vietnamese": "bản đồ"
+  },
+  {
+    "num": 393,
+    "chinese": "地位",
+    "pinyin": "dìwèi",
+    "vietnamese": "trạng thái"
+  },
+  {
+    "num": 394,
+    "chinese": "地震",
+    "pinyin": "dìzhèn",
+    "vietnamese": "trận động đất"
+  },
+  {
+    "num": 395,
+    "chinese": "地址",
+    "pinyin": "dìzhǐ",
+    "vietnamese": "Địa chỉ"
+  },
+  {
+    "num": 396,
+    "chinese": "弟弟",
+    "pinyin": "dìdi",
+    "vietnamese": "em trai"
+  },
+  {
+    "num": 397,
+    "chinese": "第一",
+    "pinyin": "dìyī",
+    "vietnamese": "Đầu tiên"
+  },
+  {
+    "num": 398,
+    "chinese": "点",
+    "pinyin": "diǎn",
+    "vietnamese": "điểm"
+  },
+  {
+    "num": 399,
+    "chinese": "点头",
+    "pinyin": "diǎntóu",
+    "vietnamese": "gật đầu"
+  },
+  {
+    "num": 400,
+    "chinese": "点心",
+    "pinyin": "diǎnxīn",
+    "vietnamese": "món tráng miệng"
+  },
+  {
+    "num": 401,
+    "chinese": "电池",
+    "pinyin": "diànchí",
+    "vietnamese": "Ắc quy"
+  },
+  {
+    "num": 402,
+    "chinese": "电脑",
+    "pinyin": "diànnǎo",
+    "vietnamese": "máy tính"
+  },
+  {
+    "num": 403,
+    "chinese": "电视",
+    "pinyin": "diànshì",
+    "vietnamese": "tivi"
+  },
+  {
+    "num": 404,
+    "chinese": "电合",
+    "pinyin": "diànhé",
+    "vietnamese": "sự kết hợp điện"
+  },
+  {
+    "num": 405,
+    "chinese": "电视",
+    "pinyin": "diànshì",
+    "vietnamese": "tivi"
+  },
+  {
+    "num": 406,
+    "chinese": "电影",
+    "pinyin": "diànyǐng",
+    "vietnamese": "Bộ phim"
+  },
+  {
+    "num": 407,
+    "chinese": "电子",
+    "pinyin": "diànzi",
+    "vietnamese": "điện tử"
+  },
+  {
+    "num": 408,
+    "chinese": "钓",
+    "pinyin": "diào",
+    "vietnamese": "câu cá"
+  },
+  {
+    "num": 409,
+    "chinese": "掉",
+    "pinyin": "diào",
+    "vietnamese": "Thua"
+  },
+  {
+    "num": 410,
+    "chinese": "调查",
+    "pinyin": "diàochá",
+    "vietnamese": "cuộc điều tra"
+  },
+  {
+    "num": 411,
+    "chinese": "了丁",
+    "pinyin": "ledīng",
+    "vietnamese": "Lý Đỉnh"
+  },
+  {
+    "num": 412,
+    "chinese": "顶",
+    "pinyin": "dǐng",
+    "vietnamese": "đứng đầu"
+  },
+  {
+    "num": 413,
+    "chinese": "和技",
+    "pinyin": "héjì",
+    "vietnamese": "và kỹ năng"
+  },
+  {
+    "num": 414,
+    "chinese": "冬",
+    "pinyin": "dōng",
+    "vietnamese": "mùa đông"
+  },
+  {
+    "num": 416,
+    "chinese": "东西",
+    "pinyin": "dōngxī",
+    "vietnamese": "điều"
+  },
+  {
+    "num": 417,
+    "chinese": "懂",
+    "pinyin": "dǒng",
+    "vietnamese": "Hiểu"
+  },
+  {
+    "num": 418,
+    "chinese": "江",
+    "pinyin": "jiāng",
+    "vietnamese": "Dòng sông"
+  },
+  {
+    "num": 419,
+    "chinese": "润",
+    "pinyin": "rùn",
+    "vietnamese": "Chạy"
+  },
+  {
+    "num": 420,
+    "chinese": "动画片",
+    "pinyin": "dònghuàpiàn",
+    "vietnamese": "hoạt hình"
+  },
+  {
+    "num": 421,
+    "chinese": "动物",
+    "pinyin": "dòngwù",
+    "vietnamese": "động vật"
+  },
+  {
+    "num": 422,
+    "chinese": "动作",
+    "pinyin": "dòngzuò",
+    "vietnamese": "hoạt động"
+  },
+  {
+    "num": 423,
+    "chinese": "都",
+    "pinyin": "dōu",
+    "vietnamese": "Tất cả"
+  },
+  {
+    "num": 424,
+    "chinese": "运",
+    "pinyin": "yùn",
+    "vietnamese": "chuyên chở"
+  },
+  {
+    "num": 447,
+    "chinese": "对象",
+    "pinyin": "duìxiàng",
+    "vietnamese": "sự vật"
+  },
+  {
+    "num": 448,
+    "chinese": "对于",
+    "pinyin": "duìyú",
+    "vietnamese": "vì"
+  },
+  {
+    "num": 449,
+    "chinese": "吨",
+    "pinyin": "dūn",
+    "vietnamese": "tấn"
+  },
+  {
+    "num": 450,
+    "chinese": "足",
+    "pinyin": "zú",
+    "vietnamese": "chân"
+  },
+  {
+    "num": 451,
+    "chinese": "顿",
+    "pinyin": "dùn",
+    "vietnamese": "Dayton"
+  },
+  {
+    "num": 452,
+    "chinese": "多",
+    "pinyin": "duō",
+    "vietnamese": "nhiều"
+  },
+  {
+    "num": 454,
+    "chinese": "多人么",
+    "pinyin": "duōrénme",
+    "vietnamese": "Có bao nhiêu người?"
+  },
+  {
+    "num": 455,
+    "chinese": "理由",
+    "pinyin": "lǐyóu",
+    "vietnamese": "lý do"
+  },
+  {
+    "num": 457,
+    "chinese": "荣",
+    "pinyin": "róng",
+    "vietnamese": "vinh quang"
+  },
+  {
+    "num": 458,
+    "chinese": "躲藏",
+    "pinyin": "duǒcáng",
+    "vietnamese": "trốn"
+  },
+  {
+    "num": 460,
+    "chinese": "恶劣",
+    "pinyin": "èliè",
+    "vietnamese": "xấu"
+  },
+  {
+    "num": 461,
+    "chinese": "而",
+    "pinyin": "ér",
+    "vietnamese": "Và"
+  },
+  {
+    "num": 462,
+    "chinese": "而且",
+    "pinyin": "érqiě",
+    "vietnamese": "Và"
+  },
+  {
+    "num": 463,
+    "chinese": "儿童",
+    "pinyin": "értóng",
+    "vietnamese": "đứa trẻ"
+  },
+  {
+    "num": 464,
+    "chinese": "儿子",
+    "pinyin": "érzi",
+    "vietnamese": "con trai"
+  },
+  {
+    "num": 466,
+    "chinese": "二",
+    "pinyin": "èr",
+    "vietnamese": "hai"
+  },
+  {
+    "num": 467,
+    "chinese": "发",
+    "pinyin": "fā",
+    "vietnamese": "tóc"
+  },
+  {
+    "num": 468,
+    "chinese": "发表",
+    "pinyin": "fābiǎo",
+    "vietnamese": "xuất bản"
+  },
+  {
+    "num": 469,
+    "chinese": "发愁",
+    "pinyin": "fāchóu",
+    "vietnamese": "lo lắng"
+  },
+  {
+    "num": 470,
+    "chinese": "发达",
+    "pinyin": "fādá",
+    "vietnamese": "đã phát triển"
+  },
+  {
+    "num": 471,
+    "chinese": "发抖",
+    "pinyin": "fādǒu",
+    "vietnamese": "run rẩy"
+  },
+  {
+    "num": 472,
+    "chinese": "发挥",
+    "pinyin": "fāhuī",
+    "vietnamese": "chơi"
+  },
+  {
+    "num": 473,
+    "chinese": "发明",
+    "pinyin": "fāmíng",
+    "vietnamese": "sự phát minh"
+  },
+  {
+    "num": 474,
+    "chinese": "发票",
+    "pinyin": "fāpiào",
+    "vietnamese": "hóa đơn"
+  },
+  {
+    "num": 476,
+    "chinese": "发生",
+    "pinyin": "fāshēng",
+    "vietnamese": "xảy ra"
+  },
+  {
+    "num": 477,
+    "chinese": "发现",
+    "pinyin": "fāxiàn",
+    "vietnamese": "Phát hiện"
+  },
+  {
+    "num": 478,
+    "chinese": "发言",
+    "pinyin": "fāyán",
+    "vietnamese": "nói chuyện"
+  },
+  {
+    "num": 479,
+    "chinese": "发展",
+    "pinyin": "fāzhǎn",
+    "vietnamese": "phát triển"
+  },
+  {
+    "num": 480,
+    "chinese": "罚款",
+    "pinyin": "fákuǎn",
+    "vietnamese": "khỏe"
+  },
+  {
+    "num": 481,
+    "chinese": "法律",
+    "pinyin": "fǎlǜ",
+    "vietnamese": "pháp luật"
+  },
+  {
+    "num": 482,
+    "chinese": "法院",
+    "pinyin": "fǎyuàn",
+    "vietnamese": "tòa án"
+  },
+  {
+    "num": 483,
+    "chinese": "翻",
+    "pinyin": "fān",
+    "vietnamese": "xoay"
+  },
+  {
+    "num": 484,
+    "chinese": "翻译",
+    "pinyin": "fānyì",
+    "vietnamese": "dịch"
+  },
+  {
+    "num": 485,
+    "chinese": "烦恼",
+    "pinyin": "fánnǎo",
+    "vietnamese": "rắc rối"
+  },
+  {
+    "num": 486,
+    "chinese": "繁荣",
+    "pinyin": "fánróng",
+    "vietnamese": "Sự phồn vinh"
+  },
+  {
+    "num": 487,
+    "chinese": "凡是",
+    "pinyin": "fánshì",
+    "vietnamese": "tất cả"
+  },
+  {
+    "num": 511,
+    "chinese": "放松",
+    "pinyin": "fàngsōng",
+    "vietnamese": "Thư giãn"
+  },
+  {
+    "num": 520,
+    "chinese": "分",
+    "pinyin": "fēn",
+    "vietnamese": "điểm"
+  },
+  {
+    "num": 523,
+    "chinese": "分配",
+    "pinyin": "fēnpèi",
+    "vietnamese": "phân phát"
+  },
+  {
+    "num": 525,
+    "chinese": "分之",
+    "pinyin": "fēnzhī",
+    "vietnamese": "đã chia ra"
+  },
+  {
+    "num": 527,
+    "chinese": "纷纷",
+    "pinyin": "fēnfēn",
+    "vietnamese": "hết cái này đến cái khác"
+  },
+  {
+    "num": 530,
+    "chinese": "屈奴",
+    "pinyin": "qūnú",
+    "vietnamese": "qunu"
+  },
+  {
+    "num": 531,
+    "chinese": "丰富",
+    "pinyin": "fēngfù",
+    "vietnamese": "Giàu có"
+  },
+  {
+    "num": 532,
+    "chinese": "风格",
+    "pinyin": "fēnggé",
+    "vietnamese": "phong cách"
+  },
+  {
+    "num": 533,
+    "chinese": "风景",
+    "pinyin": "fēngjǐng",
+    "vietnamese": "phong cảnh"
+  },
+  {
+    "num": 534,
+    "chinese": "风众",
+    "pinyin": "fēngzhòng",
+    "vietnamese": "Phong Trung"
+  },
+  {
+    "num": 536,
+    "chinese": "疡狂",
+    "pinyin": "yángkuáng",
+    "vietnamese": "Điên"
+  },
+  {
+    "num": 537,
+    "chinese": "讽刺",
+    "pinyin": "fěngcì",
+    "vietnamese": "châm biếm"
+  },
+  {
+    "num": 538,
+    "chinese": "否定",
+    "pinyin": "fǒudìng",
+    "vietnamese": "tiêu cực"
+  },
+  {
+    "num": 539,
+    "chinese": "否认",
+    "pinyin": "fǒurèn",
+    "vietnamese": "từ chối"
+  },
+  {
+    "num": 541,
+    "chinese": "扶",
+    "pinyin": "fú",
+    "vietnamese": "giúp đỡ"
+  },
+  {
+    "num": 542,
+    "chinese": "幅",
+    "pinyin": "fú",
+    "vietnamese": "khung"
+  },
+  {
+    "num": 543,
+    "chinese": "服从",
+    "pinyin": "fúcóng",
+    "vietnamese": "tuân theo"
+  },
+  {
+    "num": 544,
+    "chinese": "服务员",
+    "pinyin": "fúwùyuán",
+    "vietnamese": "phục vụ nam"
+  },
+  {
+    "num": 547,
+    "chinese": "辅导",
+    "pinyin": "fǔdǎo",
+    "vietnamese": "Tư vấn"
+  },
+  {
+    "num": 548,
+    "chinese": "富",
+    "pinyin": "fù",
+    "vietnamese": "giàu có"
+  },
+  {
+    "num": 550,
+    "chinese": "原谅",
+    "pinyin": "yuánliàng",
+    "vietnamese": "tha thứ"
+  },
+  {
+    "num": 551,
+    "chinese": "脱",
+    "pinyin": "tuō",
+    "vietnamese": "cởi"
+  },
+  {
+    "num": 553,
+    "chinese": "适合",
+    "pinyin": "shìhé",
+    "vietnamese": "Thích hợp"
+  },
+  {
+    "num": 554,
+    "chinese": "外",
+    "pinyin": "wài",
+    "vietnamese": "ngoài"
+  },
+  {
+    "num": 555,
+    "chinese": "利有她",
+    "pinyin": "lìyǒutā",
+    "vietnamese": "Tốt cho cô ấy"
+  },
+  {
+    "num": 556,
+    "chinese": "报道",
+    "pinyin": "bàodào",
+    "vietnamese": "báo cáo"
+  },
+  {
+    "num": 557,
+    "chinese": "约会",
+    "pinyin": "yuēhuì",
+    "vietnamese": "Hẹn hò"
+  },
+  {
+    "num": 558,
+    "chinese": "对亏",
+    "pinyin": "duìkuī",
+    "vietnamese": "sự mất mát"
+  },
+  {
+    "num": 559,
+    "chinese": "俩",
+    "pinyin": "liǎ",
+    "vietnamese": "cả hai"
+  },
+  {
+    "num": 574,
+    "chinese": "感冒",
+    "pinyin": "gǎnmào",
+    "vietnamese": "lạnh lẽo"
+  },
+  {
+    "num": 578,
+    "chinese": "感谢",
+    "pinyin": "gǎnxiè",
+    "vietnamese": "tri ân"
+  },
+  {
+    "num": 581,
+    "chinese": "十",
+    "pinyin": "shí",
+    "vietnamese": "mười"
+  },
+  {
+    "num": 583,
+    "chinese": "刚才",
+    "pinyin": "gāngcái",
+    "vietnamese": "Vừa rồi"
+  },
+  {
+    "num": 584,
+    "chinese": "刚刚",
+    "pinyin": "gānggāng",
+    "vietnamese": "chỉ"
+  },
+  {
+    "num": 591,
+    "chinese": "搞",
+    "pinyin": "gǎo",
+    "vietnamese": "LÀM"
+  },
+  {
+    "num": 594,
+    "chinese": "用膊",
+    "pinyin": "yòngbó",
+    "vietnamese": "Sử dụng cánh tay của bạn"
+  },
+  {
+    "num": 597,
+    "chinese": "隔壁",
+    "pinyin": "gébì",
+    "vietnamese": "bên cạnh"
+  },
+  {
+    "num": 599,
+    "chinese": "格外",
+    "pinyin": "géwài",
+    "vietnamese": "cụ thể"
+  },
+  {
+    "num": 600,
+    "chinese": "个",
+    "pinyin": "gè",
+    "vietnamese": "cá nhân"
+  },
+  {
+    "num": 601,
+    "chinese": "个别",
+    "pinyin": "gèbié",
+    "vietnamese": "cá nhân"
+  },
+  {
+    "num": 602,
+    "chinese": "个人",
+    "pinyin": "gèrén",
+    "vietnamese": "riêng tư"
+  },
+  {
+    "num": 603,
+    "chinese": "个性",
+    "pinyin": "gèxìng",
+    "vietnamese": "nhân cách"
+  },
+  {
+    "num": 604,
+    "chinese": "个子",
+    "pinyin": "gèzi",
+    "vietnamese": "Cao"
+  },
+  {
+    "num": 606,
+    "chinese": "各自",
+    "pinyin": "gèzì",
+    "vietnamese": "tương ứng"
+  },
+  {
+    "num": 607,
+    "chinese": "给",
+    "pinyin": "gěi",
+    "vietnamese": "Đưa cho"
+  },
+  {
+    "num": 608,
+    "chinese": "跟",
+    "pinyin": "gēn",
+    "vietnamese": "Và"
+  },
+  {
+    "num": 609,
+    "chinese": "根",
+    "pinyin": "gēn",
+    "vietnamese": "gốc"
+  },
+  {
+    "num": 610,
+    "chinese": "根本",
+    "pinyin": "gēnběn",
+    "vietnamese": "cơ bản"
+  },
+  {
+    "num": 611,
+    "chinese": "根据",
+    "pinyin": "gēnjù",
+    "vietnamese": "theo"
+  },
+  {
+    "num": 612,
+    "chinese": "更",
+    "pinyin": "gèng",
+    "vietnamese": "Thậm chí"
+  },
+  {
+    "num": 613,
+    "chinese": "更加",
+    "pinyin": "gèngjiā",
+    "vietnamese": "hơn"
+  },
+  {
+    "num": 614,
+    "chinese": "公布",
+    "pinyin": "gōngbù",
+    "vietnamese": "Thông báo"
+  },
+  {
+    "num": 615,
+    "chinese": "公共汽车",
+    "pinyin": "gōnggòngqìchē",
+    "vietnamese": "xe buýt"
+  },
+  {
+    "num": 616,
+    "chinese": "公斤",
+    "pinyin": "gōngjīn",
+    "vietnamese": "kilôgam"
+  },
+  {
+    "num": 617,
+    "chinese": "公开",
+    "pinyin": "gōngkāi",
+    "vietnamese": "công cộng"
+  },
+  {
+    "num": 640,
+    "chinese": "购物",
+    "pinyin": "gòuwù",
+    "vietnamese": "Mua sắm"
+  },
+  {
+    "num": 641,
+    "chinese": "孤单",
+    "pinyin": "gūdān",
+    "vietnamese": "một mình"
+  },
+  {
+    "num": 642,
+    "chinese": "姑姑",
+    "pinyin": "gūgū",
+    "vietnamese": "dì"
+  },
+  {
+    "num": 643,
+    "chinese": "姑娘",
+    "pinyin": "gūniáng",
+    "vietnamese": "con gái"
+  },
+  {
+    "num": 644,
+    "chinese": "估计",
+    "pinyin": "gūjì",
+    "vietnamese": "ước lượng"
+  },
+  {
+    "num": 645,
+    "chinese": "古代",
+    "pinyin": "gǔdài",
+    "vietnamese": "thời cổ đại"
+  },
+  {
+    "num": 646,
+    "chinese": "古典",
+    "pinyin": "gǔdiǎn",
+    "vietnamese": "cổ điển"
+  },
+  {
+    "num": 647,
+    "chinese": "古老",
+    "pinyin": "gǔlǎo",
+    "vietnamese": "cổ đại"
+  },
+  {
+    "num": 648,
+    "chinese": "鼓励",
+    "pinyin": "gǔlì",
+    "vietnamese": "khuyến khích"
+  },
+  {
+    "num": 649,
+    "chinese": "鼓舞",
+    "pinyin": "gǔwǔ",
+    "vietnamese": "khuyến khích"
+  },
+  {
+    "num": 651,
+    "chinese": "股票",
+    "pinyin": "gǔpiào",
+    "vietnamese": "Cổ phần"
+  },
+  {
+    "num": 652,
+    "chinese": "骨头",
+    "pinyin": "gǔtou",
+    "vietnamese": "xương"
+  },
+  {
+    "num": 653,
+    "chinese": "国定",
+    "pinyin": "guódìng",
+    "vietnamese": "quốc gia"
+  },
+  {
+    "num": 654,
+    "chinese": "固体",
+    "pinyin": "gùtǐ",
+    "vietnamese": "chất rắn"
+  },
+  {
+    "num": 655,
+    "chinese": "硼",
+    "pinyin": "péng",
+    "vietnamese": "boron"
+  },
+  {
+    "num": 656,
+    "chinese": "故事",
+    "pinyin": "gùshì",
+    "vietnamese": "câu chuyện"
+  },
+  {
+    "num": 657,
+    "chinese": "故意",
+    "pinyin": "gùyì",
+    "vietnamese": "cố tình"
+  },
+  {
+    "num": 658,
+    "chinese": "雇佣",
+    "pinyin": "gùyōng",
+    "vietnamese": "Thuê"
+  },
+  {
+    "num": 660,
+    "chinese": "挂",
+    "pinyin": "guà",
+    "vietnamese": "treo"
+  },
+  {
+    "num": 661,
+    "chinese": "挂号",
+    "pinyin": "guàhào",
+    "vietnamese": "đăng ký"
+  },
+  {
+    "num": 662,
+    "chinese": "禾",
+    "pinyin": "hé",
+    "vietnamese": "hạt kê"
+  },
+  {
+    "num": 663,
+    "chinese": "拐弯",
+    "pinyin": "guǎiwān",
+    "vietnamese": "xoay"
+  },
+  {
+    "num": 664,
+    "chinese": "怪不得",
+    "pinyin": "guàibùdé",
+    "vietnamese": "Không có gì ngạc nhiên"
+  },
+  {
+    "num": 665,
+    "chinese": "官",
+    "pinyin": "guān",
+    "vietnamese": "chính thức"
+  },
+  {
+    "num": 666,
+    "chinese": "关",
+    "pinyin": "guān",
+    "vietnamese": "đóng"
+  },
+  {
+    "num": 667,
+    "chinese": "天闭",
+    "pinyin": "tiānbì",
+    "vietnamese": "Thiên đường đã đóng cửa"
+  },
+  {
+    "num": 669,
+    "chinese": "关键",
+    "pinyin": "guānjiàn",
+    "vietnamese": "chìa khóa"
+  },
+  {
+    "num": 670,
+    "chinese": "关系",
+    "pinyin": "guānxì",
+    "vietnamese": "mối quan hệ"
+  },
+  {
+    "num": 671,
+    "chinese": "关心",
+    "pinyin": "guānxīn",
+    "vietnamese": "quan tâm"
+  },
+  {
+    "num": 672,
+    "chinese": "关于",
+    "pinyin": "guānyú",
+    "vietnamese": "Về"
+  },
+  {
+    "num": 673,
+    "chinese": "观察",
+    "pinyin": "guānchá",
+    "vietnamese": "quan sát"
+  },
+  {
+    "num": 674,
+    "chinese": "观点",
+    "pinyin": "guāndiǎn",
+    "vietnamese": "quan điểm"
+  },
+  {
+    "num": 675,
+    "chinese": "观念",
+    "pinyin": "guānniàn",
+    "vietnamese": "ý tưởng"
+  },
+  {
+    "num": 676,
+    "chinese": "观众",
+    "pinyin": "guānzhòng",
+    "vietnamese": "khán giả"
+  },
+  {
+    "num": 677,
+    "chinese": "管理",
+    "pinyin": "guǎnlǐ",
+    "vietnamese": "quản lý"
+  },
+  {
+    "num": 678,
+    "chinese": "管子",
+    "pinyin": "guǎnzi",
+    "vietnamese": "ống"
+  },
+  {
+    "num": 679,
+    "chinese": "于盏",
+    "pinyin": "yúzhǎn",
+    "vietnamese": "Vu Chiến"
+  },
+  {
+    "num": 680,
+    "chinese": "饶头",
+    "pinyin": "ráotou",
+    "vietnamese": "Raotou"
+  },
+  {
+    "num": 683,
+    "chinese": "光临",
+    "pinyin": "guānglín",
+    "vietnamese": "thăm nom"
+  },
+  {
+    "num": 706,
+    "chinese": "果然",
+    "pinyin": "guǒrán",
+    "vietnamese": "Thực ra"
+  },
+  {
+    "num": 707,
+    "chinese": "果实",
+    "pinyin": "guǒshí",
+    "vietnamese": "hoa quả"
+  },
+  {
+    "num": 708,
+    "chinese": "果计",
+    "pinyin": "guǒjì",
+    "vietnamese": "kế hoạch trái cây"
+  },
+  {
+    "num": 709,
+    "chinese": "过",
+    "pinyin": "guò",
+    "vietnamese": "Vượt qua"
+  },
+  {
+    "num": 710,
+    "chinese": "过",
+    "pinyin": "guò",
+    "vietnamese": "Vượt qua"
+  },
+  {
+    "num": 711,
+    "chinese": "过程",
+    "pinyin": "guòchéng",
+    "vietnamese": "quá trình"
+  },
+  {
+    "num": 712,
+    "chinese": "过分",
+    "pinyin": "guòfèn",
+    "vietnamese": "quá mức"
+  },
+  {
+    "num": 713,
+    "chinese": "过敏",
+    "pinyin": "guòmǐn",
+    "vietnamese": "dị ứng"
+  },
+  {
+    "num": 714,
+    "chinese": "过期",
+    "pinyin": "guòqī",
+    "vietnamese": "Hết hạn"
+  },
+  {
+    "num": 715,
+    "chinese": "过去",
+    "pinyin": "guòqù",
+    "vietnamese": "quá khứ"
+  },
+  {
+    "num": 716,
+    "chinese": "哈",
+    "pinyin": "hā",
+    "vietnamese": "ha"
+  },
+  {
+    "num": 717,
+    "chinese": "还",
+    "pinyin": "hái",
+    "vietnamese": "trở lại"
+  },
+  {
+    "num": 718,
+    "chinese": "还是",
+    "pinyin": "háishì",
+    "vietnamese": "vẫn"
+  },
+  {
+    "num": 719,
+    "chinese": "孩子",
+    "pinyin": "háizi",
+    "vietnamese": "đứa trẻ"
+  },
+  {
+    "num": 720,
+    "chinese": "海关",
+    "pinyin": "hǎiguān",
+    "vietnamese": "hải quan"
+  },
+  {
+    "num": 721,
+    "chinese": "海鲜",
+    "pinyin": "hǎixiān",
+    "vietnamese": "hải sản"
+  },
+  {
+    "num": 722,
+    "chinese": "海洋",
+    "pinyin": "hǎiyáng",
+    "vietnamese": "đại dương"
+  },
+  {
+    "num": 723,
+    "chinese": "害怕",
+    "pinyin": "hàipà",
+    "vietnamese": "Nỗi sợ"
+  },
+  {
+    "num": 724,
+    "chinese": "害郑",
+    "pinyin": "hàizhèng",
+    "vietnamese": "hại Zheng"
+  },
+  {
+    "num": 725,
+    "chinese": "寒假",
+    "pinyin": "hánjià",
+    "vietnamese": "kỳ nghỉ đông"
+  },
+  {
+    "num": 726,
+    "chinese": "喊",
+    "pinyin": "hǎn",
+    "vietnamese": "gọi"
+  },
+  {
+    "num": 727,
+    "chinese": "汗",
+    "pinyin": "hàn",
+    "vietnamese": "mồ hôi"
+  },
+  {
+    "num": 728,
+    "chinese": "汉语",
+    "pinyin": "hànyǔ",
+    "vietnamese": "Tiếng Trung"
+  },
+  {
+    "num": 729,
+    "chinese": "航班",
+    "pinyin": "hángbān",
+    "vietnamese": "chuyến bay"
+  },
+  {
+    "num": 730,
+    "chinese": "行业",
+    "pinyin": "hángyè",
+    "vietnamese": "ngành công nghiệp"
+  },
+  {
+    "num": 731,
+    "chinese": "豪华",
+    "pinyin": "háohuá",
+    "vietnamese": "sang trọng"
+  },
+  {
+    "num": 732,
+    "chinese": "好",
+    "pinyin": "hǎo",
+    "vietnamese": "Tốt"
+  },
+  {
+    "num": 733,
+    "chinese": "好吃",
+    "pinyin": "hǎochī",
+    "vietnamese": "ngon"
+  },
+  {
+    "num": 734,
+    "chinese": "好处",
+    "pinyin": "hǎochù",
+    "vietnamese": "lợi ích"
+  },
+  {
+    "num": 735,
+    "chinese": "好像",
+    "pinyin": "hǎoxiàng",
+    "vietnamese": "giống"
+  },
+  {
+    "num": 736,
+    "chinese": "号",
+    "pinyin": "hào",
+    "vietnamese": "Con số"
+  },
+  {
+    "num": 737,
+    "chinese": "号码",
+    "pinyin": "hàomǎ",
+    "vietnamese": "Con số"
+  },
+  {
+    "num": 738,
+    "chinese": "好奇",
+    "pinyin": "hàoqí",
+    "vietnamese": "tò mò"
+  },
+  {
+    "num": 739,
+    "chinese": "喝",
+    "pinyin": "hē",
+    "vietnamese": "uống"
+  },
+  {
+    "num": 740,
+    "chinese": "河",
+    "pinyin": "hé",
+    "vietnamese": "dòng sông"
+  },
+  {
+    "num": 741,
+    "chinese": "和",
+    "pinyin": "hé",
+    "vietnamese": "Và"
+  },
+  {
+    "num": 742,
+    "chinese": "和和平",
+    "pinyin": "héhépíng",
+    "vietnamese": "và hòa bình"
+  },
+  {
+    "num": 743,
+    "chinese": "何必",
+    "pinyin": "hébì",
+    "vietnamese": "Tại sao phải bận tâm"
+  },
+  {
+    "num": 744,
+    "chinese": "何况",
+    "pinyin": "hékuàng",
+    "vietnamese": "Hơn nữa"
+  },
+  {
+    "num": 746,
+    "chinese": "合格",
+    "pinyin": "hégé",
+    "vietnamese": "đạt tiêu chuẩn"
+  },
+  {
+    "num": 747,
+    "chinese": "合理",
+    "pinyin": "hélǐ",
+    "vietnamese": "Hợp lý"
+  },
+  {
+    "num": 755,
+    "chinese": "具子",
+    "pinyin": "jùzi",
+    "vietnamese": "đồ dùng"
+  },
+  {
+    "num": 770,
+    "chinese": "师风",
+    "pinyin": "shīfēng",
+    "vietnamese": "Phong cách giáo viên"
+  },
+  {
+    "num": 771,
+    "chinese": "胡说",
+    "pinyin": "húshuō",
+    "vietnamese": "điều vô nghĩa"
+  },
+  {
+    "num": 772,
+    "chinese": "胡同",
+    "pinyin": "hútòng",
+    "vietnamese": "hẻm"
+  },
+  {
+    "num": 773,
+    "chinese": "胡须",
+    "pinyin": "húxū",
+    "vietnamese": "râu"
+  },
+  {
+    "num": 774,
+    "chinese": "糊涂",
+    "pinyin": "hútú",
+    "vietnamese": "bối rối"
+  },
+  {
+    "num": 776,
+    "chinese": "护照",
+    "pinyin": "hùzhào",
+    "vietnamese": "hộ chiếu"
+  },
+  {
+    "num": 777,
+    "chinese": "互相",
+    "pinyin": "hùxiāng",
+    "vietnamese": "nhau"
+  },
+  {
+    "num": 778,
+    "chinese": "花",
+    "pinyin": "huā",
+    "vietnamese": "hoa"
+  },
+  {
+    "num": 779,
+    "chinese": "花生",
+    "pinyin": "huāshēng",
+    "vietnamese": "đậu phộng"
+  },
+  {
+    "num": 780,
+    "chinese": "花园",
+    "pinyin": "huāyuán",
+    "vietnamese": "vườn"
+  },
+  {
+    "num": 781,
+    "chinese": "滑亲",
+    "pinyin": "huáqīn",
+    "vietnamese": "Nụ hôn trượt"
+  },
+  {
+    "num": 782,
+    "chinese": "划船",
+    "pinyin": "huáchuán",
+    "vietnamese": "chèo thuyền"
+  },
+  {
+    "num": 783,
+    "chinese": "华裔",
+    "pinyin": "huáyì",
+    "vietnamese": "Tiếng Trung"
+  },
+  {
+    "num": 784,
+    "chinese": "画",
+    "pinyin": "huà",
+    "vietnamese": "bức vẽ"
+  },
+  {
+    "num": 785,
+    "chinese": "话题",
+    "pinyin": "huàtí",
+    "vietnamese": "đề tài"
+  },
+  {
+    "num": 786,
+    "chinese": "化学",
+    "pinyin": "huàxué",
+    "vietnamese": "Hóa chất"
+  },
+  {
+    "num": 787,
+    "chinese": "怀念",
+    "pinyin": "huáiniàn",
+    "vietnamese": "cô"
+  },
+  {
+    "num": 788,
+    "chinese": "怀疑",
+    "pinyin": "huáiyí",
+    "vietnamese": "Nghi ngờ"
+  },
+  {
+    "num": 789,
+    "chinese": "坏",
+    "pinyin": "huài",
+    "vietnamese": "xấu"
+  },
+  {
+    "num": 790,
+    "chinese": "欢迎",
+    "pinyin": "huānyíng",
+    "vietnamese": "Chào mừng"
+  },
+  {
+    "num": 791,
+    "chinese": "还",
+    "pinyin": "hái",
+    "vietnamese": "trở lại"
+  },
+  {
+    "num": 792,
+    "chinese": "环境",
+    "pinyin": "huánjìng",
+    "vietnamese": "môi trường"
+  },
+  {
+    "num": 793,
+    "chinese": "缓解",
+    "pinyin": "huǎnjiě",
+    "vietnamese": "xoa dịu"
+  },
+  {
+    "num": 794,
+    "chinese": "换",
+    "pinyin": "huàn",
+    "vietnamese": "Thay đổi"
+  },
+  {
+    "num": 795,
+    "chinese": "约想",
+    "pinyin": "yuēxiǎng",
+    "vietnamese": "Đặt lịch hẹn"
+  },
+  {
+    "num": 796,
+    "chinese": "怀张",
+    "pinyin": "huáizhāng",
+    "vietnamese": "Phòng ngừa"
+  },
+  {
+    "num": 797,
+    "chinese": "黄",
+    "pinyin": "huáng",
+    "vietnamese": "màu vàng"
+  },
+  {
+    "num": 798,
+    "chinese": "黄瓜",
+    "pinyin": "huángguā",
+    "vietnamese": "quả dưa chuột"
+  },
+  {
+    "num": 799,
+    "chinese": "黄金",
+    "pinyin": "huángjīn",
+    "vietnamese": "vàng"
+  },
+  {
+    "num": 800,
+    "chinese": "星希",
+    "pinyin": "xīngxī",
+    "vietnamese": "Tinh Tây"
+  },
+  {
+    "num": 801,
+    "chinese": "皇后",
+    "pinyin": "huánghòu",
+    "vietnamese": "nữ hoàng"
+  },
+  {
+    "num": 802,
+    "chinese": "皖",
+    "pinyin": "wǎn",
+    "vietnamese": "An Huy"
+  },
+  {
+    "num": 803,
+    "chinese": "灰",
+    "pinyin": "huī",
+    "vietnamese": "Tro"
+  },
+  {
+    "num": 804,
+    "chinese": "灰尘",
+    "pinyin": "huīchén",
+    "vietnamese": "bụi"
+  },
+  {
+    "num": 805,
+    "chinese": "灰心",
+    "pinyin": "huīxīn",
+    "vietnamese": "chán nản"
+  },
+  {
+    "num": 806,
+    "chinese": "恢复",
+    "pinyin": "huīfù",
+    "vietnamese": "hồi phục"
+  },
+  {
+    "num": 807,
+    "chinese": "回",
+    "pinyin": "huí",
+    "vietnamese": "trở lại"
+  },
+  {
+    "num": 808,
+    "chinese": "回答",
+    "pinyin": "huídá",
+    "vietnamese": "trả lời"
+  },
+  {
+    "num": 809,
+    "chinese": "回忆",
+    "pinyin": "huíyì",
+    "vietnamese": "nhớ"
+  },
+  {
+    "num": 810,
+    "chinese": "会",
+    "pinyin": "huì",
+    "vietnamese": "cuộc họp"
+  },
+  {
+    "num": 811,
+    "chinese": "会议",
+    "pinyin": "huìyì",
+    "vietnamese": "Cuộc họp"
+  },
+  {
+    "num": 812,
+    "chinese": "汇率",
+    "pinyin": "huìlǜ",
+    "vietnamese": "tỷ giá hối đoái"
+  },
+  {
+    "num": 813,
+    "chinese": "婚礼",
+    "pinyin": "hūnlǐ",
+    "vietnamese": "lễ cưới"
+  },
+  {
+    "num": 834,
+    "chinese": "积累",
+    "pinyin": "jīlěi",
+    "vietnamese": "sự tích lũy"
+  },
+  {
+    "num": 835,
+    "chinese": "肌肉",
+    "pinyin": "jīròu",
+    "vietnamese": "cơ bắp"
+  },
+  {
+    "num": 836,
+    "chinese": "极",
+    "pinyin": "jí",
+    "vietnamese": "cực"
+  },
+  {
+    "num": 837,
+    "chinese": "极其",
+    "pinyin": "jíqí",
+    "vietnamese": "vô cùng"
+  },
+  {
+    "num": 838,
+    "chinese": "及格",
+    "pinyin": "jígé",
+    "vietnamese": "vượt qua"
+  },
+  {
+    "num": 839,
+    "chinese": "及时",
+    "pinyin": "jíshí",
+    "vietnamese": "kịp thời"
+  },
+  {
+    "num": 840,
+    "chinese": "集合",
+    "pinyin": "jíhé",
+    "vietnamese": "tập trung"
+  },
+  {
+    "num": 841,
+    "chinese": "集体",
+    "pinyin": "jítǐ",
+    "vietnamese": "tập thể"
+  },
+  {
+    "num": 842,
+    "chinese": "集中",
+    "pinyin": "jízhōng",
+    "vietnamese": "tập trung"
+  },
+  {
+    "num": 843,
+    "chinese": "急忙",
+    "pinyin": "jímáng",
+    "vietnamese": "vội vàng"
+  },
+  {
+    "num": 844,
+    "chinese": "即使",
+    "pinyin": "jíshǐ",
+    "vietnamese": "mặc dù"
+  },
+  {
+    "num": 846,
+    "chinese": "寄",
+    "pinyin": "jì",
+    "vietnamese": "gửi"
+  },
+  {
+    "num": 847,
+    "chinese": "记得",
+    "pinyin": "jìde",
+    "vietnamese": "Nhớ"
+  },
+  {
+    "num": 848,
+    "chinese": "记录",
+    "pinyin": "jìlù",
+    "vietnamese": "Ghi"
+  },
+  {
+    "num": 849,
+    "chinese": "记忆",
+    "pinyin": "jìyì",
+    "vietnamese": "ký ức"
+  },
+  {
+    "num": 850,
+    "chinese": "记者",
+    "pinyin": "jìzhě",
+    "vietnamese": "phóng viên"
+  },
+  {
+    "num": 852,
+    "chinese": "计算",
+    "pinyin": "jìsuàn",
+    "vietnamese": "tính toán"
+  },
+  {
+    "num": 853,
+    "chinese": "季节",
+    "pinyin": "jìjié",
+    "vietnamese": "mùa"
+  },
+  {
+    "num": 854,
+    "chinese": "领囊",
+    "pinyin": "lǐngnáng",
+    "vietnamese": "túi cổ"
+  },
+  {
+    "num": 855,
+    "chinese": "遇",
+    "pinyin": "yù",
+    "vietnamese": "bắt gặp"
+  },
+  {
+    "num": 856,
+    "chinese": "纪律",
+    "pinyin": "jìlǜ",
+    "vietnamese": "kỷ luật"
+  },
+  {
+    "num": 857,
+    "chinese": "纪念",
+    "pinyin": "jìniàn",
+    "vietnamese": "kỷ niệm"
+  },
+  {
+    "num": 859,
+    "chinese": "既然",
+    "pinyin": "jìrán",
+    "vietnamese": "bây giờ đó"
+  },
+  {
+    "num": 860,
+    "chinese": "技术",
+    "pinyin": "jìshù",
+    "vietnamese": "công nghệ"
+  },
+  {
+    "num": 861,
+    "chinese": "继续",
+    "pinyin": "jìxù",
+    "vietnamese": "Tiếp tục"
+  },
+  {
+    "num": 862,
+    "chinese": "家",
+    "pinyin": "jiā",
+    "vietnamese": "Trang chủ"
+  },
+  {
+    "num": 863,
+    "chinese": "家有具",
+    "pinyin": "jiāyǒujù",
+    "vietnamese": "nội thất"
+  },
+  {
+    "num": 864,
+    "chinese": "家庭",
+    "pinyin": "jiātíng",
+    "vietnamese": "gia đình"
+  },
+  {
+    "num": 865,
+    "chinese": "家务",
+    "pinyin": "jiāwù",
+    "vietnamese": "việc nhà"
+  },
+  {
+    "num": 866,
+    "chinese": "家乡",
+    "pinyin": "jiāxiāng",
+    "vietnamese": "quê hương"
+  },
+  {
+    "num": 867,
+    "chinese": "加班",
+    "pinyin": "jiābān",
+    "vietnamese": "làm thêm giờ"
+  },
+  {
+    "num": 868,
+    "chinese": "加油站",
+    "pinyin": "jiāyóuzhàn",
+    "vietnamese": "Trạm xăng"
+  },
+  {
+    "num": 869,
+    "chinese": "嘉宾",
+    "pinyin": "jiābīn",
+    "vietnamese": "Khách mời"
+  },
+  {
+    "num": 870,
+    "chinese": "夹子",
+    "pinyin": "jiāzi",
+    "vietnamese": "cái kẹp"
+  },
+  {
+    "num": 871,
+    "chinese": "甲",
+    "pinyin": "jiǎ",
+    "vietnamese": "Đầu tiên"
+  },
+  {
+    "num": 872,
+    "chinese": "假",
+    "pinyin": "jiǎ",
+    "vietnamese": "Giả mạo"
+  },
+  {
+    "num": 873,
+    "chinese": "假如",
+    "pinyin": "jiǎrú",
+    "vietnamese": "nếu như"
+  },
+  {
+    "num": 874,
+    "chinese": "假装",
+    "pinyin": "jiǎzhuāng",
+    "vietnamese": "giả vờ"
+  },
+  {
+    "num": 875,
+    "chinese": "尹",
+    "pinyin": "yǐn",
+    "vietnamese": "âm"
+  },
+  {
+    "num": 876,
+    "chinese": "价格",
+    "pinyin": "jiàgé",
+    "vietnamese": "giá"
+  },
+  {
+    "num": 877,
+    "chinese": "价值",
+    "pinyin": "jiàzhí",
+    "vietnamese": "giá trị"
+  },
+  {
+    "num": 900,
+    "chinese": "建议",
+    "pinyin": "jiànyì",
+    "vietnamese": "gợi ý"
+  },
+  {
+    "num": 901,
+    "chinese": "建筑",
+    "pinyin": "jiànzhù",
+    "vietnamese": "ngành kiến ​​​​trúc"
+  },
+  {
+    "num": 902,
+    "chinese": "见面",
+    "pinyin": "jiànmiàn",
+    "vietnamese": "Gặp"
+  },
+  {
+    "num": 903,
+    "chinese": "键盘",
+    "pinyin": "jiànpán",
+    "vietnamese": "bàn phím"
+  },
+  {
+    "num": 904,
+    "chinese": "将来",
+    "pinyin": "jiānglái",
+    "vietnamese": "tương lai"
+  },
+  {
+    "num": 905,
+    "chinese": "讲",
+    "pinyin": "jiǎng",
+    "vietnamese": "nói chuyện"
+  },
+  {
+    "num": 906,
+    "chinese": "讲究",
+    "pinyin": "jiǎngjiū",
+    "vietnamese": "Hãy chú ý đến"
+  },
+  {
+    "num": 907,
+    "chinese": "讲座",
+    "pinyin": "jiǎngzuò",
+    "vietnamese": "bài giảng"
+  },
+  {
+    "num": 908,
+    "chinese": "奖金",
+    "pinyin": "jiǎngjīn",
+    "vietnamese": "thưởng"
+  },
+  {
+    "num": 909,
+    "chinese": "降低",
+    "pinyin": "jiàngdī",
+    "vietnamese": "giảm bớt"
+  },
+  {
+    "num": 910,
+    "chinese": "降落",
+    "pinyin": "jiàngluò",
+    "vietnamese": "hạ cánh"
+  },
+  {
+    "num": 911,
+    "chinese": "桨油",
+    "pinyin": "jiǎngyóu",
+    "vietnamese": "dầu cánh quạt"
+  },
+  {
+    "num": 912,
+    "chinese": "教",
+    "pinyin": "jiào",
+    "vietnamese": "dạy bảo"
+  },
+  {
+    "num": 913,
+    "chinese": "浇",
+    "pinyin": "jiāo",
+    "vietnamese": "đổ"
+  },
+  {
+    "num": 914,
+    "chinese": "交",
+    "pinyin": "jiāo",
+    "vietnamese": "chi trả"
+  },
+  {
+    "num": 915,
+    "chinese": "交换",
+    "pinyin": "jiāohuàn",
+    "vietnamese": "trao đổi"
+  },
+  {
+    "num": 916,
+    "chinese": "交际",
+    "pinyin": "jiāojì",
+    "vietnamese": "giao tiếp"
+  },
+  {
+    "num": 917,
+    "chinese": "交流",
+    "pinyin": "jiāoliú",
+    "vietnamese": "giao tiếp"
+  },
+  {
+    "num": 918,
+    "chinese": "区通",
+    "pinyin": "qūtōng",
+    "vietnamese": "thẻ quận"
+  },
+  {
+    "num": 919,
+    "chinese": "骄傲",
+    "pinyin": "jiāoào",
+    "vietnamese": "kiêu hãnh"
+  },
+  {
+    "num": 920,
+    "chinese": "郊区",
+    "pinyin": "jiāoqū",
+    "vietnamese": "vùng ngoại ô"
+  },
+  {
+    "num": 921,
+    "chinese": "胶水",
+    "pinyin": "jiāoshuǐ",
+    "vietnamese": "keo dán"
+  },
+  {
+    "num": 922,
+    "chinese": "脚",
+    "pinyin": "jiǎo",
+    "vietnamese": "chân"
+  },
+  {
+    "num": 923,
+    "chinese": "角",
+    "pinyin": "jiǎo",
+    "vietnamese": "sừng"
+  },
+  {
+    "num": 924,
+    "chinese": "角度",
+    "pinyin": "jiǎodù",
+    "vietnamese": "góc"
+  },
+  {
+    "num": 925,
+    "chinese": "狭独",
+    "pinyin": "xiádú",
+    "vietnamese": "Thu hẹp và đơn độc"
+  },
+  {
+    "num": 926,
+    "chinese": "馈子",
+    "pinyin": "kuìzi",
+    "vietnamese": "trung chuyển"
+  },
+  {
+    "num": 927,
+    "chinese": "叫",
+    "pinyin": "jiào",
+    "vietnamese": "Gọi"
+  },
+  {
+    "num": 928,
+    "chinese": "教材",
+    "pinyin": "jiàocái",
+    "vietnamese": "Sách giáo khoa"
+  },
+  {
+    "num": 929,
+    "chinese": "教练",
+    "pinyin": "jiàoliàn",
+    "vietnamese": "huấn luyện viên"
+  },
+  {
+    "num": 930,
+    "chinese": "教室",
+    "pinyin": "jiàoshì",
+    "vietnamese": "lớp học"
+  },
+  {
+    "num": 931,
+    "chinese": "教授",
+    "pinyin": "jiàoshòu",
+    "vietnamese": "giáo sư"
+  },
+  {
+    "num": 932,
+    "chinese": "教训",
+    "pinyin": "jiàoxùn",
+    "vietnamese": "bài học"
+  },
+  {
+    "num": 933,
+    "chinese": "教育",
+    "pinyin": "jiàoyù",
+    "vietnamese": "giáo dục"
+  },
+  {
+    "num": 934,
+    "chinese": "接",
+    "pinyin": "jiē",
+    "vietnamese": "nắm lấy"
+  },
+  {
+    "num": 935,
+    "chinese": "接触",
+    "pinyin": "jiēchù",
+    "vietnamese": "chạm"
+  },
+  {
+    "num": 936,
+    "chinese": "接符",
+    "pinyin": "jiēfú",
+    "vietnamese": "đầu nối"
+  },
+  {
+    "num": 937,
+    "chinese": "接近",
+    "pinyin": "jiējìn",
+    "vietnamese": "gần"
+  },
+  {
+    "num": 938,
+    "chinese": "接受",
+    "pinyin": "jiēshòu",
+    "vietnamese": "chấp nhận"
+  },
+  {
+    "num": 939,
+    "chinese": "接着",
+    "pinyin": "jiēzhe",
+    "vietnamese": "sau đó"
+  },
+  {
+    "num": 940,
+    "chinese": "街道",
+    "pinyin": "jiēdào",
+    "vietnamese": "đường phố"
+  },
+  {
+    "num": 941,
+    "chinese": "阶段",
+    "pinyin": "jiēduàn",
+    "vietnamese": "sân khấu"
+  },
+  {
+    "num": 942,
+    "chinese": "结实",
+    "pinyin": "jiēshí",
+    "vietnamese": "chất rắn"
+  },
+  {
+    "num": 943,
+    "chinese": "节",
+    "pinyin": "jié",
+    "vietnamese": "Lễ hội"
+  },
+  {
+    "num": 955,
+    "chinese": "辩论",
+    "pinyin": "biànlùn",
+    "vietnamese": "tranh luận"
+  },
+  {
+    "num": 966,
+    "chinese": "今天",
+    "pinyin": "jīntiān",
+    "vietnamese": "Hôm nay"
+  },
+  {
+    "num": 967,
+    "chinese": "金属",
+    "pinyin": "jīnshǔ",
+    "vietnamese": "Kim loại"
+  },
+  {
+    "num": 968,
+    "chinese": "紧",
+    "pinyin": "jǐn",
+    "vietnamese": "chặt"
+  },
+  {
+    "num": 969,
+    "chinese": "紧急",
+    "pinyin": "jǐnjí",
+    "vietnamese": "cấp bách"
+  },
+  {
+    "num": 970,
+    "chinese": "紧张",
+    "pinyin": "jǐnzhāng",
+    "vietnamese": "lo lắng"
+  },
+  {
+    "num": 971,
+    "chinese": "尽管",
+    "pinyin": "jǐnguǎn",
+    "vietnamese": "mặc dù"
+  },
+  {
+    "num": 972,
+    "chinese": "谨慎",
+    "pinyin": "jǐnshèn",
+    "vietnamese": "thận trọng"
+  },
+  {
+    "num": 973,
+    "chinese": "进",
+    "pinyin": "jìn",
+    "vietnamese": "Đi vào"
+  },
+  {
+    "num": 974,
+    "chinese": "进步",
+    "pinyin": "jìnbù",
+    "vietnamese": "tiến triển"
+  },
+  {
+    "num": 975,
+    "chinese": "进口",
+    "pinyin": "jìnkǒu",
+    "vietnamese": "nhập khẩu"
+  },
+  {
+    "num": 976,
+    "chinese": "进行",
+    "pinyin": "jìnxíng",
+    "vietnamese": "chỉ đạo"
+  },
+  {
+    "num": 977,
+    "chinese": "近",
+    "pinyin": "jìn",
+    "vietnamese": "đóng"
+  },
+  {
+    "num": 978,
+    "chinese": "近代",
+    "pinyin": "jìndài",
+    "vietnamese": "Thời hiện đại"
+  },
+  {
+    "num": 979,
+    "chinese": "尽力",
+    "pinyin": "jìnlì",
+    "vietnamese": "Hãy cố gắng hết sức"
+  },
+  {
+    "num": 980,
+    "chinese": "尽量",
+    "pinyin": "jǐnliàng",
+    "vietnamese": "cố gắng hết sức"
+  },
+  {
+    "num": 981,
+    "chinese": "禁止",
+    "pinyin": "jìnzhǐ",
+    "vietnamese": "cấm"
+  },
+  {
+    "num": 982,
+    "chinese": "精彩",
+    "pinyin": "jīngcǎi",
+    "vietnamese": "Tuyệt vời"
+  },
+  {
+    "num": 983,
+    "chinese": "精力",
+    "pinyin": "jīnglì",
+    "vietnamese": "năng lượng"
+  },
+  {
+    "num": 984,
+    "chinese": "精神",
+    "pinyin": "jīngshén",
+    "vietnamese": "Tinh thần"
+  },
+  {
+    "num": 985,
+    "chinese": "经常",
+    "pinyin": "jīngcháng",
+    "vietnamese": "thường"
+  },
+  {
+    "num": 986,
+    "chinese": "经典",
+    "pinyin": "jīngdiǎn",
+    "vietnamese": "cổ điển"
+  },
+  {
+    "num": 987,
+    "chinese": "经过",
+    "pinyin": "jīngguò",
+    "vietnamese": "đi qua"
+  },
+  {
+    "num": 988,
+    "chinese": "经济",
+    "pinyin": "jīngjì",
+    "vietnamese": "kinh tế"
+  },
+  {
+    "num": 989,
+    "chinese": "经理",
+    "pinyin": "jīnglǐ",
+    "vietnamese": "giám đốc"
+  },
+  {
+    "num": 990,
+    "chinese": "经历",
+    "pinyin": "jīnglì",
+    "vietnamese": "kinh nghiệm"
+  },
+  {
+    "num": 991,
+    "chinese": "经验",
+    "pinyin": "jīngyàn",
+    "vietnamese": "kinh nghiệm"
+  },
+  {
+    "num": 992,
+    "chinese": "经营",
+    "pinyin": "jīngyíng",
+    "vietnamese": "việc kinh doanh"
+  },
+  {
+    "num": 993,
+    "chinese": "京剧",
+    "pinyin": "jīngjù",
+    "vietnamese": "Kinh kịch"
+  },
+  {
+    "num": 994,
+    "chinese": "警察",
+    "pinyin": "jǐngchá",
+    "vietnamese": "cảnh sát"
+  },
+  {
+    "num": 996,
+    "chinese": "敬爱",
+    "pinyin": "jìngài",
+    "vietnamese": "người yêu dấu"
+  },
+  {
+    "num": 997,
+    "chinese": "竟然",
+    "pinyin": "jìngrán",
+    "vietnamese": "hóa ra"
+  },
+  {
+    "num": 998,
+    "chinese": "竞争",
+    "pinyin": "jìngzhēng",
+    "vietnamese": "hoàn thành"
+  },
+  {
+    "num": 999,
+    "chinese": "镜子",
+    "pinyin": "jìngzi",
+    "vietnamese": "Gương"
+  },
+  {
+    "num": 1000,
+    "chinese": "究竟",
+    "pinyin": "jiūjìng",
+    "vietnamese": "sau tất cả"
+  },
+  {
+    "num": 1001,
+    "chinese": "九",
+    "pinyin": "jiǔ",
+    "vietnamese": "Chín"
+  },
+  {
+    "num": 1002,
+    "chinese": "久",
+    "pinyin": "jiǔ",
+    "vietnamese": "Dài"
+  },
+  {
+    "num": 1003,
+    "chinese": "酒吧",
+    "pinyin": "jiǔbā",
+    "vietnamese": "thanh"
+  },
+  {
+    "num": 1004,
+    "chinese": "有旧",
+    "pinyin": "yǒujiù",
+    "vietnamese": "Có cái cũ"
+  },
+  {
+    "num": 1005,
+    "chinese": "就",
+    "pinyin": "jiù",
+    "vietnamese": "Cùng một lúc"
+  },
+  {
+    "num": 1006,
+    "chinese": "救",
+    "pinyin": "jiù",
+    "vietnamese": "cứu"
+  },
+  {
+    "num": 1007,
+    "chinese": "救护车",
+    "pinyin": "jiùhùchē",
+    "vietnamese": "xe cứu thương"
+  },
+  {
+    "num": 1008,
+    "chinese": "田舅",
+    "pinyin": "tiánjiù",
+    "vietnamese": "chú Thiên"
+  },
+  {
+    "num": 1009,
+    "chinese": "居然",
+    "pinyin": "jūrán",
+    "vietnamese": "Thực ra"
+  },
+  {
+    "num": 1032,
+    "chinese": "均匀",
+    "pinyin": "jūnyún",
+    "vietnamese": "Đồng phục"
+  },
+  {
+    "num": 1033,
+    "chinese": "咖啡",
+    "pinyin": "kāfēi",
+    "vietnamese": "cà phê"
+  },
+  {
+    "num": 1034,
+    "chinese": "卡芋",
+    "pinyin": "kǎyù",
+    "vietnamese": "kata"
+  },
+  {
+    "num": 1035,
+    "chinese": "开",
+    "pinyin": "kāi",
+    "vietnamese": "mở"
+  },
+  {
+    "num": 1036,
+    "chinese": "开发",
+    "pinyin": "kāifā",
+    "vietnamese": "phát triển"
+  },
+  {
+    "num": 1037,
+    "chinese": "开放",
+    "pinyin": "kāifàng",
+    "vietnamese": "mở"
+  },
+  {
+    "num": 1038,
+    "chinese": "开幕式",
+    "pinyin": "kāimùshì",
+    "vietnamese": "lễ khai mạc"
+  },
+  {
+    "num": 1039,
+    "chinese": "开始",
+    "pinyin": "kāishǐ",
+    "vietnamese": "bắt đầu"
+  },
+  {
+    "num": 1040,
+    "chinese": "开玩笑",
+    "pinyin": "kāiwánxiào",
+    "vietnamese": "câu nói đùa"
+  },
+  {
+    "num": 1041,
+    "chinese": "开心",
+    "pinyin": "kāixīn",
+    "vietnamese": "vui mừng"
+  },
+  {
+    "num": 1042,
+    "chinese": "砍",
+    "pinyin": "kǎn",
+    "vietnamese": "cắt"
+  },
+  {
+    "num": 1043,
+    "chinese": "看",
+    "pinyin": "kàn",
+    "vietnamese": "Nhìn"
+  },
+  {
+    "num": 1044,
+    "chinese": "看不起",
+    "pinyin": "kànbùqǐ",
+    "vietnamese": "coi thường"
+  },
+  {
+    "num": 1045,
+    "chinese": "看法",
+    "pinyin": "kànfǎ",
+    "vietnamese": "xem"
+  },
+  {
+    "num": 1046,
+    "chinese": "看见",
+    "pinyin": "kànjiàn",
+    "vietnamese": "nhìn thấy"
+  },
+  {
+    "num": 1047,
+    "chinese": "看来",
+    "pinyin": "kànlái",
+    "vietnamese": "Có vẻ như"
+  },
+  {
+    "num": 1048,
+    "chinese": "抗议",
+    "pinyin": "kàngyì",
+    "vietnamese": "phản kháng"
+  },
+  {
+    "num": 1049,
+    "chinese": "考虑",
+    "pinyin": "kǎolǜ",
+    "vietnamese": "coi như"
+  },
+  {
+    "num": 1050,
+    "chinese": "考试",
+    "pinyin": "kǎoshì",
+    "vietnamese": "làm bài kiểm tra"
+  },
+  {
+    "num": 1051,
+    "chinese": "烤鸭",
+    "pinyin": "kǎoyā",
+    "vietnamese": "Vịt quay"
+  },
+  {
+    "num": 1052,
+    "chinese": "棵",
+    "pinyin": "kē",
+    "vietnamese": "cây"
+  },
+  {
+    "num": 1053,
+    "chinese": "颗",
+    "pinyin": "kē",
+    "vietnamese": "ngũ cốc"
+  },
+  {
+    "num": 1054,
+    "chinese": "科学",
+    "pinyin": "kēxué",
+    "vietnamese": "khoa học"
+  },
+  {
+    "num": 1055,
+    "chinese": "咳嗽",
+    "pinyin": "késòu",
+    "vietnamese": "ho"
+  },
+  {
+    "num": 1056,
+    "chinese": "泪",
+    "pinyin": "lèi",
+    "vietnamese": "xé"
+  },
+  {
+    "num": 1058,
+    "chinese": "可匈",
+    "pinyin": "kěxiōng",
+    "vietnamese": "Đói bụng"
+  },
+  {
+    "num": 1059,
+    "chinese": "可午",
+    "pinyin": "kěwǔ",
+    "vietnamese": "Kewu"
+  },
+  {
+    "num": 1060,
+    "chinese": "可怜",
+    "pinyin": "kělián",
+    "vietnamese": "Thương tâm"
+  },
+  {
+    "num": 1061,
+    "chinese": "可能",
+    "pinyin": "kěnéng",
+    "vietnamese": "khả thi"
+  },
+  {
+    "num": 1062,
+    "chinese": "可怕",
+    "pinyin": "kěpà",
+    "vietnamese": "tệ hại"
+  },
+  {
+    "num": 1063,
+    "chinese": "可是",
+    "pinyin": "kěshì",
+    "vietnamese": "Nhưng"
+  },
+  {
+    "num": 1064,
+    "chinese": "可异",
+    "pinyin": "kěyì",
+    "vietnamese": "Khác biệt"
+  },
+  {
+    "num": 1065,
+    "chinese": "可以",
+    "pinyin": "kěyǐ",
+    "vietnamese": "Có thể"
+  },
+  {
+    "num": 1066,
+    "chinese": "课",
+    "pinyin": "kè",
+    "vietnamese": "lớp học"
+  },
+  {
+    "num": 1067,
+    "chinese": "课程",
+    "pinyin": "kèchéng",
+    "vietnamese": "khóa học"
+  },
+  {
+    "num": 1068,
+    "chinese": "克",
+    "pinyin": "kè",
+    "vietnamese": "gram"
+  },
+  {
+    "num": 1069,
+    "chinese": "克服",
+    "pinyin": "kèfú",
+    "vietnamese": "vượt qua"
+  },
+  {
+    "num": 1070,
+    "chinese": "刻",
+    "pinyin": "kè",
+    "vietnamese": "khắc"
+  },
+  {
+    "num": 1071,
+    "chinese": "刻苦",
+    "pinyin": "kèkǔ",
+    "vietnamese": "làm việc chăm chỉ"
+  },
+  {
+    "num": 1072,
+    "chinese": "客观",
+    "pinyin": "kèguān",
+    "vietnamese": "khách quan"
+  },
+  {
+    "num": 1073,
+    "chinese": "客人",
+    "pinyin": "kèrén",
+    "vietnamese": "khách mời"
+  },
+  {
+    "num": 1096,
+    "chinese": "团",
+    "pinyin": "tuán",
+    "vietnamese": "nhóm"
+  },
+  {
+    "num": 1097,
+    "chinese": "困难",
+    "pinyin": "kùnnán",
+    "vietnamese": "khó khăn"
+  },
+  {
+    "num": 1098,
+    "chinese": "扩大",
+    "pinyin": "kuòdà",
+    "vietnamese": "mở rộng"
+  },
+  {
+    "num": 1099,
+    "chinese": "拉",
+    "pinyin": "lā",
+    "vietnamese": "sự lôi kéo"
+  },
+  {
+    "num": 1100,
+    "chinese": "垃圾桶",
+    "pinyin": "lājītǒng",
+    "vietnamese": "thùng rác"
+  },
+  {
+    "num": 1101,
+    "chinese": "头",
+    "pinyin": "tóu",
+    "vietnamese": "cái đầu"
+  },
+  {
+    "num": 1102,
+    "chinese": "辣椒",
+    "pinyin": "làjiāo",
+    "vietnamese": "ớt"
+  },
+  {
+    "num": 1103,
+    "chinese": "晴烛",
+    "pinyin": "qíngzhú",
+    "vietnamese": "nến rõ ràng"
+  },
+  {
+    "num": 1104,
+    "chinese": "来",
+    "pinyin": "lái",
+    "vietnamese": "Đến"
+  },
+  {
+    "num": 1106,
+    "chinese": "来得及",
+    "pinyin": "láidejí",
+    "vietnamese": "Có đủ thời gian"
+  },
+  {
+    "num": 1107,
+    "chinese": "来自",
+    "pinyin": "láizì",
+    "vietnamese": "từ"
+  },
+  {
+    "num": 1108,
+    "chinese": "拦",
+    "pinyin": "lán",
+    "vietnamese": "thanh"
+  },
+  {
+    "num": 1109,
+    "chinese": "蓝",
+    "pinyin": "lán",
+    "vietnamese": "màu xanh da trời"
+  },
+  {
+    "num": 1110,
+    "chinese": "懒",
+    "pinyin": "lǎn",
+    "vietnamese": "lười"
+  },
+  {
+    "num": 1111,
+    "chinese": "烂",
+    "pinyin": "làn",
+    "vietnamese": "thối rữa"
+  },
+  {
+    "num": 1112,
+    "chinese": "狼",
+    "pinyin": "láng",
+    "vietnamese": "Sói"
+  },
+  {
+    "num": 1113,
+    "chinese": "浪费",
+    "pinyin": "làngfèi",
+    "vietnamese": "rác thải"
+  },
+  {
+    "num": 1114,
+    "chinese": "浪漫",
+    "pinyin": "làngmàn",
+    "vietnamese": "lãng mạn"
+  },
+  {
+    "num": 1115,
+    "chinese": "劳动",
+    "pinyin": "láodòng",
+    "vietnamese": "nhân công"
+  },
+  {
+    "num": 1116,
+    "chinese": "天亚",
+    "pinyin": "tiānyà",
+    "vietnamese": "Thiên Nhai"
+  },
+  {
+    "num": 1117,
+    "chinese": "老",
+    "pinyin": "lǎo",
+    "vietnamese": "cũ"
+  },
+  {
+    "num": 1118,
+    "chinese": "老百姓",
+    "pinyin": "lǎobǎixìng",
+    "vietnamese": "người bình thường"
+  },
+  {
+    "num": 1119,
+    "chinese": "老板",
+    "pinyin": "lǎobǎn",
+    "vietnamese": "ông chủ"
+  },
+  {
+    "num": 1120,
+    "chinese": "老虎",
+    "pinyin": "lǎohǔ",
+    "vietnamese": "con hổ"
+  },
+  {
+    "num": 1121,
+    "chinese": "老师",
+    "pinyin": "lǎoshī",
+    "vietnamese": "giáo viên"
+  },
+  {
+    "num": 1122,
+    "chinese": "老实",
+    "pinyin": "lǎoshí",
+    "vietnamese": "trung thực"
+  },
+  {
+    "num": 1123,
+    "chinese": "老鼠",
+    "pinyin": "lǎoshǔ",
+    "vietnamese": "chuột"
+  },
+  {
+    "num": 1124,
+    "chinese": "姥姥",
+    "pinyin": "lǎolao",
+    "vietnamese": "bà"
+  },
+  {
+    "num": 1125,
+    "chinese": "乐观",
+    "pinyin": "lèguān",
+    "vietnamese": "sự lạc quan"
+  },
+  {
+    "num": 1126,
+    "chinese": "了",
+    "pinyin": "le",
+    "vietnamese": "Hiểu rồi"
+  },
+  {
+    "num": 1127,
+    "chinese": "和雷",
+    "pinyin": "héléi",
+    "vietnamese": "và lei"
+  },
+  {
+    "num": 1128,
+    "chinese": "类",
+    "pinyin": "lèi",
+    "vietnamese": "loại"
+  },
+  {
+    "num": 1129,
+    "chinese": "累",
+    "pinyin": "lèi",
+    "vietnamese": "mệt"
+  },
+  {
+    "num": 1130,
+    "chinese": "淮",
+    "pinyin": "huái",
+    "vietnamese": "Hoài"
+  },
+  {
+    "num": 1131,
+    "chinese": "冷静",
+    "pinyin": "lěngjìng",
+    "vietnamese": "điềm tĩnh"
+  },
+  {
+    "num": 1132,
+    "chinese": "犁",
+    "pinyin": "lí",
+    "vietnamese": "cày"
+  },
+  {
+    "num": 1133,
+    "chinese": "离",
+    "pinyin": "lí",
+    "vietnamese": "Rời khỏi"
+  },
+  {
+    "num": 1134,
+    "chinese": "离婚",
+    "pinyin": "líhūn",
+    "vietnamese": "ly hôn"
+  },
+  {
+    "num": 1135,
+    "chinese": "离开",
+    "pinyin": "líkāi",
+    "vietnamese": "rời khỏi"
+  },
+  {
+    "num": 1136,
+    "chinese": "厘米",
+    "pinyin": "límǐ",
+    "vietnamese": "centimét"
+  },
+  {
+    "num": 1137,
+    "chinese": "里",
+    "pinyin": "lǐ",
+    "vietnamese": "bên trong"
+  },
+  {
+    "num": 1160,
+    "chinese": "连",
+    "pinyin": "lián",
+    "vietnamese": "thậm chí"
+  },
+  {
+    "num": 1161,
+    "chinese": "连忙",
+    "pinyin": "liánmáng",
+    "vietnamese": "nhanh"
+  },
+  {
+    "num": 1162,
+    "chinese": "连续剧",
+    "pinyin": "liánxùjù",
+    "vietnamese": "phim truyền hình"
+  },
+  {
+    "num": 1163,
+    "chinese": "联合",
+    "pinyin": "liánhé",
+    "vietnamese": "chung"
+  },
+  {
+    "num": 1164,
+    "chinese": "联系",
+    "pinyin": "liánxì",
+    "vietnamese": "kết nối"
+  },
+  {
+    "num": 1165,
+    "chinese": "脸",
+    "pinyin": "liǎn",
+    "vietnamese": "Khuôn mặt"
+  },
+  {
+    "num": 1166,
+    "chinese": "恋爱",
+    "pinyin": "liànài",
+    "vietnamese": "đang yêu"
+  },
+  {
+    "num": 1167,
+    "chinese": "练习",
+    "pinyin": "liànxí",
+    "vietnamese": "luyện tập"
+  },
+  {
+    "num": 1168,
+    "chinese": "良好",
+    "pinyin": "liánghǎo",
+    "vietnamese": "Tốt"
+  },
+  {
+    "num": 1169,
+    "chinese": "凉快",
+    "pinyin": "liángkuài",
+    "vietnamese": "mát mẻ"
+  },
+  {
+    "num": 1170,
+    "chinese": "粮食",
+    "pinyin": "liángshí",
+    "vietnamese": "đồ ăn"
+  },
+  {
+    "num": 1171,
+    "chinese": "两",
+    "pinyin": "liǎng",
+    "vietnamese": "hai"
+  },
+  {
+    "num": 1172,
+    "chinese": "亮",
+    "pinyin": "liàng",
+    "vietnamese": "Sáng"
+  },
+  {
+    "num": 1173,
+    "chinese": "辆",
+    "pinyin": "liàng",
+    "vietnamese": "phương tiện giao thông"
+  },
+  {
+    "num": 1174,
+    "chinese": "聊天",
+    "pinyin": "liáotiān",
+    "vietnamese": "trò chuyện"
+  },
+  {
+    "num": 1175,
+    "chinese": "了不起",
+    "pinyin": "liǎobùqǐ",
+    "vietnamese": "tuyệt vời"
+  },
+  {
+    "num": 1176,
+    "chinese": "了解",
+    "pinyin": "liǎojiě",
+    "vietnamese": "học hỏi"
+  },
+  {
+    "num": 1177,
+    "chinese": "邻居",
+    "pinyin": "línjū",
+    "vietnamese": "Hàng xóm"
+  },
+  {
+    "num": 1178,
+    "chinese": "临时",
+    "pinyin": "línshí",
+    "vietnamese": "tạm thời"
+  },
+  {
+    "num": 1179,
+    "chinese": "铃",
+    "pinyin": "líng",
+    "vietnamese": "chuông"
+  },
+  {
+    "num": 1180,
+    "chinese": "有才",
+    "pinyin": "yǒucái",
+    "vietnamese": "tài năng"
+  },
+  {
+    "num": 1181,
+    "chinese": "零件",
+    "pinyin": "língjiàn",
+    "vietnamese": "Thành phần"
+  },
+  {
+    "num": 1182,
+    "chinese": "和雪钱",
+    "pinyin": "héxuěqián",
+    "vietnamese": "và tiền tuyết"
+  },
+  {
+    "num": 1183,
+    "chinese": "零食",
+    "pinyin": "língshí",
+    "vietnamese": "đồ ăn vặt"
+  },
+  {
+    "num": 1184,
+    "chinese": "灵活",
+    "pinyin": "línghuó",
+    "vietnamese": "linh hoạt"
+  },
+  {
+    "num": 1185,
+    "chinese": "领导",
+    "pinyin": "lǐngdǎo",
+    "vietnamese": "chỉ huy"
+  },
+  {
+    "num": 1186,
+    "chinese": "领域",
+    "pinyin": "lǐngyù",
+    "vietnamese": "cánh đồng"
+  },
+  {
+    "num": 1187,
+    "chinese": "另外",
+    "pinyin": "lìngwài",
+    "vietnamese": "Ngoài ra"
+  },
+  {
+    "num": 1188,
+    "chinese": "留",
+    "pinyin": "liú",
+    "vietnamese": "Giữ"
+  },
+  {
+    "num": 1189,
+    "chinese": "留学",
+    "pinyin": "liúxué",
+    "vietnamese": "Du học"
+  },
+  {
+    "num": 1190,
+    "chinese": "流传",
+    "pinyin": "liúchuán",
+    "vietnamese": "lây lan"
+  },
+  {
+    "num": 1191,
+    "chinese": "融和",
+    "pinyin": "rónghé",
+    "vietnamese": "Hòa hợp"
+  },
+  {
+    "num": 1192,
+    "chinese": "流利",
+    "pinyin": "liúlì",
+    "vietnamese": "thông thạo"
+  },
+  {
+    "num": 1193,
+    "chinese": "流行",
+    "pinyin": "liúxíng",
+    "vietnamese": "Mức độ phổ biến"
+  },
+  {
+    "num": 1194,
+    "chinese": "浏览",
+    "pinyin": "liúlǎn",
+    "vietnamese": "Duyệt qua"
+  },
+  {
+    "num": 1195,
+    "chinese": "六",
+    "pinyin": "liù",
+    "vietnamese": "sáu"
+  },
+  {
+    "num": 1196,
+    "chinese": "龙",
+    "pinyin": "lóng",
+    "vietnamese": "rồng"
+  },
+  {
+    "num": 1197,
+    "chinese": "楼",
+    "pinyin": "lóu",
+    "vietnamese": "xây dựng"
+  },
+  {
+    "num": 1198,
+    "chinese": "漏",
+    "pinyin": "lòu",
+    "vietnamese": "hở"
+  },
+  {
+    "num": 1199,
+    "chinese": "路",
+    "pinyin": "lù",
+    "vietnamese": "đường"
+  },
+  {
+    "num": 1200,
+    "chinese": "露",
+    "pinyin": "lù",
+    "vietnamese": "sương"
+  },
+  {
+    "num": 1201,
+    "chinese": "陆地",
+    "pinyin": "lùdì",
+    "vietnamese": "đất"
+  },
+  {
+    "num": 1202,
+    "chinese": "陆续",
+    "pinyin": "lùxù",
+    "vietnamese": "lần lượt"
+  },
+  {
+    "num": 1203,
+    "chinese": "录取",
+    "pinyin": "lùqǔ",
+    "vietnamese": "Nhập học"
+  },
+  {
+    "num": 1224,
+    "chinese": "满",
+    "pinyin": "mǎn",
+    "vietnamese": "Đầy"
+  },
+  {
+    "num": 1225,
+    "chinese": "满意",
+    "pinyin": "mǎnyì",
+    "vietnamese": "thỏa mãn"
+  },
+  {
+    "num": 1226,
+    "chinese": "满足",
+    "pinyin": "mǎnzú",
+    "vietnamese": "thỏa mãn"
+  },
+  {
+    "num": 1227,
+    "chinese": "人慢",
+    "pinyin": "rénmàn",
+    "vietnamese": "Mọi người chậm rãi"
+  },
+  {
+    "num": 1228,
+    "chinese": "人忙",
+    "pinyin": "rénmáng",
+    "vietnamese": "Mọi người đang bận rộn"
+  },
+  {
+    "num": 1229,
+    "chinese": "猫",
+    "pinyin": "māo",
+    "vietnamese": "con mèo"
+  },
+  {
+    "num": 1230,
+    "chinese": "毛",
+    "pinyin": "máo",
+    "vietnamese": "tóc"
+  },
+  {
+    "num": 1231,
+    "chinese": "毛病",
+    "pinyin": "máobìng",
+    "vietnamese": "Sai"
+  },
+  {
+    "num": 1232,
+    "chinese": "毛巾",
+    "pinyin": "máojīn",
+    "vietnamese": "cái khăn lau"
+  },
+  {
+    "num": 1233,
+    "chinese": "矛盾",
+    "pinyin": "máodùn",
+    "vietnamese": "mâu thuẫn"
+  },
+  {
+    "num": 1234,
+    "chinese": "骨险",
+    "pinyin": "gǔxiǎn",
+    "vietnamese": "Bảo hiểm xương"
+  },
+  {
+    "num": 1235,
+    "chinese": "贸易",
+    "pinyin": "màoyì",
+    "vietnamese": "giao dịch"
+  },
+  {
+    "num": 1236,
+    "chinese": "帽子",
+    "pinyin": "màozi",
+    "vietnamese": "mũ"
+  },
+  {
+    "num": 1237,
+    "chinese": "没",
+    "pinyin": "méi",
+    "vietnamese": "không có"
+  },
+  {
+    "num": 1238,
+    "chinese": "关系",
+    "pinyin": "guānxì",
+    "vietnamese": "mối quan hệ"
+  },
+  {
+    "num": 1239,
+    "chinese": "丑毛",
+    "pinyin": "chǒumáo",
+    "vietnamese": "tóc xấu"
+  },
+  {
+    "num": 1240,
+    "chinese": "煤交",
+    "pinyin": "méijiāo",
+    "vietnamese": "Meijiao"
+  },
+  {
+    "num": 1241,
+    "chinese": "每",
+    "pinyin": "měi",
+    "vietnamese": "Mọi"
+  },
+  {
+    "num": 1242,
+    "chinese": "美丽",
+    "pinyin": "měilì",
+    "vietnamese": "sắc đẹp"
+  },
+  {
+    "num": 1243,
+    "chinese": "美术",
+    "pinyin": "měishù",
+    "vietnamese": "nghệ thuật"
+  },
+  {
+    "num": 1244,
+    "chinese": "志力",
+    "pinyin": "zhìlì",
+    "vietnamese": "ý chí"
+  },
+  {
+    "num": 1245,
+    "chinese": "妹妹",
+    "pinyin": "mèimèi",
+    "vietnamese": "em gái"
+  },
+  {
+    "num": 1246,
+    "chinese": "门",
+    "pinyin": "mén",
+    "vietnamese": "cửa"
+  },
+  {
+    "num": 1247,
+    "chinese": "梦",
+    "pinyin": "mèng",
+    "vietnamese": "Mơ"
+  },
+  {
+    "num": 1248,
+    "chinese": "迷路",
+    "pinyin": "mílù",
+    "vietnamese": "bị lạc"
+  },
+  {
+    "num": 1249,
+    "chinese": "谜语",
+    "pinyin": "míyǔ",
+    "vietnamese": "câu đố"
+  },
+  {
+    "num": 1250,
+    "chinese": "米",
+    "pinyin": "mǐ",
+    "vietnamese": "cơm"
+  },
+  {
+    "num": 1251,
+    "chinese": "米饭",
+    "pinyin": "mǐfàn",
+    "vietnamese": "cơm"
+  },
+  {
+    "num": 1252,
+    "chinese": "蜜蜂",
+    "pinyin": "mìfēng",
+    "vietnamese": "con ong"
+  },
+  {
+    "num": 1253,
+    "chinese": "密码",
+    "pinyin": "mìmǎ",
+    "vietnamese": "mật khẩu"
+  },
+  {
+    "num": 1254,
+    "chinese": "密切",
+    "pinyin": "mìqiè",
+    "vietnamese": "đóng"
+  },
+  {
+    "num": 1256,
+    "chinese": "秘书",
+    "pinyin": "mìshū",
+    "vietnamese": "thư ký"
+  },
+  {
+    "num": 1257,
+    "chinese": "棉花",
+    "pinyin": "miánhuā",
+    "vietnamese": "bông"
+  },
+  {
+    "num": 1258,
+    "chinese": "免费",
+    "pinyin": "miǎnfèi",
+    "vietnamese": "miễn phí"
+  },
+  {
+    "num": 1259,
+    "chinese": "面包",
+    "pinyin": "miànbāo",
+    "vietnamese": "bánh mỳ"
+  },
+  {
+    "num": 1260,
+    "chinese": "面对",
+    "pinyin": "miànduì",
+    "vietnamese": "khuôn mặt"
+  },
+  {
+    "num": 1261,
+    "chinese": "面积",
+    "pinyin": "miànjī",
+    "vietnamese": "khu vực"
+  },
+  {
+    "num": 1262,
+    "chinese": "面临",
+    "pinyin": "miànlín",
+    "vietnamese": "khuôn mặt"
+  },
+  {
+    "num": 1263,
+    "chinese": "面条",
+    "pinyin": "miàntiáo",
+    "vietnamese": "mì"
+  },
+  {
+    "num": 1264,
+    "chinese": "盏条",
+    "pinyin": "zhǎntiáo",
+    "vietnamese": "dải đèn"
+  },
+  {
+    "num": 1265,
+    "chinese": "摘邱",
+    "pinyin": "zhāiqiū",
+    "vietnamese": "Chọn Khâu"
+  },
+  {
+    "num": 1266,
+    "chinese": "秒",
+    "pinyin": "miǎo",
+    "vietnamese": "Thứ hai"
+  },
+  {
+    "num": 1267,
+    "chinese": "民主",
+    "pinyin": "mínzhǔ",
+    "vietnamese": "nền dân chủ"
+  },
+  {
+    "num": 1290,
+    "chinese": "目录",
+    "pinyin": "mùlù",
+    "vietnamese": "Mục lục"
+  },
+  {
+    "num": 1291,
+    "chinese": "目前",
+    "pinyin": "mùqián",
+    "vietnamese": "hiện tại"
+  },
+  {
+    "num": 1292,
+    "chinese": "木头",
+    "pinyin": "mùtou",
+    "vietnamese": "gỗ"
+  },
+  {
+    "num": 1293,
+    "chinese": "拿",
+    "pinyin": "ná",
+    "vietnamese": "lấy"
+  },
+  {
+    "num": 1294,
+    "chinese": "哪儿",
+    "pinyin": "nǎér",
+    "vietnamese": "Ở đâu"
+  },
+  {
+    "num": 1295,
+    "chinese": "哪怕",
+    "pinyin": "nǎpà",
+    "vietnamese": "Thậm chí"
+  },
+  {
+    "num": 1296,
+    "chinese": "那儿",
+    "pinyin": "nàér",
+    "vietnamese": "ở đó"
+  },
+  {
+    "num": 1297,
+    "chinese": "奶奶",
+    "pinyin": "nǎinǎi",
+    "vietnamese": "bà ngoại"
+  },
+  {
+    "num": 1298,
+    "chinese": "耐心",
+    "pinyin": "nàixīn",
+    "vietnamese": "tính kiên nhẫn"
+  },
+  {
+    "num": 1299,
+    "chinese": "南",
+    "pinyin": "nán",
+    "vietnamese": "Phía nam"
+  },
+  {
+    "num": 1300,
+    "chinese": "难",
+    "pinyin": "nán",
+    "vietnamese": "Thảm họa"
+  },
+  {
+    "num": 1301,
+    "chinese": "难道",
+    "pinyin": "nándào",
+    "vietnamese": "Có thể nào"
+  },
+  {
+    "num": 1302,
+    "chinese": "难怪",
+    "pinyin": "nánguài",
+    "vietnamese": "Không có gì ngạc nhiên"
+  },
+  {
+    "num": 1303,
+    "chinese": "难过",
+    "pinyin": "nánguò",
+    "vietnamese": "buồn"
+  },
+  {
+    "num": 1304,
+    "chinese": "难看",
+    "pinyin": "nánkàn",
+    "vietnamese": "xấu xí"
+  },
+  {
+    "num": 1306,
+    "chinese": "男人",
+    "pinyin": "nánrén",
+    "vietnamese": "người đàn ông"
+  },
+  {
+    "num": 1307,
+    "chinese": "脑袋",
+    "pinyin": "nǎodài",
+    "vietnamese": "cái đầu"
+  },
+  {
+    "num": 1308,
+    "chinese": "了呢",
+    "pinyin": "lene",
+    "vietnamese": "Đã"
+  },
+  {
+    "num": 1309,
+    "chinese": "内",
+    "pinyin": "nèi",
+    "vietnamese": "Bên trong"
+  },
+  {
+    "num": 1310,
+    "chinese": "内科",
+    "pinyin": "nèikē",
+    "vietnamese": "Nội khoa"
+  },
+  {
+    "num": 1311,
+    "chinese": "内容",
+    "pinyin": "nèiróng",
+    "vietnamese": "nội dung"
+  },
+  {
+    "num": 1312,
+    "chinese": "嫩",
+    "pinyin": "nèn",
+    "vietnamese": "mềm"
+  },
+  {
+    "num": 1313,
+    "chinese": "能",
+    "pinyin": "néng",
+    "vietnamese": "có thể"
+  },
+  {
+    "num": 1314,
+    "chinese": "能干",
+    "pinyin": "nénggàn",
+    "vietnamese": "có khả năng"
+  },
+  {
+    "num": 1315,
+    "chinese": "能力",
+    "pinyin": "nénglì",
+    "vietnamese": "khả năng"
+  },
+  {
+    "num": 1316,
+    "chinese": "能源",
+    "pinyin": "néngyuán",
+    "vietnamese": "năng lượng"
+  },
+  {
+    "num": 1317,
+    "chinese": "你",
+    "pinyin": "nǐ",
+    "vietnamese": "Bạn"
+  },
+  {
+    "num": 1318,
+    "chinese": "年",
+    "pinyin": "nián",
+    "vietnamese": "Năm"
+  },
+  {
+    "num": 1319,
+    "chinese": "年代",
+    "pinyin": "niándài",
+    "vietnamese": "Thời đại"
+  },
+  {
+    "num": 1320,
+    "chinese": "年级",
+    "pinyin": "niánjí",
+    "vietnamese": "cấp"
+  },
+  {
+    "num": 1321,
+    "chinese": "年纪",
+    "pinyin": "niánjì",
+    "vietnamese": "tuổi"
+  },
+  {
+    "num": 1322,
+    "chinese": "年龄",
+    "pinyin": "niánlíng",
+    "vietnamese": "tuổi"
+  },
+  {
+    "num": 1323,
+    "chinese": "年轻",
+    "pinyin": "niánqīng",
+    "vietnamese": "trẻ"
+  },
+  {
+    "num": 1324,
+    "chinese": "念",
+    "pinyin": "niàn",
+    "vietnamese": "đọc"
+  },
+  {
+    "num": 1325,
+    "chinese": "乌",
+    "pinyin": "wū",
+    "vietnamese": "đen"
+  },
+  {
+    "num": 1326,
+    "chinese": "您",
+    "pinyin": "nín",
+    "vietnamese": "Bạn"
+  },
+  {
+    "num": 1327,
+    "chinese": "宁可",
+    "pinyin": "nìngkě",
+    "vietnamese": "hơn là"
+  },
+  {
+    "num": 1328,
+    "chinese": "牛奶",
+    "pinyin": "niúnǎi",
+    "vietnamese": "sữa"
+  },
+  {
+    "num": 1329,
+    "chinese": "和牛仔裤",
+    "pinyin": "héniúzǎikù",
+    "vietnamese": "và quần jean"
+  },
+  {
+    "num": 1330,
+    "chinese": "浓",
+    "pinyin": "nóng",
+    "vietnamese": "tập trung"
+  },
+  {
+    "num": 1331,
+    "chinese": "农村",
+    "pinyin": "nóngcūn",
+    "vietnamese": "khu vực nông thôn"
+  },
+  {
+    "num": 1351,
+    "chinese": "旁边",
+    "pinyin": "pángbiān",
+    "vietnamese": "bên cạnh"
+  },
+  {
+    "num": 1352,
+    "chinese": "胖",
+    "pinyin": "pàng",
+    "vietnamese": "mập"
+  },
+  {
+    "num": 1354,
+    "chinese": "陪",
+    "pinyin": "péi",
+    "vietnamese": "đi cùng"
+  },
+  {
+    "num": 1355,
+    "chinese": "赔偿",
+    "pinyin": "péicháng",
+    "vietnamese": "đền bù"
+  },
+  {
+    "num": 1356,
+    "chinese": "培装",
+    "pinyin": "péizhuāng",
+    "vietnamese": "Đào tạo và cài đặt"
+  },
+  {
+    "num": 1357,
+    "chinese": "佩服",
+    "pinyin": "pèifú",
+    "vietnamese": "ngưỡng mộ"
+  },
+  {
+    "num": 1359,
+    "chinese": "贫",
+    "pinyin": "pín",
+    "vietnamese": "nghèo"
+  },
+  {
+    "num": 1360,
+    "chinese": "朋友",
+    "pinyin": "péngyǒu",
+    "vietnamese": "người bạn"
+  },
+  {
+    "num": 1361,
+    "chinese": "碰见",
+    "pinyin": "pèngjiàn",
+    "vietnamese": "gặp"
+  },
+  {
+    "num": 1362,
+    "chinese": "披",
+    "pinyin": "pī",
+    "vietnamese": "Phi"
+  },
+  {
+    "num": 1363,
+    "chinese": "批",
+    "pinyin": "pī",
+    "vietnamese": "lô"
+  },
+  {
+    "num": 1364,
+    "chinese": "批评",
+    "pinyin": "pīpíng",
+    "vietnamese": "chỉ trích"
+  },
+  {
+    "num": 1365,
+    "chinese": "批准",
+    "pinyin": "pīzhǔn",
+    "vietnamese": "chấp thuận"
+  },
+  {
+    "num": 1366,
+    "chinese": "皮肤",
+    "pinyin": "pífū",
+    "vietnamese": "da"
+  },
+  {
+    "num": 1367,
+    "chinese": "皮诗",
+    "pinyin": "píshī",
+    "vietnamese": "Pi Shi"
+  },
+  {
+    "num": 1368,
+    "chinese": "啤酒",
+    "pinyin": "píjiǔ",
+    "vietnamese": "bia"
+  },
+  {
+    "num": 1369,
+    "chinese": "疲劳",
+    "pinyin": "píláo",
+    "vietnamese": "Mệt mỏi"
+  },
+  {
+    "num": 1370,
+    "chinese": "脾气",
+    "pinyin": "píqì",
+    "vietnamese": "tính khí"
+  },
+  {
+    "num": 1371,
+    "chinese": "匹",
+    "pinyin": "pǐ",
+    "vietnamese": "cuộc thi đấu"
+  },
+  {
+    "num": 1372,
+    "chinese": "篇",
+    "pinyin": "piān",
+    "vietnamese": "chương"
+  },
+  {
+    "num": 1373,
+    "chinese": "便宜",
+    "pinyin": "piányi",
+    "vietnamese": "Rẻ"
+  },
+  {
+    "num": 1374,
+    "chinese": "统",
+    "pinyin": "tǒng",
+    "vietnamese": "hệ thống"
+  },
+  {
+    "num": 1375,
+    "chinese": "片",
+    "pinyin": "piàn",
+    "vietnamese": "cái"
+  },
+  {
+    "num": 1376,
+    "chinese": "片面",
+    "pinyin": "piànmiàn",
+    "vietnamese": "Một mặt"
+  },
+  {
+    "num": 1377,
+    "chinese": "球",
+    "pinyin": "qiú",
+    "vietnamese": "quả bóng"
+  },
+  {
+    "num": 1378,
+    "chinese": "紧",
+    "pinyin": "jǐn",
+    "vietnamese": "chặt"
+  },
+  {
+    "num": 1379,
+    "chinese": "漂亮",
+    "pinyin": "piàoliàng",
+    "vietnamese": "đẹp"
+  },
+  {
+    "num": 1380,
+    "chinese": "频道",
+    "pinyin": "píndào",
+    "vietnamese": "kênh"
+  },
+  {
+    "num": 1381,
+    "chinese": "品种",
+    "pinyin": "pǐnzhǒng",
+    "vietnamese": "đa dạng"
+  },
+  {
+    "num": 1382,
+    "chinese": "乒乓球",
+    "pinyin": "pīngpāngqiú",
+    "vietnamese": "bóng bàn"
+  },
+  {
+    "num": 1383,
+    "chinese": "和凭",
+    "pinyin": "hépíng",
+    "vietnamese": "Hà Bình"
+  },
+  {
+    "num": 1384,
+    "chinese": "平",
+    "pinyin": "píng",
+    "vietnamese": "phẳng"
+  },
+  {
+    "num": 1385,
+    "chinese": "平常",
+    "pinyin": "píngcháng",
+    "vietnamese": "thường xuyên"
+  },
+  {
+    "num": 1387,
+    "chinese": "平方",
+    "pinyin": "píngfāng",
+    "vietnamese": "quảng trường"
+  },
+  {
+    "num": 1388,
+    "chinese": "平衡",
+    "pinyin": "pínghéng",
+    "vietnamese": "THĂNG BẰNG"
+  },
+  {
+    "num": 1389,
+    "chinese": "平静",
+    "pinyin": "píngjìng",
+    "vietnamese": "điềm tĩnh"
+  },
+  {
+    "num": 1390,
+    "chinese": "平均",
+    "pinyin": "píngjūn",
+    "vietnamese": "trung bình"
+  },
+  {
+    "num": 1391,
+    "chinese": "平时",
+    "pinyin": "píngshí",
+    "vietnamese": "thường xuyên"
+  },
+  {
+    "num": 1392,
+    "chinese": "苹果",
+    "pinyin": "píngguǒ",
+    "vietnamese": "quả táo"
+  },
+  {
+    "num": 1393,
+    "chinese": "评价",
+    "pinyin": "píngjià",
+    "vietnamese": "đánh giá"
+  },
+  {
+    "num": 1394,
+    "chinese": "瓶子",
+    "pinyin": "píngzi",
+    "vietnamese": "cái chai"
+  },
+  {
+    "num": 1415,
+    "chinese": "起床",
+    "pinyin": "qǐchuáng",
+    "vietnamese": "thức dậy"
+  },
+  {
+    "num": 1416,
+    "chinese": "起悦",
+    "pinyin": "qǐyuè",
+    "vietnamese": "Tề Nhạc"
+  },
+  {
+    "num": 1417,
+    "chinese": "起来",
+    "pinyin": "qǐlái",
+    "vietnamese": "đứng lên"
+  },
+  {
+    "num": 1418,
+    "chinese": "启发",
+    "pinyin": "qǐfā",
+    "vietnamese": "Truyền cảm hứng"
+  },
+  {
+    "num": 1419,
+    "chinese": "企图",
+    "pinyin": "qǐtú",
+    "vietnamese": "nỗ lực"
+  },
+  {
+    "num": 1420,
+    "chinese": "企业",
+    "pinyin": "qǐyè",
+    "vietnamese": "doanh nghiệp"
+  },
+  {
+    "num": 1421,
+    "chinese": "气氛",
+    "pinyin": "qìfēn",
+    "vietnamese": "bầu không khí"
+  },
+  {
+    "num": 1422,
+    "chinese": "气候",
+    "pinyin": "qìhòu",
+    "vietnamese": "khí hậu"
+  },
+  {
+    "num": 1423,
+    "chinese": "汽油",
+    "pinyin": "qìyóu",
+    "vietnamese": "xăng"
+  },
+  {
+    "num": 1424,
+    "chinese": "牵",
+    "pinyin": "qiān",
+    "vietnamese": "chỉ huy"
+  },
+  {
+    "num": 1426,
+    "chinese": "千万",
+    "pinyin": "qiānwàn",
+    "vietnamese": "Mười triệu"
+  },
+  {
+    "num": 1427,
+    "chinese": "铅笔",
+    "pinyin": "qiānbǐ",
+    "vietnamese": "bút chì"
+  },
+  {
+    "num": 1428,
+    "chinese": "赚虚",
+    "pinyin": "zhuànxū",
+    "vietnamese": "Kiếm tiền"
+  },
+  {
+    "num": 1429,
+    "chinese": "签证",
+    "pinyin": "qiānzhèng",
+    "vietnamese": "visa"
+  },
+  {
+    "num": 1430,
+    "chinese": "签字",
+    "pinyin": "qiānzì",
+    "vietnamese": "chữ ký"
+  },
+  {
+    "num": 1431,
+    "chinese": "钱",
+    "pinyin": "qián",
+    "vietnamese": "tiền bạc"
+  },
+  {
+    "num": 1432,
+    "chinese": "前面",
+    "pinyin": "qiánmiàn",
+    "vietnamese": "Đằng trước"
+  },
+  {
+    "num": 1433,
+    "chinese": "前途",
+    "pinyin": "qiántú",
+    "vietnamese": "tương lai"
+  },
+  {
+    "num": 1434,
+    "chinese": "浅",
+    "pinyin": "qiǎn",
+    "vietnamese": "nông"
+  },
+  {
+    "num": 1436,
+    "chinese": "枪",
+    "pinyin": "qiāng",
+    "vietnamese": "súng"
+  },
+  {
+    "num": 1437,
+    "chinese": "场",
+    "pinyin": "chǎng",
+    "vietnamese": "cánh đồng"
+  },
+  {
+    "num": 1438,
+    "chinese": "强调",
+    "pinyin": "qiángdiào",
+    "vietnamese": "nhấn mạnh"
+  },
+  {
+    "num": 1439,
+    "chinese": "强烈",
+    "pinyin": "qiángliè",
+    "vietnamese": "mạnh"
+  },
+  {
+    "num": 1440,
+    "chinese": "抢",
+    "pinyin": "qiǎng",
+    "vietnamese": "cướp"
+  },
+  {
+    "num": 1441,
+    "chinese": "节",
+    "pinyin": "jié",
+    "vietnamese": "Lễ hội"
+  },
+  {
+    "num": 1442,
+    "chinese": "悄悄",
+    "pinyin": "qiāoqiāo",
+    "vietnamese": "lặng lẽ"
+  },
+  {
+    "num": 1443,
+    "chinese": "桥",
+    "pinyin": "qiáo",
+    "vietnamese": "cầu"
+  },
+  {
+    "num": 1444,
+    "chinese": "瞧",
+    "pinyin": "qiáo",
+    "vietnamese": "Nhìn"
+  },
+  {
+    "num": 1445,
+    "chinese": "巧克力",
+    "pinyin": "qiǎokèlì",
+    "vietnamese": "sôcôla"
+  },
+  {
+    "num": 1446,
+    "chinese": "巧妙",
+    "pinyin": "qiǎomiào",
+    "vietnamese": "thông minh"
+  },
+  {
+    "num": 1447,
+    "chinese": "切",
+    "pinyin": "qiè",
+    "vietnamese": "cắt"
+  },
+  {
+    "num": 1448,
+    "chinese": "亲爱",
+    "pinyin": "qīnài",
+    "vietnamese": "Thân mến"
+  },
+  {
+    "num": 1449,
+    "chinese": "亲威",
+    "pinyin": "qīnwēi",
+    "vietnamese": "Quyền cá nhân"
+  },
+  {
+    "num": 1451,
+    "chinese": "亲自",
+    "pinyin": "qīnzì",
+    "vietnamese": "cá nhân"
+  },
+  {
+    "num": 1452,
+    "chinese": "侵略",
+    "pinyin": "qīnlüè",
+    "vietnamese": "sự hung hãn"
+  },
+  {
+    "num": 1453,
+    "chinese": "勤奋",
+    "pinyin": "qínfèn",
+    "vietnamese": "siêng năng"
+  },
+  {
+    "num": 1454,
+    "chinese": "勤劳",
+    "pinyin": "qínláo",
+    "vietnamese": "Siêng năng"
+  },
+  {
+    "num": 1455,
+    "chinese": "青",
+    "pinyin": "qīng",
+    "vietnamese": "màu xanh lá"
+  },
+  {
+    "num": 1456,
+    "chinese": "青春",
+    "pinyin": "qīngchūn",
+    "vietnamese": "thiếu niên"
+  },
+  {
+    "num": 1457,
+    "chinese": "青少年",
+    "pinyin": "qīngshàonián",
+    "vietnamese": "thiếu niên"
+  },
+  {
+    "num": 1481,
+    "chinese": "去年",
+    "pinyin": "qùnián",
+    "vietnamese": "năm ngoái"
+  },
+  {
+    "num": 1482,
+    "chinese": "去世",
+    "pinyin": "qùshì",
+    "vietnamese": "đã chết"
+  },
+  {
+    "num": 1483,
+    "chinese": "图",
+    "pinyin": "tú",
+    "vietnamese": "hình ảnh"
+  },
+  {
+    "num": 1484,
+    "chinese": "全部",
+    "pinyin": "quánbù",
+    "vietnamese": "tất cả"
+  },
+  {
+    "num": 1485,
+    "chinese": "全面",
+    "pinyin": "quánmiàn",
+    "vietnamese": "toàn diện"
+  },
+  {
+    "num": 1486,
+    "chinese": "权力",
+    "pinyin": "quánlì",
+    "vietnamese": "sức mạnh đó"
+  },
+  {
+    "num": 1487,
+    "chinese": "权利",
+    "pinyin": "quánlì",
+    "vietnamese": "Phải"
+  },
+  {
+    "num": 1488,
+    "chinese": "劝",
+    "pinyin": "quàn",
+    "vietnamese": "khuyên nhủ"
+  },
+  {
+    "num": 1489,
+    "chinese": "缺点",
+    "pinyin": "quēdiǎn",
+    "vietnamese": "thiếu sót"
+  },
+  {
+    "num": 1490,
+    "chinese": "缺乏",
+    "pinyin": "quēfá",
+    "vietnamese": "thiếu"
+  },
+  {
+    "num": 1491,
+    "chinese": "缺少",
+    "pinyin": "quēshǎo",
+    "vietnamese": "Thiếu"
+  },
+  {
+    "num": 1492,
+    "chinese": "却",
+    "pinyin": "què",
+    "vietnamese": "Nhưng"
+  },
+  {
+    "num": 1493,
+    "chinese": "确定",
+    "pinyin": "quèdìng",
+    "vietnamese": "Chắc chắn"
+  },
+  {
+    "num": 1494,
+    "chinese": "确认",
+    "pinyin": "quèrèn",
+    "vietnamese": "xác nhận"
+  },
+  {
+    "num": 1495,
+    "chinese": "确实",
+    "pinyin": "quèshí",
+    "vietnamese": "Thực ra"
+  },
+  {
+    "num": 1496,
+    "chinese": "和群",
+    "pinyin": "héqún",
+    "vietnamese": "Hách quần"
+  },
+  {
+    "num": 1497,
+    "chinese": "裙子",
+    "pinyin": "qúnzi",
+    "vietnamese": "váy ngắn"
+  },
+  {
+    "num": 1498,
+    "chinese": "然而",
+    "pinyin": "ránér",
+    "vietnamese": "Tuy nhiên"
+  },
+  {
+    "num": 1499,
+    "chinese": "然后",
+    "pinyin": "ránhòu",
+    "vietnamese": "Sau đó"
+  },
+  {
+    "num": 1500,
+    "chinese": "燃烧",
+    "pinyin": "ránshāo",
+    "vietnamese": "đốt cháy"
+  },
+  {
+    "num": 1501,
+    "chinese": "呈",
+    "pinyin": "chéng",
+    "vietnamese": "nộp"
+  },
+  {
+    "num": 1502,
+    "chinese": "让",
+    "pinyin": "ràng",
+    "vietnamese": "cho phép"
+  },
+  {
+    "num": 1503,
+    "chinese": "绕",
+    "pinyin": "rào",
+    "vietnamese": "xung quanh"
+  },
+  {
+    "num": 1504,
+    "chinese": "热",
+    "pinyin": "rè",
+    "vietnamese": "nóng"
+  },
+  {
+    "num": 1505,
+    "chinese": "热爱",
+    "pinyin": "rèài",
+    "vietnamese": "yêu"
+  },
+  {
+    "num": 1506,
+    "chinese": "热列",
+    "pinyin": "rèliè",
+    "vietnamese": "Cột nóng"
+  },
+  {
+    "num": 1507,
+    "chinese": "热闹",
+    "pinyin": "rènào",
+    "vietnamese": "sống động"
+  },
+  {
+    "num": 1509,
+    "chinese": "热心",
+    "pinyin": "rèxīn",
+    "vietnamese": "nhiệt tình"
+  },
+  {
+    "num": 1510,
+    "chinese": "人",
+    "pinyin": "rén",
+    "vietnamese": "mọi người"
+  },
+  {
+    "num": 1511,
+    "chinese": "人才",
+    "pinyin": "réncái",
+    "vietnamese": "Tài năng"
+  },
+  {
+    "num": 1512,
+    "chinese": "人口",
+    "pinyin": "rénkǒu",
+    "vietnamese": "dân số"
+  },
+  {
+    "num": 1513,
+    "chinese": "人类",
+    "pinyin": "rénlèi",
+    "vietnamese": "nhân loại"
+  },
+  {
+    "num": 1514,
+    "chinese": "人民币",
+    "pinyin": "rénmínbì",
+    "vietnamese": "nhân dân tệ"
+  },
+  {
+    "num": 1516,
+    "chinese": "人事",
+    "pinyin": "rénshì",
+    "vietnamese": "nhân viên"
+  },
+  {
+    "num": 1517,
+    "chinese": "人物",
+    "pinyin": "rénwù",
+    "vietnamese": "nhân vật"
+  },
+  {
+    "num": 1518,
+    "chinese": "人员",
+    "pinyin": "rényuán",
+    "vietnamese": "nhân viên"
+  },
+  {
+    "num": 1519,
+    "chinese": "有仿不住",
+    "pinyin": "yǒufǎngbúzhù",
+    "vietnamese": "Tôi không thể giúp được"
+  },
+  {
+    "num": 1520,
+    "chinese": "任何",
+    "pinyin": "rènhé",
+    "vietnamese": "bất kì"
+  },
+  {
+    "num": 1521,
+    "chinese": "任务",
+    "pinyin": "rènwù",
+    "vietnamese": "Nhiệm vụ"
+  },
+  {
+    "num": 1522,
+    "chinese": "认识",
+    "pinyin": "rènshí",
+    "vietnamese": "biết"
+  },
+  {
+    "num": 1545,
+    "chinese": "酒",
+    "pinyin": "jiǔ",
+    "vietnamese": "rượu"
+  },
+  {
+    "num": 1546,
+    "chinese": "三",
+    "pinyin": "sān",
+    "vietnamese": "ba"
+  },
+  {
+    "num": 1547,
+    "chinese": "伞",
+    "pinyin": "sǎn",
+    "vietnamese": "Chiếc ô"
+  },
+  {
+    "num": 1548,
+    "chinese": "散步",
+    "pinyin": "sànbù",
+    "vietnamese": "đi bộ"
+  },
+  {
+    "num": 1549,
+    "chinese": "嗓子",
+    "pinyin": "sǎngzi",
+    "vietnamese": "tiếng nói"
+  },
+  {
+    "num": 1550,
+    "chinese": "森林",
+    "pinyin": "sēnlín",
+    "vietnamese": "rừng"
+  },
+  {
+    "num": 1551,
+    "chinese": "杀",
+    "pinyin": "shā",
+    "vietnamese": "giết"
+  },
+  {
+    "num": 1552,
+    "chinese": "沙发",
+    "pinyin": "shāfā",
+    "vietnamese": "ghế sofa"
+  },
+  {
+    "num": 1553,
+    "chinese": "沙漠",
+    "pinyin": "shāmò",
+    "vietnamese": "sa mạc"
+  },
+  {
+    "num": 1554,
+    "chinese": "沙滩",
+    "pinyin": "shātān",
+    "vietnamese": "bãi biển"
+  },
+  {
+    "num": 1556,
+    "chinese": "了晒",
+    "pinyin": "leshài",
+    "vietnamese": "tắm nắng"
+  },
+  {
+    "num": 1557,
+    "chinese": "删除",
+    "pinyin": "shānchú",
+    "vietnamese": "xóa bỏ"
+  },
+  {
+    "num": 1558,
+    "chinese": "闪电",
+    "pinyin": "shǎndiàn",
+    "vietnamese": "tia sét"
+  },
+  {
+    "num": 1559,
+    "chinese": "餐厅",
+    "pinyin": "cāntīng",
+    "vietnamese": "Phòng ăn"
+  },
+  {
+    "num": 1560,
+    "chinese": "善于",
+    "pinyin": "shànyú",
+    "vietnamese": "giỏi về"
+  },
+  {
+    "num": 1561,
+    "chinese": "扇子",
+    "pinyin": "shànzi",
+    "vietnamese": "cái quạt"
+  },
+  {
+    "num": 1562,
+    "chinese": "商店",
+    "pinyin": "shāngdiàn",
+    "vietnamese": "cửa hàng"
+  },
+  {
+    "num": 1564,
+    "chinese": "商品",
+    "pinyin": "shāngpǐn",
+    "vietnamese": "hàng hóa"
+  },
+  {
+    "num": 1565,
+    "chinese": "商业",
+    "pinyin": "shāngyè",
+    "vietnamese": "Việc kinh doanh"
+  },
+  {
+    "num": 1566,
+    "chinese": "伤心",
+    "pinyin": "shāngxīn",
+    "vietnamese": "buồn"
+  },
+  {
+    "num": 1567,
+    "chinese": "上",
+    "pinyin": "shàng",
+    "vietnamese": "thượng đẳng"
+  },
+  {
+    "num": 1568,
+    "chinese": "上班",
+    "pinyin": "shàngbān",
+    "vietnamese": "công việc"
+  },
+  {
+    "num": 1569,
+    "chinese": "上当",
+    "pinyin": "shàngdàng",
+    "vietnamese": "Bị lừa"
+  },
+  {
+    "num": 1570,
+    "chinese": "上网",
+    "pinyin": "shàngwǎng",
+    "vietnamese": "truy cập Internet"
+  },
+  {
+    "num": 1571,
+    "chinese": "上午",
+    "pinyin": "shàngwǔ",
+    "vietnamese": "buổi sáng"
+  },
+  {
+    "num": 1572,
+    "chinese": "稍微",
+    "pinyin": "shāowēi",
+    "vietnamese": "một chút"
+  },
+  {
+    "num": 1573,
+    "chinese": "勺子",
+    "pinyin": "sháozi",
+    "vietnamese": "thìa"
+  },
+  {
+    "num": 1574,
+    "chinese": "少",
+    "pinyin": "shǎo",
+    "vietnamese": "một vài"
+  },
+  {
+    "num": 1575,
+    "chinese": "凡",
+    "pinyin": "fán",
+    "vietnamese": "Cái quạt"
+  },
+  {
+    "num": 1576,
+    "chinese": "舌头",
+    "pinyin": "shétou",
+    "vietnamese": "Lưỡi"
+  },
+  {
+    "num": 1577,
+    "chinese": "售不得",
+    "pinyin": "shòubùdé",
+    "vietnamese": "Không để bán"
+  },
+  {
+    "num": 1578,
+    "chinese": "设备",
+    "pinyin": "shèbèi",
+    "vietnamese": "thiết bị"
+  },
+  {
+    "num": 1579,
+    "chinese": "设计",
+    "pinyin": "shèjì",
+    "vietnamese": "thiết kế"
+  },
+  {
+    "num": 1580,
+    "chinese": "设施",
+    "pinyin": "shèshī",
+    "vietnamese": "cơ sở"
+  },
+  {
+    "num": 1581,
+    "chinese": "社会",
+    "pinyin": "shèhuì",
+    "vietnamese": "xã hội"
+  },
+  {
+    "num": 1582,
+    "chinese": "射击",
+    "pinyin": "shèjī",
+    "vietnamese": "bắn súng"
+  },
+  {
+    "num": 1583,
+    "chinese": "摄影",
+    "pinyin": "shèyǐng",
+    "vietnamese": "nhiếp ảnh"
+  },
+  {
+    "num": 1584,
+    "chinese": "谁",
+    "pinyin": "shuí",
+    "vietnamese": "Ai"
+  },
+  {
+    "num": 1585,
+    "chinese": "伸",
+    "pinyin": "shēn",
+    "vietnamese": "kéo dài"
+  },
+  {
+    "num": 1586,
+    "chinese": "深",
+    "pinyin": "shēn",
+    "vietnamese": "sâu"
+  },
+  {
+    "num": 1609,
+    "chinese": "省略",
+    "pinyin": "shěnglüè",
+    "vietnamese": "Bỏ qua"
+  },
+  {
+    "num": 1610,
+    "chinese": "剩",
+    "pinyin": "shèng",
+    "vietnamese": "bên trái"
+  },
+  {
+    "num": 1611,
+    "chinese": "胜利",
+    "pinyin": "shènglì",
+    "vietnamese": "chiến thắng"
+  },
+  {
+    "num": 1612,
+    "chinese": "诗",
+    "pinyin": "shī",
+    "vietnamese": "thơ ca"
+  },
+  {
+    "num": 1613,
+    "chinese": "失败",
+    "pinyin": "shībài",
+    "vietnamese": "thất bại"
+  },
+  {
+    "num": 1614,
+    "chinese": "失眠",
+    "pinyin": "shīmián",
+    "vietnamese": "Mất ngủ"
+  },
+  {
+    "num": 1615,
+    "chinese": "失去",
+    "pinyin": "shīqù",
+    "vietnamese": "thua"
+  },
+  {
+    "num": 1616,
+    "chinese": "失望",
+    "pinyin": "shīwàng",
+    "vietnamese": "sự thất vọng"
+  },
+  {
+    "num": 1617,
+    "chinese": "失业",
+    "pinyin": "shīyè",
+    "vietnamese": "nạn thất nghiệp"
+  },
+  {
+    "num": 1618,
+    "chinese": "师傅",
+    "pinyin": "shīfù",
+    "vietnamese": "bậc thầy"
+  },
+  {
+    "num": 1619,
+    "chinese": "湿润",
+    "pinyin": "shīrùn",
+    "vietnamese": "ẩm ướt"
+  },
+  {
+    "num": 1620,
+    "chinese": "狮子",
+    "pinyin": "shīzi",
+    "vietnamese": "con sư tử"
+  },
+  {
+    "num": 1621,
+    "chinese": "十",
+    "pinyin": "shí",
+    "vietnamese": "mười"
+  },
+  {
+    "num": 1622,
+    "chinese": "十分",
+    "pinyin": "shífēn",
+    "vietnamese": "rất"
+  },
+  {
+    "num": 1623,
+    "chinese": "时代",
+    "pinyin": "shídài",
+    "vietnamese": "thời đại"
+  },
+  {
+    "num": 1624,
+    "chinese": "时候",
+    "pinyin": "shíhòu",
+    "vietnamese": "khi"
+  },
+  {
+    "num": 1625,
+    "chinese": "时间",
+    "pinyin": "shíjiān",
+    "vietnamese": "thời gian"
+  },
+  {
+    "num": 1626,
+    "chinese": "时刻",
+    "pinyin": "shíkè",
+    "vietnamese": "thời gian"
+  },
+  {
+    "num": 1627,
+    "chinese": "时溺",
+    "pinyin": "shínì",
+    "vietnamese": "thời gian chìm đắm"
+  },
+  {
+    "num": 1628,
+    "chinese": "时期",
+    "pinyin": "shíqī",
+    "vietnamese": "Giai đoạn"
+  },
+  {
+    "num": 1629,
+    "chinese": "时尚",
+    "pinyin": "shíshàng",
+    "vietnamese": "Thời trang"
+  },
+  {
+    "num": 1630,
+    "chinese": "实话",
+    "pinyin": "shíhuà",
+    "vietnamese": "sự thật"
+  },
+  {
+    "num": 1631,
+    "chinese": "实际",
+    "pinyin": "shíjì",
+    "vietnamese": "thật sự"
+  },
+  {
+    "num": 1632,
+    "chinese": "实践",
+    "pinyin": "shíjiàn",
+    "vietnamese": "luyện tập"
+  },
+  {
+    "num": 1633,
+    "chinese": "实习",
+    "pinyin": "shíxí",
+    "vietnamese": "luyện tập"
+  },
+  {
+    "num": 1634,
+    "chinese": "实现",
+    "pinyin": "shíxiàn",
+    "vietnamese": "hoàn thành"
+  },
+  {
+    "num": 1635,
+    "chinese": "实行",
+    "pinyin": "shíxíng",
+    "vietnamese": "thực hiện"
+  },
+  {
+    "num": 1636,
+    "chinese": "实验",
+    "pinyin": "shíyàn",
+    "vietnamese": "cuộc thí nghiệm"
+  },
+  {
+    "num": 1637,
+    "chinese": "实用",
+    "pinyin": "shíyòng",
+    "vietnamese": "thực tế"
+  },
+  {
+    "num": 1638,
+    "chinese": "实在",
+    "pinyin": "shízài",
+    "vietnamese": "Thực ra"
+  },
+  {
+    "num": 1639,
+    "chinese": "食品",
+    "pinyin": "shípǐn",
+    "vietnamese": "đồ ăn"
+  },
+  {
+    "num": 1640,
+    "chinese": "食物",
+    "pinyin": "shíwù",
+    "vietnamese": "đồ ăn"
+  },
+  {
+    "num": 1641,
+    "chinese": "石头",
+    "pinyin": "shítou",
+    "vietnamese": "Cục đá"
+  },
+  {
+    "num": 1642,
+    "chinese": "使",
+    "pinyin": "shǐ",
+    "vietnamese": "làm"
+  },
+  {
+    "num": 1643,
+    "chinese": "使劲儿",
+    "pinyin": "shǐjìnér",
+    "vietnamese": "Làm việc chăm chỉ"
+  },
+  {
+    "num": 1644,
+    "chinese": "使用",
+    "pinyin": "shǐyòng",
+    "vietnamese": "sử dụng"
+  },
+  {
+    "num": 1646,
+    "chinese": "是",
+    "pinyin": "shì",
+    "vietnamese": "Đúng"
+  },
+  {
+    "num": 1647,
+    "chinese": "是否",
+    "pinyin": "shìfǒu",
+    "vietnamese": "liệu"
+  },
+  {
+    "num": 1648,
+    "chinese": "试",
+    "pinyin": "shì",
+    "vietnamese": "thử"
+  },
+  {
+    "num": 1649,
+    "chinese": "试卷",
+    "pinyin": "shìjuàn",
+    "vietnamese": "giấy kiểm tra"
+  },
+  {
+    "num": 1650,
+    "chinese": "士兵",
+    "pinyin": "shìbīng",
+    "vietnamese": "Lính"
+  },
+  {
+    "num": 1652,
+    "chinese": "似的",
+    "pinyin": "shìde",
+    "vietnamese": "tương tự"
+  },
+  {
+    "num": 1675,
+    "chinese": "妆",
+    "pinyin": "zhuāng",
+    "vietnamese": "trang điểm"
+  },
+  {
+    "num": 1676,
+    "chinese": "受不了",
+    "pinyin": "shòubùliǎo",
+    "vietnamese": "Không thể chịu đựng được"
+  },
+  {
+    "num": 1677,
+    "chinese": "受到",
+    "pinyin": "shòudào",
+    "vietnamese": "nhận được"
+  },
+  {
+    "num": 1678,
+    "chinese": "受伤",
+    "pinyin": "shòushāng",
+    "vietnamese": "Bị thương"
+  },
+  {
+    "num": 1679,
+    "chinese": "售货员",
+    "pinyin": "shòuhuòyuán",
+    "vietnamese": "nhân viên bán hàng"
+  },
+  {
+    "num": 1680,
+    "chinese": "寿命",
+    "pinyin": "shòumìng",
+    "vietnamese": "mạng sống"
+  },
+  {
+    "num": 1681,
+    "chinese": "书",
+    "pinyin": "shū",
+    "vietnamese": "Sách"
+  },
+  {
+    "num": 1682,
+    "chinese": "书架",
+    "pinyin": "shūjià",
+    "vietnamese": "giá sách"
+  },
+  {
+    "num": 1683,
+    "chinese": "输",
+    "pinyin": "shū",
+    "vietnamese": "thua"
+  },
+  {
+    "num": 1684,
+    "chinese": "输入",
+    "pinyin": "shūrù",
+    "vietnamese": "đi vào"
+  },
+  {
+    "num": 1685,
+    "chinese": "蔬菜",
+    "pinyin": "shūcài",
+    "vietnamese": "rau quả"
+  },
+  {
+    "num": 1686,
+    "chinese": "舒服",
+    "pinyin": "shūfú",
+    "vietnamese": "Thoải mái"
+  },
+  {
+    "num": 1687,
+    "chinese": "舒适",
+    "pinyin": "shūshì",
+    "vietnamese": "Thoải mái"
+  },
+  {
+    "num": 1688,
+    "chinese": "叔叔",
+    "pinyin": "shūshū",
+    "vietnamese": "chú"
+  },
+  {
+    "num": 1689,
+    "chinese": "梳子",
+    "pinyin": "shūzi",
+    "vietnamese": "cái lược"
+  },
+  {
+    "num": 1690,
+    "chinese": "熟练",
+    "pinyin": "shúliàn",
+    "vietnamese": "có tay nghề cao"
+  },
+  {
+    "num": 1691,
+    "chinese": "熟悉",
+    "pinyin": "shúxī",
+    "vietnamese": "thân thuộc"
+  },
+  {
+    "num": 1692,
+    "chinese": "鼠标",
+    "pinyin": "shǔbiāo",
+    "vietnamese": "chuột"
+  },
+  {
+    "num": 1693,
+    "chinese": "属于",
+    "pinyin": "shǔyú",
+    "vietnamese": "thuộc về"
+  },
+  {
+    "num": 1694,
+    "chinese": "树",
+    "pinyin": "shù",
+    "vietnamese": "Cây"
+  },
+  {
+    "num": 1695,
+    "chinese": "数据",
+    "pinyin": "shùjù",
+    "vietnamese": "dữ liệu"
+  },
+  {
+    "num": 1696,
+    "chinese": "数量",
+    "pinyin": "shùliàng",
+    "vietnamese": "Số lượng"
+  },
+  {
+    "num": 1697,
+    "chinese": "数码",
+    "pinyin": "shùmǎ",
+    "vietnamese": "điện tử"
+  },
+  {
+    "num": 1698,
+    "chinese": "数学",
+    "pinyin": "shùxué",
+    "vietnamese": "toán học"
+  },
+  {
+    "num": 1699,
+    "chinese": "数字",
+    "pinyin": "shùzì",
+    "vietnamese": "con số"
+  },
+  {
+    "num": 1700,
+    "chinese": "刷",
+    "pinyin": "shuā",
+    "vietnamese": "chải"
+  },
+  {
+    "num": 1701,
+    "chinese": "控",
+    "pinyin": "kòng",
+    "vietnamese": "điều khiển"
+  },
+  {
+    "num": 1702,
+    "chinese": "甩",
+    "pinyin": "shuǎi",
+    "vietnamese": "vứt đi"
+  },
+  {
+    "num": 1703,
+    "chinese": "帅",
+    "pinyin": "shuài",
+    "vietnamese": "đẹp trai"
+  },
+  {
+    "num": 1704,
+    "chinese": "双",
+    "pinyin": "shuāng",
+    "vietnamese": "đôi"
+  },
+  {
+    "num": 1705,
+    "chinese": "双方",
+    "pinyin": "shuāngfāng",
+    "vietnamese": "cả hai bên"
+  },
+  {
+    "num": 1706,
+    "chinese": "水",
+    "pinyin": "shuǐ",
+    "vietnamese": "Nước"
+  },
+  {
+    "num": 1707,
+    "chinese": "水果",
+    "pinyin": "shuǐguǒ",
+    "vietnamese": "hoa quả"
+  },
+  {
+    "num": 1708,
+    "chinese": "水平",
+    "pinyin": "shuǐpíng",
+    "vietnamese": "mức độ"
+  },
+  {
+    "num": 1709,
+    "chinese": "税",
+    "pinyin": "shuì",
+    "vietnamese": "Thuế"
+  },
+  {
+    "num": 1710,
+    "chinese": "睡觉",
+    "pinyin": "shuìjiào",
+    "vietnamese": "ngủ"
+  },
+  {
+    "num": 1711,
+    "chinese": "顺便",
+    "pinyin": "shùnbiàn",
+    "vietnamese": "Nhân tiện"
+  },
+  {
+    "num": 1712,
+    "chinese": "顺利",
+    "pinyin": "shùnlì",
+    "vietnamese": "suôn sẻ"
+  },
+  {
+    "num": 1713,
+    "chinese": "顺序",
+    "pinyin": "shùnxù",
+    "vietnamese": "đặt hàng"
+  },
+  {
+    "num": 1714,
+    "chinese": "说不定",
+    "pinyin": "shuōbùdìng",
+    "vietnamese": "Có lẽ"
+  },
+  {
+    "num": 1715,
+    "chinese": "说服",
+    "pinyin": "shuōfú",
+    "vietnamese": "thuyết phục"
+  },
+  {
+    "num": 1716,
+    "chinese": "说话",
+    "pinyin": "shuōhuà",
+    "vietnamese": "nói"
+  },
+  {
+    "num": 1717,
+    "chinese": "说明",
+    "pinyin": "shuōmíng",
+    "vietnamese": "minh họa"
+  },
+  {
+    "num": 1718,
+    "chinese": "硕士",
+    "pinyin": "shuòshì",
+    "vietnamese": "bậc thầy"
+  },
+  {
+    "num": 1741,
+    "chinese": "碎",
+    "pinyin": "suì",
+    "vietnamese": "vỡ"
+  },
+  {
+    "num": 1742,
+    "chinese": "孙子",
+    "pinyin": "sūnzi",
+    "vietnamese": "cháu trai"
+  },
+  {
+    "num": 1743,
+    "chinese": "损失",
+    "pinyin": "sǔnshī",
+    "vietnamese": "sự mất mát"
+  },
+  {
+    "num": 1744,
+    "chinese": "缩短",
+    "pinyin": "suōduǎn",
+    "vietnamese": "rút ngắn"
+  },
+  {
+    "num": 1745,
+    "chinese": "缩小",
+    "pinyin": "suōxiǎo",
+    "vietnamese": "thu nhỏ"
+  },
+  {
+    "num": 1746,
+    "chinese": "锁",
+    "pinyin": "suǒ",
+    "vietnamese": "Khóa"
+  },
+  {
+    "num": 1747,
+    "chinese": "所",
+    "pinyin": "suǒ",
+    "vietnamese": "Địa điểm"
+  },
+  {
+    "num": 1748,
+    "chinese": "所谓",
+    "pinyin": "suǒwèi",
+    "vietnamese": "cái gọi là"
+  },
+  {
+    "num": 1749,
+    "chinese": "所以",
+    "pinyin": "suǒyǐ",
+    "vietnamese": "Vì thế"
+  },
+  {
+    "num": 1750,
+    "chinese": "所有",
+    "pinyin": "suǒyǒu",
+    "vietnamese": "tất cả"
+  },
+  {
+    "num": 1751,
+    "chinese": "他",
+    "pinyin": "tā",
+    "vietnamese": "Anh ta"
+  },
+  {
+    "num": 1752,
+    "chinese": "她",
+    "pinyin": "tā",
+    "vietnamese": "cô ấy"
+  },
+  {
+    "num": 1754,
+    "chinese": "塔",
+    "pinyin": "tǎ",
+    "vietnamese": "tháp"
+  },
+  {
+    "num": 1755,
+    "chinese": "抬",
+    "pinyin": "tái",
+    "vietnamese": "thang máy"
+  },
+  {
+    "num": 1756,
+    "chinese": "人台",
+    "pinyin": "réntái",
+    "vietnamese": "ma-nơ-canh"
+  },
+  {
+    "num": 1757,
+    "chinese": "台阶",
+    "pinyin": "táijiē",
+    "vietnamese": "bước"
+  },
+  {
+    "num": 1758,
+    "chinese": "太",
+    "pinyin": "tài",
+    "vietnamese": "cũng vậy"
+  },
+  {
+    "num": 1759,
+    "chinese": "太极拳",
+    "pinyin": "tàijíquán",
+    "vietnamese": "Thái cực quyền"
+  },
+  {
+    "num": 1760,
+    "chinese": "太太",
+    "pinyin": "tàitài",
+    "vietnamese": "Bà"
+  },
+  {
+    "num": 1761,
+    "chinese": "太阳",
+    "pinyin": "tàiyáng",
+    "vietnamese": "mặt trời"
+  },
+  {
+    "num": 1762,
+    "chinese": "态度",
+    "pinyin": "tàidù",
+    "vietnamese": "thái độ"
+  },
+  {
+    "num": 1763,
+    "chinese": "谈",
+    "pinyin": "tán",
+    "vietnamese": "nói chuyện"
+  },
+  {
+    "num": 1764,
+    "chinese": "谈判",
+    "pinyin": "tánpàn",
+    "vietnamese": "đàm phán"
+  },
+  {
+    "num": 1765,
+    "chinese": "钢和雁",
+    "pinyin": "gānghéyàn",
+    "vietnamese": "Thép và ngỗng hoang dã"
+  },
+  {
+    "num": 1766,
+    "chinese": "坦率",
+    "pinyin": "tǎnshuài",
+    "vietnamese": "thẳng thắn"
+  },
+  {
+    "num": 1767,
+    "chinese": "汤",
+    "pinyin": "tāng",
+    "vietnamese": "Canh"
+  },
+  {
+    "num": 1768,
+    "chinese": "糖",
+    "pinyin": "táng",
+    "vietnamese": "đường"
+  },
+  {
+    "num": 1769,
+    "chinese": "躺",
+    "pinyin": "tǎng",
+    "vietnamese": "nói dối"
+  },
+  {
+    "num": 1770,
+    "chinese": "滨",
+    "pinyin": "bīn",
+    "vietnamese": "bờ biển"
+  },
+  {
+    "num": 1771,
+    "chinese": "趟",
+    "pinyin": "tàng",
+    "vietnamese": "chuyến đi"
+  },
+  {
+    "num": 1772,
+    "chinese": "桃",
+    "pinyin": "táo",
+    "vietnamese": "Quả đào"
+  },
+  {
+    "num": 1773,
+    "chinese": "和逃",
+    "pinyin": "hétáo",
+    "vietnamese": "và trốn thoát"
+  },
+  {
+    "num": 1774,
+    "chinese": "逃避",
+    "pinyin": "táobì",
+    "vietnamese": "bỏ trốn"
+  },
+  {
+    "num": 1776,
+    "chinese": "讨厌",
+    "pinyin": "tǎoyàn",
+    "vietnamese": "Ghét"
+  },
+  {
+    "num": 1777,
+    "chinese": "套",
+    "pinyin": "tào",
+    "vietnamese": "bộ"
+  },
+  {
+    "num": 1778,
+    "chinese": "特别",
+    "pinyin": "tèbié",
+    "vietnamese": "đặc biệt"
+  },
+  {
+    "num": 1779,
+    "chinese": "特点",
+    "pinyin": "tèdiǎn",
+    "vietnamese": "Đặc trưng"
+  },
+  {
+    "num": 1780,
+    "chinese": "特殊",
+    "pinyin": "tèshū",
+    "vietnamese": "đặc biệt"
+  },
+  {
+    "num": 1781,
+    "chinese": "特意",
+    "pinyin": "tèyì",
+    "vietnamese": "đặc biệt"
+  },
+  {
+    "num": 1782,
+    "chinese": "特征",
+    "pinyin": "tèzhēng",
+    "vietnamese": "tính năng"
+  },
+  {
+    "num": 1805,
+    "chinese": "甜",
+    "pinyin": "tián",
+    "vietnamese": "ngọt"
+  },
+  {
+    "num": 1806,
+    "chinese": "填空",
+    "pinyin": "tiánkòng",
+    "vietnamese": "điền vào chỗ trống"
+  },
+  {
+    "num": 1807,
+    "chinese": "田野",
+    "pinyin": "tiányě",
+    "vietnamese": "cánh đồng"
+  },
+  {
+    "num": 1808,
+    "chinese": "条",
+    "pinyin": "tiáo",
+    "vietnamese": "dải"
+  },
+  {
+    "num": 1809,
+    "chinese": "条件",
+    "pinyin": "tiáojiàn",
+    "vietnamese": "tình trạng"
+  },
+  {
+    "num": 1810,
+    "chinese": "调皮",
+    "pinyin": "tiáopí",
+    "vietnamese": "nghịch ngợm"
+  },
+  {
+    "num": 1811,
+    "chinese": "调整",
+    "pinyin": "tiáozhěng",
+    "vietnamese": "Điều chỉnh"
+  },
+  {
+    "num": 1812,
+    "chinese": "挑战",
+    "pinyin": "tiǎozhàn",
+    "vietnamese": "thử thách"
+  },
+  {
+    "num": 1813,
+    "chinese": "中舞",
+    "pinyin": "zhōngwǔ",
+    "vietnamese": "múa Trung Quốc"
+  },
+  {
+    "num": 1814,
+    "chinese": "听",
+    "pinyin": "tīng",
+    "vietnamese": "Nghe"
+  },
+  {
+    "num": 1815,
+    "chinese": "停止",
+    "pinyin": "tíngzhǐ",
+    "vietnamese": "dừng lại"
+  },
+  {
+    "num": 1816,
+    "chinese": "挺",
+    "pinyin": "tǐng",
+    "vietnamese": "khá"
+  },
+  {
+    "num": 1817,
+    "chinese": "通第",
+    "pinyin": "tōngdì",
+    "vietnamese": "Tongdi"
+  },
+  {
+    "num": 1818,
+    "chinese": "通过",
+    "pinyin": "tōngguò",
+    "vietnamese": "vượt qua"
+  },
+  {
+    "num": 1819,
+    "chinese": "通讯",
+    "pinyin": "tōngxùn",
+    "vietnamese": "giao tiếp"
+  },
+  {
+    "num": 1820,
+    "chinese": "通知",
+    "pinyin": "tōngzhī",
+    "vietnamese": "thông báo"
+  },
+  {
+    "num": 1821,
+    "chinese": "铀",
+    "pinyin": "yóu",
+    "vietnamese": "uranium"
+  },
+  {
+    "num": 1822,
+    "chinese": "同情",
+    "pinyin": "tóngqíng",
+    "vietnamese": "lòng thương xót"
+  },
+  {
+    "num": 1823,
+    "chinese": "同时",
+    "pinyin": "tóngshí",
+    "vietnamese": "cùng lúc"
+  },
+  {
+    "num": 1824,
+    "chinese": "同事",
+    "pinyin": "tóngshì",
+    "vietnamese": "đồng nghiệp"
+  },
+  {
+    "num": 1825,
+    "chinese": "同学",
+    "pinyin": "tóngxué",
+    "vietnamese": "bạn cùng lớp"
+  },
+  {
+    "num": 1826,
+    "chinese": "同意",
+    "pinyin": "tóngyì",
+    "vietnamese": "đồng ý"
+  },
+  {
+    "num": 1827,
+    "chinese": "统一",
+    "pinyin": "tǒngyī",
+    "vietnamese": "thống nhất"
+  },
+  {
+    "num": 1828,
+    "chinese": "统治",
+    "pinyin": "tǒngzhì",
+    "vietnamese": "luật lệ"
+  },
+  {
+    "num": 1829,
+    "chinese": "痛舌",
+    "pinyin": "tòngshé",
+    "vietnamese": "Đau lưỡi"
+  },
+  {
+    "num": 1830,
+    "chinese": "痛快",
+    "pinyin": "tòngkuài",
+    "vietnamese": "vui mừng"
+  },
+  {
+    "num": 1831,
+    "chinese": "头发",
+    "pinyin": "tóufà",
+    "vietnamese": "tóc"
+  },
+  {
+    "num": 1832,
+    "chinese": "投资",
+    "pinyin": "tóuzī",
+    "vietnamese": "đầu tư"
+  },
+  {
+    "num": 1833,
+    "chinese": "透明",
+    "pinyin": "tòumíng",
+    "vietnamese": "trong suốt"
+  },
+  {
+    "num": 1834,
+    "chinese": "突出",
+    "pinyin": "tūchū",
+    "vietnamese": "nhô ra"
+  },
+  {
+    "num": 1835,
+    "chinese": "突然",
+    "pinyin": "tūrán",
+    "vietnamese": "Đột ngột"
+  },
+  {
+    "num": 1836,
+    "chinese": "图书馆",
+    "pinyin": "túshūguǎn",
+    "vietnamese": "thư viện"
+  },
+  {
+    "num": 1837,
+    "chinese": "土地",
+    "pinyin": "tǔdì",
+    "vietnamese": "đất"
+  },
+  {
+    "num": 1838,
+    "chinese": "土豆",
+    "pinyin": "tǔdòu",
+    "vietnamese": "Khoai tây"
+  },
+  {
+    "num": 1839,
+    "chinese": "吐",
+    "pinyin": "tǔ",
+    "vietnamese": "nôn mửa"
+  },
+  {
+    "num": 1840,
+    "chinese": "免子",
+    "pinyin": "miǎnzi",
+    "vietnamese": "đứa trẻ tự do"
+  },
+  {
+    "num": 1841,
+    "chinese": "团",
+    "pinyin": "tuán",
+    "vietnamese": "nhóm"
+  },
+  {
+    "num": 1842,
+    "chinese": "推",
+    "pinyin": "tuī",
+    "vietnamese": "xô"
+  },
+  {
+    "num": 1843,
+    "chinese": "推迟",
+    "pinyin": "tuīchí",
+    "vietnamese": "hoãn"
+  },
+  {
+    "num": 1844,
+    "chinese": "推辞",
+    "pinyin": "tuīcí",
+    "vietnamese": "sự suy sụp"
+  },
+  {
+    "num": 1845,
+    "chinese": "推广",
+    "pinyin": "tuīguǎng",
+    "vietnamese": "khuyến mãi"
+  },
+  {
+    "num": 1846,
+    "chinese": "推荐",
+    "pinyin": "tuījiàn",
+    "vietnamese": "gợi ý"
+  },
+  {
+    "num": 1847,
+    "chinese": "腿",
+    "pinyin": "tuǐ",
+    "vietnamese": "chân"
+  },
+  {
+    "num": 1848,
+    "chinese": "退",
+    "pinyin": "tuì",
+    "vietnamese": "rút lui"
+  },
+  {
+    "num": 1869,
+    "chinese": "王子",
+    "pinyin": "wángzǐ",
+    "vietnamese": "hoàng tử"
+  },
+  {
+    "num": 1870,
+    "chinese": "往",
+    "pinyin": "wǎng",
+    "vietnamese": "Quá khứ"
+  },
+  {
+    "num": 1871,
+    "chinese": "往返",
+    "pinyin": "wǎngfǎn",
+    "vietnamese": "chuyến đi khứ hồi"
+  },
+  {
+    "num": 1872,
+    "chinese": "往往",
+    "pinyin": "wǎngwǎng",
+    "vietnamese": "thường"
+  },
+  {
+    "num": 1873,
+    "chinese": "网球",
+    "pinyin": "wǎngqiú",
+    "vietnamese": "quần vợt"
+  },
+  {
+    "num": 1874,
+    "chinese": "网站",
+    "pinyin": "wǎngzhàn",
+    "vietnamese": "trang web"
+  },
+  {
+    "num": 1876,
+    "chinese": "和危害",
+    "pinyin": "héwēihài",
+    "vietnamese": "và tác hại"
+  },
+  {
+    "num": 1877,
+    "chinese": "和危险",
+    "pinyin": "héwēixiǎn",
+    "vietnamese": "và nguy hiểm"
+  },
+  {
+    "num": 1878,
+    "chinese": "微笑",
+    "pinyin": "wēixiào",
+    "vietnamese": "Nụ cười"
+  },
+  {
+    "num": 1879,
+    "chinese": "威胁",
+    "pinyin": "wēixié",
+    "vietnamese": "hăm dọa"
+  },
+  {
+    "num": 1880,
+    "chinese": "违反",
+    "pinyin": "wéifǎn",
+    "vietnamese": "vi phạm"
+  },
+  {
+    "num": 1881,
+    "chinese": "维护",
+    "pinyin": "wéihù",
+    "vietnamese": "duy trì"
+  },
+  {
+    "num": 1882,
+    "chinese": "围巾",
+    "pinyin": "wéijīn",
+    "vietnamese": "khăn quàng cổ"
+  },
+  {
+    "num": 1883,
+    "chinese": "围绕",
+    "pinyin": "wéirào",
+    "vietnamese": "xung quanh"
+  },
+  {
+    "num": 1884,
+    "chinese": "唯一",
+    "pinyin": "wéiyī",
+    "vietnamese": "chỉ một"
+  },
+  {
+    "num": 1885,
+    "chinese": "尾巴",
+    "pinyin": "wěiba",
+    "vietnamese": "Đuôi"
+  },
+  {
+    "num": 1886,
+    "chinese": "伟大",
+    "pinyin": "wěidà",
+    "vietnamese": "Tuyệt"
+  },
+  {
+    "num": 1887,
+    "chinese": "委屈",
+    "pinyin": "wěiqū",
+    "vietnamese": "sai"
+  },
+  {
+    "num": 1888,
+    "chinese": "委托",
+    "pinyin": "wěituō",
+    "vietnamese": "giao phó"
+  },
+  {
+    "num": 1889,
+    "chinese": "咀",
+    "pinyin": "jǔ",
+    "vietnamese": "nhai"
+  },
+  {
+    "num": 1890,
+    "chinese": "胃",
+    "pinyin": "wèi",
+    "vietnamese": "Cái bụng"
+  },
+  {
+    "num": 1891,
+    "chinese": "为",
+    "pinyin": "wèi",
+    "vietnamese": "vì"
+  },
+  {
+    "num": 1892,
+    "chinese": "为了",
+    "pinyin": "wèile",
+    "vietnamese": "vì"
+  },
+  {
+    "num": 1893,
+    "chinese": "什么",
+    "pinyin": "shénme",
+    "vietnamese": "Cái gì"
+  },
+  {
+    "num": 1894,
+    "chinese": "位",
+    "pinyin": "wèi",
+    "vietnamese": "Chút"
+  },
+  {
+    "num": 1895,
+    "chinese": "位置",
+    "pinyin": "wèizhì",
+    "vietnamese": "Vị trí"
+  },
+  {
+    "num": 1896,
+    "chinese": "未必",
+    "pinyin": "wèibì",
+    "vietnamese": "không nhất thiết"
+  },
+  {
+    "num": 1897,
+    "chinese": "未来",
+    "pinyin": "wèilái",
+    "vietnamese": "tương lai"
+  },
+  {
+    "num": 1898,
+    "chinese": "味道",
+    "pinyin": "wèidào",
+    "vietnamese": "mùi"
+  },
+  {
+    "num": 1899,
+    "chinese": "卫生间",
+    "pinyin": "wèishēngjiān",
+    "vietnamese": "phòng tắm"
+  },
+  {
+    "num": 1900,
+    "chinese": "温度",
+    "pinyin": "wēndù",
+    "vietnamese": "nhiệt độ"
+  },
+  {
+    "num": 1901,
+    "chinese": "温暖",
+    "pinyin": "wēnnuǎn",
+    "vietnamese": "sự ấm áp"
+  },
+  {
+    "num": 1902,
+    "chinese": "温柔",
+    "pinyin": "wēnróu",
+    "vietnamese": "dịu dàng"
+  },
+  {
+    "num": 1903,
+    "chinese": "闻",
+    "pinyin": "wén",
+    "vietnamese": "mùi"
+  },
+  {
+    "num": 1904,
+    "chinese": "文化",
+    "pinyin": "wénhuà",
+    "vietnamese": "văn hoá"
+  },
+  {
+    "num": 1905,
+    "chinese": "文件",
+    "pinyin": "wénjiàn",
+    "vietnamese": "tài liệu"
+  },
+  {
+    "num": 1906,
+    "chinese": "文具",
+    "pinyin": "wénjù",
+    "vietnamese": "văn phòng phẩm"
+  },
+  {
+    "num": 1907,
+    "chinese": "文明",
+    "pinyin": "wénmíng",
+    "vietnamese": "nền văn minh"
+  },
+  {
+    "num": 1908,
+    "chinese": "文学",
+    "pinyin": "wénxué",
+    "vietnamese": "văn học"
+  },
+  {
+    "num": 1909,
+    "chinese": "文章",
+    "pinyin": "wénzhāng",
+    "vietnamese": "bài báo"
+  },
+  {
+    "num": 1910,
+    "chinese": "吻",
+    "pinyin": "wěn",
+    "vietnamese": "hôn"
+  },
+  {
+    "num": 1911,
+    "chinese": "稳定",
+    "pinyin": "wěndìng",
+    "vietnamese": "Ổn định"
+  },
+  {
+    "num": 1912,
+    "chinese": "问",
+    "pinyin": "wèn",
+    "vietnamese": "hỏi"
+  },
+  {
+    "num": 1933,
+    "chinese": "西",
+    "pinyin": "xī",
+    "vietnamese": "Tây"
+  },
+  {
+    "num": 1934,
+    "chinese": "西瓜",
+    "pinyin": "xīguā",
+    "vietnamese": "dưa hấu"
+  },
+  {
+    "num": 1935,
+    "chinese": "西红柿",
+    "pinyin": "xīhóngshì",
+    "vietnamese": "cà chua"
+  },
+  {
+    "num": 1936,
+    "chinese": "吸收",
+    "pinyin": "xīshōu",
+    "vietnamese": "hấp thụ"
+  },
+  {
+    "num": 1937,
+    "chinese": "吸引",
+    "pinyin": "xīyǐn",
+    "vietnamese": "thu hút"
+  },
+  {
+    "num": 1938,
+    "chinese": "希望",
+    "pinyin": "xīwàng",
+    "vietnamese": "mong"
+  },
+  {
+    "num": 1939,
+    "chinese": "习惯",
+    "pinyin": "xíguàn",
+    "vietnamese": "Thói quen"
+  },
+  {
+    "num": 1940,
+    "chinese": "污",
+    "pinyin": "wū",
+    "vietnamese": "bẩn thỉu"
+  },
+  {
+    "num": 1941,
+    "chinese": "洗手间",
+    "pinyin": "xǐshǒujiān",
+    "vietnamese": "nhà vệ sinh"
+  },
+  {
+    "num": 1942,
+    "chinese": "洗衣机",
+    "pinyin": "xǐyījī",
+    "vietnamese": "máy giặt"
+  },
+  {
+    "num": 1943,
+    "chinese": "洗澡",
+    "pinyin": "xǐzǎo",
+    "vietnamese": "bồn tắm"
+  },
+  {
+    "num": 1944,
+    "chinese": "走欢",
+    "pinyin": "zǒuhuān",
+    "vietnamese": "chúc vui vẻ"
+  },
+  {
+    "num": 1945,
+    "chinese": "系",
+    "pinyin": "xì",
+    "vietnamese": "Cà vạt"
+  },
+  {
+    "num": 1946,
+    "chinese": "系统",
+    "pinyin": "xìtǒng",
+    "vietnamese": "hệ thống"
+  },
+  {
+    "num": 1947,
+    "chinese": "细节",
+    "pinyin": "xìjié",
+    "vietnamese": "chi tiết"
+  },
+  {
+    "num": 1948,
+    "chinese": "戏剧",
+    "pinyin": "xìjù",
+    "vietnamese": "kịch"
+  },
+  {
+    "num": 1949,
+    "chinese": "瞎",
+    "pinyin": "xiā",
+    "vietnamese": "mù"
+  },
+  {
+    "num": 1952,
+    "chinese": "下",
+    "pinyin": "xià",
+    "vietnamese": "Xuống"
+  },
+  {
+    "num": 1953,
+    "chinese": "下午",
+    "pinyin": "xiàwǔ",
+    "vietnamese": "buổi chiều"
+  },
+  {
+    "num": 1954,
+    "chinese": "和下",
+    "pinyin": "héxià",
+    "vietnamese": "và tiếp theo"
+  },
+  {
+    "num": 1955,
+    "chinese": "下载",
+    "pinyin": "xiàzài",
+    "vietnamese": "tải về"
+  },
+  {
+    "num": 1956,
+    "chinese": "先",
+    "pinyin": "xiān",
+    "vietnamese": "Đầu tiên"
+  },
+  {
+    "num": 1957,
+    "chinese": "先生",
+    "pinyin": "xiānshēng",
+    "vietnamese": "quý ông"
+  },
+  {
+    "num": 1958,
+    "chinese": "鲜殷",
+    "pinyin": "xiānyīn",
+    "vietnamese": "Âm tươi"
+  },
+  {
+    "num": 1959,
+    "chinese": "成",
+    "pinyin": "chéng",
+    "vietnamese": "trở nên"
+  },
+  {
+    "num": 1960,
+    "chinese": "显得",
+    "pinyin": "xiǎnde",
+    "vietnamese": "xuất hiện"
+  },
+  {
+    "num": 1961,
+    "chinese": "显然",
+    "pinyin": "xiǎnrán",
+    "vietnamese": "rõ ràng"
+  },
+  {
+    "num": 1962,
+    "chinese": "显示",
+    "pinyin": "xiǎnshì",
+    "vietnamese": "trình diễn"
+  },
+  {
+    "num": 1963,
+    "chinese": "县",
+    "pinyin": "xiàn",
+    "vietnamese": "quận"
+  },
+  {
+    "num": 1964,
+    "chinese": "现代",
+    "pinyin": "xiàndài",
+    "vietnamese": "hiện đại"
+  },
+  {
+    "num": 1965,
+    "chinese": "现金",
+    "pinyin": "xiànjīn",
+    "vietnamese": "tiền mặt"
+  },
+  {
+    "num": 1966,
+    "chinese": "现实",
+    "pinyin": "xiànshí",
+    "vietnamese": "Thực tế"
+  },
+  {
+    "num": 1967,
+    "chinese": "现象",
+    "pinyin": "xiànxiàng",
+    "vietnamese": "Hiện tượng"
+  },
+  {
+    "num": 1968,
+    "chinese": "现在",
+    "pinyin": "xiànzài",
+    "vietnamese": "Hiện nay"
+  },
+  {
+    "num": 1969,
+    "chinese": "羡慕",
+    "pinyin": "xiànmù",
+    "vietnamese": "ghen tị"
+  },
+  {
+    "num": 1970,
+    "chinese": "限制",
+    "pinyin": "xiànzhì",
+    "vietnamese": "giới hạn"
+  },
+  {
+    "num": 1971,
+    "chinese": "香",
+    "pinyin": "xiāng",
+    "vietnamese": "thơm"
+  },
+  {
+    "num": 1972,
+    "chinese": "香菊",
+    "pinyin": "xiāngjú",
+    "vietnamese": "Tương Cư"
+  },
+  {
+    "num": 1973,
+    "chinese": "相处",
+    "pinyin": "xiāngchǔ",
+    "vietnamese": "hòa hợp với nhau"
+  },
+  {
+    "num": 1974,
+    "chinese": "相当",
+    "pinyin": "xiāngdāng",
+    "vietnamese": "khá"
+  },
+  {
+    "num": 1975,
+    "chinese": "相对",
+    "pinyin": "xiāngduì",
+    "vietnamese": "tương đối"
+  },
+  {
+    "num": 1976,
+    "chinese": "相反",
+    "pinyin": "xiāngfǎn",
+    "vietnamese": "ngược lại"
+  },
+  {
+    "num": 1999,
+    "chinese": "销售",
+    "pinyin": "xiāoshòu",
+    "vietnamese": "Doanh thu"
+  },
+  {
+    "num": 2000,
+    "chinese": "消息",
+    "pinyin": "xiāoxī",
+    "vietnamese": "thông tin"
+  },
+  {
+    "num": 2001,
+    "chinese": "小",
+    "pinyin": "xiǎo",
+    "vietnamese": "Bé nhỏ"
+  },
+  {
+    "num": 2002,
+    "chinese": "小吃",
+    "pinyin": "xiǎochī",
+    "vietnamese": "đồ ăn vặt"
+  },
+  {
+    "num": 2003,
+    "chinese": "小伙子",
+    "pinyin": "xiǎohuǒzi",
+    "vietnamese": "chàng trai trẻ"
+  },
+  {
+    "num": 2004,
+    "chinese": "小姐",
+    "pinyin": "xiǎojiě",
+    "vietnamese": "Cô"
+  },
+  {
+    "num": 2005,
+    "chinese": "小麦",
+    "pinyin": "xiǎomài",
+    "vietnamese": "lúa mì"
+  },
+  {
+    "num": 2006,
+    "chinese": "小气",
+    "pinyin": "xiǎoqì",
+    "vietnamese": "nghĩa là"
+  },
+  {
+    "num": 2007,
+    "chinese": "小时",
+    "pinyin": "xiǎoshí",
+    "vietnamese": "Giờ"
+  },
+  {
+    "num": 2008,
+    "chinese": "小说",
+    "pinyin": "xiǎoshuō",
+    "vietnamese": "cuốn tiểu thuyết"
+  },
+  {
+    "num": 2009,
+    "chinese": "小偷",
+    "pinyin": "xiǎotōu",
+    "vietnamese": "Tên trộm"
+  },
+  {
+    "num": 2010,
+    "chinese": "小心",
+    "pinyin": "xiǎoxīn",
+    "vietnamese": "cẩn thận"
+  },
+  {
+    "num": 2011,
+    "chinese": "笑",
+    "pinyin": "xiào",
+    "vietnamese": "cười"
+  },
+  {
+    "num": 2012,
+    "chinese": "笑话",
+    "pinyin": "xiàohuà",
+    "vietnamese": "câu nói đùa"
+  },
+  {
+    "num": 2013,
+    "chinese": "效果",
+    "pinyin": "xiàoguǒ",
+    "vietnamese": "Tác dụng"
+  },
+  {
+    "num": 2014,
+    "chinese": "效率",
+    "pinyin": "xiàolǜ",
+    "vietnamese": "hiệu quả"
+  },
+  {
+    "num": 2015,
+    "chinese": "孝顺",
+    "pinyin": "xiàoshùn",
+    "vietnamese": "lòng hiếu thảo"
+  },
+  {
+    "num": 2016,
+    "chinese": "校长",
+    "pinyin": "xiàozhǎng",
+    "vietnamese": "hiệu trưởng"
+  },
+  {
+    "num": 2017,
+    "chinese": "些",
+    "pinyin": "xiē",
+    "vietnamese": "một số"
+  },
+  {
+    "num": 2018,
+    "chinese": "昧",
+    "pinyin": "mèi",
+    "vietnamese": "mơ hồ"
+  },
+  {
+    "num": 2019,
+    "chinese": "和斜",
+    "pinyin": "héxié",
+    "vietnamese": "và xiên"
+  },
+  {
+    "num": 2020,
+    "chinese": "诗",
+    "pinyin": "shī",
+    "vietnamese": "thơ ca"
+  },
+  {
+    "num": 2021,
+    "chinese": "协调",
+    "pinyin": "xiétiáo",
+    "vietnamese": "phối hợp"
+  },
+  {
+    "num": 2022,
+    "chinese": "写",
+    "pinyin": "xiě",
+    "vietnamese": "Viết"
+  },
+  {
+    "num": 2023,
+    "chinese": "谢谢",
+    "pinyin": "xièxiè",
+    "vietnamese": "Cảm ơn"
+  },
+  {
+    "num": 2024,
+    "chinese": "新",
+    "pinyin": "xīn",
+    "vietnamese": "mới"
+  },
+  {
+    "num": 2026,
+    "chinese": "新鲜",
+    "pinyin": "xīnxiān",
+    "vietnamese": "Tươi"
+  },
+  {
+    "num": 2027,
+    "chinese": "辛苦",
+    "pinyin": "xīnkǔ",
+    "vietnamese": "Cứng"
+  },
+  {
+    "num": 2028,
+    "chinese": "心理",
+    "pinyin": "xīnlǐ",
+    "vietnamese": "tâm lý"
+  },
+  {
+    "num": 2029,
+    "chinese": "心情",
+    "pinyin": "xīnqíng",
+    "vietnamese": "Cảm giác"
+  },
+  {
+    "num": 2030,
+    "chinese": "心脏",
+    "pinyin": "xīnzàng",
+    "vietnamese": "trái tim"
+  },
+  {
+    "num": 2031,
+    "chinese": "欣赏",
+    "pinyin": "xīnshǎng",
+    "vietnamese": "đánh giá"
+  },
+  {
+    "num": 2032,
+    "chinese": "信",
+    "pinyin": "xìn",
+    "vietnamese": "thư"
+  },
+  {
+    "num": 2033,
+    "chinese": "信封",
+    "pinyin": "xìnfēng",
+    "vietnamese": "phong bì"
+  },
+  {
+    "num": 2034,
+    "chinese": "信和号",
+    "pinyin": "xìnhéhào",
+    "vietnamese": "Tín hiệu và Số"
+  },
+  {
+    "num": 2036,
+    "chinese": "信息",
+    "pinyin": "xìnxī",
+    "vietnamese": "thông tin"
+  },
+  {
+    "num": 2037,
+    "chinese": "信心",
+    "pinyin": "xìnxīn",
+    "vietnamese": "sự tự tin"
+  },
+  {
+    "num": 2038,
+    "chinese": "信用卡",
+    "pinyin": "xìnyòngkǎ",
+    "vietnamese": "thẻ tín dụng"
+  },
+  {
+    "num": 2039,
+    "chinese": "兴理",
+    "pinyin": "xīnglǐ",
+    "vietnamese": "Xingli"
+  },
+  {
+    "num": 2040,
+    "chinese": "星期",
+    "pinyin": "xīngqī",
+    "vietnamese": "Tuần"
+  },
+  {
+    "num": 2041,
+    "chinese": "行",
+    "pinyin": "xíng",
+    "vietnamese": "ĐƯỢC RỒI"
+  },
+  {
+    "num": 2042,
+    "chinese": "行动",
+    "pinyin": "xíngdòng",
+    "vietnamese": "hoạt động"
+  },
+  {
+    "num": 2065,
+    "chinese": "修",
+    "pinyin": "xiū",
+    "vietnamese": "xây dựng"
+  },
+  {
+    "num": 2066,
+    "chinese": "修改",
+    "pinyin": "xiūgǎi",
+    "vietnamese": "Ôn lại"
+  },
+  {
+    "num": 2067,
+    "chinese": "休息",
+    "pinyin": "xiūxī",
+    "vietnamese": "nghỉ ngơi"
+  },
+  {
+    "num": 2068,
+    "chinese": "休闲",
+    "pinyin": "xiūxián",
+    "vietnamese": "Thời gian rảnh rỗi"
+  },
+  {
+    "num": 2069,
+    "chinese": "虚心",
+    "pinyin": "xūxīn",
+    "vietnamese": "khiêm nhường"
+  },
+  {
+    "num": 2070,
+    "chinese": "需要",
+    "pinyin": "xūyào",
+    "vietnamese": "nhu cầu"
+  },
+  {
+    "num": 2071,
+    "chinese": "许多",
+    "pinyin": "xǔduō",
+    "vietnamese": "nhiều"
+  },
+  {
+    "num": 2072,
+    "chinese": "叙述",
+    "pinyin": "xùshù",
+    "vietnamese": "tường thuật"
+  },
+  {
+    "num": 2073,
+    "chinese": "宣布",
+    "pinyin": "xuānbù",
+    "vietnamese": "Thông báo"
+  },
+  {
+    "num": 2074,
+    "chinese": "宣传",
+    "pinyin": "xuānchuán",
+    "vietnamese": "công khai"
+  },
+  {
+    "num": 2077,
+    "chinese": "学期",
+    "pinyin": "xuéqī",
+    "vietnamese": "học kỳ"
+  },
+  {
+    "num": 2078,
+    "chinese": "学生",
+    "pinyin": "xuéshēng",
+    "vietnamese": "học sinh"
+  },
+  {
+    "num": 2079,
+    "chinese": "学术",
+    "pinyin": "xuéshù",
+    "vietnamese": "học thuật"
+  },
+  {
+    "num": 2080,
+    "chinese": "学问",
+    "pinyin": "xuéwèn",
+    "vietnamese": "kiến thức"
+  },
+  {
+    "num": 2081,
+    "chinese": "学习",
+    "pinyin": "xuéxí",
+    "vietnamese": "học"
+  },
+  {
+    "num": 2082,
+    "chinese": "尝校",
+    "pinyin": "chángxiào",
+    "vietnamese": "Hãy thử trường học"
+  },
+  {
+    "num": 2083,
+    "chinese": "雪",
+    "pinyin": "xuě",
+    "vietnamese": "Tuyết"
+  },
+  {
+    "num": 2084,
+    "chinese": "了血",
+    "pinyin": "lexuè",
+    "vietnamese": "máu"
+  },
+  {
+    "num": 2085,
+    "chinese": "询问",
+    "pinyin": "xúnwèn",
+    "vietnamese": "hỏi"
+  },
+  {
+    "num": 2086,
+    "chinese": "寻找",
+    "pinyin": "xúnzhǎo",
+    "vietnamese": "đang tìm kiếm"
+  },
+  {
+    "num": 2087,
+    "chinese": "训练",
+    "pinyin": "xùnliàn",
+    "vietnamese": "xe lửa"
+  },
+  {
+    "num": 2088,
+    "chinese": "迅速",
+    "pinyin": "xùnsù",
+    "vietnamese": "nhanh"
+  },
+  {
+    "num": 2089,
+    "chinese": "压力",
+    "pinyin": "yālì",
+    "vietnamese": "áp lực"
+  },
+  {
+    "num": 2090,
+    "chinese": "牙高",
+    "pinyin": "yágāo",
+    "vietnamese": "Răng cao"
+  },
+  {
+    "num": 2091,
+    "chinese": "亚洲",
+    "pinyin": "yàzhōu",
+    "vietnamese": "Châu Á"
+  },
+  {
+    "num": 2092,
+    "chinese": "果",
+    "pinyin": "guǒ",
+    "vietnamese": "hoa quả"
+  },
+  {
+    "num": 2093,
+    "chinese": "盐",
+    "pinyin": "yán",
+    "vietnamese": "Muối"
+  },
+  {
+    "num": 2094,
+    "chinese": "延长",
+    "pinyin": "yáncháng",
+    "vietnamese": "mở rộng"
+  },
+  {
+    "num": 2098,
+    "chinese": "研究生",
+    "pinyin": "yánjiūshēng",
+    "vietnamese": "sau đại học"
+  },
+  {
+    "num": 2099,
+    "chinese": "凑色",
+    "pinyin": "còusè",
+    "vietnamese": "Thêm màu sắc"
+  },
+  {
+    "num": 2100,
+    "chinese": "泗出",
+    "pinyin": "sìchū",
+    "vietnamese": "Tứ Chu"
+  },
+  {
+    "num": 2101,
+    "chinese": "演员",
+    "pinyin": "yǎnyuán",
+    "vietnamese": "diễn viên"
+  },
+  {
+    "num": 2102,
+    "chinese": "眼镜",
+    "pinyin": "yǎnjìng",
+    "vietnamese": "Kính"
+  },
+  {
+    "num": 2103,
+    "chinese": "眼睛",
+    "pinyin": "yǎnjīng",
+    "vietnamese": "Mắt"
+  },
+  {
+    "num": 2104,
+    "chinese": "宴会",
+    "pinyin": "yànhuì",
+    "vietnamese": "bữa tiệc"
+  },
+  {
+    "num": 2105,
+    "chinese": "阳光",
+    "pinyin": "yángguāng",
+    "vietnamese": "Ánh nắng"
+  },
+  {
+    "num": 2106,
+    "chinese": "羊肉",
+    "pinyin": "yángròu",
+    "vietnamese": "thịt cừu"
+  },
+  {
+    "num": 2129,
+    "chinese": "业余",
+    "pinyin": "yèyú",
+    "vietnamese": "nghiệp dư"
+  },
+  {
+    "num": 2130,
+    "chinese": "叶子",
+    "pinyin": "yèzi",
+    "vietnamese": "lá cây"
+  },
+  {
+    "num": 2131,
+    "chinese": "一",
+    "pinyin": "yī",
+    "vietnamese": "một"
+  },
+  {
+    "num": 2132,
+    "chinese": "衣服",
+    "pinyin": "yīfú",
+    "vietnamese": "quần áo"
+  },
+  {
+    "num": 2133,
+    "chinese": "依然",
+    "pinyin": "yīrán",
+    "vietnamese": "vẫn"
+  },
+  {
+    "num": 2134,
+    "chinese": "医生",
+    "pinyin": "yīshēng",
+    "vietnamese": "bác sĩ"
+  },
+  {
+    "num": 2136,
+    "chinese": "一辈子",
+    "pinyin": "yībèizi",
+    "vietnamese": "trọn đời"
+  },
+  {
+    "num": 2137,
+    "chinese": "一且",
+    "pinyin": "yīqiě",
+    "vietnamese": "Một và"
+  },
+  {
+    "num": 2138,
+    "chinese": "一定",
+    "pinyin": "yídìng",
+    "vietnamese": "phải"
+  },
+  {
+    "num": 2139,
+    "chinese": "一共",
+    "pinyin": "yīgòng",
+    "vietnamese": "tổng cộng"
+  },
+  {
+    "num": 2140,
+    "chinese": "一会儿",
+    "pinyin": "yīhuìer",
+    "vietnamese": "một lúc"
+  },
+  {
+    "num": 2141,
+    "chinese": "一路",
+    "pinyin": "yīlù",
+    "vietnamese": "bằng mọi cách"
+  },
+  {
+    "num": 2142,
+    "chinese": "一切",
+    "pinyin": "yīqiè",
+    "vietnamese": "mọi thứ"
+  },
+  {
+    "num": 2143,
+    "chinese": "一样",
+    "pinyin": "yīyàng",
+    "vietnamese": "Như nhau"
+  },
+  {
+    "num": 2144,
+    "chinese": "一致",
+    "pinyin": "yízhì",
+    "vietnamese": "nhất quán"
+  },
+  {
+    "num": 2145,
+    "chinese": "移动",
+    "pinyin": "yídòng",
+    "vietnamese": "di chuyển"
+  },
+  {
+    "num": 2146,
+    "chinese": "移民",
+    "pinyin": "yímín",
+    "vietnamese": "người di cư"
+  },
+  {
+    "num": 2147,
+    "chinese": "遗城",
+    "pinyin": "yíchéng",
+    "vietnamese": "thành phố bị bỏ hoang"
+  },
+  {
+    "num": 2148,
+    "chinese": "疑问",
+    "pinyin": "yíwèn",
+    "vietnamese": "nghi ngờ"
+  },
+  {
+    "num": 2149,
+    "chinese": "乙",
+    "pinyin": "yǐ",
+    "vietnamese": "Thứ hai"
+  },
+  {
+    "num": 2150,
+    "chinese": "以",
+    "pinyin": "yǐ",
+    "vietnamese": "qua"
+  },
+  {
+    "num": 2151,
+    "chinese": "以后",
+    "pinyin": "yǐhòu",
+    "vietnamese": "sau đó"
+  },
+  {
+    "num": 2152,
+    "chinese": "以及",
+    "pinyin": "yǐjí",
+    "vietnamese": "cũng như"
+  },
+  {
+    "num": 2153,
+    "chinese": "以来",
+    "pinyin": "yǐlái",
+    "vietnamese": "từ"
+  },
+  {
+    "num": 2154,
+    "chinese": "以前",
+    "pinyin": "yǐqián",
+    "vietnamese": "trước"
+  },
+  {
+    "num": 2155,
+    "chinese": "成就",
+    "pinyin": "chéngjiù",
+    "vietnamese": "Thành tích"
+  },
+  {
+    "num": 2156,
+    "chinese": "已经",
+    "pinyin": "yǐjīng",
+    "vietnamese": "đã"
+  },
+  {
+    "num": 2157,
+    "chinese": "椅子",
+    "pinyin": "yǐzi",
+    "vietnamese": "Ghế"
+  },
+  {
+    "num": 2158,
+    "chinese": "亿",
+    "pinyin": "yì",
+    "vietnamese": "100 triệu"
+  },
+  {
+    "num": 2159,
+    "chinese": "一般",
+    "pinyin": "yìbān",
+    "vietnamese": "nói chung là"
+  },
+  {
+    "num": 2160,
+    "chinese": "一边",
+    "pinyin": "yībiān",
+    "vietnamese": "sang một bên"
+  },
+  {
+    "num": 2161,
+    "chinese": "一起",
+    "pinyin": "yìqǐ",
+    "vietnamese": "Cùng nhau"
+  },
+  {
+    "num": 2162,
+    "chinese": "一直",
+    "pinyin": "yìzhí",
+    "vietnamese": "Luôn luôn"
+  },
+  {
+    "num": 2163,
+    "chinese": "意见",
+    "pinyin": "yìjiàn",
+    "vietnamese": "Ý kiến"
+  },
+  {
+    "num": 2164,
+    "chinese": "意思",
+    "pinyin": "yìsi",
+    "vietnamese": "nghĩa là"
+  },
+  {
+    "num": 2165,
+    "chinese": "意外",
+    "pinyin": "yìwài",
+    "vietnamese": "Tai nạn"
+  },
+  {
+    "num": 2166,
+    "chinese": "意义",
+    "pinyin": "yìyì",
+    "vietnamese": "ý nghĩa"
+  },
+  {
+    "num": 2167,
+    "chinese": "议论",
+    "pinyin": "yìlùn",
+    "vietnamese": "nói chuyện"
+  },
+  {
+    "num": 2168,
+    "chinese": "艺术",
+    "pinyin": "yìshù",
+    "vietnamese": "Nghệ thuật"
+  },
+  {
+    "num": 2169,
+    "chinese": "义务",
+    "pinyin": "yìwù",
+    "vietnamese": "nghĩa vụ"
+  },
+  {
+    "num": 2170,
+    "chinese": "阴",
+    "pinyin": "yīn",
+    "vietnamese": "Tiêu cực"
+  },
+  {
+    "num": 2171,
+    "chinese": "因此",
+    "pinyin": "yīncǐ",
+    "vietnamese": "Vì vậy"
+  },
+  {
+    "num": 2172,
+    "chinese": "因而",
+    "pinyin": "yīnér",
+    "vietnamese": "do đó"
+  },
+  {
+    "num": 2190,
+    "chinese": "拥抱",
+    "pinyin": "yōngbào",
+    "vietnamese": "Ôm"
+  },
+  {
+    "num": 2195,
+    "chinese": "应用",
+    "pinyin": "yìngyòng",
+    "vietnamese": "ứng dụng"
+  },
+  {
+    "num": 2197,
+    "chinese": "拥挤",
+    "pinyin": "yōngjǐ",
+    "vietnamese": "đông đúc"
+  },
+  {
+    "num": 2198,
+    "chinese": "勇敢",
+    "pinyin": "yǒnggǎn",
+    "vietnamese": "can đảm"
+  },
+  {
+    "num": 2199,
+    "chinese": "勇气",
+    "pinyin": "yǒngqì",
+    "vietnamese": "lòng can đảm"
+  },
+  {
+    "num": 2200,
+    "chinese": "永远",
+    "pinyin": "yǒngyuǎn",
+    "vietnamese": "mãi mãi"
+  },
+  {
+    "num": 2201,
+    "chinese": "用",
+    "pinyin": "yòng",
+    "vietnamese": "sử dụng"
+  },
+  {
+    "num": 2202,
+    "chinese": "用途",
+    "pinyin": "yòngtú",
+    "vietnamese": "sử dụng"
+  },
+  {
+    "num": 2203,
+    "chinese": "优氮",
+    "pinyin": "yōudàn",
+    "vietnamese": "Nitơ tuyệt vời"
+  },
+  {
+    "num": 2204,
+    "chinese": "优惠",
+    "pinyin": "yōuhuì",
+    "vietnamese": "giảm giá"
+  },
+  {
+    "num": 2205,
+    "chinese": "优美",
+    "pinyin": "yōuměi",
+    "vietnamese": "xinh đẹp"
+  },
+  {
+    "num": 2206,
+    "chinese": "优势",
+    "pinyin": "yōushì",
+    "vietnamese": "Thuận lợi"
+  },
+  {
+    "num": 2207,
+    "chinese": "优秀",
+    "pinyin": "yōuxiù",
+    "vietnamese": "xuất sắc"
+  },
+  {
+    "num": 2208,
+    "chinese": "悠久",
+    "pinyin": "yōujiǔ",
+    "vietnamese": "dài"
+  },
+  {
+    "num": 2209,
+    "chinese": "幽默",
+    "pinyin": "yōumò",
+    "vietnamese": "hài hước"
+  },
+  {
+    "num": 2210,
+    "chinese": "由",
+    "pinyin": "yóu",
+    "vietnamese": "phụ thuộc vào"
+  },
+  {
+    "num": 2211,
+    "chinese": "由于",
+    "pinyin": "yóuyú",
+    "vietnamese": "bởi vì"
+  },
+  {
+    "num": 2212,
+    "chinese": "邮局",
+    "pinyin": "yóujú",
+    "vietnamese": "bưu điện"
+  },
+  {
+    "num": 2213,
+    "chinese": "游览",
+    "pinyin": "yóulǎn",
+    "vietnamese": "chuyến du lịch"
+  },
+  {
+    "num": 2214,
+    "chinese": "游戏",
+    "pinyin": "yóuxì",
+    "vietnamese": "trò chơi"
+  },
+  {
+    "num": 2215,
+    "chinese": "游泳",
+    "pinyin": "yóuyǒng",
+    "vietnamese": "bơi"
+  },
+  {
+    "num": 2216,
+    "chinese": "尤其",
+    "pinyin": "yóuqí",
+    "vietnamese": "đặc biệt"
+  },
+  {
+    "num": 2217,
+    "chinese": "犹豫",
+    "pinyin": "yóuyù",
+    "vietnamese": "do dự"
+  },
+  {
+    "num": 2218,
+    "chinese": "油炸",
+    "pinyin": "yóuzhá",
+    "vietnamese": "chiên"
+  },
+  {
+    "num": 2219,
+    "chinese": "有",
+    "pinyin": "yǒu",
+    "vietnamese": "có"
+  },
+  {
+    "num": 2220,
+    "chinese": "有利",
+    "pinyin": "yǒulì",
+    "vietnamese": "thuận lợi"
+  },
+  {
+    "num": 2221,
+    "chinese": "有名",
+    "pinyin": "yǒumíng",
+    "vietnamese": "nổi tiếng"
+  },
+  {
+    "num": 2222,
+    "chinese": "有趣",
+    "pinyin": "yǒuqù",
+    "vietnamese": "hấp dẫn"
+  },
+  {
+    "num": 2223,
+    "chinese": "友好",
+    "pinyin": "yǒuhǎo",
+    "vietnamese": "thân thiện"
+  },
+  {
+    "num": 2224,
+    "chinese": "友谊",
+    "pinyin": "yǒuyì",
+    "vietnamese": "tình bạn"
+  },
+  {
+    "num": 2225,
+    "chinese": "又",
+    "pinyin": "yòu",
+    "vietnamese": "lại"
+  },
+  {
+    "num": 2226,
+    "chinese": "右边",
+    "pinyin": "yòubiān",
+    "vietnamese": "Phải"
+  },
+  {
+    "num": 2227,
+    "chinese": "幼儿园",
+    "pinyin": "yòuéryuán",
+    "vietnamese": "mẫu giáo"
+  },
+  {
+    "num": 2228,
+    "chinese": "鱼",
+    "pinyin": "yú",
+    "vietnamese": "cá"
+  },
+  {
+    "num": 2229,
+    "chinese": "愉快",
+    "pinyin": "yúkuài",
+    "vietnamese": "vui sướng"
+  },
+  {
+    "num": 2230,
+    "chinese": "娱乐",
+    "pinyin": "yúlè",
+    "vietnamese": "sự giải trí"
+  },
+  {
+    "num": 2231,
+    "chinese": "于是",
+    "pinyin": "yúshì",
+    "vietnamese": "sau đó"
+  },
+  {
+    "num": 2232,
+    "chinese": "与",
+    "pinyin": "yǔ",
+    "vietnamese": "Và"
+  },
+  {
+    "num": 2233,
+    "chinese": "与其",
+    "pinyin": "yǔqí",
+    "vietnamese": "Thay vì"
+  },
+  {
+    "num": 2234,
+    "chinese": "语法",
+    "pinyin": "yǔfǎ",
+    "vietnamese": "ngữ pháp"
+  },
+  {
+    "num": 2235,
+    "chinese": "语气",
+    "pinyin": "yǔqì",
+    "vietnamese": "Giai điệu"
+  },
+  {
+    "num": 2236,
+    "chinese": "语言",
+    "pinyin": "yǔyán",
+    "vietnamese": "ngôn ngữ"
+  },
+  {
+    "num": 2237,
+    "chinese": "羽毛球",
+    "pinyin": "yǔmáoqiú",
+    "vietnamese": "cầu lông"
+  },
+  {
+    "num": 2238,
+    "chinese": "宇宙",
+    "pinyin": "yǔzhòu",
+    "vietnamese": "vũ trụ"
+  },
+  {
+    "num": 2261,
+    "chinese": "阅读",
+    "pinyin": "yuèdú",
+    "vietnamese": "đọc"
+  },
+  {
+    "num": 2262,
+    "chinese": "学",
+    "pinyin": "xué",
+    "vietnamese": "học"
+  },
+  {
+    "num": 2263,
+    "chinese": "云",
+    "pinyin": "yún",
+    "vietnamese": "đám mây"
+  },
+  {
+    "num": 2264,
+    "chinese": "人允许",
+    "pinyin": "rényǔnxǔ",
+    "vietnamese": "mọi người cho phép"
+  },
+  {
+    "num": 2265,
+    "chinese": "运动",
+    "pinyin": "yùndòng",
+    "vietnamese": "các môn thể thao"
+  },
+  {
+    "num": 2266,
+    "chinese": "运气",
+    "pinyin": "yùnqì",
+    "vietnamese": "may mắn"
+  },
+  {
+    "num": 2267,
+    "chinese": "运输",
+    "pinyin": "yùnshū",
+    "vietnamese": "vận tải"
+  },
+  {
+    "num": 2268,
+    "chinese": "运用",
+    "pinyin": "yùnyòng",
+    "vietnamese": "sử dụng"
+  },
+  {
+    "num": 2269,
+    "chinese": "杂志",
+    "pinyin": "zázhì",
+    "vietnamese": "Tạp chí"
+  },
+  {
+    "num": 2270,
+    "chinese": "灾害",
+    "pinyin": "zāihài",
+    "vietnamese": "thảm họa"
+  },
+  {
+    "num": 2271,
+    "chinese": "在",
+    "pinyin": "zài",
+    "vietnamese": "hiện hữu"
+  },
+  {
+    "num": 2272,
+    "chinese": "再",
+    "pinyin": "zài",
+    "vietnamese": "Lại"
+  },
+  {
+    "num": 2273,
+    "chinese": "再见",
+    "pinyin": "zàijiàn",
+    "vietnamese": "tạm biệt"
+  },
+  {
+    "num": 2274,
+    "chinese": "再三",
+    "pinyin": "zàisān",
+    "vietnamese": "nhiều lần"
+  },
+  {
+    "num": 2276,
+    "chinese": "赞成",
+    "pinyin": "zànchéng",
+    "vietnamese": "Đồng ý"
+  },
+  {
+    "num": 2277,
+    "chinese": "狗美",
+    "pinyin": "gǒuměi",
+    "vietnamese": "vẻ đẹp của chó"
+  },
+  {
+    "num": 2278,
+    "chinese": "暂时",
+    "pinyin": "zànshí",
+    "vietnamese": "tạm thời"
+  },
+  {
+    "num": 2279,
+    "chinese": "及",
+    "pinyin": "jí",
+    "vietnamese": "Và"
+  },
+  {
+    "num": 2280,
+    "chinese": "糟糕",
+    "pinyin": "zāogāo",
+    "vietnamese": "Ối"
+  },
+  {
+    "num": 2281,
+    "chinese": "早上",
+    "pinyin": "zǎoshàng",
+    "vietnamese": "Buổi sáng"
+  },
+  {
+    "num": 2282,
+    "chinese": "造成",
+    "pinyin": "zàochéng",
+    "vietnamese": "gây ra"
+  },
+  {
+    "num": 2283,
+    "chinese": "则",
+    "pinyin": "zé",
+    "vietnamese": "Nhưng"
+  },
+  {
+    "num": 2284,
+    "chinese": "责备",
+    "pinyin": "zébèi",
+    "vietnamese": "đổ tội"
+  },
+  {
+    "num": 2285,
+    "chinese": "责任",
+    "pinyin": "zérèn",
+    "vietnamese": "trách nhiệm"
+  },
+  {
+    "num": 2286,
+    "chinese": "怎么",
+    "pinyin": "zěnme",
+    "vietnamese": "Làm sao"
+  },
+  {
+    "num": 2287,
+    "chinese": "怎么样",
+    "pinyin": "zěnmeyàng",
+    "vietnamese": "Thế thì sao"
+  },
+  {
+    "num": 2288,
+    "chinese": "增加",
+    "pinyin": "zēngjiā",
+    "vietnamese": "Tăng"
+  },
+  {
+    "num": 2289,
+    "chinese": "增长",
+    "pinyin": "zēngzhǎng",
+    "vietnamese": "tăng"
+  },
+  {
+    "num": 2290,
+    "chinese": "摘",
+    "pinyin": "zhāi",
+    "vietnamese": "nhặt"
+  },
+  {
+    "num": 2291,
+    "chinese": "军",
+    "pinyin": "jūn",
+    "vietnamese": "quân đội"
+  },
+  {
+    "num": 2292,
+    "chinese": "粘贴",
+    "pinyin": "zhāntiē",
+    "vietnamese": "Dán"
+  },
+  {
+    "num": 2293,
+    "chinese": "展开",
+    "pinyin": "zhǎnkāi",
+    "vietnamese": "Mở rộng"
+  },
+  {
+    "num": 2294,
+    "chinese": "展览",
+    "pinyin": "zhǎnlǎn",
+    "vietnamese": "triển lãm"
+  },
+  {
+    "num": 2296,
+    "chinese": "占线",
+    "pinyin": "zhànxiàn",
+    "vietnamese": "Bận"
+  },
+  {
+    "num": 2297,
+    "chinese": "战健",
+    "pinyin": "zhànjiàn",
+    "vietnamese": "Zhan Jian"
+  },
+  {
+    "num": 2298,
+    "chinese": "张",
+    "pinyin": "zhāng",
+    "vietnamese": "mở"
+  },
+  {
+    "num": 2299,
+    "chinese": "长",
+    "pinyin": "zhǎng",
+    "vietnamese": "dài"
+  },
+  {
+    "num": 2300,
+    "chinese": "涨",
+    "pinyin": "zhǎng",
+    "vietnamese": "tăng lên"
+  },
+  {
+    "num": 2301,
+    "chinese": "掌握",
+    "pinyin": "zhǎngwò",
+    "vietnamese": "bậc thầy"
+  },
+  {
+    "num": 2302,
+    "chinese": "丈夫",
+    "pinyin": "zhàngfū",
+    "vietnamese": "chồng"
+  },
+  {
+    "num": 2325,
+    "chinese": "阵",
+    "pinyin": "zhèn",
+    "vietnamese": "Mảng"
+  },
+  {
+    "num": 2326,
+    "chinese": "振动",
+    "pinyin": "zhèndòng",
+    "vietnamese": "rung động"
+  },
+  {
+    "num": 2327,
+    "chinese": "睁",
+    "pinyin": "zhēng",
+    "vietnamese": "mở mắt"
+  },
+  {
+    "num": 2328,
+    "chinese": "争论",
+    "pinyin": "zhēnglùn",
+    "vietnamese": "tranh luận"
+  },
+  {
+    "num": 2329,
+    "chinese": "争取",
+    "pinyin": "zhēngqǔ",
+    "vietnamese": "phấn đấu cho"
+  },
+  {
+    "num": 2330,
+    "chinese": "征求",
+    "pinyin": "zhēngqiú",
+    "vietnamese": "tìm kiếm"
+  },
+  {
+    "num": 2331,
+    "chinese": "整个",
+    "pinyin": "zhěnggè",
+    "vietnamese": "toàn bộ"
+  },
+  {
+    "num": 2332,
+    "chinese": "整理",
+    "pinyin": "zhěnglǐ",
+    "vietnamese": "ngăn nắp"
+  },
+  {
+    "num": 2333,
+    "chinese": "整齐",
+    "pinyin": "zhěngqí",
+    "vietnamese": "ngăn nắp"
+  },
+  {
+    "num": 2334,
+    "chinese": "整体",
+    "pinyin": "zhěngtǐ",
+    "vietnamese": "tổng thể"
+  },
+  {
+    "num": 2335,
+    "chinese": "正",
+    "pinyin": "zhèng",
+    "vietnamese": "chỉ"
+  },
+  {
+    "num": 2336,
+    "chinese": "正生",
+    "pinyin": "zhèngshēng",
+    "vietnamese": "Chính Sinh"
+  },
+  {
+    "num": 2337,
+    "chinese": "正好",
+    "pinyin": "zhènghǎo",
+    "vietnamese": "Vừa phải"
+  },
+  {
+    "num": 2338,
+    "chinese": "正确",
+    "pinyin": "zhèngquè",
+    "vietnamese": "Chính xác"
+  },
+  {
+    "num": 2339,
+    "chinese": "正式",
+    "pinyin": "zhèngshì",
+    "vietnamese": "chính thức"
+  },
+  {
+    "num": 2340,
+    "chinese": "正在",
+    "pinyin": "zhèngzài",
+    "vietnamese": "là"
+  },
+  {
+    "num": 2341,
+    "chinese": "政策",
+    "pinyin": "zhèngcè",
+    "vietnamese": "chính sách"
+  },
+  {
+    "num": 2342,
+    "chinese": "政府",
+    "pinyin": "zhèngfǔ",
+    "vietnamese": "chính phủ"
+  },
+  {
+    "num": 2343,
+    "chinese": "政治",
+    "pinyin": "zhèngzhì",
+    "vietnamese": "chính trị"
+  },
+  {
+    "num": 2344,
+    "chinese": "证件",
+    "pinyin": "zhèngjiàn",
+    "vietnamese": "Tài liệu"
+  },
+  {
+    "num": 2345,
+    "chinese": "证据",
+    "pinyin": "zhèngjù",
+    "vietnamese": "chứng cớ"
+  },
+  {
+    "num": 2346,
+    "chinese": "证明",
+    "pinyin": "zhèngmíng",
+    "vietnamese": "chứng minh"
+  },
+  {
+    "num": 2347,
+    "chinese": "挣钱",
+    "pinyin": "zhèngqián",
+    "vietnamese": "kiếm tiền"
+  },
+  {
+    "num": 2348,
+    "chinese": "只",
+    "pinyin": "zhǐ",
+    "vietnamese": "Chỉ một"
+  },
+  {
+    "num": 2349,
+    "chinese": "之",
+    "pinyin": "zhī",
+    "vietnamese": "Của"
+  },
+  {
+    "num": 2350,
+    "chinese": "支",
+    "pinyin": "zhī",
+    "vietnamese": "chi nhánh"
+  },
+  {
+    "num": 2351,
+    "chinese": "支持",
+    "pinyin": "zhīchí",
+    "vietnamese": "ủng hộ"
+  },
+  {
+    "num": 2352,
+    "chinese": "支票",
+    "pinyin": "zhīpiào",
+    "vietnamese": "Kiểm tra"
+  },
+  {
+    "num": 2353,
+    "chinese": "知道",
+    "pinyin": "zhīdào",
+    "vietnamese": "Biết"
+  },
+  {
+    "num": 2354,
+    "chinese": "知识",
+    "pinyin": "zhīshí",
+    "vietnamese": "Kiến thức"
+  },
+  {
+    "num": 2357,
+    "chinese": "值得",
+    "pinyin": "zhíde",
+    "vietnamese": "đáng giá"
+  },
+  {
+    "num": 2358,
+    "chinese": "植物",
+    "pinyin": "zhíwù",
+    "vietnamese": "thực vật"
+  },
+  {
+    "num": 2359,
+    "chinese": "执行",
+    "pinyin": "zhíxíng",
+    "vietnamese": "thực hiện"
+  },
+  {
+    "num": 2360,
+    "chinese": "执照",
+    "pinyin": "zhízhào",
+    "vietnamese": "giấy phép"
+  },
+  {
+    "num": 2361,
+    "chinese": "职业",
+    "pinyin": "zhíyè",
+    "vietnamese": "Nghề nghiệp"
+  },
+  {
+    "num": 2362,
+    "chinese": "指",
+    "pinyin": "zhǐ",
+    "vietnamese": "tham khảo"
+  },
+  {
+    "num": 2363,
+    "chinese": "指导",
+    "pinyin": "zhǐdǎo",
+    "vietnamese": "hướng dẫn"
+  },
+  {
+    "num": 2364,
+    "chinese": "指挥",
+    "pinyin": "zhǐhuī",
+    "vietnamese": "yêu cầu"
+  },
+  {
+    "num": 2365,
+    "chinese": "只",
+    "pinyin": "zhǐ",
+    "vietnamese": "Chỉ một"
+  },
+  {
+    "num": 2366,
+    "chinese": "只好",
+    "pinyin": "zhǐhǎo",
+    "vietnamese": "phải"
+  },
+  {
+    "num": 2367,
+    "chinese": "只要",
+    "pinyin": "zhǐyào",
+    "vietnamese": "giá như"
+  },
+  {
+    "num": 2368,
+    "chinese": "制定",
+    "pinyin": "zhìdìng",
+    "vietnamese": "xây dựng"
+  },
+  {
+    "num": 2391,
+    "chinese": "重点",
+    "pinyin": "zhòngdiǎn",
+    "vietnamese": "tập trung"
+  },
+  {
+    "num": 2392,
+    "chinese": "重量",
+    "pinyin": "zhòngliàng",
+    "vietnamese": "cân nặng"
+  },
+  {
+    "num": 2393,
+    "chinese": "重视",
+    "pinyin": "zhòngshì",
+    "vietnamese": "Hãy chú ý đến"
+  },
+  {
+    "num": 2394,
+    "chinese": "重要",
+    "pinyin": "zhòngyào",
+    "vietnamese": "quan trọng"
+  },
+  {
+    "num": 2396,
+    "chinese": "周末",
+    "pinyin": "zhōumò",
+    "vietnamese": "ngày cuối tuần"
+  },
+  {
+    "num": 2397,
+    "chinese": "周围",
+    "pinyin": "zhōuwéi",
+    "vietnamese": "xung quanh"
+  },
+  {
+    "num": 2398,
+    "chinese": "猪",
+    "pinyin": "zhū",
+    "vietnamese": "con lợn"
+  },
+  {
+    "num": 2399,
+    "chinese": "逐步",
+    "pinyin": "zhúbù",
+    "vietnamese": "dần dần"
+  },
+  {
+    "num": 2400,
+    "chinese": "逐渐",
+    "pinyin": "zhújiàn",
+    "vietnamese": "dần dần"
+  },
+  {
+    "num": 2401,
+    "chinese": "人竹子",
+    "pinyin": "rénzhúzi",
+    "vietnamese": "con người tre"
+  },
+  {
+    "num": 2402,
+    "chinese": "者",
+    "pinyin": "zhě",
+    "vietnamese": "Ai"
+  },
+  {
+    "num": 2403,
+    "chinese": "主持",
+    "pinyin": "zhǔchí",
+    "vietnamese": "chủ nhà"
+  },
+  {
+    "num": 2404,
+    "chinese": "主动",
+    "pinyin": "zhǔdòng",
+    "vietnamese": "sáng kiến"
+  },
+  {
+    "num": 2406,
+    "chinese": "主人",
+    "pinyin": "zhǔrén",
+    "vietnamese": "Người sở hữu"
+  },
+  {
+    "num": 2407,
+    "chinese": "主席",
+    "pinyin": "zhǔxí",
+    "vietnamese": "Chủ tịch"
+  },
+  {
+    "num": 2408,
+    "chinese": "主要",
+    "pinyin": "zhǔyào",
+    "vietnamese": "chủ yếu"
+  },
+  {
+    "num": 2409,
+    "chinese": "主意",
+    "pinyin": "zhǔyì",
+    "vietnamese": "ý tưởng"
+  },
+  {
+    "num": 2410,
+    "chinese": "主张",
+    "pinyin": "zhǔzhāng",
+    "vietnamese": "người bào chữa"
+  },
+  {
+    "num": 2411,
+    "chinese": "嘱只",
+    "pinyin": "zhǔzhǐ",
+    "vietnamese": "chỉ cần hỏi"
+  },
+  {
+    "num": 2412,
+    "chinese": "住",
+    "pinyin": "zhù",
+    "vietnamese": "sống"
+  },
+  {
+    "num": 2413,
+    "chinese": "祝",
+    "pinyin": "zhù",
+    "vietnamese": "ước"
+  },
+  {
+    "num": 2414,
+    "chinese": "祝福",
+    "pinyin": "zhùfú",
+    "vietnamese": "ban phước"
+  },
+  {
+    "num": 2416,
+    "chinese": "注册",
+    "pinyin": "zhùcè",
+    "vietnamese": "đăng ký"
+  },
+  {
+    "num": 2417,
+    "chinese": "注意",
+    "pinyin": "zhùyì",
+    "vietnamese": "Để ý"
+  },
+  {
+    "num": 2418,
+    "chinese": "著名",
+    "pinyin": "zhùmíng",
+    "vietnamese": "Nổi tiếng"
+  },
+  {
+    "num": 2419,
+    "chinese": "抓紧",
+    "pinyin": "zhuājǐn",
+    "vietnamese": "chú ý thật kỹ"
+  },
+  {
+    "num": 2420,
+    "chinese": "专家",
+    "pinyin": "zhuānjiā",
+    "vietnamese": "chuyên gia"
+  },
+  {
+    "num": 2421,
+    "chinese": "专门",
+    "pinyin": "zhuānmén",
+    "vietnamese": "chuyên"
+  },
+  {
+    "num": 2422,
+    "chinese": "专心",
+    "pinyin": "zhuānxīn",
+    "vietnamese": "tập trung"
+  },
+  {
+    "num": 2423,
+    "chinese": "专业",
+    "pinyin": "zhuānyè",
+    "vietnamese": "lớn lao"
+  },
+  {
+    "num": 2424,
+    "chinese": "转变",
+    "pinyin": "zhuǎnbiàn",
+    "vietnamese": "thay đổi"
+  },
+  {
+    "num": 2425,
+    "chinese": "转告",
+    "pinyin": "zhuǎngào",
+    "vietnamese": "truyền đạt"
+  },
+  {
+    "num": 2426,
+    "chinese": "赚",
+    "pinyin": "zhuàn",
+    "vietnamese": "kiếm"
+  },
+  {
+    "num": 2427,
+    "chinese": "故",
+    "pinyin": "gù",
+    "vietnamese": "Vì thế"
+  },
+  {
+    "num": 2428,
+    "chinese": "装饰",
+    "pinyin": "zhuāngshì",
+    "vietnamese": "trang trí"
+  },
+  {
+    "num": 2429,
+    "chinese": "撞",
+    "pinyin": "zhuàng",
+    "vietnamese": "Va chạm"
+  },
+  {
+    "num": 2430,
+    "chinese": "状况",
+    "pinyin": "zhuàngkuàng",
+    "vietnamese": "tình huống"
+  },
+  {
+    "num": 2431,
+    "chinese": "状态",
+    "pinyin": "zhuàngtài",
+    "vietnamese": "tình trạng"
+  },
+  {
+    "num": 2432,
+    "chinese": "把求",
+    "pinyin": "bǎqiú",
+    "vietnamese": "lời yêu cầu"
+  },
+  {
+    "num": 2433,
+    "chinese": "准备",
+    "pinyin": "zhǔnbèi",
+    "vietnamese": "Chuẩn bị"
+  },
+  {
+    "num": 2434,
+    "chinese": "准确",
+    "pinyin": "zhǔnquè",
+    "vietnamese": "chính xác"
+  },
+  {
+    "num": 2457,
+    "chinese": "自由",
+    "pinyin": "zìyóu",
+    "vietnamese": "miễn phí"
+  },
+  {
+    "num": 2458,
+    "chinese": "自愿",
+    "pinyin": "zìyuàn",
+    "vietnamese": "tự nguyện"
+  },
+  {
+    "num": 2460,
+    "chinese": "宗教",
+    "pinyin": "zōngjiào",
+    "vietnamese": "tôn giáo"
+  },
+  {
+    "num": 2461,
+    "chinese": "总坊",
+    "pinyin": "zǒngfāng",
+    "vietnamese": "Tông Phương"
+  },
+  {
+    "num": 2462,
+    "chinese": "总共",
+    "pinyin": "zǒnggòng",
+    "vietnamese": "tổng cộng"
+  },
+  {
+    "num": 2463,
+    "chinese": "总结",
+    "pinyin": "zǒngjié",
+    "vietnamese": "Tóm tắt"
+  },
+  {
+    "num": 2464,
+    "chinese": "总理",
+    "pinyin": "zǒnglǐ",
+    "vietnamese": "Thủ tướng"
+  },
+  {
+    "num": 2465,
+    "chinese": "总是",
+    "pinyin": "zǒngshì",
+    "vietnamese": "luôn luôn"
+  },
+  {
+    "num": 2466,
+    "chinese": "总算",
+    "pinyin": "zǒngsuàn",
+    "vietnamese": "Cuối cùng"
+  },
+  {
+    "num": 2467,
+    "chinese": "总统",
+    "pinyin": "zǒngtǒng",
+    "vietnamese": "chủ tịch"
+  },
+  {
+    "num": 2468,
+    "chinese": "总之",
+    "pinyin": "zǒngzhī",
+    "vietnamese": "Tóm lại"
+  },
+  {
+    "num": 2469,
+    "chinese": "走",
+    "pinyin": "zǒu",
+    "vietnamese": "Đi bộ"
+  },
+  {
+    "num": 2470,
+    "chinese": "租",
+    "pinyin": "zū",
+    "vietnamese": "thuê"
+  },
+  {
+    "num": 2471,
+    "chinese": "组成",
+    "pinyin": "zǔchéng",
+    "vietnamese": "thành phần"
+  },
+  {
+    "num": 2472,
+    "chinese": "组合",
+    "pinyin": "zǔhé",
+    "vietnamese": "sự kết hợp"
+  },
+  {
+    "num": 2473,
+    "chinese": "组织",
+    "pinyin": "zǔzhī",
+    "vietnamese": "tổ chức"
+  },
+  {
+    "num": 2474,
+    "chinese": "祖国",
+    "pinyin": "zǔguó",
+    "vietnamese": "quê hương"
+  },
+  {
+    "num": 2475,
+    "chinese": "祖先",
+    "pinyin": "zǔxiān",
+    "vietnamese": "tổ tiên"
+  },
+  {
+    "num": 2476,
+    "chinese": "阻止",
+    "pinyin": "zǔzhǐ",
+    "vietnamese": "Ngăn chặn"
+  },
+  {
+    "num": 2477,
+    "chinese": "嘴",
+    "pinyin": "zuǐ",
+    "vietnamese": "Miệng"
+  },
+  {
+    "num": 2478,
+    "chinese": "醇",
+    "pinyin": "chún",
+    "vietnamese": "rượu bia"
+  },
+  {
+    "num": 2479,
+    "chinese": "最",
+    "pinyin": "zuì",
+    "vietnamese": "hầu hết"
+  },
+  {
+    "num": 2480,
+    "chinese": "最初",
+    "pinyin": "zuìchū",
+    "vietnamese": "ban đầu"
+  },
+  {
+    "num": 2481,
+    "chinese": "最好",
+    "pinyin": "zuìhǎo",
+    "vietnamese": "hầu hết"
+  },
+  {
+    "num": 2482,
+    "chinese": "最后",
+    "pinyin": "zuìhòu",
+    "vietnamese": "cuối cùng"
+  },
+  {
+    "num": 2483,
+    "chinese": "最近",
+    "pinyin": "zuìjìn",
+    "vietnamese": "gần đây"
+  },
+  {
+    "num": 2484,
+    "chinese": "罪犯",
+    "pinyin": "zuìfàn",
+    "vietnamese": "tội phạm"
+  },
+  {
+    "num": 2485,
+    "chinese": "尊散",
+    "pinyin": "zūnsàn",
+    "vietnamese": "Zunsan"
+  },
+  {
+    "num": 2486,
+    "chinese": "尊重",
+    "pinyin": "zūnzhòng",
+    "vietnamese": "sự tôn trọng"
+  },
+  {
+    "num": 2487,
+    "chinese": "遵守",
+    "pinyin": "zūnshǒu",
+    "vietnamese": "tuân theo"
+  },
+  {
+    "num": 2488,
+    "chinese": "昨天",
+    "pinyin": "zuótiān",
+    "vietnamese": "Hôm qua"
+  },
+  {
+    "num": 2489,
+    "chinese": "左边",
+    "pinyin": "zuǒbiān",
+    "vietnamese": "bên trái"
+  },
+  {
+    "num": 2490,
+    "chinese": "坐",
+    "pinyin": "zuò",
+    "vietnamese": "ngồi"
+  },
+  {
+    "num": 2491,
+    "chinese": "做",
+    "pinyin": "zuò",
+    "vietnamese": "LÀM"
+  },
+  {
+    "num": 2492,
+    "chinese": "生意",
+    "pinyin": "shēngyì",
+    "vietnamese": "Việc kinh doanh"
+  },
+  {
+    "num": 2493,
+    "chinese": "座",
+    "pinyin": "zuò",
+    "vietnamese": "ghế"
+  },
+  {
+    "num": 2494,
+    "chinese": "座位",
+    "pinyin": "zuòwèi",
+    "vietnamese": "ghế"
+  },
+  {
+    "num": 2495,
+    "chinese": "作品",
+    "pinyin": "zuòpǐn",
+    "vietnamese": "công việc"
+  },
+  {
+    "num": 2496,
+    "chinese": "作为",
+    "pinyin": "zuòwéi",
+    "vietnamese": "BẰNG"
+  },
+  {
+    "num": 2497,
+    "chinese": "作文",
+    "pinyin": "zuòwén",
+    "vietnamese": "thành phần"
+  },
+  {
+    "num": 2498,
+    "chinese": "作业",
+    "pinyin": "zuòyè",
+    "vietnamese": "Hoạt động"
+  },
+  {
+    "num": 2499,
+    "chinese": "作用",
+    "pinyin": "zuòyòng",
+    "vietnamese": "tác dụng"
+  },
+  {
+    "num": 2500,
+    "chinese": "作者",
+    "pinyin": "zuòzhě",
+    "vietnamese": "tác giả"
+  }
+]

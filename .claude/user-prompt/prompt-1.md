@@ -68,3 +68,12 @@ bổ sung quiz hợp lý cho 2 section này như 25 bài nữa => thêm vào pla
 
 đưa code vào 1 folder để cấu trúc repo tốt hơn
 commit tất cả file changing
+
+sửa lại plan của HSK => hiện tại chỉ cần từ vựng của HSK5 thôi
+sử dụng data trong data-pdf/hsk5
+
+sửa lại Home của repo, có 2 lựa chọn đến HSK hoặc JLPT
+
+sau plan này hãy thêm các skill mới để phục vụ cho các plan từ vựng HSKK sau này
+
+sửa lại plan, không cần translate cả english nữa, sửa các file liên quan
