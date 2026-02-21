@@ -134,6 +134,27 @@
       </div>
     </section>
 
+    <!-- ========== SCREEN: HSK Group Menu ========== -->
+    <section id="screen-hsk-menu" class="screen">
+      <h2 id="hsk-menu-group-title" class="screen-heading"></h2>
+      <p id="hsk-menu-word-count" class="text-muted"></p>
+
+      <div class="menu-actions hsk-menu-actions">
+        <button class="btn btn-primary btn-lg" data-mode="hsk-fc">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Flashcard
+        </button>
+        <button class="btn btn-accent btn-lg" data-mode="hsk-mc-cn-vi">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Tr&#x1EAF;c nghi&#x1EC7;m CN &#x2192; VN
+        </button>
+        <button class="btn btn-accent btn-lg" data-mode="hsk-mc-vi-cn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Tr&#x1EAF;c nghi&#x1EC7;m VN &#x2192; CN
+        </button>
+      </div>
+    </section>
+
     <!-- ========== SCREEN: Vocabulary List ========== -->
     <section id="screen-vocab-list" class="screen">
       <h2 id="vocab-list-title" class="screen-heading"></h2>
@@ -392,6 +413,13 @@
   <script src="js/data/minna/alphabet.js"></script>
   <script src="js/data/minna/counters.js"></script>
   <script src="js/data/minna/index.js"></script>
+  <!-- Data: HSK 5 -->
+  <script src="js/data/hsk/hsk5-a.js"></script>
+  <script src="js/data/hsk/hsk5-b.js"></script>
+  <script src="js/data/hsk/hsk5-c.js"></script>
+  <script src="js/data/hsk/hsk5-d.js"></script>
+  <script src="js/data/hsk/hsk5-e.js"></script>
+  <script src="js/data/hsk/index.js"></script>
   <script src="js/data/index.js"></script>
   <!-- Core -->
   <script src="js/core/utils.js"></script>
@@ -413,6 +441,7 @@
   <!-- Screens (late — depend on quiz/session) -->
   <script src="js/screens/lessons.js"></script>
   <script src="js/screens/results.js"></script>
+  <script src="js/screens/hsk-menu.js"></script>
   <script src="js/screens/alphabet.js"></script>
   <script src="js/screens/counters.js"></script>
   <script src="js/quiz/alpha-quiz.js"></script>

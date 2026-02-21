@@ -21,9 +21,14 @@ window.QuizApp.quiz.flashcard = (function () {
       const state = window.QuizApp.state;
       const item  = state.questions[state.questionIndex];
       if (!item) return;
-      window.QuizApp.audio.speak(
-        state.currentMode === "grammar-flashcard" ? item.pattern : item.japanese
-      );
+      const mode = state.currentMode;
+      if (mode === "hsk-fc") {
+        window.QuizApp.audio.speak(item.chinese, "zh-CN");
+      } else if (mode === "grammar-flashcard") {
+        window.QuizApp.audio.speak(item.pattern);
+      } else {
+        window.QuizApp.audio.speak(item.japanese);
+      }
     });
   }
 
@@ -70,15 +75,36 @@ window.QuizApp.quiz.flashcard = (function () {
     ui.updateProgress("fc", state.questionIndex, state.questions.length);
     $("#fc-prev").disabled = state.questionIndex === 0;
 
-    // Auto-play pronunciation for the front (Japanese/pattern)
+    // Auto-play pronunciation
     const speakText = isGrammarMode ? item.pattern : item.japanese;
     window.QuizApp.audio.speak(speakText);
+  }
+
+  function renderHSKFlashcard() {
+    const state = window.QuizApp.state;
+    const ui    = window.QuizApp.ui;
+    const item  = state.questions[state.questionIndex];
+
+    flashcardEl.classList.remove("flipped");
+
+    $("#fc-front-word").textContent  = item.chinese;
+    $("#fc-back-kana").textContent   = item.pinyin;
+    $("#fc-back-romaji").textContent = "";
+    $("#fc-back-meaning").textContent = item.vietnamese;
+    $("#fc-back-english").textContent = "";
+    $("#fc-back-example").textContent = "";
+
+    ui.updateProgress("fc", state.questionIndex, state.questions.length);
+    $("#fc-prev").disabled = state.questionIndex === 0;
+
+    window.QuizApp.audio.speak(item.chinese, "zh-CN");
   }
 
   function _currentRender() {
     const mode = window.QuizApp.state.currentMode;
     if (mode === "alpha-fc")   return window.QuizApp.quiz.alpha.renderFlashcard;
     if (mode === "counter-fc") return window.QuizApp.quiz.counter.renderFlashcard;
+    if (mode === "hsk-fc")     return renderHSKFlashcard;
     return renderFlashcard;
   }
 

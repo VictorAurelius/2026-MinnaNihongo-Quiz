@@ -1,5 +1,5 @@
 /**
- * ui/audio.js — Web Speech API wrapper for Japanese TTS
+ * ui/audio.js — Web Speech API wrapper for TTS (Japanese + Chinese)
  * Depends on: nothing (self-contained)
  * Gracefully no-ops if browser doesn't support window.speechSynthesis.
  */
@@ -21,11 +21,11 @@ window.QuizApp.audio = (function () {
     window.speechSynthesis.addEventListener("voiceschanged", _loadVoices);
   }
 
-  function _getBestVoice() {
-    // Prefer local (OS) Japanese voice — better quality, works offline
-    return _voices.find(v => v.lang === "ja-JP" && v.localService)
-        || _voices.find(v => v.lang === "ja-JP")
-        || _voices.find(v => v.lang.startsWith("ja"))
+  function _getBestVoiceForLang(lang) {
+    const prefix = lang.split("-")[0]; // "ja" from "ja-JP", "zh" from "zh-CN"
+    return _voices.find(v => v.lang === lang && v.localService)
+        || _voices.find(v => v.lang === lang)
+        || _voices.find(v => v.lang.startsWith(prefix))
         || null;
   }
 
@@ -33,16 +33,21 @@ window.QuizApp.audio = (function () {
     return "speechSynthesis" in window;
   }
 
-  /** Speak Japanese text. Silently no-ops if unsupported or empty. */
-  function speak(text) {
+  /**
+   * Speak text via TTS.
+   * @param {string} text  — text to speak
+   * @param {string} [lang] — BCP-47 language tag, defaults to "ja-JP"
+   */
+  function speak(text, lang) {
     if (!isSupported() || !text) return;
+    const resolvedLang = lang || "ja-JP";
     const utter = new SpeechSynthesisUtterance(text);
-    utter.lang  = "ja-JP";
-    utter.rate  = 0.85;   // slightly slower for learning
+    utter.lang  = resolvedLang;
+    utter.rate  = 0.85;
     utter.pitch = 1.0;
-    const voice = _getBestVoice();
+    const voice = _getBestVoiceForLang(resolvedLang);
     if (voice) utter.voice = voice;
-    window.speechSynthesis.cancel();   // stop any currently playing speech
+    window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utter);
   }
 

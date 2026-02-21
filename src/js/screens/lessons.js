@@ -109,15 +109,34 @@ window.QuizApp.screens = window.QuizApp.screens || {};
 
   // ── HSK grid ─────────────────────────────────────────────────
   function renderHSKGrid(grid) {
-    // Placeholder until HSK5 data is entered (Phase 2)
-    const placeholder = document.createElement("div");
-    placeholder.className = "hsk-coming-soon";
-    placeholder.innerHTML = `
-      <span class="hsk-coming-soon-icon">&#x1F4DA;</span>
-      <h3>HSK 5 — S&#x1EAFp ra m&#x1EAFt</h3>
-      <p>D&#x1EEF; li&#x1EC7;u HSK 5 &#x111;ang &#x111;&#x01B0;&#x1EE3;c nh&#x1EAD;p li&#x1EC7;u.<br>2500 t&#x1EEB; v&#x1EF1;ng ti&#x1EBF;ng Trung theo chu&#x1EA9;n HSK 5 (C1).</p>
-    `;
-    grid.appendChild(placeholder);
+    if (typeof HSK5_DATA === "undefined") {
+      const placeholder = document.createElement("div");
+      placeholder.className = "hsk-coming-soon";
+      placeholder.innerHTML = `
+        <span class="hsk-coming-soon-icon">&#x1F4DA;</span>
+        <h3>HSK 5 &#x2014; D&#x1EEF; li&#x1EC7;u &#x111;ang t&#x1EA3;i</h3>
+      `;
+      grid.appendChild(placeholder);
+      return;
+    }
+
+    HSK5_DATA.groups.forEach(function (group) {
+      const bestPct = window.QuizApp.storage.getHSKGroupBestPercent
+        ? window.QuizApp.storage.getHSKGroupBestPercent(group.id)
+        : 0;
+      const card = document.createElement("div");
+      card.className = "lesson-card";
+      card.innerHTML = `
+        <span class="lesson-number">Nh\xF3m ${group.id.toUpperCase()}</span>
+        <span class="lesson-title">${group.title}</span>
+        <span class="lesson-meta">${group.words.length} t\u1EEB v\u1EF1ng</span>
+        <div class="lesson-progress-bar"><div class="fill" style="width:${bestPct}%"></div></div>
+      `;
+      card.addEventListener("click", function () {
+        window.QuizApp.screens.openHSKGroupMenu(group);
+      });
+      grid.appendChild(card);
+    });
   }
 
   // ── Main render ───────────────────────────────────────────────

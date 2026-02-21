@@ -17,12 +17,22 @@ window.QuizApp.quiz.mc = (function () {
     const utils = window.QuizApp.utils;
     const ui    = window.QuizApp.ui;
     const item  = state.questions[state.questionIndex];
-    const isGrammarMode = state.currentMode.startsWith("grammar-mc");
-    const isJpToVi = state.currentMode === "mc-jp-vi" || state.currentMode === "grammar-mc-jp-vi";
+    const mode  = state.currentMode;
+    const isHSK       = mode.startsWith("hsk-mc");
+    const isHSKCnToVi = mode === "hsk-mc-cn-vi";
+    const isGrammarMode = mode.startsWith("grammar-mc");
+    const isJpToVi = mode === "mc-jp-vi" || mode === "grammar-mc-jp-vi";
 
-    if (isJpToVi) {
+    if (isHSK) {
+      $("#mc-question-label").textContent = isHSKCnToVi
+        ? "T\u1EEB n\xE0y ngh\u0129a l\xE0 g\xEC?"
+        : "Ch\u1EEF H\xE1n n\xE0o \u0111\xFAng?";
+      $("#mc-question").textContent = isHSKCnToVi ? item.chinese : item.vietnamese;
+      $("#mc-question").style.fontFamily = isHSKCnToVi ? "var(--font-cn, var(--font-jp))" : "inherit";
+      $("#mc-romaji").classList.add("hidden");
+    } else if (isJpToVi) {
       $("#mc-question-label").textContent =
-        isGrammarMode ? "Mẫu ngữ pháp này nghĩa là gì?" : "Từ này nghĩa là gì?";
+        isGrammarMode ? "M\u1EABu ng\u1EEF ph\xE1p n\xE0y ngh\u0129a l\xE0 g\xEC?" : "T\u1EEB n\xE0y ngh\u0129a l\xE0 g\xEC?";
       $("#mc-question").textContent =
         isGrammarMode ? item.pattern : item.japanese;
       $("#mc-question").style.fontFamily = "var(--font-jp)";
@@ -34,17 +44,17 @@ window.QuizApp.quiz.mc = (function () {
       }
     } else {
       $("#mc-question-label").textContent =
-        isGrammarMode ? "Mẫu ngữ pháp nào đúng?" : "Từ nào đúng?";
+        isGrammarMode ? "M\u1EABu ng\u1EEF ph\xE1p n\xE0o \u0111\xFAng?" : "T\u1EEB n\xE0o \u0111\xFAng?";
       $("#mc-question").textContent = item.vietnamese;
       $("#mc-question").style.fontFamily = "inherit";
       $("#mc-romaji").classList.add("hidden");
     }
 
-    const contentArray = isGrammarMode
-      ? state.currentLesson.grammar
-      : state.currentLesson.vocabulary;
-    const pool = contentArray.filter((v) => v !== item);
-    const options = utils.shuffle([item, ...utils.shuffle(pool).slice(0, 3)]);
+    const pool = state.currentLesson.vocabulary.filter((v) => v !== item);
+    const contentArray = !isHSK && isGrammarMode
+      ? state.currentLesson.grammar.filter((v) => v !== item)
+      : pool;
+    const options = utils.shuffle([item, ...utils.shuffle(contentArray).slice(0, 3)]);
 
     const optionsContainer = $("#mc-options");
     optionsContainer.innerHTML = "";
@@ -53,7 +63,21 @@ window.QuizApp.quiz.mc = (function () {
       const btn = document.createElement("button");
       btn.className = "mc-option";
 
-      if (isGrammarMode) {
+      if (isHSK) {
+        if (isHSKCnToVi) {
+          btn.textContent = opt.vietnamese;
+        } else {
+          const cnSpan = document.createElement("span");
+          cnSpan.className = "mc-option-main";
+          cnSpan.style.fontFamily = "var(--font-cn, var(--font-jp))";
+          cnSpan.textContent = opt.chinese;
+          const pySpan = document.createElement("span");
+          pySpan.className = "mc-option-romaji";
+          pySpan.textContent = `(${opt.pinyin})`;
+          btn.appendChild(cnSpan);
+          btn.appendChild(pySpan);
+        }
+      } else if (isGrammarMode) {
         btn.textContent = isJpToVi ? opt.vietnamese : opt.pattern;
       } else if (isJpToVi) {
         btn.textContent = opt.vietnamese;
@@ -69,7 +93,7 @@ window.QuizApp.quiz.mc = (function () {
       }
 
       btn.dataset.correct = (opt === item) ? "true" : "false";
-      btn.addEventListener("click", () => handleMCAnswer(btn, item, isJpToVi, isGrammarMode));
+      btn.addEventListener("click", () => handleMCAnswer(btn, item, isJpToVi, isGrammarMode, isHSK, isHSKCnToVi));
       optionsContainer.appendChild(btn);
     });
 
@@ -79,7 +103,7 @@ window.QuizApp.quiz.mc = (function () {
     ui.updateProgress("mc", state.questionIndex, state.questions.length);
   }
 
-  function handleMCAnswer(btn, correctItem, isJpToVi, isGrammarMode = false) {
+  function handleMCAnswer(btn, correctItem, isJpToVi, isGrammarMode = false, isHSK = false, isHSKCnToVi = false) {
     const state = window.QuizApp.state;
     const utils = window.QuizApp.utils;
     const ui    = window.QuizApp.ui;
@@ -99,7 +123,11 @@ window.QuizApp.quiz.mc = (function () {
         if (b.dataset.correct === "true") b.classList.add("correct");
       });
       let correctText;
-      if (isGrammarMode) {
+      if (isHSK) {
+        correctText = isHSKCnToVi
+          ? `${correctItem.chinese} (${correctItem.pinyin}) = ${correctItem.vietnamese}`
+          : `${correctItem.vietnamese} = ${correctItem.chinese} (${correctItem.pinyin})`;
+      } else if (isGrammarMode) {
         correctText = isJpToVi
           ? `${correctItem.pattern} = ${correctItem.vietnamese}`
           : `${correctItem.vietnamese} = ${correctItem.pattern}`;
@@ -109,7 +137,7 @@ window.QuizApp.quiz.mc = (function () {
           ? `${correctItem.japanese} (${r}) = ${correctItem.vietnamese}`
           : `${correctItem.vietnamese} = ${correctItem.japanese} (${r})`;
       }
-      ui.showFeedback("mc", false, `Đáp án: ${correctText}`);
+      ui.showFeedback("mc", false, `\u0110\xE1p \xE1n: ${correctText}`);
     }
 
     $("#mc-next").classList.remove("hidden");
@@ -122,9 +150,9 @@ window.QuizApp.quiz.mc = (function () {
       window.QuizApp.screens.showResults();
     } else {
       const mode = state.currentMode;
-      if (mode.startsWith("alpha-mc"))   window.QuizApp.quiz.alpha.renderMC();
+      if (mode.startsWith("alpha-mc"))       window.QuizApp.quiz.alpha.renderMC();
       else if (mode.startsWith("counter-mc")) window.QuizApp.quiz.counter.renderMC();
-      else renderMC();
+      else renderMC(); // handles hsk-mc, mc-jp-vi, mc-vi-jp, grammar-mc
     }
   });
 

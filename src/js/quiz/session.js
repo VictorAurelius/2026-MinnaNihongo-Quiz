@@ -56,5 +56,14 @@ window.QuizApp.quiz.startSession = function (vocabSubset) {
   } else if (mode === "counter-mc") {
     nav.showScreen("mc");
     window.QuizApp.quiz.counter.renderMC();
+
+  } else if (mode === "hsk-fc") {
+    state.fcKnownCount = 0;
+    nav.showScreen("flashcard");
+    window.QuizApp.quiz.flashcard.renderFlashcard(); // _currentRender() dispatches to renderHSKFlashcard
+
+  } else if (mode === "hsk-mc-cn-vi" || mode === "hsk-mc-vi-cn") {
+    nav.showScreen("mc");
+    window.QuizApp.quiz.mc.renderMC();
   }
 };

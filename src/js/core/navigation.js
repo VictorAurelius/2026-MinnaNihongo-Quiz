@@ -22,6 +22,7 @@ window.QuizApp.nav = (function () {
     results:     $("#screen-results"),
     alphabet:    $("#screen-alphabet"),
     counters:    $("#screen-counters"),
+    hskMenu:     $("#screen-hsk-menu"),
   };
 
   const state = window.QuizApp.state;
