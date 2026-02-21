@@ -118,7 +118,15 @@ js/
 ### Phase 2: Tách app.js → modules
 **Goal:** Mỗi concern = 1 file, load theo thứ tự dependency
 
-**Thứ tự tạo (theo dependency, không có circular):**
+> **⚠️ CONTENT FILTERING — ĐỌC TRƯỚC KHI LÀM:**
+> - Lỗi `Output blocked by content filtering policy (400)` xảy ra khi model generate khối Unicode Japanese lớn (kana maps trong `kanaToRomaji`).
+> - **Quy tắc 1:** Viết **đúng 1 file mỗi lần** — không batch nhiều files trong 1 response.
+> - **Quy tắc 2:** File `utils.js` chứa `kanaToRomaji` với 60+ ký tự Nhật — **KHÔNG tự viết lại nội dung hàm này**. Dùng skill `/refactor-phase2` để extract bằng Bash.
+> - Dùng skill `/refactor-phase2 <step>` để thực hiện từng bước an toàn.
+
+> **Thứ tự thực hiện an toàn:** Dùng `/refactor-phase2` — skill đặt `utils.js` ở step 6 (sau các file không có Unicode) thay vì step 1 trong bảng dependency dưới đây.
+
+**Thứ tự dependency (không có circular):**
 
 | # | File | Extract từ app.js | Depends on |
 |---|------|-------------------|------------|
