@@ -39,6 +39,11 @@ window.QuizApp.screens = window.QuizApp.screens || {};
       const mode  = btn.dataset.mode;
       if (!mode || !state.currentLesson) return;
 
+      if (mode === "hsk-vocab-list") {
+        window.QuizApp.screens.openHSKVocabList();
+        return;
+      }
+
       state.currentMode = mode;
       state.isRetryMode = false;
       state.wrongItems  = [];

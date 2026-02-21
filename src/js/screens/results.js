@@ -18,10 +18,14 @@ window.QuizApp.screens = window.QuizApp.screens || {};
     const total   = state.questions.length;
     const pct     = total > 0 ? Math.round((state.score / total) * 100) : 0;
 
-    // Save progress only for lesson-based modes (alpha/counter have no lessonNumber)
+    // Save progress — HSK groups use separate storage key
     if (state.currentLesson) {
-      const modeKey = state.currentMode === "flashcard" ? "flashcard" : state.currentMode;
-      storage.saveProgress(state.currentLesson.lessonNumber, modeKey, state.score, total);
+      if (state.currentLesson.hskGroup) {
+        storage.saveHSKProgress(state.currentLesson.hskGroup, state.currentMode, state.score, total);
+      } else if (state.currentLesson.lessonNumber) {
+        const modeKey = state.currentMode === "flashcard" ? "flashcard" : state.currentMode;
+        storage.saveProgress(state.currentLesson.lessonNumber, modeKey, state.score, total);
+      }
     }
 
     $("#score-ring-fill").style.strokeDasharray = `${pct}, 100`;
@@ -30,7 +34,8 @@ window.QuizApp.screens = window.QuizApp.screens || {};
     const isFcMode = state.currentMode === "flashcard"
                   || state.currentMode === "alpha-fc"
                   || state.currentMode === "counter-fc"
-                  || state.currentMode === "grammar-flashcard";
+                  || state.currentMode === "grammar-flashcard"
+                  || state.currentMode === "hsk-fc";
     const unit = state.currentMode.startsWith("alpha") ? "chữ"
                : state.currentMode.startsWith("counter") ? "câu"
                : "từ";
@@ -74,7 +79,8 @@ window.QuizApp.screens = window.QuizApp.screens || {};
     window.QuizApp.screens.renderLessonGrid();
     window.QuizApp.nav.clearNavigationHistory();
     window.QuizApp.nav.showScreen("lessons", false);
-    $("#header-title").textContent = "Minna no Nihongo 1";
+    $("#header-title").textContent =
+      window.QuizApp.screens.getCourseHeaderTitle(window.QuizApp.screens.getActiveCourse());
   });
 
   window.QuizApp.screens.showResults = showResults;

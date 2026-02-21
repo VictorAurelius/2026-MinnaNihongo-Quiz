@@ -152,6 +152,29 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           Tr&#x1EAF;c nghi&#x1EC7;m VN &#x2192; CN
         </button>
+        <button class="btn btn-outline btn-lg" data-mode="hsk-vocab-list">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          Xem danh s&#xE1;ch t&#x1EEB;
+        </button>
+      </div>
+    </section>
+
+    <!-- ========== SCREEN: HSK Vocabulary List ========== -->
+    <section id="screen-hsk-vocab-list" class="screen">
+      <h2 id="hsk-vocab-list-title" class="screen-heading"></h2>
+      <div id="hsk-vocab-table-wrapper" class="table-wrapper">
+        <table id="hsk-vocab-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>&#x4E2D;&#x6587;</th>
+              <th>Pinyin</th>
+              <th>Ti&#x1EBF;ng Vi&#x1EC7;t</th>
+              <th>&#x1F50A;</th>
+            </tr>
+          </thead>
+          <tbody id="hsk-vocab-table-body"></tbody>
+        </table>
       </div>
     </section>
 
@@ -433,6 +456,7 @@
   <!-- Screens (early — no quiz dep) -->
   <script src="js/screens/vocab-list.js"></script>
   <script src="js/screens/grammar-list.js"></script>
+  <script src="js/screens/hsk-vocab-list.js"></script>
   <!-- Quiz -->
   <script src="js/quiz/flashcard.js"></script>
   <script src="js/quiz/mc.js"></script>

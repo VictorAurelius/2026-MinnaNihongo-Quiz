@@ -23,6 +23,7 @@ window.QuizApp.nav = (function () {
     alphabet:    $("#screen-alphabet"),
     counters:    $("#screen-counters"),
     hskMenu:     $("#screen-hsk-menu"),
+    hskVocabList: $("#screen-hsk-vocab-list"),
   };
 
   const state = window.QuizApp.state;

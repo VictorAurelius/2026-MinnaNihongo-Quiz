@@ -27,6 +27,7 @@
   --radius-sm:     8px;
   --font:          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
   --font-jp:       "Noto Sans JP", "Hiragino Kaku Gothic Pro", "Yu Gothic", sans-serif;
+  --font-cn:       "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "SimHei", sans-serif;
   --transition:    .2s ease;
 }
 
@@ -999,6 +1000,62 @@ body {
 
 #vocab-table th:last-child,
 #vocab-table td:last-child {
+  width: 2.5rem;
+  text-align: center;
+}
+
+/* ---------- HSK Vocabulary Table ---------- */
+.cn-text {
+  font-family: var(--font-cn);
+  font-weight: 600;
+  font-size: 1.15em;
+}
+
+.hsk-pinyin {
+  color: var(--primary);
+  font-size: .9rem;
+}
+
+#hsk-vocab-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+
+#hsk-vocab-table th,
+#hsk-vocab-table td {
+  padding: .55rem .75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+#hsk-vocab-table th {
+  font-weight: 700;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#hsk-vocab-table tbody tr:hover {
+  background: var(--bg-card);
+}
+
+#hsk-vocab-table td:nth-child(2) {
+  font-family: var(--font-cn);
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+#hsk-vocab-table td:nth-child(3) {
+  color: var(--primary);
+}
+
+#hsk-vocab-table td:last-child {
   width: 2.5rem;
   text-align: center;
 }
