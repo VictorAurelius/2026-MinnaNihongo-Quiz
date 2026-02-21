@@ -3,7 +3,7 @@
 ocr_hsk5.py — OCR the 2 scanned HSK5 PDFs and translate to Vietnamese.
 
 Output: scripts/hsk5_raw.json
-  [{ "num": 1, "chinese": "阿姨", "pinyin": "āyí", "vietnamese": "cô/dì", "english": "" }, ...]
+  [{ "num": 1, "chinese": "阿姨", "pinyin": "āyí", "vietnamese": "cô/dì" }, ...]
 
 Usage:
     python3 scripts/ocr_hsk5.py
@@ -238,7 +238,6 @@ def main():
     for e in all_entries:
         e["pinyin"] = derive_pinyin(e["chinese"])
         e["vietnamese"] = ""
-        e["english"] = ""
 
     # ── Translation phase ──
     if not args.skip_translate:

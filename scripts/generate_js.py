@@ -45,11 +45,7 @@ def write_group_file(path, var_name, group_title, entries):
         cn = esc(e.get("chinese", ""))
         py = esc(e.get("pinyin", ""))
         vi = esc(e.get("vietnamese", ""))
-        en = esc(e.get("english", ""))
-        if en:
-            lines.append(f'  {{ chinese: "{cn}", pinyin: "{py}", vietnamese: "{vi}", english: "{en}" }},')
-        else:
-            lines.append(f'  {{ chinese: "{cn}", pinyin: "{py}", vietnamese: "{vi}" }},')
+        lines.append(f'  {{ chinese: "{cn}", pinyin: "{py}", vietnamese: "{vi}" }},')
     lines.append("];")
     lines.append("")
 

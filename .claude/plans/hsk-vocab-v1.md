@@ -78,18 +78,17 @@ src/js/data/hsk/
   chinese: "安静",       // Chữ Hán (bắt buộc)
   pinyin: "ānjìng",     // Pinyin với dấu thanh (bắt buộc)
   vietnamese: "yên tĩnh",  // Nghĩa tiếng Việt (bắt buộc)
-  english: "quiet",     // Nghĩa tiếng Anh (optional)
 }
 ```
 
-*(Đơn giản hóa so với schema v1 gốc — bỏ tones[], type, example, examplePinyin)*
+*(Đơn giản hóa so với schema v1 gốc — bỏ tones[], type, example, examplePinyin, english)*
 
 ### HSK5 Data Structure
 ```javascript
 // src/js/data/hsk/hsk5-a.js
 const HSK5_A = [
-  { chinese: "阿姨", pinyin: "āyí",   vietnamese: "dì/cô",     english: "aunt" },
-  { chinese: "啊",   pinyin: "a",     vietnamese: "à/ạ (thán từ)", english: "ah/oh" },
+  { chinese: "阿姨", pinyin: "āyí",   vietnamese: "dì/cô" },
+  { chinese: "啊",   pinyin: "a",     vietnamese: "à/ạ (thán từ)" },
   // ...
 ];
 ```
