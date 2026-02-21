@@ -1,74 +1,72 @@
-# Plan: HSK Vocabulary — New Section
-**Version:** v1
+# Plan: HSK 5 Vocabulary Section
+**Version:** v1 (revised 2026-02-21)
 **Created:** 2026-02-21
-**Status:** 🔴 Not Started (blocked by minna-refactor-v1)
-**Scope:** Xây dựng section học từ vựng HSK Tiếng Trung — hoàn toàn mới, song song với Minna
+**Status:** 🟡 In Progress — Phase 2 (course selector UI) being implemented
+**Scope:** Xây dựng section học từ vựng **HSK 5** (Tiếng Trung) — song song với Minna (JLPT)
 
 ---
 
 ## Changelog
 | Version | Date | Changes |
 |---------|------|---------|
-| v1 | 2026-02-21 | Initial plan |
+| v1 | 2026-02-21 | Initial plan (HSK 1–6) |
+| v1 revised | 2026-02-21 | Scope down to HSK5 only; use data-pdf/hsk5/; update dependency status |
 
 ---
 
 ## 🎯 Mục tiêu
 
-Thêm section học từ vựng **HSK (Hanyu Shuiping Kaoshi)** — chuẩn kiểm tra tiếng Trung quốc tế.
-App sẽ hỗ trợ song song **2 ngôn ngữ**: Tiếng Nhật (Minna) và Tiếng Trung (HSK).
+Thêm section học từ vựng **HSK 5** (Hán ngữ Thủy bình Khảo thí — bậc C1).
+App hỗ trợ song song 2 ngôn ngữ: **Tiếng Nhật (JLPT/Minna)** và **Tiếng Trung (HSK 5)**.
 
 **Không merge vào codebase Minna** — xây như section riêng, chia sẻ core engine (quiz, navigation, storage).
 
 ---
 
-## 📐 Phạm vi HSK
+## 📐 Phạm vi
 
-| Level | Tên | Số từ | Tương đương |
-|-------|-----|-------|-------------|
-| HSK 1 | Sơ cấp I | 150 từ | A1 |
-| HSK 2 | Sơ cấp II | 150 từ (tổng 300) | A2 |
-| HSK 3 | Trung cấp I | 300 từ (tổng 600) | B1 |
-| HSK 4 | Trung cấp II | 600 từ (tổng 1200) | B2 |
-| HSK 5 | Cao cấp I | 1300 từ (tổng 2500) | C1 |
-| HSK 6 | Cao cấp II | 2500 từ (tổng 5000) | C2 |
+| Level | Mô tả | Số từ |
+|-------|-------|-------|
+| **HSK 5** | Cao cấp I — C1 | 2500 từ tích lũy (HSK1→5) |
 
-**Giai đoạn 1:** HSK 1 + HSK 2 trước (300 từ, đủ để test toàn bộ flow)
+**Nguồn dữ liệu:**
+- `data-pdf/hsk5/tu-vung-hsk-5-1-20.pdf` — từ #1–~950 (20 trang ảnh scan)
+- `data-pdf/hsk5/tu-vung-hsk-5-21-40.pdf` — từ ~950–2500 (20 trang ảnh scan)
+- Format trong PDF: số thứ tự + pinyin (trên) + chữ Hán (dưới), sắp xếp theo pinyin
+- **Không có nghĩa tiếng Việt trong PDF** — cần bổ sung thủ công hoặc từ nguồn khác
+- **Không thể extract text tự động** (PDF là ảnh scan) — nhập liệu thủ công theo batch
 
 ---
 
 ## 🗺️ Kiến trúc
 
-### Cấu trúc file mới
+### Cấu trúc file
 
 ```
-js/
-└── data/
-    └── hsk/
-        ├── hsk1.js           # 150 từ HSK 1, chia theo chủ đề
-        ├── hsk2.js           # 150 từ HSK 2
-        ├── hsk3.js           # (phase sau)
-        ├── hsk4.js           # (phase sau)
-        ├── hsk5.js           # (phase sau)
-        ├── hsk6.js           # (phase sau)
-        └── index.js          # const HSK_DATA = { 1: HSK1_DATA, ... }
+src/js/data/hsk/
+├── hsk5-a.js     # Từ #1–500 (chữ A–G)
+├── hsk5-b.js     # Từ #501–1000 (chữ G–M)
+├── hsk5-c.js     # Từ #1001–1500 (chữ M–S)
+├── hsk5-d.js     # Từ #1501–2000 (chữ S–X)
+├── hsk5-e.js     # Từ #2001–2500 (chữ X–Z)
+└── index.js      # const HSK5_DATA = [...all]; export
 ```
 
-### Course selector UI
+*(Chia theo pinyin alphabetical group — phù hợp với cấu trúc PDF)*
 
-Thêm vào home screen (`index.html` + `screens/lessons.js`):
+### Course Selector UI (home screen)
 
 ```
-┌─────────────────────────────────────────────┐
-│  [🇯🇵 Tiếng Nhật]  [🇨🇳 Tiếng Trung]         │
-└─────────────────────────────────────────────┘
-     ↓ active tab
-  Lesson grid (Minna 1-25)  /  HSK Level grid (1-6)
+┌──────────────────────────────────────────────────┐
+│   [ 🇯🇵  JLPT  Tiếng Nhật ]  [ 🇨🇳  HSK  Tiếng Trung ]  │
+└──────────────────────────────────────────────────┘
+         ↓ chọn tab
+ JLPT: Lesson grid Minna 1–25 + Alphabet + Counters
+  HSK: HSK5 Group list (A–G, G–M, M–S, S–X, X–Z)
 ```
 
 - Tab state lưu vào `localStorage` (`quiz_active_course`)
-- Khi chọn tab HSK → hiển thị HSK Level cards (không phải lesson cards)
-- Khi chọn tab Nhật → giữ nguyên behavior hiện tại
+- Header title đổi theo tab: "Minna no Nihongo 1" / "HSK 5"
 
 ---
 
@@ -77,148 +75,115 @@ Thêm vào home screen (`index.html` + `screens/lessons.js`):
 ### HSK Vocabulary Item
 ```javascript
 {
-  chinese: "你好",         // Chữ Hán (bắt buộc)
-  pinyin: "nǐ hǎo",       // Pinyin với dấu thanh (bắt buộc)
-  tones: [3, 3],           // Tone numbers array (optional, tiện cho quiz)
-  vietnamese: "xin chào", // Nghĩa tiếng Việt (bắt buộc)
-  english: "hello",        // Nghĩa tiếng Anh (optional)
-  type: "greeting",        // Loại từ: noun/verb/adj/adv/greeting/... (optional)
-  example: "你好！我叫小明。",          // Câu ví dụ tiếng Trung
-  examplePinyin: "Nǐ hǎo! Wǒ jiào Xiǎo Míng.", // Pinyin của ví dụ
-  exampleVi: "Xin chào! Tôi tên là Tiểu Minh."  // Dịch ví dụ
+  chinese: "安静",       // Chữ Hán (bắt buộc)
+  pinyin: "ānjìng",     // Pinyin với dấu thanh (bắt buộc)
+  vietnamese: "yên tĩnh",  // Nghĩa tiếng Việt (bắt buộc)
+  english: "quiet",     // Nghĩa tiếng Anh (optional)
 }
 ```
 
-### HSK Level Data Structure
+*(Đơn giản hóa so với schema v1 gốc — bỏ tones[], type, example, examplePinyin)*
+
+### HSK5 Data Structure
 ```javascript
-// js/data/hsk/hsk1.js
-const HSK1_DATA = {
-  level: 1,
-  title: "HSK 1 — Sơ cấp I",
-  totalWords: 150,
-  topics: [
-    {
-      topicId: 1,
-      title: "Chào hỏi & Giao tiếp cơ bản",
-      vocabulary: [
-        {
-          chinese: "你好", pinyin: "nǐ hǎo", tones: [3,3],
-          vietnamese: "xin chào", english: "hello",
-          example: "你好！", examplePinyin: "Nǐ hǎo!",
-          exampleVi: "Xin chào!"
-        },
-        // ...
-      ]
-    },
-    {
-      topicId: 2,
-      title: "Số đếm & Tiền tệ",
-      vocabulary: [ ... ]
-    }
-    // ... ~8-10 chủ đề cho HSK 1
+// src/js/data/hsk/hsk5-a.js
+const HSK5_A = [
+  { chinese: "阿姨", pinyin: "āyí",   vietnamese: "dì/cô",     english: "aunt" },
+  { chinese: "啊",   pinyin: "a",     vietnamese: "à/ạ (thán từ)", english: "ah/oh" },
+  // ...
+];
+```
+
+```javascript
+// src/js/data/hsk/index.js
+const HSK5_DATA = {
+  groups: [
+    { id: "a", title: "A – G", words: HSK5_A },
+    { id: "b", title: "G – M", words: HSK5_B },
+    { id: "c", title: "M – S", words: HSK5_C },
+    { id: "d", title: "S – X", words: HSK5_D },
+    { id: "e", title: "X – Z", words: HSK5_E },
   ]
 };
 ```
 
 ---
 
-## 🎮 Quiz Modes cho HSK
+## 🎮 Quiz Modes cho HSK 5
 
-### Modes giữ nguyên (tái dùng engine hiện tại)
+### Tái dùng engine hiện tại
 | Mode | Hiển thị |
 |------|---------|
-| Flashcard | Front: Chữ Hán, Back: Pinyin + Nghĩa VN + Nghĩa EN |
-| MC Chinese → VN | Câu hỏi: Chữ Hán, Đáp án: 4 nghĩa tiếng Việt |
-| MC VN → Chinese | Câu hỏi: Tiếng Việt, Đáp án: 4 chữ Hán |
+| Flashcard | Front: Chữ Hán, Back: Pinyin + Nghĩa VN |
+| MC CN → VN | Câu hỏi: Chữ Hán, Đáp án: 4 nghĩa tiếng Việt |
+| MC VN → CN | Câu hỏi: Tiếng Việt, Đáp án: 4 chữ Hán |
 
-### Modes mới cần implement
+### Mode mới (Phase 3+)
 | Mode | Mô tả |
 |------|-------|
-| **Gõ Pinyin** | Hiện chữ Hán → gõ pinyin (validate cả dạng dấu và dạng số) |
-| **Tone Quiz** | Hiện chữ Hán + pinyin không dấu → chọn thanh điệu đúng |
+| Gõ Pinyin | Hiện chữ Hán → gõ pinyin (dấu hoặc số: nǐ / ni3) |
 
 ---
 
 ## 🔧 Thay đổi code cần thiết
 
-### 1. Utility mới: `js/core/utils.js`
-Thêm vào (không break existing):
+### 1. `src/js/core/state.js`
 ```javascript
-// Normalize pinyin: nǐ hǎo == ni3 hao3 == nihao (approximate)
-QuizApp.utils.normalizePinyin = function(str) { ... }
-
-// Convert tone numbers to marks: ni3 → nǐ
-QuizApp.utils.pinyin NumberToMark = function(str) { ... }
+window.QuizApp.state.activeCourse = 'jlpt'; // 'jlpt' | 'hsk'
 ```
 
-### 2. Cập nhật `js/core/state.js`
-Thêm:
-```javascript
-window.QuizApp.state.activeCourse = 'minna'; // 'minna' | 'hsk'
-window.QuizApp.state.hskLevel = null;         // 1-6
-```
+### 2. `src/js/screens/lessons.js`
+- Thêm tab click handlers (JLPT / HSK)
+- `renderLessonGrid()` dispatch theo `activeCourse`
+- Khi HSK: render HSK group cards thay Minna lesson cards
 
-### 3. Cập nhật `js/core/storage.js`
-- Tách key localStorage: `minna_vocab_progress` (giữ nguyên) + `hsk_vocab_progress` (mới)
+### 3. `src/js/core/navigation.js`
+- `goBack()` và home button: cập nhật header title theo `activeCourse`
 
-### 4. Cập nhật `js/screens/lessons.js`
-- Thêm course tab selector HTML + logic
-- Khi course = 'hsk': render HSK Level grid (6 level cards) thay vì lesson grid
-- Khi click HSK Level card → mở topic list trong level đó
+### 4. `src/index.html`
+- Thêm `.course-tabs` trong `#screen-lessons`
+- Thêm `#screen-hsk-menu` (lesson menu cho HSK topic)
 
-### 5. Cập nhật `js/quiz/flashcard.js`, `mc.js`
-- Detect `activeCourse === 'hsk'` → dùng `item.chinese` thay `item.japanese`, `item.pinyin` thay `item.kana`
-- Reuse cùng flashcard/mc HTML structure
+### 5. `src/css/style.css`
+- `.course-tabs`, `.course-tab`, `.course-tab.active`
 
-### 6. HTML — thêm screen mới: HSK Topic List
-```html
-<section id="screen-hsk-topics" class="screen">
-  <h2 id="hsk-topics-title" class="screen-heading"></h2>
-  <div id="hsk-topics-grid" class="lesson-grid">
-    <!-- Topic cards rendered by JS -->
-  </div>
-</section>
-```
-
-### 7. `index.html` — thêm script tags
-```html
-<script src="js/data/hsk/hsk1.js"></script>
-<script src="js/data/hsk/hsk2.js"></script>
-<script src="js/data/hsk/index.js"></script>
-```
+### 6. Quiz adaptation (Phase 3)
+- `flashcard.js`, `mc.js`: detect `activeCourse === 'hsk'` → dùng `item.chinese` thay `item.japanese`
+- `session.js`: route `hsk-fc`, `hsk-mc-cn-vi`, `hsk-mc-vi-cn`
 
 ---
 
 ## 📋 Phases
 
-### Phase 0: Prerequisite
-- [ ] **minna-refactor-v1 Phase 1 & 2 hoàn thành** trước
-  - Lý do: cần modular architecture để add HSK không break Minna
+### ✅ Phase 0: Prerequisite (đã xong)
+- [x] minna-refactor-v1 Phase 1 & 2 hoàn thành
+- [x] minna-extras-v1 (alphabet + counters) xong
+- [x] Repo structure: source files trong `src/`
 
-### Phase 1: Data & Core
-- [ ] Tạo `js/data/hsk/hsk1.js` với 150 từ HSK 1 (theo chủ đề)
-- [ ] Tạo `js/data/hsk/hsk2.js` với 150 từ HSK 2
-- [ ] Tạo `js/data/hsk/index.js`
-- [ ] Thêm `normalizePinyin()` vào utils
-- [ ] Update state.js với `activeCourse`, `hskLevel`
+### ✅ Phase 1: UI — Course Selector
+- [x] Thêm `.course-tabs` vào `screen-lessons`
+- [x] Tab JLPT / HSK với localStorage persistence
+- [x] Header title đổi theo tab
+- [x] HSK tab: placeholder "coming soon" (data chưa có)
+- [x] JLPT tab: giữ nguyên behavior hiện tại
 
-### Phase 2: UI — Course Selector
-- [ ] Thêm tab selector HTML vào `index.html` (hoặc render bằng JS)
-- [ ] Implement tab switch logic trong `screens/lessons.js`
-- [ ] HSK Level grid (6 cards)
-- [ ] HSK Topic grid (khi chọn 1 level)
-- [ ] Lesson menu cho HSK (các quiz modes)
+### 🔴 Phase 2: Data Entry (HSK5)
+- [ ] Nhập liệu batch đầu: 200 từ đầu (A–C) từ PDF scan
+- [ ] Tạo `src/js/data/hsk/hsk5-a.js`
+- [ ] Tạo `src/js/data/hsk/index.js`
+- [ ] Kiểm tra render HSK group grid với data thật
+- [ ] Tiếp tục nhập các batch còn lại
 
-### Phase 3: Quiz Adaptation
-- [ ] Flashcard: hiển thị Chinese/Pinyin thay Japanese/Kana
-- [ ] MC modes: dùng `chinese` field thay `japanese`
-- [ ] Typing mode mới: "Gõ Pinyin"
-- [ ] (Optional) Tone Quiz mode
+### 🔴 Phase 3: Quiz Adaptation
+- [ ] Thêm `normalizePinyin()` vào utils.js
+- [ ] Flashcard HSK: `item.chinese` front, `item.pinyin + item.vietnamese` back
+- [ ] MC modes cho HSK
+- [ ] Session routing cho HSK modes
 
-### Phase 4: Polish
+### 🔴 Phase 4: Polish
 - [ ] Progress tracking riêng cho HSK
-- [ ] Results screen phân biệt Minna / HSK
-- [ ] Vocabulary list screen cho HSK (Chinese | Pinyin | Nghĩa VN | Nghĩa EN)
+- [ ] Vocabulary list screen cho HSK (Chữ Hán | Pinyin | Nghĩa VN)
+- [ ] TTS Tiếng Trung (Web Speech API, lang: zh-CN)
 
 ---
 
@@ -226,23 +191,23 @@ window.QuizApp.state.hskLevel = null;         // 1-6
 
 | Rủi ro | Giải pháp |
 |--------|-----------|
-| HSK data độ chính xác | Cần verify từng từ với nguồn chuẩn (HSK official list) |
-| Pinyin validation phức tạp | Support cả dạng dấu (nǐ) và dạng số (ni3) |
-| Quiz logic bị mixed (Nhật/Trung) | Kiểm tra `activeCourse` ở mỗi render function |
-| CSS hiển thị Hán tự | Thêm `font-family` Chinese fonts, test trên mobile |
+| PDF là ảnh scan, không extract được text | Nhập liệu thủ công theo batch hoặc dùng OCR tool riêng |
+| Nghĩa tiếng Việt không có trong PDF | Tham khảo từ điển Hán-Việt, HSK vocab lists online |
+| Pinyin validation | Support cả dạng dấu (nǐ) và dạng số (ni3) trong typing mode |
+| Chinese font trên mobile | Test `font-family` Chinese fonts |
+| Quiz logic mixed (Nhật/Trung) | Kiểm tra `activeCourse` ở mỗi render function |
 
 ---
 
 ## 📝 Nguồn dữ liệu HSK
 
-- **Official:** HSK Standard Course (BLCU Press)
-- **Reference:** https://www.hskhsk.com/word-lists.html
-- **Verify tones:** Pleco dictionary hoặc MDBG
-- **Pinyin diacritics:** Unicode combining marks (ā á ǎ à, etc.)
+- **Primary:** `data-pdf/hsk5/` (scanned official HSK5 wordlist)
+- **Vietnamese meanings:** Từ điển Hán-Việt, VDICT, hoặc reference từ HSK vocab apps
+- **Pinyin verify:** Pleco dictionary, MDBG (mdbg.net)
 
 ---
 
 ## 🔗 Dependencies
 
-- **Blocked by:** `minna-refactor-v1` (Phase 1 + 2)
+- **Unblocked:** `minna-refactor-v1` (Phase 1+2) ✅ đã xong
 - **Không conflict với:** Minna features (tất cả giữ nguyên)

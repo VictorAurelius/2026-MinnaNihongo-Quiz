@@ -38,7 +38,18 @@
 
     <!-- ========== SCREEN: Lesson List ========== -->
     <section id="screen-lessons" class="screen active">
-      <h2 class="screen-heading">Chọn bài học</h2>
+      <div class="course-tabs" role="tablist" aria-label="Chọn ngôn ngữ">
+        <button class="course-tab active" data-course="jlpt" role="tab" aria-selected="true">
+          <span class="course-tab-flag">&#x1F1EF;&#x1F1F5;</span>
+          <span class="course-tab-label">JLPT</span>
+          <span class="course-tab-sub">Ti&#x1EBF;ng Nh&#x1EAD;t</span>
+        </button>
+        <button class="course-tab" data-course="hsk" role="tab" aria-selected="false">
+          <span class="course-tab-flag">&#x1F1E8;&#x1F1F3;</span>
+          <span class="course-tab-label">HSK</span>
+          <span class="course-tab-sub">Ti&#x1EBF;ng Trung</span>
+        </button>
+      </div>
       <div id="lesson-grid" class="lesson-grid">
         <!-- Rendered by JS -->
       </div>

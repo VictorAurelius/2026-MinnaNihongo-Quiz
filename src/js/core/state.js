@@ -7,6 +7,7 @@ window.QuizApp = window.QuizApp || {};
 window.QuizApp.state = {
   currentLesson:     null,   // lesson data object
   currentMode:       null,   // "flashcard" | "mc-jp-vi" | "mc-vi-jp" | "typing" | ...
+  activeCourse:      "jlpt", // "jlpt" | "hsk" — synced with localStorage on init
   questions:         [],     // shuffled vocabulary for current quiz
   questionIndex:     0,
   score:             0,

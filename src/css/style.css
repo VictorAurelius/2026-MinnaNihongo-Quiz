@@ -146,6 +146,87 @@ body {
   margin-bottom: 1.25rem;
 }
 
+/* ---------- Course Selector Tabs (JLPT / HSK) ---------- */
+.course-tabs {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 1.25rem;
+}
+
+.course-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .2rem;
+  padding: .75rem 1rem;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color .15s, background .15s, color .15s;
+  color: var(--text-muted);
+}
+
+.course-tab:hover {
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+.course-tab.active {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 12%, var(--bg-card));
+  color: var(--primary);
+}
+
+.course-tab-flag {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.course-tab-label {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+
+.course-tab-sub {
+  font-size: .75rem;
+  opacity: .8;
+}
+
+/* ---------- HSK coming-soon placeholder ---------- */
+.hsk-coming-soon {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.hsk-coming-soon-icon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.hsk-coming-soon h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.hsk-coming-soon p {
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
 /* ---------- Lesson Grid ---------- */
 .lesson-grid {
   display: grid;

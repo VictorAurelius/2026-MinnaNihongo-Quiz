@@ -40,4 +40,9 @@
   window.QuizApp.darkmode.initDarkMode();
   window.QuizApp.audio.init();
   window.QuizApp.screens.renderLessonGrid();
+
+  // Sync header title with persisted course selection
+  const activeCourse = window.QuizApp.screens.getActiveCourse();
+  $( "#header-title").textContent =
+    window.QuizApp.screens.getCourseHeaderTitle(activeCourse);
 })();
