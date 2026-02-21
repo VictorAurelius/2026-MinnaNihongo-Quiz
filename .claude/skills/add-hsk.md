@@ -1,80 +1,88 @@
 # Skill: add-hsk
 
-Thêm từ vựng HSK (Tiếng Trung) vào Smart Quiz.
+> **Lưu ý:** HSK5 đã được implement xong. Skill này dành cho việc thêm HSK level khác (HSK1-4, HSK6) hoặc HSKK trong tương lai.
+>
+> - Để sửa/bổ sung dữ liệu HSK5 hiện có → dùng `/update-hsk5`
+> - Để thêm section Tiếng Trung mới từ PDF → dùng `/ocr-cn-pdf` + `/add-cn-section`
 
 ## Cách dùng
 ```
 /add-hsk <level>
 ```
-Level: 1, 2, 3, 4, 5, 6
+Level: 1, 2, 3, 4, 6 (HSK5 đã có)
 
-**Ví dụ:** `/add-hsk 1`
+**Ví dụ:** `/add-hsk 1` — thêm 150 từ HSK1
 
 ---
 
-## Hướng dẫn thực hiện
+## Kiến trúc hiện tại (HSK5 là reference)
 
-### Cấu trúc HSK theo cấp độ
-
-| Level | Số từ | Mô tả |
-|-------|-------|-------|
-| HSK 1 | 150 từ | Cơ bản, giao tiếp hàng ngày |
-| HSK 2 | 300 từ | Sơ cấp |
-| HSK 3 | 600 từ | Trung cấp thấp |
-| HSK 4 | 1200 từ | Trung cấp |
-| HSK 5 | 2500 từ | Cao cấp |
-| HSK 6 | 5000 từ | Thành thạo |
-
-### File cần tạo/chỉnh sửa
-
-1. **`js/data/hsk/hsk<N>.js`** — Data file cho level N
-2. **`js/data/hsk/index.js`** — Export tất cả HSK levels
-3. **`js/data/index.js`** — Combined export (Minna + HSK)
-
-### Cấu trúc data HSK
-
-```javascript
-// js/data/hsk/hsk1.js
-const HSK1_DATA = [
-  {
-    lessonNumber: 1,
-    hskLevel: 1,
-    title: "HSK 1 — Chủ đề: Chào hỏi",
-    vocabulary: [
-      {
-        chinese: "你好",
-        pinyin: "nǐ hǎo",
-        tone: "3-3",           // tone numbers
-        vietnamese: "xin chào",
-        english: "hello",
-        example: "你好！我叫小明。",
-        exampleVi: "Xin chào! Tôi tên là Tiểu Minh."
-      }
-    ]
-  }
-];
+```
+src/js/data/hsk/
+├── hsk5-a.js  — entries #1–500    (const HSK5_A = [...])
+├── hsk5-b.js  — entries #501–1000
+├── hsk5-c.js  — entries #1001–1500
+├── hsk5-d.js  — entries #1501–2000
+├── hsk5-e.js  — entries #2001–2500
+└── index.js   — const HSK5_DATA = { groups: [...] }
 ```
 
-### Quiz modes cho HSK (cần implement)
+Quiz modes đã hoạt động: `hsk-fc`, `hsk-mc-cn-vi`, `hsk-mc-vi-cn`
+Navigation: `hskMenu` screen, `hsk-menu.js`, `hsk-vocab-list.js`
 
-- **Flashcard**: Mặt trước = Chữ Hán, Mặt sau = Pinyin + Nghĩa
-- **MC Chinese → VN**: Chọn nghĩa từ chữ Hán
-- **MC VN → Chinese**: Chọn chữ Hán từ nghĩa
-- **Gõ Pinyin**: Nhập pinyin cho từ tiếng Việt
-- **Tone Quiz**: Chọn thanh điệu đúng
+---
 
-### Bước thực hiện
+## Schema từ vựng (chuẩn hiện tại)
 
-1. Đọc `js/data/index.js` để hiểu cấu trúc hiện tại
-2. Tạo file `js/data/hsk/hsk<N>.js` với data
-3. Cập nhật `js/data/hsk/index.js`
-4. Cập nhật `js/data/index.js` để merge HSK data
-5. Cập nhật `js/core/utils.js` nếu cần thêm hàm xử lý pinyin
-6. Cập nhật `index.html` để load file mới
-7. Test trong browser
+```javascript
+{ chinese: "你好", pinyin: "nǐ hǎo", vietnamese: "xin chào" }
+```
 
-### Note về Pinyin
+> Không cần `english`, `example`, `tone` — đã đơn giản hóa.
 
-- Tone marks: ā á ǎ à, ē é ě è, ī í ǐ ì, ō ó ǒ ò, ū ú ǔ ù, ǖ ǘ ǚ ǜ
-- Neutral tone: không có dấu (ma, me, le...)
-- Validate: cần normalize cả dạng có dấu và dạng số (ni3 hao3 = nǐ hǎo)
+---
+
+## Bước thực hiện cho level mới
+
+### 1. Lấy dữ liệu
+
+**Option A: PDF scan** → dùng `/ocr-cn-pdf`
+
+**Option B: Nhập thủ công** (HSK1-2 chỉ 150-300 từ, khả thi)
+```json
+[
+  { "num": 1, "chinese": "爱", "pinyin": "ài", "vietnamese": "yêu" },
+  { "num": 2, "chinese": "八", "pinyin": "bā", "vietnamese": "tám" }
+]
+```
+
+### 2. Generate JS files
+
+Chỉnh `scripts/generate_js.py`:
+```python
+GROUPS = [
+    ("a", "A – Z", 1, 9999),  # HSK1 ít từ → 1 group
+]
+# Đổi output dir:
+# --out-dir src/js/data/hsk1
+```
+
+Chạy:
+```bash
+python3 scripts/generate_js.py \
+    --input scripts/hsk1_raw.json \
+    --out-dir src/js/data/hsk1
+```
+
+### 3. Thêm vào app
+
+Xem `/add-cn-section` để hướng dẫn tích hợp đầy đủ (script tags, navigation, menu screen, storage, results).
+
+---
+
+## Lưu ý quan trọng
+
+- HSK5 dùng chung `#screen-hsk-menu`, `hsk-menu.js`, `hsk-vocab-list.js` — reusable cho các level khác
+- `storage.js` có `saveHSKProgress()` / `getHSKGroupBestPercent()` — dùng lại được
+- `flashcard.js` dispatch `hsk-fc`, `mc.js` dispatch `hsk-mc-*` — dùng lại được
+- Chỉ cần thêm data files + script tags + entries vào lesson grid
