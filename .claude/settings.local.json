@@ -18,7 +18,9 @@
       "Bash(find:*)",
       "Bash(for:*)",
       "Bash(touch:*)",
-      "Bash(python3 << 'PYEOF':*)"
+      "Bash(python3 << 'PYEOF':*)",
+      "Bash(git push)",
+      "Bash(gh auth login --hostname github.com --git-protocol https --web 2>&1 | head -5)"
     ]
   }
 }

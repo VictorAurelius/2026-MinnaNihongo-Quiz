@@ -2,11 +2,11 @@
   "name": "minna-vocab-quiz",
   "version": "1.0.0",
   "description": "Ứng dụng học từ vựng và ngữ pháp tiếng Nhật theo giáo trình Minna no Nihongo I (Bài 1-25)",
-  "main": "index.html",
+  "main": "src/index.html",
   "scripts": {
-    "start": "python3 -m http.server 8080 || python -m http.server 8080",
-    "dev": "npx http-server -p 8080 -o",
-    "test": "node -c js/app.js && node -c js/data.js && echo '✅ All JavaScript files are valid!'",
+    "start": "python3 -m http.server -d src 8080 || python -m SimpleHTTPServer 8080",
+    "dev": "npx http-server src -p 8080 -o",
+    "test": "node -c src/js/app.js && echo '✅ JavaScript syntax OK'",
     "validate": "npm run test"
   },
   "keywords": [
