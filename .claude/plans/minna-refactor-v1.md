@@ -1,7 +1,7 @@
 # Plan: Minna no Nihongo — Code Refactor
 **Version:** v1
 **Created:** 2026-02-21
-**Status:** 🟡 In Progress
+**Status:** 🟡 In Progress — Phase 1 ✅ Phase 2 pending
 **Scope:** Tái cấu trúc codebase hiện tại (không thêm tính năng mới)
 
 ---
@@ -105,11 +105,13 @@ js/
 7. Xóa `js/data.js` (giữ .bak tạm thời)
 
 **Checklist sau Phase 1:**
-- [ ] 25 lesson files tạo xong
-- [ ] index.js đúng
-- [ ] Lesson grid hiển thị đủ 25 bài
-- [ ] Quiz từng bài hoạt động
-- [ ] Progress/localStorage OK
+- [x] 25 lesson files tạo xong (`js/data/minna/lesson-01.js` … `lesson-25.js`)
+- [x] index.js đúng (`MINNA_DATA`, `VOCABULARY_DATA` alias)
+- [x] index.html cập nhật 27 script tags
+- [x] Syntax check 25/25 files OK
+- [x] Vocabulary count 1125 = 1125 ✅, Grammar count 103 = 103 ✅
+- [x] `js/data.js` gốc đã xoá
+- [ ] Verify trong browser (lesson grid, quiz, grammar list)
 
 ---
 
