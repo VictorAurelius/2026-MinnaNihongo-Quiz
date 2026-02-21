@@ -1225,3 +1225,48 @@ body {
   .alpha-table th, .alpha-table td { min-width: 2.6rem; padding: .25rem; }
   .counter-readings { grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); }
 }
+
+/* ---------- Quiz Panel (Alphabet + Counters screens) ---------- */
+.quiz-panel {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.quiz-panel-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.quiz-panel-config {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: .9rem;
+}
+
+.quiz-panel-config label {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.quiz-panel-config select {
+  padding: .3rem .5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: .875rem;
+}
+
+.quiz-panel-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}

@@ -182,9 +182,56 @@ Hoặc thêm 2 button vào header/nav nếu muốn truy cập nhanh hơn.
 - [ ] Thêm entry card trên lesson grid
 - [ ] Test: bảng số đúng, irregular readings highlight OK
 
-### Phase C: Quiz mode (optional, sau A+B)
-- [ ] Flashcard cho từng kana
-- [ ] MC: nghe counter → chọn cách đọc đúng
+### Phase C: Quiz mode
+**Alphabet quiz modes** (kana ↔ romaji):
+| Mode | Hiển thị | Trả lời |
+|------|----------|---------|
+| `alpha-fc` | Flashcard — mặt trước: kana, sau: romaji | biết/chưa biết |
+| `alpha-mc-kr` | MC — hỏi kana, chọn romaji đúng từ 4 đáp án | click đáp án |
+| `alpha-mc-rk` | MC — hỏi romaji, chọn kana đúng từ 4 đáp án | click đáp án |
+| `alpha-typing` | Typing — nhìn kana, gõ romaji | gõ phím |
+
+Config: **Bộ chữ** (hiragana/katakana/cả hai) × **Loại** (cơ bản 46/tất cả +youon)
+
+**Counter quiz modes**:
+| Mode | Hiển thị | Trả lời |
+|------|----------|---------|
+| `counter-fc` | Flashcard — mặt trước: form (三本), sau: cách đọc (さんぼん/sanbon) | biết/chưa biết |
+| `counter-mc` | MC — hỏi form (三本), chọn cách đọc đúng từ 4 đáp án | click đáp án |
+
+Config: **Lọc** (tất cả / chỉ irregular)
+
+**Item format chuẩn** (tương thích với quiz infrastructure hiện tại):
+```js
+// Alpha item
+{ japanese: 'し', kana: 'し', romaji: 'shi', vietnamese: 'shi', english: '', example: '' }
+// Counter item
+{ japanese: '三本', kana: 'さんぼん', romaji: 'sanbon',
+  vietnamese: 'さんぼん (sanbon)', english: '3 (本)', example: '…' }
+```
+
+**Files thêm/sửa:**
+- `js/quiz/alpha-quiz.js` (new) — render functions cho alpha modes
+- `js/quiz/counter-quiz.js` (new) — render functions cho counter modes
+- `js/quiz/session.js` — route `alpha-*` và `counter-*` modes
+- `js/core/state.js` — thêm `currentItems: []` (dùng cho retry-all không cần currentLesson)
+- `js/screens/results.js` — guard `currentLesson` null, dùng `currentItems` cho retry-all
+- `js/screens/alphabet.js` — thêm quiz panel + `buildAlphaItems()`
+- `js/screens/counters.js` — thêm quiz panel + `buildCounterItems()`
+- `index.html` — quiz panel HTML trong #screen-alphabet, #screen-counters
+- `css/style.css` — `.quiz-panel` styles
+
+**Checklist Phase C:**
+- [ ] state.js: currentItems field
+- [ ] results.js: guard currentLesson + dùng currentItems cho retry
+- [ ] alpha-quiz.js: 4 render functions (fc, mc-kr, mc-rk, typing)
+- [ ] counter-quiz.js: 2 render functions (fc, mc)
+- [ ] session.js: route alpha-* và counter-*
+- [ ] alphabet.js: buildAlphaItems() + quiz panel wiring
+- [ ] counters.js: buildCounterItems() + quiz panel wiring
+- [ ] index.html: quiz panel HTML
+- [ ] CSS: quiz-panel styles
+- [ ] Test: 6 quiz modes hoạt động, retry OK
 
 ---
 

@@ -103,10 +103,20 @@ window.QuizApp.quiz.typing = (function () {
     }
   });
 
-  $("#tp-submit").addEventListener("click", handleTypingSubmit);
+  function _dispatch(submitFn, renderFn) {
+    const mode = window.QuizApp.state.currentMode;
+    if (mode === "alpha-typing") {
+      return { submit: window.QuizApp.quiz.alpha.handleTypingSubmit,
+               render: window.QuizApp.quiz.alpha.renderTyping };
+    }
+    return { submit: submitFn, render: renderFn };
+  }
+
+  $("#tp-submit").addEventListener("click", () =>
+    _dispatch().submit());
 
   $("#tp-input").addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !$("#tp-submit").disabled) handleTypingSubmit();
+    if (e.key === "Enter" && !$("#tp-submit").disabled) _dispatch().submit();
   });
 
   $("#tp-next").addEventListener("click", () => {
@@ -115,7 +125,7 @@ window.QuizApp.quiz.typing = (function () {
     if (state.questionIndex >= state.questions.length) {
       window.QuizApp.screens.showResults();
     } else {
-      renderTyping();
+      _dispatch(handleTypingSubmit, renderTyping).render();
     }
   });
 

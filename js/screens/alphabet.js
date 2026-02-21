@@ -127,5 +127,70 @@ window.QuizApp.screens = window.QuizApp.screens || {};
     });
   });
 
+  // ── Build quiz items from ALPHABET_DATA ─────────────────────
+  function buildAlphaItems(script, type) {
+    // script: 'hiragana' | 'katakana' | 'both'
+    // type:   'basic' (46 chars) | 'all' (basic + youon combos)
+    const scripts = script === 'both' ? ['hiragana', 'katakana'] : [script];
+    const items = [];
+    scripts.forEach(s => {
+      const data = ALPHABET_DATA[s];
+      // basic rows
+      data.rows.flat().filter(Boolean).forEach(cell => {
+        items.push({
+          japanese: cell.kana,
+          kana:     cell.kana,
+          romaji:   cell.romaji,
+          vietnamese: cell.romaji, // MC: option text = romaji
+          english: `${s === 'hiragana' ? 'Hiragana' : 'Katakana'} · ${cell.row}-row`,
+          example: '',
+        });
+      });
+      // youon combos
+      if (type === 'all') {
+        data.combo.forEach(cell => {
+          items.push({
+            japanese: cell.kana,
+            kana:     cell.kana,
+            romaji:   cell.romaji,
+            vietnamese: cell.romaji,
+            english: `${s === 'hiragana' ? 'Hiragana' : 'Katakana'} · youon`,
+            example: '',
+          });
+        });
+      }
+    });
+    return items;
+  }
+
+  // ── Quiz panel wiring ────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    const panel = $('#alpha-quiz-panel');
+    if (!panel) return;
+
+    panel.addEventListener('click', e => {
+      const btn = e.target.closest('[data-alpha-mode]');
+      if (!btn) return;
+
+      const mode   = btn.dataset.alphaMode;
+      const script = $('#alpha-quiz-script').value;
+      const type   = $('#alpha-quiz-type').value;
+      const items  = buildAlphaItems(script, type);
+
+      if (items.length < 4) {
+        alert('Cần ít nhất 4 ký tự để tạo quiz. Chọn "Cả hai" hoặc "Tất cả".');
+        return;
+      }
+
+      const state = window.QuizApp.state;
+      state.currentLesson = null;
+      state.currentMode   = mode;
+      $('#header-title').textContent = 'Luyện tập bảng chữ cái';
+      window.QuizApp.nav.clearNavigationHistory();
+      window.QuizApp.quiz.startSession(items);
+    });
+  });
+
   window.QuizApp.screens.openAlphabetScreen = openAlphabetScreen;
+  window.QuizApp.screens.buildAlphaItems    = buildAlphaItems;
 })();

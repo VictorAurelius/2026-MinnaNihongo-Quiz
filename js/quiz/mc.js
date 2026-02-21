@@ -121,7 +121,10 @@ window.QuizApp.quiz.mc = (function () {
     if (state.questionIndex >= state.questions.length) {
       window.QuizApp.screens.showResults();
     } else {
-      renderMC();
+      const mode = state.currentMode;
+      if (mode.startsWith("alpha-mc"))   window.QuizApp.quiz.alpha.renderMC();
+      else if (mode.startsWith("counter-mc")) window.QuizApp.quiz.counter.renderMC();
+      else renderMC();
     }
   });
 

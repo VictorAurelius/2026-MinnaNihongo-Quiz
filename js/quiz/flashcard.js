@@ -75,6 +75,13 @@ window.QuizApp.quiz.flashcard = (function () {
     window.QuizApp.audio.speak(speakText);
   }
 
+  function _currentRender() {
+    const mode = window.QuizApp.state.currentMode;
+    if (mode === "alpha-fc")   return window.QuizApp.quiz.alpha.renderFlashcard;
+    if (mode === "counter-fc") return window.QuizApp.quiz.counter.renderFlashcard;
+    return renderFlashcard;
+  }
+
   function advanceFlashcard() {
     const state = window.QuizApp.state;
     state.questionIndex++;
@@ -82,7 +89,7 @@ window.QuizApp.quiz.flashcard = (function () {
       state.score = state.fcKnownCount;
       window.QuizApp.screens.showResults();
     } else {
-      renderFlashcard();
+      _currentRender()();
     }
   }
 
@@ -90,7 +97,7 @@ window.QuizApp.quiz.flashcard = (function () {
     const state = window.QuizApp.state;
     if (state.questionIndex > 0) {
       state.questionIndex--;
-      renderFlashcard();
+      _currentRender()();
     }
   });
 

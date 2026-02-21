@@ -277,6 +277,32 @@
       </div>
       <div id="alpha-grid-hiragana" class="alpha-grid-wrap"></div>
       <div id="alpha-grid-katakana" class="alpha-grid-wrap hidden"></div>
+
+      <!-- Quiz panel -->
+      <div id="alpha-quiz-panel" class="quiz-panel">
+        <h3 class="quiz-panel-title">Luyện tập</h3>
+        <div class="quiz-panel-config">
+          <label>Bộ chữ:
+            <select id="alpha-quiz-script">
+              <option value="hiragana">Hiragana</option>
+              <option value="katakana">Katakana</option>
+              <option value="both">Cả hai</option>
+            </select>
+          </label>
+          <label>Loại:
+            <select id="alpha-quiz-type">
+              <option value="basic">Cơ bản (46 chữ)</option>
+              <option value="all">Tất cả (+ Youon)</option>
+            </select>
+          </label>
+        </div>
+        <div class="quiz-panel-buttons">
+          <button class="btn btn-primary" data-alpha-mode="alpha-fc">📋 Flashcard</button>
+          <button class="btn btn-accent"  data-alpha-mode="alpha-mc-kr">Kana → Romaji</button>
+          <button class="btn btn-accent"  data-alpha-mode="alpha-mc-rk">Romaji → Kana</button>
+          <button class="btn btn-secondary" data-alpha-mode="alpha-typing">Gõ Romaji</button>
+        </div>
+      </div>
     </section>
 
     <!-- ========== SCREEN: Counters ========== -->
@@ -305,6 +331,21 @@
           <span class="counter-reading--irregular counter-legend-sample">Đỏ</span> = cách đọc bất quy tắc
         </p>
         <div id="counters-list"></div>
+      </div>
+
+      <!-- Quiz panel -->
+      <div id="counter-quiz-panel" class="quiz-panel">
+        <h3 class="quiz-panel-title">Luyện tập</h3>
+        <div class="quiz-panel-config">
+          <label>
+            <input type="checkbox" id="counter-irregular-only">
+            Chỉ cách đọc bất quy tắc
+          </label>
+        </div>
+        <div class="quiz-panel-buttons">
+          <button class="btn btn-primary" data-counter-mode="counter-fc">📋 Flashcard</button>
+          <button class="btn btn-accent"  data-counter-mode="counter-mc">Trắc nghiệm</button>
+        </div>
       </div>
     </section>
 
@@ -363,6 +404,8 @@
   <script src="js/screens/results.js"></script>
   <script src="js/screens/alphabet.js"></script>
   <script src="js/screens/counters.js"></script>
+  <script src="js/quiz/alpha-quiz.js"></script>
+  <script src="js/quiz/counter-quiz.js"></script>
   <!-- Entry point -->
   <script src="js/app.js"></script>
 </body>

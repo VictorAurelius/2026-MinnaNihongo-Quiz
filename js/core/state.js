@@ -11,6 +11,7 @@ window.QuizApp.state = {
   questionIndex:     0,
   score:             0,
   wrongItems:        [],     // items answered incorrectly
+  currentItems:      [],     // full unshuffled item set for current session (retry-all)
   isRetryMode:       false,
   fcKnownCount:      0,      // flashcard "known" counter
   navigationHistory: [],     // stack for back-button support

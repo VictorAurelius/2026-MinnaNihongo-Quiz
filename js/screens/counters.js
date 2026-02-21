@@ -122,5 +122,53 @@ window.QuizApp.screens = window.QuizApp.screens || {};
     });
   });
 
+  // ── Build quiz items from COUNTERS_DATA ─────────────────────
+  function buildCounterItems(irregularOnly) {
+    const items = [];
+    COUNTERS_DATA.forEach(c => {
+      c.readings.forEach(r => {
+        if (irregularOnly && !r.irregular) return;
+        items.push({
+          japanese:   r.form,                          // front: e.g. 三本
+          kana:       r.kana,                          // back kana
+          romaji:     r.romaji,                        // back romaji
+          vietnamese: `${r.kana} (${r.romaji})`,       // MC option text
+          english:    `${r.number} (${c.counter} — ${c.vietnamese})`,
+          example:    c.example ? c.example.japanese : '',
+          _irregular: !!r.irregular,
+        });
+      });
+    });
+    return items;
+  }
+
+  // ── Quiz panel wiring ────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    const panel = $('#counter-quiz-panel');
+    if (!panel) return;
+
+    panel.addEventListener('click', e => {
+      const btn = e.target.closest('[data-counter-mode]');
+      if (!btn) return;
+
+      const mode = btn.dataset.counterMode;
+      const irregularOnly = $('#counter-irregular-only').checked;
+      const items = buildCounterItems(irregularOnly);
+
+      if (items.length < 4) {
+        alert('Không đủ câu hỏi. Bỏ chọn "Chỉ irregular" để quiz tất cả.');
+        return;
+      }
+
+      const state = window.QuizApp.state;
+      state.currentLesson = null;
+      state.currentMode   = mode;
+      $('#header-title').textContent = 'Luyện tập trợ số từ';
+      window.QuizApp.nav.clearNavigationHistory();
+      window.QuizApp.quiz.startSession(items);
+    });
+  });
+
   window.QuizApp.screens.openCountersScreen = openCountersScreen;
+  window.QuizApp.screens.buildCounterItems  = buildCounterItems;
 })();
