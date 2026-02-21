@@ -20,6 +20,8 @@ window.QuizApp.nav = (function () {
     mc:          $("#screen-mc"),
     typing:      $("#screen-typing"),
     results:     $("#screen-results"),
+    alphabet:    $("#screen-alphabet"),
+    counters:    $("#screen-counters"),
   };
 
   const state = window.QuizApp.state;

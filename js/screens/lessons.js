@@ -17,6 +17,43 @@ window.QuizApp.screens = window.QuizApp.screens || {};
     const grid    = $("#lesson-grid");
     grid.innerHTML = "";
 
+    // ── Special section cards ────────────────────────
+    const specials = [
+      {
+        id: 'card-alphabet',
+        icon: '🔤',
+        title: 'Bảng chữ cái',
+        meta: 'Hiragana & Katakana',
+        onclick: () => {
+          $("#header-title").textContent = 'Bảng chữ cái';
+          window.QuizApp.screens.openAlphabetScreen();
+        },
+      },
+      {
+        id: 'card-counters',
+        icon: '🔢',
+        title: 'Đếm số & Trợ số từ',
+        meta: '17 trợ số từ',
+        onclick: () => {
+          $("#header-title").textContent = 'Đếm số & Trợ số từ';
+          window.QuizApp.screens.openCountersScreen();
+        },
+      },
+    ];
+
+    specials.forEach(s => {
+      const card = document.createElement('div');
+      card.id = s.id;
+      card.className = 'lesson-card lesson-card--special';
+      card.innerHTML = `
+        <span class="lesson-special-icon">${s.icon}</span>
+        <span class="lesson-title">${s.title}</span>
+        <span class="lesson-meta">${s.meta}</span>
+      `;
+      card.addEventListener('click', s.onclick);
+      grid.appendChild(card);
+    });
+
     const maxLesson = 25;
     for (let n = 1; n <= maxLesson; n++) {
       const lessonData = VOCABULARY_DATA.find((l) => l.lessonNumber === n);

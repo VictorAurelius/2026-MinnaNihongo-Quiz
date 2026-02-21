@@ -921,3 +921,307 @@ body {
   width: 2.5rem;
   text-align: center;
 }
+
+/* ---------- Special lesson cards (Alphabet / Counters) ---------- */
+.lesson-card--special {
+  background: linear-gradient(135deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 70%, var(--primary)) 100%);
+  color: #fff;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  gap: .3rem;
+}
+
+.lesson-card--special .lesson-title,
+.lesson-card--special .lesson-meta {
+  color: rgba(255,255,255,.92);
+}
+
+.lesson-card--special .lesson-meta {
+  font-size: .8rem;
+  opacity: .85;
+}
+
+.lesson-special-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  margin-bottom: .15rem;
+}
+
+/* ---------- Tab buttons (shared by Alphabet + Counters) ---------- */
+.alpha-tabs {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: .5rem;
+}
+
+.tab-btn {
+  padding: .45rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px 8px 0 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: .9rem;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ---------- Alphabet Grid ---------- */
+.alpha-grid-wrap {
+  overflow-x: auto;
+}
+
+.alpha-table {
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  min-width: 320px;
+}
+
+.alpha-table th,
+.alpha-table td {
+  border: 1px solid var(--border);
+  padding: .35rem .5rem;
+  text-align: center;
+  min-width: 3.2rem;
+}
+
+.alpha-table thead th {
+  background: var(--surface);
+  font-size: .75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.alpha-row-label {
+  font-size: .75rem;
+  color: var(--text-muted);
+  background: var(--surface);
+  white-space: nowrap;
+}
+
+.alpha-cell {
+  cursor: default;
+  vertical-align: middle;
+}
+
+.alpha-cell--audio {
+  cursor: pointer;
+  transition: background .12s;
+}
+
+.alpha-cell--audio:hover {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.alpha-cell--empty {
+  background: var(--surface);
+}
+
+.alpha-kana {
+  display: block;
+  font-family: var(--font-jp);
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.alpha-romaji {
+  display: block;
+  font-size: .65rem;
+  color: var(--text-muted);
+  margin-top: .1rem;
+}
+
+.alpha-section-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 1rem 0 .6rem;
+}
+
+.alpha-combo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(3.5rem, 1fr));
+  gap: .35rem;
+  margin-bottom: 1.5rem;
+}
+
+.alpha-combo-cell {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: .3rem .2rem;
+}
+
+/* ---------- Counters Screen ---------- */
+.jp-text {
+  font-family: var(--font-jp);
+}
+
+.counters-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.counters-table th,
+.counters-table td {
+  border: 1px solid var(--border);
+  padding: .45rem .6rem;
+  font-size: .9rem;
+}
+
+.counters-table thead th {
+  background: var(--surface);
+  font-weight: 600;
+}
+
+.counter-irregular {
+  color: var(--danger, #e53935);
+  font-weight: 600;
+}
+
+.counter-alt {
+  color: var(--text-muted);
+  font-size: .8rem;
+}
+
+.counter-legend {
+  margin-bottom: .75rem;
+  font-size: .85rem;
+}
+
+.counter-legend-sample {
+  display: inline-block;
+  padding: .1rem .4rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+.counter-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: var(--card-bg, var(--surface));
+}
+
+.counter-card-header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: .75rem;
+  flex-wrap: wrap;
+}
+
+.counter-kanji {
+  font-size: 2.2rem;
+  line-height: 1;
+  min-width: 2.5rem;
+}
+
+.counter-info {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  flex: 1;
+}
+
+.counter-reading-main {
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+.counter-usage {
+  font-size: .82rem;
+  color: var(--text-muted);
+}
+
+.counter-lesson-badge {
+  font-size: .75rem;
+  padding: .2rem .5rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.counter-readings {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  gap: .3rem;
+  margin-bottom: .75rem;
+}
+
+.counter-reading {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .3rem .45rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: .82rem;
+  flex-wrap: wrap;
+}
+
+.counter-reading--irregular {
+  border-color: color-mix(in srgb, var(--danger, #e53935) 40%, transparent);
+  background: color-mix(in srgb, var(--danger, #e53935) 5%, transparent);
+}
+
+.counter-reading--irregular .cr-form,
+.counter-reading--irregular .cr-kana {
+  color: var(--danger, #e53935);
+  font-weight: 600;
+}
+
+.cr-number {
+  font-size: .75rem;
+  color: var(--text-muted);
+  min-width: 1rem;
+}
+
+.cr-form { font-size: .95rem; }
+.cr-kana { font-size: .82rem; }
+.cr-romaji { font-size: .75rem; color: var(--text-muted); }
+
+.btn-speak--sm {
+  padding: .1rem .25rem;
+  font-size: .75rem;
+  border-radius: 4px;
+}
+
+.counter-example {
+  font-size: .85rem;
+  padding: .5rem .6rem;
+  background: var(--surface);
+  border-radius: 6px;
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.counter-example .jp-text {
+  font-size: .95rem;
+}
+
+.counter-example-vi {
+  color: var(--text-muted);
+  font-size: .82rem;
+}
+
+@media (max-width: 480px) {
+  .alpha-kana  { font-size: 1.1rem; }
+  .alpha-table th, .alpha-table td { min-width: 2.6rem; padding: .25rem; }
+  .counter-readings { grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); }
+}

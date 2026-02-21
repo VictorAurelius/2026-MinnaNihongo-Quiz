@@ -268,6 +268,46 @@
       </div>
     </section>
 
+    <!-- ========== SCREEN: Alphabet ========== -->
+    <section id="screen-alphabet" class="screen">
+      <h2 class="screen-heading">Bảng chữ cái</h2>
+      <div class="alpha-tabs">
+        <button id="alpha-tab-hiragana" class="tab-btn active">Hiragana (平仮名)</button>
+        <button id="alpha-tab-katakana" class="tab-btn">Katakana (片仮名)</button>
+      </div>
+      <div id="alpha-grid-hiragana" class="alpha-grid-wrap"></div>
+      <div id="alpha-grid-katakana" class="alpha-grid-wrap hidden"></div>
+    </section>
+
+    <!-- ========== SCREEN: Counters ========== -->
+    <section id="screen-counters" class="screen">
+      <h2 class="screen-heading">Đếm số &amp; Trợ số từ</h2>
+      <div class="alpha-tabs">
+        <button id="counters-tab-numbers" class="tab-btn active">Số đếm cơ bản</button>
+        <button id="counters-tab-counters" class="tab-btn">Trợ số từ</button>
+      </div>
+
+      <!-- Numbers section -->
+      <div id="counters-section-numbers">
+        <div class="table-wrapper">
+          <table class="counters-table">
+            <thead>
+              <tr><th>Số</th><th>Kanji</th><th>Kana</th><th>Romaji</th><th>🔊</th></tr>
+            </thead>
+            <tbody id="counters-numbers-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Counters section -->
+      <div id="counters-section-counters" class="hidden">
+        <p class="text-muted counter-legend">
+          <span class="counter-reading--irregular counter-legend-sample">Đỏ</span> = cách đọc bất quy tắc
+        </p>
+        <div id="counters-list"></div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Scripts -->
@@ -297,6 +337,8 @@
   <script src="js/data/minna/lesson-23.js"></script>
   <script src="js/data/minna/lesson-24.js"></script>
   <script src="js/data/minna/lesson-25.js"></script>
+  <script src="js/data/minna/alphabet.js"></script>
+  <script src="js/data/minna/counters.js"></script>
   <script src="js/data/minna/index.js"></script>
   <script src="js/data/index.js"></script>
   <!-- Core -->
@@ -319,6 +361,8 @@
   <!-- Screens (late — depend on quiz/session) -->
   <script src="js/screens/lessons.js"></script>
   <script src="js/screens/results.js"></script>
+  <script src="js/screens/alphabet.js"></script>
+  <script src="js/screens/counters.js"></script>
   <!-- Entry point -->
   <script src="js/app.js"></script>
 </body>
