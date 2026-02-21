@@ -1,17 +1,24 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node -c:*)",
-      "Bash(for i in {6..10})",
-      "Bash(do echo \"=== Bài $i ===\")",
-      "Bash(done)",
-      "Bash(awk:*)",
+      "Bash(git:*)",
+      "Bash(node:*)",
       "Bash(python3:*)",
-      "Bash(node -e:*)",
-      "Bash(git init:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(gh api:*)"
+      "Bash(mkdir:*)",
+      "Bash(wc:*)",
+      "Bash(ls:*)",
+      "Bash(sed:*)",
+      "Bash(grep:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(chmod:*)",
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Bash(find:*)",
+      "Bash(for:*)",
+      "Bash(touch:*)",
+      "Bash(python3 << 'PYEOF':*)"
     ]
   }
 }
