@@ -1,6 +1,6 @@
 /**
  * quiz/flashcard.js — Flashcard quiz mode
- * Depends on: state, utils (kanaToRomaji), ui (showFeedback, updateProgress)
+ * Depends on: state, utils (kanaToRomaji), ui (showFeedback, updateProgress), audio (speak)
  * Calls at runtime: screens.showResults
  */
 window.QuizApp = window.QuizApp || {};
@@ -11,6 +11,21 @@ window.QuizApp.quiz.flashcard = (function () {
 
   const $ = (sel) => document.querySelector(sel);
   const flashcardEl = $("#flashcard");
+  const speakBtn    = $("#fc-speak");
+
+  // Show speak button only when audio is supported
+  if (window.QuizApp.audio.isSupported() && speakBtn) {
+    speakBtn.classList.remove("hidden");
+    speakBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent card flip
+      const state = window.QuizApp.state;
+      const item  = state.questions[state.questionIndex];
+      if (!item) return;
+      window.QuizApp.audio.speak(
+        state.currentMode === "grammar-flashcard" ? item.pattern : item.japanese
+      );
+    });
+  }
 
   flashcardEl.addEventListener("click", () => {
     flashcardEl.classList.toggle("flipped");
@@ -54,6 +69,10 @@ window.QuizApp.quiz.flashcard = (function () {
 
     ui.updateProgress("fc", state.questionIndex, state.questions.length);
     $("#fc-prev").disabled = state.questionIndex === 0;
+
+    // Auto-play pronunciation for the front (Japanese/pattern)
+    const speakText = isGrammarMode ? item.pattern : item.japanese;
+    window.QuizApp.audio.speak(speakText);
   }
 
   function advanceFlashcard() {

@@ -38,5 +38,6 @@
 
   // ── Init ────────────────────────────────────────────────────
   window.QuizApp.darkmode.initDarkMode();
+  window.QuizApp.audio.init();
   window.QuizApp.screens.renderLessonGrid();
 })();
