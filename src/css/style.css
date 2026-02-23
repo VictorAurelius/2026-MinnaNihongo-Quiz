@@ -1035,7 +1035,7 @@ body {
 .keyboard-main {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: .25rem;
+  gap: .15rem;
   flex: 1;
 }
 
