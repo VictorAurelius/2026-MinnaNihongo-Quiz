@@ -181,10 +181,26 @@
     <!-- ========== SCREEN: Vocabulary List ========== -->
     <section id="screen-vocab-list" class="screen">
       <h2 id="vocab-list-title" class="screen-heading"></h2>
+
+      <div class="vocab-selection-controls">
+        <label class="checkbox-label">
+          <input type="checkbox" id="vocab-select-all">
+          <span>Chọn tất cả</span>
+        </label>
+        <span id="vocab-selected-count">0 từ được chọn</span>
+        <div class="vocab-quiz-buttons" id="vocab-quiz-buttons">
+          <button class="btn btn-primary" data-custom-mode="fc">Flashcard</button>
+          <button class="btn btn-primary" data-custom-mode="typing-kana">Gõ Kana</button>
+          <button class="btn btn-primary" data-custom-mode="typing-romaji">Gõ Romaji</button>
+          <button class="btn btn-primary" data-custom-mode="mc">Trắc nghiệm</button>
+        </div>
+      </div>
+
       <div id="vocab-table-wrapper" class="table-wrapper">
         <table id="vocab-table">
           <thead>
             <tr>
+              <th><input type="checkbox" id="vocab-select-all-th"></th>
               <th>#</th>
               <th>Tiếng Nhật</th>
               <th>Kana</th>

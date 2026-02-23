@@ -54,6 +54,7 @@ window.QuizApp.quiz.typing = (function () {
     const state = window.QuizApp.state;
     const utils = window.QuizApp.utils;
     const ui    = window.QuizApp.ui;
+    const audio = window.QuizApp.audio;
     const item  = state.questions[state.questionIndex];
     const input = $("#tp-input");
     const isRomajiMode = state.currentMode === "typing-romaji";
@@ -86,6 +87,9 @@ window.QuizApp.quiz.typing = (function () {
         ui.showFeedback("tp", false, `Đáp án: ${item.kana} (${r}) — ${item.japanese}`);
       }
     }
+
+    // Auto-play pronunciation after submit
+    audio.speak(item.japanese);
 
     $("#tp-next").classList.remove("hidden");
     $("#tp-submit").classList.add("hidden");
