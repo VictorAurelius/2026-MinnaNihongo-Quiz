@@ -116,7 +116,15 @@ window.QuizApp.quiz.typing = (function () {
     _dispatch(handleTypingSubmit, renderTyping).submit());
 
   $("#tp-input").addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !$("#tp-submit").disabled) _dispatch(handleTypingSubmit, renderTyping).submit();
+    if (e.key === "Enter") {
+      const submitBtn = $("#tp-submit");
+      const nextBtn = $("#tp-next");
+      if (!submitBtn.classList.contains("hidden") && !submitBtn.disabled) {
+        _dispatch(handleTypingSubmit, renderTyping).submit();
+      } else if (!nextBtn.classList.contains("hidden")) {
+        nextBtn.click();
+      }
+    }
   });
 
   $("#tp-next").addEventListener("click", () => {

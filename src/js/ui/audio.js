@@ -41,7 +41,9 @@ window.QuizApp.audio = (function () {
   function speak(text, lang) {
     if (!isSupported() || !text) return;
     const resolvedLang = lang || "ja-JP";
-    const utter = new SpeechSynthesisUtterance(text);
+    // Remove furigana annotations in parentheses (e.g., "開（あ）けます" -> "開けます")
+    const cleanText = text.replace(/[（(][^）)]*[）)]/g, "");
+    const utter = new SpeechSynthesisUtterance(cleanText);
     utter.lang  = resolvedLang;
     utter.rate  = 0.85;
     utter.pitch = 1.0;
