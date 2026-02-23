@@ -117,6 +117,8 @@ window.QuizApp.quiz.typing = (function () {
 
   $("#tp-input").addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !$("#tp-submit").disabled) {
+      console.log("[typing.js] Enter pressed on input → submitting");
+      e.stopPropagation(); // Prevent document listener from firing
       _dispatch(handleTypingSubmit, renderTyping).submit();
     }
   });
@@ -127,7 +129,15 @@ window.QuizApp.quiz.typing = (function () {
     if (!screen || screen.classList.contains("hidden")) return;
     if (e.key === "Enter") {
       const nextBtn = $("#tp-next");
-      if (!nextBtn.classList.contains("hidden")) {
+      const submitBtn = $("#tp-submit");
+      console.log("[typing.js] Enter pressed on document", {
+        nextHidden: nextBtn.classList.contains("hidden"),
+        submitHidden: submitBtn.classList.contains("hidden"),
+        inputDisabled: $("#tp-input").disabled
+      });
+      // Only advance if Next button is visible AND Submit button is hidden
+      if (!nextBtn.classList.contains("hidden") && submitBtn.classList.contains("hidden")) {
+        console.log("[typing.js] Clicking next button");
         e.preventDefault();
         nextBtn.click();
       }
