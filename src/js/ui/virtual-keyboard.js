@@ -11,32 +11,40 @@ window.QuizApp.ui = window.QuizApp.ui || {};
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
 
-  // Basic kana characters (main area)
-  const HIRAGANA_CHARS = [
-    ["あ", "い", "う", "え", "お"],
-    ["か", "き", "く", "け", "こ"],
-    ["さ", "し", "す", "せ", "そ"],
-    ["た", "ち", "つ", "て", "と"],
-    ["な", "に", "ぬ", "ね", "の"],
-    ["は", "ひ", "ふ", "へ", "ほ"],
-    ["ま", "み", "む", "め", "も"],
-    ["や", "　", "ゆ", "　", "よ"],
-    ["ら", "り", "る", "れ", "ろ"],
-    ["わ", "を", "ん", "ー", "　"]
-  ];
+  // Split into 2 columns to reduce height (5 rows each)
+  const HIRAGANA_CHARS = {
+    left: [
+      ["あ", "い", "う", "え", "お"],
+      ["か", "き", "く", "け", "こ"],
+      ["さ", "し", "す", "せ", "そ"],
+      ["た", "ち", "つ", "て", "と"],
+      ["な", "に", "ぬ", "ね", "の"]
+    ],
+    right: [
+      ["は", "ひ", "ふ", "へ", "ほ"],
+      ["ま", "み", "む", "め", "も"],
+      ["や", "　", "ゆ", "　", "よ"],
+      ["ら", "り", "る", "れ", "ろ"],
+      ["わ", "を", "ん", "ー", "　"]
+    ]
+  };
 
-  const KATAKANA_CHARS = [
-    ["ア", "イ", "ウ", "エ", "オ"],
-    ["カ", "キ", "ク", "ケ", "コ"],
-    ["サ", "シ", "ス", "セ", "ソ"],
-    ["タ", "チ", "ツ", "テ", "ト"],
-    ["ナ", "ニ", "ヌ", "ネ", "ノ"],
-    ["ハ", "ヒ", "フ", "ヘ", "ホ"],
-    ["マ", "ミ", "ム", "メ", "モ"],
-    ["ヤ", "　", "ユ", "　", "ヨ"],
-    ["ラ", "リ", "ル", "レ", "ロ"],
-    ["ワ", "ヲ", "ン", "ー", "　"]
-  ];
+  const KATAKANA_CHARS = {
+    left: [
+      ["ア", "イ", "ウ", "エ", "オ"],
+      ["カ", "キ", "ク", "ケ", "コ"],
+      ["サ", "シ", "ス", "セ", "ソ"],
+      ["タ", "チ", "ツ", "テ", "ト"],
+      ["ナ", "ニ", "ヌ", "ネ", "ノ"]
+    ],
+    right: [
+      ["ハ", "ヒ", "フ", "ヘ", "ホ"],
+      ["マ", "ミ", "ム", "メ", "モ"],
+      ["ヤ", "　", "ユ", "　", "ヨ"],
+      ["ラ", "リ", "ル", "レ", "ロ"],
+      ["ワ", "ヲ", "ン", "ー", "　"]
+    ]
+  };
 
   // Dakuten conversion maps
   const DAKUTEN_MAP = {
@@ -89,21 +97,24 @@ window.QuizApp.ui = window.QuizApp.ui || {};
 
     grid.innerHTML = "";
 
-    // Create main area (left) and sidebar (right)
-    const mainArea = document.createElement("div");
-    mainArea.className = "keyboard-main";
+    // Create left column
+    const leftCol = document.createElement("div");
+    leftCol.className = "keyboard-col";
+
+    // Create right column
+    const rightCol = document.createElement("div");
+    rightCol.className = "keyboard-col";
 
     const sidebar = document.createElement("div");
     sidebar.className = "keyboard-sidebar";
 
-    // Render main character grid
-    chars.forEach(row => {
+    // Render left column
+    chars.left.forEach(row => {
       row.forEach(char => {
         if (char === "　") {
-          // Empty space
           const empty = document.createElement("div");
           empty.className = "keyboard-key empty";
-          mainArea.appendChild(empty);
+          leftCol.appendChild(empty);
         } else {
           const btn = document.createElement("button");
           btn.className = "keyboard-key";
@@ -115,7 +126,30 @@ window.QuizApp.ui = window.QuizApp.ui || {};
               targetInput.focus();
             }
           });
-          mainArea.appendChild(btn);
+          leftCol.appendChild(btn);
+        }
+      });
+    });
+
+    // Render right column
+    chars.right.forEach(row => {
+      row.forEach(char => {
+        if (char === "　") {
+          const empty = document.createElement("div");
+          empty.className = "keyboard-key empty";
+          rightCol.appendChild(empty);
+        } else {
+          const btn = document.createElement("button");
+          btn.className = "keyboard-key";
+          btn.textContent = char;
+          btn.type = "button";
+          btn.addEventListener("click", () => {
+            if (targetInput) {
+              targetInput.value += char;
+              targetInput.focus();
+            }
+          });
+          rightCol.appendChild(btn);
         }
       });
     });
@@ -181,7 +215,8 @@ window.QuizApp.ui = window.QuizApp.ui || {};
     });
     sidebar.appendChild(space);
 
-    grid.appendChild(mainArea);
+    grid.appendChild(leftCol);
+    grid.appendChild(rightCol);
     grid.appendChild(sidebar);
   }
 
