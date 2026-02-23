@@ -16,6 +16,7 @@ window.QuizApp.state = {
   isRetryMode:       false,
   fcKnownCount:      0,      // flashcard "known" counter
   navigationHistory: [],     // stack for back-button support
+  previousScreen:    null,   // for custom quiz: remember where to go back
 };
 
 window.QuizApp.state.MAX_HISTORY = 20;

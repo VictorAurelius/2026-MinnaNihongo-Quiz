@@ -33,12 +33,21 @@ window.QuizApp.quiz.typing = (function () {
 
     if (isRomajiMode) {
       $("#tp-romaji-hint-wrapper").classList.add("hidden");
+      // Hide virtual keyboard for romaji mode
+      if (window.QuizApp.ui.virtualKeyboard) {
+        window.QuizApp.ui.virtualKeyboard.hide();
+      }
     } else {
       $("#tp-romaji-hint-wrapper").classList.remove("hidden");
       $("#tp-romaji").textContent = utils.kanaToRomaji(item.kana);
       $("#tp-romaji").classList.add("hidden");
       $("#tp-show-romaji").classList.remove("hidden");
       $("#tp-show-romaji").textContent = "Hiện romaji";
+      // Show and init virtual keyboard for kana mode
+      if (window.QuizApp.ui.virtualKeyboard) {
+        window.QuizApp.ui.virtualKeyboard.init(input);
+        window.QuizApp.ui.virtualKeyboard.show();
+      }
     }
 
     $("#tp-feedback").classList.add("hidden");

@@ -311,6 +311,15 @@
         <button id="tp-submit" class="btn btn-primary">Kiểm tra</button>
       </div>
 
+      <!-- Virtual Keyboard for Kana -->
+      <div id="virtual-keyboard" class="virtual-keyboard hidden">
+        <div class="keyboard-tabs">
+          <button class="keyboard-tab active" data-script="hiragana">あ</button>
+          <button class="keyboard-tab" data-script="katakana">ア</button>
+        </div>
+        <div class="keyboard-grid" id="keyboard-grid"></div>
+      </div>
+
       <div id="tp-feedback" class="feedback hidden">
         <p id="tp-feedback-text"></p>
       </div>
@@ -334,6 +343,7 @@
         <div class="results-actions">
           <button id="btn-retry-wrong" class="btn btn-danger">Làm lại câu sai</button>
           <button id="btn-retry-all" class="btn btn-accent">Làm lại tất cả</button>
+          <button id="btn-back-to-vocab" class="btn btn-primary hidden">Quay lại danh sách từ</button>
           <button id="btn-results-home" class="btn btn-outline">Chọn bài khác</button>
         </div>
       </div>
@@ -469,6 +479,7 @@
   <script src="js/ui/darkmode.js"></script>
   <script src="js/ui/feedback.js"></script>
   <script src="js/ui/audio.js"></script>
+  <script src="js/ui/virtual-keyboard.js"></script>
   <!-- Screens (early — no quiz dep) -->
   <script src="js/screens/vocab-list.js"></script>
   <script src="js/screens/grammar-list.js"></script>

@@ -53,6 +53,13 @@ window.QuizApp.screens = window.QuizApp.screens || {};
       $("#btn-retry-wrong").classList.add("hidden");
     }
 
+    // Show "Back to vocab list" button if quiz was started from vocab list
+    if (state.previousScreen === "vocabList") {
+      $("#btn-back-to-vocab").classList.remove("hidden");
+    } else {
+      $("#btn-back-to-vocab").classList.add("hidden");
+    }
+
     nav.showScreen("results");
   }
 
@@ -81,6 +88,12 @@ window.QuizApp.screens = window.QuizApp.screens || {};
     window.QuizApp.nav.showScreen("lessons", false);
     $("#header-title").textContent =
       window.QuizApp.screens.getCourseHeaderTitle(window.QuizApp.screens.getActiveCourse());
+  });
+
+  $("#btn-back-to-vocab").addEventListener("click", () => {
+    const state = window.QuizApp.state;
+    state.previousScreen = null; // Clear it
+    window.QuizApp.screens.openVocabList();
   });
 
   window.QuizApp.screens.showResults = showResults;

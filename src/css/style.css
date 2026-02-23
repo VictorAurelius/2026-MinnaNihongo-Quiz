@@ -958,6 +958,90 @@ body {
   text-align: center;
 }
 
+/* ---------- Virtual Keyboard ---------- */
+.virtual-keyboard {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+}
+
+.keyboard-tabs {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: .75rem;
+  justify-content: center;
+}
+
+.keyboard-tab {
+  padding: .5rem 1.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-jp);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.keyboard-tab:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.keyboard-tab.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.keyboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+  gap: .4rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.keyboard-key {
+  padding: .75rem .5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-jp);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+  user-select: none;
+}
+
+.keyboard-key:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.keyboard-key:active {
+  transform: translateY(0);
+}
+
+.keyboard-key.special {
+  grid-column: span 2;
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  font-size: .85rem;
+}
+
+.keyboard-key.special:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
 /* ---------- Utility ---------- */
 .hidden {
   display: none !important;

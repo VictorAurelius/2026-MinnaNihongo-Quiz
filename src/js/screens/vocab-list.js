@@ -90,6 +90,7 @@ window.QuizApp.screens.openVocabList = function () {
       state.score = 0;
       state.wrongItems = [];
       state.fcKnownCount = 0;
+      state.previousScreen = "vocabList"; // Remember to go back here
 
       // Map mode to screen
       if (mode === "fc") {
@@ -106,7 +107,7 @@ window.QuizApp.screens.openVocabList = function () {
         nav.showScreen("typing");
       } else if (mode === "mc") {
         state.currentMode = "mc";
-        window.QuizApp.quiz.mc.renderMultipleChoice();
+        window.QuizApp.quiz.mc.renderMC();
         nav.showScreen("multipleChoice");
       }
     });
