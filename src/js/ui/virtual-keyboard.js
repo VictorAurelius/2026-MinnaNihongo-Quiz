@@ -11,23 +11,31 @@ window.QuizApp.ui = window.QuizApp.ui || {};
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
 
-  // Compact layout - 10 columns instead of 5 to reduce height
+  // Basic kana characters (main area)
   const HIRAGANA_CHARS = [
-    ["あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ"],
-    ["さ", "し", "す", "せ", "そ", "た", "ち", "つ", "て", "と"],
-    ["な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ"],
-    ["ま", "み", "む", "め", "も", "や", "ゆ", "よ", "ら", "り"],
-    ["る", "れ", "ろ", "わ", "を", "ん", "ー", "ゃ", "ゅ", "ょ"],
-    ["っ", "　", "　", "　", "　", "　", "　", "　", "　", "　"]
+    ["あ", "い", "う", "え", "お"],
+    ["か", "き", "く", "け", "こ"],
+    ["さ", "し", "す", "せ", "そ"],
+    ["た", "ち", "つ", "て", "と"],
+    ["な", "に", "ぬ", "ね", "の"],
+    ["は", "ひ", "ふ", "へ", "ほ"],
+    ["ま", "み", "む", "め", "も"],
+    ["や", "　", "ゆ", "　", "よ"],
+    ["ら", "り", "る", "れ", "ろ"],
+    ["わ", "を", "ん", "ー", "　"]
   ];
 
   const KATAKANA_CHARS = [
-    ["ア", "イ", "ウ", "エ", "オ", "カ", "キ", "ク", "ケ", "コ"],
-    ["サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト"],
-    ["ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ"],
-    ["マ", "ミ", "ム", "メ", "モ", "ヤ", "ユ", "ヨ", "ラ", "リ"],
-    ["ル", "レ", "ロ", "ワ", "ヲ", "ン", "ー", "ャ", "ュ", "ョ"],
-    ["ッ", "　", "　", "　", "　", "　", "　", "　", "　", "　"]
+    ["ア", "イ", "ウ", "エ", "オ"],
+    ["カ", "キ", "ク", "ケ", "コ"],
+    ["サ", "シ", "ス", "セ", "ソ"],
+    ["タ", "チ", "ツ", "テ", "ト"],
+    ["ナ", "ニ", "ヌ", "ネ", "ノ"],
+    ["ハ", "ヒ", "フ", "ヘ", "ホ"],
+    ["マ", "ミ", "ム", "メ", "モ"],
+    ["ヤ", "　", "ユ", "　", "ヨ"],
+    ["ラ", "リ", "ル", "レ", "ロ"],
+    ["ワ", "ヲ", "ン", "ー", "　"]
   ];
 
   // Dakuten conversion maps
@@ -75,16 +83,27 @@ window.QuizApp.ui = window.QuizApp.ui || {};
     if (!grid) return;
 
     const chars = script === "hiragana" ? HIRAGANA_CHARS : KATAKANA_CHARS;
+    const smallChars = script === "hiragana"
+      ? ["ゃ", "ゅ", "ょ", "っ"]
+      : ["ャ", "ュ", "ョ", "ッ"];
+
     grid.innerHTML = "";
 
-    // Render character grid
+    // Create main area (left) and sidebar (right)
+    const mainArea = document.createElement("div");
+    mainArea.className = "keyboard-main";
+
+    const sidebar = document.createElement("div");
+    sidebar.className = "keyboard-sidebar";
+
+    // Render main character grid
     chars.forEach(row => {
       row.forEach(char => {
         if (char === "　") {
           // Empty space
           const empty = document.createElement("div");
           empty.className = "keyboard-key empty";
-          grid.appendChild(empty);
+          mainArea.appendChild(empty);
         } else {
           const btn = document.createElement("button");
           btn.className = "keyboard-key";
@@ -96,9 +115,24 @@ window.QuizApp.ui = window.QuizApp.ui || {};
               targetInput.focus();
             }
           });
-          grid.appendChild(btn);
+          mainArea.appendChild(btn);
         }
       });
+    });
+
+    // Add small characters to sidebar
+    smallChars.forEach(char => {
+      const btn = document.createElement("button");
+      btn.className = "keyboard-key small";
+      btn.textContent = char;
+      btn.type = "button";
+      btn.addEventListener("click", () => {
+        if (targetInput) {
+          targetInput.value += char;
+          targetInput.focus();
+        }
+      });
+      sidebar.appendChild(btn);
     });
 
     // Add dakuten button (゛)
@@ -108,7 +142,7 @@ window.QuizApp.ui = window.QuizApp.ui || {};
     dakuten.title = "Thêm dakuten (゛)";
     dakuten.type = "button";
     dakuten.addEventListener("click", addDakuten);
-    grid.appendChild(dakuten);
+    sidebar.appendChild(dakuten);
 
     // Add handakuten button (゜)
     const handakuten = document.createElement("button");
@@ -117,7 +151,7 @@ window.QuizApp.ui = window.QuizApp.ui || {};
     handakuten.title = "Thêm handakuten (゜)";
     handakuten.type = "button";
     handakuten.addEventListener("click", addHandakuten);
-    grid.appendChild(handakuten);
+    sidebar.appendChild(handakuten);
 
     // Add backspace button
     const backspace = document.createElement("button");
@@ -131,7 +165,7 @@ window.QuizApp.ui = window.QuizApp.ui || {};
         targetInput.focus();
       }
     });
-    grid.appendChild(backspace);
+    sidebar.appendChild(backspace);
 
     // Add space button
     const space = document.createElement("button");
@@ -145,7 +179,10 @@ window.QuizApp.ui = window.QuizApp.ui || {};
         targetInput.focus();
       }
     });
-    grid.appendChild(space);
+    sidebar.appendChild(space);
+
+    grid.appendChild(mainArea);
+    grid.appendChild(sidebar);
   }
 
   let isVisible = false;

@@ -1026,11 +1026,24 @@ body {
 }
 
 .keyboard-grid {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: .2rem;
+  display: flex;
+  gap: .5rem;
   margin: 0 auto;
   max-width: 100%;
+}
+
+.keyboard-main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: .2rem;
+  flex: 1;
+}
+
+.keyboard-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .2rem;
+  width: 80px;
 }
 
 .keyboard-key {
@@ -1040,7 +1053,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 4px;
   font-family: var(--font-jp);
-  font-size: .8rem;
+  font-size: .85rem;
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition);
@@ -1048,15 +1061,15 @@ body {
   align-items: center;
   justify-content: center;
   user-select: none;
-  min-height: 28px;
-  max-height: 42px;
+  min-height: 32px;
+  max-height: 44px;
 }
 
 .keyboard-key:hover {
   background: var(--primary);
   color: white;
   border-color: var(--primary);
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .keyboard-key:active {
@@ -1070,11 +1083,16 @@ body {
   pointer-events: none;
 }
 
+.keyboard-key.small {
+  font-size: .75rem;
+  background: var(--bg-card);
+}
+
 .keyboard-key.accent {
   background: var(--warning);
   color: white;
   border-color: var(--warning);
-  font-size: 1rem;
+  font-size: .95rem;
 }
 
 .keyboard-key.accent:hover {
@@ -1097,15 +1115,23 @@ body {
 
 /* Mobile optimization */
 @media (max-width: 600px) {
-  .keyboard-grid {
-    grid-template-columns: repeat(8, 1fr);
+  .keyboard-main {
     gap: .15rem;
   }
 
+  .keyboard-sidebar {
+    gap: .15rem;
+    width: 70px;
+  }
+
   .keyboard-key {
-    font-size: .7rem;
-    min-height: 26px;
-    max-height: 38px;
+    font-size: .75rem;
+    min-height: 28px;
+    max-height: 40px;
+  }
+
+  .keyboard-key.small {
+    font-size: .65rem;
   }
 
   .keyboard-key.accent {
