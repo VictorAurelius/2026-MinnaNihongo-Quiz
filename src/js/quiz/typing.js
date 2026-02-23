@@ -113,10 +113,10 @@ window.QuizApp.quiz.typing = (function () {
   }
 
   $("#tp-submit").addEventListener("click", () =>
-    _dispatch().submit());
+    _dispatch(handleTypingSubmit, renderTyping).submit());
 
   $("#tp-input").addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !$("#tp-submit").disabled) _dispatch().submit();
+    if (e.key === "Enter" && !$("#tp-submit").disabled) _dispatch(handleTypingSubmit, renderTyping).submit();
   });
 
   $("#tp-next").addEventListener("click", () => {
