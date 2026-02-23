@@ -959,30 +959,57 @@ body {
 }
 
 /* ---------- Virtual Keyboard ---------- */
+#keyboard-toggle {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  justify-content: center;
+}
+
 .virtual-keyboard {
-  margin: 1rem 0;
+  margin: 1rem auto;
   padding: 1rem;
   background: var(--bg-card);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.keyboard-header {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: .75rem;
 }
 
 .keyboard-tabs {
   display: flex;
   gap: .5rem;
-  margin-bottom: .75rem;
   justify-content: center;
 }
 
 .keyboard-tab {
-  padding: .5rem 1.5rem;
+  padding: .6rem 1.2rem;
   background: var(--bg);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   border-radius: var(--radius-sm);
   font-family: var(--font-jp);
-  font-size: 1.2rem;
+  font-size: .95rem;
+  font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
+  color: var(--text-muted);
 }
 
 .keyboard-tab:hover {
@@ -999,42 +1026,65 @@ body {
 
 .keyboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
-  gap: .4rem;
-  max-width: 600px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: .35rem;
   margin: 0 auto;
 }
 
 .keyboard-key {
-  padding: .75rem .5rem;
+  aspect-ratio: 1;
+  padding: 0;
   background: var(--bg);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   border-radius: var(--radius-sm);
   font-family: var(--font-jp);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
   cursor: pointer;
   transition: var(--transition);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   user-select: none;
+  min-height: 48px;
 }
 
 .keyboard-key:hover {
   background: var(--primary);
   color: white;
   border-color: var(--primary);
-  transform: translateY(-2px);
+  transform: scale(1.05);
 }
 
 .keyboard-key:active {
-  transform: translateY(0);
+  transform: scale(0.95);
+}
+
+.keyboard-key.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+.keyboard-key.accent {
+  background: var(--warning);
+  color: white;
+  border-color: var(--warning);
+  font-size: 1.8rem;
+}
+
+.keyboard-key.accent:hover {
+  background: #e68a00;
+  border-color: #e68a00;
 }
 
 .keyboard-key.special {
-  grid-column: span 2;
   background: var(--accent);
   color: white;
   border-color: var(--accent);
   font-size: .85rem;
+  font-weight: 600;
 }
 
 .keyboard-key.special:hover {

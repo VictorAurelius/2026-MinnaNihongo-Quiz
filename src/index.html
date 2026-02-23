@@ -311,11 +311,19 @@
         <button id="tp-submit" class="btn btn-primary">Kiểm tra</button>
       </div>
 
+      <!-- Virtual Keyboard Toggle -->
+      <button id="keyboard-toggle" class="btn btn-outline hidden" style="margin-top: 0.5rem;">
+        <span id="keyboard-toggle-icon">⌨️</span>
+        <span id="keyboard-toggle-text">Hiện bàn phím</span>
+      </button>
+
       <!-- Virtual Keyboard for Kana -->
       <div id="virtual-keyboard" class="virtual-keyboard hidden">
-        <div class="keyboard-tabs">
-          <button class="keyboard-tab active" data-script="hiragana">あ</button>
-          <button class="keyboard-tab" data-script="katakana">ア</button>
+        <div class="keyboard-header">
+          <div class="keyboard-tabs">
+            <button class="keyboard-tab active" data-script="hiragana">あ Hiragana</button>
+            <button class="keyboard-tab" data-script="katakana">ア Katakana</button>
+          </div>
         </div>
         <div class="keyboard-grid" id="keyboard-grid"></div>
       </div>

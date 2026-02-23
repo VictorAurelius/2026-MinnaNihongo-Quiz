@@ -36,6 +36,7 @@ window.QuizApp.quiz.typing = (function () {
       // Hide virtual keyboard for romaji mode
       if (window.QuizApp.ui.virtualKeyboard) {
         window.QuizApp.ui.virtualKeyboard.hide();
+        window.QuizApp.ui.virtualKeyboard.hideToggleButton();
       }
     } else {
       $("#tp-romaji-hint-wrapper").classList.remove("hidden");
@@ -43,10 +44,12 @@ window.QuizApp.quiz.typing = (function () {
       $("#tp-romaji").classList.add("hidden");
       $("#tp-show-romaji").classList.remove("hidden");
       $("#tp-show-romaji").textContent = "Hiện romaji";
-      // Show and init virtual keyboard for kana mode
+      // Show toggle button and init virtual keyboard for kana mode
       if (window.QuizApp.ui.virtualKeyboard) {
         window.QuizApp.ui.virtualKeyboard.init(input);
-        window.QuizApp.ui.virtualKeyboard.show();
+        window.QuizApp.ui.virtualKeyboard.showToggleButton();
+        // Auto-hide keyboard by default, user can toggle
+        window.QuizApp.ui.virtualKeyboard.hide();
       }
     }
 
