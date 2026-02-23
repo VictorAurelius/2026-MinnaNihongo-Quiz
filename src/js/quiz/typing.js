@@ -116,12 +116,19 @@ window.QuizApp.quiz.typing = (function () {
     _dispatch(handleTypingSubmit, renderTyping).submit());
 
   $("#tp-input").addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !$("#tp-submit").disabled) {
+      _dispatch(handleTypingSubmit, renderTyping).submit();
+    }
+  });
+
+  // Global Enter key handler for typing screen (works even when input is disabled)
+  document.addEventListener("keydown", (e) => {
+    const screen = $("#screen-typing");
+    if (!screen || screen.classList.contains("hidden")) return;
     if (e.key === "Enter") {
-      const submitBtn = $("#tp-submit");
       const nextBtn = $("#tp-next");
-      if (!submitBtn.classList.contains("hidden") && !submitBtn.disabled) {
-        _dispatch(handleTypingSubmit, renderTyping).submit();
-      } else if (!nextBtn.classList.contains("hidden")) {
+      if (!nextBtn.classList.contains("hidden")) {
+        e.preventDefault();
         nextBtn.click();
       }
     }
