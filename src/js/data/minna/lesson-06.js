@@ -7,6 +7,7 @@ const LESSON_06_DATA =   {
         japanese: "食べます（たべます）",
         kana: "たべます",
         vietnamese: "ăn",
+        type: "main",
         english: "to eat",
         example: "あさごはんを たべます。"
       },
@@ -14,6 +15,7 @@ const LESSON_06_DATA =   {
         japanese: "飲みます（のみます）",
         kana: "のみます",
         vietnamese: "uống",
+        type: "main",
         english: "to drink",
         example: "コーヒーを のみます。"
       },
@@ -21,6 +23,7 @@ const LESSON_06_DATA =   {
         japanese: "吸います（すいます）",
         kana: "すいます",
         vietnamese: "hút (thuốc)",
+        type: "main",
         english: "to smoke",
         example: "たばこを すいます。"
       },
@@ -28,6 +31,7 @@ const LESSON_06_DATA =   {
         japanese: "見ます（みます）",
         kana: "みます",
         vietnamese: "xem, nhìn",
+        type: "main",
         english: "to see, to watch",
         example: "テレビを みます。"
       },
@@ -35,6 +39,7 @@ const LESSON_06_DATA =   {
         japanese: "聞きます（ききます）",
         kana: "ききます",
         vietnamese: "nghe",
+        type: "main",
         english: "to listen, to hear",
         example: "おんがくを ききます。"
       },
@@ -42,6 +47,7 @@ const LESSON_06_DATA =   {
         japanese: "読みます（よみます）",
         kana: "よみます",
         vietnamese: "đọc",
+        type: "main",
         english: "to read",
         example: "しんぶんを よみます。"
       },
@@ -49,6 +55,7 @@ const LESSON_06_DATA =   {
         japanese: "書きます（かきます）",
         kana: "かきます",
         vietnamese: "viết",
+        type: "main",
         english: "to write",
         example: "てがみを かきます。"
       },
@@ -56,6 +63,7 @@ const LESSON_06_DATA =   {
         japanese: "買います（かいます）",
         kana: "かいます",
         vietnamese: "mua",
+        type: "main",
         english: "to buy",
         example: "ほんを かいます。"
       },
@@ -63,6 +71,7 @@ const LESSON_06_DATA =   {
         japanese: "撮ります（とります）",
         kana: "とります",
         vietnamese: "chụp (ảnh)",
+        type: "main",
         english: "to take (a photo)",
         example: "しゃしんを とります。"
       },
@@ -70,6 +79,7 @@ const LESSON_06_DATA =   {
         japanese: "します",
         kana: "します",
         vietnamese: "làm, chơi",
+        type: "main",
         english: "to do, to play",
         example: "サッカーを します。"
       },
@@ -77,6 +87,7 @@ const LESSON_06_DATA =   {
         japanese: "会います（あいます）",
         kana: "あいます",
         vietnamese: "gặp",
+        type: "main",
         english: "to meet",
         example: "ともだちに あいます。"
       },
@@ -84,6 +95,7 @@ const LESSON_06_DATA =   {
         japanese: "ご飯（ごはん）",
         kana: "ごはん",
         vietnamese: "cơm, bữa ăn",
+        type: "main",
         english: "rice, meal",
         example: ""
       },
@@ -91,6 +103,7 @@ const LESSON_06_DATA =   {
         japanese: "朝ご飯（あさごはん）",
         kana: "あさごはん",
         vietnamese: "bữa sáng",
+        type: "main",
         english: "breakfast",
         example: ""
       },
@@ -98,6 +111,7 @@ const LESSON_06_DATA =   {
         japanese: "昼ご飯（ひるごはん）",
         kana: "ひるごはん",
         vietnamese: "bữa trưa",
+        type: "main",
         english: "lunch",
         example: ""
       },
@@ -105,6 +119,7 @@ const LESSON_06_DATA =   {
         japanese: "晩ご飯（ばんごはん）",
         kana: "ばんごはん",
         vietnamese: "bữa tối",
+        type: "main",
         english: "dinner",
         example: ""
       },
@@ -112,6 +127,7 @@ const LESSON_06_DATA =   {
         japanese: "パン",
         kana: "パン",
         vietnamese: "bánh mì",
+        type: "main",
         english: "bread",
         example: ""
       },
@@ -119,6 +135,7 @@ const LESSON_06_DATA =   {
         japanese: "卵（たまご）",
         kana: "たまご",
         vietnamese: "trứng",
+        type: "main",
         english: "egg",
         example: ""
       },
@@ -126,6 +143,7 @@ const LESSON_06_DATA =   {
         japanese: "肉（にく）",
         kana: "にく",
         vietnamese: "thịt",
+        type: "main",
         english: "meat",
         example: ""
       },
@@ -133,6 +151,7 @@ const LESSON_06_DATA =   {
         japanese: "魚（さかな）",
         kana: "さかな",
         vietnamese: "cá",
+        type: "main",
         english: "fish",
         example: ""
       },
@@ -140,6 +159,7 @@ const LESSON_06_DATA =   {
         japanese: "野菜（やさい）",
         kana: "やさい",
         vietnamese: "rau",
+        type: "main",
         english: "vegetable",
         example: ""
       },
@@ -147,6 +167,7 @@ const LESSON_06_DATA =   {
         japanese: "果物（くだもの）",
         kana: "くだもの",
         vietnamese: "trái cây",
+        type: "main",
         english: "fruit",
         example: ""
       },
@@ -154,6 +175,7 @@ const LESSON_06_DATA =   {
         japanese: "水（みず）",
         kana: "みず",
         vietnamese: "nước",
+        type: "main",
         english: "water",
         example: ""
       },
@@ -161,6 +183,7 @@ const LESSON_06_DATA =   {
         japanese: "お茶（おちゃ）",
         kana: "おちゃ",
         vietnamese: "trà",
+        type: "main",
         english: "tea",
         example: ""
       },
@@ -168,6 +191,7 @@ const LESSON_06_DATA =   {
         japanese: "紅茶（こうちゃ）",
         kana: "こうちゃ",
         vietnamese: "trà đen, hồng trà",
+        type: "main",
         english: "black tea",
         example: ""
       },
@@ -175,6 +199,7 @@ const LESSON_06_DATA =   {
         japanese: "牛乳（ぎゅうにゅう）",
         kana: "ぎゅうにゅう",
         vietnamese: "sữa bò",
+        type: "main",
         english: "milk",
         example: ""
       },
@@ -182,6 +207,7 @@ const LESSON_06_DATA =   {
         japanese: "ジュース",
         kana: "ジュース",
         vietnamese: "nước trái cây",
+        type: "main",
         english: "juice",
         example: ""
       },
@@ -189,6 +215,7 @@ const LESSON_06_DATA =   {
         japanese: "ビール",
         kana: "ビール",
         vietnamese: "bia",
+        type: "main",
         english: "beer",
         example: ""
       },
@@ -196,6 +223,7 @@ const LESSON_06_DATA =   {
         japanese: "お酒（おさけ）",
         kana: "おさけ",
         vietnamese: "rượu",
+        type: "main",
         english: "alcohol, sake",
         example: ""
       },
@@ -203,6 +231,7 @@ const LESSON_06_DATA =   {
         japanese: "映画（えいが）",
         kana: "えいが",
         vietnamese: "phim",
+        type: "main",
         english: "movie",
         example: "えいがを みます。"
       },
@@ -210,6 +239,7 @@ const LESSON_06_DATA =   {
         japanese: "手紙（てがみ）",
         kana: "てがみ",
         vietnamese: "thư",
+        type: "main",
         english: "letter",
         example: ""
       },
@@ -217,6 +247,7 @@ const LESSON_06_DATA =   {
         japanese: "写真（しゃしん）",
         kana: "しゃしん",
         vietnamese: "ảnh",
+        type: "main",
         english: "photograph",
         example: ""
       },
@@ -224,6 +255,7 @@ const LESSON_06_DATA =   {
         japanese: "レポート",
         kana: "レポート",
         vietnamese: "báo cáo",
+        type: "main",
         english: "report",
         example: ""
       },
@@ -231,6 +263,7 @@ const LESSON_06_DATA =   {
         japanese: "花（はな）",
         kana: "はな",
         vietnamese: "hoa",
+        type: "main",
         english: "flower",
         example: "はなを かいます。"
       },
@@ -238,6 +271,7 @@ const LESSON_06_DATA =   {
         japanese: "サッカー",
         kana: "サッカー",
         vietnamese: "bóng đá",
+        type: "main",
         english: "soccer",
         example: ""
       },
@@ -245,6 +279,7 @@ const LESSON_06_DATA =   {
         japanese: "テニス",
         kana: "テニス",
         vietnamese: "quần vợt",
+        type: "main",
         english: "tennis",
         example: ""
       },
@@ -252,6 +287,7 @@ const LESSON_06_DATA =   {
         japanese: "花見（はなみ）",
         kana: "はなみ",
         vietnamese: "ngắm hoa",
+        type: "main",
         english: "flower viewing",
         example: ""
       },
@@ -259,6 +295,7 @@ const LESSON_06_DATA =   {
         japanese: "何（なに）",
         kana: "なに",
         vietnamese: "cái gì",
+        type: "main",
         english: "what",
         example: ""
       },
@@ -266,6 +303,7 @@ const LESSON_06_DATA =   {
         japanese: "一緒に（いっしょに）",
         kana: "いっしょに",
         vietnamese: "cùng nhau",
+        type: "main",
         english: "together",
         example: "いっしょに いきませんか。"
       },
@@ -273,6 +311,7 @@ const LESSON_06_DATA =   {
         japanese: "ちょっと",
         kana: "ちょっと",
         vietnamese: "một chút",
+        type: "main",
         english: "a little, a moment",
         example: "ちょっと すみません。"
       },
@@ -280,6 +319,7 @@ const LESSON_06_DATA =   {
         japanese: "いつも",
         kana: "いつも",
         vietnamese: "luôn luôn",
+        type: "main",
         english: "always",
         example: ""
       },
@@ -287,6 +327,7 @@ const LESSON_06_DATA =   {
         japanese: "時々（ときどき）",
         kana: "ときどき",
         vietnamese: "thỉnh thoảng",
+        type: "main",
         english: "sometimes",
         example: ""
       },
@@ -294,6 +335,7 @@ const LESSON_06_DATA =   {
         japanese: "それから",
         kana: "それから",
         vietnamese: "sau đó",
+        type: "main",
         english: "after that, and then",
         example: ""
       },
@@ -301,6 +343,7 @@ const LESSON_06_DATA =   {
         japanese: "いいですね",
         kana: "いいですね",
         vietnamese: "hay quá nhỉ",
+        type: "main",
         english: "that's nice",
         example: ""
       },
@@ -308,6 +351,7 @@ const LESSON_06_DATA =   {
         japanese: "わかりました",
         kana: "わかりました",
         vietnamese: "tôi hiểu rồi",
+        type: "main",
         english: "I understand",
         example: ""
       }
@@ -316,77 +360,90 @@ const LESSON_06_DATA =   {
       {
         pattern: "～を ～ます",
         vietnamese: "làm ~",
+        type: "main",
         english: "do ~ (verb)",
         explanation: "Trợ từ 'を' đánh dấu tân ngữ (object) của động từ.",
         examples: [
           {
             japanese: "しんぶんを よみます。",
             vietnamese: "Tôi đọc báo.",
-            english: "I read the newspaper."
+            type: "main",
+        english: "I read the newspaper."
           },
           {
             japanese: "コーヒーを のみます。",
             vietnamese: "Tôi uống cà phê.",
-            english: "I drink coffee."
+            type: "main",
+        english: "I drink coffee."
           },
           {
             japanese: "てがみを かきます。",
             vietnamese: "Tôi viết thư.",
-            english: "I write a letter."
+            type: "main",
+        english: "I write a letter."
           }
         ]
       },
       {
         pattern: "～で ～を ～ます",
         vietnamese: "làm ~ ở ~",
+        type: "main",
         english: "do ~ at/in ~",
         explanation: "Trợ từ 'で' chỉ địa điểm diễn ra hành động.",
         examples: [
           {
             japanese: "としょかんで ほんを よみます。",
             vietnamese: "Tôi đọc sách ở thư viện.",
-            english: "I read books at the library."
+            type: "main",
+        english: "I read books at the library."
           },
           {
             japanese: "うちで テレビを みます。",
             vietnamese: "Tôi xem TV ở nhà.",
-            english: "I watch TV at home."
+            type: "main",
+        english: "I watch TV at home."
           }
         ]
       },
       {
         pattern: "なにを ～ますか",
         vietnamese: "làm cái gì?",
+        type: "main",
         english: "what do you ~?",
         explanation: "Câu hỏi về đối tượng của hành động.",
         examples: [
           {
             japanese: "あさ なにを たべますか。",
             vietnamese: "Buổi sáng bạn ăn gì?",
-            english: "What do you eat in the morning?"
+            type: "main",
+        english: "What do you eat in the morning?"
           },
           {
             japanese: "どこで しんぶんを かいますか。",
             vietnamese: "Bạn mua báo ở đâu?",
-            english: "Where do you buy the newspaper?"
+            type: "main",
+        english: "Where do you buy the newspaper?"
           }
         ]
       },
       {
         pattern: "～を ～ましょう",
         vietnamese: "hãy cùng làm ~",
+        type: "main",
         english: "let's ~",
         explanation: "Rủ người khác cùng làm việc gì đó.",
         examples: [
           {
             japanese: "いっしょに コーヒーを のみましょう。",
             vietnamese: "Hãy cùng uống cà phê nào.",
-            english: "Let's drink coffee together."
+            type: "main",
+        english: "Let's drink coffee together."
           },
           {
             japanese: "きょうとへ いきましょう。",
             vietnamese: "Hãy đi Kyoto nào.",
-            english: "Let's go to Kyoto."
+            type: "main",
+        english: "Let's go to Kyoto."
           }
         ]
       }

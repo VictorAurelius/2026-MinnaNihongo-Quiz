@@ -5,6 +5,42 @@ Tất cả các thay đổi quan trọng của dự án sẽ được ghi nhận
 Format dựa trên [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 và project tuân theo [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-03-03
+
+### ✨ Tính năng mới
+
+**Từ vựng bổ sung (参考語彙 - Supplementary Vocabulary):**
+- ✅ Thêm 115 từ vựng bổ sung cho 14 bài học
+- ✅ Bài 1: +18 quốc gia (Úc, Canada, Đài Loan, New Zealand, Philippines, Malaysia, Mexico, Nga, Ý, Tây Ban Nha, Bồ Đào Nha, Thụy Sĩ, Hà Lan, Hy Lạp, Thổ Nhĩ Kỳ, Ai Cập, Nam Phi, Argentina)
+- ✅ Bài 2: +6 ngôn ngữ (tiếng Trung, Hàn, Pháp, Đức, Tây Ban Nha, Thái)
+- ✅ Bài 3: +2 từ chính (自動販売機, お手洗い) + 7 từ bổ sung (Italia, Thụy Sĩ, Pháp, Jakarta, Bangkok, Berlin, Shin-Osaka)
+- ✅ Bài 5: +3 phương tiện (新幹線, 地下鉄, オートバイ)
+- ✅ Bài 7: +12 thành viên gia đình (父, 母, 兄, 姉, 弟, 妹, 祖父, 祖母, etc.)
+- ✅ Bài 8: +9 màu sắc & vị (赤い, 青い, 黄色い, 黒い, 茶色い, 甘い, 辛い, 苦い, 酸っぱい)
+- ✅ Bài 9: +9 thể thao & âm nhạc (サッカー, 野球, テニス, バスケットボール, バレーボール, 水泳, ロック, ポップス, 演歌)
+- ✅ Bài 10: +6 đồ dùng nhà (冷蔵庫, 洗濯機, エアコン, ベッド, ソファー, カーテン)
+- ✅ Bài 11: +10 đồ ăn (ご飯, パン, 肉, 魚, 野菜, 果物, 卵, 牛乳, 水, お茶)
+- ✅ Bài 12: +6 địa danh & lễ hội (富士山, 京都, 奈良, 横浜, お正月, 桜)
+- ✅ Bài 13: +5 địa điểm trong thành phố (本屋, 薬局, パン屋, 花屋, 交番)
+- ✅ Bài 15: +6 nghề nghiệp (看護師, 弁護士, 料理人, 美容師, 運転手, 警察官)
+- ✅ Bài 17: +10 bộ phận cơ thể (頭, 目, 耳, 鼻, 口, 歯, 手, 足, 背中, 指)
+- ✅ Bài 22: +8 quần áo (シャツ, ズボン, スカート, コート, セーター, Tシャツ, 帽子, 眼鏡)
+
+### 🔧 Cải tiến kỹ thuật
+
+**Data Structure:**
+- ✅ Thêm field `type` cho tất cả vocabulary items
+  - `type: "main"` - Từ vựng chính của bài
+  - `type: "supplementary"` - Từ vựng bổ sung (参考語彙)
+- ✅ Tổng số từ vựng tăng từ ~1,000 lên 1,100+
+
+### 📚 Documentation
+
+- ✅ Cập nhật PROJECT_SUMMARY.md với số liệu mới
+- ✅ Thêm CHANGELOG entry cho phiên bản 1.1.0
+
+---
+
 ## [1.0.0] - 2025-02-10
 
 ### 🎉 Initial Release

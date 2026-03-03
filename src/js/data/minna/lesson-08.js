@@ -7,6 +7,7 @@ const LESSON_08_DATA =   {
         japanese: "ハンサム（な）",
         kana: "ハンサム",
         vietnamese: "đẹp trai",
+        type: "main",
         english: "Handsome",
         example: "ミラーさんは　ハンサムですね。"
       },
@@ -14,6 +15,7 @@ const LESSON_08_DATA =   {
         japanese: "きれい（な）",
         kana: "きれい",
         vietnamese: "đẹp, sạch sẽ",
+        type: "main",
         english: "Beautiful, clean",
         example: "きれいな　花ですね。"
       },
@@ -21,6 +23,7 @@ const LESSON_08_DATA =   {
         japanese: "静か（な）（しずか）",
         kana: "しずか",
         vietnamese: "yên tĩnh",
+        type: "main",
         english: "Quiet",
         example: "この　町は　静かです。"
       },
@@ -28,6 +31,7 @@ const LESSON_08_DATA =   {
         japanese: "にぎやか（な）",
         kana: "にぎやか",
         vietnamese: "nhộn nhịp, sôi động",
+        type: "main",
         english: "Lively, bustling",
         example: "東京は　にぎやかな　町です。"
       },
@@ -35,6 +39,7 @@ const LESSON_08_DATA =   {
         japanese: "有名（な）（ゆうめい）",
         kana: "ゆうめい",
         vietnamese: "nổi tiếng",
+        type: "main",
         english: "Famous",
         example: "奈良は　有名な　町です。"
       },
@@ -42,6 +47,7 @@ const LESSON_08_DATA =   {
         japanese: "親切（な）（しんせつ）",
         kana: "しんせつ",
         vietnamese: "tử tế, tốt bụng",
+        type: "main",
         english: "Kind",
         example: "山田さんは　親切です。"
       },
@@ -49,6 +55,7 @@ const LESSON_08_DATA =   {
         japanese: "元気（な）（げんき）",
         kana: "げんき",
         vietnamese: "khỏe mạnh, hoạt bát",
+        type: "main",
         english: "Healthy, energetic",
         example: "お元気ですか。"
       },
@@ -56,6 +63,7 @@ const LESSON_08_DATA =   {
         japanese: "暇（な）（ひま）",
         kana: "ひま",
         vietnamese: "rảnh rỗi",
+        type: "main",
         english: "Free (time)",
         example: "日曜日は　暇です。"
       },
@@ -63,6 +71,7 @@ const LESSON_08_DATA =   {
         japanese: "便利（な）（べんり）",
         kana: "べんり",
         vietnamese: "tiện lợi",
+        type: "main",
         english: "Convenient",
         example: "この　辞書は　便利です。"
       },
@@ -70,6 +79,7 @@ const LESSON_08_DATA =   {
         japanese: "不便（な）（ふべん）",
         kana: "ふべん",
         vietnamese: "bất tiện",
+        type: "main",
         english: "Inconvenient",
         example: ""
       },
@@ -77,6 +87,7 @@ const LESSON_08_DATA =   {
         japanese: "大きい（おおきい）",
         kana: "おおきい",
         vietnamese: "to, lớn",
+        type: "main",
         english: "Big",
         example: "大きい　かばんですね。"
       },
@@ -84,6 +95,7 @@ const LESSON_08_DATA =   {
         japanese: "小さい（ちいさい）",
         kana: "ちいさい",
         vietnamese: "nhỏ, bé",
+        type: "main",
         english: "Small",
         example: ""
       },
@@ -91,6 +103,7 @@ const LESSON_08_DATA =   {
         japanese: "新しい（あたらしい）",
         kana: "あたらしい",
         vietnamese: "mới",
+        type: "main",
         english: "New",
         example: "新しい　車を　買いました。"
       },
@@ -98,6 +111,7 @@ const LESSON_08_DATA =   {
         japanese: "古い（ふるい）",
         kana: "ふるい",
         vietnamese: "cũ",
+        type: "main",
         english: "Old (things)",
         example: ""
       },
@@ -105,6 +119,7 @@ const LESSON_08_DATA =   {
         japanese: "いい（よい）",
         kana: "いい",
         vietnamese: "tốt, hay",
+        type: "main",
         english: "Good",
         example: "いい　天気ですね。"
       },
@@ -112,6 +127,7 @@ const LESSON_08_DATA =   {
         japanese: "悪い（わるい）",
         kana: "わるい",
         vietnamese: "xấu, tệ",
+        type: "main",
         english: "Bad",
         example: ""
       },
@@ -119,6 +135,7 @@ const LESSON_08_DATA =   {
         japanese: "暑い（あつい）",
         kana: "あつい",
         vietnamese: "nóng (thời tiết)",
+        type: "main",
         english: "Hot (weather)",
         example: "きょうは　暑いですね。"
       },
@@ -126,6 +143,7 @@ const LESSON_08_DATA =   {
         japanese: "寒い（さむい）",
         kana: "さむい",
         vietnamese: "lạnh (thời tiết)",
+        type: "main",
         english: "Cold (weather)",
         example: "北海道は　寒いです。"
       },
@@ -133,6 +151,7 @@ const LESSON_08_DATA =   {
         japanese: "熱い（あつい）",
         kana: "あつい",
         vietnamese: "nóng (đồ vật, chất lỏng)",
+        type: "main",
         english: "Hot (things)",
         example: "このコーヒーは　熱いです。"
       },
@@ -140,6 +159,7 @@ const LESSON_08_DATA =   {
         japanese: "冷たい（つめたい）",
         kana: "つめたい",
         vietnamese: "lạnh (đồ vật, chất lỏng)",
+        type: "main",
         english: "Cold (things)",
         example: "冷たい　水を　ください。"
       },
@@ -147,6 +167,7 @@ const LESSON_08_DATA =   {
         japanese: "難しい（むずかしい）",
         kana: "むずかしい",
         vietnamese: "khó",
+        type: "main",
         english: "Difficult",
         example: "日本語は　難しいですか。"
       },
@@ -154,6 +175,7 @@ const LESSON_08_DATA =   {
         japanese: "やさしい",
         kana: "やさしい",
         vietnamese: "dễ, hiền lành",
+        type: "main",
         english: "Easy, gentle",
         example: ""
       },
@@ -161,6 +183,7 @@ const LESSON_08_DATA =   {
         japanese: "高い（たかい）",
         kana: "たかい",
         vietnamese: "cao, đắt",
+        type: "main",
         english: "High, expensive",
         example: "この　時計は　高いです。"
       },
@@ -168,6 +191,7 @@ const LESSON_08_DATA =   {
         japanese: "安い（やすい）",
         kana: "やすい",
         vietnamese: "rẻ",
+        type: "main",
         english: "Cheap, inexpensive",
         example: "あの　レストランは　安いです。"
       },
@@ -175,6 +199,7 @@ const LESSON_08_DATA =   {
         japanese: "低い（ひくい）",
         kana: "ひくい",
         vietnamese: "thấp",
+        type: "main",
         english: "Low, short (height)",
         example: ""
       },
@@ -182,6 +207,7 @@ const LESSON_08_DATA =   {
         japanese: "おもしろい",
         kana: "おもしろい",
         vietnamese: "thú vị, hay",
+        type: "main",
         english: "Interesting, funny",
         example: "この　映画は　おもしろいです。"
       },
@@ -189,6 +215,7 @@ const LESSON_08_DATA =   {
         japanese: "つまらない",
         kana: "つまらない",
         vietnamese: "chán, nhàm chán",
+        type: "main",
         english: "Boring",
         example: ""
       },
@@ -196,6 +223,7 @@ const LESSON_08_DATA =   {
         japanese: "忙しい（いそがしい）",
         kana: "いそがしい",
         vietnamese: "bận rộn",
+        type: "main",
         english: "Busy",
         example: "毎日　忙しいです。"
       },
@@ -203,6 +231,7 @@ const LESSON_08_DATA =   {
         japanese: "楽しい（たのしい）",
         kana: "たのしい",
         vietnamese: "vui vẻ",
+        type: "main",
         english: "Fun, enjoyable",
         example: "旅行は　楽しかったです。"
       },
@@ -210,6 +239,7 @@ const LESSON_08_DATA =   {
         japanese: "白い（しろい）",
         kana: "しろい",
         vietnamese: "trắng",
+        type: "main",
         english: "White",
         example: ""
       },
@@ -217,6 +247,7 @@ const LESSON_08_DATA =   {
         japanese: "黒い（くろい）",
         kana: "くろい",
         vietnamese: "đen",
+        type: "main",
         english: "Black",
         example: ""
       },
@@ -224,6 +255,7 @@ const LESSON_08_DATA =   {
         japanese: "赤い（あかい）",
         kana: "あかい",
         vietnamese: "đỏ",
+        type: "main",
         english: "Red",
         example: ""
       },
@@ -231,6 +263,7 @@ const LESSON_08_DATA =   {
         japanese: "青い（あおい）",
         kana: "あおい",
         vietnamese: "xanh da trời, xanh lam",
+        type: "main",
         english: "Blue, green",
         example: ""
       },
@@ -238,6 +271,7 @@ const LESSON_08_DATA =   {
         japanese: "町（まち）",
         kana: "まち",
         vietnamese: "thị trấn, thành phố",
+        type: "main",
         english: "Town, city",
         example: ""
       },
@@ -245,6 +279,7 @@ const LESSON_08_DATA =   {
         japanese: "食べ物（たべもの）",
         kana: "たべもの",
         vietnamese: "đồ ăn, thức ăn",
+        type: "main",
         english: "Food",
         example: "日本の　食べ物は　おいしいです。"
       },
@@ -252,6 +287,7 @@ const LESSON_08_DATA =   {
         japanese: "所（ところ）",
         kana: "ところ",
         vietnamese: "nơi, chỗ",
+        type: "main",
         english: "Place",
         example: ""
       },
@@ -259,6 +295,7 @@ const LESSON_08_DATA =   {
         japanese: "寮（りょう）",
         kana: "りょう",
         vietnamese: "ký túc xá",
+        type: "main",
         english: "Dormitory",
         example: ""
       },
@@ -266,6 +303,7 @@ const LESSON_08_DATA =   {
         japanese: "生活（せいかつ）",
         kana: "せいかつ",
         vietnamese: "cuộc sống, sinh hoạt",
+        type: "main",
         english: "Life, living",
         example: "日本の　生活は　どうですか。"
       },
@@ -273,6 +311,7 @@ const LESSON_08_DATA =   {
         japanese: "仕事（しごと）",
         kana: "しごと",
         vietnamese: "công việc",
+        type: "main",
         english: "Work, job",
         example: "仕事は　忙しいです。"
       },
@@ -280,6 +319,7 @@ const LESSON_08_DATA =   {
         japanese: "どう",
         kana: "どう",
         vietnamese: "thế nào",
+        type: "main",
         english: "How",
         example: "日本の　生活は　どうですか。"
       },
@@ -287,6 +327,7 @@ const LESSON_08_DATA =   {
         japanese: "どんな",
         kana: "どんな",
         vietnamese: "loại nào, như thế nào",
+        type: "main",
         english: "What kind of",
         example: "どんな　映画が　好きですか。"
       },
@@ -294,6 +335,7 @@ const LESSON_08_DATA =   {
         japanese: "とても",
         kana: "とても",
         vietnamese: "rất",
+        type: "main",
         english: "Very",
         example: "この　ケーキは　とても　おいしいです。"
       },
@@ -301,108 +343,200 @@ const LESSON_08_DATA =   {
         japanese: "あまり",
         kana: "あまり",
         vietnamese: "không lắm, không mấy",
+        type: "main",
         english: "Not very (with negative)",
         example: "あまり　おもしろくないです。"
+      },
+      // Supplementary Vocabulary (参考語彙) - Colors
+      {
+        japanese: "赤い（あかい）",
+        kana: "あかい",
+        vietnamese: "màu đỏ",
+        english: "red",
+        type: "supplementary",
+        example: "あかい　りんごです。"
+      },
+      {
+        japanese: "青い（あおい）",
+        kana: "あおい",
+        vietnamese: "màu xanh dương",
+        english: "blue",
+        type: "supplementary",
+        example: "あおい　そらです。"
+      },
+      {
+        japanese: "黄色い（きいろい）",
+        kana: "きいろい",
+        vietnamese: "màu vàng",
+        english: "yellow",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "黒い（くろい）",
+        kana: "くろい",
+        vietnamese: "màu đen",
+        english: "black",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "茶色い（ちゃいろい）",
+        kana: "ちゃいろい",
+        vietnamese: "màu nâu",
+        english: "brown",
+        type: "supplementary",
+        example: ""
+      },
+      // Supplementary Vocabulary - Tastes
+      {
+        japanese: "甘い（あまい）",
+        kana: "あまい",
+        vietnamese: "ngọt",
+        english: "sweet",
+        type: "supplementary",
+        example: "この　ケーキは　あまいです。"
+      },
+      {
+        japanese: "辛い（からい）",
+        kana: "からい",
+        vietnamese: "cay",
+        english: "spicy, hot",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "苦い（にがい）",
+        kana: "にがい",
+        vietnamese: "đắng",
+        english: "bitter",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "酸っぱい（すっぱい）",
+        kana: "すっぱい",
+        vietnamese: "chua",
+        english: "sour",
+        type: "supplementary",
+        example: ""
       }
     ],
     grammar: [
       {
         pattern: "い-adjective + です",
         vietnamese: "Tính từ đuôi い",
+        type: "main",
         english: "i-adjective + desu",
         explanation: "Tính từ đuôi い trực tiếp bổ nghĩa cho danh từ hoặc đứng cuối câu với です.",
         examples: [
           {
             japanese: "この ほんは おもしろいです。",
             vietnamese: "Cuốn sách này thú vị.",
-            english: "This book is interesting."
+            type: "main",
+        english: "This book is interesting."
           },
           {
             japanese: "あたらしい くつを かいました。",
             vietnamese: "Tôi đã mua giày mới.",
-            english: "I bought new shoes."
+            type: "main",
+        english: "I bought new shoes."
           },
           {
             japanese: "きょうは あついです。",
             vietnamese: "Hôm nay nóng.",
-            english: "It's hot today."
+            type: "main",
+        english: "It's hot today."
           }
         ]
       },
       {
         pattern: "な-adjective + です",
         vietnamese: "Tính từ đuôi な",
+        type: "main",
         english: "na-adjective + desu",
         explanation: "Tính từ đuôi な cần thêm 'な' khi bổ nghĩa trực tiếp cho danh từ, nhưng bỏ 'な' khi đứng cuối câu với です.",
         examples: [
           {
             japanese: "ふじさんは きれいです。",
             vietnamese: "Núi Phú Sĩ đẹp.",
-            english: "Mt. Fuji is beautiful."
+            type: "main",
+        english: "Mt. Fuji is beautiful."
           },
           {
             japanese: "しずかな ところです。",
             vietnamese: "Là nơi yên tĩnh.",
-            english: "It's a quiet place."
+            type: "main",
+        english: "It's a quiet place."
           },
           {
             japanese: "にほんごは べんりです。",
             vietnamese: "Tiếng Nhật tiện lợi.",
-            english: "Japanese is convenient."
+            type: "main",
+        english: "Japanese is convenient."
           }
         ]
       },
       {
         pattern: "～は ～くないです",
         vietnamese: "~ không ~",
+        type: "main",
         english: "~ is not ~",
         explanation: "Phủ định của tính từ đuôi い: bỏ い, thêm くないです.",
         examples: [
           {
             japanese: "この くつは たかくないです。",
             vietnamese: "Đôi giày này không đắt.",
-            english: "These shoes are not expensive."
+            type: "main",
+        english: "These shoes are not expensive."
           },
           {
             japanese: "あまり おもしろくないです。",
             vietnamese: "Không mấy thú vị.",
-            english: "It's not very interesting."
+            type: "main",
+        english: "It's not very interesting."
           }
         ]
       },
       {
         pattern: "～は ～じゃ ありません",
         vietnamese: "~ không ~",
+        type: "main",
         english: "~ is not ~",
         explanation: "Phủ định của tính từ đuôi な và danh từ.",
         examples: [
           {
             japanese: "あまり きれいじゃ ありません。",
             vietnamese: "Không mấy đẹp.",
-            english: "It's not very beautiful."
+            type: "main",
+        english: "It's not very beautiful."
           },
           {
             japanese: "ここは しずかじゃ ありません。",
             vietnamese: "Đây không yên tĩnh.",
-            english: "This place is not quiet."
+            type: "main",
+        english: "This place is not quiet."
           }
         ]
       },
       {
         pattern: "～は どうですか",
         vietnamese: "~ thế nào?",
+        type: "main",
         english: "How is ~?",
         explanation: "Câu hỏi về tính chất, trạng thái của sự vật.",
         examples: [
           {
             japanese: "にほんの せいかつは どうですか。",
             vietnamese: "Cuộc sống ở Nhật thế nào?",
-            english: "How is life in Japan?"
+            type: "main",
+        english: "How is life in Japan?"
           },
           {
             japanese: "この レストランは どうですか。",
             vietnamese: "Nhà hàng này thế nào?",
-            english: "How is this restaurant?"
+            type: "main",
+        english: "How is this restaurant?"
           }
         ]
       }
