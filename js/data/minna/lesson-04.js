@@ -7,6 +7,7 @@ const LESSON_04_DATA =   {
         japanese: "起きます（おきます）",
         kana: "おきます",
         vietnamese: "thức dậy",
+        type: "main",
         english: "to wake up, to get up",
         example: "まいあさ 6じに おきます。"
       },
@@ -14,6 +15,7 @@ const LESSON_04_DATA =   {
         japanese: "寝ます（ねます）",
         kana: "ねます",
         vietnamese: "đi ngủ",
+        type: "main",
         english: "to sleep, to go to bed",
         example: "11じに ねます。"
       },
@@ -21,6 +23,7 @@ const LESSON_04_DATA =   {
         japanese: "働きます（はたらきます）",
         kana: "はたらきます",
         vietnamese: "làm việc",
+        type: "main",
         english: "to work",
         example: "9じから 5じまで はたらきます。"
       },
@@ -28,6 +31,7 @@ const LESSON_04_DATA =   {
         japanese: "休みます（やすみます）",
         kana: "やすみます",
         vietnamese: "nghỉ ngơi",
+        type: "main",
         english: "to rest, to take a day off",
         example: "にちようびに やすみます。"
       },
@@ -35,6 +39,7 @@ const LESSON_04_DATA =   {
         japanese: "勉強します（べんきょうします）",
         kana: "べんきょうします",
         vietnamese: "học",
+        type: "main",
         english: "to study",
         example: "まいにち にほんごを べんきょうします。"
       },
@@ -42,6 +47,7 @@ const LESSON_04_DATA =   {
         japanese: "終わります（おわります）",
         kana: "おわります",
         vietnamese: "kết thúc",
+        type: "main",
         english: "to finish, to end",
         example: "じゅぎょうは 3じに おわります。"
       },
@@ -49,6 +55,7 @@ const LESSON_04_DATA =   {
         japanese: "デパート",
         kana: "デパート",
         vietnamese: "bách hóa, trung tâm thương mại",
+        type: "main",
         english: "department store",
         example: ""
       },
@@ -56,6 +63,7 @@ const LESSON_04_DATA =   {
         japanese: "銀行（ぎんこう）",
         kana: "ぎんこう",
         vietnamese: "ngân hàng",
+        type: "main",
         english: "bank",
         example: "ぎんこうは 9じから 3じまでです。"
       },
@@ -63,6 +71,7 @@ const LESSON_04_DATA =   {
         japanese: "郵便局（ゆうびんきょく）",
         kana: "ゆうびんきょく",
         vietnamese: "bưu điện",
+        type: "main",
         english: "post office",
         example: ""
       },
@@ -70,6 +79,7 @@ const LESSON_04_DATA =   {
         japanese: "図書館（としょかん）",
         kana: "としょかん",
         vietnamese: "thư viện",
+        type: "main",
         english: "library",
         example: ""
       },
@@ -77,6 +87,7 @@ const LESSON_04_DATA =   {
         japanese: "美術館（びじゅつかん）",
         kana: "びじゅつかん",
         vietnamese: "bảo tàng mỹ thuật",
+        type: "main",
         english: "art museum",
         example: ""
       },
@@ -84,6 +95,7 @@ const LESSON_04_DATA =   {
         japanese: "今（いま）",
         kana: "いま",
         vietnamese: "bây giờ",
+        type: "main",
         english: "now",
         example: "いま 3じです。"
       },
@@ -91,6 +103,7 @@ const LESSON_04_DATA =   {
         japanese: "～時（～じ）",
         kana: "～じ",
         vietnamese: "~ giờ",
+        type: "main",
         english: "~ o'clock",
         example: "いま 7じです。"
       },
@@ -98,6 +111,7 @@ const LESSON_04_DATA =   {
         japanese: "～分（～ふん / ～ぷん）",
         kana: "～ふん",
         vietnamese: "~ phút",
+        type: "main",
         english: "~ minutes",
         example: "いま 7じ30ぷんです。"
       },
@@ -105,6 +119,7 @@ const LESSON_04_DATA =   {
         japanese: "半（はん）",
         kana: "はん",
         vietnamese: "rưỡi (30 phút)",
+        type: "main",
         english: "half (past)",
         example: "6じはんに おきます。"
       },
@@ -112,6 +127,7 @@ const LESSON_04_DATA =   {
         japanese: "午前（ごぜん）",
         kana: "ごぜん",
         vietnamese: "buổi sáng, trước trưa",
+        type: "main",
         english: "a.m., morning",
         example: "ごぜん 9じに はたらきます。"
       },
@@ -119,6 +135,7 @@ const LESSON_04_DATA =   {
         japanese: "午後（ごご）",
         kana: "ごご",
         vietnamese: "buổi chiều, sau trưa",
+        type: "main",
         english: "p.m., afternoon",
         example: ""
       },
@@ -126,6 +143,7 @@ const LESSON_04_DATA =   {
         japanese: "朝（あさ）",
         kana: "あさ",
         vietnamese: "buổi sáng",
+        type: "main",
         english: "morning",
         example: ""
       },
@@ -133,6 +151,7 @@ const LESSON_04_DATA =   {
         japanese: "昼（ひる）",
         kana: "ひる",
         vietnamese: "buổi trưa",
+        type: "main",
         english: "noon, daytime",
         example: ""
       },
@@ -140,6 +159,7 @@ const LESSON_04_DATA =   {
         japanese: "夜（よる）",
         kana: "よる",
         vietnamese: "buổi tối",
+        type: "main",
         english: "evening, night",
         example: ""
       },
@@ -147,6 +167,7 @@ const LESSON_04_DATA =   {
         japanese: "おととい",
         kana: "おととい",
         vietnamese: "hôm kia",
+        type: "main",
         english: "day before yesterday",
         example: ""
       },
@@ -154,6 +175,7 @@ const LESSON_04_DATA =   {
         japanese: "きのう",
         kana: "きのう",
         vietnamese: "hôm qua",
+        type: "main",
         english: "yesterday",
         example: ""
       },
@@ -161,6 +183,7 @@ const LESSON_04_DATA =   {
         japanese: "今日（きょう）",
         kana: "きょう",
         vietnamese: "hôm nay",
+        type: "main",
         english: "today",
         example: ""
       },
@@ -168,6 +191,7 @@ const LESSON_04_DATA =   {
         japanese: "明日（あした）",
         kana: "あした",
         vietnamese: "ngày mai",
+        type: "main",
         english: "tomorrow",
         example: ""
       },
@@ -175,6 +199,7 @@ const LESSON_04_DATA =   {
         japanese: "あさって",
         kana: "あさって",
         vietnamese: "ngày mốt",
+        type: "main",
         english: "day after tomorrow",
         example: ""
       },
@@ -182,6 +207,7 @@ const LESSON_04_DATA =   {
         japanese: "毎朝（まいあさ）",
         kana: "まいあさ",
         vietnamese: "mỗi sáng",
+        type: "main",
         english: "every morning",
         example: "まいあさ 6じに おきます。"
       },
@@ -189,6 +215,7 @@ const LESSON_04_DATA =   {
         japanese: "毎晩（まいばん）",
         kana: "まいばん",
         vietnamese: "mỗi tối",
+        type: "main",
         english: "every evening",
         example: ""
       },
@@ -196,6 +223,7 @@ const LESSON_04_DATA =   {
         japanese: "毎日（まいにち）",
         kana: "まいにち",
         vietnamese: "mỗi ngày",
+        type: "main",
         english: "every day",
         example: ""
       },
@@ -203,6 +231,7 @@ const LESSON_04_DATA =   {
         japanese: "月曜日（げつようび）",
         kana: "げつようび",
         vietnamese: "thứ Hai",
+        type: "main",
         english: "Monday",
         example: ""
       },
@@ -210,6 +239,7 @@ const LESSON_04_DATA =   {
         japanese: "火曜日（かようび）",
         kana: "かようび",
         vietnamese: "thứ Ba",
+        type: "main",
         english: "Tuesday",
         example: ""
       },
@@ -217,6 +247,7 @@ const LESSON_04_DATA =   {
         japanese: "水曜日（すいようび）",
         kana: "すいようび",
         vietnamese: "thứ Tư",
+        type: "main",
         english: "Wednesday",
         example: ""
       },
@@ -224,6 +255,7 @@ const LESSON_04_DATA =   {
         japanese: "木曜日（もくようび）",
         kana: "もくようび",
         vietnamese: "thứ Năm",
+        type: "main",
         english: "Thursday",
         example: ""
       },
@@ -231,6 +263,7 @@ const LESSON_04_DATA =   {
         japanese: "金曜日（きんようび）",
         kana: "きんようび",
         vietnamese: "thứ Sáu",
+        type: "main",
         english: "Friday",
         example: ""
       },
@@ -238,6 +271,7 @@ const LESSON_04_DATA =   {
         japanese: "土曜日（どようび）",
         kana: "どようび",
         vietnamese: "thứ Bảy",
+        type: "main",
         english: "Saturday",
         example: ""
       },
@@ -245,6 +279,7 @@ const LESSON_04_DATA =   {
         japanese: "日曜日（にちようび）",
         kana: "にちようび",
         vietnamese: "Chủ nhật",
+        type: "main",
         english: "Sunday",
         example: "にちようびに やすみます。"
       },
@@ -252,6 +287,7 @@ const LESSON_04_DATA =   {
         japanese: "何曜日（なんようび）",
         kana: "なんようび",
         vietnamese: "thứ mấy",
+        type: "main",
         english: "what day of the week",
         example: "きょうは なんようびですか。"
       },
@@ -259,6 +295,7 @@ const LESSON_04_DATA =   {
         japanese: "番号（ばんごう）",
         kana: "ばんごう",
         vietnamese: "số",
+        type: "main",
         english: "number",
         example: "でんわばんごうは なんですか。"
       },
@@ -266,6 +303,7 @@ const LESSON_04_DATA =   {
         japanese: "何時（なんじ）",
         kana: "なんじ",
         vietnamese: "mấy giờ",
+        type: "main",
         english: "what time",
         example: "いま なんじですか。"
       },
@@ -273,6 +311,7 @@ const LESSON_04_DATA =   {
         japanese: "何分（なんぷん）",
         kana: "なんぷん",
         vietnamese: "mấy phút",
+        type: "main",
         english: "how many minutes",
         example: ""
       },
@@ -280,6 +319,7 @@ const LESSON_04_DATA =   {
         japanese: "～から",
         kana: "～から",
         vietnamese: "từ ~",
+        type: "main",
         english: "from ~",
         example: "9じから はたらきます。"
       },
@@ -287,6 +327,7 @@ const LESSON_04_DATA =   {
         japanese: "～まで",
         kana: "～まで",
         vietnamese: "đến ~",
+        type: "main",
         english: "until ~",
         example: "5じまで はたらきます。"
       },
@@ -294,6 +335,7 @@ const LESSON_04_DATA =   {
         japanese: "そちら",
         kana: "そちら",
         vietnamese: "bên đó (lịch sự)",
+        type: "main",
         english: "your place (polite)",
         example: "そちらは なんじから なんじまでですか。"
       }
@@ -302,72 +344,84 @@ const LESSON_04_DATA =   {
       {
         pattern: "～時～分",
         vietnamese: "~ giờ ~ phút",
+        type: "main",
         english: "~ o'clock ~ minute",
         explanation: "Cách nói giờ và phút trong tiếng Nhật. じ (時) = giờ, ふん/ぷん (分) = phút.",
         examples: [
           {
             japanese: "いま 9じ 10ぷんです。",
             vietnamese: "Bây giờ là 9 giờ 10 phút.",
-            english: "It's 9:10 now."
+            type: "main",
+        english: "It's 9:10 now."
           },
           {
             japanese: "かいぎは 3じはんです。",
             vietnamese: "Cuộc họp là lúc 3 giờ rưỡi.",
-            english: "The meeting is at 3:30."
+            type: "main",
+        english: "The meeting is at 3:30."
           }
         ]
       },
       {
         pattern: "～に ～ます",
         vietnamese: "~ vào lúc ~",
+        type: "main",
         english: "~ at (time)",
         explanation: "Trợ từ 'に' chỉ thời điểm cụ thể.",
         examples: [
           {
             japanese: "まいあさ 6じに おきます。",
             vietnamese: "Tôi dậy lúc 6 giờ mỗi sáng.",
-            english: "I wake up at 6 o'clock every morning."
+            type: "main",
+        english: "I wake up at 6 o'clock every morning."
           },
           {
             japanese: "12じ 15ふんに べんきょうします。",
             vietnamese: "Tôi học lúc 12 giờ 15 phút.",
-            english: "I study at 12:15."
+            type: "main",
+        english: "I study at 12:15."
           }
         ]
       },
       {
         pattern: "～から ～まで",
         vietnamese: "từ ~ đến ~",
+        type: "main",
         english: "from ~ to/until ~",
         explanation: "Chỉ khoảng thời gian từ điểm bắt đầu đến điểm kết thúc.",
         examples: [
           {
             japanese: "9じから 5じまで はたらきます。",
             vietnamese: "Tôi làm việc từ 9 giờ đến 5 giờ.",
-            english: "I work from 9 to 5."
+            type: "main",
+        english: "I work from 9 to 5."
           },
           {
             japanese: "げつようびから きんようびまで がっこうへ いきます。",
             vietnamese: "Tôi đi học từ thứ Hai đến thứ Sáu.",
-            english: "I go to school from Monday to Friday."
+            type: "main",
+        english: "I go to school from Monday to Friday."
           }
         ]
       },
       {
         pattern: "～は ～から ～までです",
         vietnamese: "~ từ ~ đến ~",
+        type: "main",
         english: "~ is from ~ to ~",
         explanation: "Nói về khung giờ hoạt động của một địa điểm.",
         examples: [
           {
             japanese: "ぎんこうは 9じから 3じまでです。",
             vietnamese: "Ngân hàng từ 9 giờ đến 3 giờ.",
-            english: "The bank is (open) from 9 to 3."
+            type: "main",
+        english: "The bank is (open) from 9 to 3."
           },
           {
             japanese: "デパートは 10じから 8じまでです。",
             vietnamese: "Cửa hàng bách hóa từ 10 giờ đến 8 giờ.",
-            english: "The department store is (open) from 10 to 8."
+            type: "main",
+        english: "The department store is (open) from 10 to 8."
           }
         ]
       }
