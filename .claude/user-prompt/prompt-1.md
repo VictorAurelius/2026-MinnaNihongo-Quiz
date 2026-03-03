@@ -77,3 +77,15 @@ sửa lại Home của repo, có 2 lựa chọn đến HSK hoặc JLPT
 sau plan này hãy thêm các skill mới để phục vụ cho các plan từ vựng HSKK sau này
 
 sửa lại plan, không cần translate cả english nữa, sửa các file liên quan
+
+đọc PROJECT_SUMMARY và QUICKSTART để hiểu về project
+
+bây giờ, ở phần data từ vựng của minna nihongo, tôi thấy vẫn còn thiếu nhiều từ trong bài đó và thiếu từ vựng bổ sung (tham khảo) của bài đó (có trong sách)
+
+Hãy web search lại để cập nhật đầy đủ data từ vựng so với sách
+
+ví dụ thiếu sót: bài 3 thiếu từ máy bán hàng tự động, italia => hãy tìm nguồn tin cậy và test xem có đúng không?
+
+bật plan mode
+
+vẫn chưa commit hết?
