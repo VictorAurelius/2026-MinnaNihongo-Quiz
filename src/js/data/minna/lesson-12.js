@@ -7,6 +7,7 @@ const LESSON_12_DATA =   {
         japanese: "簡単（な）（かんたん）",
         kana: "かんたん",
         vietnamese: "đơn giản, dễ",
+        type: "main",
         english: "Simple, easy",
         example: "この　問題は　簡単です。"
       },
@@ -14,6 +15,7 @@ const LESSON_12_DATA =   {
         japanese: "近い（ちかい）",
         kana: "ちかい",
         vietnamese: "gần",
+        type: "main",
         english: "Near, close",
         example: "駅は　近いです。"
       },
@@ -21,6 +23,7 @@ const LESSON_12_DATA =   {
         japanese: "遠い（とおい）",
         kana: "とおい",
         vietnamese: "xa",
+        type: "main",
         english: "Far",
         example: ""
       },
@@ -28,6 +31,7 @@ const LESSON_12_DATA =   {
         japanese: "速い（はやい）",
         kana: "はやい",
         vietnamese: "nhanh",
+        type: "main",
         english: "Fast, quick",
         example: "新幹線は　速いです。"
       },
@@ -35,6 +39,7 @@ const LESSON_12_DATA =   {
         japanese: "遅い（おそい）",
         kana: "おそい",
         vietnamese: "chậm, muộn",
+        type: "main",
         english: "Slow, late",
         example: ""
       },
@@ -42,6 +47,7 @@ const LESSON_12_DATA =   {
         japanese: "多い（おおい）",
         kana: "おおい",
         vietnamese: "nhiều",
+        type: "main",
         english: "Many, much",
         example: "東京は　人が　多いです。"
       },
@@ -49,6 +55,7 @@ const LESSON_12_DATA =   {
         japanese: "少ない（すくない）",
         kana: "すくない",
         vietnamese: "ít",
+        type: "main",
         english: "Few, little",
         example: ""
       },
@@ -56,6 +63,7 @@ const LESSON_12_DATA =   {
         japanese: "暖かい（あたたかい）",
         kana: "あたたかい",
         vietnamese: "ấm áp",
+        type: "main",
         english: "Warm",
         example: "春は　暖かいです。"
       },
@@ -63,6 +71,7 @@ const LESSON_12_DATA =   {
         japanese: "涼しい（すずしい）",
         kana: "すずしい",
         vietnamese: "mát mẻ",
+        type: "main",
         english: "Cool",
         example: "秋は　涼しいです。"
       },
@@ -70,6 +79,7 @@ const LESSON_12_DATA =   {
         japanese: "甘い（あまい）",
         kana: "あまい",
         vietnamese: "ngọt",
+        type: "main",
         english: "Sweet",
         example: "この　ケーキは　甘いです。"
       },
@@ -77,6 +87,7 @@ const LESSON_12_DATA =   {
         japanese: "辛い（からい）",
         kana: "からい",
         vietnamese: "cay",
+        type: "main",
         english: "Spicy, hot",
         example: ""
       },
@@ -84,6 +95,7 @@ const LESSON_12_DATA =   {
         japanese: "重い（おもい）",
         kana: "おもい",
         vietnamese: "nặng",
+        type: "main",
         english: "Heavy",
         example: "この　荷物は　重いです。"
       },
@@ -91,6 +103,7 @@ const LESSON_12_DATA =   {
         japanese: "軽い（かるい）",
         kana: "かるい",
         vietnamese: "nhẹ",
+        type: "main",
         english: "Light (weight)",
         example: ""
       },
@@ -98,6 +111,7 @@ const LESSON_12_DATA =   {
         japanese: "季節（きせつ）",
         kana: "きせつ",
         vietnamese: "mùa",
+        type: "main",
         english: "Season",
         example: "どの　季節が　いちばん　好きですか。"
       },
@@ -105,6 +119,7 @@ const LESSON_12_DATA =   {
         japanese: "春（はる）",
         kana: "はる",
         vietnamese: "mùa xuân",
+        type: "main",
         english: "Spring",
         example: "春は　暖かいです。"
       },
@@ -112,6 +127,7 @@ const LESSON_12_DATA =   {
         japanese: "夏（なつ）",
         kana: "なつ",
         vietnamese: "mùa hè",
+        type: "main",
         english: "Summer",
         example: "夏は　暑いです。"
       },
@@ -119,6 +135,7 @@ const LESSON_12_DATA =   {
         japanese: "秋（あき）",
         kana: "あき",
         vietnamese: "mùa thu",
+        type: "main",
         english: "Autumn, fall",
         example: ""
       },
@@ -126,6 +143,7 @@ const LESSON_12_DATA =   {
         japanese: "冬（ふゆ）",
         kana: "ふゆ",
         vietnamese: "mùa đông",
+        type: "main",
         english: "Winter",
         example: "冬は　寒いです。"
       },
@@ -133,6 +151,7 @@ const LESSON_12_DATA =   {
         japanese: "天気（てんき）",
         kana: "てんき",
         vietnamese: "thời tiết",
+        type: "main",
         english: "Weather",
         example: "きょうは　いい　天気ですね。"
       },
@@ -140,6 +159,7 @@ const LESSON_12_DATA =   {
         japanese: "雨（あめ）",
         kana: "あめ",
         vietnamese: "mưa",
+        type: "main",
         english: "Rain",
         example: "きょうは　雨です。"
       },
@@ -147,6 +167,7 @@ const LESSON_12_DATA =   {
         japanese: "雪（ゆき）",
         kana: "ゆき",
         vietnamese: "tuyết",
+        type: "main",
         english: "Snow",
         example: "北海道は　雪が　多いです。"
       },
@@ -154,6 +175,7 @@ const LESSON_12_DATA =   {
         japanese: "曇り（くもり）",
         kana: "くもり",
         vietnamese: "trời nhiều mây",
+        type: "main",
         english: "Cloudy",
         example: ""
       },
@@ -161,6 +183,7 @@ const LESSON_12_DATA =   {
         japanese: "風（かぜ）",
         kana: "かぜ",
         vietnamese: "gió",
+        type: "main",
         english: "Wind",
         example: ""
       },
@@ -168,6 +191,7 @@ const LESSON_12_DATA =   {
         japanese: "空（そら）",
         kana: "そら",
         vietnamese: "bầu trời",
+        type: "main",
         english: "Sky",
         example: ""
       },
@@ -175,6 +199,7 @@ const LESSON_12_DATA =   {
         japanese: "海（うみ）",
         kana: "うみ",
         vietnamese: "biển",
+        type: "main",
         english: "Sea, ocean",
         example: ""
       },
@@ -182,6 +207,7 @@ const LESSON_12_DATA =   {
         japanese: "世界（せかい）",
         kana: "せかい",
         vietnamese: "thế giới",
+        type: "main",
         english: "World",
         example: "世界で　いちばん　高い　山は　何ですか。"
       },
@@ -189,6 +215,7 @@ const LESSON_12_DATA =   {
         japanese: "〜の方（〜のほう）",
         kana: "のほう",
         vietnamese: "~ hơn (so sánh)",
+        type: "main",
         english: "~ (comparison marker)",
         example: "大阪より　東京の　方が　大きいです。"
       },
@@ -196,6 +223,7 @@ const LESSON_12_DATA =   {
         japanese: "ずっと",
         kana: "ずっと",
         vietnamese: "hơn nhiều, ~ hơn hẳn",
+        type: "main",
         english: "By far, much more",
         example: "北海道は　東京より　ずっと　寒いです。"
       },
@@ -203,6 +231,7 @@ const LESSON_12_DATA =   {
         japanese: "一番（いちばん）",
         kana: "いちばん",
         vietnamese: "nhất, số một",
+        type: "main",
         english: "The most, number one",
         example: "日本で　いちばん　高い　山は　富士山です。"
       },
@@ -210,6 +239,7 @@ const LESSON_12_DATA =   {
         japanese: "もっと",
         kana: "もっと",
         vietnamese: "hơn nữa",
+        type: "main",
         english: "More",
         example: ""
       },
@@ -217,6 +247,7 @@ const LESSON_12_DATA =   {
         japanese: "どちら",
         kana: "どちら",
         vietnamese: "cái nào (trong hai)",
+        type: "main",
         english: "Which (of two)",
         example: "肉と　魚と　どちらが　好きですか。"
       },
@@ -224,7 +255,57 @@ const LESSON_12_DATA =   {
         japanese: "どれ",
         kana: "どれ",
         vietnamese: "cái nào (trong ba trở lên)",
+        type: "main",
         english: "Which (of three or more)",
+        example: ""
+      },
+      // Supplementary Vocabulary (参考語彙) - Japanese Places & Festivals
+      {
+        japanese: "富士山（ふじさん）",
+        kana: "ふじさん",
+        vietnamese: "núi Phú Sĩ",
+        english: "Mt. Fuji",
+        type: "supplementary",
+        example: "富士山は　きれいでした。"
+      },
+      {
+        japanese: "京都（きょうと）",
+        kana: "きょうと",
+        vietnamese: "Kyoto",
+        english: "Kyoto",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "奈良（なら）",
+        kana: "なら",
+        vietnamese: "Nara",
+        english: "Nara",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "横浜（よこはま）",
+        kana: "よこはま",
+        vietnamese: "Yokohama",
+        english: "Yokohama",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "お正月（おしょうがつ）",
+        kana: "おしょうがつ",
+        vietnamese: "Tết Nhật Bản",
+        english: "New Year",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "桜（さくら）",
+        kana: "さくら",
+        vietnamese: "hoa anh đào",
+        english: "cherry blossom",
+        type: "supplementary",
         example: ""
       }
     ],
@@ -232,92 +313,108 @@ const LESSON_12_DATA =   {
       {
         pattern: "〜ました / 〜ませんでした",
         vietnamese: "~ đã ~ / ~ đã không ~",
+        type: "main",
         english: "Past tense (polite form)",
         explanation: "Thì quá khứ của động từ lịch sự. Chuyển ます thành ました (khẳng định) hoặc ませんでした (phủ định).",
         examples: [
           {
             japanese: "昨日　映画を　見ました。",
             vietnamese: "Hôm qua tôi đã xem phim.",
-            english: "I watched a movie yesterday."
+            type: "main",
+        english: "I watched a movie yesterday."
           },
           {
             japanese: "朝ごはんを　食べませんでした。",
             vietnamese: "Tôi đã không ăn sáng.",
-            english: "I didn't eat breakfast."
+            type: "main",
+        english: "I didn't eat breakfast."
           },
           {
             japanese: "先週　京都に　行きました。",
             vietnamese: "Tuần trước tôi đã đi Kyoto.",
-            english: "I went to Kyoto last week."
+            type: "main",
+        english: "I went to Kyoto last week."
           }
         ]
       },
       {
         pattern: "い形容詞の過去形（〜かったです / 〜くなかったです）",
         vietnamese: "Thì quá khứ của tính từ đuôi い",
+        type: "main",
         english: "Past tense of い-adjectives",
         explanation: "Bỏ い cuối, thêm かったです (khẳng định) hoặc くなかったです (phủ định). VD: 暑い → 暑かったです / 暑くなかったです.",
         examples: [
           {
             japanese: "昨日は　暑かったです。",
             vietnamese: "Hôm qua trời nóng.",
-            english: "It was hot yesterday."
+            type: "main",
+        english: "It was hot yesterday."
           },
           {
             japanese: "試験は　難しくなかったです。",
             vietnamese: "Kỳ thi đã không khó.",
-            english: "The exam was not difficult."
+            type: "main",
+        english: "The exam was not difficult."
           },
           {
             japanese: "映画は　面白かったです。",
             vietnamese: "Phim đã thú vị.",
-            english: "The movie was interesting."
+            type: "main",
+        english: "The movie was interesting."
           }
         ]
       },
       {
         pattern: "な形容詞の過去形（〜でした / 〜じゃありませんでした）",
         vietnamese: "Thì quá khứ của tính từ đuôi な",
+        type: "main",
         english: "Past tense of な-adjectives",
         explanation: "Chuyển です thành でした (khẳng định) hoặc じゃありませんでした (phủ định). VD: 静かです → 静かでした / 静かじゃありませんでした.",
         examples: [
           {
             japanese: "部屋は　静かでした。",
             vietnamese: "Phòng đã yên tĩnh.",
-            english: "The room was quiet."
+            type: "main",
+        english: "The room was quiet."
           },
           {
             japanese: "先生は　親切でした。",
             vietnamese: "Thầy giáo đã tử tế.",
-            english: "The teacher was kind."
+            type: "main",
+        english: "The teacher was kind."
           },
           {
             japanese: "昨日は　暇じゃありませんでした。",
             vietnamese: "Hôm qua tôi đã không rảnh.",
-            english: "I was not free yesterday."
+            type: "main",
+        english: "I was not free yesterday."
           }
         ]
       },
       {
         pattern: "どちらが〜ですか / どれが〜ですか",
         vietnamese: "Cái nào ~ ? (so sánh)",
+        type: "main",
         english: "Which one ~ ? (comparison)",
         explanation: "どちらが dùng khi chọn giữa 2 vật, どれが dùng khi chọn trong 3+ vật. Trả lời bằng A の ほうが 〜です (A hơn).",
         examples: [
           {
             japanese: "肉と　魚と　どちらが　好きですか。",
             vietnamese: "Bạn thích thịt hay cá hơn?",
-            english: "Which do you like better, meat or fish?"
+            type: "main",
+        english: "Which do you like better, meat or fish?"
           },
           {
             japanese: "この　3つの　中で　どれが　一番　いいですか。",
             vietnamese: "Trong 3 cái này, cái nào tốt nhất?",
-            english: "Which is the best among these three?"
+            type: "main",
+        english: "Which is the best among these three?"
           },
           {
             japanese: "コーヒーの　ほうが　好きです。",
             vietnamese: "Tôi thích cà phê hơn.",
-            english: "I like coffee better."
+            type: "main",
+        english: "I like coffee better."
           }
         ]
       }

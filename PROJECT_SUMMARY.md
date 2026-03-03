@@ -5,7 +5,7 @@
 ### 🎯 Tính năng chính
 
 #### 1. Từ vựng & Quiz
-- ✅ **25 bài học** với 1,000+ từ vựng
+- ✅ **25 bài học** với 1,100+ từ vựng (bao gồm từ vựng chính + từ vựng bổ sung 参考語彙)
 - ✅ **5 chế độ quiz từ vựng:**
   - 💡 Flashcard
   - ✅ Trắc nghiệm JP → VN
@@ -110,9 +110,10 @@ minna-vocab-quiz/
 
 ### Content
 - **Lessons:** 25
-- **Vocabulary items:** 1,000+
+- **Vocabulary items:** 1,100+ (main vocab + 115 supplementary vocab 参考語彙)
 - **Grammar patterns:** 103
 - **Example sentences:** 300+
+- **Supplementary vocabulary:** 115 items across 14 lessons (countries, family, colors, sports, food, body parts, clothing, places, etc.)
 
 ### Documentation
 - **Total docs:** 6 markdown files

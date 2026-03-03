@@ -7,6 +7,7 @@ const LESSON_20_DATA =   {
         japanese: "要ります（いります）",
         kana: "いります",
         vietnamese: "cần",
+        type: "main",
         english: "To need",
         example: "パスポートが要ります。"
       },
@@ -14,6 +15,7 @@ const LESSON_20_DATA =   {
         japanese: "調べます（しらべます）",
         kana: "しらべます",
         vietnamese: "tra cứu, điều tra",
+        type: "main",
         english: "To investigate, to look up",
         example: "辞書で言葉を調べます。"
       },
@@ -21,6 +23,7 @@ const LESSON_20_DATA =   {
         japanese: "直します（なおします）",
         kana: "なおします",
         vietnamese: "sửa chữa",
+        type: "main",
         english: "To fix, to repair",
         example: "時計を直します。"
       },
@@ -28,6 +31,7 @@ const LESSON_20_DATA =   {
         japanese: "修理します（しゅうりします）",
         kana: "しゅうりします",
         vietnamese: "sửa chữa (máy móc)",
+        type: "main",
         english: "To repair",
         example: "パソコンを修理します。"
       },
@@ -35,6 +39,7 @@ const LESSON_20_DATA =   {
         japanese: "着ます（きます）",
         kana: "きます",
         vietnamese: "mặc (áo)",
+        type: "main",
         english: "To wear (upper body)",
         example: "シャツを着ます。"
       },
@@ -42,6 +47,7 @@ const LESSON_20_DATA =   {
         japanese: "はきます",
         kana: "はきます",
         vietnamese: "mang, đi (giày/quần)",
+        type: "main",
         english: "To wear (lower body/shoes)",
         example: "靴をはきます。"
       },
@@ -49,6 +55,7 @@ const LESSON_20_DATA =   {
         japanese: "かぶります",
         kana: "かぶります",
         vietnamese: "đội (mũ)",
+        type: "main",
         english: "To wear (hat)",
         example: "帽子をかぶります。"
       },
@@ -56,6 +63,7 @@ const LESSON_20_DATA =   {
         japanese: "かけます",
         kana: "かけます",
         vietnamese: "đeo (kính)",
+        type: "main",
         english: "To wear (glasses)",
         example: "眼鏡をかけます。"
       },
@@ -63,6 +71,7 @@ const LESSON_20_DATA =   {
         japanese: "いる",
         kana: "いる",
         vietnamese: "có, ở (thể thông thường của います)",
+        type: "main",
         english: "To exist (animate, plain form)",
         example: "猫がいる。"
       },
@@ -70,6 +79,7 @@ const LESSON_20_DATA =   {
         japanese: "ある",
         kana: "ある",
         vietnamese: "có, ở (thể thông thường của あります)",
+        type: "main",
         english: "To exist (inanimate, plain form)",
         example: "本がある。"
       },
@@ -77,6 +87,7 @@ const LESSON_20_DATA =   {
         japanese: "付き合います（つきあいます）",
         kana: "つきあいます",
         vietnamese: "hẹn hò, giao tiếp",
+        type: "main",
         english: "To go out with, to associate with",
         example: "友達と付き合います。"
       },
@@ -84,6 +95,7 @@ const LESSON_20_DATA =   {
         japanese: "僕（ぼく）",
         kana: "ぼく",
         vietnamese: "tôi, mình (nam giới dùng)",
+        type: "main",
         english: "I (male, informal)",
         example: "僕は学生だ。"
       },
@@ -91,6 +103,7 @@ const LESSON_20_DATA =   {
         japanese: "君（きみ）",
         kana: "きみ",
         vietnamese: "bạn, cậu (thân mật)",
+        type: "main",
         english: "You (informal)",
         example: "君はどう思う？"
       },
@@ -98,6 +111,7 @@ const LESSON_20_DATA =   {
         japanese: "〜くん",
         kana: "〜くん",
         vietnamese: "hậu tố gọi thân mật (thường dùng cho nam)",
+        type: "main",
         english: "Suffix for boys/younger males",
         example: "田中くん、元気？"
       },
@@ -105,6 +119,7 @@ const LESSON_20_DATA =   {
         japanese: "お腹がすきました（おなかがすきました）",
         kana: "おなかがすきました",
         vietnamese: "đói bụng",
+        type: "main",
         english: "I'm hungry",
         example: "お腹がすきました。何か食べたいです。"
       },
@@ -112,6 +127,7 @@ const LESSON_20_DATA =   {
         japanese: "お腹がいっぱいです（おなかがいっぱいです）",
         kana: "おなかがいっぱいです",
         vietnamese: "no bụng",
+        type: "main",
         english: "I'm full",
         example: "もうお腹がいっぱいです。"
       },
@@ -119,6 +135,7 @@ const LESSON_20_DATA =   {
         japanese: "喉が渇きました（のどがかわきました）",
         kana: "のどがかわきました",
         vietnamese: "khát nước",
+        type: "main",
         english: "I'm thirsty",
         example: "喉が渇きました。水をください。"
       },
@@ -126,6 +143,7 @@ const LESSON_20_DATA =   {
         japanese: "すごい",
         kana: "すごい",
         vietnamese: "tuyệt vời, ghê gớm",
+        type: "main",
         english: "Amazing, great",
         example: "すごい！よくできたね。"
       },
@@ -133,6 +151,7 @@ const LESSON_20_DATA =   {
         japanese: "本当（ほんとう）",
         kana: "ほんとう",
         vietnamese: "thật, thực sự",
+        type: "main",
         english: "True, really",
         example: "本当？信じられない。"
       },
@@ -140,6 +159,7 @@ const LESSON_20_DATA =   {
         japanese: "嘘（うそ）",
         kana: "うそ",
         vietnamese: "nói dối, nói xạo",
+        type: "main",
         english: "Lie, not true",
         example: "嘘でしょう！"
       },
@@ -147,6 +167,7 @@ const LESSON_20_DATA =   {
         japanese: "だめ（な）",
         kana: "だめ",
         vietnamese: "không được, không tốt",
+        type: "main",
         english: "No good, not allowed",
         example: "ここで写真を撮っちゃだめです。"
       },
@@ -154,6 +175,7 @@ const LESSON_20_DATA =   {
         japanese: "普通形（ふつうけい）",
         kana: "ふつうけい",
         vietnamese: "thể thông thường",
+        type: "main",
         english: "Plain form",
         example: ""
       },
@@ -161,6 +183,7 @@ const LESSON_20_DATA =   {
         japanese: "つまり",
         kana: "つまり",
         vietnamese: "nghĩa là, tức là",
+        type: "main",
         english: "In other words, that is to say",
         example: "つまり、行かないということですか。"
       },
@@ -168,6 +191,7 @@ const LESSON_20_DATA =   {
         japanese: "例えば（たとえば）",
         kana: "たとえば",
         vietnamese: "ví dụ",
+        type: "main",
         english: "For example",
         example: "例えば、寿司やラーメンが好きです。"
       },
@@ -175,6 +199,7 @@ const LESSON_20_DATA =   {
         japanese: "ところで",
         kana: "ところで",
         vietnamese: "à mà, nhân tiện",
+        type: "main",
         english: "By the way",
         example: "ところで、明日暇？"
       },
@@ -182,6 +207,7 @@ const LESSON_20_DATA =   {
         japanese: "遅くなります（おそくなります）",
         kana: "おそくなります",
         vietnamese: "bị muộn, trở nên trễ",
+        type: "main",
         english: "To become late",
         example: "帰りが遅くなります。"
       },
@@ -189,6 +215,7 @@ const LESSON_20_DATA =   {
         japanese: "まあまあ",
         kana: "まあまあ",
         vietnamese: "tàm tạm, bình thường",
+        type: "main",
         english: "So-so",
         example: "最近どう？まあまあだよ。"
       }
@@ -197,92 +224,108 @@ const LESSON_20_DATA =   {
       {
         pattern: "普通形（Plain form）",
         vietnamese: "Thể thông thường (thường thể)",
+        type: "main",
         english: "Plain form (casual form)",
         explanation: "Dạng thường của động từ/tính từ/danh từ. Động từ: 行く/行かない/行った/行かなかった. い形: 高い/高くない. な形・名詞: だ/じゃない/だった/じゃなかった.",
         examples: [
           {
             japanese: "動詞：行く、行かない、行った、行かなかった",
             vietnamese: "Động từ: đi, không đi, đã đi, đã không đi",
-            english: "Verb: go, don't go, went, didn't go"
+            type: "main",
+        english: "Verb: go, don't go, went, didn't go"
           },
           {
             japanese: "い形容詞：高い、高くない、高かった、高くなかった",
             vietnamese: "Tính từ い: cao, không cao, đã cao, đã không cao",
-            english: "い-adjective: expensive, not expensive, was expensive, wasn't expensive"
+            type: "main",
+        english: "い-adjective: expensive, not expensive, was expensive, wasn't expensive"
           },
           {
             japanese: "な形容詞・名詞：静かだ、静かじゃない、静かだった",
             vietnamese: "Tính từ な/Danh từ: yên tĩnh, không yên, đã yên",
-            english: "な-adjective/Noun: quiet, not quiet, was quiet"
+            type: "main",
+        english: "な-adjective/Noun: quiet, not quiet, was quiet"
           }
         ]
       },
       {
         pattern: "〜と思います",
         vietnamese: "Tôi nghĩ rằng ~",
+        type: "main",
         english: "I think that ~",
         explanation: "Diễn tả ý kiến, suy nghĩ của bản thân. Dùng thể thường + と思います. Danh từ và な形 không cần だ trước と思います.",
         examples: [
           {
             japanese: "明日は　雨が　降ると　思います。",
             vietnamese: "Tôi nghĩ ngày mai sẽ mưa.",
-            english: "I think it will rain tomorrow."
+            type: "main",
+        english: "I think it will rain tomorrow."
           },
           {
             japanese: "この　映画は　面白いと　思います。",
             vietnamese: "Tôi nghĩ bộ phim này thú vị.",
-            english: "I think this movie is interesting."
+            type: "main",
+        english: "I think this movie is interesting."
           },
           {
             japanese: "田中さんは　来ないと　思います。",
             vietnamese: "Tôi nghĩ anh Tanaka sẽ không đến.",
-            english: "I think Mr. Tanaka won't come."
+            type: "main",
+        english: "I think Mr. Tanaka won't come."
           }
         ]
       },
       {
         pattern: "〜と言いました / 〜と言っていました",
         vietnamese: "~ đã nói rằng ~",
+        type: "main",
         english: "~ said that ~",
         explanation: "Trích dẫn lời nói của người khác. Dùng thể thường + と言いました. 言っていました nhấn mạnh thời điểm trong quá khứ.",
         examples: [
           {
             japanese: "田中さんは　明日　来ると　言いました。",
             vietnamese: "Anh Tanaka đã nói rằng ngày mai sẽ đến.",
-            english: "Mr. Tanaka said he would come tomorrow."
+            type: "main",
+        english: "Mr. Tanaka said he would come tomorrow."
           },
           {
             japanese: "先生は　試験は　難しいと　言っていました。",
             vietnamese: "Thầy giáo đã nói rằng bài thi khó.",
-            english: "The teacher said the exam was difficult."
+            type: "main",
+        english: "The teacher said the exam was difficult."
           },
           {
             japanese: "山田さんは　忙しいと　言っていました。",
             vietnamese: "Chị Yamada đã nói rằng bận.",
-            english: "Ms. Yamada said she was busy."
+            type: "main",
+        english: "Ms. Yamada said she was busy."
           }
         ]
       },
       {
         pattern: "〜でしょう",
         vietnamese: "Có lẽ ~, chắc là ~ (suy đoán)",
+        type: "main",
         english: "Probably ~, I suppose ~",
         explanation: "Diễn tả suy đoán, dự đoán. Động từ/い形 thể thường + でしょう. な形・名詞bỏ だ + でしょう. Lịch sự hơn: と思います.",
         examples: [
           {
             japanese: "明日は　雨が　降るでしょう。",
             vietnamese: "Ngày mai có lẽ sẽ mưa.",
-            english: "It will probably rain tomorrow."
+            type: "main",
+        english: "It will probably rain tomorrow."
           },
           {
             japanese: "この　本は　面白いでしょう。",
             vietnamese: "Quyển sách này chắc thú vị.",
-            english: "This book is probably interesting."
+            type: "main",
+        english: "This book is probably interesting."
           },
           {
             japanese: "田中さんは　もう　帰ったでしょう。",
             vietnamese: "Anh Tanaka có lẽ đã về rồi.",
-            english: "Mr. Tanaka has probably gone home already."
+            type: "main",
+        english: "Mr. Tanaka has probably gone home already."
           }
         ]
       }

@@ -7,6 +7,7 @@ const LESSON_02_DATA =   {
         japanese: "これ",
         kana: "これ",
         vietnamese: "cái này",
+        type: "main",
         english: "this (thing)",
         example: "これは ほんです。"
       },
@@ -14,6 +15,7 @@ const LESSON_02_DATA =   {
         japanese: "それ",
         kana: "それ",
         vietnamese: "cái đó",
+        type: "main",
         english: "that (thing, near listener)",
         example: "それは なんですか。"
       },
@@ -21,6 +23,7 @@ const LESSON_02_DATA =   {
         japanese: "あれ",
         kana: "あれ",
         vietnamese: "cái kia",
+        type: "main",
         english: "that (thing, far from both)",
         example: "あれは とけいです。"
       },
@@ -28,6 +31,7 @@ const LESSON_02_DATA =   {
         japanese: "この",
         kana: "この",
         vietnamese: "~ này",
+        type: "main",
         english: "this ~",
         example: "この ほんは わたしのです。"
       },
@@ -35,6 +39,7 @@ const LESSON_02_DATA =   {
         japanese: "その",
         kana: "その",
         vietnamese: "~ đó",
+        type: "main",
         english: "that ~",
         example: "その かばんは だれのですか。"
       },
@@ -42,6 +47,7 @@ const LESSON_02_DATA =   {
         japanese: "あの",
         kana: "あの",
         vietnamese: "~ kia",
+        type: "main",
         english: "that ~ (over there)",
         example: "あの かさは せんせいのです。"
       },
@@ -49,6 +55,7 @@ const LESSON_02_DATA =   {
         japanese: "本（ほん）",
         kana: "ほん",
         vietnamese: "sách",
+        type: "main",
         english: "book",
         example: "これは にほんごの ほんです。"
       },
@@ -56,6 +63,7 @@ const LESSON_02_DATA =   {
         japanese: "辞書（じしょ）",
         kana: "じしょ",
         vietnamese: "từ điển",
+        type: "main",
         english: "dictionary",
         example: "それは えいごの じしょです。"
       },
@@ -63,6 +71,7 @@ const LESSON_02_DATA =   {
         japanese: "雑誌（ざっし）",
         kana: "ざっし",
         vietnamese: "tạp chí",
+        type: "main",
         english: "magazine",
         example: "あれは にほんの ざっしです。"
       },
@@ -70,6 +79,7 @@ const LESSON_02_DATA =   {
         japanese: "新聞（しんぶん）",
         kana: "しんぶん",
         vietnamese: "báo",
+        type: "main",
         english: "newspaper",
         example: "これは きょうの しんぶんです。"
       },
@@ -77,6 +87,7 @@ const LESSON_02_DATA =   {
         japanese: "ノート",
         kana: "ノート",
         vietnamese: "vở, sổ ghi chép",
+        type: "main",
         english: "notebook",
         example: ""
       },
@@ -84,6 +95,7 @@ const LESSON_02_DATA =   {
         japanese: "手帳（てちょう）",
         kana: "てちょう",
         vietnamese: "sổ tay",
+        type: "main",
         english: "personal organizer",
         example: ""
       },
@@ -91,6 +103,7 @@ const LESSON_02_DATA =   {
         japanese: "名刺（めいし）",
         kana: "めいし",
         vietnamese: "danh thiếp",
+        type: "main",
         english: "business card",
         example: "これは わたしの めいしです。"
       },
@@ -98,6 +111,7 @@ const LESSON_02_DATA =   {
         japanese: "カード",
         kana: "カード",
         vietnamese: "thẻ",
+        type: "main",
         english: "card",
         example: ""
       },
@@ -105,6 +119,7 @@ const LESSON_02_DATA =   {
         japanese: "鉛筆（えんぴつ）",
         kana: "えんぴつ",
         vietnamese: "bút chì",
+        type: "main",
         english: "pencil",
         example: ""
       },
@@ -112,6 +127,7 @@ const LESSON_02_DATA =   {
         japanese: "ボールペン",
         kana: "ボールペン",
         vietnamese: "bút bi",
+        type: "main",
         english: "ballpoint pen",
         example: "この ボールペンは いくらですか。"
       },
@@ -119,6 +135,7 @@ const LESSON_02_DATA =   {
         japanese: "シャープペンシル",
         kana: "シャープペンシル",
         vietnamese: "bút chì bấm",
+        type: "main",
         english: "mechanical pencil",
         example: ""
       },
@@ -126,6 +143,7 @@ const LESSON_02_DATA =   {
         japanese: "鍵（かぎ）",
         kana: "かぎ",
         vietnamese: "chìa khóa",
+        type: "main",
         english: "key",
         example: "これは くるまの かぎです。"
       },
@@ -133,6 +151,7 @@ const LESSON_02_DATA =   {
         japanese: "時計（とけい）",
         kana: "とけい",
         vietnamese: "đồng hồ",
+        type: "main",
         english: "watch, clock",
         example: "その とけいは にほんのです。"
       },
@@ -140,6 +159,7 @@ const LESSON_02_DATA =   {
         japanese: "傘（かさ）",
         kana: "かさ",
         vietnamese: "ô, dù",
+        type: "main",
         english: "umbrella",
         example: ""
       },
@@ -147,6 +167,7 @@ const LESSON_02_DATA =   {
         japanese: "かばん",
         kana: "かばん",
         vietnamese: "cặp, túi xách",
+        type: "main",
         english: "bag",
         example: ""
       },
@@ -154,6 +175,7 @@ const LESSON_02_DATA =   {
         japanese: "テレビ",
         kana: "テレビ",
         vietnamese: "ti vi",
+        type: "main",
         english: "television",
         example: ""
       },
@@ -161,6 +183,7 @@ const LESSON_02_DATA =   {
         japanese: "ラジオ",
         kana: "ラジオ",
         vietnamese: "radio, đài",
+        type: "main",
         english: "radio",
         example: ""
       },
@@ -168,6 +191,7 @@ const LESSON_02_DATA =   {
         japanese: "カメラ",
         kana: "カメラ",
         vietnamese: "máy ảnh",
+        type: "main",
         english: "camera",
         example: ""
       },
@@ -175,6 +199,7 @@ const LESSON_02_DATA =   {
         japanese: "コンピューター",
         kana: "コンピューター",
         vietnamese: "máy tính",
+        type: "main",
         english: "computer",
         example: ""
       },
@@ -182,6 +207,7 @@ const LESSON_02_DATA =   {
         japanese: "自動車（じどうしゃ）",
         kana: "じどうしゃ",
         vietnamese: "xe ô tô",
+        type: "main",
         english: "automobile, car",
         example: ""
       },
@@ -189,6 +215,7 @@ const LESSON_02_DATA =   {
         japanese: "机（つくえ）",
         kana: "つくえ",
         vietnamese: "bàn",
+        type: "main",
         english: "desk",
         example: ""
       },
@@ -196,6 +223,7 @@ const LESSON_02_DATA =   {
         japanese: "椅子（いす）",
         kana: "いす",
         vietnamese: "ghế",
+        type: "main",
         english: "chair",
         example: ""
       },
@@ -203,6 +231,7 @@ const LESSON_02_DATA =   {
         japanese: "チョコレート",
         kana: "チョコレート",
         vietnamese: "sô cô la",
+        type: "main",
         english: "chocolate",
         example: ""
       },
@@ -210,6 +239,7 @@ const LESSON_02_DATA =   {
         japanese: "コーヒー",
         kana: "コーヒー",
         vietnamese: "cà phê",
+        type: "main",
         english: "coffee",
         example: ""
       },
@@ -217,6 +247,7 @@ const LESSON_02_DATA =   {
         japanese: "英語（えいご）",
         kana: "えいご",
         vietnamese: "tiếng Anh",
+        type: "main",
         english: "English (language)",
         example: ""
       },
@@ -224,6 +255,7 @@ const LESSON_02_DATA =   {
         japanese: "日本語（にほんご）",
         kana: "にほんご",
         vietnamese: "tiếng Nhật",
+        type: "main",
         english: "Japanese (language)",
         example: "これは にほんごの ほんです。"
       },
@@ -231,6 +263,7 @@ const LESSON_02_DATA =   {
         japanese: "～語（～ご）",
         kana: "～ご",
         vietnamese: "tiếng ~",
+        type: "main",
         english: "~ language",
         example: ""
       },
@@ -238,6 +271,7 @@ const LESSON_02_DATA =   {
         japanese: "何（なん / なに）",
         kana: "なん",
         vietnamese: "cái gì",
+        type: "main",
         english: "what",
         example: "これは なんですか。"
       },
@@ -245,6 +279,7 @@ const LESSON_02_DATA =   {
         japanese: "そうです",
         kana: "そうです",
         vietnamese: "đúng vậy",
+        type: "main",
         english: "that's right",
         example: "はい、そうです。"
       },
@@ -252,6 +287,7 @@ const LESSON_02_DATA =   {
         japanese: "違います（ちがいます）",
         kana: "ちがいます",
         vietnamese: "không phải, sai",
+        type: "main",
         english: "no, that's wrong",
         example: "いいえ、ちがいます。"
       },
@@ -259,6 +295,7 @@ const LESSON_02_DATA =   {
         japanese: "そうですか",
         kana: "そうですか",
         vietnamese: "vậy à, thế à",
+        type: "main",
         english: "is that so?",
         example: ""
       },
@@ -266,6 +303,7 @@ const LESSON_02_DATA =   {
         japanese: "あのう",
         kana: "あのう",
         vietnamese: "à..., ơ...",
+        type: "main",
         english: "well..., um...",
         example: "あのう、これは なんですか。"
       },
@@ -273,6 +311,7 @@ const LESSON_02_DATA =   {
         japanese: "ほんの 気持ちです",
         kana: "ほんのきもちです",
         vietnamese: "chút lòng thành",
+        type: "main",
         english: "it's just a small token",
         example: ""
       },
@@ -280,6 +319,7 @@ const LESSON_02_DATA =   {
         japanese: "どうぞ",
         kana: "どうぞ",
         vietnamese: "mời, xin mời",
+        type: "main",
         english: "please (offering)",
         example: "どうぞ。"
       },
@@ -287,6 +327,7 @@ const LESSON_02_DATA =   {
         japanese: "どうも",
         kana: "どうも",
         vietnamese: "cảm ơn (thân mật)",
+        type: "main",
         english: "thanks (casual)",
         example: ""
       },
@@ -294,6 +335,7 @@ const LESSON_02_DATA =   {
         japanese: "ありがとう ございます",
         kana: "ありがとうございます",
         vietnamese: "cảm ơn rất nhiều",
+        type: "main",
         english: "thank you very much",
         example: ""
       },
@@ -301,7 +343,57 @@ const LESSON_02_DATA =   {
         japanese: "これから お世話に なります",
         kana: "これからおせわになります",
         vietnamese: "từ nay xin nhờ giúp đỡ",
+        type: "main",
         english: "I hope for your kind assistance",
+        example: ""
+      },
+      // Supplementary Vocabulary (参考語彙) - Languages
+      {
+        japanese: "中国語（ちゅうごくご）",
+        kana: "ちゅうごくご",
+        vietnamese: "tiếng Trung",
+        english: "Chinese (language)",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "韓国語（かんこくご）",
+        kana: "かんこくご",
+        vietnamese: "tiếng Hàn",
+        english: "Korean (language)",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "フランス語（フランスご）",
+        kana: "フランスご",
+        vietnamese: "tiếng Pháp",
+        english: "French (language)",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "ドイツ語（ドイツご）",
+        kana: "ドイツご",
+        vietnamese: "tiếng Đức",
+        english: "German (language)",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "スペイン語（スペインご）",
+        kana: "スペインご",
+        vietnamese: "tiếng Tây Ban Nha",
+        english: "Spanish (language)",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "タイ語（タイご）",
+        kana: "タイご",
+        vietnamese: "tiếng Thái",
+        english: "Thai (language)",
+        type: "supplementary",
         example: ""
       }
     ],
@@ -309,82 +401,96 @@ const LESSON_02_DATA =   {
       {
         pattern: "これ/それ/あれ は ～です",
         vietnamese: "Cái này/đó/kia là ~",
+        type: "main",
         english: "This/That is ~",
         explanation: "Đại từ chỉ định vật thể. これ (gần người nói), それ (gần người nghe), あれ (xa cả hai).",
         examples: [
           {
             japanese: "これは カメラです。",
             vietnamese: "Cái này là máy ảnh.",
-            english: "This is a camera."
+            type: "main",
+        english: "This is a camera."
           },
           {
             japanese: "それは テレビです。",
             vietnamese: "Cái đó là TV.",
-            english: "That is a TV."
+            type: "main",
+        english: "That is a TV."
           },
           {
             japanese: "あれは わたしの かさです。",
             vietnamese: "Cái kia là ô của tôi.",
-            english: "That over there is my umbrella."
+            type: "main",
+        english: "That over there is my umbrella."
           }
         ]
       },
       {
         pattern: "この/その/あの ～",
         vietnamese: "~ này/đó/kia",
+        type: "main",
         english: "This/That ~ (noun modifier)",
         explanation: "Từ định chỉ đứng trước danh từ. この (gần người nói), その (gần người nghe), あの (xa cả hai).",
         examples: [
           {
             japanese: "この ほんは わたしのです。",
             vietnamese: "Quyển sách này là của tôi.",
-            english: "This book is mine."
+            type: "main",
+        english: "This book is mine."
           },
           {
             japanese: "その かばんは だれのですか。",
             vietnamese: "Cái cặp đó là của ai?",
-            english: "Whose bag is that?"
+            type: "main",
+        english: "Whose bag is that?"
           },
           {
             japanese: "あの ひとは たなかさんです。",
             vietnamese: "Người kia là anh Tanaka.",
-            english: "That person is Mr. Tanaka."
+            type: "main",
+        english: "That person is Mr. Tanaka."
           }
         ]
       },
       {
         pattern: "～は ～のです",
         vietnamese: "~ là của ~",
+        type: "main",
         english: "~ belongs to ~",
         explanation: "Biểu thị sở hữu. 'の' đại diện cho danh từ đã được nhắc đến (pronoun).",
         examples: [
           {
             japanese: "この かさは わたしのです。",
             vietnamese: "Cây ô này là của tôi.",
-            english: "This umbrella is mine."
+            type: "main",
+        english: "This umbrella is mine."
           },
           {
             japanese: "それは だれのですか。",
             vietnamese: "Cái đó là của ai?",
-            english: "Whose is that?"
+            type: "main",
+        english: "Whose is that?"
           }
         ]
       },
       {
         pattern: "そうです / そうじゃ ありません",
         vietnamese: "Đúng vậy / Không phải",
+        type: "main",
         english: "That's right / That's not right",
         explanation: "Câu trả lời ngắn xác nhận hoặc phủ định. Thay cho việc lặp lại toàn bộ câu.",
         examples: [
           {
             japanese: "これは ほんですか。— はい、そうです。",
             vietnamese: "Cái này là sách à? — Vâng, đúng vậy.",
-            english: "Is this a book? — Yes, it is."
+            type: "main",
+        english: "Is this a book? — Yes, it is."
           },
           {
             japanese: "これは あなたのですか。— いいえ、そうじゃ ありません。",
             vietnamese: "Cái này là của bạn à? — Không, không phải.",
-            english: "Is this yours? — No, it's not."
+            type: "main",
+        english: "Is this yours? — No, it's not."
           }
         ]
       }
