@@ -3,7 +3,7 @@
  * Cache-first strategy for static assets, network-first for HTML
  */
 
-const CACHE_NAME = 'smart-quiz-v1';
+const CACHE_NAME = 'smart-quiz-v2';
 const STATIC_CACHE = [
   '/',
   '/index.html',
@@ -29,7 +29,15 @@ self.addEventListener('install', (event) => {
       return cache.addAll(STATIC_CACHE);
     })
   );
-  self.skipWaiting();
+  // Don't skip waiting automatically - let user decide
+});
+
+// Listen for skip waiting message
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    console.log('[SW] Skipping waiting...');
+    self.skipWaiting();
+  }
 });
 
 // Activate - clean old caches
