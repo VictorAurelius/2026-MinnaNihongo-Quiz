@@ -210,6 +210,122 @@ const LESSON_25_DATA =   {
         type: "main",
         english: "Wedding ceremony",
         example: "来月友達の結婚式があります。"
+      },
+      // Supplementary Vocabulary (参考語彙) - Life Events
+      {
+        japanese: "入学式（にゅうがくしき）",
+        kana: "にゅうがくしき",
+        vietnamese: "lễ nhập học",
+        english: "entrance ceremony",
+        type: "supplementary",
+        example: "4月に　入学式が　あります。"
+      },
+      {
+        japanese: "入社（にゅうしゃ）",
+        kana: "にゅうしゃ",
+        vietnamese: "gia nhập công ty",
+        english: "joining a company",
+        type: "supplementary",
+        example: "来月　入社します。"
+      },
+      {
+        japanese: "結婚（けっこん）",
+        kana: "けっこん",
+        vietnamese: "kết hôn",
+        english: "marriage",
+        type: "supplementary",
+        example: "いつか　結婚したいです。"
+      },
+      {
+        japanese: "離婚（りこん）",
+        kana: "りこん",
+        vietnamese: "ly hôn",
+        english: "divorce",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "転職（てんしょく）",
+        kana: "てんしょく",
+        vietnamese: "chuyển việc",
+        english: "job change",
+        type: "supplementary",
+        example: "転職したら、給料が　上がります。"
+      },
+      // Supplementary Vocabulary - Time/Future
+      {
+        japanese: "将来（しょうらい）",
+        kana: "しょうらい",
+        vietnamese: "tương lai",
+        english: "future",
+        type: "supplementary",
+        example: "将来　何に　なりたいですか。"
+      },
+      {
+        japanese: "未来（みらい）",
+        kana: "みらい",
+        vietnamese: "tương lai",
+        english: "future",
+        type: "supplementary",
+        example: "未来の　ことを　考えます。"
+      },
+      {
+        japanese: "過去（かこ）",
+        kana: "かこ",
+        vietnamese: "quá khứ",
+        english: "past",
+        type: "supplementary",
+        example: "過去の　経験が　役に　立ちます。"
+      },
+      // Supplementary Vocabulary - Education
+      {
+        japanese: "大学院（だいがくいん）",
+        kana: "だいがくいん",
+        vietnamese: "cao học",
+        english: "graduate school",
+        type: "supplementary",
+        example: "大学院に　進学したいです。"
+      },
+      {
+        japanese: "留学（りゅうがく）",
+        kana: "りゅうがく",
+        vietnamese: "du học",
+        english: "studying abroad",
+        type: "supplementary",
+        example: "来年　留学したいです。"
+      },
+      {
+        japanese: "奨学金（しょうがくきん）",
+        kana: "しょうがくきん",
+        vietnamese: "học bổng",
+        english: "scholarship",
+        type: "supplementary",
+        example: "奨学金が　もらえたら、留学できます。"
+      },
+      // Supplementary Vocabulary - Goals/Dreams
+      {
+        japanese: "目標（もくひょう）",
+        kana: "もくひょう",
+        vietnamese: "mục tiêu",
+        english: "goal, objective",
+        type: "supplementary",
+        example: "目標を　達成したいです。"
+      },
+      {
+        japanese: "夢（ゆめ）",
+        kana: "ゆめ",
+        vietnamese: "giấc mơ, ước mơ",
+        english: "dream",
+        type: "supplementary",
+        example: "夢が　かなったら、嬉しいです。"
+      },
+      {
+        japanese: "計画（けいかく）",
+        kana: "けいかく",
+        vietnamese: "kế hoạch",
+        english: "plan",
+        type: "supplementary",
+        example: "しっかり　計画を　立てます。"
       }
     ],
     grammar: [

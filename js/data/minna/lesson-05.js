@@ -331,6 +331,144 @@ const LESSON_05_DATA =   {
         english: "motorcycle",
         type: "supplementary",
         example: ""
+      },
+      // Supplementary Vocabulary - Days of the Month (特別な日の読み方)
+      {
+        japanese: "一日（ついたち）",
+        kana: "ついたち",
+        vietnamese: "ngày mồng 1",
+        english: "1st day of the month",
+        type: "supplementary",
+        example: "一月一日は　元日です。"
+      },
+      {
+        japanese: "二日（ふつか）",
+        kana: "ふつか",
+        vietnamese: "ngày mồng 2",
+        english: "2nd day of the month",
+        type: "supplementary",
+        example: "二日に　友達と　会います。"
+      },
+      {
+        japanese: "三日（みっか）",
+        kana: "みっか",
+        vietnamese: "ngày mồng 3",
+        english: "3rd day of the month",
+        type: "supplementary",
+        example: "三日に　帰ります。"
+      },
+      {
+        japanese: "四日（よっか）",
+        kana: "よっか",
+        vietnamese: "ngày mồng 4",
+        english: "4th day of the month",
+        type: "supplementary",
+        example: "四日に　東京へ　行きます。"
+      },
+      {
+        japanese: "五日（いつか）",
+        kana: "いつか",
+        vietnamese: "ngày mồng 5",
+        english: "5th day of the month",
+        type: "supplementary",
+        example: "五日は　休みです。"
+      },
+      {
+        japanese: "六日（むいか）",
+        kana: "むいか",
+        vietnamese: "ngày mồng 6",
+        english: "6th day of the month",
+        type: "supplementary",
+        example: "六日に　来ました。"
+      },
+      {
+        japanese: "七日（なのか）",
+        kana: "なのか",
+        vietnamese: "ngày mồng 7",
+        english: "7th day of the month",
+        type: "supplementary",
+        example: "七日は　誕生日です。"
+      },
+      {
+        japanese: "八日（ようか）",
+        kana: "ようか",
+        vietnamese: "ngày mồng 8",
+        english: "8th day of the month",
+        type: "supplementary",
+        example: "八日に　学校へ　行きます。"
+      },
+      {
+        japanese: "九日（ここのか）",
+        kana: "ここのか",
+        vietnamese: "ngày mồng 9",
+        english: "9th day of the month",
+        type: "supplementary",
+        example: "九日に　映画を　見ます。"
+      },
+      {
+        japanese: "十日（とおか）",
+        kana: "とおか",
+        vietnamese: "ngày mồng 10",
+        english: "10th day of the month",
+        type: "supplementary",
+        example: "十日まで　大阪に　います。"
+      },
+      {
+        japanese: "二十日（はつか）",
+        kana: "はつか",
+        vietnamese: "ngày 20",
+        english: "20th day of the month",
+        type: "supplementary",
+        example: "二十日に　国へ　帰ります。"
+      },
+      // Supplementary Vocabulary - Holidays (休日と祝日)
+      {
+        japanese: "祝日（しゅくじつ）",
+        kana: "しゅくじつ",
+        vietnamese: "ngày lễ (quốc gia)",
+        english: "national holiday",
+        type: "supplementary",
+        example: "今日は　祝日です。"
+      },
+      {
+        japanese: "休日（きゅうじつ）",
+        kana: "きゅうじつ",
+        vietnamese: "ngày nghỉ",
+        english: "day off, holiday",
+        type: "supplementary",
+        example: "休日に　どこへ　行きますか。"
+      },
+      {
+        japanese: "元日（がんじつ）",
+        kana: "がんじつ",
+        vietnamese: "ngày Tết Dương lịch",
+        english: "New Year's Day",
+        type: "supplementary",
+        example: "元日は　一月一日です。"
+      },
+      {
+        japanese: "ゴールデンウィーク",
+        kana: "ゴールデンウィーク",
+        vietnamese: "tuần lễ vàng (Golden Week)",
+        english: "Golden Week",
+        type: "supplementary",
+        example: "ゴールデンウィークに　旅行します。"
+      },
+      {
+        japanese: "お盆（おぼん）",
+        kana: "おぼん",
+        vietnamese: "lễ Bon (lễ cúng tổ tiên)",
+        english: "Bon Festival",
+        type: "supplementary",
+        example: "お盆に　国へ　帰ります。"
+      },
+      {
+        japanese: "年末年始（ねんまつねんし）",
+        kana: "ねんまつねんし",
+        vietnamese: "cuối năm đầu năm",
+        english: "year-end and New Year holidays",
+        type: "supplementary",
+        example: "年末年始は　家族と　過ごします。"
       }
     ],
     grammar: [
