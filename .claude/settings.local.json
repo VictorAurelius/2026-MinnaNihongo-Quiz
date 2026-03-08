@@ -39,7 +39,8 @@
       "WebFetch(domain:dokumen.pub)",
       "WebFetch(domain:kyoan.u-biq.org)",
       "WebFetch(domain:quizlet.com)",
-      "Bash(kill:*)"
+      "Bash(kill:*)",
+      "Bash(file:*)"
     ]
   }
 }
