@@ -89,3 +89,23 @@ ví dụ thiếu sót: bài 3 thiếu từ máy bán hàng tự động, italia 
 bật plan mode
 
 vẫn chưa commit hết?
+
+đọc .claude\minna-vocab-update-plan.md
+
+tôi thấy vẫn còn thiếu nhiều dữ liệu từ vựng so với sách
+ví dụ bài 5: 
+1. chưa có từ vựng về ngày mồng  1, 2, 3, ...
+2. chưa có section từ và thông tin tham khảo: ngày nghỉ quốc gia
+
+hãy tạo plan để update hết từ vựng cho 25 bài
+
+
+hãy phát triển thêm feature tải xuống cho điện thoại, dạng build URL thành app trên android gọi là gì nhỉ?
+
+nếu có commit cập nhật thì PWA có cập nhật theo không?
+
+không chia section, phân loại từ như .claude\minna-vocab-update-plan.md à?
+
+hãy tạo plan để cập nhật đủ cho bài Đếm số & Trợ số từ: hàng trăm nghìn, hàng triệu, hàng tỷ, giờ trong ngày, ...
+
+bật mode plan
