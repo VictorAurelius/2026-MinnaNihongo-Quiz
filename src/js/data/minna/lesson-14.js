@@ -274,6 +274,122 @@ const LESSON_14_DATA =   {
         type: "main",
         english: "Excuse me, but...",
         example: "すみませんが、写真を撮ってください。"
+      },
+      // Supplementary Vocabulary (参考語彙) - More Verbs
+      {
+        japanese: "切（き）ります",
+        kana: "きります",
+        vietnamese: "cắt",
+        english: "to cut",
+        type: "supplementary",
+        example: "野菜を　切ってください。"
+      },
+      {
+        japanese: "入（い）れます",
+        kana: "いれます",
+        vietnamese: "cho vào, bỏ vào",
+        english: "to put in, to insert",
+        type: "supplementary",
+        example: "砂糖を　入れてください。"
+      },
+      {
+        japanese: "出（だ）します",
+        kana: "だします",
+        vietnamese: "lấy ra, nộp",
+        english: "to take out, to submit",
+        type: "supplementary",
+        example: "宿題を　出してください。"
+      },
+      {
+        japanese: "送（おく）ります",
+        kana: "おくります",
+        vietnamese: "gửi",
+        english: "to send",
+        type: "supplementary",
+        example: "メールを　送ってください。"
+      },
+      {
+        japanese: "見（み）せます",
+        kana: "みせます",
+        vietnamese: "cho xem",
+        english: "to show",
+        type: "supplementary",
+        example: "パスポートを　見せてください。"
+      },
+      // Supplementary Vocabulary - Household Items
+      {
+        japanese: "エアコン",
+        kana: "エアコン",
+        vietnamese: "máy lạnh, điều hòa",
+        english: "air conditioner",
+        type: "supplementary",
+        example: "エアコンを　つけてください。"
+      },
+      {
+        japanese: "窓（まど）",
+        kana: "まど",
+        vietnamese: "cửa sổ",
+        english: "window",
+        type: "supplementary",
+        example: "窓を　開けてください。"
+      },
+      {
+        japanese: "ドア",
+        kana: "ドア",
+        vietnamese: "cửa",
+        english: "door",
+        type: "supplementary",
+        example: "ドアを　閉めてください。"
+      },
+      // Supplementary Vocabulary - Seasonings
+      {
+        japanese: "しょうゆ",
+        kana: "しょうゆ",
+        vietnamese: "nước tương",
+        english: "soy sauce",
+        type: "supplementary",
+        example: "しょうゆを　取ってください。"
+      },
+      {
+        japanese: "ソース",
+        kana: "ソース",
+        vietnamese: "sốt",
+        english: "sauce",
+        type: "supplementary",
+        example: "ソースを　かけてください。"
+      },
+      {
+        japanese: "こしょう",
+        kana: "こしょう",
+        vietnamese: "tiêu (gia vị)",
+        english: "pepper",
+        type: "supplementary",
+        example: "こしょうを　入れてください。"
+      },
+      // Supplementary Vocabulary - Directions
+      {
+        japanese: "右（みぎ）",
+        kana: "みぎ",
+        vietnamese: "bên phải",
+        english: "right (direction)",
+        type: "supplementary",
+        example: "右に　曲がってください。"
+      },
+      {
+        japanese: "左（ひだり）",
+        kana: "ひだり",
+        vietnamese: "bên trái",
+        english: "left (direction)",
+        type: "supplementary",
+        example: "左に　行ってください。"
+      },
+      {
+        japanese: "角（かど）",
+        kana: "かど",
+        vietnamese: "góc đường",
+        english: "corner",
+        type: "supplementary",
+        example: "角を　右に　曲がってください。"
       }
     ],
     grammar: [
