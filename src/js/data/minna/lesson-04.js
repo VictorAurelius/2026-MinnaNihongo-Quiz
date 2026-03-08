@@ -338,6 +338,96 @@ const LESSON_04_DATA =   {
         type: "main",
         english: "your place (polite)",
         example: "そちらは なんじから なんじまでですか。"
+      },
+      // Supplementary Vocabulary (参考語彙) - Special Readings for Minutes
+      {
+        japanese: "一分（いっぷん）",
+        kana: "いっぷん",
+        vietnamese: "1 phút",
+        english: "1 minute",
+        type: "supplementary",
+        example: "今　3時1分です。"
+      },
+      {
+        japanese: "三分（さんぷん）",
+        kana: "さんぷん",
+        vietnamese: "3 phút",
+        english: "3 minutes",
+        type: "supplementary",
+        example: "3分　待ってください。"
+      },
+      {
+        japanese: "四分（よんぷん）",
+        kana: "よんぷん",
+        vietnamese: "4 phút",
+        english: "4 minutes",
+        type: "supplementary",
+        example: "4分　かかります。"
+      },
+      {
+        japanese: "六分（ろっぷん）",
+        kana: "ろっぷん",
+        vietnamese: "6 phút",
+        english: "6 minutes",
+        type: "supplementary",
+        example: "6分後に　来ます。"
+      },
+      {
+        japanese: "八分（はっぷん）",
+        kana: "はっぷん",
+        vietnamese: "8 phút",
+        english: "8 minutes",
+        type: "supplementary",
+        example: "8分　歩きます。"
+      },
+      {
+        japanese: "十分（じゅっぷん / じっぷん）",
+        kana: "じゅっぷん",
+        vietnamese: "10 phút",
+        english: "10 minutes",
+        type: "supplementary",
+        example: "10分　休みます。"
+      },
+      // Supplementary Vocabulary - More Time Expressions
+      {
+        japanese: "今朝（けさ）",
+        kana: "けさ",
+        vietnamese: "sáng nay",
+        english: "this morning",
+        type: "supplementary",
+        example: "今朝　6時に　起きました。"
+      },
+      {
+        japanese: "今晩（こんばん）",
+        kana: "こんばん",
+        vietnamese: "tối nay",
+        english: "this evening, tonight",
+        type: "supplementary",
+        example: "今晩　何時に　寝ますか。"
+      },
+      {
+        japanese: "昼休み（ひるやすみ）",
+        kana: "ひるやすみ",
+        vietnamese: "giờ nghỉ trưa",
+        english: "lunch break",
+        type: "supplementary",
+        example: "昼休みは　12時から　1時までです。"
+      },
+      {
+        japanese: "平日（へいじつ）",
+        kana: "へいじつ",
+        vietnamese: "ngày thường (trong tuần)",
+        english: "weekday",
+        type: "supplementary",
+        example: "平日は　毎日　働きます。"
+      },
+      {
+        japanese: "週末（しゅうまつ）",
+        kana: "しゅうまつ",
+        vietnamese: "cuối tuần",
+        english: "weekend",
+        type: "supplementary",
+        example: "週末は　休みます。"
       }
     ],
     grammar: [
