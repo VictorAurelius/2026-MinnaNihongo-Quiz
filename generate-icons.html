@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Generate PWA Icons</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      margin: 20px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #0071e3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover {
+      background: #0059b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Generate PWA Icons</h1>
+  <p>Click buttons below to download icons for Smart Quiz PWA</p>
+
+  <div>
+    <canvas id="canvas192" width="192" height="192"></canvas>
+    <canvas id="canvas512" width="512" height="512"></canvas>
+  </div>
+
+  <div>
+    <button onclick="downloadIcon(192)">Download 192x192</button>
+    <button onclick="downloadIcon(512)">Download 512x512</button>
+  </div>
+
+  <script>
+    function drawIcon(canvas) {
+      const ctx = canvas.getContext('2d');
+      const size = canvas.width;
+
+      // Clear canvas
+      ctx.clearRect(0, 0, size, size);
+
+      // Create gradient background
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#0071e3');
+      gradient.addColorStop(1, '#5856d6');
+
+      // Draw rounded rectangle background
+      const radius = size * 0.225; // 22.5% radius for rounded corners
+      ctx.fillStyle = gradient;
+      roundRect(ctx, 0, 0, size, size, radius);
+      ctx.fill();
+
+      // Draw book icon
+      const bookWidth = size * 0.4;
+      const bookHeight = size * 0.52;
+      const bookX = size * 0.3;
+      const bookY = size * 0.22;
+
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = size * 0.03;
+      ctx.lineCap = 'round';
+
+      // Book outline
+      roundRect(ctx, bookX, bookY, bookWidth, bookHeight, size * 0.05);
+      ctx.stroke();
+
+      // Book spine
+      ctx.beginPath();
+      ctx.moveTo(bookX + bookWidth / 2, bookY);
+      ctx.lineTo(bookX + bookWidth / 2, bookY + bookHeight);
+      ctx.stroke();
+
+      // Japanese character
+      ctx.fillStyle = 'white';
+      ctx.font = `bold ${size * 0.25}px Arial, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('あ', bookX + bookWidth * 0.75, bookY + bookHeight * 0.5);
+
+      // Quiz badge
+      const badgeSize = size * 0.18;
+      const badgeX = size * 0.78;
+      const badgeY = size * 0.27;
+
+      ctx.fillStyle = '#34c759';
+      ctx.beginPath();
+      ctx.arc(badgeX, badgeY, badgeSize / 2, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = 'white';
+      ctx.font = `bold ${size * 0.1}px Arial, sans-serif`;
+      ctx.fillText('?', badgeX, badgeY + size * 0.01);
+    }
+
+    function roundRect(ctx, x, y, width, height, radius) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+    }
+
+    function downloadIcon(size) {
+      const canvas = document.getElementById(`canvas${size}`);
+      const link = document.createElement('a');
+      link.download = `icon-${size}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    // Draw icons on load
+    window.addEventListener('load', () => {
+      drawIcon(document.getElementById('canvas192'));
+      drawIcon(document.getElementById('canvas512'));
+    });
+  </script>
+</body>
+</html>
