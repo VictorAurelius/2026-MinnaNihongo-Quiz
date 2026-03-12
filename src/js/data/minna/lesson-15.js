@@ -259,6 +259,174 @@ const LESSON_15_DATA =   {
         english: "Absence from home",
         example: "田中さんは留守です。"
       },
+      {
+        japanese: "知ります（しります）",
+        kana: "しります",
+        vietnamese: "biết",
+        type: "main",
+        english: "To know, to get to know",
+        example: "新しい　友達を　知りました。"
+      },
+      {
+        japanese: "住みます（すみます）",
+        kana: "すみます",
+        vietnamese: "sống, cư trú",
+        type: "main",
+        english: "To live, to reside",
+        example: "東京に　住みます。"
+      },
+      {
+        japanese: "研究します（けんきゅうします）",
+        kana: "けんきゅうします",
+        vietnamese: "nghiên cứu",
+        type: "main",
+        english: "To research",
+        example: "大学で　日本語を　研究しています。"
+      },
+      {
+        japanese: "知っています（しっています）",
+        kana: "しっています",
+        vietnamese: "biết rồi, đang biết",
+        type: "main",
+        english: "To know (state)",
+        example: "田中さんを　知っていますか。"
+      },
+      {
+        japanese: "住んでいます（すんでいます）",
+        kana: "すんでいます",
+        vietnamese: "đang sống",
+        type: "main",
+        english: "To be living",
+        example: "今　東京に　住んでいます。"
+      },
+      {
+        japanese: "資料（しりょう）",
+        kana: "しりょう",
+        vietnamese: "tài liệu",
+        type: "main",
+        english: "Materials, data",
+        example: "資料を　集めます。"
+      },
+      {
+        japanese: "カタログ",
+        kana: "カタログ",
+        vietnamese: "danh mục, catalogue",
+        type: "main",
+        english: "Catalog",
+        example: "カタログを　見ます。"
+      },
+      {
+        japanese: "時刻表（じこくひょう）",
+        kana: "じこくひょう",
+        vietnamese: "thời gian biểu",
+        type: "main",
+        english: "Timetable",
+        example: "電車の　時刻表を　調べます。"
+      },
+      {
+        japanese: "服（ふく）",
+        kana: "ふく",
+        vietnamese: "quần áo",
+        type: "main",
+        english: "Clothes",
+        example: "新しい　服を　買いました。"
+      },
+      {
+        japanese: "製品（せいひん）",
+        kana: "せいひん",
+        vietnamese: "sản phẩm",
+        type: "main",
+        english: "Product",
+        example: "この　会社の　製品は　いいです。"
+      },
+      {
+        japanese: "ソフト",
+        kana: "ソフト",
+        vietnamese: "phần mềm",
+        type: "main",
+        english: "Software",
+        example: "新しい　ソフトを　使っています。"
+      },
+      {
+        japanese: "専門（せんもん）",
+        kana: "せんもん",
+        vietnamese: "chuyên môn",
+        type: "main",
+        english: "Specialty, major",
+        example: "専門は　何ですか。"
+      },
+      {
+        japanese: "歯医者（はいしゃ）",
+        kana: "はいしゃ",
+        vietnamese: "nha sĩ",
+        type: "main",
+        english: "Dentist",
+        example: "歯医者に　行きます。"
+      },
+      {
+        japanese: "床屋（とこや）",
+        kana: "とこや",
+        vietnamese: "tiệm cắt tóc nam",
+        type: "main",
+        english: "Barber",
+        example: "床屋で　髪を　切ります。"
+      },
+      {
+        japanese: "プレイガイド",
+        kana: "プレイガイド",
+        vietnamese: "quầy bán vé",
+        type: "main",
+        english: "Ticket agency",
+        example: "プレイガイドで　チケットを　買います。"
+      },
+      {
+        japanese: "独身（どくしん）",
+        kana: "どくしん",
+        vietnamese: "độc thân",
+        type: "main",
+        english: "Single, unmarried",
+        example: "私は　独身です。"
+      },
+      {
+        japanese: "特に（とくに）",
+        kana: "とくに",
+        vietnamese: "đặc biệt",
+        type: "main",
+        english: "Especially",
+        example: "特に　好きな　食べ物は　ありません。"
+      },
+      {
+        japanese: "思い出します（おもいだします）",
+        kana: "おもいだします",
+        vietnamese: "nhớ ra",
+        type: "main",
+        english: "To recall",
+        example: "名前を　思い出しました。"
+      },
+      {
+        japanese: "ご家族（ごかぞく）",
+        kana: "ごかぞく",
+        vietnamese: "gia đình (kính ngữ)",
+        type: "main",
+        english: "(Your) family (honorific)",
+        example: "ご家族は　何人ですか。"
+      },
+      {
+        japanese: "いらっしゃいます",
+        kana: "いらっしゃいます",
+        vietnamese: "có, ở (kính ngữ)",
+        type: "main",
+        english: "To be (honorific)",
+        example: "お子さんは　いらっしゃいますか。"
+      },
+      {
+        japanese: "高校（こうこう）",
+        kana: "こうこう",
+        vietnamese: "trường trung học phổ thông",
+        type: "main",
+        english: "High school",
+        example: "高校を　卒業しました。"
+      },
       // Supplementary Vocabulary (参考語彙) - Occupations
       {
         japanese: "看護師（かんごし）",
