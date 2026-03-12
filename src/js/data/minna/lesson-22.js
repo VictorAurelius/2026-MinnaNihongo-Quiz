@@ -269,42 +269,10 @@ const LESSON_22_DATA =   {
         example: ""
       },
       {
-        japanese: "コート",
-        kana: "コート",
-        vietnamese: "áo khoác dài",
-        english: "coat",
-        type: "supplementary",
-        example: ""
-      },
-      {
-        japanese: "セーター",
-        kana: "セーター",
-        vietnamese: "áo len",
-        english: "sweater",
-        type: "supplementary",
-        example: ""
-      },
-      {
         japanese: "Tシャツ（ティーシャツ）",
         kana: "ティーシャツ",
         vietnamese: "áo thun",
         english: "T-shirt",
-        type: "supplementary",
-        example: ""
-      },
-      {
-        japanese: "帽子（ぼうし）",
-        kana: "ぼうし",
-        vietnamese: "mũ",
-        english: "hat, cap",
-        type: "supplementary",
-        example: ""
-      },
-      {
-        japanese: "眼鏡（めがね）",
-        kana: "めがね",
-        vietnamese: "kính mắt",
-        english: "glasses",
         type: "supplementary",
         example: ""
       }

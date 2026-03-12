@@ -349,34 +349,10 @@ const LESSON_08_DATA =   {
       },
       // Supplementary Vocabulary (参考語彙) - Colors
       {
-        japanese: "赤い（あかい）",
-        kana: "あかい",
-        vietnamese: "màu đỏ",
-        english: "red",
-        type: "supplementary",
-        example: "あかい　りんごです。"
-      },
-      {
-        japanese: "青い（あおい）",
-        kana: "あおい",
-        vietnamese: "màu xanh dương",
-        english: "blue",
-        type: "supplementary",
-        example: "あおい　そらです。"
-      },
-      {
         japanese: "黄色い（きいろい）",
         kana: "きいろい",
         vietnamese: "màu vàng",
         english: "yellow",
-        type: "supplementary",
-        example: ""
-      },
-      {
-        japanese: "黒い（くろい）",
-        kana: "くろい",
-        vietnamese: "màu đen",
-        english: "black",
         type: "supplementary",
         example: ""
       },
