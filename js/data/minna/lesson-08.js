@@ -84,6 +84,22 @@ const LESSON_08_DATA =   {
         example: ""
       },
       {
+        japanese: "素敵（な）（すてき）",
+        kana: "すてき",
+        vietnamese: "tuyệt vời, đẹp",
+        type: "main",
+        english: "Lovely, wonderful, nice",
+        example: "素敵な　プレゼントですね。"
+      },
+      {
+        japanese: "厳しい（きびしい）",
+        kana: "きびしい",
+        vietnamese: "nghiêm khắc, khắt khe",
+        type: "main",
+        english: "Strict, severe",
+        example: "あの　先生は　厳しいです。"
+      },
+      {
         japanese: "大きい（おおきい）",
         kana: "おおきい",
         vietnamese: "to, lớn",
@@ -396,6 +412,47 @@ const LESSON_08_DATA =   {
         english: "sour",
         type: "supplementary",
         example: ""
+      },
+      // Supplementary Vocabulary - Conversation Phrases (会話)
+      {
+        japanese: "お元気ですか",
+        kana: "おげんきですか",
+        vietnamese: "Bạn có khỏe không?",
+        english: "How are you?",
+        type: "supplementary",
+        example: "お元気ですか。"
+      },
+      {
+        japanese: "もう　一杯　いかがですか",
+        kana: "もう　いっぱい　いかがですか",
+        vietnamese: "Dùng thêm một ly/chén nữa nhé?",
+        english: "Would you like another cup?",
+        type: "supplementary",
+        example: "もう　一杯　いかがですか。"
+      },
+      {
+        japanese: "いいえ、結構です",
+        kana: "いいえ、けっこうです",
+        vietnamese: "Không, cảm ơn (khi từ chối)",
+        english: "No, thank you (polite refusal)",
+        type: "supplementary",
+        example: "いいえ、結構です。"
+      },
+      {
+        japanese: "そろそろ　失礼します",
+        kana: "そろそろ　しつれいします",
+        vietnamese: "Tôi xin phép ra về (lịch sự)",
+        english: "It's about time to leave, I must be going",
+        type: "supplementary",
+        example: "そろそろ　失礼します。"
+      },
+      {
+        japanese: "また　いらっしゃって　ください",
+        kana: "また　いらっしゃって　ください",
+        vietnamese: "Hãy đến chơi lại nhé",
+        english: "Please come again",
+        type: "supplementary",
+        example: "また　いらっしゃって　ください。"
       }
     ],
     grammar: [

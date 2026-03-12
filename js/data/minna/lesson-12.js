@@ -259,6 +259,94 @@ const LESSON_12_DATA =   {
         english: "Which (of three or more)",
         example: ""
       },
+      {
+        japanese: "ホテル",
+        kana: "ホテル",
+        vietnamese: "khách sạn",
+        type: "main",
+        english: "Hotel",
+        example: "ホテルは　駅の　近くに　あります。"
+      },
+      {
+        japanese: "空港（くうこう）",
+        kana: "くうこう",
+        vietnamese: "sân bay",
+        type: "main",
+        english: "Airport",
+        example: "空港まで　どのくらい　かかりますか。"
+      },
+      {
+        japanese: "パーティー",
+        kana: "パーティー",
+        vietnamese: "tiệc, bữa tiệc",
+        type: "main",
+        english: "Party",
+        example: "昨日　友達の　パーティーに　行きました。"
+      },
+      {
+        japanese: "祭り（まつり）",
+        kana: "まつり",
+        vietnamese: "lễ hội",
+        type: "main",
+        english: "Festival",
+        example: "夏は　祭りが　たくさん　あります。"
+      },
+      {
+        japanese: "試験（しけん）",
+        kana: "しけん",
+        vietnamese: "kỳ thi, bài thi",
+        type: "main",
+        english: "Exam",
+        example: "試験は　難しくなかったです。"
+      },
+      {
+        japanese: "すきやき",
+        kana: "すきやき",
+        vietnamese: "sukiyaki (món lẩu Nhật)",
+        type: "main",
+        english: "Sukiyaki",
+        example: "すきやきを　食べたことが　ありますか。"
+      },
+      {
+        japanese: "刺身（さしみ）",
+        kana: "さしみ",
+        vietnamese: "sashimi (cá sống)",
+        type: "main",
+        english: "Sashimi",
+        example: "刺身は　新鮮で　おいしいです。"
+      },
+      {
+        japanese: "寿司（すし）",
+        kana: "すし",
+        vietnamese: "sushi",
+        type: "main",
+        english: "Sushi",
+        example: "寿司が　好きです。"
+      },
+      {
+        japanese: "天ぷら（てんぷら）",
+        kana: "てんぷら",
+        vietnamese: "tempura (hải sản rau chiên giòn)",
+        type: "main",
+        english: "Tempura",
+        example: "天ぷらは　軽くて　おいしいです。"
+      },
+      {
+        japanese: "生け花（いけばな）",
+        kana: "いけばな",
+        vietnamese: "nghệ thuật cắm hoa Nhật",
+        type: "main",
+        english: "Ikebana (Japanese flower arrangement)",
+        example: "生け花を　習いたいです。"
+      },
+      {
+        japanese: "紅葉（もみじ）",
+        kana: "もみじ",
+        vietnamese: "lá đỏ mùa thu",
+        type: "main",
+        english: "Autumn leaves, maple leaves",
+        example: "秋は　紅葉が　きれいです。"
+      },
       // Supplementary Vocabulary (参考語彙) - Japanese Places & Festivals
       {
         japanese: "富士山（ふじさん）",
@@ -305,6 +393,39 @@ const LESSON_12_DATA =   {
         kana: "さくら",
         vietnamese: "hoa anh đào",
         english: "cherry blossom",
+        type: "supplementary",
+        example: ""
+      },
+      // Supplementary Vocabulary - Conversation Phrases
+      {
+        japanese: "ただいま",
+        kana: "ただいま",
+        vietnamese: "Tôi về rồi (khi về nhà)",
+        english: "I'm home",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "お帰りなさい（おかえりなさい）",
+        kana: "おかえりなさい",
+        vietnamese: "Chào mừng về nhà",
+        english: "Welcome home",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "すごいですね",
+        kana: "すごいですね",
+        vietnamese: "Tuyệt quá nhỉ, Giỏi quá",
+        english: "That's amazing",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "疲れました（つかれました）",
+        kana: "つかれました",
+        vietnamese: "Tôi mệt rồi",
+        english: "I'm tired",
         type: "supplementary",
         example: ""
       }
