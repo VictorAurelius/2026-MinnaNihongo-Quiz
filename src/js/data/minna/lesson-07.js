@@ -132,6 +132,14 @@ const LESSON_07_DATA =   {
         example: "クリスマスに　プレゼントを　あげます。"
       },
       {
+        japanese: "お土産（おみやげ）",
+        kana: "おみやげ",
+        vietnamese: "quà lưu niệm, đặc sản",
+        type: "main",
+        english: "Souvenir, gift",
+        example: "日本の　お土産を　もらいました。"
+      },
+      {
         japanese: "父（ちち）",
         kana: "ちち",
         vietnamese: "bố (của mình)",
@@ -204,6 +212,54 @@ const LESSON_07_DATA =   {
         example: ""
       },
       {
+        japanese: "ファクス",
+        kana: "ファクス",
+        vietnamese: "máy fax",
+        type: "main",
+        english: "Fax",
+        example: "ファクスを　送ります。"
+      },
+      {
+        japanese: "ワープロ",
+        kana: "ワープロ",
+        vietnamese: "máy đánh chữ",
+        type: "main",
+        english: "Word processor",
+        example: ""
+      },
+      {
+        japanese: "パンチ",
+        kana: "パンチ",
+        vietnamese: "máy đục lỗ",
+        type: "main",
+        english: "Hole punch",
+        example: ""
+      },
+      {
+        japanese: "ホッチキス",
+        kana: "ホッチキス",
+        vietnamese: "cái bấm ghim",
+        type: "main",
+        english: "Stapler",
+        example: ""
+      },
+      {
+        japanese: "セロテープ",
+        kana: "セロテープ",
+        vietnamese: "băng keo trong",
+        type: "main",
+        english: "Scotch tape, cellophane tape",
+        example: ""
+      },
+      {
+        japanese: "消しゴム（けしゴム）",
+        kana: "けしゴム",
+        vietnamese: "cục tẩy",
+        type: "main",
+        english: "Eraser",
+        example: ""
+      },
+      {
         japanese: "もう",
         kana: "もう",
         vietnamese: "đã, rồi",
@@ -218,6 +274,14 @@ const LESSON_07_DATA =   {
         type: "main",
         english: "Not yet",
         example: "いいえ、まだです。"
+      },
+      {
+        japanese: "ヨーロッパ",
+        kana: "ヨーロッパ",
+        vietnamese: "Châu Âu",
+        type: "main",
+        english: "Europe",
+        example: "来年　ヨーロッパへ　旅行します。"
       },
       // Supplementary Vocabulary (参考語彙) - Family Members
       {

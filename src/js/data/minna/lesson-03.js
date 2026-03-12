@@ -363,6 +363,47 @@ const LESSON_03_DATA =   {
         english: "Shin-Osaka (station)",
         type: "supplementary",
         example: "しんおおさかえきは どこですか。"
+      },
+      // Supplementary Vocabulary - Common Items & Phrases
+      {
+        japanese: "携帯電話（けいたいでんわ）",
+        kana: "けいたいでんわ",
+        vietnamese: "điện thoại di động",
+        english: "Mobile phone, cell phone",
+        type: "supplementary",
+        example: "携帯電話は　どこですか。"
+      },
+      {
+        japanese: "屋台（やたい）",
+        kana: "やたい",
+        vietnamese: "quầy hàng rong",
+        english: "Food stall, street vendor",
+        type: "supplementary",
+        example: "屋台は　あそこです。"
+      },
+      {
+        japanese: "いらっしゃいませ",
+        kana: "いらっしゃいませ",
+        vietnamese: "Xin chào quý khách",
+        english: "Welcome (shop greeting)",
+        type: "supplementary",
+        example: "いらっしゃいませ。"
+      },
+      {
+        japanese: "見せてください",
+        kana: "みせてください",
+        vietnamese: "Cho tôi xem",
+        english: "Please show me",
+        type: "supplementary",
+        example: "それを　見せてください。"
+      },
+      {
+        japanese: "それでは",
+        kana: "それでは",
+        vietnamese: "Thế thì, vậy thì",
+        english: "Well then, in that case",
+        type: "supplementary",
+        example: "それでは、これを　ください。"
       }
     ],
     grammar: [
