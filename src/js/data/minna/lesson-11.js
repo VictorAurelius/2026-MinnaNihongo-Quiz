@@ -284,6 +284,22 @@ const LESSON_11_DATA =   {
         example: ""
       },
       {
+        japanese: "休みます（やすみます）",
+        kana: "やすみます",
+        vietnamese: "nghỉ, nghỉ ngơi",
+        type: "main",
+        english: "To take a day off, to rest",
+        example: "明日は　会社を　休みます。"
+      },
+      {
+        japanese: "かかります",
+        kana: "かかります",
+        vietnamese: "mất (thời gian/tiền)",
+        type: "main",
+        english: "To take (time/money)",
+        example: "東京から　大阪まで　3時間　かかります。"
+      },
+      {
         japanese: "どのくらい",
         kana: "どのくらい",
         vietnamese: "bao lâu, bao nhiêu",
