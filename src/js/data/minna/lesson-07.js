@@ -140,38 +140,6 @@ const LESSON_07_DATA =   {
         example: "日本の　お土産を　もらいました。"
       },
       {
-        japanese: "父（ちち）",
-        kana: "ちち",
-        vietnamese: "bố (của mình)",
-        type: "main",
-        english: "My father",
-        example: "父は　会社員です。"
-      },
-      {
-        japanese: "母（はは）",
-        kana: "はは",
-        vietnamese: "mẹ (của mình)",
-        type: "main",
-        english: "My mother",
-        example: "母に　花を　あげました。"
-      },
-      {
-        japanese: "お父さん（おとうさん）",
-        kana: "おとうさん",
-        vietnamese: "bố (của người khác)",
-        type: "main",
-        english: "(Someone's) father",
-        example: "お父さんは　お元気ですか。"
-      },
-      {
-        japanese: "お母さん（おかあさん）",
-        kana: "おかあさん",
-        vietnamese: "mẹ (của người khác)",
-        type: "main",
-        english: "(Someone's) mother",
-        example: ""
-      },
-      {
         japanese: "はし",
         kana: "はし",
         vietnamese: "đũa",
