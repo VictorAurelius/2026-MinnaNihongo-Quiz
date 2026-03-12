@@ -20,6 +20,22 @@ const LESSON_25_DATA =   {
         example: "駅に着いたら、電話してください。"
       },
       {
+        japanese: "留学（りゅうがく）します",
+        kana: "りゅうがくします",
+        vietnamese: "du học",
+        type: "main",
+        english: "To study abroad",
+        example: "来年アメリカへ留学します。"
+      },
+      {
+        japanese: "取（と）ります",
+        kana: "とります",
+        vietnamese: "thêm (tuổi)",
+        type: "main",
+        english: "To add (age)",
+        example: "来月30歳を取ります。"
+      },
+      {
         japanese: "間に合います（まにあいます）",
         kana: "まにあいます",
         vietnamese: "kịp giờ",
@@ -130,6 +146,78 @@ const LESSON_25_DATA =   {
         type: "main",
         english: "No matter how much ~",
         example: "いくら食べても太りません。"
+      },
+      {
+        japanese: "田舎（いなか）",
+        kana: "いなか",
+        vietnamese: "vùng quê, nông thôn",
+        type: "main",
+        english: "Countryside, rural area",
+        example: "田舎に住みたいです。"
+      },
+      {
+        japanese: "大使館（たいしかん）",
+        kana: "たいしかん",
+        vietnamese: "đại sứ quán",
+        type: "main",
+        english: "Embassy",
+        example: "大使館でビザを申請します。"
+      },
+      {
+        japanese: "グループ",
+        kana: "グループ",
+        vietnamese: "nhóm",
+        type: "main",
+        english: "Group",
+        example: "グループで勉強します。"
+      },
+      {
+        japanese: "億（おく）",
+        kana: "おく",
+        vietnamese: "trăm triệu (100,000,000)",
+        type: "main",
+        english: "Hundred million",
+        example: "一億円が欲しいです。"
+      },
+      {
+        japanese: "転勤（てんきん）",
+        kana: "てんきん",
+        vietnamese: "chuyển công tác",
+        type: "main",
+        english: "Job transfer",
+        example: "大阪へ転勤します。"
+      },
+      {
+        japanese: "一杯（いっぱい）飲（の）みましょう",
+        kana: "いっぱいのみましょう",
+        vietnamese: "đi uống một chầu nào",
+        type: "main",
+        english: "Let's have a drink",
+        example: "今晩一杯飲みましょう。"
+      },
+      {
+        japanese: "どうぞお元気（げんき）で",
+        kana: "どうぞおげんきで",
+        vietnamese: "chúc anh/chị mạnh khỏe (lời chào tạm biệt)",
+        type: "main",
+        english: "Take care (farewell)",
+        example: "どうぞお元気で。"
+      },
+      {
+        japanese: "（いろいろ）お世話（せわ）になりました",
+        kana: "（いろいろ）おせわになりました",
+        vietnamese: "cảm ơn đã chăm sóc (nhiều)",
+        type: "main",
+        english: "Thank you for everything",
+        example: "いろいろお世話になりました。"
+      },
+      {
+        japanese: "頑張（がんば）ります",
+        kana: "がんばります",
+        vietnamese: "cố gắng",
+        type: "main",
+        english: "To do one's best, to try hard",
+        example: "これからも頑張ります。"
       },
       {
         japanese: "〜たら",
