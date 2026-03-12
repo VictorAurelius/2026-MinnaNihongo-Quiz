@@ -355,12 +355,12 @@ const LESSON_06_DATA =   {
         english: "I understand",
         example: ""
       },
-      // Supplementary Vocabulary (参考語彙) - Foods
+      // Supplementary Vocabulary (参考語彙) - Fruits (果物)
       {
         japanese: "りんご",
         kana: "りんご",
         vietnamese: "táo",
-        english: "apple",
+        english: "Apple",
         type: "supplementary",
         example: "りんごを　食べます。"
       },
@@ -368,7 +368,7 @@ const LESSON_06_DATA =   {
         japanese: "バナナ",
         kana: "バナナ",
         vietnamese: "chuối",
-        english: "banana",
+        english: "Banana",
         type: "supplementary",
         example: ""
       },
@@ -376,15 +376,88 @@ const LESSON_06_DATA =   {
         japanese: "オレンジ",
         kana: "オレンジ",
         vietnamese: "cam",
-        english: "orange",
+        english: "Orange",
         type: "supplementary",
         example: ""
       },
       {
+        japanese: "ぶどう",
+        kana: "ぶどう",
+        vietnamese: "nho",
+        english: "Grapes",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "いちご",
+        kana: "いちご",
+        vietnamese: "dâu tây",
+        english: "Strawberry",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "メロン",
+        kana: "メロン",
+        vietnamese: "dưa lưới",
+        english: "Melon",
+        type: "supplementary",
+        example: ""
+      },
+      // Supplementary Vocabulary - Vegetables (野菜)
+      {
         japanese: "トマト",
         kana: "トマト",
         vietnamese: "cà chua",
-        english: "tomato",
+        english: "Tomato",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "きゅうり",
+        kana: "きゅうり",
+        vietnamese: "dưa chuột",
+        english: "Cucumber",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "レタス",
+        kana: "レタス",
+        vietnamese: "rau diếp",
+        english: "Lettuce",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "キャベツ",
+        kana: "キャベツ",
+        vietnamese: "bắp cải",
+        english: "Cabbage",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "にんじん",
+        kana: "にんじん",
+        vietnamese: "cà rốt",
+        english: "Carrot",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "玉ねぎ（たまねぎ）",
+        kana: "たまねぎ",
+        vietnamese: "hành tây",
+        english: "Onion",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "じゃがいも",
+        kana: "じゃがいも",
+        vietnamese: "khoai tây",
+        english: "Potato",
         type: "supplementary",
         example: ""
       },
@@ -392,24 +465,16 @@ const LESSON_06_DATA =   {
         japanese: "サラダ",
         kana: "サラダ",
         vietnamese: "salad",
-        english: "salad",
+        english: "Salad",
         type: "supplementary",
         example: "サラダを　食べます。"
       },
-      {
-        japanese: "ケーキ",
-        kana: "ケーキ",
-        vietnamese: "bánh ngọt",
-        english: "cake",
-        type: "supplementary",
-        example: ""
-      },
-      // Supplementary Vocabulary - Types of Meat
+      // Supplementary Vocabulary - Meat (肉)
       {
         japanese: "牛肉（ぎゅうにく）",
         kana: "ぎゅうにく",
         vietnamese: "thịt bò",
-        english: "beef",
+        english: "Beef",
         type: "supplementary",
         example: "牛肉を　買います。"
       },
@@ -417,7 +482,7 @@ const LESSON_06_DATA =   {
         japanese: "豚肉（ぶたにく）",
         kana: "ぶたにく",
         vietnamese: "thịt lợn",
-        english: "pork",
+        english: "Pork",
         type: "supplementary",
         example: ""
       },
@@ -425,44 +490,11 @@ const LESSON_06_DATA =   {
         japanese: "鶏肉（とりにく）",
         kana: "とりにく",
         vietnamese: "thịt gà",
-        english: "chicken",
+        english: "Chicken",
         type: "supplementary",
         example: ""
       },
-      // Supplementary Vocabulary - Drinks
-      {
-        japanese: "コーヒー",
-        kana: "コーヒー",
-        vietnamese: "cà phê",
-        english: "coffee",
-        type: "supplementary",
-        example: "コーヒーを　飲みます。"
-      },
-      {
-        japanese: "ワイン",
-        kana: "ワイン",
-        vietnamese: "rượu vang",
-        english: "wine",
-        type: "supplementary",
-        example: ""
-      },
-      {
-        japanese: "日本酒（にほんしゅ）",
-        kana: "にほんしゅ",
-        vietnamese: "rượu sake",
-        english: "sake (Japanese rice wine)",
-        type: "supplementary",
-        example: ""
-      },
-      {
-        japanese: "アイスティー",
-        kana: "アイスティー",
-        vietnamese: "trà đá",
-        english: "Iced tea",
-        type: "supplementary",
-        example: "アイスティーを　飲みます。"
-      },
-      // Supplementary Vocabulary - Fish & Seafood (魚介類)
+      // Supplementary Vocabulary - Fish & Seafood (魚・魚介類)
       {
         japanese: "鮭（さけ）",
         kana: "さけ",
@@ -519,7 +551,7 @@ const LESSON_06_DATA =   {
         type: "supplementary",
         example: ""
       },
-      // Supplementary Vocabulary - Staples & Sports
+      // Supplementary Vocabulary - Staples & Other Foods
       {
         japanese: "米（こめ）",
         kana: "こめ",
@@ -529,12 +561,71 @@ const LESSON_06_DATA =   {
         example: "米を　買います。"
       },
       {
+        japanese: "ケーキ",
+        kana: "ケーキ",
+        vietnamese: "bánh ngọt",
+        english: "Cake",
+        type: "supplementary",
+        example: ""
+      },
+      // Supplementary Vocabulary - Drinks (飲み物)
+      {
+        japanese: "アイスティー",
+        kana: "アイスティー",
+        vietnamese: "trà đá",
+        english: "Iced tea",
+        type: "supplementary",
+        example: "アイスティーを　飲みます。"
+      },
+      {
+        japanese: "コーヒー",
+        kana: "コーヒー",
+        vietnamese: "cà phê",
+        english: "Coffee",
+        type: "supplementary",
+        example: "コーヒーを　飲みます。"
+      },
+      {
+        japanese: "ワイン",
+        kana: "ワイン",
+        vietnamese: "rượu vang",
+        english: "Wine",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "日本酒（にほんしゅ）",
+        kana: "にほんしゅ",
+        vietnamese: "rượu sake",
+        english: "Sake (Japanese rice wine)",
+        type: "supplementary",
+        example: ""
+      },
+      // Supplementary Vocabulary - Sports (スポーツ)
+      {
         japanese: "バドミントン",
         kana: "バドミントン",
         vietnamese: "cầu lông",
         english: "Badminton",
         type: "supplementary",
         example: "バドミントンを　します。"
+      },
+      // Supplementary Vocabulary - Conversation Phrases (会話)
+      {
+        japanese: "一緒に～ませんか",
+        kana: "いっしょに～ませんか",
+        vietnamese: "Cùng nhau ~ nhé? (lời mời)",
+        english: "Would you like to ~ together?",
+        type: "supplementary",
+        example: "一緒に　コーヒーを　飲みませんか。"
+      },
+      {
+        japanese: "ええ、～ましょう",
+        kana: "ええ、～ましょう",
+        vietnamese: "Vâng, cùng ~ nào (chấp nhận lời mời)",
+        english: "Yes, let's ~ (accepting invitation)",
+        type: "supplementary",
+        example: "ええ、飲みましょう。"
       }
     ],
     grammar: [
