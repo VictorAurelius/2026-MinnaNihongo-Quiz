@@ -60,6 +60,14 @@ const LESSON_16_DATA =   {
         example: "ドアを引いてください。"
       },
       {
+        japanese: "押（お）します",
+        kana: "おします",
+        vietnamese: "đẩy, nhấn (nút)",
+        type: "main",
+        english: "To push, to press",
+        example: "このボタンを押してください。"
+      },
+      {
         japanese: "払（はら）います",
         kana: "はらいます",
         vietnamese: "trả tiền, thanh toán",
@@ -90,6 +98,14 @@ const LESSON_16_DATA =   {
         type: "main",
         english: "To go out",
         example: "ちょっと出かけます。"
+      },
+      {
+        japanese: "やめます",
+        kana: "やめます",
+        vietnamese: "thôi, nghỉ (việc, học)",
+        type: "main",
+        english: "To quit, to stop",
+        example: "会社をやめました。"
       },
       {
         japanese: "脱（ぬ）ぎます",
@@ -242,6 +258,94 @@ const LESSON_16_DATA =   {
         type: "main",
         english: "What happened? / What's wrong?",
         example: "どうしましたか。…頭が痛いです。"
+      },
+      {
+        japanese: "若（わか）い",
+        kana: "わかい",
+        vietnamese: "trẻ",
+        type: "main",
+        english: "Young",
+        example: "若い人が多いです。"
+      },
+      {
+        japanese: "長（なが）い",
+        kana: "ながい",
+        vietnamese: "dài",
+        type: "main",
+        english: "Long",
+        example: "長い髪がきれいです。"
+      },
+      {
+        japanese: "短（みじか）い",
+        kana: "みじかい",
+        vietnamese: "ngắn",
+        type: "main",
+        english: "Short",
+        example: "短い休みでした。"
+      },
+      {
+        japanese: "明（あか）るい",
+        kana: "あかるい",
+        vietnamese: "sáng",
+        type: "main",
+        english: "Bright",
+        example: "明るい部屋ですね。"
+      },
+      {
+        japanese: "暗（くら）い",
+        kana: "くらい",
+        vietnamese: "tối",
+        type: "main",
+        english: "Dark",
+        example: "暗いので、電気をつけてください。"
+      },
+      {
+        japanese: "背（せ）が高（たか）い",
+        kana: "せがたかい",
+        vietnamese: "cao (người)",
+        type: "main",
+        english: "Tall (person)",
+        example: "背が高い人ですね。"
+      },
+      {
+        japanese: "頭（あたま）がいい",
+        kana: "あたまがいい",
+        vietnamese: "thông minh",
+        type: "main",
+        english: "Smart, clever",
+        example: "頭がいい学生です。"
+      },
+      {
+        japanese: "サービス",
+        kana: "サービス",
+        vietnamese: "dịch vụ",
+        type: "main",
+        english: "Service",
+        example: "サービスがいいです。"
+      },
+      {
+        japanese: "ジョギング",
+        kana: "ジョギング",
+        vietnamese: "chạy bộ",
+        type: "main",
+        english: "Jogging",
+        example: "朝ジョギングをします。"
+      },
+      {
+        japanese: "シャワー",
+        kana: "シャワー",
+        vietnamese: "vòi sen",
+        type: "main",
+        english: "Shower",
+        example: "シャワーを浴びます。"
+      },
+      {
+        japanese: "緑（みどり）",
+        kana: "みどり",
+        vietnamese: "màu xanh lá cây",
+        type: "main",
+        english: "Green",
+        example: "緑の服が好きです。"
       }
     ],
     grammar: [
