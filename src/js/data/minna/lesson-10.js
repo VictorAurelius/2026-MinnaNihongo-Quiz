@@ -323,6 +323,22 @@ const LESSON_10_DATA =   {
         english: "Between",
         example: "銀行と　郵便局の　間に　花屋が　あります。"
       },
+      {
+        japanese: "奥（おく）",
+        kana: "おく",
+        vietnamese: "phía trong, phía sau cùng",
+        type: "main",
+        english: "The back, inner part",
+        example: "スパイスコーナーは　あの　奥に　あります。"
+      },
+      {
+        japanese: "フイルム",
+        kana: "フイルム",
+        vietnamese: "phim (máy ảnh)",
+        type: "main",
+        english: "Film (camera film)",
+        example: "フイルムは　どこに　ありますか。"
+      },
       // Supplementary Vocabulary (参考語彙) - House Items
       {
         japanese: "洗濯機（せんたくき）",
@@ -353,6 +369,39 @@ const LESSON_10_DATA =   {
         kana: "カーテン",
         vietnamese: "rèm cửa",
         english: "curtain",
+        type: "supplementary",
+        example: ""
+      },
+      // Supplementary Vocabulary - Conversation Context
+      {
+        japanese: "チリソース",
+        kana: "チリソース",
+        vietnamese: "tương ớt",
+        english: "chili sauce",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "スパイスコーナー",
+        kana: "スパイスコーナー",
+        vietnamese: "khu gia vị",
+        english: "spice corner",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "とうきょうディズニーランド",
+        kana: "とうきょうディズニーランド",
+        vietnamese: "Disneyland Tokyo",
+        english: "Tokyo Disneyland",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "すみません",
+        kana: "すみません",
+        vietnamese: "cảm ơn (ngữ cảnh cảm ơn)",
+        english: "Thank you (in 'thank you' context)",
         type: "supplementary",
         example: ""
       }
