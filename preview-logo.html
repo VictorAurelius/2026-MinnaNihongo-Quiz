@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Logo Mới - Smart Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            max-width: 1000px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h1 {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFA726 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .logo-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .logo-section.old h2 {
+            color: #0071e3;
+        }
+
+        .logo-section.new h2 {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFA726 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-display {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo-display img {
+            width: 256px;
+            height: 256px;
+            border-radius: 60px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-display img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .sizes {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .size-preview {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .size-preview label {
+            display: block;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .size-preview img {
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .features {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .features h3 {
+            color: #FF8E53;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .features li:before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        .action-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 35px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFA726 100%);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.5);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(76, 175, 80, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .sizes {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Logo Mới của Smart Quiz</h1>
+        <p class="subtitle">Thiết kế tươi mới, năng động và kích thích hứng thú học tập!</p>
+
+        <div class="comparison">
+            <div class="logo-section old">
+                <h2>❌ Logo Cũ</h2>
+                <div class="logo-display">
+                    <svg width="256" height="256" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="oldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0071e3;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#5856d6;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="512" height="512" rx="115" fill="url(#oldGrad)"/>
+                        <path d="M156 140 C156 125, 168 113, 183 113 L329 113 C344 113, 356 125, 356 140 L356 372 C356 387, 344 399, 329 399 L183 399 C168 399, 156 387, 156 372 Z"
+                              fill="none" stroke="white" stroke-width="16" stroke-linecap="round"/>
+                        <line x1="256" y1="113" x2="256" y2="399" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                        <text x="296" y="250" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="white">あ</text>
+                        <circle cx="400" cy="140" r="45" fill="#34c759"/>
+                        <text x="400" y="157" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">?</text>
+                    </svg>
+                </div>
+                <p style="color: #666; margin-top: 15px;">Màu xanh dương, thiết kế đơn giản</p>
+            </div>
+
+            <div class="logo-section new">
+                <h2>✨ Logo Mới</h2>
+                <div class="logo-display">
+                    <img src="src/icon.svg" alt="Logo mới">
+                </div>
+                <p style="background: linear-gradient(135deg, #FF6B6B 0%, #FFA726 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; margin-top: 15px;">
+                    Màu ấm áp, thiết kế năng động và kích thích!
+                </p>
+            </div>
+        </div>
+
+        <div class="features">
+            <h3>🌟 Điểm nổi bật của logo mới:</h3>
+            <ul>
+                <li><strong>Mặt trời mọc:</strong> Gradient cam/đỏ/vàng tượng trưng cho Nhật Bản và sự khởi đầu mới</li>
+                <li><strong>Chữ Kanji "日":</strong> Ở giữa mặt trời, đại diện cho Nhật Bản và ánh sáng tri thức</li>
+                <li><strong>Ngôi sao lấp lánh:</strong> Thể hiện sự hứng khởi, động lực và thành tựu trong học tập</li>
+                <li><strong>Sách mở:</strong> Với chữ "あ" hiragana để nhấn mạnh việc học ngôn ngữ</li>
+                <li><strong>Trophy nhỏ:</strong> Khuyến khích tinh thần tiến bộ và đạt mục tiêu</li>
+                <li><strong>Màu sắc tươi tắn:</strong> Tạo cảm giác tích cực và năng lượng khi học tập</li>
+            </ul>
+        </div>
+
+        <div class="sizes">
+            <div class="size-preview">
+                <label>📱 Icon 192×192</label>
+                <img src="src/icon-192.png" alt="192x192" width="96" height="96">
+            </div>
+            <div class="size-preview">
+                <label>🖥️ Icon 512×512</label>
+                <img src="src/icon-512.png" alt="512x512" width="96" height="96">
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="src/index.html" class="btn btn-primary">🚀 Mở Ứng Dụng</a>
+            <a href="generate-icons.html" class="btn btn-secondary">🎨 Generate Icons</a>
+        </div>
+
+        <p style="color: #999; margin-top: 40px; font-size: 0.95em;">
+            Thiết kế bởi Claude Sonnet 4.5 • 2026-03-13
+        </p>
+    </div>
+</body>
+</html>
