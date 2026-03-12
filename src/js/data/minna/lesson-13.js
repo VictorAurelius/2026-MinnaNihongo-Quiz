@@ -227,7 +227,111 @@ const LESSON_13_DATA =   {
         english: "Order",
         example: "ご注文は？"
       },
+      {
+        japanese: "出します（だします）",
+        kana: "だします",
+        vietnamese: "gửi (thư, bưu phẩm)",
+        type: "main",
+        english: "To send out, to mail",
+        example: "手紙を　出します。"
+      },
+      {
+        japanese: "入ります（はいります）",
+        kana: "はいります",
+        vietnamese: "vào",
+        type: "main",
+        english: "To enter",
+        example: "部屋に　入ります。"
+      },
+      {
+        japanese: "出ます（でます）",
+        kana: "でます",
+        vietnamese: "ra",
+        type: "main",
+        english: "To go out, to leave",
+        example: "部屋を　出ます。"
+      },
+      {
+        japanese: "結婚します（けっこんします）",
+        kana: "けっこんします",
+        vietnamese: "kết hôn",
+        type: "main",
+        english: "To get married",
+        example: "来年　結婚します。"
+      },
+      {
+        japanese: "買い物します（かいものします）",
+        kana: "かいものします",
+        vietnamese: "mua sắm",
+        type: "main",
+        english: "To do shopping",
+        example: "週末　買い物します。"
+      },
+      {
+        japanese: "食事します（しょくじします）",
+        kana: "しょくじします",
+        vietnamese: "ăn cơm, dùng bữa",
+        type: "main",
+        english: "To have a meal",
+        example: "レストランで　食事しました。"
+      },
+      {
+        japanese: "散歩します（さんぽします）",
+        kana: "さんぽします",
+        vietnamese: "đi dạo",
+        type: "main",
+        english: "To take a walk",
+        example: "公園で　散歩します。"
+      },
+      {
+        japanese: "大変（たいへん）",
+        kana: "たいへん",
+        vietnamese: "khó khăn, vất vả, rất",
+        type: "main",
+        english: "Very, difficult, tough",
+        example: "毎日　大変です。"
+      },
+      {
+        japanese: "寂しい（さびしい）",
+        kana: "さびしい",
+        vietnamese: "buồn, cô đơn",
+        type: "main",
+        english: "Lonely",
+        example: "一人で　寂しいです。"
+      },
+      {
+        japanese: "広い（ひろい）",
+        kana: "ひろい",
+        vietnamese: "rộng rãi",
+        type: "main",
+        english: "Wide, spacious",
+        example: "この　部屋は　広いです。"
+      },
+      {
+        japanese: "狭い（せまい）",
+        kana: "せまい",
+        vietnamese: "chật hẹp, hẹp",
+        type: "main",
+        english: "Narrow",
+        example: "この　道は　狭いです。"
+      },
+      {
+        japanese: "市役所（しやくしょ）",
+        kana: "しやくしょ",
+        vietnamese: "văn phòng chính quyền",
+        type: "main",
+        english: "City hall",
+        example: "市役所へ　行きます。"
+      },
       // Supplementary Vocabulary (参考語彙) - Places in Town
+      {
+        japanese: "ロシア",
+        kana: "ロシア",
+        vietnamese: "Nga",
+        english: "Russia",
+        type: "supplementary",
+        example: ""
+      },
       {
         japanese: "本屋（ほんや）",
         kana: "ほんや",
@@ -265,6 +369,47 @@ const LESSON_13_DATA =   {
         kana: "こうばん",
         vietnamese: "đồn cảnh sát",
         english: "police box",
+        type: "supplementary",
+        example: ""
+      },
+      // Conversation Phrases
+      {
+        japanese: "そうしましょう",
+        kana: "そうしましょう",
+        vietnamese: "làm như vậy đi",
+        english: "Let's do that",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "定食（ていしょく）",
+        kana: "ていしょく",
+        vietnamese: "cơm phần, suất ăn",
+        english: "Set meal",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "ご注文（ごちゅうもん）",
+        kana: "ごちゅうもん",
+        vietnamese: "gọi món (kính ngữ)",
+        english: "Order (honorific)",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "牛丼（ぎゅうどん）",
+        kana: "ぎゅうどん",
+        vietnamese: "cơm thịt bò",
+        english: "Beef bowl",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "少々お待ちください（しょうしょうおまちください）",
+        kana: "しょうしょうおまちください",
+        vietnamese: "xin chờ một chút",
+        english: "Please wait a moment",
         type: "supplementary",
         example: ""
       }
