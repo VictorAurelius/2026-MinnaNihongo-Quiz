@@ -41,7 +41,23 @@ const LESSON_21_DATA =   {
         vietnamese: "đủ",
         type: "main",
         english: "To be enough, to suffice",
-        example: "お金が足りません。"
+        example: "お金が　足りません。"
+      },
+      {
+        japanese: "辞めます（やめます）",
+        kana: "やめます",
+        vietnamese: "bỏ việc, nghỉ việc",
+        type: "main",
+        english: "To quit (company)",
+        example: "会社を　辞めました。"
+      },
+      {
+        japanese: "留学します（りゅうがくします）",
+        kana: "りゅうがくします",
+        vietnamese: "du học",
+        type: "main",
+        english: "To study abroad",
+        example: "アメリカに　留学します。"
       },
       {
         japanese: "役に立ちます（やくにたちます）",
@@ -274,6 +290,78 @@ const LESSON_21_DATA =   {
         type: "main",
         english: "Impossible, unreasonable",
         example: "それは無理だと思います。"
+      },
+      {
+        japanese: "交通（こうつう）",
+        kana: "こうつう",
+        vietnamese: "giao thông",
+        type: "main",
+        english: "Transport, traffic",
+        example: "交通が　便利です。"
+      },
+      {
+        japanese: "物価（ぶっか）",
+        kana: "ぶっか",
+        vietnamese: "giá cả",
+        type: "main",
+        english: "Prices",
+        example: "この　町は　物価が　高いです。"
+      },
+      {
+        japanese: "意見（いけん）",
+        kana: "いけん",
+        vietnamese: "ý kiến",
+        type: "main",
+        english: "Opinion",
+        example: "意見を　聞かせてください。"
+      },
+      {
+        japanese: "話（はなし）",
+        kana: "はなし",
+        vietnamese: "câu chuyện, chuyện",
+        type: "main",
+        english: "Talk, speech, story",
+        example: "面白い　話を　聞きました。"
+      },
+      {
+        japanese: "無駄（な）（むだ）",
+        kana: "むだ",
+        vietnamese: "lãng phí",
+        type: "main",
+        english: "Wasteful",
+        example: "時間の　無駄です。"
+      },
+      {
+        japanese: "不便（な）（ふべん）",
+        kana: "ふべん",
+        vietnamese: "bất tiện",
+        type: "main",
+        english: "Inconvenient",
+        example: "この　場所は　不便です。"
+      },
+      {
+        japanese: "最近（さいきん）",
+        kana: "さいきん",
+        vietnamese: "gần đây",
+        type: "main",
+        english: "Recently, these days",
+        example: "最近　忙しいです。"
+      },
+      {
+        japanese: "そんなに",
+        kana: "そんなに",
+        vietnamese: "không đến mức đó",
+        type: "main",
+        english: "Not so (with negative)",
+        example: "そんなに　高くないです。"
+      },
+      {
+        japanese: "〜について",
+        kana: "〜について",
+        vietnamese: "về ~",
+        type: "main",
+        english: "About, concerning",
+        example: "日本の　文化について　話します。"
       },
       {
         japanese: "〜と思います（〜とおもいます）",
