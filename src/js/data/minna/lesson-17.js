@@ -179,7 +179,103 @@ const LESSON_17_DATA =   {
         english: "Please don't ~",
         example: "ここで写真を撮らないでください。"
       },
-      // Supplementary Vocabulary (参考語彙) - Body Parts
+      {
+        japanese: "出かけます（でかけます）",
+        kana: "でかけます",
+        vietnamese: "ra ngoài",
+        type: "main",
+        english: "To go out",
+        example: "ちょっと　出かけます。"
+      },
+      {
+        japanese: "飲みます（のみます）",
+        kana: "のみます",
+        vietnamese: "uống (thuốc)",
+        type: "main",
+        english: "To take (medicine)",
+        example: "薬を　飲みます。"
+      },
+      {
+        japanese: "入ります（はいります）",
+        kana: "はいります",
+        vietnamese: "vào (bồn tắm), tắm",
+        type: "main",
+        english: "To take a bath",
+        example: "お風呂に　入ります。"
+      },
+      {
+        japanese: "禁煙（きんえん）",
+        kana: "きんえん",
+        vietnamese: "cấm hút thuốc",
+        type: "main",
+        english: "No smoking",
+        example: "ここは　禁煙です。"
+      },
+      {
+        japanese: "保険証（ほけんしょう）",
+        kana: "ほけんしょう",
+        vietnamese: "thẻ bảo hiểm",
+        type: "main",
+        english: "Insurance card",
+        example: "保険証を　持っていますか。"
+      },
+      {
+        japanese: "風邪（かぜ）",
+        kana: "かぜ",
+        vietnamese: "cảm cúm",
+        type: "main",
+        english: "Cold, flu",
+        example: "風邪を　ひきました。"
+      },
+      {
+        japanese: "風呂（ふろ）",
+        kana: "ふろ",
+        vietnamese: "bồn tắm",
+        type: "main",
+        english: "Bath, bathtub",
+        example: "お風呂に　入りたいです。"
+      },
+      {
+        japanese: "上着（うわぎ）",
+        kana: "うわぎ",
+        vietnamese: "áo khoác ngoài",
+        type: "main",
+        english: "Coat, jacket",
+        example: "上着を　脱いでください。"
+      },
+      {
+        japanese: "下着（したぎ）",
+        kana: "したぎ",
+        vietnamese: "đồ lót",
+        type: "main",
+        english: "Underwear",
+        example: ""
+      },
+      {
+        japanese: "先生（せんせい）",
+        kana: "せんせい",
+        vietnamese: "bác sĩ",
+        type: "main",
+        english: "Doctor (in context)",
+        example: "先生に　診てもらいます。"
+      },
+      {
+        japanese: "日（にち）",
+        kana: "にち",
+        vietnamese: "ngày",
+        type: "main",
+        english: "Days (counter)",
+        example: "3日　休みます。"
+      },
+      // Supplementary Vocabulary (参考語彙) - Body Parts & Conversation
+      {
+        japanese: "ですから",
+        kana: "ですから",
+        vietnamese: "vì thế, do đó",
+        english: "therefore",
+        type: "supplementary",
+        example: "風邪ですから、休みます。"
+      },
       {
         japanese: "頭（あたま）",
         kana: "あたま",
