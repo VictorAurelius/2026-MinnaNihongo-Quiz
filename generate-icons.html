@@ -1,137 +1,340 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Generate PWA Icons</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 20px;
-      text-align: center;
-    }
-    canvas {
-      border: 1px solid #ccc;
-      margin: 20px;
-    }
-    button {
-      padding: 12px 24px;
-      font-size: 16px;
-      background: #0071e3;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin: 10px;
-    }
-    button:hover {
-      background: #0059b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate App Icons - Smart Quiz</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            color: #333;
+        }
+        h1 {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFA726 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        button {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFA726 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            margin: 10px 5px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        button.generate-all {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+        button.generate-all:hover {
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+        }
+        .preview {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .preview-item {
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .preview-item:hover {
+            transform: scale(1.05);
+        }
+        .preview-item img {
+            display: block;
+            margin: 15px auto;
+            border-radius: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            background: white;
+        }
+        .preview-item label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 1.1em;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFA726 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        canvas {
+            display: none;
+        }
+        .status {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border-left: 5px solid #28a745;
+            display: none;
+            font-weight: 600;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .status.show {
+            display: block;
+        }
+        .instructions {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+            border-left: 5px solid #FFA726;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(255, 167, 38, 0.2);
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #FF8E53;
+            font-size: 1.3em;
+        }
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        .instructions li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .instructions code {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        .button-group {
+            text-align: center;
+            margin: 30px 0;
+        }
+    </style>
 </head>
 <body>
-  <h1>🎨 Generate PWA Icons</h1>
-  <p>Click buttons below to download icons for Smart Quiz PWA</p>
+    <div class="container">
+        <h1>🎨 Generate App Icons</h1>
+        <p class="subtitle">Tạo icons cho ứng dụng Smart Quiz từ logo mới</p>
 
-  <div>
-    <canvas id="canvas192" width="192" height="192"></canvas>
-    <canvas id="canvas512" width="512" height="512"></canvas>
-  </div>
+        <div class="instructions">
+            <h3>📋 Hướng dẫn sử dụng:</h3>
+            <ol>
+                <li>Logo mới sẽ được tự động hiển thị ở bên dưới từ file <code>src/icon.svg</code></li>
+                <li>Click <strong>"✨ Generate All & Download"</strong> để tải xuống tất cả icons cùng lúc</li>
+                <li>Hoặc click từng nút riêng để tải xuống kích thước cụ thể</li>
+                <li>Sau khi tải xuống, <strong>copy các file PNG vào thư mục <code>src/</code></strong> để thay thế icons cũ</li>
+                <li>Icons sẽ tự động lưu vào thư mục Downloads của bạn</li>
+            </ol>
+        </div>
 
-  <div>
-    <button onclick="downloadIcon(192)">Download 192x192</button>
-    <button onclick="downloadIcon(512)">Download 512x512</button>
-  </div>
+        <div class="preview">
+            <div class="preview-item">
+                <label>📱 192 × 192 px</label>
+                <img id="preview192" alt="192x192 preview" width="192" height="192" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Crect width='192' height='192' fill='%23f0f0f0'/%3E%3C/svg%3E">
+            </div>
+            <div class="preview-item">
+                <label>🖥️ 512 × 512 px</label>
+                <img id="preview512" alt="512x512 preview" width="192" height="192" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Crect width='192' height='192' fill='%23f0f0f0'/%3E%3C/svg%3E">
+            </div>
+        </div>
 
-  <script>
-    function drawIcon(canvas) {
-      const ctx = canvas.getContext('2d');
-      const size = canvas.width;
+        <div class="button-group">
+            <button onclick="generateAndDownload(192)">⬇️ Download 192×192</button>
+            <button onclick="generateAndDownload(512)">⬇️ Download 512×512</button>
+            <button onclick="generateAll()" class="generate-all">
+                ✨ Generate All & Download
+            </button>
+        </div>
 
-      // Clear canvas
-      ctx.clearRect(0, 0, size, size);
+        <div id="status" class="status"></div>
 
-      // Create gradient background
-      const gradient = ctx.createLinearGradient(0, 0, size, size);
-      gradient.addColorStop(0, '#0071e3');
-      gradient.addColorStop(1, '#5856d6');
+        <canvas id="canvas"></canvas>
+    </div>
 
-      // Draw rounded rectangle background
-      const radius = size * 0.225; // 22.5% radius for rounded corners
-      ctx.fillStyle = gradient;
-      roundRect(ctx, 0, 0, size, size, radius);
-      ctx.fill();
+    <script>
+        // Load SVG and render to canvas
+        async function loadSVG() {
+            try {
+                const response = await fetch('src/icon.svg');
+                if (!response.ok) {
+                    throw new Error('SVG file not found');
+                }
+                const svgText = await response.text();
+                return svgText;
+            } catch (error) {
+                console.error('Error loading SVG:', error);
+                showStatus('❌ Không thể tải file SVG. Đảm bảo file src/icon.svg tồn tại!', 'error');
+                return null;
+            }
+        }
 
-      // Draw book icon
-      const bookWidth = size * 0.4;
-      const bookHeight = size * 0.52;
-      const bookX = size * 0.3;
-      const bookY = size * 0.22;
+        async function generateIcon(size) {
+            const svgText = await loadSVG();
+            if (!svgText) return null;
 
-      ctx.strokeStyle = 'white';
-      ctx.lineWidth = size * 0.03;
-      ctx.lineCap = 'round';
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = size;
+            canvas.height = size;
 
-      // Book outline
-      roundRect(ctx, bookX, bookY, bookWidth, bookHeight, size * 0.05);
-      ctx.stroke();
+            return new Promise((resolve) => {
+                const img = new Image();
+                const blob = new Blob([svgText], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(blob);
 
-      // Book spine
-      ctx.beginPath();
-      ctx.moveTo(bookX + bookWidth / 2, bookY);
-      ctx.lineTo(bookX + bookWidth / 2, bookY + bookHeight);
-      ctx.stroke();
+                img.onload = function() {
+                    ctx.clearRect(0, 0, size, size);
+                    ctx.drawImage(img, 0, 0, size, size);
+                    URL.revokeObjectURL(url);
+                    resolve(canvas.toDataURL('image/png'));
+                };
 
-      // Japanese character
-      ctx.fillStyle = 'white';
-      ctx.font = `bold ${size * 0.25}px Arial, sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('あ', bookX + bookWidth * 0.75, bookY + bookHeight * 0.5);
+                img.onerror = function() {
+                    URL.revokeObjectURL(url);
+                    showStatus('❌ Lỗi khi render SVG!', 'error');
+                    resolve(null);
+                };
 
-      // Quiz badge
-      const badgeSize = size * 0.18;
-      const badgeX = size * 0.78;
-      const badgeY = size * 0.27;
+                img.src = url;
+            });
+        }
 
-      ctx.fillStyle = '#34c759';
-      ctx.beginPath();
-      ctx.arc(badgeX, badgeY, badgeSize / 2, 0, Math.PI * 2);
-      ctx.fill();
+        function showStatus(message, type = 'success') {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = 'status show';
+            if (type === 'error') {
+                status.style.background = 'linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%)';
+                status.style.color = '#721c24';
+                status.style.borderColor = '#dc3545';
+            } else {
+                status.style.background = 'linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%)';
+                status.style.color = '#155724';
+                status.style.borderColor = '#28a745';
+            }
 
-      ctx.fillStyle = 'white';
-      ctx.font = `bold ${size * 0.1}px Arial, sans-serif`;
-      ctx.fillText('?', badgeX, badgeY + size * 0.01);
-    }
+            if (type !== 'error') {
+                setTimeout(() => {
+                    status.className = 'status';
+                }, 4000);
+            }
+        }
 
-    function roundRect(ctx, x, y, width, height, radius) {
-      ctx.beginPath();
-      ctx.moveTo(x + radius, y);
-      ctx.lineTo(x + width - radius, y);
-      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-      ctx.lineTo(x + width, y + height - radius);
-      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-      ctx.lineTo(x + radius, y + height);
-      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-      ctx.lineTo(x, y + radius);
-      ctx.quadraticCurveTo(x, y, x + radius, y);
-      ctx.closePath();
-    }
+        async function generateAndDownload(size) {
+            showStatus(`⏳ Đang tạo icon ${size}×${size}...`);
 
-    function downloadIcon(size) {
-      const canvas = document.getElementById(`canvas${size}`);
-      const link = document.createElement('a');
-      link.download = `icon-${size}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    }
+            const dataUrl = await generateIcon(size);
+            if (!dataUrl) return;
 
-    // Draw icons on load
-    window.addEventListener('load', () => {
-      drawIcon(document.getElementById('canvas192'));
-      drawIcon(document.getElementById('canvas512'));
-    });
-  </script>
+            // Update preview
+            const preview = document.getElementById(`preview${size}`);
+            if (preview) {
+                preview.src = dataUrl;
+            }
+
+            // Download
+            const link = document.createElement('a');
+            link.download = `icon-${size}.png`;
+            link.href = dataUrl;
+            link.click();
+
+            showStatus(`✅ Đã tải xuống icon-${size}.png! Hãy copy vào thư mục src/`);
+        }
+
+        async function generateAll() {
+            showStatus('⏳ Đang tạo tất cả icons...');
+
+            // Generate 192x192
+            const icon192 = await generateIcon(192);
+            if (icon192) {
+                document.getElementById('preview192').src = icon192;
+                const link192 = document.createElement('a');
+                link192.download = 'icon-192.png';
+                link192.href = icon192;
+                link192.click();
+                await new Promise(resolve => setTimeout(resolve, 500));
+            } else {
+                return;
+            }
+
+            // Generate 512x512
+            const icon512 = await generateIcon(512);
+            if (icon512) {
+                document.getElementById('preview512').src = icon512;
+                const link512 = document.createElement('a');
+                link512.download = 'icon-512.png';
+                link512.href = icon512;
+                link512.click();
+            } else {
+                return;
+            }
+
+            showStatus('✅ Đã tải xuống tất cả icons! Hãy copy icon-192.png và icon-512.png vào thư mục src/');
+        }
+
+        // Auto-generate previews on load
+        window.addEventListener('load', async () => {
+            showStatus('⏳ Đang tải logo mới...');
+
+            const icon192 = await generateIcon(192);
+            if (icon192) {
+                document.getElementById('preview192').src = icon192;
+            }
+
+            const icon512 = await generateIcon(512);
+            if (icon512) {
+                document.getElementById('preview512').src = icon512;
+            }
+
+            if (icon192 && icon512) {
+                showStatus('✅ Logo đã sẵn sàng! Click nút bên dưới để tải xuống.');
+            }
+        });
+    </script>
 </body>
 </html>
