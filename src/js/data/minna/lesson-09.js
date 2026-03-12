@@ -283,6 +283,110 @@ const LESSON_09_DATA =   {
         english: "I'm sorry but...",
         example: "残念ですが、行きません。"
       },
+      {
+        japanese: "細かい　お金（こまかい　おかね）",
+        kana: "こまかい　おかね",
+        vietnamese: "tiền lẻ",
+        type: "main",
+        english: "Small change",
+        example: "細かい　お金が　ありますか。"
+      },
+      {
+        japanese: "チケット",
+        kana: "チケット",
+        vietnamese: "vé",
+        type: "main",
+        english: "Ticket",
+        example: "コンサートの　チケットを　買いました。"
+      },
+      {
+        japanese: "時間（じかん）",
+        kana: "じかん",
+        vietnamese: "thời gian",
+        type: "main",
+        english: "Time",
+        example: "時間が　ありません。"
+      },
+      {
+        japanese: "用事（ようじ）",
+        kana: "ようじ",
+        vietnamese: "việc, công chuyện",
+        type: "main",
+        english: "Errand, things to do",
+        example: "今日は　用事が　あります。"
+      },
+      {
+        japanese: "約束（やくそく）",
+        kana: "やくそく",
+        vietnamese: "hẹn, lời hứa",
+        type: "main",
+        english: "Appointment, promise",
+        example: "友達と　約束が　あります。"
+      },
+      {
+        japanese: "ご主人（ごしゅじん）",
+        kana: "ごしゅじん",
+        vietnamese: "chồng (của người khác)",
+        type: "main",
+        english: "Husband (someone else's)",
+        example: "ご主人は　お元気ですか。"
+      },
+      {
+        japanese: "夫（おっと）",
+        kana: "おっと",
+        vietnamese: "chồng (của mình)",
+        type: "main",
+        english: "Husband (one's own)",
+        example: "夫は　会社員です。"
+      },
+      {
+        japanese: "主人（しゅじん）",
+        kana: "しゅじん",
+        vietnamese: "chồng (của mình, khiêm tốn)",
+        type: "main",
+        english: "Husband (one's own, humble)",
+        example: "主人は　今　いません。"
+      },
+      {
+        japanese: "奥さん（おくさん）",
+        kana: "おくさん",
+        vietnamese: "vợ (của người khác)",
+        type: "main",
+        english: "Wife (someone else's)",
+        example: "奥さんは　お元気ですか。"
+      },
+      {
+        japanese: "妻（つま）",
+        kana: "つま",
+        vietnamese: "vợ (của mình)",
+        type: "main",
+        english: "Wife (one's own)",
+        example: "妻は　先生です。"
+      },
+      {
+        japanese: "家内（かない）",
+        kana: "かない",
+        vietnamese: "vợ (của mình, khiêm tốn)",
+        type: "main",
+        english: "Wife (one's own, humble)",
+        example: "家内は　今　買い物に　行きました。"
+      },
+      {
+        japanese: "子供（こども）",
+        kana: "こども",
+        vietnamese: "con, trẻ em",
+        type: "main",
+        english: "Child, children",
+        example: "子供が　3人　います。"
+      },
+      {
+        japanese: "大学（だいがく）",
+        kana: "だいがく",
+        vietnamese: "đại học",
+        type: "main",
+        english: "University",
+        example: "大学で　勉強します。"
+      },
       // Supplementary Vocabulary (参考語彙) - Sports
       {
         japanese: "サッカー",
@@ -348,6 +452,15 @@ const LESSON_09_DATA =   {
         english: "enka (traditional Japanese ballad)",
         type: "supplementary",
         example: ""
+      },
+      // Supplementary Vocabulary - Conversation Phrases (会話)
+      {
+        japanese: "もしもし",
+        kana: "もしもし",
+        vietnamese: "a lô (khi gọi điện thoại)",
+        english: "Hello (on the phone)",
+        type: "supplementary",
+        example: "もしもし、田中さんですか。"
       }
     ],
     grammar: [
