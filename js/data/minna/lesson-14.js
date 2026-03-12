@@ -60,6 +60,14 @@ const LESSON_14_DATA =   {
         example: "ここに車を止めてください。"
       },
       {
+        japanese: "曲（ま）がります",
+        kana: "まがります",
+        vietnamese: "rẽ, quẹo",
+        type: "main",
+        english: "To turn",
+        example: "次の角を右に曲がってください。"
+      },
+      {
         japanese: "持（も）ちます",
         kana: "もちます",
         vietnamese: "cầm, mang",
@@ -274,6 +282,70 @@ const LESSON_14_DATA =   {
         type: "main",
         english: "Excuse me, but...",
         example: "すみませんが、写真を撮ってください。"
+      },
+      {
+        japanese: "パスポート",
+        kana: "パスポート",
+        vietnamese: "hộ chiếu",
+        type: "main",
+        english: "Passport",
+        example: "パスポートを見せてください。"
+      },
+      {
+        japanese: "〜方（〜かた）",
+        kana: "〜かた",
+        vietnamese: "cách ~",
+        type: "main",
+        english: "Way of ~, how to ~",
+        example: "読み方を教えてください。"
+      },
+      {
+        japanese: "読（よ）み方（かた）",
+        kana: "よみかた",
+        vietnamese: "cách đọc",
+        type: "main",
+        english: "Way of reading",
+        example: "この漢字の読み方を教えてください。"
+      },
+      {
+        japanese: "お釣（つ）り",
+        kana: "おつり",
+        vietnamese: "tiền thối lại",
+        type: "main",
+        english: "Change (money)",
+        example: "お釣りを取ってください。"
+      },
+      {
+        japanese: "いいですよ",
+        kana: "いいですよ",
+        vietnamese: "được, tốt (đồng ý)",
+        type: "main",
+        english: "That's fine, OK",
+        example: "ペンを使ってもいいですか。…いいですよ。"
+      },
+      {
+        japanese: "さあ",
+        kana: "さあ",
+        vietnamese: "này, nào (mời mọc)",
+        type: "main",
+        english: "Come on, well (invitation/uncertainty)",
+        example: "さあ、行きましょう。"
+      },
+      {
+        japanese: "あれ？",
+        kana: "あれ？",
+        vietnamese: "ơ? (ngạc nhiên)",
+        type: "main",
+        english: "Huh? What? (surprise)",
+        example: "あれ？鍵がありません。"
+      },
+      {
+        japanese: "これでお願（ねが）いします",
+        kana: "これでおねがいします",
+        vietnamese: "làm ơn tính tiền cái này",
+        type: "main",
+        english: "I'll take this (at checkout)",
+        example: "これでお願いします。"
       },
       // Supplementary Vocabulary (参考語彙) - More Verbs
       {

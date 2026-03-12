@@ -124,6 +124,78 @@ const LESSON_24_DATA =   {
         example: "犬の世話をします。"
       },
       {
+        japanese: "入（い）れます",
+        kana: "いれます",
+        vietnamese: "pha (cà phê), bỏ vào",
+        type: "main",
+        english: "To make (coffee/tea), to put in",
+        example: "コーヒーを入れましょうか。"
+      },
+      {
+        japanese: "準備（じゅんび）",
+        kana: "じゅんび",
+        vietnamese: "chuẩn bị",
+        type: "main",
+        english: "Preparation",
+        example: "パーティーの準備をします。"
+      },
+      {
+        japanese: "意味（いみ）",
+        kana: "いみ",
+        vietnamese: "ý nghĩa",
+        type: "main",
+        english: "Meaning",
+        example: "この言葉の意味は何ですか。"
+      },
+      {
+        japanese: "お菓子（おかし）",
+        kana: "おかし",
+        vietnamese: "bánh kẹo",
+        type: "main",
+        english: "Sweets, snacks",
+        example: "お菓子を買いました。"
+      },
+      {
+        japanese: "全部（ぜんぶ）",
+        kana: "ぜんぶ",
+        vietnamese: "tất cả",
+        type: "main",
+        english: "All, everything",
+        example: "全部食べました。"
+      },
+      {
+        japanese: "自分（じぶん）で",
+        kana: "じぶんで",
+        vietnamese: "tự mình, bản thân",
+        type: "main",
+        english: "By oneself",
+        example: "自分で作りました。"
+      },
+      {
+        japanese: "他（ほか）に",
+        kana: "ほかに",
+        vietnamese: "ngoài ra",
+        type: "main",
+        english: "Besides, in addition",
+        example: "他に何かありますか。"
+      },
+      {
+        japanese: "お弁当（おべんとう）",
+        kana: "おべんとう",
+        vietnamese: "hộp cơm",
+        type: "main",
+        english: "Lunch box, bento",
+        example: "お弁当を作ってくれました。"
+      },
+      {
+        japanese: "母（はは）の日（ひ）",
+        kana: "ははのひ",
+        vietnamese: "Ngày của Mẹ",
+        type: "main",
+        english: "Mother's Day",
+        example: "母の日にプレゼントをあげます。"
+      },
+      {
         japanese: "おじいさん",
         kana: "おじいさん",
         vietnamese: "ông (nội/ngoại)",
@@ -138,6 +210,22 @@ const LESSON_24_DATA =   {
         type: "main",
         english: "Grandmother, old woman",
         example: "おばあさんがセーターを作ってくれました。"
+      },
+      {
+        japanese: "おじいちゃん",
+        kana: "おじいちゃん",
+        vietnamese: "ông (nội/ngoại) - thân mật",
+        type: "main",
+        english: "Grandpa (informal)",
+        example: "おじいちゃんが遊んでくれました。"
+      },
+      {
+        japanese: "おばあちゃん",
+        kana: "おばあちゃん",
+        vietnamese: "bà (nội/ngoại) - thân mật",
+        type: "main",
+        english: "Grandma (informal)",
+        example: "おばあちゃんがお菓子を作ってくれました。"
       },
       {
         japanese: "おじさん",

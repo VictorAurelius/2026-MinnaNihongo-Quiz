@@ -84,6 +84,14 @@ const LESSON_23_DATA =   {
         example: "車に気をつけてください。"
       },
       {
+        japanese: "引（ひ）っ越（こ）しします",
+        kana: "ひっこしします",
+        vietnamese: "chuyển nhà",
+        type: "main",
+        english: "To move (house)",
+        example: "来月引っ越しします。"
+      },
+      {
         japanese: "交通（こうつう）",
         kana: "こうつう",
         vietnamese: "giao thông",
@@ -234,6 +242,78 @@ const LESSON_23_DATA =   {
         type: "main",
         english: "Change (money)",
         example: "お釣りを取ってください。"
+      },
+      {
+        japanese: "音（おと）",
+        kana: "おと",
+        vietnamese: "âm thanh, tiếng động",
+        type: "main",
+        english: "Sound",
+        example: "変な音がします。"
+      },
+      {
+        japanese: "つまみ",
+        kana: "つまみ",
+        vietnamese: "núm vặn",
+        type: "main",
+        english: "Knob",
+        example: "つまみを回してください。"
+      },
+      {
+        japanese: "電気屋（でんきや）",
+        kana: "でんきや",
+        vietnamese: "cửa hàng đồ điện",
+        type: "main",
+        english: "Electronics shop",
+        example: "電気屋で買いました。"
+      },
+      {
+        japanese: "故障（こしょう）",
+        kana: "こしょう",
+        vietnamese: "hỏng hóc",
+        type: "main",
+        english: "Breakdown, malfunction",
+        example: "エアコンが故障しました。"
+      },
+      {
+        japanese: "〜屋（〜や）",
+        kana: "〜や",
+        vietnamese: "cửa hàng ~, tiệm ~",
+        type: "main",
+        english: "~ shop/store (suffix)",
+        example: "本屋で本を買います。"
+      },
+      {
+        japanese: "サイズ",
+        kana: "サイズ",
+        vietnamese: "kích cỡ",
+        type: "main",
+        english: "Size",
+        example: "サイズが合いません。"
+      },
+      {
+        japanese: "お正月（おしょうがつ）",
+        kana: "おしょうがつ",
+        vietnamese: "tết Nguyên Đán (Nhật)",
+        type: "main",
+        english: "New Year (Japanese)",
+        example: "お正月に日本へ行きます。"
+      },
+      {
+        japanese: "ごちそうさまでした",
+        kana: "ごちそうさまでした",
+        vietnamese: "cám ơn bữa ăn ngon (sau khi ăn)",
+        type: "main",
+        english: "Thank you for the meal",
+        example: "ごちそうさまでした。"
+      },
+      {
+        japanese: "外国人登録証（がいこくじんとうろくしょう）",
+        kana: "がいこくじんとうろくしょう",
+        vietnamese: "thẻ đăng ký người nước ngoài",
+        type: "main",
+        english: "Alien registration card",
+        example: "外国人登録証を見せてください。"
       },
       {
         japanese: "〜とき",
