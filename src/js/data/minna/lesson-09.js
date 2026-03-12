@@ -293,14 +293,6 @@ const LESSON_09_DATA =   {
         example: "サッカーが すきです。"
       },
       {
-        japanese: "野球（やきゅう）",
-        kana: "やきゅう",
-        vietnamese: "bóng chày",
-        english: "baseball",
-        type: "supplementary",
-        example: ""
-      },
-      {
         japanese: "テニス",
         kana: "テニス",
         vietnamese: "tennis",
