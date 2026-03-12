@@ -202,6 +202,151 @@ const LESSON_19_DATA =   {
         type: "main",
         english: "Do things like ~ and ~",
         example: "休みの日は本を読んだり、映画を見たりします。"
+      },
+      {
+        japanese: "眠い（ねむい）",
+        kana: "ねむい",
+        vietnamese: "buồn ngủ",
+        type: "main",
+        english: "Sleepy",
+        example: "今日は　眠いです。"
+      },
+      {
+        japanese: "強い（つよい）",
+        kana: "つよい",
+        vietnamese: "mạnh, khỏe",
+        type: "main",
+        english: "Strong",
+        example: "この　チームは　強いです。"
+      },
+      {
+        japanese: "弱い（よわい）",
+        kana: "よわい",
+        vietnamese: "yếu",
+        type: "main",
+        english: "Weak",
+        example: "体が　弱いです。"
+      },
+      {
+        japanese: "調子（ちょうし）",
+        kana: "ちょうし",
+        vietnamese: "tình trạng, trạng thái",
+        type: "main",
+        english: "Condition, state",
+        example: "調子が　いいです。"
+      },
+      {
+        japanese: "パチンコ",
+        kana: "パチンコ",
+        vietnamese: "pachinko",
+        type: "main",
+        english: "Pachinko",
+        example: "パチンコを　したことが　ありますか。"
+      },
+      {
+        japanese: "ゴルフ",
+        kana: "ゴルフ",
+        vietnamese: "golf",
+        type: "main",
+        english: "Golf",
+        example: "ゴルフを　します。"
+      },
+      {
+        japanese: "日（ひ）",
+        kana: "ひ",
+        vietnamese: "ngày",
+        type: "main",
+        english: "Day",
+        example: "休みの　日は　何を　しますか。"
+      },
+      {
+        japanese: "もうすぐ",
+        kana: "もうすぐ",
+        vietnamese: "sắp, sắp sửa",
+        type: "main",
+        english: "Soon",
+        example: "もうすぐ　春です。"
+      },
+      {
+        japanese: "だんだん",
+        kana: "だんだん",
+        vietnamese: "dần dần",
+        type: "main",
+        english: "Gradually",
+        example: "だんだん　暖かく　なります。"
+      },
+      {
+        japanese: "実は（じつは）",
+        kana: "じつは",
+        vietnamese: "thực ra",
+        type: "main",
+        english: "Actually, truthfully",
+        example: "実は、私も　行きたいです。"
+      },
+      {
+        japanese: "ダイエット",
+        kana: "ダイエット",
+        vietnamese: "ăn kiêng",
+        type: "main",
+        english: "Diet",
+        example: "ダイエットを　しています。"
+      },
+      {
+        japanese: "何回も（なんかいも）",
+        kana: "なんかいも",
+        vietnamese: "nhiều lần",
+        type: "main",
+        english: "Many times",
+        example: "何回も　行ったことが　あります。"
+      },
+      {
+        japanese: "しかし",
+        kana: "しかし",
+        vietnamese: "tuy nhiên",
+        type: "main",
+        english: "However",
+        example: "しかし、まだ　できません。"
+      },
+      {
+        japanese: "無理（むり）",
+        kana: "むり",
+        vietnamese: "không thể, quá sức",
+        type: "main",
+        english: "Impossible, overwhelming",
+        example: "それは　無理です。"
+      },
+      {
+        japanese: "体にいい（からだにいい）",
+        kana: "からだにいい",
+        vietnamese: "tốt cho sức khỏe",
+        type: "main",
+        english: "Good for health",
+        example: "野菜は　体に　いいです。"
+      },
+      {
+        japanese: "ケーキ",
+        kana: "ケーキ",
+        vietnamese: "bánh ngọt",
+        type: "main",
+        english: "Cake",
+        example: "ケーキを　食べたり、コーヒーを　飲んだりしました。"
+      },
+      // Conversation Phrases
+      {
+        japanese: "お陰様で（おかげさまで）",
+        kana: "おかげさまで",
+        vietnamese: "nhờ ơn anh/chị",
+        type: "supplementary",
+        english: "Thank you (for help)",
+        example: "お陰様で、元気です。"
+      },
+      {
+        japanese: "乾杯（かんぱい）",
+        kana: "かんぱい",
+        vietnamese: "chúc mừng, cạn ly",
+        type: "supplementary",
+        english: "Cheers",
+        example: "乾杯！"
       }
     ],
     grammar: [
