@@ -140,38 +140,6 @@ const LESSON_07_DATA =   {
         example: "日本の　お土産を　もらいました。"
       },
       {
-        japanese: "父（ちち）",
-        kana: "ちち",
-        vietnamese: "bố (của mình)",
-        type: "main",
-        english: "My father",
-        example: "父は　会社員です。"
-      },
-      {
-        japanese: "母（はは）",
-        kana: "はは",
-        vietnamese: "mẹ (của mình)",
-        type: "main",
-        english: "My mother",
-        example: "母に　花を　あげました。"
-      },
-      {
-        japanese: "お父さん（おとうさん）",
-        kana: "おとうさん",
-        vietnamese: "bố (của người khác)",
-        type: "main",
-        english: "(Someone's) father",
-        example: "お父さんは　お元気ですか。"
-      },
-      {
-        japanese: "お母さん（おかあさん）",
-        kana: "おかあさん",
-        vietnamese: "mẹ (của người khác)",
-        type: "main",
-        english: "(Someone's) mother",
-        example: ""
-      },
-      {
         japanese: "はし",
         kana: "はし",
         vietnamese: "đũa",
@@ -379,6 +347,111 @@ const LESSON_07_DATA =   {
         english: "grandmother (own)",
         type: "supplementary",
         example: ""
+      },
+      // Supplementary Vocabulary - Conversation Phrases (会話)
+      {
+        japanese: "いらっしゃい",
+        kana: "いらっしゃい",
+        vietnamese: "Chào mừng, mời vào",
+        english: "Welcome (casual)",
+        type: "supplementary",
+        example: "いらっしゃい。"
+      },
+      {
+        japanese: "ごめんください",
+        kana: "ごめんください",
+        vietnamese: "Xin lỗi, có ai ở nhà không (khi đến thăm)",
+        english: "Hello, is anyone home?",
+        type: "supplementary",
+        example: "ごめんください。"
+      },
+      {
+        japanese: "どうぞ　お上がりください",
+        kana: "どうぞおあがりください",
+        vietnamese: "Mời vào nhà",
+        english: "Please come in (to house)",
+        type: "supplementary",
+        example: "どうぞ　お上がりください。"
+      },
+      {
+        japanese: "失礼します（しつれいします）",
+        kana: "しつれいします",
+        vietnamese: "Xin phép, xin lỗi làm phiền",
+        english: "Excuse me (when entering)",
+        type: "supplementary",
+        example: "失礼します。"
+      },
+      {
+        japanese: "いただきます",
+        kana: "いただきます",
+        vietnamese: "Cảm ơn (trước bữa ăn)",
+        english: "Thank you for the meal (before eating)",
+        type: "supplementary",
+        example: "いただきます。"
+      },
+      {
+        japanese: "ごちそうさまでした",
+        kana: "ごちそうさまでした",
+        vietnamese: "Cảm ơn bữa ăn ngon (sau khi ăn)",
+        english: "Thank you for the meal (after eating)",
+        type: "supplementary",
+        example: "ごちそうさまでした。"
+      },
+      {
+        japanese: "いってきます",
+        kana: "いってきます",
+        vietnamese: "Tôi đi đây (khi ra khỏi nhà)",
+        english: "I'm leaving (said when leaving home)",
+        type: "supplementary",
+        example: "いってきます。"
+      },
+      {
+        japanese: "いってらっしゃい",
+        kana: "いってらっしゃい",
+        vietnamese: "Đi cẩn thận, đi nhé",
+        english: "Take care, see you later (reply to いってきます)",
+        type: "supplementary",
+        example: "いってらっしゃい。"
+      },
+      {
+        japanese: "ただいま",
+        kana: "ただいま",
+        vietnamese: "Tôi về rồi (khi về đến nhà)",
+        english: "I'm home (said when returning home)",
+        type: "supplementary",
+        example: "ただいま。"
+      },
+      {
+        japanese: "お帰りなさい（おかえりなさい）",
+        kana: "おかえりなさい",
+        vietnamese: "Chào mừng về nhà",
+        english: "Welcome home (reply to ただいま)",
+        type: "supplementary",
+        example: "お帰りなさい。"
+      },
+      {
+        japanese: "素敵ですね（すてきですね）",
+        kana: "すてきですね",
+        vietnamese: "Đẹp quá nhỉ, tuyệt vời quá",
+        english: "That's wonderful, that's lovely",
+        type: "supplementary",
+        example: "素敵な　お部屋ですね。"
+      },
+      {
+        japanese: "いかがですか",
+        kana: "いかがですか",
+        vietnamese: "Thế nào ạ? (cách hỏi lịch sự)",
+        english: "How about ~? Would you like ~? (polite)",
+        type: "supplementary",
+        example: "お茶は　いかがですか。"
+      },
+      {
+        japanese: "これから",
+        kana: "これから",
+        vietnamese: "Từ bây giờ, từ nay",
+        english: "From now on, after this",
+        type: "supplementary",
+        example: "これから　勉強します。"
       }
     ],
     grammar: [

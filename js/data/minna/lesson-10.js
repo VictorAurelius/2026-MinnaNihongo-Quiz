@@ -325,14 +325,6 @@ const LESSON_10_DATA =   {
       },
       // Supplementary Vocabulary (参考語彙) - House Items
       {
-        japanese: "冷蔵庫（れいぞうこ）",
-        kana: "れいぞうこ",
-        vietnamese: "tủ lạnh",
-        english: "refrigerator",
-        type: "supplementary",
-        example: ""
-      },
-      {
         japanese: "洗濯機（せんたくき）",
         kana: "せんたくき",
         vietnamese: "máy giặt",
@@ -345,14 +337,6 @@ const LESSON_10_DATA =   {
         kana: "エアコン",
         vietnamese: "máy điều hòa",
         english: "air conditioner",
-        type: "supplementary",
-        example: ""
-      },
-      {
-        japanese: "ベッド",
-        kana: "ベッド",
-        vietnamese: "giường",
-        english: "bed",
         type: "supplementary",
         example: ""
       },
