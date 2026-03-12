@@ -44,7 +44,8 @@
       "WebFetch(domain:denisowski.org)",
       "WebFetch(domain:note.com)",
       "Bash(do)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(do echo \"=== $file ===\" grep -o 'japanese: \"\"\"\"[^\"\"\"\"]*\"\"\"\"' \"$file\")"
     ]
   }
 }
