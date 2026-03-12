@@ -218,6 +218,135 @@ const LESSON_20_DATA =   {
         type: "main",
         english: "So-so",
         example: "最近どう？まあまあだよ。"
+      },
+      {
+        japanese: "サラリーマン",
+        kana: "サラリーマン",
+        vietnamese: "nhân viên công ty",
+        type: "main",
+        english: "Company employee",
+        example: "サラリーマンです。"
+      },
+      {
+        japanese: "言葉（ことば）",
+        kana: "ことば",
+        vietnamese: "từ ngữ, ngôn ngữ",
+        type: "main",
+        english: "Words, language",
+        example: "この　言葉の　意味が　わかりません。"
+      },
+      {
+        japanese: "物価（ぶっか）",
+        kana: "ぶっか",
+        vietnamese: "giá cả",
+        type: "main",
+        english: "Prices",
+        example: "東京は　物価が　高いです。"
+      },
+      {
+        japanese: "ビザ",
+        kana: "ビザ",
+        vietnamese: "thị thực",
+        type: "main",
+        english: "Visa",
+        example: "ビザが　要ります。"
+      },
+      {
+        japanese: "初め（はじめ）",
+        kana: "はじめ",
+        vietnamese: "đầu, lúc đầu",
+        type: "main",
+        english: "Beginning",
+        example: "初めは　難しかったです。"
+      },
+      {
+        japanese: "終わり（おわり）",
+        kana: "おわり",
+        vietnamese: "cuối, kết thúc",
+        type: "main",
+        english: "End",
+        example: "授業の　終わりに　質問します。"
+      },
+      {
+        japanese: "こっち",
+        kana: "こっち",
+        vietnamese: "phía này",
+        type: "main",
+        english: "This direction",
+        example: "こっちへ　来てください。"
+      },
+      {
+        japanese: "そっち",
+        kana: "そっち",
+        vietnamese: "phía đó",
+        type: "main",
+        english: "That direction",
+        example: "そっちに　ありますか。"
+      },
+      {
+        japanese: "あっち",
+        kana: "あっち",
+        vietnamese: "phía kia",
+        type: "main",
+        english: "That direction over there",
+        example: "あっちに　行きます。"
+      },
+      {
+        japanese: "どっち",
+        kana: "どっち",
+        vietnamese: "phía nào",
+        type: "main",
+        english: "Which direction",
+        example: "どっちが　好きですか。"
+      },
+      {
+        japanese: "この間（このあいだ）",
+        kana: "このあいだ",
+        vietnamese: "hôm trước",
+        type: "main",
+        english: "The other day",
+        example: "この間は　ありがとう　ございました。"
+      },
+      {
+        japanese: "〜けど",
+        kana: "〜けど",
+        vietnamese: "nhưng (thân mật)",
+        type: "main",
+        english: "But (informal)",
+        example: "行きたいけど、時間が　ないです。"
+      },
+      {
+        japanese: "色々（いろいろ）",
+        kana: "いろいろ",
+        vietnamese: "nhiều thứ, đủ loại",
+        type: "main",
+        english: "Various things",
+        example: "色々　ありがとう　ございました。"
+      },
+      // Conversation Phrases
+      {
+        japanese: "国へ帰るの（くにへかえるの）",
+        kana: "くにへかえるの",
+        vietnamese: "về nước à?",
+        type: "supplementary",
+        english: "Return home?",
+        example: "もう　国へ　帰るの？"
+      },
+      {
+        japanese: "どうするの",
+        kana: "どうするの",
+        vietnamese: "làm sao đây?",
+        type: "supplementary",
+        english: "What to do?",
+        example: "これから　どうするの？"
+      },
+      {
+        japanese: "よかったら",
+        kana: "よかったら",
+        vietnamese: "nếu được thì",
+        type: "supplementary",
+        english: "If you like",
+        example: "よかったら、一緒に　行きませんか。"
       }
     ],
     grammar: [
