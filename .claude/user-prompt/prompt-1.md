@@ -127,3 +127,12 @@ các bài còn lại cũng check và bổ sung kaiwa/ từ vựng còn thiếu p
 bật mode plan tạo plan mới và thực hiện
 
 sử dụng web search, thêm skill web search để lấy từ vựng nếu chưa có
+
+lesson 7 có từ vựng bị trùng, check lại
+
+lesson 7 vẫn thiếu renshyuu và kaiwa
+
+bài 6 bổ sung aitsutei (trà đá), sake(cá hồi), badominton (cầu lông), 2 câu kaiwa
+bổ sung đầy đủ section từ vựng thêm về thức ăn, trong sách có: Rau, hoa quả, thịt, cá. Trong đó cá chỉ cần các loại cá: cá thu, cá hồi, cá ngừ, tôm, cua, mực, bạch tuộc, gạo
+
+=> chưa được cập nhật đủ
