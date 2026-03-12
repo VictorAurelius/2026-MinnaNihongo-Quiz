@@ -236,6 +236,86 @@ const LESSON_18_DATA =   {
         example: "もちろん、いいですよ。"
       },
       {
+        japanese: "ぜひ",
+        kana: "ぜひ",
+        vietnamese: "nhất định, непременно",
+        type: "main",
+        english: "By all means, definitely",
+        example: "ぜひ来てください。"
+      },
+      {
+        japanese: "へえ",
+        kana: "へえ",
+        vietnamese: "ồ, thế à (ngạc nhiên)",
+        type: "main",
+        english: "Really? Wow (surprise)",
+        example: "へえ、すごいですね。"
+      },
+      {
+        japanese: "本当（ほんとう）ですか",
+        kana: "ほんとうですか",
+        vietnamese: "thật sao? Thật không?",
+        type: "main",
+        english: "Really? Is that true?",
+        example: "日本語が話せますか。…本当ですか。"
+      },
+      {
+        japanese: "それはおもしろいですね",
+        kana: "それはおもしろいですね",
+        vietnamese: "thật thú vị nhỉ",
+        type: "main",
+        english: "That's interesting",
+        example: "趣味は切手を集めることです。…それはおもしろいですね。"
+      },
+      {
+        japanese: "国際（こくさい）〜",
+        kana: "こくさい〜",
+        vietnamese: "quốc tế ~",
+        type: "main",
+        english: "International ~",
+        example: "国際空港に行きます。"
+      },
+      {
+        japanese: "課長（かちょう）",
+        kana: "かちょう",
+        vietnamese: "trưởng ban",
+        type: "main",
+        english: "Section chief",
+        example: "課長は今会議中です。"
+      },
+      {
+        japanese: "部長（ぶちょう）",
+        kana: "ぶちょう",
+        vietnamese: "trưởng phòng",
+        type: "main",
+        english: "Department manager",
+        example: "部長に報告しました。"
+      },
+      {
+        japanese: "社長（しゃちょう）",
+        kana: "しゃちょう",
+        vietnamese: "giám đốc, chủ tịch công ty",
+        type: "main",
+        english: "Company president",
+        example: "社長が来ました。"
+      },
+      {
+        japanese: "牧場（ぼくじょう）",
+        kana: "ぼくじょう",
+        vietnamese: "nông trại, trang trại",
+        type: "main",
+        english: "Farm, ranch",
+        example: "牧場で馬に乗りました。"
+      },
+      {
+        japanese: "〜メートル",
+        kana: "〜メートル",
+        vietnamese: "~ mét",
+        type: "main",
+        english: "~ meter(s)",
+        example: "100メートル泳げます。"
+      },
+      {
         japanese: "〜ことができます",
         kana: "〜ことができます",
         vietnamese: "có thể ~",
