@@ -40,7 +40,11 @@
       "WebFetch(domain:kyoan.u-biq.org)",
       "WebFetch(domain:quizlet.com)",
       "Bash(kill:*)",
-      "Bash(file:*)"
+      "Bash(file:*)",
+      "WebFetch(domain:denisowski.org)",
+      "WebFetch(domain:note.com)",
+      "Bash(do)",
+      "Bash(done)"
     ]
   }
 }

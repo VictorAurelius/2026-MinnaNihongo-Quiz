@@ -109,3 +109,21 @@ không chia section, phân loại từ như .claude\minna-vocab-update-plan.md �
 hãy tạo plan để cập nhật đủ cho bài Đếm số & Trợ số từ: hàng trăm nghìn, hàng triệu, hàng tỷ, giờ trong ngày, ...
 
 bật mode plan
+
+bài 2 thiếu omiyage, chính tôi mới là người mong được giúp đỡ của anh chị
+
+bài 3 bổ sung: dangkai, keitai denwa, yatai
+thiếu các câu kaiwa: xin chào quý khách ..., cho tôi xem, thế thì, vậy thì, cho tôi
+
+bài 4 bổ sung testo (bài test), thiếu kaiwa và "anh chị vất vả quá"
+
+bài 5 bổ sung koibito, taki, ngày 14, ngày 24, thiếu 2 câu kaiwa
+
+bài 6 bổ sung aitsutei (trà đá), sake(cá hồi), badominton (cầu lông), 2 câu kaiwa
+bổ sung đầy đủ section từ vựng thêm về thức ăn, trong sách có: Rau, hoa quả, thịt, cá. Trong đó cá chỉ cần các loại cá: cá thu, cá hồi, cá ngừ, tôm, cua, mực, bạch tuộc, gạo
+
+các bài còn lại cũng check và bổ sung kaiwa/ từ vựng còn thiếu phù hợp với dữ liệu sách
+
+bật mode plan tạo plan mới và thực hiện
+
+sử dụng web search, thêm skill web search để lấy từ vựng nếu chưa có
