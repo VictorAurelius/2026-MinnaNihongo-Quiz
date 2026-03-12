@@ -4,6 +4,46 @@ const LESSON_22_DATA =   {
     title: "名詞修飾 (Bổ nghĩa danh từ bằng mệnh đề)",
     vocabulary: [
       {
+        japanese: "着（き）ます",
+        kana: "きます",
+        vietnamese: "mặc (áo, váy)",
+        type: "main",
+        english: "To wear (clothes on upper body)",
+        example: "シャツを着ます。"
+      },
+      {
+        japanese: "履（は）きます",
+        kana: "はきます",
+        vietnamese: "mang, đi (giày, quần)",
+        type: "main",
+        english: "To wear (pants, shoes, socks)",
+        example: "靴を履きます。"
+      },
+      {
+        japanese: "かぶります",
+        kana: "かぶります",
+        vietnamese: "đội (mũ)",
+        type: "main",
+        english: "To wear (hat)",
+        example: "帽子をかぶります。"
+      },
+      {
+        japanese: "かけます",
+        kana: "かけます",
+        vietnamese: "đeo (kính)",
+        type: "main",
+        english: "To wear (glasses)",
+        example: "眼鏡をかけます。"
+      },
+      {
+        japanese: "生（う）まれます",
+        kana: "うまれます",
+        vietnamese: "sinh ra, được sinh",
+        type: "main",
+        english: "To be born",
+        example: "東京で生まれました。"
+      },
+      {
         japanese: "着物（きもの）",
         kana: "きもの",
         vietnamese: "kimono (trang phục truyền thống Nhật)",
@@ -242,6 +282,102 @@ const LESSON_22_DATA =   {
         type: "main",
         english: "Hot spring",
         example: "温泉に入りたいです。"
+      },
+      {
+        japanese: "よく",
+        kana: "よく",
+        vietnamese: "thường xuyên, hay",
+        type: "main",
+        english: "Often, frequently",
+        example: "よく映画を見ます。"
+      },
+      {
+        japanese: "おめでとうございます",
+        kana: "おめでとうございます",
+        vietnamese: "xin chúc mừng",
+        type: "main",
+        english: "Congratulations",
+        example: "お誕生日おめでとうございます。"
+      },
+      {
+        japanese: "こちら",
+        kana: "こちら",
+        vietnamese: "đây (lịch sự hơn これ)",
+        type: "main",
+        english: "This (polite)",
+        example: "こちらは田中さんです。"
+      },
+      {
+        japanese: "家賃（やちん）",
+        kana: "やちん",
+        vietnamese: "tiền thuê nhà",
+        type: "main",
+        english: "Rent (house)",
+        example: "家賃はいくらですか。"
+      },
+      {
+        japanese: "会社員（かいしゃいん）",
+        kana: "かいしゃいん",
+        vietnamese: "nhân viên công ty",
+        type: "main",
+        english: "Company employee",
+        example: "会社員です。"
+      },
+      {
+        japanese: "ダイニングキッチン",
+        kana: "ダイニングキッチン",
+        vietnamese: "phòng bếp kết hợp phòng ăn",
+        type: "main",
+        english: "Dining kitchen",
+        example: "ダイニングキッチンがあります。"
+      },
+      {
+        japanese: "和室（わしつ）",
+        kana: "わしつ",
+        vietnamese: "phòng kiểu Nhật",
+        type: "main",
+        english: "Japanese-style room",
+        example: "和室が一つあります。"
+      },
+      {
+        japanese: "押（お）し入（い）れ",
+        kana: "おしいれ",
+        vietnamese: "tủ âm tường (kiểu Nhật)",
+        type: "main",
+        english: "Japanese closet",
+        example: "押し入れに布団があります。"
+      },
+      {
+        japanese: "布団（ふとん）",
+        kana: "ふとん",
+        vietnamese: "nệm kiểu Nhật",
+        type: "main",
+        english: "Futon, Japanese bedding",
+        example: "布団で寝ます。"
+      },
+      {
+        japanese: "アパート",
+        kana: "アパート",
+        vietnamese: "căn hộ, chung cư",
+        type: "main",
+        english: "Apartment",
+        example: "アパートに住んでいます。"
+      },
+      {
+        japanese: "パリ",
+        kana: "パリ",
+        vietnamese: "Paris",
+        type: "main",
+        english: "Paris",
+        example: "パリへ行ったことがあります。"
+      },
+      {
+        japanese: "万里（ばんり）の長城（ちょうじょう）",
+        kana: "ばんりのちょうじょう",
+        vietnamese: "Vạn Lý Trường Thành",
+        type: "main",
+        english: "Great Wall of China",
+        example: "万里の長城を見たいです。"
       },
       // Supplementary Vocabulary (参考語彙) - Clothing
       {
