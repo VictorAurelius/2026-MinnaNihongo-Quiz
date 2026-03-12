@@ -428,6 +428,23 @@ const LESSON_04_DATA =   {
         english: "weekend",
         type: "supplementary",
         example: "週末は　休みます。"
+      },
+      // Supplementary Vocabulary - School/Work Phrases
+      {
+        japanese: "テスト",
+        kana: "テスト",
+        vietnamese: "bài kiểm tra, bài thi",
+        english: "Test, exam",
+        type: "supplementary",
+        example: "明日　テストが　あります。"
+      },
+      {
+        japanese: "お疲れ様でした（おつかれさまでした）",
+        kana: "おつかれさまでした",
+        vietnamese: "Anh/chị vất vả quá (lời cảm ơn sau công việc)",
+        english: "Thank you for your hard work, good job",
+        type: "supplementary",
+        example: "今日は　お疲れ様でした。"
       }
     ],
     grammar: [

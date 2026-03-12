@@ -453,6 +453,88 @@ const LESSON_06_DATA =   {
         english: "sake (Japanese rice wine)",
         type: "supplementary",
         example: ""
+      },
+      {
+        japanese: "アイスティー",
+        kana: "アイスティー",
+        vietnamese: "trà đá",
+        english: "Iced tea",
+        type: "supplementary",
+        example: "アイスティーを　飲みます。"
+      },
+      // Supplementary Vocabulary - Fish & Seafood (魚介類)
+      {
+        japanese: "鮭（さけ）",
+        kana: "さけ",
+        vietnamese: "cá hồi",
+        english: "Salmon",
+        type: "supplementary",
+        example: "鮭を　食べます。"
+      },
+      {
+        japanese: "鯖（さば）",
+        kana: "さば",
+        vietnamese: "cá thu",
+        english: "Mackerel",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "鮪（まぐろ）",
+        kana: "まぐろ",
+        vietnamese: "cá ngừ",
+        english: "Tuna",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "海老（えび）",
+        kana: "えび",
+        vietnamese: "tôm",
+        english: "Shrimp, prawn",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "蟹（かに）",
+        kana: "かに",
+        vietnamese: "cua",
+        english: "Crab",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "烏賊（いか）",
+        kana: "いか",
+        vietnamese: "mực",
+        english: "Squid",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "蛸（たこ）",
+        kana: "たこ",
+        vietnamese: "bạch tuộc",
+        english: "Octopus",
+        type: "supplementary",
+        example: ""
+      },
+      // Supplementary Vocabulary - Staples & Sports
+      {
+        japanese: "米（こめ）",
+        kana: "こめ",
+        vietnamese: "gạo",
+        english: "Rice (uncooked)",
+        type: "supplementary",
+        example: "米を　買います。"
+      },
+      {
+        japanese: "バドミントン",
+        kana: "バドミントン",
+        vietnamese: "cầu lông",
+        english: "Badminton",
+        type: "supplementary",
+        example: "バドミントンを　します。"
       }
     ],
     grammar: [

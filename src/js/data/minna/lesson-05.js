@@ -414,12 +414,28 @@ const LESSON_05_DATA =   {
         example: "十日まで　大阪に　います。"
       },
       {
+        japanese: "十四日（じゅうよっか）",
+        kana: "じゅうよっか",
+        vietnamese: "ngày 14",
+        english: "14th day of the month",
+        type: "supplementary",
+        example: "十四日に　会議が　あります。"
+      },
+      {
         japanese: "二十日（はつか）",
         kana: "はつか",
         vietnamese: "ngày 20",
         english: "20th day of the month",
         type: "supplementary",
         example: "二十日に　国へ　帰ります。"
+      },
+      {
+        japanese: "二十四日（にじゅうよっか）",
+        kana: "にじゅうよっか",
+        vietnamese: "ngày 24",
+        english: "24th day of the month",
+        type: "supplementary",
+        example: "二十四日に　友達と　会います。"
       },
       // Supplementary Vocabulary - Holidays (休日と祝日)
       {
@@ -469,6 +485,23 @@ const LESSON_05_DATA =   {
         english: "year-end and New Year holidays",
         type: "supplementary",
         example: "年末年始は　家族と　過ごします。"
+      },
+      // Supplementary Vocabulary - People & Places
+      {
+        japanese: "恋人（こいびと）",
+        kana: "こいびと",
+        vietnamese: "người yêu",
+        english: "Lover, boyfriend, girlfriend",
+        type: "supplementary",
+        example: "恋人と　旅行します。"
+      },
+      {
+        japanese: "滝（たき）",
+        kana: "たき",
+        vietnamese: "thác nước",
+        english: "Waterfall",
+        type: "supplementary",
+        example: "滝を　見に　行きます。"
       }
     ],
     grammar: [
