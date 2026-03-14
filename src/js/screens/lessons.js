@@ -62,6 +62,16 @@ window.QuizApp.screens = window.QuizApp.screens || {};
           window.QuizApp.screens.openCountersScreen();
         },
       },
+      {
+        id: "card-grammar-ref",
+        icon: "&#x1F4DA;",
+        title: "Grammar Reference",
+        meta: "T&#x1ED5;ng h&#x1EE3;p 100+ m&#x1EAB;u ng&#x1EEF; ph&#xE1;p",
+        onclick: () => {
+          $("#header-title").textContent = "Grammar Reference";
+          window.QuizApp.screens.openGrammarReference();
+        },
+      },
     ];
 
     specials.forEach(s => {

@@ -241,6 +241,86 @@
       </div>
     </section>
 
+    <!-- ========== SCREEN: Grammar Reference ========== -->
+    <section id="screen-grammar-reference" class="screen">
+      <h2 class="screen-heading">📚 Grammar Reference</h2>
+
+      <!-- Breadcrumb (shown when coming from lesson) -->
+      <div id="grammar-breadcrumb" class="grammar-breadcrumb hidden"></div>
+
+      <!-- Search Bar -->
+      <div class="grammar-search-bar">
+        <input
+          type="text"
+          id="grammar-search-input"
+          class="grammar-search-input"
+          placeholder="🔍 Tìm kiếm ngữ pháp... (VD: は, で, です)"
+        />
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="grammar-filter-bar">
+        <div class="filter-group">
+          <label for="filter-jlpt">JLPT:</label>
+          <select id="filter-jlpt" class="filter-select">
+            <option value="all">Tất cả</option>
+            <option value="N5">N5</option>
+            <option value="N4">N4</option>
+            <option value="N3">N3</option>
+            <option value="N2">N2</option>
+            <option value="N1">N1</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-category">Loại:</label>
+          <select id="filter-category" class="filter-select">
+            <option value="all">Tất cả</option>
+            <!-- Options populated by JS -->
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-function">Chức năng:</label>
+          <select id="filter-function" class="filter-select">
+            <option value="all">Tất cả</option>
+            <!-- Options populated by JS -->
+          </select>
+        </div>
+      </div>
+
+      <!-- View Mode Tabs -->
+      <div class="grammar-view-tabs">
+        <button class="view-tab active" data-view="lesson">
+          📋 Theo bài
+        </button>
+        <button class="view-tab" data-view="category">
+          📂 Theo loại
+        </button>
+        <button class="view-tab" data-view="function">
+          🔧 Theo chức năng
+        </button>
+        <button class="view-tab" data-view="comparisons">
+          📊 So sánh
+        </button>
+      </div>
+
+      <!-- Grammar Cards Container -->
+      <div id="grammar-reference-container" class="grammar-reference-container">
+        <!-- Grammar cards rendered by JS -->
+      </div>
+
+      <!-- Footer Actions -->
+      <div class="grammar-footer" id="grammar-footer" style="display: none;">
+        <div class="grammar-footer-counter">
+          <span id="selected-count">0</span> pattern(s) selected
+        </div>
+        <button class="btn btn-primary" id="btn-quiz-selected">
+          🎯 Quiz Selected
+        </button>
+      </div>
+    </section>
+
     <!-- ========== SCREEN: Flashcard ========== -->
     <section id="screen-flashcard" class="screen">
       <div class="progress-bar-wrapper">
@@ -369,6 +449,7 @@
           <button id="btn-retry-wrong" class="btn btn-danger">Làm lại câu sai</button>
           <button id="btn-retry-all" class="btn btn-accent">Làm lại tất cả</button>
           <button id="btn-back-to-vocab" class="btn btn-primary hidden">Quay lại danh sách từ</button>
+          <button id="btn-back-to-grammar" class="btn btn-primary hidden">📚 Quay lại Grammar Reference</button>
           <button id="btn-results-home" class="btn btn-outline">Chọn bài khác</button>
         </div>
       </div>
@@ -457,6 +538,34 @@
 
   </main>
 
+  <!-- ========== MODAL: Grammar Pattern Detail ========== -->
+  <div id="grammar-detail-modal" class="modal">
+    <div class="modal-overlay" id="grammar-modal-overlay"></div>
+    <div class="modal-content grammar-detail-content">
+      <div class="modal-header">
+        <h2 id="grammar-detail-title" class="modal-title"></h2>
+        <button class="modal-close" id="grammar-modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="grammar-detail-body">
+        <!-- Content populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== MODAL: Grammar Comparison ========== -->
+  <div id="comparison-modal" class="modal">
+    <div class="modal-overlay" id="comparison-modal-overlay"></div>
+    <div class="modal-content comparison-modal-content">
+      <div class="modal-header">
+        <h2 id="comparison-title" class="modal-title"></h2>
+        <button class="modal-close" id="comparison-modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="comparison-body">
+        <!-- Content populated by JS -->
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <!-- Data: Minna no Nihongo lessons -->
   <script src="js/data/minna/lesson-01.js"></script>
@@ -484,6 +593,9 @@
   <script src="js/data/minna/lesson-23.js"></script>
   <script src="js/data/minna/lesson-24.js"></script>
   <script src="js/data/minna/lesson-25.js"></script>
+  <script src="js/data/minna/grammar-index.js"></script>
+  <script src="js/data/minna/grammar-metadata.js"></script>
+  <script src="js/data/minna/grammar-comparisons.js"></script>
   <script src="js/data/minna/alphabet.js"></script>
   <script src="js/data/minna/counters.js"></script>
   <script src="js/data/minna/index.js"></script>
@@ -497,6 +609,7 @@
   <script src="js/data/index.js"></script>
   <!-- Core -->
   <script src="js/core/utils.js"></script>
+  <script src="js/core/grammar-utils.js"></script>
   <script src="js/core/state.js"></script>
   <script src="js/core/storage.js"></script>
   <script src="js/core/navigation.js"></script>
@@ -508,11 +621,13 @@
   <!-- Screens (early — no quiz dep) -->
   <script src="js/screens/vocab-list.js?v=2024022301"></script>
   <script src="js/screens/grammar-list.js"></script>
+  <script src="js/screens/grammar-reference.js"></script>
   <script src="js/screens/hsk-vocab-list.js"></script>
   <!-- Quiz -->
   <script src="js/quiz/flashcard.js"></script>
   <script src="js/quiz/mc.js"></script>
   <script src="js/quiz/typing.js?v=2024022301"></script>
+  <script src="js/quiz/grammar-category-quiz.js"></script>
   <script src="js/quiz/session.js"></script>
   <!-- Screens (late — depend on quiz/session) -->
   <script src="js/screens/lessons.js"></script>

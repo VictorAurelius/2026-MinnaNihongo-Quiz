@@ -23,6 +23,11 @@ window.QuizApp.quiz.mc = (function () {
     const isGrammarMode = mode.startsWith("grammar-mc");
     const isJpToVi = mode === "mc-jp-vi" || mode === "grammar-mc-jp-vi";
 
+    // Update header title if custom grammar quiz
+    if (state.grammarQuizContext && state.grammarQuizContext.isCustomSet) {
+      $("#header-title").textContent = state.grammarQuizContext.title;
+    }
+
     if (isHSK) {
       $("#mc-question-label").textContent = isHSKCnToVi
         ? "T\u1EEB n\xE0y ngh\u0129a l\xE0 g\xEC?"
@@ -50,10 +55,18 @@ window.QuizApp.quiz.mc = (function () {
       $("#mc-romaji").classList.add("hidden");
     }
 
-    const pool = state.currentLesson.vocabulary.filter((v) => v !== item);
-    const contentArray = !isHSK && isGrammarMode
-      ? state.currentLesson.grammar.filter((v) => v !== item)
-      : pool;
+    // For custom grammar quizzes, use currentItems; otherwise use lesson content
+    let contentArray;
+    if (state.grammarQuizContext && state.grammarQuizContext.isCustomSet) {
+      // Custom grammar quiz - use all patterns in the set
+      contentArray = state.currentItems.filter((v) => v !== item);
+    } else {
+      // Regular lesson-based quiz
+      const pool = state.currentLesson.vocabulary.filter((v) => v !== item);
+      contentArray = !isHSK && isGrammarMode
+        ? state.currentLesson.grammar.filter((v) => v !== item)
+        : pool;
+    }
     const options = utils.shuffle([item, ...utils.shuffle(contentArray).slice(0, 3)]);
 
     const optionsContainer = $("#mc-options");
