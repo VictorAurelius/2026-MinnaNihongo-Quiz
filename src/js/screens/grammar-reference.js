@@ -32,6 +32,7 @@ window.QuizApp.screens.openGrammarReference = function () {
    * Update breadcrumb based on return context
    */
   function updateBreadcrumb() {
+    const state = window.QuizApp.state;
     const breadcrumb = $("#grammar-breadcrumb");
     const returnContext = state.grammarReferenceReturnContext;
 
