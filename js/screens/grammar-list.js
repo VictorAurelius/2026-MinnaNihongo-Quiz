@@ -50,11 +50,48 @@ window.QuizApp.screens.openGrammarList = function () {
           <strong>Ví dụ:</strong>
           ${examplesHTML}
         </div>
+        <div class="grammar-card-footer">
+          <button class="btn-link view-in-reference" data-pattern="${g.pattern.replace(/"/g, '&quot;')}">
+            📚 Xem trong Grammar Reference
+          </button>
+        </div>
       </div>
     `;
 
     container.appendChild(card);
   });
+
+  // Add event listeners to "View in Reference" buttons
+  container.querySelectorAll(".view-in-reference").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const patternString = btn.dataset.pattern;
+      viewPatternInReference(patternString);
+    });
+  });
+
+  /**
+   * View pattern in Grammar Reference
+   * @param {string} patternString - The pattern to view
+   */
+  function viewPatternInReference(patternString) {
+    // Store return context
+    state.grammarReferenceReturnContext = {
+      screen: "grammarList",
+      lessonNumber: state.currentLesson.lessonNumber
+    };
+
+    // Open Grammar Reference
+    $("#header-title").textContent = "Grammar Reference";
+    window.QuizApp.screens.openGrammarReference();
+
+    // After a brief delay (to allow screen to render), show the pattern detail
+    setTimeout(() => {
+      if (window.QuizApp.screens.grammarReference) {
+        window.QuizApp.screens.grammarReference.showPatternByString(patternString);
+      }
+    }, 100);
+  }
 
   nav.showScreen("grammarList");
 };

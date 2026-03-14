@@ -49,6 +49,12 @@ window.QuizApp.quiz.flashcard = (function () {
     const item  = state.questions[state.questionIndex];
     const isGrammarMode = state.currentMode === "grammar-flashcard";
 
+    // Update header title if custom grammar quiz
+    if (state.grammarQuizContext && state.grammarQuizContext.isCustomSet) {
+      const $ = (sel) => document.querySelector(sel);
+      $("#header-title").textContent = state.grammarQuizContext.title;
+    }
+
     flashcardEl.classList.remove("flipped");
 
     if (isGrammarMode) {
