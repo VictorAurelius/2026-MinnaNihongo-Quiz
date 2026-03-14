@@ -136,3 +136,10 @@ bài 6 bổ sung aitsutei (trà đá), sake(cá hồi), badominton (cầu lông)
 bổ sung đầy đủ section từ vựng thêm về thức ăn, trong sách có: Rau, hoa quả, thịt, cá. Trong đó cá chỉ cần các loại cá: cá thu, cá hồi, cá ngừ, tôm, cua, mực, bạch tuộc, gạo
 
 => chưa được cập nhật đủ
+
+logo khi tạo thành app đang hơi xấu, sử dụng 1 logo đẹp và kích thích hưng phấn học tập hơn
+
+generate luôn
+
+bây giờ tôi thấy việc grammar ở mỗi bài khá phân tán và khó nhớ, khó hệ thống
+bật mode plan và tạo plan để tạo 1 section grammar riêng: tổng hợp, tip, ghi nhớ, mẫu, ...
