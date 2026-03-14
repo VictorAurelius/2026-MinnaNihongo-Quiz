@@ -60,6 +60,16 @@ window.QuizApp.screens = window.QuizApp.screens || {};
       $("#btn-back-to-vocab").classList.add("hidden");
     }
 
+    // Show "Back to Grammar Reference" button if quiz was from grammar reference
+    const btnBackToGrammar = $("#btn-back-to-grammar");
+    if (btnBackToGrammar) {
+      if (state.grammarQuizContext && state.grammarQuizContext.isCustomSet) {
+        btnBackToGrammar.classList.remove("hidden");
+      } else {
+        btnBackToGrammar.classList.add("hidden");
+      }
+    }
+
     nav.showScreen("results");
   }
 
@@ -95,6 +105,21 @@ window.QuizApp.screens = window.QuizApp.screens || {};
     state.previousScreen = null; // Clear it
     window.QuizApp.screens.openVocabList();
   });
+
+  const btnBackToGrammar = $("#btn-back-to-grammar");
+  if (btnBackToGrammar) {
+    btnBackToGrammar.addEventListener("click", () => {
+      const state = window.QuizApp.state;
+      // Clear grammar quiz context
+      if (window.QuizApp.quiz.grammarCategoryQuiz) {
+        window.QuizApp.quiz.grammarCategoryQuiz.clearQuizContext();
+      }
+      state.grammarQuizContext = null;
+      // Return to grammar reference
+      $("#header-title").textContent = "Grammar Reference";
+      window.QuizApp.screens.openGrammarReference();
+    });
+  }
 
   window.QuizApp.screens.showResults = showResults;
 })();

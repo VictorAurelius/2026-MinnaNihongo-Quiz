@@ -16,6 +16,7 @@ window.QuizApp.nav = (function () {
     menu:        $("#screen-menu"),
     vocabList:   $("#screen-vocab-list"),
     grammarList: $("#screen-grammar-list"),
+    grammarReference: $("#screen-grammar-reference"),
     flashcard:   $("#screen-flashcard"),
     mc:          $("#screen-mc"),
     typing:      $("#screen-typing"),
