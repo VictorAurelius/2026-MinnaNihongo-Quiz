@@ -8,7 +8,7 @@ export interface VocabItem {
   kana: string;
   vietnamese: string;
   english: string;
-  type: 'main' | 'additional' | 'kanji';
+  type: 'main' | 'additional' | 'kanji' | 'supplementary';
   example?: string;
   audio?: string;
 }
