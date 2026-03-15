@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Reference Test Checklist</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      background: #f5f5f5;
+    }
+    h1 { color: #2563eb; margin-bottom: 1rem; }
+    h2 { color: #1e40af; margin: 2rem 0 1rem; font-size: 1.3rem; }
+    .status {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .passed { background: #10b981; color: white; }
+    .pending { background: #f59e0b; color: white; }
+    .test-section {
+      background: white;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .test-item {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .test-item:hover { background: #f9fafb; }
+    .test-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+    .test-item label {
+      flex: 1;
+      cursor: pointer;
+      user-select: none;
+    }
+    .test-item.completed {
+      background: #ecfdf5;
+      border-left: 3px solid #10b981;
+    }
+    .priority {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-left: 0.5rem;
+    }
+    .critical { background: #fee2e2; color: #991b1b; }
+    .important { background: #fef3c7; color: #92400e; }
+    .nice { background: #dbeafe; color: #1e40af; }
+    .stats {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-card {
+      flex: 1;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2563eb;
+    }
+    .stat-label {
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-top: 0.25rem;
+    }
+    .quick-links {
+      background: #eff6ff;
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid #2563eb;
+      margin-bottom: 2rem;
+    }
+    .quick-links a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 1rem;
+    }
+    .quick-links a:hover { text-decoration: underline; }
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <h1>🧪 Grammar Reference Test Checklist</h1>
+  <div class="status passed">Automated Tests: PASSED (97%)</div>
+  <div class="status pending">Manual Tests: PENDING</div>
+
+  <div class="quick-links">
+    <strong>🔗 Quick Links:</strong>
+    <a href="http://localhost:8000" target="_blank">Open App</a>
+    <a href="http://localhost:8000/#grammar-reference" target="_blank">Direct to Grammar Reference</a>
+    <a href="./.claude/test-report.md" target="_blank">Test Report</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-number" id="total-tests">0</div>
+      <div class="stat-label">Total Tests</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" id="completed-tests">0</div>
+      <div class="stat-label">Completed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" id="progress">0%</div>
+      <div class="stat-label">Progress</div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>🎯 Critical Tests (Must Pass)</h2>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-1" onchange="updateProgress()">
+      <label for="test-1">
+        App loads without errors
+        <span class="priority critical">CRITICAL</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-2" onchange="updateProgress()">
+      <label for="test-2">
+        Grammar Reference card visible on home screen
+        <span class="priority critical">CRITICAL</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-3" onchange="updateProgress()">
+      <label for="test-3">
+        Click Grammar Reference card → Screen opens
+        <span class="priority critical">CRITICAL</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-4" onchange="updateProgress()">
+      <label for="test-4">
+        No console errors (F12 → Console tab)
+        <span class="priority critical">CRITICAL</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-5" onchange="updateProgress()">
+      <label for="test-5">
+        Search works (type "は" → see results)
+        <span class="priority critical">CRITICAL</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-6" onchange="updateProgress()">
+      <label for="test-6">
+        Pattern detail modal opens (click any pattern)
+        <span class="priority critical">CRITICAL</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>🔍 Search & Filter Tests</h2>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-7" onchange="updateProgress()">
+      <label for="test-7">
+        Search "です" → Shows matching patterns
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-8" onchange="updateProgress()">
+      <label for="test-8">
+        JLPT filter: Select N5 → Only N5 patterns shown
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-9" onchange="updateProgress()">
+      <label for="test-9">
+        Category filter: Select Particles → Only particles shown
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-10" onchange="updateProgress()">
+      <label for="test-10">
+        Function filter: Select Comparison → Only comparison patterns
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-11" onchange="updateProgress()">
+      <label for="test-11">
+        Combined filters work (JLPT + Category + Function)
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>👁️ View Modes Tests</h2>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-12" onchange="updateProgress()">
+      <label for="test-12">
+        "📋 Theo bài" tab → Patterns grouped by lessons
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-13" onchange="updateProgress()">
+      <label for="test-13">
+        "📂 Theo loại" tab → Patterns grouped by categories
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-14" onchange="updateProgress()">
+      <label for="test-14">
+        "🔧 Theo chức năng" tab → Patterns grouped by functions
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-15" onchange="updateProgress()">
+      <label for="test-15">
+        "📊 So sánh" tab → Shows 7 comparison cards
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-16" onchange="updateProgress()">
+      <label for="test-16">
+        Tabs switch smoothly with scroll to top
+        <span class="priority nice">NICE</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>💡 Pattern Detail Modal Tests</h2>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-17" onchange="updateProgress()">
+      <label for="test-17">
+        Modal shows Vietnamese meaning
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-18" onchange="updateProgress()">
+      <label for="test-18">
+        Modal shows Tips (💡), Mnemonics (🧠), Examples (✍️)
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-19" onchange="updateProgress()">
+      <label for="test-19">
+        Related patterns are clickable links
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-20" onchange="updateProgress()">
+      <label for="test-20">
+        Click related pattern → Modal updates to new pattern
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-21" onchange="updateProgress()">
+      <label for="test-21">
+        "📖 Xem trong Bài X" button works
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-22" onchange="updateProgress()">
+      <label for="test-22">
+        Modal closes (X button, ESC key, click overlay)
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>📊 Comparisons Tests</h2>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-23" onchange="updateProgress()">
+      <label for="test-23">
+        Click "は vs が" → Comparison modal opens
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-24" onchange="updateProgress()">
+      <label for="test-24">
+        Comparison table displays correctly
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-25" onchange="updateProgress()">
+      <label for="test-25">
+        Tips, examples, common mistakes all show
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-26" onchange="updateProgress()">
+      <label for="test-26">
+        Try other comparisons (に vs で, を vs が, etc.)
+        <span class="priority nice">NICE</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>🎯 Quiz Tests</h2>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-27" onchange="updateProgress()">
+      <label for="test-27">
+        Select 3 patterns → Footer counter updates
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-28" onchange="updateProgress()">
+      <label for="test-28">
+        Click "🎯 Quiz Selected" → Mode selection modal
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-29" onchange="updateProgress()">
+      <label for="test-29">
+        Choose Flashcard → Quiz starts with custom title
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-30" onchange="updateProgress()">
+      <label for="test-30">
+        Finish quiz → "📚 Quay lại Grammar Reference" button
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-31" onchange="updateProgress()">
+      <label for="test-31">
+        Quiz by Category: Click "🎯 Quiz Category" button
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-32" onchange="updateProgress()">
+      <label for="test-32">
+        Quiz header shows category name (e.g., "Quiz 🎯 Trợ từ")
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-33" onchange="updateProgress()">
+      <label for="test-33">
+        MC options are all from same category (smart!)
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-34" onchange="updateProgress()">
+      <label for="test-34">
+        Quiz by Function works similarly
+        <span class="priority nice">NICE</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>🔗 Cross-Navigation Tests</h2>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-35" onchange="updateProgress()">
+      <label for="test-35">
+        Lesson 10 → Xem ngữ pháp → Click "📚 Xem trong Grammar Reference"
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-36" onchange="updateProgress()">
+      <label for="test-36">
+        Breadcrumb shows "◀️ Quay lại Bài 10"
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-37" onchange="updateProgress()">
+      <label for="test-37">
+        Modal button shows "◀️ Quay lại Bài 10" (not "Xem trong Bài")
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-38" onchange="updateProgress()">
+      <label for="test-38">
+        Click breadcrumb → Returns to Lesson 10 grammar
+        <span class="priority important">IMPORTANT</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>📱 Mobile & Polish</h2>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-39" onchange="updateProgress()">
+      <label for="test-39">
+        Mobile view (F12 → Device toolbar → iPhone)
+        <span class="priority nice">NICE</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-40" onchange="updateProgress()">
+      <label for="test-40">
+        Touch-friendly buttons (easy to tap)
+        <span class="priority nice">NICE</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-41" onchange="updateProgress()">
+      <label for="test-41">
+        Modals scrollable on small screens
+        <span class="priority nice">NICE</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-42" onchange="updateProgress()">
+      <label for="test-42">
+        Comparison tables scroll horizontally on mobile
+        <span class="priority nice">NICE</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-43" onchange="updateProgress()">
+      <label for="test-43">
+        Dark mode works (if app has toggle)
+        <span class="priority nice">NICE</span>
+      </label>
+    </div>
+
+    <div class="test-item">
+      <input type="checkbox" id="test-44" onchange="updateProgress()">
+      <label for="test-44">
+        All animations smooth (no janky transitions)
+        <span class="priority nice">NICE</span>
+      </label>
+    </div>
+  </div>
+
+  <button onclick="resetChecklist()">🔄 Reset Checklist</button>
+  <button onclick="exportResults()">📊 Export Results</button>
+
+  <script>
+    function updateProgress() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const total = checkboxes.length;
+      const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+      const progress = Math.round((completed / total) * 100);
+
+      document.getElementById('total-tests').textContent = total;
+      document.getElementById('completed-tests').textContent = completed;
+      document.getElementById('progress').textContent = progress + '%';
+
+      // Update completed styling
+      checkboxes.forEach(cb => {
+        const item = cb.closest('.test-item');
+        if (cb.checked) {
+          item.classList.add('completed');
+        } else {
+          item.classList.remove('completed');
+        }
+      });
+
+      // Save to localStorage
+      const state = {};
+      checkboxes.forEach(cb => {
+        state[cb.id] = cb.checked;
+      });
+      localStorage.setItem('grammarTestState', JSON.stringify(state));
+    }
+
+    function loadProgress() {
+      const saved = localStorage.getItem('grammarTestState');
+      if (saved) {
+        const state = JSON.parse(saved);
+        Object.keys(state).forEach(id => {
+          const checkbox = document.getElementById(id);
+          if (checkbox) {
+            checkbox.checked = state[id];
+          }
+        });
+        updateProgress();
+      }
+    }
+
+    function resetChecklist() {
+      if (confirm('Reset all checkboxes?')) {
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+          cb.checked = false;
+        });
+        localStorage.removeItem('grammarTestState');
+        updateProgress();
+      }
+    }
+
+    function exportResults() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const total = checkboxes.length;
+      const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+
+      let report = '# Grammar Reference Test Results\n\n';
+      report += `**Date:** ${new Date().toLocaleString()}\n`;
+      report += `**Progress:** ${completed}/${total} (${Math.round((completed/total)*100)}%)\n\n`;
+
+      report += '## Results:\n\n';
+      checkboxes.forEach(cb => {
+        const label = cb.nextElementSibling.textContent.trim();
+        const status = cb.checked ? '✅' : '❌';
+        report += `${status} ${label}\n`;
+      });
+
+      const blob = new Blob([report], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'grammar-test-results.md';
+      a.click();
+    }
+
+    // Load saved progress on page load
+    window.addEventListener('load', () => {
+      loadProgress();
+      updateProgress();
+    });
+  </script>
+</body>
+</html>
