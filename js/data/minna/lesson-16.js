@@ -459,3 +459,6 @@ const LESSON_16_DATA =   {
       }
     ]
   };
+
+// Expose to window for grammar-index.js
+window.LESSON_16_DATA = LESSON_16_DATA;
