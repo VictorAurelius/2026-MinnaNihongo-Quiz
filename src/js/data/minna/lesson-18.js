@@ -443,3 +443,6 @@ const LESSON_18_DATA =   {
       }
     ]
   };
+
+// Expose to window for grammar-index.js
+window.LESSON_18_DATA = LESSON_18_DATA;
