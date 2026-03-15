@@ -2,6 +2,7 @@
   import '../app.css';
   import { uiStore } from '$lib/stores';
   import { onMount } from 'svelte';
+  import Header from '$lib/components/layout/Header.svelte';
 
   // Apply dark mode class on mount
   onMount(() => {
@@ -18,5 +19,8 @@
 </script>
 
 <div class="app">
-  <slot />
+  <Header />
+  <main id="app">
+    <slot />
+  </main>
 </div>
