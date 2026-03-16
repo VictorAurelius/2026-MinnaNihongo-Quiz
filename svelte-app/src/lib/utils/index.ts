@@ -3,3 +3,4 @@
  */
 
 export * from './quizUtils';
+export * from './grammarUtils';
