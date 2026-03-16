@@ -33,11 +33,20 @@ export type {
 
   // UI types
   UIState,
-  NavigationState,
-
-  // Grammar Reference types
-  GrammarMetadata,
-  GrammarComparison,
-  FilterOptions,
-  ViewMode
+  NavigationState
 } from './lesson';
+
+export type {
+  // Grammar types
+  GrammarMetadata,
+  GrammarPattern,
+  GrammarCategory,
+  GrammarFunction,
+  GrammarComparison,
+  ComparisonTable,
+  ComparisonRow,
+  ComparisonExample,
+  GrammarFilters,
+  GrammarViewMode,
+  GroupedPatterns
+} from './grammar';
