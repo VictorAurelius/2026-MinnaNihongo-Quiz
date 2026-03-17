@@ -18,7 +18,10 @@ export type {
 
   // Counter types
   CounterType,
-  CounterExample,
+  CounterReading,
+  NumberData,
+  AlphabetData,
+  AlphabetCombo,
 
   // Quiz types
   QuizMode,

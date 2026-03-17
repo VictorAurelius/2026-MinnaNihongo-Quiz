@@ -46,7 +46,13 @@
       "Bash(do)",
       "Bash(done)",
       "Bash(do echo \"=== $file ===\" grep -o 'japanese: \"\"\"\"[^\"\"\"\"]*\"\"\"\"' \"$file\")",
-      "Bash(xargs -I {} sh -c 'echo \"\"\"\"Checking {}...\"\"\"\" && node --check {}')"
+      "Bash(xargs -I {} sh -c 'echo \"\"\"\"Checking {}...\"\"\"\" && node --check {}')",
+      "Bash(explorer.exe src/index.html)",
+      "Bash(curl:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run check:*)",
+      "Bash(timeout 10 npm run dev:*)"
     ]
   }
 }

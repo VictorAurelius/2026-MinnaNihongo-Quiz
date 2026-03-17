@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Test</title>
+  <style>
+    body { font-family: monospace; padding: 20px; background: #f5f5f5; }
+    .test { margin: 15px 0; padding: 15px; background: white; border-radius: 5px; }
+    .pass { border-left: 5px solid #10b981; }
+    .fail { border-left: 5px solid #ef4444; }
+    h2 { margin: 0 0 10px; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 10px; border-radius: 3px; overflow: auto; }
+    .value { color: #4ade80; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>🔍 Simple Grammar Test</h1>
+  <div id="output"></div>
+
+  <script src="js/data/minna/lesson-01.js"></script>
+  <script src="js/data/minna/lesson-02.js"></script>
+  <script src="js/data/minna/lesson-03.js"></script>
+  <script src="js/data/minna/lesson-04.js"></script>
+  <script src="js/data/minna/lesson-05.js"></script>
+  <script src="js/data/minna/lesson-06.js"></script>
+  <script src="js/data/minna/lesson-07.js"></script>
+  <script src="js/data/minna/lesson-08.js"></script>
+  <script src="js/data/minna/lesson-09.js"></script>
+  <script src="js/data/minna/lesson-10.js"></script>
+  <script src="js/data/minna/grammar-index.js"></script>
+  <script src="js/data/minna/grammar-metadata.js"></script>
+  <script src="js/core/grammar-utils.js"></script>
+
+  <script>
+    const output = document.getElementById('output');
+
+    function test(title, pass, details) {
+      const div = document.createElement('div');
+      div.className = `test ${pass ? 'pass' : 'fail'}`;
+      div.innerHTML = `
+        <h2>${pass ? '✓' : '✗'} ${title}</h2>
+        <pre>${details}</pre>
+      `;
+      output.appendChild(div);
+      return pass;
+    }
+
+    // Test 1: Check lesson data
+    console.log('=== TEST 1: Lesson Data ===');
+    const lesson01 = window.LESSON_01_DATA;
+    console.log('LESSON_01_DATA:', lesson01);
+
+    if (lesson01) {
+      console.log('Lesson 01 grammar:', lesson01.grammar);
+      console.log('First pattern:', lesson01.grammar?.[0]);
+    }
+
+    let lessonCount = 0;
+    let grammarTotal = 0;
+    for (let i = 1; i <= 10; i++) {
+      const key = `LESSON_${String(i).padStart(2, '0')}_DATA`;
+      if (window[key]) {
+        lessonCount++;
+        const len = window[key].grammar?.length || 0;
+        grammarTotal += len;
+        console.log(`${key}: ${len} patterns`);
+      }
+    }
+
+    test('Test 1: Lesson Data',
+      lessonCount > 0,
+      `Loaded: ${lessonCount}/10 lessons\nTotal patterns: ${grammarTotal}\n\nLesson 01 first pattern:\n${JSON.stringify(lesson01?.grammar?.[0], null, 2)}`
+    );
+
+    // Test 2: Grammar Index
+    console.log('=== TEST 2: Grammar Index ===');
+    const hasIndex = !!window.QuizApp?.grammarIndex;
+    console.log('grammarIndex exists:', hasIndex);
+
+    if (hasIndex) {
+      const allGrammar = window.QuizApp.grammarIndex.getAllGrammar();
+      console.log('getAllGrammar() result:', allGrammar);
+      console.log('Length:', allGrammar.length);
+      console.log('First item:', allGrammar[0]);
+
+      test('Test 2: Grammar Index',
+        allGrammar.length > 0,
+        `getAllGrammar() returned: ${allGrammar.length} patterns\n\nFirst pattern:\n${JSON.stringify(allGrammar[0], null, 2)}`
+      );
+    } else {
+      test('Test 2: Grammar Index', false, 'grammarIndex module NOT loaded!');
+    }
+
+    // Test 3: Merge with metadata
+    console.log('=== TEST 3: Merge Metadata ===');
+    if (window.QuizApp?.grammarIndex && window.QuizApp?.grammarUtils) {
+      const allGrammar = window.QuizApp.grammarIndex.getAllGrammar();
+      console.log('Before merge:', allGrammar.length);
+
+      const merged = window.QuizApp.grammarUtils.mergeGrammarWithMetadata(allGrammar);
+      console.log('After merge:', merged);
+      console.log('Merged length:', merged.length);
+      console.log('First merged:', merged[0]);
+
+      test('Test 3: Merge Metadata',
+        merged.length > 0,
+        `Merged: ${merged.length} patterns\n\nFirst merged pattern:\n${JSON.stringify(merged[0], null, 2)}`
+      );
+
+      // Test 4: Search on merged data
+      console.log('=== TEST 4: Search ===');
+      const searchResult = window.QuizApp.grammarUtils.searchGrammar(merged, 'は');
+      console.log('Search "は" result:', searchResult);
+      console.log('Search result length:', searchResult.length);
+
+      test('Test 4: Search',
+        searchResult.length > 0,
+        `Search "は" found: ${searchResult.length} results\n\nFirst result:\n${JSON.stringify(searchResult[0], null, 2)}`
+      );
+
+      // Test 5: Direct search test
+      console.log('=== TEST 5: Manual Search ===');
+      const testPattern = merged[0];
+      console.log('Test pattern:', testPattern);
+
+      if (testPattern) {
+        const searchableText = [
+          testPattern.pattern,
+          testPattern.vietnamese,
+          testPattern.english || '',
+          testPattern.explanation || ''
+        ].join(' ').toLowerCase();
+
+        console.log('Searchable text:', searchableText);
+        console.log('Contains "は"?', searchableText.includes('は'));
+
+        test('Test 5: Manual Search Check',
+          true,
+          `Pattern: ${testPattern.pattern}\nVietnamese: ${testPattern.vietnamese}\nSearchable: ${searchableText}\n\nContains "は": ${searchableText.includes('は')}`
+        );
+      }
+    } else {
+      test('Test 3: Utils', false, 'grammarUtils NOT loaded!');
+    }
+
+    console.log('=== ALL TESTS COMPLETE ===');
+  </script>
+</body>
+</html>

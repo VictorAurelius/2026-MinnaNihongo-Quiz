@@ -60,23 +60,58 @@ export interface HSKLessonData {
 
 // Alphabet Data
 export interface AlphabetChar {
-  hiragana: string;
-  katakana: string;
+  kana: string;
   romaji: string;
-  examples?: string[];
+  row: string;
+  col: string;
+}
+
+export interface AlphabetCombo {
+  kana: string;
+  romaji: string;
+  row: string;
+  base: string;
+  small: string;
+}
+
+export interface AlphabetData {
+  rows: (AlphabetChar | null)[][];
+  combo: AlphabetCombo[];
 }
 
 // Counter Data
-export interface CounterExample {
-  japanese: string;
-  vietnamese: string;
-  english: string;
+export interface CounterReading {
+  number: number;
+  form: string;
+  kana: string;
+  romaji: string;
+  irregular?: boolean;
+  note?: string;
 }
 
 export interface CounterType {
   counter: string;
-  usage: string;
-  examples: CounterExample[];
+  kana: string;
+  romaji: string;
+  vietnamese: string;
+  lesson: number | null;
+  readings: CounterReading[];
+  example: {
+    japanese: string;
+    vietnamese: string;
+  };
+}
+
+export interface NumberData {
+  number: number;
+  kanji: string;
+  kana: string;
+  romaji: string;
+  alt?: {
+    kana: string;
+    romaji: string;
+  };
+  note?: string;
 }
 
 // Quiz Types

@@ -143,3 +143,15 @@ generate luôn
 
 bây giờ tôi thấy việc grammar ở mỗi bài khá phân tán và khó nhớ, khó hệ thống
 bật mode plan và tạo plan để tạo 1 section grammar riêng: tổng hợp, tip, ghi nhớ, mẫu, ...
+
+chạy test ở local
+
+bạn tự test
+
+không search được ra grammar ngoại trừ so sánh
+
+chưa vào được  http://localhost:8000
+
+thực hiện tạo plan để chuyển toàn bộ project từ html + css sang framework FE
+
+check branch và commit theo best practice => thêm skill
