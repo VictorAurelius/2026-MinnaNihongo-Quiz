@@ -53,3 +53,12 @@ export type {
   GrammarViewMode,
   GroupedPatterns
 } from './grammar';
+
+export type {
+  // HSK types
+  HSKWord,
+  HSKGroup,
+  HSKGroupId
+} from './hsk';
+
+export { HSK_GROUPS } from './hsk';

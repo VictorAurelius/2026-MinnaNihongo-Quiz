@@ -4,7 +4,7 @@
  * 337 words
  */
 
-import type { HSKWord } from './types';
+import type { HSKWord } from '$lib/types/hsk';
 
 export const HSK5_A: HSKWord[] = [
   { chinese: "阿姨", pinyin: "āyí", vietnamese: "Dì" },

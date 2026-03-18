@@ -2,7 +2,7 @@
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import { HSK5_DATA } from '$lib/data/hsk';
-  import type { HSKWord } from '$lib/data/hsk/types';
+  import type { HSKWord } from '$lib/types/hsk';
 
   let searchTerm = '';
   let sortBy: 'pinyin' | 'chinese' | 'vietnamese' = 'pinyin';
