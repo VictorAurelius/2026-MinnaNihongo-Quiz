@@ -32,12 +32,7 @@ jobs:
           cd svelte-app
           npm ci
 
-      - name: Run tests
-        run: |
-          cd svelte-app
-          npm test -- --run
-
-      - name: Check coverage
+      - name: Run tests with coverage
         run: |
           cd svelte-app
           npm run test:coverage-check
