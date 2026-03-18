@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Grammar Test (Cache Busted)</title>
+  <style>
+    body { font-family: monospace; padding: 20px; background: #1e1e1e; color: #d4d4d4; }
+    .pass { color: #10b981; font-weight: bold; font-size: 20px; }
+    .fail { color: #ef4444; font-weight: bold; font-size: 20px; }
+    .count { color: #fbbf24; font-size: 32px; font-weight: bold; }
+    pre { background: #2d2d2d; padding: 10px; border-radius: 5px; max-height: 200px; overflow: auto; }
+    .section { margin: 20px 0; padding: 15px; background: #2d2d2d; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>🔧 Grammar Fix Test (Cache Busted)</h1>
+  <p style="color: #fbbf24;">⚠️ This page forces browser to reload all scripts</p>
+  <div id="output"></div>
+
+  <!-- Load with cache-busting timestamp -->
+  <script>
+    const timestamp = Date.now();
+    const scripts = [
+      'js/data/minna/lesson-01.js',
+      'js/data/minna/lesson-02.js',
+      'js/data/minna/lesson-03.js',
+      'js/data/minna/lesson-04.js',
+      'js/data/minna/lesson-05.js',
+      'js/data/minna/lesson-06.js',
+      'js/data/minna/lesson-07.js',
+      'js/data/minna/lesson-08.js',
+      'js/data/minna/lesson-09.js',
+      'js/data/minna/lesson-10.js',
+      'js/data/minna/grammar-index.js',
+      'js/data/minna/grammar-metadata.js',
+      'js/core/grammar-utils.js'
+    ];
+
+    let loadedCount = 0;
+    const totalScripts = scripts.length;
+
+    scripts.forEach(src => {
+      const script = document.createElement('script');
+      script.src = `${src}?t=${timestamp}`;
+      script.onload = () => {
+        loadedCount++;
+        console.log(`Loaded: ${src} (${loadedCount}/${totalScripts})`);
+        if (loadedCount === totalScripts) {
+          runTests();
+        }
+      };
+      script.onerror = (e) => {
+        console.error(`Failed to load: ${src}`, e);
+      };
+      document.head.appendChild(script);
+    });
+
+    function runTests() {
+      const output = document.getElementById('output');
+
+      function log(msg, className = '') {
+        const p = document.createElement('p');
+        p.className = className;
+        p.innerHTML = msg;
+        output.appendChild(p);
+      }
+
+      function logJSON(label, data) {
+        const div = document.createElement('div');
+        div.className = 'section';
+        div.innerHTML = `<strong>${label}:</strong>`;
+        const pre = document.createElement('pre');
+        pre.textContent = JSON.stringify(data, null, 2);
+        div.appendChild(pre);
+        output.appendChild(div);
+      }
+
+      // Test 1: Check window.LESSON_01_DATA
+      log('<div class="section"><h2>TEST 1: Check window.LESSON_01_DATA</h2>');
+      console.log('LESSON_01_DATA:', window.LESSON_01_DATA);
+
+      if (window.LESSON_01_DATA) {
+        log('✓ PASS: window.LESSON_01_DATA exists', 'pass');
+        log(`Title: ${window.LESSON_01_DATA.title}`);
+        log(`Grammar count: ${window.LESSON_01_DATA.grammar?.length || 0}`);
+        if (window.LESSON_01_DATA.grammar && window.LESSON_01_DATA.grammar[0]) {
+          logJSON('First grammar pattern', window.LESSON_01_DATA.grammar[0]);
+        }
+      } else {
+        log('✗ FAIL: window.LESSON_01_DATA is undefined', 'fail');
+        log('Checking what is defined in window:', 'fail');
+        const lessonKeys = Object.keys(window).filter(k => k.includes('LESSON'));
+        log(`Found keys: ${lessonKeys.join(', ') || 'NONE'}`, 'fail');
+      }
+      log('</div>');
+
+      // Test 2: Check all lessons
+      log('<div class="section"><h2>TEST 2: Check all 25 lessons</h2>');
+      let loadedLessons = 0;
+      let totalGrammar = 0;
+      const lessonDetails = [];
+
+      for (let i = 1; i <= 25; i++) {
+        const key = `LESSON_${String(i).padStart(2, '0')}_DATA`;
+        if (window[key]) {
+          loadedLessons++;
+          const count = window[key].grammar?.length || 0;
+          totalGrammar += count;
+          if (count > 0) {
+            lessonDetails.push(`L${i}: ${count} patterns`);
+          }
+        }
+      }
+
+      if (loadedLessons === 25) {
+        log(`✓ PASS: All 25 lessons loaded`, 'pass');
+        log(`<span class="count">Total: ${totalGrammar} grammar patterns</span>`);
+        log(`<pre>${lessonDetails.join('\n')}</pre>`);
+      } else {
+        log(`✗ FAIL: Only ${loadedLessons}/25 lessons loaded`, 'fail');
+      }
+      log('</div>');
+
+      // Test 3: Check getAllGrammar()
+      log('<div class="section"><h2>TEST 3: Check getAllGrammar()</h2>');
+      if (window.QuizApp?.grammarIndex) {
+        const allGrammar = window.QuizApp.grammarIndex.getAllGrammar();
+        console.log('getAllGrammar() returned:', allGrammar);
+
+        if (allGrammar.length > 0) {
+          log(`✓ PASS: getAllGrammar() returned ${allGrammar.length} patterns`, 'pass');
+          logJSON('First pattern from index', allGrammar[0]);
+          logJSON('Last pattern from index', allGrammar[allGrammar.length - 1]);
+        } else {
+          log('✗ FAIL: getAllGrammar() returned 0 patterns', 'fail');
+        }
+      } else {
+        log('✗ FAIL: grammarIndex not loaded', 'fail');
+      }
+      log('</div>');
+
+      // Test 4: Test search
+      log('<div class="section"><h2>TEST 4: Test search for "は"</h2>');
+      if (window.QuizApp?.grammarIndex && window.QuizApp?.grammarUtils) {
+        const allGrammar = window.QuizApp.grammarIndex.getAllGrammar();
+        const merged = window.QuizApp.grammarUtils.mergeGrammarWithMetadata(allGrammar);
+        const searchResults = window.QuizApp.grammarUtils.searchGrammar(merged, 'は');
+
+        console.log('Search results:', searchResults);
+
+        if (searchResults.length > 0) {
+          log(`✓ PASS: Search found ${searchResults.length} results`, 'pass');
+          logJSON('First search result', searchResults[0]);
+        } else {
+          log('✗ FAIL: Search returned 0 results', 'fail');
+        }
+      } else {
+        log('✗ FAIL: Utils not loaded', 'fail');
+      }
+      log('</div>');
+
+      // Final summary
+      log('<div class="section">');
+      log('<h2>========================================</h2>');
+      if (loadedLessons === 25 && totalGrammar > 0) {
+        log('🎉 <span class="pass count">SUCCESS!</span>', 'pass');
+        log(`<span class="count">Grammar Reference is WORKING with ${totalGrammar} patterns!</span>`, 'pass');
+      } else {
+        log('❌ <span class="fail count">FAILED</span>', 'fail');
+        log('Still have issues - check console for errors', 'fail');
+      }
+      log('</div>');
+    }
+  </script>
+</body>
+</html>
