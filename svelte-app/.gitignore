@@ -8,3 +8,11 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Testing
+coverage/
+coverage-summary.json
+.nyc_output/
+playwright-report/
+test-results/
+*.lcov
