@@ -52,7 +52,11 @@
       "Bash(npm create:*)",
       "Bash(npm install:*)",
       "Bash(npm run check:*)",
-      "Bash(timeout 10 npm run dev:*)"
+      "Bash(timeout 10 npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(du:*)",
+      "Bash(do gzip -c \"$f\")",
+      "Bash(sort:*)"
     ]
   }
 }

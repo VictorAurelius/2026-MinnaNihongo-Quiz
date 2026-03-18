@@ -48,15 +48,37 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'lesson-data': ['$lib/data/minna/lessons'],
-          'grammar-data': ['$lib/data/minna/grammar']
+        manualChunks: (id) => {
+          // Split lesson data into separate chunks
+          if (id.includes('data/minna/lessons')) {
+            return 'lesson-data';
+          }
+          // Split grammar data into separate chunks
+          if (id.includes('data/minna/grammar')) {
+            return 'grammar-data';
+          }
+          // Split HSK data into separate chunks
+          if (id.includes('data/hsk')) {
+            return 'hsk-data';
+          }
+          // Split large node_modules into vendor chunks
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         }
       }
     },
     target: 'esnext',
     minify: 'terser',
-    sourcemap: false
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info']
+      }
+    },
+    sourcemap: false,
+    chunkSizeWarningLimit: 600
   },
   server: {
     port: 5173,
