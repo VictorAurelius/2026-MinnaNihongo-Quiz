@@ -63,7 +63,9 @@
       "WebFetch(domain:github.com)",
       "Bash(tree:*)",
       "Bash(head:*)",
-      "Bash(npm run test:*)"
+      "Bash(npm run test:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run feature:*)"
     ]
   }
 }

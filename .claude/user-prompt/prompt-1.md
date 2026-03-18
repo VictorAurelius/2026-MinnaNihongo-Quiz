@@ -168,3 +168,24 @@ plan theo chuẩn superpowers chưa?
 tôi muốn refactor chủ yếu các folder khác ngoài svelte-app cơ
 
 refactor cả thư mục .claude nữa
+
+fix workflow, check CI pass
+
+lỗi:
+_app/immutable/entry/start.CwlKgCVA.js:1  Failed to load resource: the server responded with a status of 404 ()
+_app/immutable/chunks/Bsd6C5Md.js:1  Failed to load resource: the server responded with a status of 404 ()
+_app/immutable/entry/app.DDtDXFZn.js:1  Failed to load resource: the server responded with a status of 404 ()
+2026-Smart-Quiz/:1 Uncaught (in promise) TypeError: Failed to fetch dynamically imported module: https://victoraurelius.github.io/_app/immutable/entry/start.CwlKgCVA.js
+manifest.json:1  Failed to load resource: the server responded with a status of 404 ()
+2026-Smart-Quiz/:1 Manifest fetch from https://victoraurelius.github.io/manifest.json failed, code 404
+onboarding.js:28 Uncaught (in promise) undefined
+manifest.json:1  Failed to load resource: the server responded with a status of 404 ()
+
+
+Hãy tạo plan chuẩn superpowers để viết test cho svelte-app đủ UT, IT, ECE
+
+cấp toàn bộ quyền cho bash để tránh hỏi quyền
+
+vẫn hỏi quyền cho lệnh cat này
+
+tôi chưa hài lòng với quy trình fix này, mỗi lần fix hoặc feature, test phải tạo branch, fix, tạo pull request, cập nhật lại skill

@@ -7,7 +7,11 @@
     "start": "python3 -m http.server -d src 8080 || python -m SimpleHTTPServer 8080",
     "dev": "npx http-server src -p 8080 -o",
     "test": "node -c src/js/app.js && echo '✅ JavaScript syntax OK'",
-    "validate": "npm run test"
+    "validate": "npm run test",
+    "feature": "bash scripts/workflow/feature.sh",
+    "fix": "bash scripts/workflow/fix.sh",
+    "docs": "bash scripts/workflow/docs.sh",
+    "test:add": "bash scripts/workflow/test.sh"
   },
   "keywords": [
     "japanese",
