@@ -65,7 +65,10 @@
       "Bash(head:*)",
       "Bash(npm run test:*)",
       "Bash(npm test:*)",
-      "Bash(npm run feature:*)"
+      "Bash(npm run feature:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(npm run test:add:*)"
     ]
   }
 }
