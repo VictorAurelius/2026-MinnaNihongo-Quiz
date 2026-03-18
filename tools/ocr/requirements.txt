@@ -1,0 +1,6 @@
+pytesseract>=0.3.10
+pdf2image>=1.16.0
+pillow>=10.0.0
+pypinyin>=0.49.0
+deep-translator>=1.11.0
+easyocr>=1.7.0
