@@ -1,0 +1,87 @@
+name: Auto-Merge on Tests Pass
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: read
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: svelte-app/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd svelte-app
+          npm ci
+
+      - name: Run tests
+        run: |
+          cd svelte-app
+          npm test -- --run
+
+      - name: Check coverage
+        run: |
+          cd svelte-app
+          npm run test:coverage-check
+
+  auto-merge:
+    name: Auto-Merge PR
+    needs: test
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' || contains(github.event.pull_request.labels.*.name, 'auto-merge') || startsWith(github.head_ref, 'test/') || startsWith(github.head_ref, 'docs/') }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Auto-merge PR
+        uses: pascalgn/automerge-action@v0.16.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_LABELS: "auto-merge,!do-not-merge"
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "pull-request-title"
+          MERGE_DELETE_BRANCH: true
+          UPDATE_METHOD: "rebase"
+
+      - name: Update skill stats
+        if: success()
+        run: |
+          # Update git-pr-workflow.md with latest stats
+          bash scripts/workflow/update-skill-stats.sh || echo "Skill stats update skipped"
+
+  notify:
+    name: Notify on Failure
+    needs: test
+    runs-on: ubuntu-latest
+    if: failure()
+
+    steps:
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ **Tests failed!** Please fix the failing tests before merging.\n\nSee workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+            })
