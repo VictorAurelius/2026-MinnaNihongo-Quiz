@@ -68,7 +68,8 @@
       "Bash(npm run feature:*)",
       "Bash(gh pr checks:*)",
       "Bash(gh pr merge:*)",
-      "Bash(npm run test:add:*)"
+      "Bash(npm run test:add:*)",
+      "Bash(npm run docs:*)"
     ]
   }
 }
