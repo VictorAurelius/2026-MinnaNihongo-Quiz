@@ -5,14 +5,42 @@ import path from 'path';
 export default defineConfig({
   plugins: [svelte({ hot: !process.env.VITEST })],
   test: {
-    include: ['src/**/*.{test,spec}.{js,ts}'],
     globals: true,
     environment: 'jsdom',
-    setupFiles: ['./src/tests/setup.ts']
+    setupFiles: ['./src/tests/setup.ts'],
+    include: ['src/**/*.{test,spec}.{js,ts}'],
+    exclude: [
+      'node_modules',
+      '.svelte-kit',
+      'build',
+      'dist',
+      '.git',
+      '.cache'
+    ],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html', 'lcov'],
+      exclude: [
+        'node_modules/',
+        'src/tests/',
+        '**/*.d.ts',
+        '**/*.config.*',
+        '**/mockData',
+        'src/lib/data/**', // Generated data files
+        '.svelte-kit/**'
+      ],
+      thresholds: {
+        lines: 80,
+        functions: 75,
+        branches: 70,
+        statements: 80
+      }
+    }
   },
   resolve: {
     alias: {
-      $lib: path.resolve('./src/lib')
+      '$lib': path.resolve(__dirname, './src/lib'),
+      '$app': path.resolve(__dirname, './.svelte-kit/runtime/app')
     }
   }
 });

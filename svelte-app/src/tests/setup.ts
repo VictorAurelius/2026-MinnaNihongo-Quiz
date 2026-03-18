@@ -1,59 +1,95 @@
-/**
- * Test setup file
- * Configures the test environment and global utilities
- */
+import '@testing-library/jest-dom';
+import { vi } from 'vitest';
 
-/**
- * Test setup file
- * Configures the test environment and global utilities
- */
+// Mock SvelteKit modules
+vi.mock('$app/environment', () => ({
+  browser: true,
+  dev: false,
+  building: false,
+  version: 'test'
+}));
 
-import { expect, afterEach } from 'vitest';
-import { cleanup } from '@testing-library/svelte';
-import * as matchers from '@testing-library/jest-dom/matchers';
+vi.mock('$app/navigation', () => ({
+  goto: vi.fn(),
+  invalidate: vi.fn(),
+  invalidateAll: vi.fn(),
+  preloadData: vi.fn(),
+  preloadCode: vi.fn(),
+  beforeNavigate: vi.fn(),
+  afterNavigate: vi.fn()
+}));
 
-// Extend Vitest's expect with jest-dom matchers
-expect.extend(matchers);
+vi.mock('$app/stores', () => {
+  const readable = (value: any) => ({
+    subscribe: (fn: (value: any) => void) => {
+      fn(value);
+      return () => {};
+    }
+  });
 
-// Cleanup after each test
-afterEach(() => {
-  cleanup();
+  return {
+    page: readable({
+      url: new URL('http://localhost:5173'),
+      params: {},
+      route: { id: null },
+      status: 200,
+      error: null,
+      data: {},
+      state: {},
+      form: undefined
+    }),
+    navigating: readable(null),
+    updated: {
+      check: vi.fn(),
+      subscribe: readable(false).subscribe
+    }
+  };
 });
 
-// Type declaration for global augmentation
-declare global {
-  // eslint-disable-next-line no-var
-  var localStorage: Storage;
-  // eslint-disable-next-line no-var
-  var speechSynthesis: SpeechSynthesis;
-}
-
 // Mock localStorage
-const localStorageMock = {
-  getItem: (key: string): string | null => {
-    return null;
-  },
-  setItem: (key: string, value: string): void => {
-    // Mock implementation
-  },
-  removeItem: (key: string): void => {
-    // Mock implementation
-  },
-  clear: (): void => {
-    // Mock implementation
-  }
-};
+const localStorageMock = (() => {
+  let store: Record<string, string> = {};
 
-globalThis.localStorage = localStorageMock as Storage;
+  return {
+    getItem: (key: string) => store[key] || null,
+    setItem: (key: string, value: string) => {
+      store[key] = value.toString();
+    },
+    removeItem: (key: string) => {
+      delete store[key];
+    },
+    clear: () => {
+      store = {};
+    },
+    get length() {
+      return Object.keys(store).length;
+    },
+    key: (index: number) => {
+      const keys = Object.keys(store);
+      return keys[index] || null;
+    }
+  };
+})();
 
-// Mock speechSynthesis
-globalThis.speechSynthesis = {
-  speak: () => {},
-  cancel: () => {},
-  pause: () => {},
-  resume: () => {},
-  getVoices: () => [],
-  speaking: false,
-  pending: false,
-  paused: false
-} as any;
+global.localStorage = localStorageMock as any;
+
+// Mock window.matchMedia for theme tests
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: vi.fn().mockImplementation(query => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+  })),
+});
+
+// Reset mocks before each test
+beforeEach(() => {
+  vi.clearAllMocks();
+  localStorage.clear();
+});
