@@ -4,7 +4,7 @@
  * 330 words
  */
 
-import type { HSKWord } from './types';
+import type { HSKWord } from '$lib/types/hsk';
 
 export const HSK5_E: HSKWord[] = [
   // TODO: Migrate 330 words from /mnt/f/2026-Smart-Quiz/src/js/data/hsk/hsk5-e.js

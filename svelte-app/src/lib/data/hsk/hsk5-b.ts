@@ -4,7 +4,7 @@
  * 299 words
  */
 
-import type { HSKWord } from './types';
+import type { HSKWord } from '$lib/types/hsk';
 
 export const HSK5_B: HSKWord[] = [
   // TODO: Migrate 299 words from /src/js/data/hsk/hsk5-b.js

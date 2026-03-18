@@ -3,7 +3,7 @@
  * Barrel export for all HSK groups
  */
 
-import type { HSKGroup } from './types';
+import type { HSKGroup } from '$lib/types/hsk';
 import { HSK5_A } from './hsk5-a';
 import { HSK5_B } from './hsk5-b';
 import { HSK5_C } from './hsk5-c';
@@ -19,4 +19,3 @@ export const HSK5_DATA: HSKGroup[] = [
 ];
 
 export { HSK5_A, HSK5_B, HSK5_C, HSK5_D, HSK5_E };
-export * from './types';
