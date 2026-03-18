@@ -189,3 +189,170 @@ cấp toàn bộ quyền cho bash để tránh hỏi quyền
 vẫn hỏi quyền cho lệnh cat này
 
 tôi chưa hài lòng với quy trình fix này, mỗi lần fix hoặc feature, test phải tạo branch, fix, tạo pull request, cập nhật lại skill
+
+cập nhật next_actions để thực hiện tiếp task còn lại sau
+
+---
+
+## ✅ Completed (2026-03-19)
+
+### Phase 2: Unit Tests - DONE
+- ✅ 83 tests - grammarUtils (filtering, searching, sorting)
+- ✅ 69 tests - quizUtils (generation, validation, normalization)
+- ✅ 73 tests - stores (quiz, ui with localStorage)
+- ✅ 4 tests - setup
+- ✅ PR #1 merged: Workflow automation system
+- ✅ PR #2 merged: Component tests for common components
+
+### Phase 3: Component Tests - IN PROGRESS
+**✅ Common Components (5/5) - 127 tests**
+- ✅ Button.svelte (28 tests) - variants, sizes, icons, interactions
+- ✅ Card.svelte (22 tests) - padding, hover, clickable states
+- ✅ Modal.svelte (27 tests) - open/close, keyboard, accessibility
+- ✅ ProgressBar.svelte (28 tests) - calculation, text positions
+- ✅ BackButton.svelte (22 tests) - navigation, history fallback
+
+**Current Status**: 356/356 tests passing
+
+---
+
+## 🎯 Next Actions
+
+### Phase 3: Component Tests - Continue
+
+#### 1️⃣ Quiz Components (Priority: HIGH)
+Tạo tests cho các quiz components trong `src/lib/components/quiz/`:
+
+**FlashCard.svelte** (~25-30 tests)
+- [ ] Rendering (show question/answer sides)
+- [ ] Flip animation behavior
+- [ ] Answer reveal on click
+- [ ] Navigation (next/prev buttons)
+- [ ] Quiz completion state
+- [ ] Keyboard interactions (Space to flip)
+- [ ] Accessibility (ARIA labels)
+
+**MultipleChoice.svelte** (~25-30 tests)
+- [ ] Rendering options (4 choices)
+- [ ] Option selection behavior
+- [ ] Correct/incorrect feedback
+- [ ] Submit button state
+- [ ] Disabled state after answer
+- [ ] Keyboard navigation (1-4 keys)
+- [ ] Accessibility (radio buttons)
+
+**TypingQuiz.svelte** (~30-35 tests)
+- [ ] Input rendering
+- [ ] Answer validation (exact/normalized)
+- [ ] Submit on Enter
+- [ ] Clear input button
+- [ ] Correct/incorrect feedback
+- [ ] Case-insensitive matching
+- [ ] Trim whitespace handling
+- [ ] Virtual keyboard integration
+
+**VirtualKeyboard.svelte** (~20-25 tests)
+- [ ] Rendering keyboard layout
+- [ ] Key click handling
+- [ ] Character insertion
+- [ ] Special keys (space, backspace, clear)
+- [ ] Show/hide toggle
+- [ ] Multiple layouts (hiragana/katakana/romaji)
+- [ ] Accessibility
+
+**Target**: ~100-120 quiz component tests
+
+#### 2️⃣ Grammar Components (Priority: MEDIUM)
+Tạo tests cho grammar components trong `src/lib/components/grammar/`:
+
+**GrammarCard.svelte** (~20-25 tests)
+- [ ] Rendering grammar info (pattern, meaning, usage)
+- [ ] Example sentences display
+- [ ] Expand/collapse behavior
+- [ ] JLPT level badge
+- [ ] Function category display
+
+**ComparisonCard.svelte** (~15-20 tests)
+- [ ] Side-by-side comparison rendering
+- [ ] Difference highlighting
+- [ ] Usage notes display
+- [ ] Examples for each pattern
+
+**GrammarFilter.svelte** (~20-25 tests)
+- [ ] Category filter dropdown
+- [ ] Function filter
+- [ ] JLPT level filter
+- [ ] Lesson number filter
+- [ ] Search input
+- [ ] Clear all filters
+- [ ] Multiple filter combinations
+
+**Target**: ~55-70 grammar component tests
+
+#### 3️⃣ Testing Commands
+```bash
+# Test individual component
+npm test -- src/tests/components/quiz/FlashCard.test.ts --run
+
+# Test all quiz components
+npm test -- src/tests/components/quiz/*.test.ts --run
+
+# Test all grammar components
+npm test -- src/tests/components/grammar/*.test.ts --run
+
+# Run all component tests
+npm test -- src/tests/components/**/*.test.ts --run
+
+# Full test suite
+npm test -- --run
+```
+
+#### 4️⃣ Workflow để commit tests
+```bash
+# Sau khi tạo xong tests, dùng automation workflow:
+npm run test:add "add quiz component tests (FlashCard, MultipleChoice, TypingQuiz, VirtualKeyboard)"
+
+# Hoặc cho grammar components:
+npm run test:add "add grammar component tests (GrammarCard, ComparisonCard, GrammarFilter)"
+```
+
+#### 5️⃣ Coverage Target
+- **Current**: 356 tests passing
+- **Target after Phase 3**: ~500-550 tests
+  - Common components: 127 tests ✅
+  - Quiz components: ~120 tests (pending)
+  - Grammar components: ~70 tests (pending)
+  - Utility + Store tests: 229 tests ✅
+- **Coverage goal**: Maintain 80%+ lines, 75%+ functions
+
+---
+
+## 📋 Phase 4: E2E Tests (Next Phase)
+Sau khi hoàn thành Phase 3, sẽ chuyển sang E2E tests với Playwright:
+- [ ] User flows: Home → Lesson → Quiz → Results
+- [ ] Grammar search and filtering
+- [ ] Quiz modes switching
+- [ ] Dark mode toggle
+- [ ] PWA installation
+- [ ] Mobile responsive testing
+
+---
+
+## 💡 Tips
+1. **Copy pattern từ tests đã có**: Button.test.ts, Modal.test.ts có pattern tốt để tham khảo
+2. **Mock stores nếu cần**: Quiz components có thể cần mock quiz store
+3. **Test user interactions**: Dùng `userEvent` thay vì `fireEvent` khi có thể
+4. **Accessibility**: Luôn test ARIA attributes và keyboard navigation
+5. **Edge cases**: Test empty state, loading state, error state
+6. **Use automation**: Luôn dùng `npm run test:add` để tạo PR tự động
+
+---
+
+## 🔄 Workflow Reminder
+```bash
+# 1. Tạo test files
+# 2. Run tests locally: npm test -- path/to/test.ts --run
+# 3. Commit với automation: npm run test:add "description"
+# 4. Wait for CI to pass and auto-merge
+# 5. Continue với component tiếp theo
+```
