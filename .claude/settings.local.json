@@ -56,7 +56,14 @@
       "Bash(npm run build:*)",
       "Bash(du:*)",
       "Bash(do gzip -c \"$f\")",
-      "Bash(sort:*)"
+      "Bash(sort:*)",
+      "Bash(gh run:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(tree:*)",
+      "Bash(head:*)",
+      "Bash(npm run test:*)"
     ]
   }
 }
