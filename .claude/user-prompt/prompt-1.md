@@ -144,7 +144,7 @@ generate luôn
 bây giờ tôi thấy việc grammar ở mỗi bài khá phân tán và khó nhớ, khó hệ thống
 bật mode plan và tạo plan để tạo 1 section grammar riêng: tổng hợp, tip, ghi nhớ, mẫu, ...
 
-chạy test ở local
+chạy test ở localcontinue
 
 bạn tự test
 
@@ -155,3 +155,16 @@ chưa vào được  http://localhost:8000
 thực hiện tạo plan để chuyển toàn bộ project từ html + css sang framework FE
 
 check branch và commit theo best practice => thêm skill
+
+cài đặt https://github.com/obra/superpowers cho dự án
+giao tiếp bằng tiếng việt
+
+đánh giá nên cài đặt superpower plugin hay custom hóa skill vào cho dự án
+
+Thực hiện tạo PR refactor lại toàn bộ file của dự án theo chuẩn cấu trúc hơn
+
+plan theo chuẩn superpowers chưa?
+
+tôi muốn refactor chủ yếu các folder khác ngoài svelte-app cơ
+
+refactor cả thư mục .claude nữa
