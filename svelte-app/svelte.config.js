@@ -13,6 +13,9 @@ const config = {
       precompress: true,
       strict: true
     }),
+    paths: {
+      base: process.env.NODE_ENV === 'production' ? '/2026-Smart-Quiz' : ''
+    },
     alias: {
       '$lib': './src/lib',
       '$lib/*': './src/lib/*'
