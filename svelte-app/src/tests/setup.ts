@@ -3,6 +3,11 @@
  * Configures the test environment and global utilities
  */
 
+/**
+ * Test setup file
+ * Configures the test environment and global utilities
+ */
+
 import { expect, afterEach } from 'vitest';
 import { cleanup } from '@testing-library/svelte';
 import * as matchers from '@testing-library/jest-dom/matchers';
@@ -14,6 +19,14 @@ expect.extend(matchers);
 afterEach(() => {
   cleanup();
 });
+
+// Type declaration for global augmentation
+declare global {
+  // eslint-disable-next-line no-var
+  var localStorage: Storage;
+  // eslint-disable-next-line no-var
+  var speechSynthesis: SpeechSynthesis;
+}
 
 // Mock localStorage
 const localStorageMock = {
@@ -31,10 +44,10 @@ const localStorageMock = {
   }
 };
 
-global.localStorage = localStorageMock as Storage;
+globalThis.localStorage = localStorageMock as Storage;
 
 // Mock speechSynthesis
-global.speechSynthesis = {
+globalThis.speechSynthesis = {
   speak: () => {},
   cancel: () => {},
   pause: () => {},
