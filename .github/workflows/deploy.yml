@@ -45,7 +45,7 @@ jobs:
           NODE_ENV: production
 
       - name: Run E2E tests
-        run: cd svelte-app && npx playwright test --project=chromium
+        run: cd svelte-app && npm run test:e2e -- --project=chromium
         env:
           CI: true
 
