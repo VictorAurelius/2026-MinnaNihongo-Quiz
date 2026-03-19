@@ -3,6 +3,14 @@
  */
 
 export type {
+  // Course types
+  CourseId,
+  CourseMetadata,
+  LessonMetadata,
+  Course
+} from './course';
+
+export type {
   // Lesson types
   VocabItem,
   GrammarItem,

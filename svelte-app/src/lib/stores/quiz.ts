@@ -5,11 +5,13 @@
 
 import { writable, derived } from 'svelte/store';
 import type { QuizState, QuizQuestion, QuizMode, QuizDirection } from '$lib/types';
+import type { CourseId } from '$lib/types/course';
 
 // Initial state
 const initialState: QuizState = {
   mode: 'flashcard',
   direction: 'ja-vi',
+  courseId: 'n5',
   lessonNumber: 1,
   questions: [],
   currentIndex: 0,
@@ -55,12 +57,14 @@ export const accuracy = derived(
 export function startQuiz(
   mode: QuizMode,
   direction: QuizDirection,
+  courseId: CourseId,
   lessonNumber: number,
   questions: QuizQuestion[]
 ) {
   quizStore.set({
     mode,
     direction,
+    courseId,
     lessonNumber,
     questions,
     currentIndex: 0,
