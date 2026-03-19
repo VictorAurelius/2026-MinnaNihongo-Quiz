@@ -12,15 +12,16 @@
   export let showIcon = true;
   export let text = 'Back';
 
-  function getParentPath(pathname: string): string {
+  function getParentPath(fullPathname: string): string {
+    // Strip base path first to get route-only path
+    const routePath = fullPathname.startsWith(base) && base
+      ? fullPathname.slice(base.length) || '/'
+      : fullPathname;
     // /lesson/1/vocabulary → /lesson/1
-    // /lesson/1/grammar → /lesson/1
     // /lesson/1 → /
     // /quiz/flashcard → /
     // /hsk/a → /hsk
-    // /results → /
-    // /alphabet → /
-    const parts = pathname.split('/').filter(Boolean);
+    const parts = routePath.split('/').filter(Boolean);
     if (parts.length <= 1) return '/';
     parts.pop();
     return '/' + parts.join('/');
