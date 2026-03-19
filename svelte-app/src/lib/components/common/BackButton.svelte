@@ -1,22 +1,37 @@
 <script lang="ts">
   /**
    * Back Button Component
-   * Navigates back in browser history
+   * Navigates to parent route (hierarchical, not browser history)
    */
 
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+  import { page } from '$app/stores';
 
-  export let fallbackPath = '/';
+  export let href: string | undefined = undefined;
   export let showIcon = true;
   export let text = 'Back';
 
+  function getParentPath(pathname: string): string {
+    // /lesson/1/vocabulary → /lesson/1
+    // /lesson/1/grammar → /lesson/1
+    // /lesson/1 → /
+    // /quiz/flashcard → /
+    // /hsk/a → /hsk
+    // /results → /
+    // /alphabet → /
+    const parts = pathname.split('/').filter(Boolean);
+    if (parts.length <= 1) return '/';
+    parts.pop();
+    return '/' + parts.join('/');
+  }
+
   function handleBack() {
-    // Try to go back in history, fallback to specified path
-    if (window.history.length > 1) {
-      window.history.back();
+    if (href) {
+      goto(`${base}${href}`);
     } else {
-      goto(`${base}${fallbackPath}`);
+      const parent = getParentPath($page.url.pathname);
+      goto(`${base}${parent}`);
     }
   }
 </script>
