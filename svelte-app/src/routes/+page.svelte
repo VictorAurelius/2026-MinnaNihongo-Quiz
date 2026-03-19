@@ -7,6 +7,7 @@
   import { getLessonMetadata } from '$lib/data/minna/lessons';
   import Card from '$lib/components/common/Card.svelte';
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
 
   const lessons = getLessonMetadata();
 
@@ -14,7 +15,7 @@
   let activeCourse: 'jlpt' | 'hsk' = 'jlpt';
 
   function handleLessonClick(lessonNumber: number) {
-    goto(`/lesson/${lessonNumber}`);
+    goto(`${base}/lesson/${lessonNumber}`);
   }
 </script>
 

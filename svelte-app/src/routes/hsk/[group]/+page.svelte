@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { HSK5_DATA } from '$lib/data/hsk';
   import type { HSKWord } from '$lib/types/hsk';
 
@@ -38,7 +39,7 @@
   }
 
   function goBack() {
-    goto('/hsk');
+    goto(`${base}/hsk`);
   }
 
   const hasAudio = typeof window !== 'undefined' && 'speechSynthesis' in window;

@@ -5,6 +5,7 @@
 
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { onMount } from 'svelte';
   import { getLessonData } from '$lib/data/minna/lessons';
   import { quizStore, startQuiz, answerCorrect, answerWrong, nextQuestion, isComplete, progress, currentQuestion } from '$lib/stores';
@@ -26,7 +27,7 @@
 
   onMount(() => {
     if (!lessonData) {
-      goto('/');
+      goto(`${base}/`);
       return;
     }
 
@@ -42,7 +43,7 @@
     // Check if quiz is complete
     setTimeout(() => {
       if ($isComplete) {
-        goto('/results');
+        goto(`${base}/results`);
       }
     }, 300);
   }
@@ -54,7 +55,7 @@
     // Check if quiz is complete
     setTimeout(() => {
       if ($isComplete) {
-        goto('/results');
+        goto(`${base}/results`);
       }
     }, 300);
   }

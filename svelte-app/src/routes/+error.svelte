@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { base } from '$app/paths';
   import BackButton from '$lib/components/common/BackButton.svelte';
 
   $: error = $page.error;
@@ -25,7 +26,7 @@
 
     <div class="actions">
       <BackButton />
-      <a href="/" class="btn-primary">Về trang chủ</a>
+      <a href="{base}/" class="btn-primary">Về trang chủ</a>
     </div>
   </div>
 </div>
