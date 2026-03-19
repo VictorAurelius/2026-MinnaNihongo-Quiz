@@ -19,6 +19,7 @@
 
   function getPageTitle(p: string): string {
     if (p === '/' || p === '') return 'Smart Quiz';
+    if (p === '/lessons') return 'Lessons';
     if (p.match(/^\/lesson\/\d+\/vocabulary/)) return 'Vocabulary';
     if (p.match(/^\/lesson\/\d+\/grammar/)) return 'Grammar';
     if (p.startsWith('/lesson/')) return 'Lesson Menu';
@@ -75,21 +76,25 @@
 <!-- Bottom navigation on home page -->
 {#if isHome}
   <nav class="section-nav">
+    <a href="{base}/lessons" class="nav-link">
+      <span class="nav-icon">日</span>
+      <span>Lessons</span>
+    </a>
+    <a href="{base}/kanji" class="nav-link">
+      <span class="nav-icon">漢</span>
+      <span>Kanji</span>
+    </a>
     <a href="{base}/alphabet" class="nav-link">
       <span class="nav-icon">あ</span>
       <span>Alphabet</span>
-    </a>
-    <a href="{base}/counters" class="nav-link">
-      <span class="nav-icon">数</span>
-      <span>Counters</span>
     </a>
     <a href="{base}/grammar-reference" class="nav-link">
       <span class="nav-icon">文</span>
       <span>Grammar</span>
     </a>
-    <a href="{base}/kanji" class="nav-link">
-      <span class="nav-icon">漢</span>
-      <span>Kanji</span>
+    <a href="{base}/counters" class="nav-link">
+      <span class="nav-icon">数</span>
+      <span>Counters</span>
     </a>
     <a href="{base}/hsk" class="nav-link">
       <span class="nav-icon">中</span>
