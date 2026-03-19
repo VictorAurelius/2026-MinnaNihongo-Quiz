@@ -15,7 +15,8 @@ export default defineConfig({
       'build',
       'dist',
       '.git',
-      '.cache'
+      '.cache',
+      'src/tests/e2e/**'
     ],
     coverage: {
       provider: 'v8',
