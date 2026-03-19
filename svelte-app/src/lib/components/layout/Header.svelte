@@ -10,12 +10,15 @@
   import { base } from '$app/paths';
   import BackButton from '../common/BackButton.svelte';
 
-  $: pathname = $page.url.pathname;
-  $: isHome = pathname === '/';
+  // Strip base path from pathname for route matching
+  $: pathname = $page.url.pathname.startsWith(base) && base
+    ? $page.url.pathname.slice(base.length) || '/'
+    : $page.url.pathname;
+  $: isHome = pathname === '/' || pathname === '';
   $: pageTitle = getPageTitle(pathname);
 
   function getPageTitle(p: string): string {
-    if (p === '/') return 'Smart Quiz';
+    if (p === '/' || p === '') return 'Smart Quiz';
     if (p.match(/^\/lesson\/\d+\/vocabulary/)) return 'Vocabulary';
     if (p.match(/^\/lesson\/\d+\/grammar/)) return 'Grammar';
     if (p.startsWith('/lesson/')) return 'Lesson Menu';
