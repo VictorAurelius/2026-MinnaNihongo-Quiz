@@ -5,6 +5,7 @@
    */
 
   import { getLessonMetadata } from '$lib/data/minna/lessons';
+  import { HSK5_DATA } from '$lib/data/hsk';
   import Card from '$lib/components/common/Card.svelte';
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
@@ -16,6 +17,10 @@
 
   function handleLessonClick(lessonNumber: number) {
     goto(`${base}/lesson/${lessonNumber}`);
+  }
+
+  function handleHSKGroupClick(groupId: string) {
+    goto(`${base}/hsk/${groupId}`);
   }
 </script>
 
@@ -72,15 +77,21 @@
     </div>
   {/if}
 
-  <!-- HSK Coming Soon -->
+  <!-- HSK Groups -->
   {#if activeCourse === 'hsk'}
-    <div class="hsk-coming-soon">
-      <div class="hsk-coming-soon-icon">🚧</div>
-      <h3>HSK Vocabulary Coming Soon</h3>
-      <p>
-        We're working on adding HSK vocabulary lessons.<br />
-        Check back later for Chinese language learning content!
-      </p>
+    <div class="lesson-grid">
+      {#each HSK5_DATA as group}
+        <Card hover clickable on:click={() => handleHSKGroupClick(group.id)}>
+          <div class="lesson-number">HSK 5 - {group.id.toUpperCase()}</div>
+          <div class="lesson-title">{group.title}</div>
+          <div class="lesson-meta">
+            {group.words.length} từ vựng
+          </div>
+          <div class="lesson-progress-bar">
+            <div class="fill" style="width: 0%"></div>
+          </div>
+        </Card>
+      {/each}
     </div>
   {/if}
 </div>

@@ -8,6 +8,7 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { getLessonData } from '$lib/data/minna/lessons';
+  import { kanaToRomaji } from '$lib/utils/kanaUtils';
   import BackButton from '$lib/components/common/BackButton.svelte';
   import type { VocabItem } from '$lib/types';
 
@@ -105,6 +106,7 @@
             {#if item.kana && item.kana !== item.japanese}
               <div class="vocab-kana">{item.kana}</div>
             {/if}
+            <div class="vocab-romaji">{kanaToRomaji(item.kana)}</div>
           </div>
           <div class="vocab-meanings">
             <div class="vocab-vietnamese">{item.vietnamese}</div>
@@ -276,6 +278,13 @@
     font-family: var(--font-jp);
     font-size: 0.85rem;
     color: var(--primary);
+  }
+
+  .vocab-romaji {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    letter-spacing: 0.02em;
   }
 
   .vocab-vietnamese {
