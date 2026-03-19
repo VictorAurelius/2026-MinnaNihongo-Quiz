@@ -12,17 +12,23 @@
   export let showIcon = true;
   export let text = 'Back';
 
+  // Routes that should go directly to home when back is pressed
+  const HOME_PARENTS = new Set(['lesson', 'quiz', 'results', 'alphabet', 'counters', 'grammar-reference', 'hsk']);
+
   function getParentPath(fullPathname: string): string {
     // Strip base path first to get route-only path
     const routePath = fullPathname.startsWith(base) && base
       ? fullPathname.slice(base.length) || '/'
       : fullPathname;
     // /lesson/1/vocabulary → /lesson/1
-    // /lesson/1 → /
-    // /quiz/flashcard → /
+    // /lesson/1 → / (home, not /lesson)
+    // /quiz/flashcard → / (home)
     // /hsk/a → /hsk
+    // /alphabet → /
     const parts = routePath.split('/').filter(Boolean);
     if (parts.length <= 1) return '/';
+    // If parent would be a top-level route like /lesson, /quiz → go home
+    if (parts.length === 2 && HOME_PARENTS.has(parts[0])) return '/';
     parts.pop();
     return '/' + parts.join('/');
   }
