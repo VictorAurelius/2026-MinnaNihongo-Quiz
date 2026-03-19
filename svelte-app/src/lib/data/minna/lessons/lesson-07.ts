@@ -253,6 +253,38 @@ export const LESSON_07_DATA: LessonData = {
         english: "Europe",
         example: "来年　ヨーロッパへ　旅行します。"
       },
+      {
+        japanese: "パソコン",
+        kana: "パソコン",
+        vietnamese: "máy vi tính cá nhân",
+        type: "main",
+        english: "Personal computer",
+        example: "わたしは　パソコンで　仕事を　します。"
+      },
+      {
+        japanese: "携帯電話（けいたいでんわ）",
+        kana: "けいたいでんわ",
+        vietnamese: "điện thoại di động",
+        type: "main",
+        english: "Mobile phone, cell phone",
+        example: "携帯電話を　使います。"
+      },
+      {
+        japanese: "メール",
+        kana: "メール",
+        vietnamese: "thư điện tử, email",
+        type: "main",
+        english: "Email",
+        example: "メールを　送ります。"
+      },
+      {
+        japanese: "年賀状（ねんがじょう）",
+        kana: "ねんがじょう",
+        vietnamese: "thiệp mừng năm mới",
+        type: "main",
+        english: "New Year's greeting card",
+        example: "年賀状を　書きます。"
+      },
       // Supplementary Vocabulary (参考語彙) - Family Members
       {
         japanese: "父（ちち）",
