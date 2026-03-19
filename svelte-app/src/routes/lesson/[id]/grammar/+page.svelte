@@ -44,9 +44,6 @@
 {#if lessonData}
   <div class="grammar-page">
     <div class="page-header">
-      <div class="header-top">
-        <button class="btn-back" on:click={goBack}>← Back to Lesson</button>
-      </div>
       <h2>📖 Grammar - Bài {lessonData.lessonNumber}</h2>
       <p class="subtitle">{lessonData.title}</p>
       <p class="pattern-count">{grammar.length} ngữ pháp</p>
