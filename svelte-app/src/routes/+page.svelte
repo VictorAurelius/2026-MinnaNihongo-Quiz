@@ -6,13 +6,15 @@
 
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
-  import { getLessonMetadata } from '$lib/data/minna/lessons';
+  import { getAllCourses } from '$lib/data/courses';
   import { getKanjiLessonMetadata } from '$lib/data/kanji/lessons';
   import { HSK5_DATA } from '$lib/data/hsk';
 
-  const lessonCount = getLessonMetadata().length;
+  const courses = getAllCourses();
+  const totalLessons = courses.reduce((sum, c) => sum + c.metadata.lessonCount, 0);
+  const totalVocab = courses.reduce((sum, c) =>
+    sum + c.getAllLessons().reduce((s, l) => s + l.vocabulary.length, 0), 0);
   const kanjiCount = getKanjiLessonMetadata().reduce((sum, l) => sum + l.kanjiCount, 0);
-  const vocabCount = getLessonMetadata().reduce((sum, l) => sum + l.vocabCount, 0);
   const hskWordCount = HSK5_DATA.reduce((sum, g) => sum + g.words.length, 0);
 </script>
 
@@ -32,12 +34,12 @@
     </p>
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-number">{lessonCount}</span>
+        <span class="stat-number">{totalLessons}</span>
         <span class="stat-label">Lessons</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-number">{vocabCount}+</span>
+        <span class="stat-number">{totalVocab}+</span>
         <span class="stat-label">Words</span>
       </div>
       <div class="stat-divider"></div>
@@ -58,15 +60,21 @@
     <h2 class="sections-title">Start Learning</h2>
 
     <div class="section-grid">
-      <!-- Minna no Nihongo -->
-      <button class="section-card card-lessons" on:click={() => goto(`${base}/lessons`)}>
-        <div class="card-icon">📚</div>
-        <div class="card-content">
-          <h3>Minna no Nihongo</h3>
-          <p>{lessonCount} lessons — vocabulary, grammar &amp; quiz</p>
-        </div>
-        <span class="card-arrow">→</span>
-      </button>
+      <!-- Japanese Courses -->
+      {#each courses as course}
+        <button
+          class="section-card card-lessons"
+          style="--course-color: {course.metadata.color}"
+          on:click={() => goto(`${base}/course/${course.metadata.id}`)}
+        >
+          <div class="card-icon">{course.metadata.icon}</div>
+          <div class="card-content">
+            <h3>{course.metadata.title}</h3>
+            <p>{course.metadata.description}</p>
+          </div>
+          <span class="card-arrow">→</span>
+        </button>
+      {/each}
 
       <!-- Kanji -->
       <button class="section-card card-kanji" on:click={() => goto(`${base}/kanji`)}>

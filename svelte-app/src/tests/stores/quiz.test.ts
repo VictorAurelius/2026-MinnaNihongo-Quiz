@@ -48,6 +48,7 @@ describe('quiz store', () => {
 
       expect(state.mode).toBe('flashcard');
       expect(state.direction).toBe('ja-vi');
+      expect(state.courseId).toBe('n5');
       expect(state.lessonNumber).toBe(1);
       expect(state.questions).toEqual([]);
       expect(state.currentIndex).toBe(0);
