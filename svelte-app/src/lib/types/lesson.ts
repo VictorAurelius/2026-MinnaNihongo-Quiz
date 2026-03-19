@@ -114,6 +114,31 @@ export interface NumberData {
   note?: string;
 }
 
+// Kanji Types
+export interface KanjiExampleWord {
+  word: string;       // "会社"
+  kana: string;       // "かいしゃ"
+  meaning: string;    // "company"
+  vietnamese: string; // "công ty"
+}
+
+export interface KanjiItem {
+  character: string;    // "会"
+  onyomi: string[];     // ["カイ"]
+  kunyomi: string[];    // ["あ.う"]
+  strokeCount: number;
+  jlpt: number;         // 5 or 4
+  vietnamese: string;   // "hội"
+  english: string;      // "meet, association"
+  examples: KanjiExampleWord[];
+}
+
+export interface KanjiLessonData {
+  lessonNumber: number;
+  title: string;
+  kanji: KanjiItem[];
+}
+
 // Quiz Types
 export type QuizMode = 'flashcard' | 'multiple-choice' | 'typing';
 export type QuizDirection = 'ja-vi' | 'vi-ja' | 'ja-en' | 'en-ja';
