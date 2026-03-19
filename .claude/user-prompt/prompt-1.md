@@ -356,3 +356,12 @@ Sau khi hoàn thành Phase 3, sẽ chuyển sang E2E tests với Playwright:
 # 4. Wait for CI to pass and auto-merge
 # 5. Continue với component tiếp theo
 ```
+
+add-vocab-to-lesson
+bài 7:
+1. cắt
+2. các từ vựng về gia đình có trong sách
+
+các từ về gia đình trong bài 7 còn rất nhiều như vợ, chồng, con gái, con trai, ông bà, bố mẹ, anh em, vợ chồng, con cái
+
+đương nhiên là cả của mình và của người khác
