@@ -356,3 +356,13 @@ Sau khi hoàn thành Phase 3, sẽ chuyển sang E2E tests với Playwright:
 # 4. Wait for CI to pass and auto-merge
 # 5. Continue với component tiếp theo
 ```
+
+check status hiện tại để hiểu tôi đã hoàn thành nhiều PR
+
+trong quá trình học tập mỗi bài trong core 25 bài, tôi cần thêm từ vựng mới vào bài đó, hãy tạo riêng 1 skill để thực hiện việc này
+
+ví dụ bài 7 cần thêm các từ:
+1. máy vi tính cá nhân
+2. điện thoại di động
+3. thư điện tử, email
+4. thiệp mừng năm mới
