@@ -7,20 +7,23 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
-  import { getLessonData } from '$lib/data/minna/lessons';
+  import { getCourse } from '$lib/data/courses';
+  import { parseCourseFromUrl } from '$lib/utils/courseUtils';
   import { quizStore, startQuiz, answerCorrect, answerWrong, nextQuestion, isComplete, progress, currentQuestion } from '$lib/stores';
   import { generateQuestions, generateMCOptions } from '$lib/utils/quizUtils';
   import FlashCard from '$lib/components/quiz/FlashCard.svelte';
   import MultipleChoice from '$lib/components/quiz/MultipleChoice.svelte';
   import TypingQuiz from '$lib/components/quiz/TypingQuiz.svelte';
   import ProgressBar from '$lib/components/common/ProgressBar.svelte';
-  import type { QuizMode, QuizDirection } from '$lib/types';
+  import type { QuizMode, QuizDirection, CourseId } from '$lib/types';
 
   $: mode = $page.params.mode as QuizMode;
+  $: courseId = parseCourseFromUrl($page.url.searchParams);
   $: lessonId = parseInt($page.url.searchParams.get('lesson') || '0');
   $: direction = ($page.url.searchParams.get('direction') || 'ja-vi') as QuizDirection;
 
-  $: lessonData = lessonId > 0 ? getLessonData(lessonId) : null;
+  $: course = getCourse(courseId);
+  $: lessonData = course?.getLessonData(lessonId) ?? null;
 
   let mcOptions: string[] = [];
   let flipped = false;
@@ -33,7 +36,7 @@
 
     // Generate questions
     const questions = generateQuestions(lessonData.vocabulary, direction);
-    startQuiz(mode, direction, lessonId, questions);
+    startQuiz(mode, direction, courseId, lessonId, questions);
   });
 
   function handleCorrect(event: CustomEvent) {

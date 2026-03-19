@@ -154,6 +154,7 @@ export interface QuizQuestion {
 export interface QuizState {
   mode: QuizMode;
   direction: QuizDirection;
+  courseId: string; // 'n5' | 'n4' - using string for flexibility
   lessonNumber: number;
   questions: QuizQuestion[];
   currentIndex: number;

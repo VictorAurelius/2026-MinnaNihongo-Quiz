@@ -1,0 +1,50 @@
+/**
+ * Course Utility Functions
+ * Helper functions for course navigation and URL handling
+ */
+
+import type { CourseId } from '$lib/types/course';
+
+/**
+ * Build URL for a specific lesson in a course
+ */
+export function buildLessonUrl(courseId: CourseId, lessonNumber: number): string {
+  return `/course/${courseId}/lesson/${lessonNumber}`;
+}
+
+/**
+ * Build URL for a quiz with course and lesson parameters
+ */
+export function buildQuizUrl(courseId: CourseId, mode: string, lessonNumber: number): string {
+  return `/quiz/${mode}?course=${courseId}&lesson=${lessonNumber}`;
+}
+
+/**
+ * Build URL for vocabulary page
+ */
+export function buildVocabularyUrl(courseId: CourseId, lessonNumber: number): string {
+  return `/course/${courseId}/lesson/${lessonNumber}/vocabulary`;
+}
+
+/**
+ * Build URL for grammar page
+ */
+export function buildGrammarUrl(courseId: CourseId, lessonNumber: number): string {
+  return `/course/${courseId}/lesson/${lessonNumber}/grammar`;
+}
+
+/**
+ * Parse course ID from URL search parameters
+ * Defaults to 'n5' if not specified or invalid
+ */
+export function parseCourseFromUrl(searchParams: URLSearchParams): CourseId {
+  const course = searchParams.get('course');
+  return (course === 'n5' || course === 'n4') ? course : 'n5';
+}
+
+/**
+ * Validate if a string is a valid CourseId
+ */
+export function isValidCourseId(courseId: string): courseId is CourseId {
+  return courseId === 'n5' || courseId === 'n4';
+}

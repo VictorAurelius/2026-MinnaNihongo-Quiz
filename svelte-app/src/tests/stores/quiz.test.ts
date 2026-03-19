@@ -31,8 +31,7 @@ const createQuestion = (id: string = 'q-1'): QuizQuestion => ({
     vietnamese: 'Xin chào',
     english: 'Hello',
     kana: 'こんにちは',
-    romaji: 'konnichiwa',
-    lesson: 1
+    type: 'main'
   }
 });
 
@@ -48,6 +47,7 @@ describe('quiz store', () => {
 
       expect(state.mode).toBe('flashcard');
       expect(state.direction).toBe('ja-vi');
+      expect(state.courseId).toBe('n5');
       expect(state.lessonNumber).toBe(1);
       expect(state.questions).toEqual([]);
       expect(state.currentIndex).toBe(0);
@@ -60,6 +60,7 @@ describe('quiz store', () => {
       const newState = {
         mode: 'typing' as QuizMode,
         direction: 'vi-ja' as QuizDirection,
+        courseId: 'n5' as const,
         lessonNumber: 5,
         questions: [createQuestion()],
         currentIndex: 0,
@@ -84,14 +85,14 @@ describe('quiz store', () => {
 
     it('should be false when not all questions answered', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       expect(get(isComplete)).toBe(false);
     });
 
     it('should be true when all questions answered', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
       answerCorrect();
@@ -101,7 +102,7 @@ describe('quiz store', () => {
 
     it('should update reactively', () => {
       const questions = [createQuestion()];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       expect(get(isComplete)).toBe(false);
 
@@ -118,7 +119,7 @@ describe('quiz store', () => {
         createQuestion('q-2'),
         createQuestion('q-3')
       ];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       const prog = get(progress);
 
@@ -132,7 +133,7 @@ describe('quiz store', () => {
         createQuestion('q-1'),
         createQuestion('q-2')
       ];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
 
@@ -145,7 +146,7 @@ describe('quiz store', () => {
 
     it('should show 100% when complete', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
       answerCorrect();
@@ -156,7 +157,7 @@ describe('quiz store', () => {
     });
 
     it('should handle empty questions', () => {
-      startQuiz('flashcard', 'ja-vi', 1, []);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, []);
 
       const prog = get(progress);
 
@@ -173,7 +174,7 @@ describe('quiz store', () => {
 
     it('should return first question at start', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       const current = get(currentQuestion);
 
@@ -183,7 +184,7 @@ describe('quiz store', () => {
 
     it('should update when moving to next question', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       nextQuestion();
 
@@ -194,7 +195,7 @@ describe('quiz store', () => {
 
     it('should return null when all questions completed', () => {
       const questions = [createQuestion('q-1')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       nextQuestion();
 
@@ -209,7 +210,7 @@ describe('quiz store', () => {
 
     it('should calculate 100% for all correct', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
       answerCorrect();
@@ -219,7 +220,7 @@ describe('quiz store', () => {
 
     it('should calculate 0% for all wrong', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerWrong();
       answerWrong();
@@ -229,7 +230,7 @@ describe('quiz store', () => {
 
     it('should calculate 50% for half correct', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
       answerWrong();
@@ -243,7 +244,7 @@ describe('quiz store', () => {
         createQuestion('q-2'),
         createQuestion('q-3')
       ];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
       answerWrong();
@@ -259,7 +260,7 @@ describe('quiz store', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
       const before = Date.now();
 
-      startQuiz('multiple-choice', 'vi-ja', 3, questions);
+      startQuiz('multiple-choice', 'vi-ja', 'n5', 3, questions);
 
       const state = get(quizStore);
       const after = Date.now();
@@ -277,11 +278,11 @@ describe('quiz store', () => {
 
     it('should reset previous quiz state', () => {
       const questions1 = [createQuestion('q-1')];
-      startQuiz('flashcard', 'ja-vi', 1, questions1);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions1);
       answerCorrect();
 
       const questions2 = [createQuestion('q-2'), createQuestion('q-3')];
-      startQuiz('typing', 'en-ja', 5, questions2);
+      startQuiz('typing', 'en-ja', 'n5', 5, questions2);
 
       const state = get(quizStore);
 
@@ -293,7 +294,7 @@ describe('quiz store', () => {
     });
 
     it('should handle empty questions array', () => {
-      startQuiz('flashcard', 'ja-vi', 1, []);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, []);
 
       const state = get(quizStore);
 
@@ -305,7 +306,7 @@ describe('quiz store', () => {
   describe('answerCorrect action', () => {
     it('should increment score', () => {
       const questions = [createQuestion()];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
 
@@ -314,7 +315,7 @@ describe('quiz store', () => {
 
     it('should increment currentIndex', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
 
@@ -323,7 +324,7 @@ describe('quiz store', () => {
 
     it('should not add to wrongItems', () => {
       const questions = [createQuestion()];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
 
@@ -336,7 +337,7 @@ describe('quiz store', () => {
         createQuestion('q-2'),
         createQuestion('q-3')
       ];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
       answerCorrect();
@@ -353,7 +354,7 @@ describe('quiz store', () => {
   describe('answerWrong action', () => {
     it('should not increment score', () => {
       const questions = [createQuestion()];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerWrong();
 
@@ -362,7 +363,7 @@ describe('quiz store', () => {
 
     it('should increment currentIndex', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerWrong();
 
@@ -371,7 +372,7 @@ describe('quiz store', () => {
 
     it('should add current question to wrongItems', () => {
       const questions = [createQuestion('q-1')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerWrong();
 
@@ -387,7 +388,7 @@ describe('quiz store', () => {
         createQuestion('q-2'),
         createQuestion('q-3')
       ];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerWrong();
       answerWrong();
@@ -404,7 +405,7 @@ describe('quiz store', () => {
   describe('nextQuestion action', () => {
     it('should increment currentIndex', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       nextQuestion();
 
@@ -413,7 +414,7 @@ describe('quiz store', () => {
 
     it('should not change score', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       nextQuestion();
 
@@ -422,7 +423,7 @@ describe('quiz store', () => {
 
     it('should not add to wrongItems', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       nextQuestion();
 
@@ -431,7 +432,7 @@ describe('quiz store', () => {
 
     it('should allow going past last question', () => {
       const questions = [createQuestion('q-1')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       nextQuestion();
       nextQuestion();
@@ -443,7 +444,7 @@ describe('quiz store', () => {
   describe('previousQuestion action', () => {
     it('should decrement currentIndex', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       nextQuestion();
       previousQuestion();
@@ -453,7 +454,7 @@ describe('quiz store', () => {
 
     it('should not go below 0', () => {
       const questions = [createQuestion('q-1')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       previousQuestion();
 
@@ -462,7 +463,7 @@ describe('quiz store', () => {
 
     it('should not change score or wrongItems', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       answerCorrect();
       previousQuestion();
@@ -479,7 +480,7 @@ describe('quiz store', () => {
         createQuestion('q-2'),
         createQuestion('q-3')
       ];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       nextQuestion();
       nextQuestion();
@@ -496,7 +497,7 @@ describe('quiz store', () => {
       const questions = [createQuestion()];
       const before = Date.now();
 
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
       endQuiz();
 
       const state = get(quizStore);
@@ -509,7 +510,7 @@ describe('quiz store', () => {
 
     it('should not change other state', () => {
       const questions = [createQuestion('q-1')];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
       answerCorrect();
 
       const stateBefore = get(quizStore);
@@ -527,7 +528,7 @@ describe('quiz store', () => {
   describe('resetQuiz action', () => {
     it('should reset to initial state', () => {
       const questions = [createQuestion('q-1'), createQuestion('q-2')];
-      startQuiz('typing', 'en-ja', 5, questions);
+      startQuiz('typing', 'en-ja', 'n5', 5, questions);
       answerCorrect();
       answerWrong();
       endQuiz();
@@ -548,7 +549,7 @@ describe('quiz store', () => {
 
     it('should have startTime defined', () => {
       const questions = [createQuestion()];
-      startQuiz('flashcard', 'ja-vi', 1, questions);
+      startQuiz('flashcard', 'ja-vi', 'n5', 1, questions);
 
       resetQuiz();
 
