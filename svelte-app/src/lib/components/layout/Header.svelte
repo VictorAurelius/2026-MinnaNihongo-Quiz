@@ -29,6 +29,10 @@
     if (p.startsWith('/counters')) return 'Counters';
     if (p.startsWith('/hsk/')) return 'HSK Vocabulary';
     if (p === '/hsk') return 'HSK 5';
+    if (p.match(/^\/kanji\/\d+\/reference/)) return 'Kanji Reference';
+    if (p.match(/^\/kanji\/\d+\/quiz/)) return 'Kanji Quiz';
+    if (p.match(/^\/kanji\/\d+/)) return 'Kanji Lesson';
+    if (p === '/kanji') return 'Kanji';
     return 'Smart Quiz';
   }
 
@@ -82,6 +86,10 @@
     <a href="{base}/grammar-reference" class="nav-link">
       <span class="nav-icon">文</span>
       <span>Grammar</span>
+    </a>
+    <a href="{base}/kanji" class="nav-link">
+      <span class="nav-icon">漢</span>
+      <span>Kanji</span>
     </a>
     <a href="{base}/hsk" class="nav-link">
       <span class="nav-icon">中</span>

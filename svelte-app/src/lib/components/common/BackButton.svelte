@@ -13,7 +13,7 @@
   export let text = 'Back';
 
   // Routes that should go directly to home when back is pressed
-  const HOME_PARENTS = new Set(['lesson', 'quiz', 'results', 'alphabet', 'counters', 'grammar-reference', 'hsk']);
+  const HOME_PARENTS = new Set(['lesson', 'quiz', 'results', 'alphabet', 'counters', 'grammar-reference', 'hsk', 'kanji']);
 
   function getParentPath(fullPathname: string): string {
     // Strip base path first to get route-only path

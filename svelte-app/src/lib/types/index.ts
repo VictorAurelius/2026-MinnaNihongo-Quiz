@@ -23,6 +23,11 @@ export type {
   AlphabetData,
   AlphabetCombo,
 
+  // Kanji types
+  KanjiExampleWord,
+  KanjiItem,
+  KanjiLessonData,
+
   // Quiz types
   QuizMode,
   QuizDirection,
