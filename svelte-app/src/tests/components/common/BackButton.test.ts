@@ -1,6 +1,6 @@
 /**
  * Component tests for BackButton.svelte
- * Tests navigation behavior, icon/text display, and accessibility
+ * Tests hierarchical navigation, icon/text display, and accessibility
  */
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
@@ -12,14 +12,6 @@ import { goto } from '$app/navigation';
 describe('BackButton Component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    // Mock window.history
-    Object.defineProperty(window, 'history', {
-      writable: true,
-      value: {
-        length: 2,
-        back: vi.fn()
-      }
-    });
   });
 
   describe('Rendering', () => {
@@ -105,68 +97,27 @@ describe('BackButton Component', () => {
   });
 
   describe('Navigation Behavior', () => {
-    it('should call window.history.back() when history exists', async () => {
+    it('should call goto to parent path on click', async () => {
       const user = userEvent.setup();
-      const historySpy = vi.spyOn(window.history, 'back');
-
       render(BackButton);
 
       const button = screen.getByRole('button');
       await user.click(button);
 
-      expect(historySpy).toHaveBeenCalledTimes(1);
-      expect(goto).not.toHaveBeenCalled();
-    });
-
-    it('should call goto with fallbackPath when no history', async () => {
-      const user = userEvent.setup();
-      // Set history length to 1 (no back history)
-      Object.defineProperty(window, 'history', {
-        writable: true,
-        value: { length: 1, back: vi.fn() }
-      });
-
-      render(BackButton, {
-        props: { fallbackPath: '/home' }
-      });
-
-      const button = screen.getByRole('button');
-      await user.click(button);
-
-      expect(goto).toHaveBeenCalledWith('/home');
+      // Default page mock has pathname '/', parent of '/' is '/'
       expect(goto).toHaveBeenCalledTimes(1);
     });
 
-    it('should use default fallbackPath "/" when not specified', async () => {
+    it('should navigate to explicit href when provided', async () => {
       const user = userEvent.setup();
-      Object.defineProperty(window, 'history', {
-        writable: true,
-        value: { length: 1, back: vi.fn() }
-      });
-
-      render(BackButton);
-
-      const button = screen.getByRole('button');
-      await user.click(button);
-
-      expect(goto).toHaveBeenCalledWith('/');
-    });
-
-    it('should handle custom fallbackPath', async () => {
-      const user = userEvent.setup();
-      Object.defineProperty(window, 'history', {
-        writable: true,
-        value: { length: 1, back: vi.fn() }
-      });
-
       render(BackButton, {
-        props: { fallbackPath: '/lessons' }
+        props: { href: '/lesson/1' }
       });
 
       const button = screen.getByRole('button');
       await user.click(button);
 
-      expect(goto).toHaveBeenCalledWith('/lessons');
+      expect(goto).toHaveBeenCalledWith('/lesson/1');
     });
   });
 
@@ -225,7 +176,7 @@ describe('BackButton Component', () => {
         props: {
           showIcon: true,
           text: 'Return',
-          fallbackPath: '/dashboard'
+          href: '/dashboard'
         }
       });
 
@@ -240,27 +191,8 @@ describe('BackButton Component', () => {
   });
 
   describe('Edge Cases', () => {
-    it('should handle history length of 0', async () => {
-      const user = userEvent.setup();
-      Object.defineProperty(window, 'history', {
-        writable: true,
-        value: { length: 0, back: vi.fn() }
-      });
-
-      render(BackButton, {
-        props: { fallbackPath: '/home' }
-      });
-
-      const button = screen.getByRole('button');
-      await user.click(button);
-
-      expect(goto).toHaveBeenCalledWith('/home');
-    });
-
     it('should handle multiple clicks', async () => {
       const user = userEvent.setup();
-      const historySpy = vi.spyOn(window.history, 'back');
-
       render(BackButton);
 
       const button = screen.getByRole('button');
@@ -268,7 +200,7 @@ describe('BackButton Component', () => {
       await user.click(button);
       await user.click(button);
 
-      expect(historySpy).toHaveBeenCalledTimes(3);
+      expect(goto).toHaveBeenCalledTimes(3);
     });
 
     it('should render without text or icon', () => {

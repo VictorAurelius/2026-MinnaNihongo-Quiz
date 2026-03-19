@@ -9,7 +9,6 @@
   import { base } from '$app/paths';
   import { getLessonData } from '$lib/data/minna/lessons';
   import { kanaToRomaji } from '$lib/utils/kanaUtils';
-  import BackButton from '$lib/components/common/BackButton.svelte';
   import type { VocabItem } from '$lib/types';
 
   let searchTerm = '';
@@ -55,9 +54,6 @@
 {#if lessonData}
   <div class="vocab-page">
     <div class="page-header">
-      <div class="header-top">
-        <button class="btn-back" on:click={goBack}>← Back to Lesson</button>
-      </div>
       <h2>📚 Vocabulary - Bài {lessonData.lessonNumber}</h2>
       <p class="subtitle">{lessonData.title}</p>
       <p class="word-count">{vocabulary.length} từ vựng</p>
