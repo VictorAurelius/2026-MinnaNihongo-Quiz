@@ -4,6 +4,8 @@
    * Supports multiple variants and sizes
    */
 
+  import { createEventDispatcher } from 'svelte';
+
   export let variant: 'primary' | 'accent' | 'secondary' | 'success' | 'danger' | 'outline' = 'primary';
   export let size: 'sm' | 'md' | 'lg' = 'md';
   export let disabled = false;
@@ -14,7 +16,7 @@
   export let icon: string | undefined = undefined;
   export let iconPosition: 'left' | 'right' = 'left';
 
-  const Component = href ? 'a' : 'button';
+  const dispatch = createEventDispatcher();
 
   $: classes = [
     'btn',
@@ -22,27 +24,43 @@
     `btn-${size}`,
     icon && 'btn-with-icon'
   ].filter(Boolean).join(' ');
+
+  function handleClick(event: MouseEvent) {
+    dispatch('click', event);
+  }
 </script>
 
-<svelte:element
-  this={Component}
+{#if href}
+<a
   class={classes}
-  {type}
-  {disabled}
-  href={href || undefined}
-  on:click
+  {href}
   {...$$restProps}
 >
   {#if icon && iconPosition === 'left'}
     <span class="btn-icon">{icon}</span>
   {/if}
-
   <slot />
-
   {#if icon && iconPosition === 'right'}
     <span class="btn-icon">{icon}</span>
   {/if}
-</svelte:element>
+</a>
+{:else}
+<button
+  class={classes}
+  {type}
+  {disabled}
+  on:click={handleClick}
+  {...$$restProps}
+>
+  {#if icon && iconPosition === 'left'}
+    <span class="btn-icon">{icon}</span>
+  {/if}
+  <slot />
+  {#if icon && iconPosition === 'right'}
+    <span class="btn-icon">{icon}</span>
+  {/if}
+</button>
+{/if}
 
 <style>
   .btn {
