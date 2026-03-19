@@ -6,6 +6,7 @@
 
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { getLessonData } from '$lib/data/minna/lessons';
   import Button from '$lib/components/common/Button.svelte';
   import Card from '$lib/components/common/Card.svelte';
@@ -14,15 +15,15 @@
   $: lessonData = lessonId > 0 ? getLessonData(lessonId) : null;
 
   function startQuiz(mode: 'flashcard' | 'multiple-choice' | 'typing') {
-    goto(`/quiz/${mode}?lesson=${lessonId}`);
+    goto(`${base}/quiz/${mode}?lesson=${lessonId}`);
   }
 
   function viewVocabulary() {
-    goto(`/lesson/${lessonId}/vocabulary`);
+    goto(`${base}/lesson/${lessonId}/vocabulary`);
   }
 
   function viewGrammar() {
-    goto(`/lesson/${lessonId}/grammar`);
+    goto(`${base}/lesson/${lessonId}/grammar`);
   }
 </script>
 
@@ -101,7 +102,7 @@
   <div class="error-state">
     <h2>Lesson Not Found</h2>
     <p>The lesson you're looking for doesn't exist.</p>
-    <Button variant="primary" on:click={() => goto('/')}>
+    <Button variant="primary" on:click={() => goto(`${base}/`)}>
       Back to Home
     </Button>
   </div>

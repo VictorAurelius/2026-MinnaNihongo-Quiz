@@ -5,6 +5,7 @@
    */
 
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
 
   export let fallbackPath = '/';
   export let showIcon = true;
@@ -15,7 +16,7 @@
     if (window.history.length > 1) {
       window.history.back();
     } else {
-      goto(fallbackPath);
+      goto(`${base}${fallbackPath}`);
     }
   }
 </script>

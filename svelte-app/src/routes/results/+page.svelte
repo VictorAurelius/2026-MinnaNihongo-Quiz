@@ -5,6 +5,7 @@
    */
 
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { quizStore, resetQuiz } from '$lib/stores';
   import { calculateStats, formatDuration } from '$lib/utils/quizUtils';
   import Button from '$lib/components/common/Button.svelte';
@@ -16,7 +17,7 @@
     : '0:00';
 
   function retryQuiz() {
-    goto(`/quiz/${$quizStore.mode}?lesson=${$quizStore.lessonNumber}&direction=${$quizStore.direction}`);
+    goto(`${base}/quiz/${$quizStore.mode}?lesson=${$quizStore.lessonNumber}&direction=${$quizStore.direction}`);
   }
 
   function reviewWrong() {
@@ -26,12 +27,12 @@
 
   function backToLesson() {
     resetQuiz();
-    goto(`/lesson/${$quizStore.lessonNumber}`);
+    goto(`${base}/lesson/${$quizStore.lessonNumber}`);
   }
 
   function backToHome() {
     resetQuiz();
-    goto('/');
+    goto(`${base}/`);
   }
 
   // Calculate stroke-dasharray for circular progress

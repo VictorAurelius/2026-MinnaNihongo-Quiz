@@ -1,9 +1,10 @@
 <script lang="ts">
   import { HSK5_DATA } from '$lib/data/hsk';
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
 
   function navigateToGroup(groupId: string) {
-    goto(`/hsk/${groupId}`);
+    goto(`${base}/hsk/${groupId}`);
   }
 </script>
 
