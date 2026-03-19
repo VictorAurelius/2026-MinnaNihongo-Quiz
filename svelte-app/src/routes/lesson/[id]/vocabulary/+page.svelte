@@ -30,12 +30,13 @@
     );
   });
 
-  function speak(text: string) {
+  function speak(text: string, event?: MouseEvent) {
+    event?.stopPropagation();
     if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'ja-JP';
       utterance.rate = 0.8;
-      window.speechSynthesis.cancel();
       window.speechSynthesis.speak(utterance);
     }
   }
@@ -102,7 +103,7 @@
             {#if item.kana && item.kana !== item.japanese}
               <div class="vocab-kana">{item.kana}</div>
             {/if}
-            <div class="vocab-romaji">{kanaToRomaji(item.kana)}</div>
+            <div class="vocab-romaji" aria-hidden="true">{kanaToRomaji(item.kana)}</div>
           </div>
           <div class="vocab-meanings">
             <div class="vocab-vietnamese">{item.vietnamese}</div>
@@ -111,7 +112,7 @@
           <div class="vocab-meta">
             <span class="type-badge type-{item.type}">{item.type}</span>
             {#if hasAudio}
-              <button class="btn-speak" on:click={() => speak(item.japanese)} title="Listen">
+              <button class="btn-speak" on:click={(e) => speak(item.kana, e)} title="Listen">
                 🔊
               </button>
             {/if}
