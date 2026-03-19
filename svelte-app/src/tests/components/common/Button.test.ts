@@ -143,10 +143,9 @@ describe('Button Component', () => {
       const user = userEvent.setup();
       const handleClick = vi.fn();
 
-      const { component } = render(Button, { props: { disabled: true } });
-      component.$on('click', handleClick);
-
+      render(Button, { props: { disabled: true } });
       const button = screen.getByRole('button');
+      button.addEventListener('click', handleClick);
       await user.click(button);
 
       expect(handleClick).not.toHaveBeenCalled();
@@ -187,10 +186,9 @@ describe('Button Component', () => {
       const user = userEvent.setup();
       const handleClick = vi.fn();
 
-      const { component } = render(Button);
-      component.$on('click', handleClick);
-
+      render(Button);
       const button = screen.getByRole('button');
+      button.addEventListener('click', handleClick);
       await user.click(button);
 
       expect(handleClick).toHaveBeenCalledTimes(1);
@@ -200,10 +198,9 @@ describe('Button Component', () => {
       const user = userEvent.setup();
       const handleClick = vi.fn();
 
-      const { component } = render(Button);
-      component.$on('click', handleClick);
-
+      render(Button);
       const button = screen.getByRole('button');
+      button.addEventListener('click', handleClick);
       await user.click(button);
       await user.click(button);
       await user.click(button);

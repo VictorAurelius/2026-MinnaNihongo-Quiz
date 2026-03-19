@@ -4,9 +4,13 @@
    * Used for lesson cards, quiz cards, etc.
    */
 
+  import { createEventDispatcher } from 'svelte';
+
   export let hover = false;
   export let clickable = false;
   export let padding: 'sm' | 'md' | 'lg' = 'md';
+
+  const dispatch = createEventDispatcher();
 
   $: classes = [
     'card',
@@ -14,9 +18,15 @@
     clickable && 'card-clickable',
     `card-padding-${padding}`
   ].filter(Boolean).join(' ');
+
+  function handleClick(event: MouseEvent) {
+    dispatch('click', event);
+  }
 </script>
 
-<div class={classes} on:click {...$$restProps}>
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<div class={classes} on:click={handleClick} {...$$restProps}>
   <slot />
 </div>
 

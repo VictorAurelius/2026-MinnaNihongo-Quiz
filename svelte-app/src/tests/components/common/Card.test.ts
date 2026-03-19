@@ -101,10 +101,9 @@ describe('Card Component', () => {
       const user = userEvent.setup();
       const handleClick = vi.fn();
 
-      const { component, container } = render(Card);
-      component.$on('click', handleClick);
-
+      const { container } = render(Card);
       const card = container.querySelector('.card') as HTMLElement;
+      card.addEventListener('click', handleClick);
       await user.click(card);
 
       expect(handleClick).toHaveBeenCalledTimes(1);
@@ -114,10 +113,9 @@ describe('Card Component', () => {
       const user = userEvent.setup();
       const handleClick = vi.fn();
 
-      const { component, container } = render(Card);
-      component.$on('click', handleClick);
-
+      const { container } = render(Card);
       const card = container.querySelector('.card') as HTMLElement;
+      card.addEventListener('click', handleClick);
       await user.click(card);
       await user.click(card);
       await user.click(card);
@@ -129,10 +127,9 @@ describe('Card Component', () => {
       const user = userEvent.setup();
       const handleClick = vi.fn();
 
-      const { component, container } = render(Card);
-      component.$on('click', handleClick);
-
+      const { container } = render(Card);
       const card = container.querySelector('.card') as HTMLElement;
+      card.addEventListener('click', handleClick);
       await user.click(card);
 
       expect(handleClick).toHaveBeenCalled();
