@@ -42,10 +42,10 @@
 
 {#if isOpen}
   <div class="modal active">
-    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <!-- svelte-ignore a11y_no_static_element_interactions a11y_click_events_have_key_events -->
     <div class="modal-overlay" on:click={handleOverlayClick}></div>
 
-    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <!-- svelte-ignore a11y_no_static_element_interactions a11y_click_events_have_key_events -->
     <div class="modal-content {maxWidthClass}" on:click={handleContentClick}>
       {#if title || showCloseButton}
         <div class="modal-header">
