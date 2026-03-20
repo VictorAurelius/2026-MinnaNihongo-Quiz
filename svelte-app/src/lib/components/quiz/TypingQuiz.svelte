@@ -8,9 +8,11 @@
   import { createEventDispatcher } from 'svelte';
   import VirtualKeyboard from './VirtualKeyboard.svelte';
   import { showVirtualKeyboard, hideVirtualKeyboard, uiStore } from '$lib/stores';
+  import { checkAnswer as checkQuizAnswer } from '$lib/utils/quizUtils';
 
   export let question: VocabItem;
   export let answer: string;
+  export let isRomaji = false;
 
   const dispatch = createEventDispatcher();
 
@@ -22,9 +24,7 @@
     if (answered || !userInput.trim()) return;
 
     answered = true;
-    const normalized = userInput.trim().toLowerCase();
-    const correctAnswer = answer.toLowerCase();
-    const isCorrect = normalized === correctAnswer;
+    const isCorrect = checkQuizAnswer(userInput, answer, isRomaji);
 
     setTimeout(() => {
       dispatch(isCorrect ? 'correct' : 'wrong', { item: question });
@@ -77,17 +77,24 @@
     }
   }
 
+  $: isAnswerCorrect = checkQuizAnswer(userInput, answer, isRomaji);
   $: inputClass = answered
-    ? userInput.trim().toLowerCase() === answer.toLowerCase()
+    ? isAnswerCorrect
       ? 'typing-input correct'
       : 'typing-input wrong'
     : 'typing-input';
 </script>
 
 <div class="quiz-question-card">
-  <div class="question-label">Type the Japanese reading:</div>
-  <div class="question-text">{question.vietnamese}</div>
-  {#if question.english}
+  <div class="question-label">
+    {#if isRomaji}
+      Type the romaji reading:
+    {:else}
+      Type the answer:
+    {/if}
+  </div>
+  <div class="question-text">{question.japanese || question.vietnamese}</div>
+  {#if !isRomaji && question.english}
     <div class="question-romaji">{question.english}</div>
   {/if}
   <button class="btn-speak btn-speak--fc" on:click={playAudio}>
@@ -101,7 +108,7 @@
     class={inputClass}
     bind:value={userInput}
     on:keydown={handleKeydown}
-    placeholder="Type in Japanese..."
+    placeholder={isRomaji ? "Type romaji..." : "Type your answer..."}
     disabled={answered}
     autocomplete="off"
   />
@@ -130,8 +137,8 @@
 </div>
 
 {#if answered}
-  <div class="feedback" class:correct={userInput.trim().toLowerCase() === answer.toLowerCase()} class:wrong={userInput.trim().toLowerCase() !== answer.toLowerCase()}>
-    {#if userInput.trim().toLowerCase() === answer.toLowerCase()}
+  <div class="feedback" class:correct={isAnswerCorrect} class:wrong={!isAnswerCorrect}>
+    {#if isAnswerCorrect}
       ✓ Correct!
     {:else}
       ✗ Wrong! The correct answer is: {answer}

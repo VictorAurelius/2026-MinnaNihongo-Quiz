@@ -107,6 +107,7 @@
       <TypingQuiz
         question={$currentQuestion.item}
         answer={$currentQuestion.answer}
+        isRomaji={direction === 'ja-romaji'}
         on:correct={handleCorrect}
         on:wrong={handleWrong}
       />
