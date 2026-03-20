@@ -41,7 +41,7 @@ describe('TypingQuiz Component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     Object.defineProperty(window, 'speechSynthesis', {
-      value: { speak: vi.fn() },
+      value: { speak: vi.fn(), cancel: vi.fn() },
       writable: true
     });
     window.SpeechSynthesisUtterance = class {
@@ -259,9 +259,23 @@ describe('TypingQuiz Component', () => {
 
       const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'taberu');
-      await fireEvent.keyDown(input, { key: 'Enter' });
+      // Enter dispatches on window (svelte:window on:keydown)
+      await fireEvent.keyDown(window, { key: 'Enter' });
 
       expect(screen.getByText(/Correct!/)).toBeInTheDocument();
+    });
+
+    it('should show Next Question button after answering', async () => {
+      const user = userEvent.setup();
+      render(TypingQuiz, {
+        props: { question: createMockQuestion(), answer: 'taberu' }
+      });
+
+      const input = screen.getByPlaceholderText('Type your answer...');
+      await user.type(input, 'taberu');
+      await user.click(screen.getByText('Submit Answer'));
+
+      expect(screen.getByText(/Next Question/)).toBeInTheDocument();
     });
   });
 
