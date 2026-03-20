@@ -42,9 +42,11 @@
 
 {#if isOpen}
   <div class="modal active">
-    <div class="modal-overlay" on:click={handleOverlayClick} on:keydown={() => {}}></div>
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div class="modal-overlay" on:click={handleOverlayClick}></div>
 
-    <div class="modal-content {maxWidthClass}" on:click={handleContentClick} on:keydown={() => {}}>
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div class="modal-content {maxWidthClass}" on:click={handleContentClick}>
       {#if title || showCloseButton}
         <div class="modal-header">
           <h2 class="modal-title">{title}</h2>
