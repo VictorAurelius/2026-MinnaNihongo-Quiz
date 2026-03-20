@@ -102,11 +102,14 @@ export function normalizeString(str: string): string {
 
 /**
  * Normalize romaji for flexible comparison
- * Accepts alternative spellings: shi/si, chi/ti, tsu/tu, fu/hu, ji/zi
+ * - Strips spaces (so "sorosoro shitsureishimasu" == "sorosoroshitsureishimasu")
+ * - Long vowel mark: "-" treated as vowel extension (ko-hi- == kouhii)
+ * - Alternative spellings: shi/si, chi/ti, tsu/tu, fu/hu, ji/zi
  */
 function normalizeRomaji(str: string): string {
   return str.toLowerCase().trim()
     .replace(/\s+/g, '')
+    .replace(/-/g, '')
     .replace(/shi/g, 'si')
     .replace(/chi/g, 'ti')
     .replace(/tsu/g, 'tu')
