@@ -23,6 +23,7 @@
   let answered = false;
   let showHint = false;
   let isCorrect = false;
+  let inputEl: HTMLInputElement;
 
   // Reset local state when question changes (new card)
   let prevQuestionText = '';
@@ -33,6 +34,8 @@
     answered = false;
     showHint = false;
     isCorrect = false;
+    // Auto-focus input for next question
+    setTimeout(() => inputEl?.focus(), 50);
   }
   let prevAnswer = '';
 
@@ -60,8 +63,8 @@
       }
       return;
     }
-    // S to speak — only when answered (so it doesn't interfere with typing)
-    if (answered && (event.key === 's' || event.key === 'S')) {
+    // 1 to speak — only when answered (so it doesn't interfere with typing)
+    if (answered && event.key === '1') {
       playAudio();
     }
   }
@@ -131,7 +134,7 @@
     <div class="question-romaji">{question.english}</div>
   {/if}
   <button class="btn-speak btn-speak--fc" on:click={playAudio}>
-    🔊 Speak (S)
+    🔊 Speak (1)
   </button>
 </div>
 
@@ -140,6 +143,7 @@
     type="text"
     class={inputClass}
     bind:value={userInput}
+    bind:this={inputEl}
     placeholder={isRomaji ? "Type romaji..." : "Type your answer..."}
     disabled={answered}
     autocomplete="off"
