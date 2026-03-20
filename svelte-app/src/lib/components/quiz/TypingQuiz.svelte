@@ -58,6 +58,11 @@
       } else {
         advance();
       }
+      return;
+    }
+    // S to speak — only when answered (so it doesn't interfere with typing)
+    if (answered && (event.key === 's' || event.key === 'S')) {
+      playAudio();
     }
   }
 
@@ -126,7 +131,7 @@
     <div class="question-romaji">{question.english}</div>
   {/if}
   <button class="btn-speak btn-speak--fc" on:click={playAudio}>
-    🔊 Speak
+    🔊 Speak (S)
   </button>
 </div>
 
