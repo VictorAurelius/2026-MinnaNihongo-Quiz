@@ -91,6 +91,8 @@
     {#if mode === 'flashcard' && 'japanese' in $currentQuestion.item}
       <FlashCard
         item={$currentQuestion.item}
+        questionText={$currentQuestion.question}
+        answerText={$currentQuestion.answer}
         bind:flipped
         on:correct={handleCorrect}
         on:wrong={handleWrong}
@@ -98,6 +100,7 @@
     {:else if mode === 'multiple-choice' && 'japanese' in $currentQuestion.item}
       <MultipleChoice
         question={$currentQuestion.item}
+        questionText={$currentQuestion.question}
         options={mcOptions}
         answer={$currentQuestion.answer}
         on:correct={handleCorrect}
@@ -106,6 +109,7 @@
     {:else if mode === 'typing' && 'japanese' in $currentQuestion.item}
       <TypingQuiz
         question={$currentQuestion.item}
+        questionText={$currentQuestion.question}
         answer={$currentQuestion.answer}
         isRomaji={direction === 'ja-romaji' || direction === 'vi-romaji'}
         on:correct={handleCorrect}

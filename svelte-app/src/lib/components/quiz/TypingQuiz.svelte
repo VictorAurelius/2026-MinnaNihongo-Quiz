@@ -11,8 +11,11 @@
   import { checkAnswer as checkQuizAnswer } from '$lib/utils/quizUtils';
 
   export let question: VocabItem;
+  export let questionText = '';  // display text (based on direction)
   export let answer: string;
   export let isRomaji = false;
+
+  $: displayText = questionText || question.japanese || question.vietnamese;
 
   const dispatch = createEventDispatcher();
 
@@ -93,7 +96,7 @@
       Type the answer:
     {/if}
   </div>
-  <div class="question-text">{question.japanese || question.vietnamese}</div>
+  <div class="question-text">{displayText}</div>
   {#if !isRomaji && question.english}
     <div class="question-romaji">{question.english}</div>
   {/if}

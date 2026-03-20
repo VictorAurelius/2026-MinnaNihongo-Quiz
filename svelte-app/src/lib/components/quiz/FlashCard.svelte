@@ -8,10 +8,15 @@
   import { createEventDispatcher, afterUpdate } from 'svelte';
 
   export let item: VocabItem;
+  export let questionText = '';  // display text (based on direction)
+  export let answerText = '';    // answer text (based on direction)
   export let showEnglish = true;
   export let autoFlip = false;
   export let autoSpeak = true;
   export let flipped = false;
+
+  $: frontText = questionText || item.japanese;
+  $: backText = answerText || item.vietnamese;
 
   const dispatch = createEventDispatcher();
 
@@ -75,24 +80,18 @@
   bind:this={cardElement}
 >
   <div class="flashcard-inner">
-    <!-- Front Side (Japanese) -->
+    <!-- Front Side (Question) -->
     <div class="flashcard-front">
-      <div class="fc-japanese">{item.japanese}</div>
-      {#if item.kana && item.kana !== item.japanese}
-        <div class="fc-kana">{item.kana}</div>
-      {/if}
+      <div class="fc-japanese">{frontText}</div>
       <div class="hint-text">Click or press Space to flip</div>
       <button class="btn-speak btn-speak--fc" on:click|stopPropagation={playAudio}>
         🔊 Speak
       </button>
     </div>
 
-    <!-- Back Side (Vietnamese/English + Example) -->
+    <!-- Back Side (Answer) -->
     <div class="flashcard-back">
-      <div class="fc-meaning">{item.vietnamese}</div>
-      {#if showEnglish}
-        <div class="fc-english">{item.english}</div>
-      {/if}
+      <div class="fc-meaning">{backText}</div>
       {#if item.example}
         <div class="fc-example">{item.example}</div>
       {/if}
