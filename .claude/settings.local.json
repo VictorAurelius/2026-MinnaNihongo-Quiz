@@ -69,7 +69,13 @@
       "Bash(gh pr checks:*)",
       "Bash(gh pr merge:*)",
       "Bash(npm run test:add:*)",
-      "Bash(npm run docs:*)"
+      "Bash(npm run docs:*)",
+      "Bash(gh pr:*)",
+      "Bash(npx vite:*)",
+      "WebFetch(domain:victoraurelius.github.io)",
+      "Bash(npx vitest:*)",
+      "Bash(rm -rf node_modules package-lock.json)",
+      "Bash(npm i:*)"
     ]
   }
 }
