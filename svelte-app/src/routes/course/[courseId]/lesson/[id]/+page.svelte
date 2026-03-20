@@ -25,7 +25,8 @@
     { value: 'ja-vi', label: 'JP → VN', icon: '🇯🇵→🇻🇳' },
     { value: 'vi-ja', label: 'VN → JP', icon: '🇻🇳→🇯🇵' },
     { value: 'ja-en', label: 'JP → EN', icon: '🇯🇵→🇬🇧' },
-    { value: 'en-ja', label: 'EN → JP', icon: '🇬🇧→🇯🇵' }
+    { value: 'en-ja', label: 'EN → JP', icon: '🇬🇧→🇯🇵' },
+    { value: 'ja-romaji', label: 'JP → Romaji', icon: '🇯🇵→abc' }
   ];
 
   function startQuiz(mode: string) {

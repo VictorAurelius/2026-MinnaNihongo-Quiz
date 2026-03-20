@@ -4,6 +4,7 @@
  */
 
 import type { VocabItem, QuizQuestion, QuizDirection } from '$lib/types';
+import { kanaToRomaji } from './kanaUtils';
 
 /**
  * Shuffle array using Fisher-Yates algorithm
@@ -56,6 +57,8 @@ function getQuestionAndAnswer(
       return { question: item.japanese, answer: item.english };
     case 'en-ja':
       return { question: item.english, answer: item.japanese };
+    case 'ja-romaji':
+      return { question: item.japanese, answer: kanaToRomaji(item.kana) };
     default:
       return { question: item.japanese, answer: item.vietnamese };
   }
@@ -96,9 +99,30 @@ export function normalizeString(str: string): string {
 }
 
 /**
+ * Normalize romaji for flexible comparison
+ * Accepts alternative spellings: shi/si, chi/ti, tsu/tu, fu/hu, ji/zi
+ */
+function normalizeRomaji(str: string): string {
+  return str.toLowerCase().trim()
+    .replace(/\s+/g, '')
+    .replace(/shi/g, 'si')
+    .replace(/chi/g, 'ti')
+    .replace(/tsu/g, 'tu')
+    .replace(/fu/g, 'hu')
+    .replace(/ji/g, 'zi')
+    .replace(/ō/g, 'ou')
+    .replace(/ū/g, 'uu')
+    .replace(/ē/g, 'ei')
+    .replace(/ā/g, 'aa');
+}
+
+/**
  * Check if answer is correct (with normalization)
  */
-export function checkAnswer(userAnswer: string, correctAnswer: string): boolean {
+export function checkAnswer(userAnswer: string, correctAnswer: string, isRomaji = false): boolean {
+  if (isRomaji) {
+    return normalizeRomaji(userAnswer) === normalizeRomaji(correctAnswer);
+  }
   return normalizeString(userAnswer) === normalizeString(correctAnswer);
 }
 
