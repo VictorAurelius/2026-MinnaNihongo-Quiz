@@ -1,7 +1,7 @@
 <script lang="ts">
   /**
    * Course Lesson Menu
-   * Shows quiz modes and study materials for a specific lesson
+   * Shows quiz modes with direction selector, and study materials
    */
 
   import { page } from '$app/stores';
@@ -10,12 +10,26 @@
   import { getCourse } from '$lib/data/courses';
   import { buildQuizUrl, buildVocabularyUrl, buildGrammarUrl } from '$lib/utils/courseUtils';
   import type { CourseId } from '$lib/types/course';
+  import type { QuizDirection } from '$lib/types';
   import Button from '$lib/components/common/Button.svelte';
 
   $: courseId = $page.params.courseId as CourseId;
   $: lessonId = parseInt($page.params.id || '0');
   $: course = getCourse(courseId);
   $: lesson = course?.getLessonData(lessonId);
+
+  // Direction selector state
+  let selectedDirection: QuizDirection = 'ja-vi';
+
+  const directions: { value: QuizDirection; label: string; icon: string }[] = [
+    { value: 'ja-vi', label: 'JP → VN', icon: '🇯🇵→🇻🇳' },
+    { value: 'vi-ja', label: 'VN → JP', icon: '🇻🇳→🇯🇵' },
+    { value: 'vi-romaji', label: 'VN → Romaji', icon: '🇻🇳→abc' }
+  ];
+
+  function startQuiz(mode: string) {
+    goto(buildQuizUrl(courseId, mode, lessonId, selectedDirection));
+  }
 </script>
 
 <svelte:head>
@@ -38,6 +52,23 @@
       </div>
     </div>
 
+    <!-- Direction Selector -->
+    <div class="menu-section">
+      <h2 class="section-title">🔄 Quiz Direction</h2>
+      <div class="direction-grid">
+        {#each directions as dir}
+          <button
+            class="direction-btn"
+            class:active={selectedDirection === dir.value}
+            on:click={() => selectedDirection = dir.value}
+          >
+            <span class="dir-icon">{dir.icon}</span>
+            <span class="dir-label">{dir.label}</span>
+          </button>
+        {/each}
+      </div>
+    </div>
+
     <!-- Quiz Modes -->
     <div class="menu-section">
       <h2 class="section-title">📝 Quiz Modes</h2>
@@ -46,7 +77,7 @@
         variant="primary"
         size="lg"
         icon="🎴"
-        on:click={() => goto(buildQuizUrl(courseId, 'flashcard', lessonId))}
+        on:click={() => startQuiz('flashcard')}
       >
         Flashcard Quiz
       </Button>
@@ -55,7 +86,7 @@
         variant="accent"
         size="lg"
         icon="✓"
-        on:click={() => goto(buildQuizUrl(courseId, 'multiple-choice', lessonId))}
+        on:click={() => startQuiz('multiple-choice')}
       >
         Multiple Choice
       </Button>
@@ -64,7 +95,7 @@
         variant="success"
         size="lg"
         icon="⌨️"
-        on:click={() => goto(buildQuizUrl(courseId, 'typing', lessonId))}
+        on:click={() => startQuiz('typing')}
       >
         Typing Quiz
       </Button>
@@ -111,14 +142,8 @@
   }
 
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .lesson-header {
@@ -187,8 +212,51 @@
   .section-title {
     font-size: 1.1rem;
     font-weight: 700;
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 0.25rem 0;
     color: var(--text);
+  }
+
+  /* Direction Selector */
+  .direction-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .direction-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.6rem 0.75rem;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: all 0.15s ease;
+  }
+
+  .direction-btn:hover {
+    border-color: var(--primary);
+    color: var(--text);
+  }
+
+  .direction-btn.active {
+    border-color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 12%, var(--bg-card));
+    color: var(--primary);
+  }
+
+  .dir-icon {
+    font-size: 0.75rem;
+  }
+
+  .dir-label {
+    font-size: 0.85rem;
   }
 
   .error-state {
@@ -196,14 +264,8 @@
     padding: 3rem 1.5rem;
   }
 
-  .error-state h2 {
-    margin-bottom: 1rem;
-  }
-
-  .error-state p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-  }
+  .error-state h2 { margin-bottom: 1rem; }
+  .error-state p { color: var(--text-muted); margin-bottom: 1.5rem; }
 
   .button-primary {
     background: var(--primary);
@@ -217,19 +279,11 @@
     transition: background 0.2s ease;
   }
 
-  .button-primary:hover {
-    background: var(--primary-hover);
-  }
+  .button-primary:hover { background: var(--primary-hover); }
 
   @media (max-width: 600px) {
-    .lesson-header {
-      padding: 1.5rem 1rem;
-    }
-
-    .lesson-title-large {
-      font-size: 1.35rem;
-    }
-
+    .lesson-header { padding: 1.5rem 1rem; }
+    .lesson-title-large { font-size: 1.35rem; }
     .back-button {
       position: static;
       margin-bottom: 1rem;
