@@ -1,7 +1,7 @@
 <script lang="ts">
   /**
    * Typing Quiz Component
-   * Japanese input with virtual keyboard support
+   * Enter to submit → plays audio → Enter again to advance
    */
 
   import type { VocabItem } from '$lib/types';
@@ -11,7 +11,7 @@
   import { checkAnswer as checkQuizAnswer } from '$lib/utils/quizUtils';
 
   export let question: VocabItem;
-  export let questionText = '';  // display text (based on direction)
+  export let questionText = '';
   export let answer: string;
   export let isRomaji = false;
 
@@ -22,22 +22,30 @@
   let userInput = '';
   let answered = false;
   let showHint = false;
+  let isCorrect = false;
 
-  function checkAnswer() {
+  function submitAnswer() {
     if (answered || !userInput.trim()) return;
 
     answered = true;
-    const isCorrect = checkQuizAnswer(userInput, answer, isRomaji);
+    isCorrect = checkQuizAnswer(userInput, answer, isRomaji);
 
-    setTimeout(() => {
-      dispatch(isCorrect ? 'correct' : 'wrong', { item: question });
-    }, 1500);
+    // Play Japanese audio after submitting
+    playAudio();
+  }
+
+  function advance() {
+    dispatch(isCorrect ? 'correct' : 'wrong', { item: question });
   }
 
   function handleKeydown(event: KeyboardEvent) {
     if (event.key === 'Enter') {
       event.preventDefault();
-      checkAnswer();
+      if (!answered) {
+        submitAnswer();
+      } else {
+        advance();
+      }
     }
   }
 
@@ -72,7 +80,8 @@
   }
 
   function playAudio() {
-    if ('speechSynthesis' in window) {
+    if ('speechSynthesis' in window && question.japanese) {
+      window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(question.japanese);
       utterance.lang = 'ja-JP';
       utterance.rate = 0.8;
@@ -80,13 +89,14 @@
     }
   }
 
-  $: isAnswerCorrect = checkQuizAnswer(userInput, answer, isRomaji);
   $: inputClass = answered
-    ? isAnswerCorrect
+    ? isCorrect
       ? 'typing-input correct'
       : 'typing-input wrong'
     : 'typing-input';
 </script>
+
+<svelte:window on:keydown={handleKeydown} />
 
 <div class="quiz-question-card">
   <div class="question-label">
@@ -110,7 +120,6 @@
     type="text"
     class={inputClass}
     bind:value={userInput}
-    on:keydown={handleKeydown}
     placeholder={isRomaji ? "Type romaji..." : "Type your answer..."}
     disabled={answered}
     autocomplete="off"
@@ -140,15 +149,19 @@
 </div>
 
 {#if answered}
-  <div class="feedback" class:correct={isAnswerCorrect} class:wrong={!isAnswerCorrect}>
-    {#if isAnswerCorrect}
+  <div class="feedback" class:correct={isCorrect} class:wrong={!isCorrect}>
+    {#if isCorrect}
       ✓ Correct!
     {:else}
       ✗ Wrong! The correct answer is: {answer}
     {/if}
   </div>
+  <button class="btn btn-primary btn-lg" on:click={advance}>
+    Next Question →
+  </button>
+  <div class="hint-text">Press Enter to continue</div>
 {:else}
-  <button class="btn btn-primary btn-lg" on:click={checkAnswer} disabled={!userInput.trim()}>
+  <button class="btn btn-primary btn-lg" on:click={submitAnswer} disabled={!userInput.trim()}>
     Submit Answer
   </button>
 {/if}
@@ -272,6 +285,13 @@
   .feedback.wrong {
     background: var(--danger-bg);
     color: var(--danger);
+  }
+
+  .hint-text {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
   }
 
   @media (max-width: 600px) {
