@@ -16,8 +16,10 @@ export function buildLessonUrl(courseId: CourseId, lessonNumber: number): string
 /**
  * Build URL for a quiz with course and lesson parameters (includes base path)
  */
-export function buildQuizUrl(courseId: CourseId, mode: string, lessonNumber: number): string {
-  return `${base}/quiz/${mode}?course=${courseId}&lesson=${lessonNumber}`;
+export function buildQuizUrl(courseId: CourseId, mode: string, lessonNumber: number, direction?: string): string {
+  const params = new URLSearchParams({ course: courseId, lesson: String(lessonNumber) });
+  if (direction) params.set('direction', direction);
+  return `${base}/quiz/${mode}?${params.toString()}`;
 }
 
 /**
