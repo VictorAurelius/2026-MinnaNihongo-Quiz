@@ -53,7 +53,9 @@
 
   function playAudio() {
     if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(question.japanese);
+      window.speechSynthesis.cancel();
+      const text = question.kana || question.japanese;
+      const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'ja-JP';
       utterance.rate = 0.8;
       window.speechSynthesis.speak(utterance);

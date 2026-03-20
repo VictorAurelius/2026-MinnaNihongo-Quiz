@@ -27,7 +27,7 @@ describe('MultipleChoice Component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     Object.defineProperty(window, 'speechSynthesis', {
-      value: { speak: vi.fn() },
+      value: { speak: vi.fn(), cancel: vi.fn() },
       writable: true
     });
     window.SpeechSynthesisUtterance = class {
