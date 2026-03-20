@@ -5,19 +5,28 @@
    */
 
   import type { VocabItem } from '$lib/types';
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, afterUpdate } from 'svelte';
 
   export let item: VocabItem;
   export let showEnglish = true;
   export let autoFlip = false;
+  export let autoSpeak = true;
   export let flipped = false;
 
   const dispatch = createEventDispatcher();
 
   let cardElement: HTMLDivElement;
+  let lastSpokenItem = '';
 
   function toggleFlip() {
     flipped = !flipped;
+  }
+
+  // Auto-speak when new card appears (front side)
+  $: if (autoSpeak && !flipped && item?.japanese && item.japanese !== lastSpokenItem) {
+    lastSpokenItem = item.japanese;
+    // Small delay to let card render
+    setTimeout(() => playAudio(), 200);
   }
 
   function handleKeydown(event: KeyboardEvent) {
