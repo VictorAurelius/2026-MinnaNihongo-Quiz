@@ -24,9 +24,7 @@
   const directions: { value: QuizDirection; label: string; icon: string }[] = [
     { value: 'ja-vi', label: 'JP → VN', icon: '🇯🇵→🇻🇳' },
     { value: 'vi-ja', label: 'VN → JP', icon: '🇻🇳→🇯🇵' },
-    { value: 'ja-en', label: 'JP → EN', icon: '🇯🇵→🇬🇧' },
-    { value: 'en-ja', label: 'EN → JP', icon: '🇬🇧→🇯🇵' },
-    { value: 'ja-romaji', label: 'JP → Romaji', icon: '🇯🇵→abc' }
+    { value: 'vi-romaji', label: 'VN → Romaji', icon: '🇻🇳→abc' }
   ];
 
   function startQuiz(mode: string) {
@@ -221,7 +219,7 @@
   /* Direction Selector */
   .direction-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
   }
 

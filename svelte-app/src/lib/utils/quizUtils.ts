@@ -59,6 +59,8 @@ function getQuestionAndAnswer(
       return { question: item.english, answer: item.japanese };
     case 'ja-romaji':
       return { question: item.japanese, answer: kanaToRomaji(item.kana) };
+    case 'vi-romaji':
+      return { question: item.vietnamese, answer: kanaToRomaji(item.kana) };
     default:
       return { question: item.japanese, answer: item.vietnamese };
   }
