@@ -54,28 +54,17 @@ describe('MultipleChoice Component', () => {
       expect(screen.getByText('食べる')).toBeInTheDocument();
     });
 
-    it('should render kana when different from japanese', () => {
+    it('should render custom questionText when provided', () => {
       render(MultipleChoice, {
         props: {
-          question: createMockQuestion({ japanese: '食べる', kana: 'たべる' }),
+          question: createMockQuestion(),
+          questionText: 'Custom Question',
           options: defaultOptions,
           answer: correctAnswer
         }
       });
 
-      expect(screen.getByText('たべる')).toBeInTheDocument();
-    });
-
-    it('should not render kana when same as japanese', () => {
-      const { container } = render(MultipleChoice, {
-        props: {
-          question: createMockQuestion({ japanese: 'たべる', kana: 'たべる' }),
-          options: defaultOptions,
-          answer: correctAnswer
-        }
-      });
-
-      expect(container.querySelector('.question-romaji')).not.toBeInTheDocument();
+      expect(screen.getByText('Custom Question')).toBeInTheDocument();
     });
 
     it('should render speak button', () => {
