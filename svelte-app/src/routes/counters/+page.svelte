@@ -137,12 +137,10 @@
                 </div>
               </div>
               {#if hasAudio}
-                <div
+                <span
                   class="audio-wrapper"
                   on:click|stopPropagation
                   on:keypress|stopPropagation
-                  role="button"
-                  tabindex="0"
                 >
                   <button
                     class="btn-speak inline"
@@ -151,7 +149,7 @@
                   >
                     🔊
                   </button>
-                </div>
+                </span>
               {/if}
               <span class="expand-icon">{isExpanded ? '▼' : '▶'}</span>
             </button>

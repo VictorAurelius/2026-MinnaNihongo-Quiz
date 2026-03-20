@@ -142,6 +142,7 @@
 
         <div class="alpha-combo-grid">
           {#each currentData.combo as cell}
+            <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
             <div
               class="alpha-cell alpha-combo-cell"
               class:alpha-cell--audio={hasAudioSupport}
