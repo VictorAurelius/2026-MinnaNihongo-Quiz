@@ -401,7 +401,7 @@ export const LESSON_06_DATA: LessonData = {
         japanese: "はい、いいですよ",
         kana: "はい、いいですよ",
         vietnamese: "Vâng, được",
-        type: "kaiwa",
+        type: "supplementary",
         english: "Yes, okay / Sure, go ahead",
         example: "Ａ：ちょっと　いいですか。Ｂ：はい、いいですよ。"
       },
@@ -409,7 +409,7 @@ export const LESSON_06_DATA: LessonData = {
         japanese: "何ですか（なんですか）",
         kana: "なんですか",
         vietnamese: "Có gì đấy ạ? / Gì vậy?",
-        type: "kaiwa",
+        type: "supplementary",
         english: "What is it?",
         example: "Ａ：すみません。Ｂ：はい、何ですか。"
       },
@@ -417,7 +417,7 @@ export const LESSON_06_DATA: LessonData = {
         japanese: "はい、います",
         kana: "はい、います",
         vietnamese: "Vâng, có tôi / Dạ, tôi đây",
-        type: "kaiwa",
+        type: "supplementary",
         english: "Yes, I'm here / Speaking (phone)",
         example: "Ａ：田中さんは　いますか。Ｂ：はい、います。"
       },
@@ -425,7 +425,7 @@ export const LESSON_06_DATA: LessonData = {
         japanese: "また　会いましょう",
         kana: "また　あいましょう",
         vietnamese: "Hẹn gặp lại",
-        type: "kaiwa",
+        type: "supplementary",
         english: "Let's meet again / See you again",
         example: "今日は　楽しかったです。また　会いましょう。"
       },

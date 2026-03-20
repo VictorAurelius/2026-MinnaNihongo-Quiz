@@ -137,21 +137,14 @@
                 </div>
               </div>
               {#if hasAudio}
-                <div
-                  class="audio-wrapper"
-                  on:click|stopPropagation
-                  on:keypress|stopPropagation
-                  role="button"
-                  tabindex="0"
+                <!-- svelte-ignore a11y_no_static_element_interactions a11y_click_events_have_key_events -->
+                <span
+                  class="btn-speak inline"
+                  on:click|stopPropagation={() => speak(counter.counter)}
+                  title="Phát âm"
                 >
-                  <button
-                    class="btn-speak inline"
-                    on:click={() => speak(counter.counter)}
-                    title="Phát âm"
-                  >
-                    🔊
-                  </button>
-                </div>
+                  🔊
+                </span>
               {/if}
               <span class="expand-icon">{isExpanded ? '▼' : '▶'}</span>
             </button>
@@ -428,9 +421,6 @@
     padding: 0.5rem;
   }
 
-  .audio-wrapper {
-    display: inline-flex;
-  }
 
   .expand-icon {
     color: var(--text-secondary);

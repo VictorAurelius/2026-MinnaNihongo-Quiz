@@ -62,7 +62,7 @@
   <div class="modal active">
     <div class="modal-overlay" on:click={handleOverlayClick} on:keydown={() => {}} role="presentation"></div>
 
-    <div class="modal-content modal-content-lg" on:click={handleContentClick} on:keydown={() => {}} role="dialog" aria-modal="true">
+    <div class="modal-content modal-content-lg" on:click={handleContentClick} on:keydown={() => {}} role="dialog" aria-modal="true" tabindex="-1">
       <!-- Header -->
       <div class="modal-header">
         <h2 class="modal-title">{pattern.pattern}</h2>

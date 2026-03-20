@@ -21,8 +21,7 @@ const createVocabItem = (overrides: Partial<VocabItem> = {}): VocabItem => ({
   vietnamese: 'Xin chào',
   english: 'Hello',
   kana: 'こんにちは',
-  romaji: 'konnichiwa',
-  lesson: 1,
+  type: 'main',
   ...overrides
 });
 
@@ -111,9 +110,10 @@ describe('quizUtils', () => {
 
       expect(questions).toHaveLength(3);
       questions.forEach((q, i) => {
+        const item = q.item as VocabItem;
         expect(q.id).toBe(`q-${i}`);
-        expect(q.question).toBe(q.item.japanese);
-        expect(q.answer).toBe(q.item.vietnamese);
+        expect(q.question).toBe(item.japanese);
+        expect(q.answer).toBe(item.vietnamese);
       });
     });
 
@@ -122,8 +122,9 @@ describe('quizUtils', () => {
 
       expect(questions).toHaveLength(3);
       questions.forEach(q => {
-        expect(q.question).toBe(q.item.vietnamese);
-        expect(q.answer).toBe(q.item.japanese);
+        const item = q.item as VocabItem;
+        expect(q.question).toBe(item.vietnamese);
+        expect(q.answer).toBe(item.japanese);
       });
     });
 
@@ -132,8 +133,9 @@ describe('quizUtils', () => {
 
       expect(questions).toHaveLength(3);
       questions.forEach(q => {
-        expect(q.question).toBe(q.item.japanese);
-        expect(q.answer).toBe(q.item.english);
+        const item = q.item as VocabItem;
+        expect(q.question).toBe(item.japanese);
+        expect(q.answer).toBe(item.english);
       });
     });
 
@@ -142,8 +144,9 @@ describe('quizUtils', () => {
 
       expect(questions).toHaveLength(3);
       questions.forEach(q => {
-        expect(q.question).toBe(q.item.english);
-        expect(q.answer).toBe(q.item.japanese);
+        const item = q.item as VocabItem;
+        expect(q.question).toBe(item.english);
+        expect(q.answer).toBe(item.japanese);
       });
     });
 
@@ -176,8 +179,9 @@ describe('quizUtils', () => {
       const questions = generateQuestions(vocabItems, 'unknown' as QuizDirection);
 
       questions.forEach(q => {
-        expect(q.question).toBe(q.item.japanese);
-        expect(q.answer).toBe(q.item.vietnamese);
+        const item = q.item as VocabItem;
+        expect(q.question).toBe(item.japanese);
+        expect(q.answer).toBe(item.vietnamese);
       });
     });
 
@@ -185,9 +189,10 @@ describe('quizUtils', () => {
       const questions = generateQuestions(vocabItems, 'ja-vi');
 
       questions.forEach((q, i) => {
+        const item = q.item as VocabItem;
         expect(q.item).toBeDefined();
-        expect(q.item.japanese).toBeTruthy();
-        expect(q.item.vietnamese).toBeTruthy();
+        expect(item.japanese).toBeTruthy();
+        expect(item.vietnamese).toBeTruthy();
       });
     });
 
