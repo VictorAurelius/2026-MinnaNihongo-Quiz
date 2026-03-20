@@ -24,13 +24,25 @@
   let showHint = false;
   let isCorrect = false;
 
+  // Reset local state when question changes (new card)
+  let prevQuestionText = '';
+  $: if (questionText !== prevQuestionText || answer !== prevAnswer) {
+    prevQuestionText = questionText;
+    prevAnswer = answer;
+    userInput = '';
+    answered = false;
+    showHint = false;
+    isCorrect = false;
+  }
+  let prevAnswer = '';
+
   function submitAnswer() {
     if (answered || !userInput.trim()) return;
 
     answered = true;
     isCorrect = checkQuizAnswer(userInput, answer, isRomaji);
 
-    // Play Japanese audio after submitting
+    // Play Japanese audio after submitting (use kana to avoid double reading)
     playAudio();
   }
 
@@ -80,9 +92,12 @@
   }
 
   function playAudio() {
-    if ('speechSynthesis' in window && question.japanese) {
+    if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(question.japanese);
+      // Use kana for TTS to avoid double reading (kanji + kana)
+      const text = question.kana || question.japanese;
+      if (!text) return;
+      const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'ja-JP';
       utterance.rate = 0.8;
       window.speechSynthesis.speak(utterance);
