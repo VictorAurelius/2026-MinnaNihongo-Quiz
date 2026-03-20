@@ -3,34 +3,35 @@
  * Helper functions for course navigation and URL handling
  */
 
+import { base } from '$app/paths';
 import type { CourseId } from '$lib/types/course';
 
 /**
- * Build URL for a specific lesson in a course
+ * Build URL for a specific lesson in a course (includes base path)
  */
 export function buildLessonUrl(courseId: CourseId, lessonNumber: number): string {
-  return `/course/${courseId}/lesson/${lessonNumber}`;
+  return `${base}/course/${courseId}/lesson/${lessonNumber}`;
 }
 
 /**
- * Build URL for a quiz with course and lesson parameters
+ * Build URL for a quiz with course and lesson parameters (includes base path)
  */
 export function buildQuizUrl(courseId: CourseId, mode: string, lessonNumber: number): string {
-  return `/quiz/${mode}?course=${courseId}&lesson=${lessonNumber}`;
+  return `${base}/quiz/${mode}?course=${courseId}&lesson=${lessonNumber}`;
 }
 
 /**
- * Build URL for vocabulary page
+ * Build URL for vocabulary page (includes base path)
  */
 export function buildVocabularyUrl(courseId: CourseId, lessonNumber: number): string {
-  return `/course/${courseId}/lesson/${lessonNumber}/vocabulary`;
+  return `${base}/course/${courseId}/lesson/${lessonNumber}/vocabulary`;
 }
 
 /**
- * Build URL for grammar page
+ * Build URL for grammar page (includes base path)
  */
 export function buildGrammarUrl(courseId: CourseId, lessonNumber: number): string {
-  return `/course/${courseId}/lesson/${lessonNumber}/grammar`;
+  return `${base}/course/${courseId}/lesson/${lessonNumber}/grammar`;
 }
 
 /**

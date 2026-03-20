@@ -4,7 +4,8 @@
  */
 
 import { redirect } from '@sveltejs/kit';
+import { base } from '$app/paths';
 
 export function load() {
-  throw redirect(301, '/course/n5');
+  throw redirect(301, `${base}/course/n5`);
 }
