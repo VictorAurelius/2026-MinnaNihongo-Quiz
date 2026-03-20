@@ -51,7 +51,10 @@
 
   function playAudio() {
     if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(item.japanese);
+      window.speechSynthesis.cancel();
+      // Use kana for TTS to avoid double reading (kanji + kana)
+      const text = item.kana || item.japanese;
+      const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'ja-JP';
       utterance.rate = 0.8;
       window.speechSynthesis.speak(utterance);
