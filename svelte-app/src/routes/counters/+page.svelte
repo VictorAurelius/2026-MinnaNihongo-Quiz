@@ -137,7 +137,7 @@
                 </div>
               </div>
               {#if hasAudio}
-                <!-- svelte-ignore a11y_no_static_element_interactions -->
+                <!-- svelte-ignore a11y_no_static_element_interactions a11y_click_events_have_key_events -->
                 <span
                   class="btn-speak inline"
                   on:click|stopPropagation={() => speak(counter.counter)}
@@ -421,9 +421,6 @@
     padding: 0.5rem;
   }
 
-  .audio-wrapper {
-    display: inline-flex;
-  }
 
   .expand-icon {
     color: var(--text-secondary);
