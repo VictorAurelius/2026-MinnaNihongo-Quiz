@@ -35,6 +35,11 @@
   }
 
   function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 's' || event.key === 'S') {
+      event.preventDefault();
+      playAudio();
+      return;
+    }
     if (event.code === 'Space' || event.code === 'Enter') {
       event.preventDefault();
       toggleFlip();
@@ -86,9 +91,9 @@
     <!-- Front Side (Question) -->
     <div class="flashcard-front">
       <div class="fc-japanese">{frontText}</div>
-      <div class="hint-text">Click or press Space to flip</div>
+      <div class="hint-text">Space to flip · S to speak</div>
       <button class="btn-speak btn-speak--fc" on:click|stopPropagation={playAudio}>
-        🔊 Speak
+        🔊 Speak (S)
       </button>
     </div>
 
