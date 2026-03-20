@@ -71,7 +71,7 @@ const localStorageMock = (() => {
   };
 })();
 
-global.localStorage = localStorageMock as any;
+(globalThis as any).localStorage = localStorageMock;
 
 // Mock window.matchMedia for theme tests
 Object.defineProperty(window, 'matchMedia', {
