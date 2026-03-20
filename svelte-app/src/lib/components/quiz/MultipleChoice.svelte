@@ -8,8 +8,11 @@
   import { createEventDispatcher } from 'svelte';
 
   export let question: VocabItem;
+  export let questionText = '';  // display text (based on direction)
   export let options: string[] = [];
   export let answer: string;
+
+  $: displayText = questionText || question.japanese;
 
   const dispatch = createEventDispatcher();
 
@@ -62,10 +65,7 @@
 
 <div class="quiz-question-card">
   <div class="question-label">What is the meaning of:</div>
-  <div class="question-text">{question.japanese}</div>
-  {#if question.kana && question.kana !== question.japanese}
-    <div class="question-romaji">{question.kana}</div>
-  {/if}
+  <div class="question-text">{displayText}</div>
   <button class="btn-speak btn-speak--fc" on:click={playAudio}>
     🔊 Speak
   </button>
