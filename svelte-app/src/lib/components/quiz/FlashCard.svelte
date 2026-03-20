@@ -35,7 +35,7 @@
   }
 
   function handleKeydown(event: KeyboardEvent) {
-    if (event.key === 's' || event.key === 'S') {
+    if (event.key === '1') {
       event.preventDefault();
       playAudio();
       return;
@@ -91,9 +91,9 @@
     <!-- Front Side (Question) -->
     <div class="flashcard-front">
       <div class="fc-japanese">{frontText}</div>
-      <div class="hint-text">Space to flip · S to speak</div>
+      <div class="hint-text">Space to flip · 1 to speak</div>
       <button class="btn-speak btn-speak--fc" on:click|stopPropagation={playAudio}>
-        🔊 Speak (S)
+        🔊 Speak (1)
       </button>
     </div>
 

@@ -33,7 +33,7 @@
   }
 
   function handleKeydown(event: KeyboardEvent) {
-    if (event.key === 's' || event.key === 'S') {
+    if (event.key === '1' && answered) {
       playAudio();
       return;
     }
@@ -73,7 +73,7 @@
   <div class="question-label">What is the meaning of:</div>
   <div class="question-text">{displayText}</div>
   <button class="btn-speak btn-speak--fc" on:click={playAudio}>
-    🔊 Speak (S)
+    🔊 Speak (1)
   </button>
 </div>
 
