@@ -34,8 +34,18 @@
       return;
     }
 
-    // Generate questions
-    const questions = generateQuestions(lessonData.vocabulary, direction);
+    // Use custom vocab if coming from vocabulary page selection
+    let vocab = lessonData.vocabulary;
+    const customRaw = sessionStorage.getItem('smartquiz_custom_vocab');
+    if (customRaw) {
+      try {
+        const parsed = JSON.parse(customRaw);
+        if (Array.isArray(parsed) && parsed.length > 0) vocab = parsed;
+      } catch {}
+      sessionStorage.removeItem('smartquiz_custom_vocab');
+    }
+
+    const questions = generateQuestions(vocab, direction);
     startQuiz(mode, direction, courseId, lessonId, questions);
   });
 

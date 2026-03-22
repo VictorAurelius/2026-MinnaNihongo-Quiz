@@ -7,10 +7,13 @@
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+  import { onMount } from 'svelte';
   import { getCourse } from '$lib/data/courses';
   import { kanaToRomaji } from '$lib/utils/kanaUtils';
+  import { buildQuizUrl } from '$lib/utils/courseUtils';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
   import type { CourseId } from '$lib/types/course';
-  import type { VocabItem } from '$lib/types';
+  import type { QuizMode, VocabItem } from '$lib/types';
 
   let searchTerm = '';
   let filterType: 'all' | 'main' | 'additional' | 'kanji' | 'supplementary' = 'all';
@@ -33,22 +36,45 @@
     );
   });
 
-  function speak(text: string, event?: MouseEvent) {
-    event?.stopPropagation();
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.8;
-      window.speechSynthesis.speak(utterance);
+  // Selection state
+  let selectedSet: Set<VocabItem> = new Set();
+  $: allFilteredSelected = filteredVocab.length > 0 && filteredVocab.every(item => selectedSet.has(item));
+
+  function toggleItem(item: VocabItem) {
+    if (selectedSet.has(item)) selectedSet.delete(item);
+    else selectedSet.add(item);
+    selectedSet = selectedSet;
+  }
+
+  function toggleFiltered() {
+    if (allFilteredSelected) {
+      filteredVocab.forEach(item => selectedSet.delete(item));
+    } else {
+      filteredVocab.forEach(item => selectedSet.add(item));
     }
+    selectedSet = selectedSet;
+  }
+
+  function clearSelection() {
+    selectedSet.clear();
+    selectedSet = selectedSet;
+  }
+
+  function practice(mode: QuizMode) {
+    if (!selectedSet.size) return;
+    sessionStorage.setItem('smartquiz_custom_vocab', JSON.stringify([...selectedSet]));
+    goto(buildQuizUrl(courseId, mode, lessonId));
   }
 
   function goBack() {
     goto(`${base}/course/${courseId}/lesson/${lessonId}`);
   }
 
-  const hasAudio = typeof window !== 'undefined' && 'speechSynthesis' in window;
+  // Delay hasAudio to onMount so SSR and initial hydration both render without speak buttons
+  let hasAudio = false;
+  onMount(() => {
+    hasAudio = 'speechSynthesis' in window;
+  });
 </script>
 
 <svelte:head>
@@ -56,7 +82,7 @@
 </svelte:head>
 
 {#if lessonData && course}
-  <div class="vocab-page">
+  <div class="vocab-page" class:has-bar={selectedSet.size > 0}>
     <div class="page-header">
       <button class="back-button" on:click={goBack}>
         ← Back to Lesson
@@ -91,19 +117,52 @@
       </div>
     </div>
 
-    <div class="results-info">
-      {#if searchTerm || filterType !== 'all'}
-        <p>Showing <strong>{filteredVocab.length}</strong> of {vocabulary.length} words</p>
-      {:else}
-        <p>All <strong>{vocabulary.length}</strong> words</p>
+    <!-- Selection bar -->
+    <div class="selection-bar">
+      <button class="btn-select-all" on:click={toggleFiltered}>
+        <span class="checkbox-icon">{allFilteredSelected ? '☑' : '☐'}</span>
+        {allFilteredSelected ? 'Bỏ chọn' : 'Chọn tất cả'}
+        {#if filterType !== 'all'}({filterType}){/if}
+        ({filteredVocab.length})
+      </button>
+
+      {#if selectedSet.size > 0}
+        <span class="selected-info">{selectedSet.size} đã chọn</span>
+        <button class="btn-clear-sel" on:click={clearSelection}>Xóa chọn</button>
       {/if}
+
+      <span class="results-count">
+        {#if searchTerm || filterType !== 'all'}
+          {filteredVocab.length} / {vocabulary.length} từ
+        {:else}
+          {vocabulary.length} từ
+        {/if}
+      </span>
     </div>
 
     <!-- Vocabulary Cards -->
     <div class="vocab-list">
       {#each filteredVocab as item, index}
-        <div class="vocab-card">
-          <div class="vocab-index">{index + 1}</div>
+        <!-- Checkbox + index share one grid cell (.vocab-index-wrap) so grid layout is unchanged -->
+        <div
+          class="vocab-card"
+          class:selected={selectedSet.has(item)}
+          on:click={() => toggleItem(item)}
+          role="checkbox"
+          aria-checked={selectedSet.has(item)}
+          tabindex="0"
+          on:keydown={(e) => e.key === ' ' && (e.preventDefault(), toggleItem(item))}
+        >
+          <div class="vocab-index-wrap">
+            <input
+              type="checkbox"
+              class="vocab-checkbox"
+              checked={selectedSet.has(item)}
+              on:click|stopPropagation
+              on:change={() => toggleItem(item)}
+            />
+            <span class="vocab-index">{index + 1}</span>
+          </div>
           <div class="vocab-main">
             <div class="vocab-japanese">{item.japanese}</div>
             {#if item.kana && item.kana !== item.japanese}
@@ -118,7 +177,7 @@
           <div class="vocab-meta">
             <span class="type-badge type-{item.type}">{item.type}</span>
             {#if hasAudio}
-              <button class="btn-speak" on:click={(e) => speak(item.kana, e)} title="Listen">
+              <button class="btn-speak" on:click|stopPropagation={() => playJapaneseAudio(item.kana || item.japanese)} title="Listen">
                 🔊
               </button>
             {/if}
@@ -146,12 +205,29 @@
   </div>
 {/if}
 
+<!-- Practice bar (fixed at bottom when words are selected) -->
+{#if selectedSet.size > 0}
+  <div class="practice-bar">
+    <span class="practice-count"><strong>{selectedSet.size}</strong> từ</span>
+    <div class="practice-actions">
+      <button class="btn-practice" on:click={() => practice('flashcard')}>🎴 Flashcard</button>
+      <button class="btn-practice" on:click={() => practice('multiple-choice')}>✓ Trắc nghiệm</button>
+      <button class="btn-practice" on:click={() => practice('typing')}>⌨️ Nhập chữ</button>
+    </div>
+    <button class="btn-dismiss" on:click={clearSelection} title="Bỏ chọn tất cả">✕</button>
+  </div>
+{/if}
+
 <style>
   .vocab-page {
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem;
     animation: fadeIn 0.25s ease;
+  }
+
+  .vocab-page.has-bar {
+    padding-bottom: 5rem;
   }
 
   @keyframes fadeIn {
@@ -206,7 +282,7 @@
   .controls {
     display: flex;
     gap: 0.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     flex-wrap: wrap;
   }
 
@@ -245,9 +321,7 @@
     font-size: 1rem;
   }
 
-  .clear-search:hover {
-    color: var(--text);
-  }
+  .clear-search:hover { color: var(--text); }
 
   .filter-select {
     padding: 0.65rem;
@@ -259,24 +333,71 @@
     cursor: pointer;
   }
 
-  .results-info {
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    color: var(--text-muted);
+  /* Selection bar */
+  .selection-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
   }
 
-  .results-info strong {
+  .btn-select-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.7rem;
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.83rem;
+    color: var(--text);
+    transition: all 0.2s ease;
+  }
+
+  .btn-select-all:hover {
+    border-color: var(--primary);
     color: var(--primary);
-    font-weight: 600;
   }
 
+  .checkbox-icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .selected-info {
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .btn-clear-sel {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.83rem;
+    text-decoration: underline;
+    padding: 0;
+  }
+
+  .btn-clear-sel:hover { color: var(--danger, #e53e3e); }
+
+  .results-count {
+    margin-left: auto;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+
+  /* Vocab list */
   .vocab-list {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
   }
 
+  /* Keep original 3-col grid; checkbox is inside vocab-index-wrap (col 1) */
   .vocab-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -287,11 +408,34 @@
     gap: 1rem;
     align-items: start;
     transition: all 0.2s ease;
+    cursor: pointer;
+    user-select: none;
   }
 
   .vocab-card:hover {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     border-color: var(--primary);
+  }
+
+  .vocab-card.selected {
+    border-color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 6%, var(--card-bg));
+  }
+
+  /* Checkbox + circle index stacked vertically in col 1 */
+  .vocab-index-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .vocab-checkbox {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    accent-color: var(--primary);
+    flex-shrink: 0;
   }
 
   .vocab-index {
@@ -305,6 +449,7 @@
     border-radius: 50%;
     font-size: 0.75rem;
     font-weight: 700;
+    flex-shrink: 0;
   }
 
   .vocab-main {
@@ -363,25 +508,10 @@
     letter-spacing: 0.05em;
   }
 
-  .type-main {
-    background: var(--primary);
-    color: white;
-  }
-
-  .type-additional {
-    background: var(--accent);
-    color: white;
-  }
-
-  .type-kanji {
-    background: var(--success);
-    color: white;
-  }
-
-  .type-supplementary {
-    background: var(--text-muted);
-    color: white;
-  }
+  .type-main { background: var(--primary); color: white; }
+  .type-additional { background: var(--accent); color: white; }
+  .type-kanji { background: var(--success); color: white; }
+  .type-supplementary { background: var(--text-muted); color: white; }
 
   .btn-speak {
     background: none;
@@ -413,6 +543,73 @@
     color: var(--primary);
   }
 
+  /* Practice bar */
+  .practice-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    border-top: 2px solid var(--primary);
+    padding: 0.65rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 100;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .practice-count {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    color: var(--text-muted);
+  }
+
+  .practice-count strong {
+    color: var(--primary);
+    font-size: 1rem;
+  }
+
+  .practice-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-practice {
+    padding: 0.45rem 0.9rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: filter 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-practice:hover { filter: brightness(0.9); }
+
+  .btn-dismiss {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .btn-dismiss:hover {
+    border-color: var(--danger, #e53e3e);
+    color: var(--danger, #e53e3e);
+  }
+
   .empty-state {
     text-align: center;
     padding: 3rem 1rem;
@@ -425,9 +622,7 @@
     padding: 3rem 1.5rem;
   }
 
-  .error-state h2 {
-    margin-bottom: 1rem;
-  }
+  .error-state h2 { margin-bottom: 1rem; }
 
   .error-state p {
     color: var(--text-muted);
@@ -443,12 +638,10 @@
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
-    transition: background 0.2s ease;
+    transition: filter 0.2s;
   }
 
-  .btn-back:hover {
-    background: var(--primary-hover);
-  }
+  .btn-back:hover { filter: brightness(0.9); }
 
   @media (max-width: 768px) {
     .vocab-card {
@@ -470,6 +663,22 @@
     .back-button {
       position: static;
       margin-bottom: 1rem;
+    }
+
+    .practice-bar {
+      flex-wrap: wrap;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .practice-actions {
+      order: -1;
+      width: 100%;
+    }
+
+    .btn-practice {
+      flex: 1;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.5rem;
     }
   }
 </style>
