@@ -9,6 +9,7 @@
   import VirtualKeyboard from './VirtualKeyboard.svelte';
   import { showVirtualKeyboard, hideVirtualKeyboard, uiStore } from '$lib/stores';
   import { checkAnswer as checkQuizAnswer } from '$lib/utils/quizUtils';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
 
   export let question: VocabItem;
   export let questionText = '';
@@ -44,9 +45,7 @@
 
     answered = true;
     isCorrect = checkQuizAnswer(userInput, answer, isRomaji);
-
-    // Play Japanese audio after submitting (use kana to avoid double reading)
-    playAudio();
+    playJapaneseAudio(question.kana || question.japanese);
   }
 
   function advance() {
@@ -63,9 +62,9 @@
       }
       return;
     }
-    // 1 to speak — only when answered (so it doesn't interfere with typing)
-    if (answered && event.key === '1') {
-      playAudio();
+    if (event.key === 'F1') {
+      event.preventDefault();
+      playJapaneseAudio(question.kana || question.japanese);
     }
   }
 
@@ -99,19 +98,6 @@
     showHint = !showHint;
   }
 
-  function playAudio() {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      // Use kana for TTS to avoid double reading (kanji + kana)
-      const text = question.kana || question.japanese;
-      if (!text) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.8;
-      window.speechSynthesis.speak(utterance);
-    }
-  }
-
   $: inputClass = answered
     ? isCorrect
       ? 'typing-input correct'
@@ -133,8 +119,8 @@
   {#if !isRomaji && question.english}
     <div class="question-romaji">{question.english}</div>
   {/if}
-  <button class="btn-speak btn-speak--fc" on:click={playAudio}>
-    🔊 Speak (1)
+  <button class="btn-speak btn-speak--fc" on:click={() => playJapaneseAudio(question.kana || question.japanese)}>
+    🔊 Speak (F1)
   </button>
 </div>
 

@@ -55,7 +55,7 @@ describe('FlashCard Component', () => {
       const item = createMockItem();
       render(FlashCard, { props: { item } });
 
-      expect(screen.getByText('Space to flip · 1 to speak')).toBeInTheDocument();
+      expect(screen.getByText('Space to flip · F1 to speak')).toBeInTheDocument();
     });
 
     it('should render speak button', () => {
