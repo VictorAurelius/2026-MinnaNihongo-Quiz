@@ -6,6 +6,7 @@
 
   import type { VocabItem } from '$lib/types';
   import { createEventDispatcher, afterUpdate } from 'svelte';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
 
   export let item: VocabItem;
   export let questionText = '';  // display text (based on direction)
@@ -30,14 +31,13 @@
   // Auto-speak when new card appears (front side)
   $: if (autoSpeak && !flipped && item?.japanese && item.japanese !== lastSpokenItem) {
     lastSpokenItem = item.japanese;
-    // Small delay to let card render
-    setTimeout(() => playAudio(), 200);
+    setTimeout(() => playJapaneseAudio(item.kana || item.japanese), 200);
   }
 
   function handleKeydown(event: KeyboardEvent) {
-    if (event.key === '1') {
+    if (event.key === 'F1') {
       event.preventDefault();
-      playAudio();
+      playJapaneseAudio(item.kana || item.japanese);
       return;
     }
     if (event.code === 'Space' || event.code === 'Enter') {
@@ -52,18 +52,6 @@
 
   function handleWrong() {
     dispatch('wrong', { item });
-  }
-
-  function playAudio() {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      // Use kana for TTS to avoid double reading (kanji + kana)
-      const text = item.kana || item.japanese;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.8;
-      window.speechSynthesis.speak(utterance);
-    }
   }
 
   // Auto-flip after delay
@@ -91,9 +79,9 @@
     <!-- Front Side (Question) -->
     <div class="flashcard-front">
       <div class="fc-japanese">{frontText}</div>
-      <div class="hint-text">Space to flip · 1 to speak</div>
-      <button class="btn-speak btn-speak--fc" on:click|stopPropagation={playAudio}>
-        🔊 Speak (1)
+      <div class="hint-text">Space to flip · F1 to speak</div>
+      <button class="btn-speak btn-speak--fc" on:click|stopPropagation={() => playJapaneseAudio(item.kana || item.japanese)}>
+        🔊 Speak (F1)
       </button>
     </div>
 

@@ -113,7 +113,7 @@ describe('MultipleChoice Component', () => {
         props: { question: createMockQuestion(), options: defaultOptions, answer: correctAnswer }
       });
 
-      expect(screen.getByText(/Press 1-4 on your keyboard/)).toBeInTheDocument();
+      expect(screen.getByText(/Press 1-4 to choose/)).toBeInTheDocument();
     });
   });
 
@@ -183,7 +183,7 @@ describe('MultipleChoice Component', () => {
 
       await user.click(screen.getByText('Ăn'));
 
-      expect(screen.queryByText(/Press 1-4 on your keyboard/)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Press 1-4 to choose/)).not.toBeInTheDocument();
     });
   });
 

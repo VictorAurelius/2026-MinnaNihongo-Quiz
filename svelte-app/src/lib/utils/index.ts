@@ -5,3 +5,4 @@
 export * from './quizUtils';
 export * from './grammarUtils';
 export * from './pwa';
+export * from './audioUtils';
