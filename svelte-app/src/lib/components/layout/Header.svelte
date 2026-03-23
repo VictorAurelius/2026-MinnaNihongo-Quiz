@@ -4,11 +4,14 @@
    * Navigation, title, home button, section links, dark mode
    */
 
-  import { toggleDarkMode, uiStore } from '$lib/stores';
+  import { toggleDarkMode, uiStore, progressStore } from '$lib/stores';
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+  import { getDueCount } from '$lib/utils/srsUtils';
   import BackButton from '../common/BackButton.svelte';
+
+  $: dueCount = getDueCount($progressStore);
 
   // Strip base path from pathname for route matching
   $: pathname = $page.url.pathname.startsWith(base) && base
@@ -120,6 +123,10 @@
     <a href="{base}/stats" class="nav-link">
       <span class="nav-icon">📊</span>
       <span>Stats</span>
+    </a>
+    <a href="{base}/review" class="nav-link">
+      <span class="nav-icon">🔄</span>
+      <span>Review{#if dueCount > 0} ({dueCount}){/if}</span>
     </a>
   </nav>
 {/if}
