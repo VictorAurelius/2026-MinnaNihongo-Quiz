@@ -17,10 +17,12 @@
 
   // Apply dark mode class and register service worker on mount
   onMount(() => {
+    console.log('[SmartQuiz] Layout mounted');
     const darkMode = $uiStore.darkMode;
     document.documentElement.classList.toggle('dark', darkMode);
 
-    registerServiceWorker();
+    registerServiceWorker().then(() => console.log('[SmartQuiz] SW registered'))
+      .catch(e => console.error('[SmartQuiz] SW failed:', e));
     setupInstallPrompt();
 
     // Show install banner after 30s if not already installed
