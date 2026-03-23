@@ -1,12 +1,20 @@
 /**
- * Audio utility for Japanese speech synthesis
+ * Audio utilities for speech synthesis
  */
 
-export function playJapaneseAudio(text: string): void {
+function playAudio(text: string, lang: string): void {
   if (!text || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'ja-JP';
+  utterance.lang = lang;
   utterance.rate = 0.8;
   window.speechSynthesis.speak(utterance);
+}
+
+export function playJapaneseAudio(text: string): void {
+  playAudio(text, 'ja-JP');
+}
+
+export function playChineseAudio(text: string): void {
+  playAudio(text, 'zh-CN');
 }

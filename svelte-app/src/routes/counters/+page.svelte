@@ -1,5 +1,6 @@
 <script lang="ts">
   import { NUMBERS_DATA, COUNTERS_DATA } from '$lib/data/minna/counters';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
   import type { NumberData, CounterType } from '$lib/types/lesson';
 
   let activeTab: 'numbers' | 'counters' = 'counters';
@@ -15,13 +16,7 @@
   }
 
   function speak(text: string) {
-    if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.8;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
+    playJapaneseAudio(text);
   }
 
   const hasAudio = typeof window !== 'undefined' && 'speechSynthesis' in window;
