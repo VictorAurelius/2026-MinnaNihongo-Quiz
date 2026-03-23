@@ -357,12 +357,33 @@ Sau khi hoàn thành Phase 3, sẽ chuyển sang E2E tests với Playwright:
 # 5. Continue với component tiếp theo
 ```
 
-check status hiện tại để hiểu tôi đã hoàn thành nhiều PR
+add-vocab-to-lesson
+bài 7:
+1. cắt
+2. các từ vựng về gia đình có trong sách
 
-trong quá trình học tập mỗi bài trong core 25 bài, tôi cần thêm từ vựng mới vào bài đó, hãy tạo riêng 1 skill để thực hiện việc này
+các từ về gia đình trong bài 7 còn rất nhiều như vợ, chồng, con gái, con trai, ông bà, bố mẹ, anh em, vợ chồng, con cái
 
-ví dụ bài 7 cần thêm các từ:
-1. máy vi tính cá nhân
-2. điện thoại di động
-3. thư điện tử, email
-4. thiệp mừng năm mới
+đương nhiên là cả của mình và của người khác
+
+bài 8:
+1. ngầu
+2. ồn ào
+3. hiếu khách
+4. thế à, để tôi xem
+5. Đã ~ rồi nhỉ. Đã ~ rồi, đúng không?
+6. thượng hải
+7. các từ về màu: xanh lá cây, tím, vàng, nâu, hồng, da cam, xám, be
+8. các từ về vị: ngọt, cay, đắng, mặn, chua, đậm, nhạt
+
+skill cũng đề cập các từ nào có rồi thì không thêm tránh duplicate rồi chứ?
+
+bài 6:
+1. thuốc lá
+2. cửa hàng
+3. vườn
+4. bài tập về nhà
+5. vâng, được
+6. kaiwa: có gì đấy ạ? vâng có tôi
+hẹn gặp lại (ngày mai)
+7. mexico

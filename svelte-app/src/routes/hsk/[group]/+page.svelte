@@ -366,7 +366,7 @@
   }
 
   .col-vietnamese {
-    /* Flexible width */
+    flex: 1;
   }
 
   .col-audio {

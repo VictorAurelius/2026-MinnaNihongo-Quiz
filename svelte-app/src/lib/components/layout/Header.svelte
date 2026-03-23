@@ -19,10 +19,15 @@
 
   function getPageTitle(p: string): string {
     if (p === '/' || p === '') return 'Smart Quiz';
-    if (p === '/lessons') return 'Lessons';
-    if (p.match(/^\/lesson\/\d+\/vocabulary/)) return 'Vocabulary';
-    if (p.match(/^\/lesson\/\d+\/grammar/)) return 'Grammar';
-    if (p.startsWith('/lesson/')) return 'Lesson Menu';
+    if (p === '/courses') return 'Courses';
+    if (p === '/lessons') return 'Lessons'; // Legacy redirect
+    if (p.match(/^\/course\/[^/]+\/lesson\/\d+\/vocabulary/)) return 'Vocabulary';
+    if (p.match(/^\/course\/[^/]+\/lesson\/\d+\/grammar/)) return 'Grammar';
+    if (p.match(/^\/course\/[^/]+\/lesson\/\d+/)) return 'Lesson Menu';
+    if (p.match(/^\/course\/[^/]+/)) return 'Course';
+    if (p.match(/^\/lesson\/\d+\/vocabulary/)) return 'Vocabulary'; // Legacy
+    if (p.match(/^\/lesson\/\d+\/grammar/)) return 'Grammar'; // Legacy
+    if (p.startsWith('/lesson/')) return 'Lesson Menu'; // Legacy
     if (p.startsWith('/quiz/')) return 'Quiz';
     if (p.startsWith('/grammar-reference')) return 'Grammar Reference';
     if (p.startsWith('/results')) return 'Results';
@@ -76,9 +81,9 @@
 <!-- Bottom navigation on home page -->
 {#if isHome}
   <nav class="section-nav">
-    <a href="{base}/lessons" class="nav-link">
-      <span class="nav-icon">日</span>
-      <span>Lessons</span>
+    <a href="{base}/courses" class="nav-link">
+      <span class="nav-icon">📚</span>
+      <span>Courses</span>
     </a>
     <a href="{base}/kanji" class="nav-link">
       <span class="nav-icon">漢</span>

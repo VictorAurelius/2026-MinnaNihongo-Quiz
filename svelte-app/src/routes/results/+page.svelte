@@ -1,13 +1,16 @@
 <script lang="ts">
   /**
    * Results Page
-   * Shows quiz results with score, time, and review options
+   * Shows quiz results with score, time, retry options
    */
 
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
-  import { quizStore, resetQuiz } from '$lib/stores';
-  import { calculateStats, formatDuration } from '$lib/utils/quizUtils';
+  import { quizStore, startQuiz, resetQuiz } from '$lib/stores';
+  import { calculateStats, formatDuration, generateQuestions } from '$lib/utils/quizUtils';
+  import { buildQuizUrl } from '$lib/utils/courseUtils';
+  import { getCourse } from '$lib/data/courses';
+  import type { CourseId } from '$lib/types/course';
   import Button from '$lib/components/common/Button.svelte';
   import Card from '$lib/components/common/Card.svelte';
 
@@ -15,19 +18,33 @@
   $: duration = $quizStore.endTime
     ? formatDuration($quizStore.endTime - $quizStore.startTime)
     : '0:00';
+  $: wrongCount = $quizStore.wrongItems.length;
+  $: courseId = $quizStore.courseId as CourseId;
 
-  function retryQuiz() {
-    goto(`${base}/quiz/${$quizStore.mode}?lesson=${$quizStore.lessonNumber}&direction=${$quizStore.direction}`);
+  function retryAll() {
+    const course = getCourse(courseId);
+    const lessonData = course?.getLessonData($quizStore.lessonNumber);
+    if (!lessonData) return;
+
+    const questions = generateQuestions(lessonData.vocabulary, $quizStore.direction);
+    startQuiz($quizStore.mode, $quizStore.direction, courseId, $quizStore.lessonNumber, questions);
+    goto(`${base}/quiz/${$quizStore.mode}?course=${courseId}&lesson=${$quizStore.lessonNumber}&direction=${$quizStore.direction}`);
   }
 
-  function reviewWrong() {
-    // TODO: Implement review mode
-    alert('Review mode coming soon!');
+  function retryWrong() {
+    const wrongVocabItems = $quizStore.wrongItems.map(q => q.item);
+    if (wrongVocabItems.length === 0) return;
+
+    const questions = generateQuestions(wrongVocabItems as any, $quizStore.direction);
+    startQuiz($quizStore.mode, $quizStore.direction, courseId, $quizStore.lessonNumber, questions);
+    goto(`${base}/quiz/${$quizStore.mode}?course=${courseId}&lesson=${$quizStore.lessonNumber}&direction=${$quizStore.direction}`);
   }
 
   function backToLesson() {
+    const cid = courseId;
+    const lid = $quizStore.lessonNumber;
     resetQuiz();
-    goto(`${base}/lesson/${$quizStore.lessonNumber}`);
+    goto(`${base}/course/${cid}/lesson/${lid}`);
   }
 
   function backToHome() {
@@ -73,8 +90,8 @@
       <p><strong>Score:</strong> {stats.correct} / {stats.total}</p>
       <p><strong>Grade:</strong> {stats.grade}</p>
       <p><strong>Time:</strong> {duration}</p>
-      {#if stats.wrong > 0}
-        <p><strong>Wrong:</strong> {stats.wrong} questions</p>
+      {#if wrongCount > 0}
+        <p><strong>Wrong:</strong> {wrongCount} questions</p>
       {/if}
     </div>
 
@@ -93,15 +110,15 @@
 
     <!-- Action Buttons -->
     <div class="results-actions">
-      <Button variant="primary" size="lg" on:click={retryQuiz}>
-        🔄 Retry Quiz
-      </Button>
-
-      {#if $quizStore.wrongItems.length > 0}
-        <Button variant="accent" size="lg" on:click={reviewWrong}>
-          📝 Review Wrong Items
+      {#if wrongCount > 0}
+        <Button variant="accent" size="lg" on:click={retryWrong}>
+          📝 Retry {wrongCount} Wrong Items
         </Button>
       {/if}
+
+      <Button variant="primary" size="lg" on:click={retryAll}>
+        🔄 Retry All
+      </Button>
 
       <Button variant="outline" on:click={backToLesson}>
         ← Back to Lesson
@@ -122,14 +139,8 @@
   }
 
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .results-title {

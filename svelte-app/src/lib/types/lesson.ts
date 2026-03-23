@@ -141,7 +141,7 @@ export interface KanjiLessonData {
 
 // Quiz Types
 export type QuizMode = 'flashcard' | 'multiple-choice' | 'typing';
-export type QuizDirection = 'ja-vi' | 'vi-ja' | 'ja-en' | 'en-ja';
+export type QuizDirection = 'ja-vi' | 'vi-ja' | 'ja-en' | 'en-ja' | 'ja-romaji' | 'vi-romaji';
 
 export interface QuizQuestion {
   id: string;
@@ -154,6 +154,7 @@ export interface QuizQuestion {
 export interface QuizState {
   mode: QuizMode;
   direction: QuizDirection;
+  courseId: string; // 'n5' | 'n4' - using string for flexibility
   lessonNumber: number;
   questions: QuizQuestion[];
   currentIndex: number;

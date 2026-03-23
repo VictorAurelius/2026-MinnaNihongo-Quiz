@@ -357,6 +357,78 @@ export const LESSON_06_DATA: LessonData = {
         english: "I understand",
         example: ""
       },
+      {
+        japanese: "たばこ",
+        kana: "たばこ",
+        vietnamese: "thuốc lá",
+        type: "main",
+        english: "cigarette, tobacco",
+        example: "たばこを　吸いません。"
+      },
+      {
+        japanese: "店（みせ）",
+        kana: "みせ",
+        vietnamese: "cửa hàng",
+        type: "main",
+        english: "store, shop",
+        example: "この　店で　コーヒーを　買います。"
+      },
+      {
+        japanese: "庭（にわ）",
+        kana: "にわ",
+        vietnamese: "vườn",
+        type: "main",
+        english: "garden, yard",
+        example: "庭で　花を　見ます。"
+      },
+      {
+        japanese: "宿題（しゅくだい）",
+        kana: "しゅくだい",
+        vietnamese: "bài tập về nhà",
+        type: "main",
+        english: "homework",
+        example: "宿題を　します。"
+      },
+      {
+        japanese: "メキシコ",
+        kana: "メキシコ",
+        vietnamese: "Mexico",
+        type: "main",
+        english: "Mexico",
+        example: "メキシコの　料理は　おいしいです。"
+      },
+      {
+        japanese: "はい、いいですよ",
+        kana: "はい、いいですよ",
+        vietnamese: "Vâng, được",
+        type: "supplementary",
+        english: "Yes, okay / Sure, go ahead",
+        example: "Ａ：ちょっと　いいですか。Ｂ：はい、いいですよ。"
+      },
+      {
+        japanese: "何ですか（なんですか）",
+        kana: "なんですか",
+        vietnamese: "Có gì đấy ạ? / Gì vậy?",
+        type: "supplementary",
+        english: "What is it?",
+        example: "Ａ：すみません。Ｂ：はい、何ですか。"
+      },
+      {
+        japanese: "はい、います",
+        kana: "はい、います",
+        vietnamese: "Vâng, có tôi / Dạ, tôi đây",
+        type: "supplementary",
+        english: "Yes, I'm here / Speaking (phone)",
+        example: "Ａ：田中さんは　いますか。Ｂ：はい、います。"
+      },
+      {
+        japanese: "また　会いましょう",
+        kana: "また　あいましょう",
+        vietnamese: "Hẹn gặp lại",
+        type: "supplementary",
+        english: "Let's meet again / See you again",
+        example: "今日は　楽しかったです。また　会いましょう。"
+      },
       // Supplementary Vocabulary (参考語彙) - Fruits (果物)
       {
         japanese: "りんご",

@@ -41,7 +41,7 @@ describe('TypingQuiz Component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     Object.defineProperty(window, 'speechSynthesis', {
-      value: { speak: vi.fn() },
+      value: { speak: vi.fn(), cancel: vi.fn() },
       writable: true
     });
     window.SpeechSynthesisUtterance = class {
@@ -57,15 +57,15 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: '食べる' }
       });
 
-      expect(screen.getByText('Type the Japanese reading:')).toBeInTheDocument();
+      expect(screen.getByText('Type the answer:')).toBeInTheDocument();
     });
 
-    it('should render the Vietnamese question text', () => {
+    it('should render the question text', () => {
       render(TypingQuiz, {
         props: { question: createMockQuestion(), answer: '食べる' }
       });
 
-      expect(screen.getByText('Ăn')).toBeInTheDocument();
+      expect(screen.getByText('食べる')).toBeInTheDocument();
     });
 
     it('should render English text when available', () => {
@@ -89,7 +89,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: '食べる' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       expect(input).toBeInTheDocument();
     });
 
@@ -128,7 +128,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'test' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'test');
 
       expect(input).toHaveValue('test');
@@ -149,7 +149,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: '食べる' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'something');
 
       const submitBtn = screen.getByText('Submit Answer');
@@ -164,7 +164,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'taberu');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -177,7 +177,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'nomu');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -190,7 +190,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'nomu');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -203,7 +203,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'Taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'taberu');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -216,7 +216,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, '  taberu  ');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -240,7 +240,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, '   ');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -257,11 +257,25 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'taberu');
-      await fireEvent.keyDown(input, { key: 'Enter' });
+      // Enter dispatches on window (svelte:window on:keydown)
+      await fireEvent.keyDown(window, { key: 'Enter' });
 
       expect(screen.getByText(/Correct!/)).toBeInTheDocument();
+    });
+
+    it('should show Next Question button after answering', async () => {
+      const user = userEvent.setup();
+      render(TypingQuiz, {
+        props: { question: createMockQuestion(), answer: 'taberu' }
+      });
+
+      const input = screen.getByPlaceholderText('Type your answer...');
+      await user.type(input, 'taberu');
+      await user.click(screen.getByText('Submit Answer'));
+
+      expect(screen.getByText(/Next Question/)).toBeInTheDocument();
     });
   });
 
@@ -272,7 +286,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'taberu');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -285,7 +299,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'wrong');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -301,7 +315,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'taberu');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -314,7 +328,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'taberu');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -327,7 +341,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'taberu');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -340,7 +354,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: 'taberu' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, 'nomu');
       await user.click(screen.getByText('Submit Answer'));
 
@@ -408,7 +422,7 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: '食べる' }
       });
 
-      const input = screen.getByPlaceholderText('Type in Japanese...');
+      const input = screen.getByPlaceholderText('Type your answer...');
       await user.type(input, '食べる');
       await user.click(screen.getByText('Submit Answer'));
 

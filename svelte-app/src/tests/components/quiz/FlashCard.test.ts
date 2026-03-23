@@ -26,7 +26,7 @@ describe('FlashCard Component', () => {
     vi.clearAllMocks();
     // Mock speechSynthesis
     Object.defineProperty(window, 'speechSynthesis', {
-      value: { speak: vi.fn() },
+      value: { speak: vi.fn(), cancel: vi.fn() },
       writable: true
     });
     window.SpeechSynthesisUtterance = class {
@@ -44,26 +44,18 @@ describe('FlashCard Component', () => {
       expect(screen.getByText('食べる')).toBeInTheDocument();
     });
 
-    it('should render kana when different from japanese', () => {
-      const item = createMockItem({ japanese: '食べる', kana: 'たべる' });
-      render(FlashCard, { props: { item } });
+    it('should render custom questionText when provided', () => {
+      const item = createMockItem();
+      render(FlashCard, { props: { item, questionText: 'Custom Question' } });
 
-      expect(screen.getByText('たべる')).toBeInTheDocument();
-    });
-
-    it('should not render kana when same as japanese', () => {
-      const item = createMockItem({ japanese: 'たべる', kana: 'たべる' });
-      const { container } = render(FlashCard, { props: { item } });
-
-      const kanaElements = container.querySelectorAll('.fc-kana');
-      expect(kanaElements.length).toBe(0);
+      expect(screen.getByText('Custom Question')).toBeInTheDocument();
     });
 
     it('should show flip hint text', () => {
       const item = createMockItem();
       render(FlashCard, { props: { item } });
 
-      expect(screen.getByText('Click or press Space to flip')).toBeInTheDocument();
+      expect(screen.getByText('Space to flip · F1 to speak')).toBeInTheDocument();
     });
 
     it('should render speak button', () => {
@@ -82,18 +74,11 @@ describe('FlashCard Component', () => {
       expect(screen.getByText('Ăn')).toBeInTheDocument();
     });
 
-    it('should render English meaning when showEnglish is true', () => {
+    it('should render custom answerText when provided', () => {
       const item = createMockItem();
-      render(FlashCard, { props: { item, showEnglish: true } });
+      render(FlashCard, { props: { item, answerText: 'to eat' } });
 
       expect(screen.getByText('to eat')).toBeInTheDocument();
-    });
-
-    it('should not render English meaning when showEnglish is false', () => {
-      const item = createMockItem();
-      render(FlashCard, { props: { item, showEnglish: false } });
-
-      expect(screen.queryByText('to eat')).not.toBeInTheDocument();
     });
 
     it('should render example when available', () => {
