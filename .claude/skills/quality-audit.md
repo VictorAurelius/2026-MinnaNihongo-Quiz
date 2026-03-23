@@ -1,6 +1,11 @@
-# /quality-audit — Smart Quiz Quality Audit
+---
+name: quality-audit
+description: Run comprehensive quality audit on Smart Quiz — 10 categories, 100-point scoring (tests, build, routing, quiz, TTS, CI/CD, UI/UX, data, docs, code quality)
+disable-model-invocation: true
+user-invocable: true
+---
 
-**Usage:** `/quality-audit`
+# /quality-audit — Smart Quiz Quality Audit
 
 ---
 
