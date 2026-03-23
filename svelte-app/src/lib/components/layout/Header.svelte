@@ -117,6 +117,10 @@
       <span class="nav-icon">中</span>
       <span>HSK</span>
     </a>
+    <a href="{base}/stats" class="nav-link">
+      <span class="nav-icon">📊</span>
+      <span>Stats</span>
+    </a>
   </nav>
 {/if}
 
