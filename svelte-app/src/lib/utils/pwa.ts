@@ -8,7 +8,13 @@ export interface BeforeInstallPromptEvent extends Event {
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
 }
 
+import { writable } from 'svelte/store';
+
 let deferredPrompt: BeforeInstallPromptEvent | null = null;
+
+// Stores for PWA state
+export const updateAvailable = writable(false);
+export const canInstall = writable(false);
 
 /**
  * Register service worker for PWA offline support
@@ -38,9 +44,8 @@ export async function registerServiceWorker(): Promise<ServiceWorkerRegistration
 
       newWorker.addEventListener('statechange', () => {
         if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-          // New service worker available
           console.log('New service worker available');
-          // You can show a notification to the user here
+          updateAvailable.set(true);
         }
       });
     });
@@ -80,12 +85,12 @@ export function setupInstallPrompt() {
   window.addEventListener('beforeinstallprompt', (e: Event) => {
     e.preventDefault();
     deferredPrompt = e as BeforeInstallPromptEvent;
-    console.log('Install prompt available');
+    canInstall.set(true);
   });
 
   window.addEventListener('appinstalled', () => {
-    console.log('PWA installed successfully');
     deferredPrompt = null;
+    canInstall.set(false);
   });
 }
 
@@ -127,6 +132,20 @@ export function isPWA(): boolean {
  */
 export function canInstallPWA(): boolean {
   return deferredPrompt !== null;
+}
+
+/**
+ * Apply pending update — skip waiting and reload
+ */
+export async function applyUpdate(): Promise<void> {
+  if (typeof window === 'undefined' || !('serviceWorker' in navigator)) return;
+
+  const registration = await navigator.serviceWorker.ready;
+  if (registration.waiting) {
+    registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+  }
+  updateAvailable.set(false);
+  window.location.reload();
 }
 
 /**
