@@ -71,7 +71,21 @@
       "Bash(npm run test:add:*)",
       "Bash(npm run docs:*)",
       "Bash(gh pr list:*)",
-      "Bash(gh pr view:*)"
+      "Bash(gh pr view:*)",
+      "Bash(mv /mnt/e/person/2026-Smart-Quiz/.claude/skills/quality-audit/SKILL.md /mnt/e/person/2026-Smart-Quiz/.claude/skills/quality-audit.md)",
+      "Bash(rmdir /mnt/e/person/2026-Smart-Quiz/.claude/skills/quality-audit/)",
+      "Bash(npx vitest:*)",
+      "Bash(npx vite:*)",
+      "Bash(gh pr:*)",
+      "Bash(xargs -I{} git push origin --delete {})",
+      "Bash(do echo:*)",
+      "Bash(gh workflow:*)",
+      "WebFetch(domain:victoraurelius.github.io)",
+      "Bash(while read:*)",
+      "Bash(npx svelte-check:*)",
+      "Bash(./scripts/quality-audit.sh --save 2>&1)",
+      "Bash(./scripts/quality-audit.sh --save)",
+      "Bash(./scripts/quality-audit.sh)"
     ]
   }
 }
