@@ -6,6 +6,7 @@
 
   import type { KanjiItem } from '$lib/types';
   import { createEventDispatcher } from 'svelte';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
 
   export let item: KanjiItem;
   export let answer: string;
@@ -15,24 +16,47 @@
   let userInput = '';
   let answered = false;
   let showHint = false;
+  let isCorrect = false;
+  let inputEl: HTMLInputElement;
 
-  function checkAnswer() {
+  // Reset state when question changes
+  let prevAnswer = '';
+  $: if (answer !== prevAnswer) {
+    prevAnswer = answer;
+    userInput = '';
+    answered = false;
+    showHint = false;
+    isCorrect = false;
+    setTimeout(() => inputEl?.focus(), 50);
+  }
+
+  function submitAnswer() {
     if (answered || !userInput.trim()) return;
 
     answered = true;
     const normalized = userInput.trim().toLowerCase();
     const correctAnswer = answer.toLowerCase();
-    const isCorrect = normalized === correctAnswer;
+    isCorrect = normalized === correctAnswer;
+    playJapaneseAudio(item.character);
+  }
 
-    setTimeout(() => {
-      dispatch(isCorrect ? 'correct' : 'wrong', { item });
-    }, 1500);
+  function advance() {
+    dispatch(isCorrect ? 'correct' : 'wrong', { item });
   }
 
   function handleKeydown(event: KeyboardEvent) {
     if (event.key === 'Enter') {
       event.preventDefault();
-      checkAnswer();
+      if (!answered) {
+        submitAnswer();
+      } else {
+        advance();
+      }
+      return;
+    }
+    if (event.key === 'F1') {
+      event.preventDefault();
+      playJapaneseAudio(item.character);
     }
   }
 
@@ -40,28 +64,20 @@
     showHint = !showHint;
   }
 
-  function playAudio() {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(item.character);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.8;
-      window.speechSynthesis.speak(utterance);
-    }
-  }
-
   $: inputClass = answered
-    ? userInput.trim().toLowerCase() === answer.toLowerCase()
+    ? isCorrect
       ? 'typing-input correct'
       : 'typing-input wrong'
     : 'typing-input';
 </script>
 
+<svelte:window on:keydown={handleKeydown} />
+
 <div class="quiz-question-card">
   <div class="question-label">Type the meaning of this kanji:</div>
   <div class="question-kanji">{item.character}</div>
-  <button class="btn-speak btn-speak--fc" on:click={playAudio}>
-    🔊 Speak
+  <button class="btn-speak btn-speak--fc" on:click={() => playJapaneseAudio(item.character)}>
+    🔊 Speak (F1)
   </button>
 </div>
 
@@ -70,7 +86,7 @@
     type="text"
     class={inputClass}
     bind:value={userInput}
-    on:keydown={handleKeydown}
+    bind:this={inputEl}
     placeholder="Type the meaning..."
     disabled={answered}
     autocomplete="off"
@@ -96,15 +112,19 @@
 </div>
 
 {#if answered}
-  <div class="feedback" class:correct={userInput.trim().toLowerCase() === answer.toLowerCase()} class:wrong={userInput.trim().toLowerCase() !== answer.toLowerCase()}>
-    {#if userInput.trim().toLowerCase() === answer.toLowerCase()}
+  <div class="feedback" class:correct={isCorrect} class:wrong={!isCorrect}>
+    {#if isCorrect}
       ✓ Correct!
     {:else}
       ✗ Wrong! The correct answer is: {answer}
     {/if}
   </div>
+  <button class="btn btn-primary btn-lg" on:click={advance}>
+    Next Question →
+  </button>
+  <div class="hint-text">Press Enter to continue</div>
 {:else}
-  <button class="btn btn-primary btn-lg" on:click={checkAnswer} disabled={!userInput.trim()}>
+  <button class="btn btn-primary btn-lg" on:click={submitAnswer} disabled={!userInput.trim()}>
     Submit Answer
   </button>
 {/if}

@@ -6,6 +6,7 @@
 
   import type { KanjiItem } from '$lib/types';
   import { createEventDispatcher } from 'svelte';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
 
   export let item: KanjiItem;
   export let options: string[] = [];
@@ -15,6 +16,14 @@
 
   let selectedOption: string | null = null;
   let answered = false;
+
+  // Reset state when question changes
+  let prevAnswer = '';
+  $: if (answer !== prevAnswer) {
+    prevAnswer = answer;
+    selectedOption = null;
+    answered = false;
+  }
 
   function selectOption(option: string) {
     if (answered) return;
@@ -30,6 +39,11 @@
   }
 
   function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'F1') {
+      event.preventDefault();
+      playJapaneseAudio(item.character);
+      return;
+    }
     if (answered) return;
 
     const key = event.key;
@@ -47,16 +61,6 @@
     if (option === selectedOption) return 'mc-option wrong';
     return 'mc-option disabled';
   }
-
-  function playAudio() {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(item.character);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.8;
-      window.speechSynthesis.speak(utterance);
-    }
-  }
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -69,8 +73,8 @@
       <span class="meta-reading">{item.onyomi.join('、')}</span>
     {/if}
   </div>
-  <button class="btn-speak btn-speak--fc" on:click={playAudio}>
-    🔊 Speak
+  <button class="btn-speak btn-speak--fc" on:click={() => playJapaneseAudio(item.character)}>
+    🔊 Speak (F1)
   </button>
 </div>
 
@@ -99,7 +103,7 @@
 
 {#if !answered}
   <div class="hint-text">
-    Press 1-4 on your keyboard or click an option
+    Press 1-4 to choose · F1 to speak
   </div>
 {/if}
 
