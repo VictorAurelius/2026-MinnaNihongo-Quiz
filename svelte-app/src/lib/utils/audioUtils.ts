@@ -3,7 +3,7 @@
  */
 
 export function playJapaneseAudio(text: string): void {
-  if (!text || !('speechSynthesis' in window)) return;
+  if (!text || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = 'ja-JP';
