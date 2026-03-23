@@ -197,18 +197,10 @@ describe('VirtualKeyboard Component', () => {
       expect(screen.getByText('ー')).toBeInTheDocument();
     });
 
-    it('should render small tsu (っ)', () => {
+    it('should render small kana button (小)', () => {
       render(VirtualKeyboard, { props: { visible: true } });
 
-      expect(screen.getByText('っ')).toBeInTheDocument();
-    });
-
-    it('should render small ya/yu/yo (ゃゅょ)', () => {
-      render(VirtualKeyboard, { props: { visible: true } });
-
-      expect(screen.getByText('ゃ')).toBeInTheDocument();
-      expect(screen.getByText('ゅ')).toBeInTheDocument();
-      expect(screen.getByText('ょ')).toBeInTheDocument();
+      expect(screen.getByText('小')).toBeInTheDocument();
     });
 
     it('should render punctuation marks (、。)', () => {
@@ -222,7 +214,7 @@ describe('VirtualKeyboard Component', () => {
       const user = userEvent.setup();
       render(VirtualKeyboard, { props: { visible: true } });
 
-      const btn = screen.getByText('っ');
+      const btn = screen.getByText('小');
       expect(btn.tagName).toBe('BUTTON');
       await user.click(btn);
     });
@@ -238,7 +230,7 @@ describe('VirtualKeyboard Component', () => {
     it('should render clear button', () => {
       render(VirtualKeyboard, { props: { visible: true } });
 
-      expect(screen.getByText('Clear')).toBeInTheDocument();
+      expect(screen.getByText('CLR')).toBeInTheDocument();
     });
 
     it('should have clickable delete button', async () => {
@@ -255,7 +247,7 @@ describe('VirtualKeyboard Component', () => {
       const user = userEvent.setup();
       render(VirtualKeyboard, { props: { visible: true } });
 
-      const clearBtn = screen.getByText('Clear');
+      const clearBtn = screen.getByText('CLR');
       expect(clearBtn.tagName).toBe('BUTTON');
       expect(clearBtn).toHaveClass('keyboard-key', 'special');
       await user.click(clearBtn);

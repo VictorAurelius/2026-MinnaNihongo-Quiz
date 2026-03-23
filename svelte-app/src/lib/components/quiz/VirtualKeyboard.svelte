@@ -12,6 +12,7 @@
 
   type ScriptType = 'hiragana' | 'katakana';
   let activeScript: ScriptType = 'hiragana';
+  let lastTap = 0; // For double-tap detection on mobile
 
   // Hiragana characters (main grid)
   const HIRAGANA_CHARS = [
@@ -50,9 +51,51 @@
 
   $: activeChars = activeScript === 'hiragana' ? HIRAGANA_CHARS : KATAKANA_CHARS;
 
+  // Dakuten/handakuten conversion maps
+  const DAKUTEN_MAP: Record<string, string> = {
+    'か': 'が', 'き': 'ぎ', 'く': 'ぐ', 'け': 'げ', 'こ': 'ご',
+    'さ': 'ざ', 'し': 'じ', 'す': 'ず', 'せ': 'ぜ', 'そ': 'ぞ',
+    'た': 'だ', 'ち': 'ぢ', 'つ': 'づ', 'て': 'で', 'と': 'ど',
+    'は': 'ば', 'ひ': 'び', 'ふ': 'ぶ', 'へ': 'べ', 'ほ': 'ぼ',
+    'カ': 'ガ', 'キ': 'ギ', 'ク': 'グ', 'ケ': 'ゲ', 'コ': 'ゴ',
+    'サ': 'ザ', 'シ': 'ジ', 'ス': 'ズ', 'セ': 'ゼ', 'ソ': 'ゾ',
+    'タ': 'ダ', 'チ': 'ヂ', 'ツ': 'ヅ', 'テ': 'デ', 'ト': 'ド',
+    'ハ': 'バ', 'ヒ': 'ビ', 'フ': 'ブ', 'ヘ': 'ベ', 'ホ': 'ボ',
+    'ウ': 'ヴ'
+  };
+
+  const HANDAKUTEN_MAP: Record<string, string> = {
+    'は': 'ぱ', 'ひ': 'ぴ', 'ふ': 'ぷ', 'へ': 'ぺ', 'ほ': 'ぽ',
+    'ハ': 'パ', 'ヒ': 'ピ', 'フ': 'プ', 'ヘ': 'ペ', 'ホ': 'ポ'
+  };
+
+  // Small kana conversion
+  const SMALL_MAP: Record<string, string> = {
+    'つ': 'っ', 'や': 'ゃ', 'ゆ': 'ゅ', 'よ': 'ょ', 'あ': 'ぁ', 'い': 'ぃ', 'う': 'ぅ', 'え': 'ぇ', 'お': 'ぉ',
+    'ツ': 'ッ', 'ヤ': 'ャ', 'ユ': 'ュ', 'ヨ': 'ョ', 'ア': 'ァ', 'イ': 'ィ', 'ウ': 'ゥ', 'エ': 'ェ', 'オ': 'ォ'
+  };
+
   function insertChar(char: string) {
     if (!char) return;
+
+    // Haptic feedback on mobile
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      navigator.vibrate(10);
+    }
+
     dispatch('insert', { char });
+  }
+
+  function handleDakuten() {
+    dispatch('transform', { map: DAKUTEN_MAP });
+  }
+
+  function handleHandakuten() {
+    dispatch('transform', { map: HANDAKUTEN_MAP });
+  }
+
+  function handleSmall() {
+    dispatch('transform', { map: SMALL_MAP });
   }
 
   function deleteChar() {
@@ -65,6 +108,10 @@
 
   function switchScript(script: ScriptType) {
     activeScript = script;
+    // Haptic on tab switch
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      navigator.vibrate(15);
+    }
   }
 </script>
 
@@ -105,23 +152,16 @@
         {/each}
       </div>
 
-      <!-- Sidebar with special characters -->
+      <!-- Sidebar with modifiers -->
       <div class="keyboard-sidebar">
-        {#each SPECIAL_CHARS as char}
-          <button
-            class="keyboard-key small"
-            class:accent={char === '゛' || char === '゜'}
-            on:click={() => insertChar(char)}
-          >
-            {char}
-          </button>
-        {/each}
-        <button class="keyboard-key special" on:click={deleteChar}>
-          ⌫
-        </button>
-        <button class="keyboard-key special" on:click={clearAll}>
-          Clear
-        </button>
+        <button class="keyboard-key accent" on:click={handleDakuten} title="Dakuten (゛)">゛</button>
+        <button class="keyboard-key accent" on:click={handleHandakuten} title="Handakuten (゜)">゜</button>
+        <button class="keyboard-key small" on:click={handleSmall} title="Small kana">小</button>
+        <button class="keyboard-key small" on:click={() => insertChar('ー')}>ー</button>
+        <button class="keyboard-key small" on:click={() => insertChar('、')}>、</button>
+        <button class="keyboard-key small" on:click={() => insertChar('。')}>。</button>
+        <button class="keyboard-key special" on:click={deleteChar}>⌫</button>
+        <button class="keyboard-key special" on:click={clearAll}>CLR</button>
       </div>
     </div>
   </div>
