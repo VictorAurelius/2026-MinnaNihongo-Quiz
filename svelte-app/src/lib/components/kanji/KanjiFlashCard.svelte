@@ -6,6 +6,7 @@
 
   import type { KanjiItem } from '$lib/types';
   import { createEventDispatcher } from 'svelte';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
 
   export let item: KanjiItem;
   export let flipped = false;
@@ -17,6 +18,11 @@
   }
 
   function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'F1') {
+      event.preventDefault();
+      playJapaneseAudio(item.character);
+      return;
+    }
     if (event.code === 'Space' || event.code === 'Enter') {
       event.preventDefault();
       toggleFlip();
@@ -29,16 +35,6 @@
 
   function handleWrong() {
     dispatch('wrong', { item });
-  }
-
-  function playAudio() {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(item.character);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.8;
-      window.speechSynthesis.speak(utterance);
-    }
   }
 </script>
 
@@ -56,9 +52,9 @@
     <div class="flashcard-front">
       <div class="fc-kanji">{item.character}</div>
       <div class="fc-stroke">{item.strokeCount} strokes</div>
-      <div class="hint-text">Click or press Space to flip</div>
-      <button class="btn-speak btn-speak--fc" on:click|stopPropagation={playAudio}>
-        🔊 Speak
+      <div class="hint-text">Space to flip · F1 to speak</div>
+      <button class="btn-speak btn-speak--fc" on:click|stopPropagation={() => playJapaneseAudio(item.character)}>
+        🔊 Speak (F1)
       </button>
     </div>
 

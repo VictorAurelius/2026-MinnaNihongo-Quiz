@@ -131,12 +131,14 @@
     />
 
     {#if mode === 'flashcard'}
-      <KanjiFlashCard
-        item={currentQuestion.item}
-        bind:flipped
-        on:correct={handleCorrect}
-        on:wrong={handleWrong}
-      />
+      {#key currentQuestion.id}
+        <KanjiFlashCard
+          item={currentQuestion.item}
+          bind:flipped
+          on:correct={handleCorrect}
+          on:wrong={handleWrong}
+        />
+      {/key}
     {:else if mode === 'mc'}
       {#key currentQuestion.id}
         <KanjiMultipleChoice
