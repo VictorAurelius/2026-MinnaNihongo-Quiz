@@ -101,8 +101,8 @@ export function getDueItems(progressState: ProgressState): { itemId: string; les
   }
 
   // Also add items from progress that haven't been added to SRS yet
-  for (const [lessonKey, lesson] of Object.entries(progressState.lessons)) {
-    for (const vocabId of Object.keys(lesson.vocabProgress)) {
+  for (const [lessonKey, lesson] of Object.entries(progressState.lessons || {})) {
+    for (const vocabId of Object.keys(lesson.vocabProgress || {})) {
       if (!srs.items[vocabId]) {
         due.push({ itemId: vocabId, lessonNumber: parseInt(lessonKey) });
       }
