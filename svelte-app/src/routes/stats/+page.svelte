@@ -12,10 +12,14 @@
     getMasteryColor,
     formatLastStudied
   } from '$lib/utils/statsUtils';
+  import { loadStreak, checkAchievements } from '$lib/utils/achievementUtils';
 
   $: overview = computeOverviewStats($progressStore);
   $: lessonStats = computeLessonStats($progressStore);
   $: hasData = overview.totalWords > 0;
+  $: streak = loadStreak();
+  $: achievements = checkAchievements($progressStore, streak);
+  $: unlockedCount = achievements.filter(a => a.unlocked).length;
 
   // Mastery bar chart max
   $: maxMastery = Math.max(...overview.masteryDistribution, 1);
@@ -52,6 +56,37 @@
         <span class="ov-label">Lessons</span>
       </div>
     </div>
+
+    <!-- Streak -->
+    <section class="stats-section streak-section">
+      <div class="streak-main">
+        <span class="streak-fire">{streak.currentStreak > 0 ? '🔥' : '❄️'}</span>
+        <div class="streak-info">
+          <span class="streak-num">{streak.currentStreak}</span>
+          <span class="streak-label">day streak</span>
+        </div>
+      </div>
+      <div class="streak-details">
+        <span>Best: {streak.longestStreak} days</span>
+        <span>Total: {streak.totalDays} days</span>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="stats-section">
+      <h2>Achievements ({unlockedCount}/{achievements.length})</h2>
+      <div class="achievement-grid">
+        {#each achievements as ach}
+          <div class="achievement" class:locked={!ach.unlocked}>
+            <span class="ach-icon">{ach.unlocked ? ach.icon : '🔒'}</span>
+            <div class="ach-info">
+              <span class="ach-title">{ach.title}</span>
+              <span class="ach-desc">{ach.description}</span>
+            </div>
+          </div>
+        {/each}
+      </div>
+    </section>
 
     <!-- Mastery Distribution -->
     <section class="stats-section">
@@ -276,6 +311,91 @@
     color: var(--text-muted);
   }
 
+  /* Streak */
+  .streak-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .streak-main {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .streak-fire {
+    font-size: 2rem;
+  }
+
+  .streak-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .streak-num {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+  }
+
+  .streak-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .streak-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* Achievements */
+  .achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .achievement {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    transition: opacity var(--transition);
+  }
+
+  .achievement.locked {
+    opacity: 0.4;
+  }
+
+  .ach-icon {
+    font-size: 1.3rem;
+    min-width: 1.8rem;
+    text-align: center;
+  }
+
+  .ach-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ach-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .ach-desc {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
   @media (max-width: 600px) {
     .overview-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -294,6 +414,10 @@
     .table-row {
       grid-template-columns: 2.5rem 2.5rem 3.5rem 3rem 1fr;
       font-size: 0.78rem;
+    }
+
+    .achievement-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
