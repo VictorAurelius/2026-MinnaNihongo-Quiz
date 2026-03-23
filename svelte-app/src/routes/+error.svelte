@@ -5,6 +5,7 @@
 
   $: error = $page.error;
   $: status = $page.status;
+  $: console.error('[SmartQuiz] Error page rendered:', status, error?.message);
 </script>
 
 <div class="error-container">

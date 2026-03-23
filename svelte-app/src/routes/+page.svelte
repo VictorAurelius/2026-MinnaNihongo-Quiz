@@ -6,16 +6,34 @@
 
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+  import { onMount } from 'svelte';
   import { getAllCourses } from '$lib/data/courses';
   import { getKanjiLessonMetadata } from '$lib/data/kanji/lessons';
   import { HSK5_DATA } from '$lib/data/hsk';
 
-  const courses = getAllCourses();
-  const totalLessons = courses.reduce((sum, c) => sum + c.metadata.lessonCount, 0);
-  const totalVocab = courses.reduce((sum, c) =>
-    sum + c.getAllLessons().reduce((s, l) => s + l.vocabulary.length, 0), 0);
-  const kanjiCount = getKanjiLessonMetadata().reduce((sum, l) => sum + l.kanjiCount, 0);
-  const hskWordCount = HSK5_DATA.reduce((sum, g) => sum + g.words.length, 0);
+  console.log('[SmartQuiz] Home page script init');
+
+  let courses: ReturnType<typeof getAllCourses> = [];
+  let totalLessons = 0;
+  let totalVocab = 0;
+  let kanjiCount = 0;
+  let hskWordCount = 0;
+
+  try {
+    courses = getAllCourses();
+    totalLessons = courses.reduce((sum, c) => sum + c.metadata.lessonCount, 0);
+    totalVocab = courses.reduce((sum, c) =>
+      sum + c.getAllLessons().reduce((s, l) => s + l.vocabulary.length, 0), 0);
+    kanjiCount = getKanjiLessonMetadata().reduce((sum, l) => sum + l.kanjiCount, 0);
+    hskWordCount = HSK5_DATA.reduce((sum, g) => sum + g.words.length, 0);
+    console.log('[SmartQuiz] Home data loaded:', { courses: courses.length, totalLessons, totalVocab, kanjiCount, hskWordCount });
+  } catch (e) {
+    console.error('[SmartQuiz] Home data error:', e);
+  }
+
+  onMount(() => {
+    console.log('[SmartQuiz] Home page mounted');
+  });
 </script>
 
 <svelte:head>
