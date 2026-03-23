@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
   import { HIRAGANA_DATA, KATAKANA_DATA } from '$lib/data/minna/alphabet';
   import type { AlphabetData, AlphabetChar } from '$lib/types';
   import BackButton from '$lib/components/common/BackButton.svelte';
@@ -42,11 +43,7 @@
 
   function speakKana(kana: string) {
     if (!hasAudioSupport) return;
-
-    const utterance = new SpeechSynthesisUtterance(kana);
-    utterance.lang = 'ja-JP';
-    utterance.rate = 0.8;
-    window.speechSynthesis.speak(utterance);
+    playJapaneseAudio(kana);
   }
 
   $: currentData = currentScript === 'hiragana' ? HIRAGANA_DATA : KATAKANA_DATA;

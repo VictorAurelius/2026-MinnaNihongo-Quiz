@@ -293,7 +293,7 @@ describe('FlashCard Component', () => {
 
     it('should handle item without english', () => {
       const item = createMockItem({ english: '' });
-      render(FlashCard, { props: { item, showEnglish: true } });
+      render(FlashCard, { props: { item } });
 
       // Empty string still renders but is empty
       expect(screen.queryByText('to eat')).not.toBeInTheDocument();
