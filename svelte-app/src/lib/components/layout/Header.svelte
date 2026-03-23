@@ -39,6 +39,9 @@
     if (p.match(/^\/kanji\/\d+\/quiz/)) return 'Kanji Quiz';
     if (p.match(/^\/kanji\/\d+/)) return 'Kanji Lesson';
     if (p === '/kanji') return 'Kanji';
+    if (p === '/settings') return 'Settings';
+    if (p === '/stats') return 'Statistics';
+    if (p === '/review') return 'Review';
     return 'Smart Quiz';
   }
 
@@ -66,6 +69,15 @@
         🏠
       </button>
     {/if}
+
+    <a
+      href="{base}/settings"
+      class="icon-btn"
+      aria-label="Settings"
+      title="Settings"
+    >
+      ⚙️
+    </a>
 
     <button
       class="icon-btn"

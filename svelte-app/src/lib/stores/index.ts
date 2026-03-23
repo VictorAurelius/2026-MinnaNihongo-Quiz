@@ -21,7 +21,9 @@ export {
   progressStore,
   updateLessonProgress,
   updateSettings,
-  clearProgress
+  clearProgress,
+  exportProgress,
+  importProgress
 } from './progress';
 
 export {

@@ -124,3 +124,37 @@ export function clearProgress() {
     }
   }
 }
+
+// Export progress as JSON
+export function exportProgress(): string {
+  let data: ProgressState = {
+    lessons: {},
+    hsk: {},
+    settings: { defaultDirection: 'ja-vi', autoPlay: false, showEnglish: true }
+  };
+  progressStore.subscribe(v => { data = v; })();
+  return JSON.stringify({
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    data
+  }, null, 2);
+}
+
+// Import progress from JSON string — returns true on success
+export function importProgress(json: string): boolean {
+  try {
+    const parsed = JSON.parse(json);
+    if (!parsed.data || !parsed.data.settings) {
+      return false;
+    }
+    const state: ProgressState = parsed.data;
+    // Validate structure
+    if (typeof state.lessons !== 'object' || typeof state.hsk !== 'object') {
+      return false;
+    }
+    progressStore.set(state);
+    return true;
+  } catch {
+    return false;
+  }
+}
