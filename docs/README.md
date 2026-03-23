@@ -1,21 +1,21 @@
 # Documentation Index
 
-Welcome to Smart Quiz documentation!
-
 ## Getting Started
-- [Quickstart Guide](QUICKSTART.md) - Get up and running in 5 minutes
-- [Architecture Overview](ARCHITECTURE.md) - System design and structure
+- [Quickstart Guide](QUICKSTART.md) — Setup and run in 5 minutes
+- [Architecture Overview](ARCHITECTURE.md) — High-level system design
+
+## Technical Reference
+- [Technical Documentation](TECHNICAL.md) — Build pipeline, routing, components, stores, data layer, testing
+- [Business Logic](BUSINESS_LOGIC.md) — Quiz flow, scoring, answer validation, TTS rules, course system
 
 ## Development
-- [Contributing Guidelines](CONTRIBUTING.md) - How to contribute
-- [Deployment Guide](DEPLOYMENT.md) - Deploy to production
-- [PWA Guide](PWA.md) - Progressive Web App features
+- [Contributing Guidelines](CONTRIBUTING.md) — Code standards, PR process
+- [Deployment Guide](DEPLOYMENT.md) — GitHub Pages, Vercel, Netlify, Firebase
 
-## Reference
-- [Changelog](CHANGELOG.md) - Version history
-- [Project Summary](PROJECT_SUMMARY.md) - Detailed project overview
-- [Logo Documentation](LOGO.md) - Branding and assets
+## Project
+- [Changelog](CHANGELOG.md) — Version history
+- [Project Summary](PROJECT_SUMMARY.md) — Feature overview and statistics
+- [PWA Guide](PWA.md) — Progressive Web App capabilities
 
-## Assets
-- [Logo Preview Tool](assets/logo-preview.html) - Preview logos in browser
-- [Test Checklist](assets/test-checklist.html) - QA checklist
+## AI / Contributor Guide
+- [CLAUDE.md](../CLAUDE.md) — Project conventions, patterns, common pitfalls
