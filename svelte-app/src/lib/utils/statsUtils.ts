@@ -28,10 +28,10 @@ export function computeOverviewStats(state: ProgressState): OverviewStats {
   let totalWrong = 0;
   let totalWords = 0;
 
-  const allLessons = { ...state.lessons, ...state.hsk };
+  const allLessons = { ...(state.lessons || {}), ...(state.hsk || {}) };
 
   for (const lesson of Object.values(allLessons)) {
-    const items = Object.values(lesson.vocabProgress);
+    const items = Object.values(lesson.vocabProgress || {});
     totalWords += items.length;
     for (const item of items) {
       totalCorrect += item.correctCount;
@@ -54,8 +54,8 @@ export function computeOverviewStats(state: ProgressState): OverviewStats {
 export function computeLessonStats(state: ProgressState): LessonStats[] {
   const results: LessonStats[] = [];
 
-  for (const [key, lesson] of Object.entries(state.lessons)) {
-    const items = Object.values(lesson.vocabProgress);
+  for (const [key, lesson] of Object.entries(state.lessons || {})) {
+    const items = Object.values(lesson.vocabProgress || {});
     if (items.length === 0) continue;
 
     const correct = items.reduce((s, i) => s + i.correctCount, 0);
