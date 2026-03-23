@@ -6,6 +6,7 @@
 import { writable, derived } from 'svelte/store';
 import type { QuizState, QuizQuestion, QuizMode, QuizDirection } from '$lib/types';
 import type { CourseId } from '$lib/types/course';
+import { recordStudySession } from '$lib/utils/achievementUtils';
 
 // Initial state
 const initialState: QuizState = {
@@ -112,6 +113,7 @@ export function endQuiz() {
     ...state,
     endTime: Date.now()
   }));
+  recordStudySession();
 }
 
 export function resetQuiz() {
