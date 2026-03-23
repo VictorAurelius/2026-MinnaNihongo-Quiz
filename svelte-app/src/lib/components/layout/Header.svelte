@@ -4,11 +4,14 @@
    * Navigation, title, home button, section links, dark mode
    */
 
-  import { toggleDarkMode, uiStore } from '$lib/stores';
+  import { toggleDarkMode, uiStore, progressStore } from '$lib/stores';
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+  import { getDueCount } from '$lib/utils/srsUtils';
   import BackButton from '../common/BackButton.svelte';
+
+  $: dueCount = getDueCount($progressStore);
 
   // Strip base path from pathname for route matching
   $: pathname = $page.url.pathname.startsWith(base) && base
@@ -39,6 +42,9 @@
     if (p.match(/^\/kanji\/\d+\/quiz/)) return 'Kanji Quiz';
     if (p.match(/^\/kanji\/\d+/)) return 'Kanji Lesson';
     if (p === '/kanji') return 'Kanji';
+    if (p === '/settings') return 'Settings';
+    if (p === '/stats') return 'Statistics';
+    if (p === '/review') return 'Review';
     return 'Smart Quiz';
   }
 
@@ -66,6 +72,15 @@
         🏠
       </button>
     {/if}
+
+    <a
+      href="{base}/settings"
+      class="icon-btn"
+      aria-label="Settings"
+      title="Settings"
+    >
+      ⚙️
+    </a>
 
     <button
       class="icon-btn"
@@ -104,6 +119,14 @@
     <a href="{base}/hsk" class="nav-link">
       <span class="nav-icon">中</span>
       <span>HSK</span>
+    </a>
+    <a href="{base}/stats" class="nav-link">
+      <span class="nav-icon">📊</span>
+      <span>Stats</span>
+    </a>
+    <a href="{base}/review" class="nav-link">
+      <span class="nav-icon">🔄</span>
+      <span>Review{#if dueCount > 0} ({dueCount}){/if}</span>
     </a>
   </nav>
 {/if}

@@ -101,6 +101,22 @@
       </Button>
     </div>
 
+    <!-- Grammar Quiz -->
+    {#if lesson.grammar.length > 0}
+      <div class="menu-section">
+        <h2 class="section-title">📝 Grammar Quiz</h2>
+
+        <Button
+          variant="outline"
+          size="lg"
+          icon="📝"
+          on:click={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}
+        >
+          Grammar Quiz ({lesson.grammar.length} patterns)
+        </Button>
+      </div>
+    {/if}
+
     <!-- Study Materials -->
     <div class="menu-section">
       <h2 class="section-title">📚 Study Materials</h2>
