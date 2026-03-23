@@ -8,6 +8,7 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { getLessonData } from '$lib/data/minna/lessons';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
   import { kanaToRomaji } from '$lib/utils/kanaUtils';
   import type { VocabItem } from '$lib/types';
 
@@ -32,13 +33,7 @@
 
   function speak(text: string, event?: MouseEvent) {
     event?.stopPropagation();
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.8;
-      window.speechSynthesis.speak(utterance);
-    }
+    playJapaneseAudio(text);
   }
 
   function goBack() {

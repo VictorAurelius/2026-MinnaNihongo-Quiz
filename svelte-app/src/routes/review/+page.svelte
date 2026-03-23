@@ -132,6 +132,7 @@
       role="button"
       aria-label="Flip card"
       on:click={toggleFlip}
+      on:keydown={handleKeydown}
     >
       <div class="flashcard-inner">
         <div class="flashcard-front">

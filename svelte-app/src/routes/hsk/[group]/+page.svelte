@@ -3,6 +3,7 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { HSK5_DATA } from '$lib/data/hsk';
+  import { playChineseAudio } from '$lib/utils/audioUtils';
   import type { HSKWord } from '$lib/types/hsk';
 
   let searchTerm = '';
@@ -29,13 +30,7 @@
   });
 
   function speak(text: string) {
-    if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'zh-CN';
-      utterance.rate = 0.8;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
+    playChineseAudio(text);
   }
 
   function goBack() {

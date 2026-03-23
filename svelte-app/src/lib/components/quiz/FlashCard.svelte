@@ -11,7 +11,6 @@
   export let item: VocabItem;
   export let questionText = '';  // display text (based on direction)
   export let answerText = '';    // answer text (based on direction)
-  export let showEnglish = true;
   export let autoFlip = false;
   export let autoSpeak = true;
   export let flipped = false;
@@ -160,13 +159,6 @@
     margin-bottom: 0.5rem;
   }
 
-  .fc-kana {
-    font-family: var(--font-jp);
-    font-size: 1.3rem;
-    color: var(--primary);
-    margin-bottom: 0.3rem;
-  }
-
   .hint-text {
     text-align: center;
     font-size: 0.82rem;
@@ -178,13 +170,6 @@
   .fc-meaning {
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-
-  .fc-english {
-    font-size: 0.9rem;
-    color: var(--text-muted);
     margin-bottom: 0.5rem;
     text-align: center;
   }
