@@ -145,6 +145,13 @@
   on:insert={(e) => insertChar(e.detail.char)}
   on:delete={deleteChar}
   on:clear={clearInput}
+  on:transform={(e) => {
+    if (!answered && userInput.length > 0) {
+      const lastChar = userInput.slice(-1);
+      const mapped = e.detail.map[lastChar];
+      if (mapped) userInput = userInput.slice(0, -1) + mapped;
+    }
+  }}
 />
 
 <!-- Romaji Hint -->
