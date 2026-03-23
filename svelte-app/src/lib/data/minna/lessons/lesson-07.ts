@@ -70,6 +70,14 @@ export const LESSON_07_DATA: LessonData = {
         example: "わたしは　国の　家族に　荷物を　送ります。"
       },
       {
+        japanese: "切ります（きります）",
+        kana: "きります",
+        vietnamese: "cắt",
+        type: "main",
+        english: "To cut",
+        example: "はさみで　紙を　切ります。"
+      },
+      {
         japanese: "手（て）",
         kana: "て",
         vietnamese: "tay",
@@ -253,6 +261,38 @@ export const LESSON_07_DATA: LessonData = {
         english: "Europe",
         example: "来年　ヨーロッパへ　旅行します。"
       },
+      {
+        japanese: "パソコン",
+        kana: "パソコン",
+        vietnamese: "máy vi tính cá nhân",
+        type: "main",
+        english: "Personal computer",
+        example: "わたしは　パソコンで　仕事を　します。"
+      },
+      {
+        japanese: "携帯電話（けいたいでんわ）",
+        kana: "けいたいでんわ",
+        vietnamese: "điện thoại di động",
+        type: "main",
+        english: "Mobile phone, cell phone",
+        example: "携帯電話を　使います。"
+      },
+      {
+        japanese: "メール",
+        kana: "メール",
+        vietnamese: "thư điện tử, email",
+        type: "main",
+        english: "Email",
+        example: "メールを　送ります。"
+      },
+      {
+        japanese: "年賀状（ねんがじょう）",
+        kana: "ねんがじょう",
+        vietnamese: "thiệp mừng năm mới",
+        type: "main",
+        english: "New Year's greeting card",
+        example: "年賀状を　書きます。"
+      },
       // Supplementary Vocabulary (参考語彙) - Family Members
       {
         japanese: "父（ちち）",
@@ -349,6 +389,142 @@ export const LESSON_07_DATA: LessonData = {
         english: "grandmother (own)",
         type: "supplementary",
         example: ""
+      },
+      {
+        japanese: "おじいさん",
+        kana: "おじいさん",
+        vietnamese: "ông (người khác)",
+        english: "grandfather (someone else's)",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "おばあさん",
+        kana: "おばあさん",
+        vietnamese: "bà (người khác)",
+        english: "grandmother (someone else's)",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "家族（かぞく）",
+        kana: "かぞく",
+        vietnamese: "gia đình",
+        english: "family",
+        type: "supplementary",
+        example: "家族で　旅行します。"
+      },
+      {
+        japanese: "子供（こども）",
+        kana: "こども",
+        vietnamese: "con, trẻ con",
+        english: "child, children",
+        type: "supplementary",
+        example: "子供が　三人　います。"
+      },
+      {
+        japanese: "お子さん",
+        kana: "おこさん",
+        vietnamese: "con (người khác)",
+        english: "child, children (someone else's)",
+        type: "supplementary",
+        example: "お子さんは　何人　いますか。"
+      },
+      {
+        japanese: "妻（つま）",
+        kana: "つま",
+        vietnamese: "vợ (của mình)",
+        english: "wife (own)",
+        type: "supplementary",
+        example: "妻は　会社員です。"
+      },
+      {
+        japanese: "奥さん（おくさん）",
+        kana: "おくさん",
+        vietnamese: "vợ (người khác)",
+        english: "wife (someone else's)",
+        type: "supplementary",
+        example: "奥さんは　お元気ですか。"
+      },
+      {
+        japanese: "夫（おっと）",
+        kana: "おっと",
+        vietnamese: "chồng (của mình)",
+        english: "husband (own)",
+        type: "supplementary",
+        example: "夫は　エンジニアです。"
+      },
+      {
+        japanese: "ご主人（ごしゅじん）",
+        kana: "ごしゅじん",
+        vietnamese: "chồng (người khác)",
+        english: "husband (someone else's)",
+        type: "supplementary",
+        example: "ご主人は　何を　していますか。"
+      },
+      {
+        japanese: "息子（むすこ）",
+        kana: "むすこ",
+        vietnamese: "con trai (của mình)",
+        english: "son (own)",
+        type: "supplementary",
+        example: "息子は　大学生です。"
+      },
+      {
+        japanese: "息子さん（むすこさん）",
+        kana: "むすこさん",
+        vietnamese: "con trai (người khác)",
+        english: "son (someone else's)",
+        type: "supplementary",
+        example: "息子さんは　おいくつですか。"
+      },
+      {
+        japanese: "娘（むすめ）",
+        kana: "むすめ",
+        vietnamese: "con gái (của mình)",
+        english: "daughter (own)",
+        type: "supplementary",
+        example: "娘は　高校生です。"
+      },
+      {
+        japanese: "娘さん（むすめさん）",
+        kana: "むすめさん",
+        vietnamese: "con gái (người khác)",
+        english: "daughter (someone else's)",
+        type: "supplementary",
+        example: "娘さんは　きれいですね。"
+      },
+      {
+        japanese: "兄弟（きょうだい）",
+        kana: "きょうだい",
+        vietnamese: "anh em",
+        english: "siblings, brothers",
+        type: "supplementary",
+        example: "兄弟が　二人　います。"
+      },
+      {
+        japanese: "ご兄弟（ごきょうだい）",
+        kana: "ごきょうだい",
+        vietnamese: "anh em (người khác)",
+        english: "siblings (someone else's)",
+        type: "supplementary",
+        example: "ご兄弟は　いらっしゃいますか。"
+      },
+      {
+        japanese: "夫婦（ふうふ）",
+        kana: "ふうふ",
+        vietnamese: "vợ chồng",
+        english: "married couple, husband and wife",
+        type: "supplementary",
+        example: "夫婦で　旅行します。"
+      },
+      {
+        japanese: "ご夫婦（ごふうふ）",
+        kana: "ごふうふ",
+        vietnamese: "vợ chồng (người khác)",
+        english: "married couple (someone else's)",
+        type: "supplementary",
+        example: "ご夫婦は　お元気ですか。"
       },
       // Supplementary Vocabulary - Conversation Phrases (会話)
       {

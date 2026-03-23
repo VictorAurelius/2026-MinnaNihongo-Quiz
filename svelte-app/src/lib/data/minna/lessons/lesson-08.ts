@@ -38,6 +38,14 @@ export const LESSON_08_DATA: LessonData = {
         example: "東京は　にぎやかな　町です。"
       },
       {
+        japanese: "うるさい",
+        kana: "うるさい",
+        vietnamese: "ồn ào, om sòm",
+        type: "main",
+        english: "Noisy, loud",
+        example: "隣の　部屋が　うるさいです。"
+      },
+      {
         japanese: "有名（な）（ゆうめい）",
         kana: "ゆうめい",
         vietnamese: "nổi tiếng",
@@ -92,6 +100,14 @@ export const LESSON_08_DATA: LessonData = {
         type: "main",
         english: "Lovely, wonderful, nice",
         example: "素敵な　プレゼントですね。"
+      },
+      {
+        japanese: "かっこいい",
+        kana: "かっこいい",
+        vietnamese: "ngầu, đẹp trai, thật là cool",
+        type: "main",
+        english: "Cool, handsome, stylish",
+        example: "あの　人は　かっこいいですね。"
       },
       {
         japanese: "厳しい（きびしい）",
@@ -294,6 +310,14 @@ export const LESSON_08_DATA: LessonData = {
         example: ""
       },
       {
+        japanese: "上海（シャンハイ）",
+        kana: "シャンハイ",
+        vietnamese: "Thượng Hải",
+        type: "main",
+        english: "Shanghai",
+        example: "上海は　にぎやかな　町です。"
+      },
+      {
         japanese: "食べ物（たべもの）",
         kana: "たべもの",
         vietnamese: "đồ ăn, thức ăn",
@@ -382,6 +406,54 @@ export const LESSON_08_DATA: LessonData = {
         type: "supplementary",
         example: ""
       },
+      {
+        japanese: "緑（みどり）",
+        kana: "みどり",
+        vietnamese: "màu xanh lá cây",
+        english: "green",
+        type: "supplementary",
+        example: "緑の　木が　きれいです。"
+      },
+      {
+        japanese: "紫（むらさき）",
+        kana: "むらさき",
+        vietnamese: "màu tím",
+        english: "purple",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "ピンク",
+        kana: "ピンク",
+        vietnamese: "màu hồng",
+        english: "pink",
+        type: "supplementary",
+        example: "ピンクの　花が　好きです。"
+      },
+      {
+        japanese: "オレンジ",
+        kana: "オレンジ",
+        vietnamese: "màu da cam",
+        english: "orange",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "灰色（はいいろ）",
+        kana: "はいいろ",
+        vietnamese: "màu xám",
+        english: "gray",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "ベージュ",
+        kana: "ベージュ",
+        vietnamese: "màu be",
+        english: "beige",
+        type: "supplementary",
+        example: ""
+      },
       // Supplementary Vocabulary - Tastes
       {
         japanese: "甘い（あまい）",
@@ -414,6 +486,38 @@ export const LESSON_08_DATA: LessonData = {
         english: "sour",
         type: "supplementary",
         example: ""
+      },
+      {
+        japanese: "しょっぱい",
+        kana: "しょっぱい",
+        vietnamese: "mặn",
+        english: "salty",
+        type: "supplementary",
+        example: "この　スープは　しょっぱいです。"
+      },
+      {
+        japanese: "塩辛い（しおからい）",
+        kana: "しおからい",
+        vietnamese: "mặn (quá mức)",
+        english: "too salty",
+        type: "supplementary",
+        example: ""
+      },
+      {
+        japanese: "味が濃い（あじがこい）",
+        kana: "あじがこい",
+        vietnamese: "vị đậm, đậm đà",
+        english: "strong flavor, rich taste",
+        type: "supplementary",
+        example: "この　料理は　味が　濃いです。"
+      },
+      {
+        japanese: "味が薄い（あじがうすい）",
+        kana: "あじがうすい",
+        vietnamese: "vị nhạt",
+        english: "weak flavor, mild taste",
+        type: "supplementary",
+        example: "この　スープは　味が　薄いです。"
       },
       // Supplementary Vocabulary - Conversation Phrases (会話)
       {
@@ -455,6 +559,30 @@ export const LESSON_08_DATA: LessonData = {
         english: "Please come again",
         type: "supplementary",
         example: "また　いらっしゃって　ください。"
+      },
+      {
+        japanese: "そうですか",
+        kana: "そうですか",
+        vietnamese: "Thế à? Vậy à?",
+        english: "Is that so? I see, Really?",
+        type: "supplementary",
+        example: "Ａ：日本は　きれいです。Ｂ：そうですか。"
+      },
+      {
+        japanese: "ちょっと　見せて　ください",
+        kana: "ちょっと　みせて　ください",
+        vietnamese: "Để tôi xem một chút",
+        english: "Please show me (let me see)",
+        type: "supplementary",
+        example: "ちょっと　見せて　ください。"
+      },
+      {
+        japanese: "おもてなし",
+        kana: "おもてなし",
+        vietnamese: "hiếu khách, lòng hiếu khách",
+        english: "hospitality, wholehearted service",
+        type: "supplementary",
+        example: "日本の　おもてなしは　有名です。"
       }
     ],
     grammar: [
@@ -572,6 +700,33 @@ export const LESSON_08_DATA: LessonData = {
             vietnamese: "Nhà hàng này thế nào?",
             type: "main",
         english: "How is this restaurant?"
+          }
+        ]
+      },
+      {
+        pattern: "～ましたね / ～ましたよね",
+        vietnamese: "Đã ~ rồi nhỉ / Đã ~ rồi, đúng không?",
+        type: "main",
+        english: "~ did/was ~, right? (confirmation)",
+        explanation: "Hạt cuối câu 'ね' dùng để tìm kiếm sự đồng ý hoặc xác nhận về điều gì đó đã xảy ra. 'よね' nhấn mạnh hơn khi muốn xác nhận thông tin người nói nghĩ người nghe đã biết.",
+        examples: [
+          {
+            japanese: "きのうは　暑かったですね。",
+            vietnamese: "Hôm qua nóng nhỉ.",
+            type: "main",
+        english: "It was hot yesterday, wasn't it?"
+          },
+          {
+            japanese: "この　映画を　見ましたよね。",
+            vietnamese: "Bạn đã xem bộ phim này rồi, đúng không?",
+            type: "main",
+        english: "You watched this movie, right?"
+          },
+          {
+            japanese: "日本の　生活は　楽しいですね。",
+            vietnamese: "Cuộc sống ở Nhật vui nhỉ.",
+            type: "main",
+        english: "Life in Japan is fun, isn't it?"
           }
         ]
       }

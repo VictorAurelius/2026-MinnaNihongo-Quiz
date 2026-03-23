@@ -7,20 +7,23 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
-  import { getLessonData } from '$lib/data/minna/lessons';
+  import { getCourse } from '$lib/data/courses';
+  import { parseCourseFromUrl } from '$lib/utils/courseUtils';
   import { quizStore, startQuiz, answerCorrect, answerWrong, nextQuestion, isComplete, progress, currentQuestion } from '$lib/stores';
   import { generateQuestions, generateMCOptions } from '$lib/utils/quizUtils';
   import FlashCard from '$lib/components/quiz/FlashCard.svelte';
   import MultipleChoice from '$lib/components/quiz/MultipleChoice.svelte';
   import TypingQuiz from '$lib/components/quiz/TypingQuiz.svelte';
   import ProgressBar from '$lib/components/common/ProgressBar.svelte';
-  import type { QuizMode, QuizDirection } from '$lib/types';
+  import type { QuizMode, QuizDirection, CourseId } from '$lib/types';
 
   $: mode = $page.params.mode as QuizMode;
+  $: courseId = parseCourseFromUrl($page.url.searchParams);
   $: lessonId = parseInt($page.url.searchParams.get('lesson') || '0');
   $: direction = ($page.url.searchParams.get('direction') || 'ja-vi') as QuizDirection;
 
-  $: lessonData = lessonId > 0 ? getLessonData(lessonId) : null;
+  $: course = getCourse(courseId);
+  $: lessonData = course?.getLessonData(lessonId) ?? null;
 
   let mcOptions: string[] = [];
   let flipped = false;
@@ -31,9 +34,19 @@
       return;
     }
 
-    // Generate questions
-    const questions = generateQuestions(lessonData.vocabulary, direction);
-    startQuiz(mode, direction, lessonId, questions);
+    // Use custom vocab if coming from vocabulary page selection
+    let vocab = lessonData.vocabulary;
+    const customRaw = sessionStorage.getItem('smartquiz_custom_vocab');
+    if (customRaw) {
+      try {
+        const parsed = JSON.parse(customRaw);
+        if (Array.isArray(parsed) && parsed.length > 0) vocab = parsed;
+      } catch {}
+      sessionStorage.removeItem('smartquiz_custom_vocab');
+    }
+
+    const questions = generateQuestions(vocab, direction);
+    startQuiz(mode, direction, courseId, lessonId, questions);
   });
 
   function handleCorrect(event: CustomEvent) {
@@ -88,6 +101,8 @@
     {#if mode === 'flashcard' && 'japanese' in $currentQuestion.item}
       <FlashCard
         item={$currentQuestion.item}
+        questionText={$currentQuestion.question}
+        answerText={$currentQuestion.answer}
         bind:flipped
         on:correct={handleCorrect}
         on:wrong={handleWrong}
@@ -95,6 +110,7 @@
     {:else if mode === 'multiple-choice' && 'japanese' in $currentQuestion.item}
       <MultipleChoice
         question={$currentQuestion.item}
+        questionText={$currentQuestion.question}
         options={mcOptions}
         answer={$currentQuestion.answer}
         on:correct={handleCorrect}
@@ -103,7 +119,9 @@
     {:else if mode === 'typing' && 'japanese' in $currentQuestion.item}
       <TypingQuiz
         question={$currentQuestion.item}
+        questionText={$currentQuestion.question}
         answer={$currentQuestion.answer}
+        isRomaji={direction === 'ja-romaji' || direction === 'vi-romaji'}
         on:correct={handleCorrect}
         on:wrong={handleWrong}
       />

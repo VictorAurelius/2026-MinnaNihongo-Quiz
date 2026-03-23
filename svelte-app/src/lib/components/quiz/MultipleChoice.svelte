@@ -6,15 +6,29 @@
 
   import type { VocabItem } from '$lib/types';
   import { createEventDispatcher } from 'svelte';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
 
   export let question: VocabItem;
+  export let questionText = '';  // display text (based on direction)
   export let options: string[] = [];
   export let answer: string;
+
+  $: displayText = questionText || question.japanese;
 
   const dispatch = createEventDispatcher();
 
   let selectedOption: string | null = null;
   let answered = false;
+
+  // Svelte reuses component instances across questions — reset manually when props change
+  let prevAnswer = '';
+  let prevQuestionText = '';
+  $: if (answer !== prevAnswer || questionText !== prevQuestionText) {
+    prevAnswer = answer;
+    prevQuestionText = questionText;
+    selectedOption = null;
+    answered = false;
+  }
 
   function selectOption(option: string) {
     if (answered) return;
@@ -30,6 +44,11 @@
   }
 
   function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'F1') {
+      event.preventDefault();
+      playJapaneseAudio(question.kana || question.japanese);
+      return;
+    }
     if (answered) return;
 
     const key = event.key;
@@ -47,27 +66,15 @@
     if (option === selectedOption) return 'mc-option wrong';
     return 'mc-option disabled';
   }
-
-  function playAudio() {
-    if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(question.japanese);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.8;
-      window.speechSynthesis.speak(utterance);
-    }
-  }
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
 
 <div class="quiz-question-card">
   <div class="question-label">What is the meaning of:</div>
-  <div class="question-text">{question.japanese}</div>
-  {#if question.kana && question.kana !== question.japanese}
-    <div class="question-romaji">{question.kana}</div>
-  {/if}
-  <button class="btn-speak btn-speak--fc" on:click={playAudio}>
-    🔊 Speak
+  <div class="question-text">{displayText}</div>
+  <button class="btn-speak btn-speak--fc" on:click={() => playJapaneseAudio(question.kana || question.japanese)}>
+    🔊 Speak (F1)
   </button>
 </div>
 
@@ -96,7 +103,7 @@
 
 {#if !answered}
   <div class="hint-text">
-    Press 1-4 on your keyboard or click an option
+    Press 1-4 to choose · F1 to speak
   </div>
 {/if}
 

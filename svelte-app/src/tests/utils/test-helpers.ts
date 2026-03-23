@@ -1,15 +1,15 @@
-import { render, type RenderResult } from '@testing-library/svelte';
+import { render } from '@testing-library/svelte';
 import { vi } from 'vitest';
 import type { ComponentType, SvelteComponent } from 'svelte';
 
 /**
  * Render a Svelte component with props
  */
-export function renderComponent<T extends SvelteComponent>(
-  Component: ComponentType<T>,
+export function renderComponent(
+  Component: ComponentType,
   props?: Record<string, any>
-): RenderResult<T> {
-  return render(Component, { props });
+) {
+  return render(Component, { props } as any);
 }
 
 /**

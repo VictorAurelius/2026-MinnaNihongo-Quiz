@@ -5,22 +5,41 @@
    */
 
   import type { VocabItem } from '$lib/types';
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, afterUpdate } from 'svelte';
+  import { playJapaneseAudio } from '$lib/utils/audioUtils';
 
   export let item: VocabItem;
+  export let questionText = '';  // display text (based on direction)
+  export let answerText = '';    // answer text (based on direction)
   export let showEnglish = true;
   export let autoFlip = false;
+  export let autoSpeak = true;
   export let flipped = false;
+
+  $: frontText = questionText || item.japanese;
+  $: backText = answerText || item.vietnamese;
 
   const dispatch = createEventDispatcher();
 
   let cardElement: HTMLDivElement;
+  let lastSpokenItem = '';
 
   function toggleFlip() {
     flipped = !flipped;
   }
 
+  // Auto-speak when new card appears (front side)
+  $: if (autoSpeak && !flipped && item?.japanese && item.japanese !== lastSpokenItem) {
+    lastSpokenItem = item.japanese;
+    setTimeout(() => playJapaneseAudio(item.kana || item.japanese), 200);
+  }
+
   function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'F1') {
+      event.preventDefault();
+      playJapaneseAudio(item.kana || item.japanese);
+      return;
+    }
     if (event.code === 'Space' || event.code === 'Enter') {
       event.preventDefault();
       toggleFlip();
@@ -33,15 +52,6 @@
 
   function handleWrong() {
     dispatch('wrong', { item });
-  }
-
-  function playAudio() {
-    if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(item.japanese);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.8;
-      window.speechSynthesis.speak(utterance);
-    }
   }
 
   // Auto-flip after delay
@@ -66,24 +76,18 @@
   bind:this={cardElement}
 >
   <div class="flashcard-inner">
-    <!-- Front Side (Japanese) -->
+    <!-- Front Side (Question) -->
     <div class="flashcard-front">
-      <div class="fc-japanese">{item.japanese}</div>
-      {#if item.kana && item.kana !== item.japanese}
-        <div class="fc-kana">{item.kana}</div>
-      {/if}
-      <div class="hint-text">Click or press Space to flip</div>
-      <button class="btn-speak btn-speak--fc" on:click|stopPropagation={playAudio}>
-        🔊 Speak
+      <div class="fc-japanese">{frontText}</div>
+      <div class="hint-text">Space to flip · F1 to speak</div>
+      <button class="btn-speak btn-speak--fc" on:click|stopPropagation={() => playJapaneseAudio(item.kana || item.japanese)}>
+        🔊 Speak (F1)
       </button>
     </div>
 
-    <!-- Back Side (Vietnamese/English + Example) -->
+    <!-- Back Side (Answer) -->
     <div class="flashcard-back">
-      <div class="fc-meaning">{item.vietnamese}</div>
-      {#if showEnglish}
-        <div class="fc-english">{item.english}</div>
-      {/if}
+      <div class="fc-meaning">{backText}</div>
       {#if item.example}
         <div class="fc-example">{item.example}</div>
       {/if}
