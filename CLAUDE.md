@@ -31,6 +31,7 @@ Mỗi PR tuân theo quy trình:
 | CI status | `./scripts/check-ci.sh --status` | `gh run list` trực tiếp |
 | CI đợi | `./scripts/check-ci.sh` | `gh run watch` trực tiếp |
 | Quality audit | `./scripts/quality-audit.sh` | Chạy từng lệnh grep/count |
+| Render diagrams | `./scripts/render-diagrams.sh` | Manual java/mmdc commands |
 
 ## Git Workflow (Dual Branch)
 

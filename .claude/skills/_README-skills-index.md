@@ -53,6 +53,9 @@
 |------|----------|
 | `reference/business-docs-3-layer.md` | Thiết kế business docs (rules + use-cases + api-contract) |
 | `reference/service-docs-standard.md` | Chuẩn README + QUICK-START cho mỗi service |
+| `reference/project-structure.md` | Cấu trúc folder best practice, khi nào refactor |
+| `reference/ide-setup.md` | VS Code settings, test runner, tắt MD warnings |
+| `reference/diagrams.md` | PlantUML/Mermaid guide, minimum diagrams list |
 
 ## Scripts (PHẢI dùng, KHÔNG lệnh ad-hoc)
 
@@ -63,5 +66,7 @@
 | `scripts/check-ci.sh` | Sau push — đợi CI |
 | `scripts/check-ci.sh --status` | Quick CI status (audit, review) |
 | `scripts/quality-audit.sh` | Chấm điểm quality 100/100 |
-| `scripts/quality-audit.sh --save` | Chấm + lưu report vào docs/ |
+| `scripts/quality-audit.sh --save` | Chấm + lưu report vào documents/04-quality/ |
 | `scripts/pre-commit-check.sh` | Pre-commit: sensitive data, TODO markers |
+| `scripts/render-diagrams.sh` | Render PlantUML/Mermaid → PNG |
+| `scripts/render-diagrams.sh --check` | Kiểm tra tools có sẵn |
