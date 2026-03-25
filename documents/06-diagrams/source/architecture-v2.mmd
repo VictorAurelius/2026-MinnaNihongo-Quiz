@@ -1,0 +1,71 @@
+---
+title: Smart Quiz v2 — Architecture Overview
+---
+graph TB
+    subgraph Browser["Browser (SPA + PWA)"]
+        subgraph Routes["SvelteKit Routes (25 pages)"]
+            Home["/ Home"]
+            Courses["/courses"]
+            Lesson["/course/:id/lesson/:id"]
+            Quiz["/quiz/:mode"]
+            GrammarQuiz["/grammar-quiz/:mode"]
+            Results["/results"]
+            Kanji["/kanji/:lesson"]
+            KanjiQuiz["/kanji/:lesson/quiz/:mode"]
+            HSK["/hsk/:group"]
+            Alphabet["/alphabet"]
+            Counters["/counters"]
+            GrammarRef["/grammar-reference"]
+            MockTest["/mock-test"]
+            Stats["/stats"]
+            Review["/review"]
+            Settings["/settings"]
+        end
+
+        subgraph Components["Svelte Components (17)"]
+            QuizComps["quiz/<br/>FlashCard, MC,<br/>TypingQuiz, VirtualKeyboard"]
+            KanjiComps["kanji/<br/>KanjiFlashCard,<br/>KanjiMC, KanjiTyping"]
+            GrammarComps["grammar/<br/>GrammarCard,<br/>ComparisonCard, Modals"]
+            CommonComps["common/<br/>Button, Card, Modal,<br/>ProgressBar, BackButton"]
+            Layout["layout/<br/>Header"]
+        end
+
+        subgraph Stores["Svelte Stores"]
+            QuizStore["quizStore<br/>(mode, questions, score)"]
+            ProgressStore["progressStore<br/>(lessons, hsk, settings)"]
+            UIStore["uiStore<br/>(darkMode, keyboard, modal)"]
+        end
+
+        subgraph Utils["Utilities"]
+            AudioUtils["audioUtils<br/>playJapaneseAudio<br/>playChineseAudio"]
+            QuizUtils["quizUtils<br/>checkAnswer, generateMC"]
+            SRSUtils["srsUtils<br/>SM-2 algorithm"]
+            AchievementUtils["achievementUtils<br/>streaks, achievements"]
+            StatsUtils["statsUtils<br/>mastery, lesson stats"]
+        end
+
+        subgraph Data["Static Data (93 TS files)"]
+            MinnaData["minna/lessons/<br/>25 lessons, 1100+ vocab"]
+            KanjiData["kanji/lessons/<br/>25 lessons, 256 kanji"]
+            HSKData["hsk/<br/>5 groups, 1603 words"]
+            CourseData["courses/<br/>N5, N4 registry"]
+        end
+
+        SW["Service Worker<br/>(cache-first + runtime)"]
+        LS["localStorage<br/>(progress, streak,<br/>srs, settings)"]
+    end
+
+    Routes --> Components
+    Components --> Stores
+    Components --> Utils
+    Stores --> LS
+    Routes --> Data
+    SW -.->|cache| Routes
+
+    subgraph Deploy["Deployment"]
+        GHP["GitHub Pages<br/>victoraurelius.github.io/2026-Smart-Quiz"]
+        GHA["GitHub Actions<br/>CI + Deploy"]
+    end
+
+    Browser -->|static files| GHP
+    GHA -->|build + deploy| GHP
