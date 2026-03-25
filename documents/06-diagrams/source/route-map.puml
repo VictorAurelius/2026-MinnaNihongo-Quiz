@@ -1,0 +1,69 @@
+@startuml route-map
+title Smart Quiz — Route Map
+
+skinparam backgroundColor white
+left to right direction
+
+rectangle "Home /" as Home #6366f1
+
+package "Japanese Courses" {
+  rectangle "/courses" as Courses
+  rectangle "/course/:courseId" as Course
+  rectangle "/lesson/:id" as Lesson
+  rectangle "/vocabulary" as Vocab
+  rectangle "/grammar" as Grammar
+  rectangle "/quiz/:mode" as QuizMode
+  rectangle "/grammar-quiz" as GrammarQuiz
+  rectangle "/results" as Results #22c55e
+}
+
+package "Kanji" {
+  rectangle "/kanji" as KanjiHome
+  rectangle "/kanji/:lesson" as KanjiLesson
+  rectangle "/kanji/reference" as KanjiRef
+  rectangle "/kanji/quiz/:mode" as KanjiQuiz
+}
+
+package "HSK Chinese" {
+  rectangle "/hsk" as HSKHome
+  rectangle "/hsk/:group" as HSKGroup
+}
+
+package "Reference" {
+  rectangle "/alphabet" as Alphabet
+  rectangle "/counters" as Counters
+  rectangle "/grammar-reference" as GrammarRef
+}
+
+package "User" {
+  rectangle "/stats" as Stats
+  rectangle "/review" as Review
+  rectangle "/settings" as Settings
+  rectangle "/mock-test" as MockTest
+}
+
+Home --> Courses
+Home --> KanjiHome
+Home --> Alphabet
+Home --> GrammarRef
+Home --> Counters
+Home --> HSKHome
+Home --> Stats
+Home --> Review
+Home --> Settings
+Home --> MockTest
+
+Courses --> Course
+Course --> Lesson
+Lesson --> Vocab
+Lesson --> Grammar
+Lesson --> QuizMode
+Lesson --> GrammarQuiz
+QuizMode --> Results
+
+KanjiHome --> KanjiLesson
+KanjiLesson --> KanjiRef
+KanjiLesson --> KanjiQuiz
+
+HSKHome --> HSKGroup
+@enduml
