@@ -1,0 +1,33 @@
+{
+  // ========== Markdown (tắt noise) ==========
+  "markdownlint.config": {
+    "default": false
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {},
+    "cSpell.enabled": false
+  },
+  "markdown.validate.enabled": false,
+  "markdownlint.run": "onSave",
+
+  // ========== Spell Check ==========
+  "cSpell.language": "en,vi",
+  "cSpell.words": [
+    "sveltekit", "vitest", "kanji", "kana", "romaji",
+    "onyomi", "kunyomi", "hiragana", "katakana",
+    "minna", "nihongo", "jlpt"
+  ],
+  "cSpell.enableFiletypes": [
+    "!markdown"
+  ],
+
+  // ========== TypeScript / SvelteKit ==========
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+
+  // ========== Vitest ==========
+  "vitest.commandLine": "npx vitest",
+
+  "editor.formatOnSave": true
+}

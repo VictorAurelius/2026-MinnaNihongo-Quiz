@@ -28,25 +28,7 @@
 ### Quality
 | File | Dùng khi |
 |------|----------|
-| `quality-audit.md` | Đánh giá chất lượng /100 điểm (project-specific, invokable) |
-
-### Project-specific (existing)
-| File | Dùng khi |
-|------|----------|
-| `continue/SKILL.md` | Xác định action ưu tiên nhất và thực hiện |
-| `fix-spa-routing.md` | Fix SPA routing issues (base path) |
-| `quality-audit.md` | Quality audit 100 điểm (Smart Quiz specific) |
-
-### Project-specific (phát sinh khi implement)
-| File | Tạo khi | Dùng khi |
-|------|---------|----------|
-| `smart-quiz/component-patterns.md` | Wave 1 | Skeleton, SVG, reusable component patterns |
-| `smart-quiz/data-conventions.md` | Wave 4 | Data file structure, naming, types |
-| `smart-quiz/quiz-adapter.md` | Wave 4 | Reuse quiz components cho content types mới |
-| `smart-quiz/canvas-svg-patterns.md` | Wave 3 | SVG animation, canvas, lazy load |
-| `smart-quiz/supabase-patterns.md` | Wave 6 | Auth, RLS, sync, offline fallback |
-
-> Xem chi tiết: `smart-quiz/README.md`
+| `quality/quality-audit.md` | Đánh giá chất lượng /100 điểm |
 
 ### Reference
 | File | Dùng khi |
@@ -54,8 +36,8 @@
 | `reference/business-docs-3-layer.md` | Thiết kế business docs (rules + use-cases + api-contract) |
 | `reference/service-docs-standard.md` | Chuẩn README + QUICK-START cho mỗi service |
 | `reference/project-structure.md` | Cấu trúc folder best practice, khi nào refactor |
-| `reference/ide-setup.md` | VS Code settings, test runner, tắt MD warnings |
-| `reference/diagrams.md` | PlantUML/Mermaid guide, minimum diagrams list |
+| `reference/ide-setup.md` | VS Code settings, test runner, tắt MD warnings, Claude permissions |
+| `reference/diagrams.md` | PlantUML/Mermaid setup, render workflow, minimum diagrams |
 
 ## Scripts (PHẢI dùng, KHÔNG lệnh ad-hoc)
 
@@ -65,8 +47,5 @@
 | `scripts/test-local.sh --quick` | Quick check (compile/lint only) |
 | `scripts/check-ci.sh` | Sau push — đợi CI |
 | `scripts/check-ci.sh --status` | Quick CI status (audit, review) |
-| `scripts/quality-audit.sh` | Chấm điểm quality 100/100 |
-| `scripts/quality-audit.sh --save` | Chấm + lưu report vào documents/04-quality/ |
-| `scripts/pre-commit-check.sh` | Pre-commit: sensitive data, TODO markers |
 | `scripts/render-diagrams.sh` | Render PlantUML/Mermaid → PNG |
-| `scripts/render-diagrams.sh --check` | Kiểm tra tools có sẵn |
+| `scripts/render-diagrams.sh --check` | Kiểm tra tools đã cài chưa |
