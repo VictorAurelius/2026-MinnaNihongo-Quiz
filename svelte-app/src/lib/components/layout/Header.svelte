@@ -58,7 +58,11 @@
     {#if !isHome}
       <BackButton text="" />
     {/if}
-    <h1 id="header-title">{pageTitle}</h1>
+    {#if isHome}
+      <img src="{base}/logo.svg" alt="Smart Quiz" class="header-logo" height="24" />
+    {:else}
+      <h1 id="header-title">{pageTitle}</h1>
+    {/if}
   </div>
 
   <div class="header-right">
@@ -156,6 +160,11 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
+  }
+
+  .header-logo {
+    height: 24px;
+    width: auto;
   }
 
   #header-title {
