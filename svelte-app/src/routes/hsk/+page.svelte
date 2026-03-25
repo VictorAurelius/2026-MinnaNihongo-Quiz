@@ -1,7 +1,13 @@
 <script lang="ts">
-  import { HSK5_DATA } from '$lib/data/hsk';
+  import { getAllHSKLevels, getHSKData } from '$lib/data/hsk';
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+
+  const levels = getAllHSKLevels();
+  let selectedLevel = 5;
+
+  $: groups = getHSKData(selectedLevel);
+  $: totalWords = groups.reduce((s, g) => s + g.words.length, 0);
 
   function navigateToGroup(groupId: string) {
     goto(`${base}/hsk/${groupId}`);
@@ -9,22 +15,35 @@
 </script>
 
 <svelte:head>
-  <title>HSK 5 Vocabulary</title>
+  <title>HSK Vocabulary — Smart Quiz</title>
 </svelte:head>
 
-<div class="hsk-menu-container">
+<div class="hsk-page">
   <header class="page-header">
-    <h1>HSK 5 Vocabulary</h1>
-    <p class="subtitle">汉语水平考试 - Chinese Proficiency Test Level 5</p>
-    <p class="word-count">Total: ~1600 words across 5 groups</p>
+    <h1>HSK Vocabulary</h1>
+    <p class="subtitle">汉语水平考试 — Chinese Proficiency Test</p>
   </header>
 
-  <div class="groups-grid">
-    {#each HSK5_DATA as group}
+  <!-- Level Selector -->
+  <div class="level-selector">
+    {#each levels as lvl}
       <button
-        class="group-card"
-        on:click={() => navigateToGroup(group.id)}
+        class="level-btn"
+        class:active={selectedLevel === lvl.level}
+        on:click={() => selectedLevel = lvl.level}
       >
+        <span class="level-num">HSK {lvl.level}</span>
+        <span class="level-count">{lvl.wordCount} từ</span>
+      </button>
+    {/each}
+  </div>
+
+  <p class="total-info">HSK {selectedLevel} — {totalWords} words, {groups.length} group{groups.length > 1 ? 's' : ''}</p>
+
+  <!-- Groups -->
+  <div class="groups-grid">
+    {#each groups as group}
+      <button class="group-card" on:click={() => navigateToGroup(group.id)}>
         <div class="group-letter">{group.id.toUpperCase()}</div>
         <div class="group-info">
           <h2 class="group-title">{group.title}</h2>
@@ -34,170 +53,51 @@
       </button>
     {/each}
   </div>
-
-  <div class="info-panel">
-    <h3>About HSK 5</h3>
-    <p>
-      HSK 5 là cấp độ 5 trong kỳ thi năng lực tiếng Trung Quốc.
-      Người học cần nắm vững khoảng 2500 từ vựng để đạt trình độ này.
-    </p>
-    <p>
-      Danh sách này bao gồm 1600+ từ cốt lõi được sắp xếp theo thứ tự chữ cái (Pinyin).
-    </p>
-  </div>
 </div>
 
 <style>
-  .hsk-menu-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
+  .hsk-page { max-width: 800px; margin: 0 auto; padding: 1rem; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  .page-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
+  .page-header { text-align: center; margin-bottom: 1.5rem; }
+  .page-header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .subtitle { font-size: 0.9rem; color: var(--text-muted); }
 
-  .page-header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
+  .level-selector { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+  .level-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 0.1rem;
+    padding: 0.5rem 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm);
+    background: var(--bg-card); font-family: inherit; cursor: pointer; transition: all 0.15s;
+    color: var(--text);
   }
+  .level-btn:hover { border-color: var(--primary); }
+  .level-btn.active { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 10%, var(--bg-card)); color: var(--primary); }
+  .level-num { font-size: 0.9rem; font-weight: 700; }
+  .level-count { font-size: 0.7rem; color: var(--text-muted); }
 
-  .subtitle {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-  }
+  .total-info { text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
 
-  .word-count {
-    font-size: 0.875rem;
-    color: var(--text-tertiary);
-    font-weight: 500;
-  }
-
-  .groups-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-
+  .groups-grid { display: flex; flex-direction: column; gap: 0.75rem; }
   .group-card {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    background: white;
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-align: left;
+    display: flex; align-items: center; gap: 1rem; width: 100%;
+    padding: 1rem; background: var(--bg-card); border: 1.5px solid var(--border);
+    border-radius: var(--radius); cursor: pointer; text-align: left;
+    font-family: inherit; color: var(--text); transition: all 0.2s;
   }
-
-  .group-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  }
-
+  .group-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
   .group-letter {
-    flex-shrink: 0;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    font-size: 2.5rem;
-    font-weight: 700;
-    border-radius: 12px;
+    width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center;
+    background: var(--accent); color: white; font-size: 1.3rem; font-weight: 700; border-radius: var(--radius-sm); flex-shrink: 0;
   }
+  .group-info { flex: 1; }
+  .group-title { font-size: 1rem; font-weight: 600; margin: 0 0 0.15rem; }
+  .group-count { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+  .arrow { color: var(--text-muted); font-size: 1.1rem; transition: transform 0.2s; }
+  .group-card:hover .arrow { transform: translateX(3px); color: var(--primary); }
 
-  .group-info {
-    flex: 1;
-  }
-
-  .group-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.25rem;
-  }
-
-  .group-count {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-  }
-
-  .arrow {
-    flex-shrink: 0;
-    font-size: 1.5rem;
-    color: var(--text-tertiary);
-    transition: transform 0.2s;
-  }
-
-  .group-card:hover .arrow {
-    transform: translateX(4px);
-    color: var(--primary);
-  }
-
-  .info-panel {
-    background: var(--bg-secondary);
-    border-left: 4px solid var(--primary);
-    padding: 2rem;
-    border-radius: 8px;
-  }
-
-  .info-panel h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-  }
-
-  .info-panel p {
-    line-height: 1.8;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-  }
-
-  .info-panel p:last-child {
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 768px) {
-    .hsk-menu-container {
-      padding: 1rem 0.5rem;
-    }
-
-    .page-header h1 {
-      font-size: 1.75rem;
-    }
-
-    .groups-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .group-card {
-      padding: 1.5rem;
-      gap: 1rem;
-    }
-
-    .group-letter {
-      width: 60px;
-      height: 60px;
-      font-size: 2rem;
-    }
-
-    .group-title {
-      font-size: 1.25rem;
-    }
+  @media (max-width: 600px) {
+    .level-selector { gap: 0.3rem; }
+    .level-btn { padding: 0.4rem 0.6rem; }
+    .level-num { font-size: 0.8rem; }
   }
 </style>
