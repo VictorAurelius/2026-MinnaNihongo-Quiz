@@ -1,6 +1,6 @@
 # Smart Quiz — Quality Audit Report
 
-**Date:** 2026-03-25 | **Commit:** d51d3fe | **Script:** quality-audit.sh
+**Date:** 2026-03-25 | **Commit:** 4b18305 | **Script:** quality-audit.sh
 
 ## Score: 97/100 — A+ (Production Excellence)
 
@@ -19,10 +19,10 @@
 | | **Total** | **97** | **100** | |
 
 ## Raw Data
-- Tests: 677 pass / 0 fail / 0 skip
-- svelte-check: 7 errors / 0 warnings
+- Tests: 694 pass / 0 fail / 0 skip
+- svelte-check: 7 errors / 1 warnings
 - Raw TTS (outside audioUtils): 0
 - Stale branches: 0 | Open PRs: 0
 - TODO/FIXME: 0 | Dead CSS: 0 | Unused exports: 0
-- Data: 94 files | Components: 23 | Routes: 27
-- Kanji lessons: 25 | HSK words: 1603
+- Data: 98 files | Components: 23 | Routes: 28
+- Kanji lessons: 25 | HSK words: 2200
