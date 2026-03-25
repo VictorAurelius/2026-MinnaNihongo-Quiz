@@ -4,21 +4,29 @@
 
 ---
 
-## Git Branching Strategy (Main-Only)
+## Git Branching Strategy (Dual Branch)
 
 ```
-main ────●──────●──────●──────●──► (Production + GitHub Pages deploy)
-         │      ▲      ▲      ▲
-         └─feat─┘ └─fix─┘ └─docs─┘
+main ────────────────●─────────────●──► GitHub Pages (v2 stable)
+                     ▲             ▲
+v4-dev ──●──●──●─────┤──●──●──●───┤──► Vercel (v4 preview)
+         └─feat─┘    │  └─fix─┘   │
+              wave complete   wave complete
 ```
 
-| Branch | Pattern | From | Merge To | Method |
+| Branch | Pattern | From | Merge To | Deploy |
 |--------|---------|------|----------|--------|
-| `main` | `main` | - | - | Auto-deploy to GitHub Pages |
-| `feature` | `feat/{short-desc}` | `main` | `main` | Merge commit |
-| `fix` | `fix/{short-desc}` | `main` | `main` | Merge commit |
-| `docs` | `docs/{short-desc}` | `main` | `main` | Merge commit |
-| `test` | `test/{short-desc}` | `main` | `main` | Merge commit |
+| `main` | `main` | - | - | GitHub Pages (stable) |
+| `v4-dev` | `v4-dev` | `main` | `main` (per wave) | Vercel (preview) |
+| `feature` | `feat/{short-desc}` | `v4-dev` | `v4-dev` | Vercel Preview |
+| `fix` | `fix/{short-desc}` | `v4-dev` | `v4-dev` | Vercel Preview |
+| `docs` | `docs/{short-desc}` | `v4-dev` | `v4-dev` | — |
+
+**v4-dev → main merge criteria:**
+- Wave checkpoint passed (all PRs in wave complete)
+- `./scripts/quality-audit.sh` ≥ 100/100
+- `./scripts/test-local.sh all` pass
+- No regression trên existing features
 
 **Branch naming rules:**
 - Lowercase only, dashes instead of spaces
