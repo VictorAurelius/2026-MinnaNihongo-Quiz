@@ -1,33 +1,30 @@
-# Portable Skill — adapt {project} placeholders
+# Development Workflow — Smart Quiz
 
-# Development Workflow
-
-**Purpose:** Quy trinh phat trien tu planning den deployment — git, commits, PR, testing, review.
+**Purpose:** Quy trình phát triển từ planning đến deployment — git, commits, PR, testing, review.
 
 ---
 
-## Git Branching Strategy
+## Git Branching Strategy (Main-Only)
 
 ```
-main ────●────────────●────────────●──► (Production)
-         │            ▲            ▲
-develop ─┼──●──●──●───┼──●──●─────┼──► (Integration)
-         │  └─feature──┘  └─fix───┘
+main ────●──────●──────●──────●──► (Production + GitHub Pages deploy)
+         │      ▲      ▲      ▲
+         └─feat─┘ └─fix─┘ └─docs─┘
 ```
 
 | Branch | Pattern | From | Merge To | Method |
 |--------|---------|------|----------|--------|
-| `main` | `main` | - | - | - |
-| `develop` | `develop` | `main` | `main` | Merge commit |
-| `feature` | `feature/{ticket}-{desc}` | `develop` | `develop` | Squash merge |
-| `bugfix` | `bugfix/{ticket}-{desc}` | `develop` | `develop` | Squash merge |
-| `hotfix` | `hotfix/{ticket}-{desc}` | `main` | `main` + `develop` | Merge commit |
-| `release` | `release/v{version}` | `develop` | `main` + `develop` | Merge commit |
+| `main` | `main` | - | - | Auto-deploy to GitHub Pages |
+| `feature` | `feat/{short-desc}` | `main` | `main` | Merge commit |
+| `fix` | `fix/{short-desc}` | `main` | `main` | Merge commit |
+| `docs` | `docs/{short-desc}` | `main` | `main` | Merge commit |
+| `test` | `test/{short-desc}` | `main` | `main` | Merge commit |
 
 **Branch naming rules:**
 - Lowercase only, dashes instead of spaces
-- Always include ticket ID
+- Prefix: feat/, fix/, docs/, test/, chore/
 - Keep short (< 50 chars)
+- Delete remote branch after merge
 
 ---
 
