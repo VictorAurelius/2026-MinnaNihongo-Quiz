@@ -1,28 +1,22 @@
-# Wave 2 Checkpoint — Learning Path
+# Wave 2 Checkpoint — Learning Path ✅ COMPLETE
 
 ## PRs in Wave
 
 | PR | Name | Status | Tests | Actual PR |
 |----|------|--------|-------|-----------|
-| #2 | [Learning path + mastery unlock](pr-02-learning-path.md) | [ ] | 15 | |
-| #3 | [JLPT mock test](pr-03-mock-test.md) | [ ] | 10 | |
+| #2 | [Learning path + mastery unlock](pr-02-learning-path.md) | [x] | 18 | #49 |
+| #3 | [JLPT mock test](pr-03-mock-test.md) | [x] | 10 | #50 |
 
 ## Entry Criteria
 - [x] Wave 1 checkpoint passed (97/100, 629 tests)
 
 ## Exit Criteria
-- [ ] `./scripts/quality-audit.sh --save` ≥ 97/100
-- [ ] Learning path: lesson 1 unlocked, lesson 2+ locked until mastery ≥ 70%
-- [ ] "Continue" button works correctly
-- [ ] Mock test: 30 questions, timer, JLPT scoring, pass/fail
-- [ ] Tests: ≥ 654 (629 + 25 new)
-- [ ] Business gaps: none
-
-## Diagrams
-| Diagram | File | Created by PR |
-|---------|------|---------------|
-| Learning Path SM | `06-diagrams/source/learning-path-sm.puml` | #2 |
-| Mock Test Flow | `06-diagrams/source/mock-test-flow.puml` | #3 |
+- [x] `./scripts/quality-audit.sh --save` = 97/100 A+
+- [x] Learning path: lesson 1 unlocked, lesson 2+ locked until mastery ≥ 70%
+- [x] "Continue" button works correctly
+- [x] Mock test: 30 questions, timer, JLPT scoring, pass/fail
+- [x] Tests: 657 (629 + 28 new)
+- [x] Business gaps: none
 
 ## Audit Report
-> Chạy sau wave complete
+- [quality-audit-2026-03-25.md](../../../04-quality/quality-audit-2026-03-25.md) — 97/100 A+
