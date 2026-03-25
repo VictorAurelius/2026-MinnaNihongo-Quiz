@@ -15,6 +15,7 @@
   import KanjiMultipleChoice from '$lib/components/kanji/KanjiMultipleChoice.svelte';
   import KanjiTypingQuiz from '$lib/components/kanji/KanjiTypingQuiz.svelte';
   import ProgressBar from '$lib/components/common/ProgressBar.svelte';
+  import SkeletonCard from '$lib/components/common/SkeletonCard.svelte';
 
   $: mode = $page.params.mode as 'flashcard' | 'mc' | 'typing';
   $: lessonId = parseInt($page.params.lesson || '0');
@@ -162,7 +163,7 @@
   </div>
 {:else}
   <div class="loading">
-    <p>Loading quiz...</p>
+    <SkeletonCard />
   </div>
 {/if}
 
