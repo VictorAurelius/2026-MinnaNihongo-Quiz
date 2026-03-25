@@ -48,3 +48,5 @@ temp/
 # System Files
 *.bak
 *.backup
+documents/06-diagrams/tools/plantuml.jar
+documents/06-diagrams/rendered/
