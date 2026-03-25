@@ -45,10 +45,10 @@ Mỗi PR tuân theo quy trình:
 | Document | Update khi |
 |----------|-----------|
 | `CLAUDE.md` | Thêm pattern/convention mới |
-| `docs/CHANGELOG.md` | Mỗi version release |
-| `docs/FEATURE_ROADMAP.md` | Thêm/hoàn thành feature |
-| `docs/PR_PLAN_V4.md` | Implement xong PR → đánh ✅ |
-| `docs/quality-audit-*.md` | Chạy audit script |
+| `documents/05-guides/CHANGELOG.md` | Mỗi version release |
+| `documents/03-planning/FEATURE_ROADMAP.md` | Thêm/hoàn thành feature |
+| `documents/03-planning/PR_PLAN_V4.md` | Implement xong PR → đánh ✅ |
+| `documents/04-quality/quality-audit-*.md` | Chạy audit script |
 
 ## Project Overview
 

@@ -26,7 +26,7 @@ DETECT_PATTERNS=(
 )
 
 # Files that count as "docs only" (no tests needed)
-DOCS_PATTERNS="docs/*|*.md|*.txt|*.rst|LICENSE|CHANGELOG|scripts/*"
+DOCS_PATTERNS="documents/*|*.md|*.txt|*.rst|LICENSE|CHANGELOG|scripts/*"
 # =============================================================================
 
 GREEN='\033[0;32m'
