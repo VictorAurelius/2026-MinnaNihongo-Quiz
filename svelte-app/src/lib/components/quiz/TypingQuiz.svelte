@@ -166,7 +166,7 @@
 </div>
 
 {#if answered}
-  <div class="feedback" class:correct={isCorrect} class:wrong={!isCorrect}>
+  <div class="feedback" class:correct={isCorrect} class:wrong={!isCorrect} aria-live="polite" aria-atomic="true">
     {#if isCorrect}
       ✓ Correct!
     {:else}
