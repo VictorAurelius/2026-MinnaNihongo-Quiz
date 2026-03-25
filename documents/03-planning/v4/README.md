@@ -3,6 +3,21 @@
 > **Mục tiêu:** Full Nhai Kanji parity + vượt trội ở quiz, bilingual, offline, a11y
 > **Methodology:** Superpowers (Brainstorm → TDD → Implement → Verify)
 > **Kit:** starter-kit v1.1.0 (waves, audit checkpoints, business docs first)
+> **Architecture:** Offline-first — FE luôn độc lập, Supabase là enhancement
+> **Deploy:** main → GitHub Pages (stable) | v4-dev → Vercel (preview)
+
+### Key Architecture Docs
+- [Deployment Strategy](../../02-architecture/DEPLOYMENT_STRATEGY.md) — branch model, Vercel setup, merge criteria
+- [Offline-First Architecture](../../02-architecture/OFFLINE_FIRST_ARCHITECTURE.md) — data flow, sync, feature matrix, Supabase schema
+
+### Branch Model
+```
+main ────► GitHub Pages (v2 stable, user đang dùng)
+v4-dev ──► Vercel (v4 preview, development)
+  └── feat/* (feature branches → PR vào v4-dev)
+```
+Feature branches tạo từ `v4-dev`. Merge vào `v4-dev` sau mỗi PR.
+Merge `v4-dev` → `main` sau mỗi wave complete + audit pass.
 
 ---
 

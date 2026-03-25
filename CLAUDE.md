@@ -32,13 +32,20 @@ Mỗi PR tuân theo quy trình:
 | CI đợi | `./scripts/check-ci.sh` | `gh run watch` trực tiếp |
 | Quality audit | `./scripts/quality-audit.sh` | Chạy từng lệnh grep/count |
 
-## Git Workflow (Main-Only)
+## Git Workflow (Dual Branch)
 
-- **Main branch:** `main` (auto-deploy GitHub Pages)
-- **Feature branches:** `feat/`, `fix/`, `docs/`, `test/`, `chore/`
+- **`main`** → GitHub Pages (v2 stable, production)
+- **`v4-dev`** → Vercel (v4 preview, development)
+- **Feature branches** từ `v4-dev`: `feat/`, `fix/`, `docs/`, `test/`, `chore/`
 - **Commit convention:** `<type>(<scope>): <subject>` (conventional commits)
-- **Merge:** Tạo PR → CI green → merge → delete branch
-- **KHÔNG commit trực tiếp lên main** (trừ docs/config nhỏ)
+- **Feature PR → merge vào `v4-dev`** (NOT main)
+- **Wave complete → merge `v4-dev` → `main`** (sau audit pass)
+- **KHÔNG commit trực tiếp lên main** (trừ hotfix critical)
+
+### Architecture
+- **Offline-first:** FE luôn chạy độc lập, Supabase là enhancement
+- **Xem:** `documents/02-architecture/DEPLOYMENT_STRATEGY.md`
+- **Xem:** `documents/02-architecture/OFFLINE_FIRST_ARCHITECTURE.md`
 
 ## Living Documents
 
