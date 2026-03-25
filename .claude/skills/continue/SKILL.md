@@ -59,10 +59,11 @@ Context bổ sung từ user: $ARGUMENTS
 - PHẢI tất cả pass
 
 ### 3.5 Push & PR
-- `git checkout -b <type>/<short-description>`
+- Feature branch từ `v4-dev` (KHÔNG từ main): `git checkout v4-dev && git checkout -b <type>/<short-description>`
 - `git push -u origin <branch>`
-- `gh pr create` với Summary + Test plan
+- `gh pr create --base v4-dev` với Summary + Test plan
 - KHÔNG merge — chờ user approve
+- Sau wave complete: merge `v4-dev` → `main` (audit + regression pass)
 
 ## Step 4: Update Documents
 Sau khi PR tạo xong:
