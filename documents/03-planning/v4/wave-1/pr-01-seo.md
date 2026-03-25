@@ -187,6 +187,12 @@ describe('SEO — manifest.json', () => {
 
 ---
 
-## 6. Skills to Create (nếu phát hiện pattern mới)
+## 6. Diagrams to Create
+
+| Diagram | File | Type |
+|---------|------|------|
+| PWA Lifecycle | `documents/06-diagrams/source/pwa-lifecycle.mmd` | Mermaid |
+
+## 7. Skills to Create
 
 Không dự kiến tạo skill mới cho PR này (scope nhỏ, không có pattern lặp lại).

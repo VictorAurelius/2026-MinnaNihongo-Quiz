@@ -101,6 +101,26 @@ Khi implement, nếu phát hiện pattern mới cần document:
 
 ---
 
+## Diagrams per Wave
+
+> Full index: [`documents/06-diagrams/README.md`](../../06-diagrams/README.md)
+> Render: `./scripts/render-diagrams.sh`
+
+| Wave | Diagrams | Type |
+|------|----------|------|
+| Pre-wave | Architecture v2, Route Map, Component Tree, Store Flow | Mermaid |
+| 1 | Quiz Flow, PWA Lifecycle | Mermaid |
+| 2 | Learning Path State Machine, Mock Test Flow | PlantUML + Mermaid |
+| 3 | Stroke Animation Pipeline, Radical Data Flow | Mermaid |
+| 4 | Quiz Adapter Pattern, HSK Data Structure | Mermaid + PlantUML |
+| 5 | KanjiCanvas Integration, Architecture v4 | Mermaid |
+| 6 | Offline Sync, Supabase ERD, Auth Sequence | Mermaid + PlantUML |
+| 7 | SRS State Machine | PlantUML |
+| 8 | Premium Gate Flow, Deployment Topology | Mermaid |
+| **Total** | **20 diagrams** | |
+
+---
+
 ## Business Docs Required
 
 | PR | Business doc | Path | Tạo trước khi code |

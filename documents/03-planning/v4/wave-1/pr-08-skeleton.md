@@ -176,7 +176,13 @@ describe('SkeletonCard', () => {
 
 ---
 
-## 6. Skills to Create
+## 6. Diagrams to Create
+
+| Diagram | File | Type |
+|---------|------|------|
+| Quiz Flow (user journey) | `documents/06-diagrams/source/quiz-flow.mmd` | Mermaid |
+
+## 7. Skills to Create
 
 **Dự kiến:** `component-patterns.md` — document Skeleton pattern cho future components.
 ```
