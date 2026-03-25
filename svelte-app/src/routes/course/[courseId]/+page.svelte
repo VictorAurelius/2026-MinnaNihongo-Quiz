@@ -9,11 +9,16 @@
   import { base } from '$app/paths';
   import { getCourse } from '$lib/data/courses';
   import { buildLessonUrl } from '$lib/utils/courseUtils';
+  import { progressStore } from '$lib/stores';
+  import { getLessonMastery, isLessonUnlocked, getNextLesson, getCourseProgress } from '$lib/utils/progressUtils';
+  import MasteryRing from '$lib/components/common/MasteryRing.svelte';
   import type { CourseId } from '$lib/types/course';
 
   $: courseId = $page.params.courseId as CourseId;
   $: course = getCourse(courseId);
   $: lessons = course?.getLessonMetadata() ?? [];
+  $: courseProgress = getCourseProgress($progressStore, courseId);
+  $: nextLesson = getNextLesson($progressStore, courseId);
 </script>
 
 <svelte:head>
@@ -30,18 +35,33 @@
       <div class="course-icon-large">{course.metadata.icon}</div>
       <h1 class="course-title-large">{course.metadata.title}</h1>
       <p class="course-description">{course.metadata.description}</p>
+      <div class="course-progress">
+        {courseProgress.completed}/{courseProgress.total} lessons mastered ({courseProgress.percentage}%)
+      </div>
     </div>
 
-    <!-- Lessons Grid -->
+    <!-- Continue Button -->
     <div class="lessons-container">
+      <button class="btn btn-primary btn-lg continue-btn" on:click={() => goto(buildLessonUrl(courseId, nextLesson))}>
+        Continue — Bài {nextLesson} →
+      </button>
+
       <h2 class="section-title">📖 Lessons</h2>
       <div class="lesson-grid">
         {#each lessons as lesson}
+          {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
+          {@const unlocked = isLessonUnlocked($progressStore, courseId, lesson.lessonNumber)}
           <button
             class="lesson-card"
-            on:click={() => goto(buildLessonUrl(courseId, lesson.lessonNumber))}
+            class:locked={!unlocked}
+            disabled={!unlocked}
+            on:click={() => unlocked && goto(buildLessonUrl(courseId, lesson.lessonNumber))}
+            title={unlocked ? '' : `Complete Bài ${lesson.lessonNumber - 1} first (need 70% mastery)`}
           >
-            <div class="lesson-number">Bài {lesson.lessonNumber}</div>
+            <div class="lesson-card-header">
+              <div class="lesson-number">Bài {lesson.lessonNumber}</div>
+              <MasteryRing percentage={mastery} size={40} locked={!unlocked} />
+            </div>
             <h3 class="lesson-title">{lesson.title}</h3>
             <div class="lesson-stats">
               <span class="stat">
@@ -144,6 +164,35 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1rem;
+  }
+
+  .course-progress {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-top: 0.5rem;
+  }
+
+  .continue-btn {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .lesson-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .lesson-card.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .lesson-card.locked:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border);
   }
 
   .lesson-card {
