@@ -10,6 +10,7 @@
   import { getKanjiLessonData } from '$lib/data/kanji/lessons';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
   import StrokeOrder from '$lib/components/kanji/StrokeOrder.svelte';
+  import RadicalBreakdown from '$lib/components/kanji/RadicalBreakdown.svelte';
   import type { KanjiItem } from '$lib/types';
 
   let searchTerm = '';
@@ -128,6 +129,9 @@
                 <StrokeOrder character={item.character} size={120} />
               {/if}
             </div>
+
+            <!-- Radical Breakdown -->
+            <RadicalBreakdown character={item.character} />
 
             <!-- Examples -->
             {#if item.examples.length > 0}
