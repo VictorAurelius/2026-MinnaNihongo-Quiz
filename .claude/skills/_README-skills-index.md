@@ -30,11 +30,23 @@
 |------|----------|
 | `quality-audit.md` | Đánh giá chất lượng /100 điểm (project-specific, invokable) |
 
-### Project-specific
+### Project-specific (existing)
 | File | Dùng khi |
 |------|----------|
 | `continue/SKILL.md` | Xác định action ưu tiên nhất và thực hiện |
 | `fix-spa-routing.md` | Fix SPA routing issues (base path) |
+| `quality-audit.md` | Quality audit 100 điểm (Smart Quiz specific) |
+
+### Project-specific (phát sinh khi implement)
+| File | Tạo khi | Dùng khi |
+|------|---------|----------|
+| `smart-quiz/component-patterns.md` | Wave 1 | Skeleton, SVG, reusable component patterns |
+| `smart-quiz/data-conventions.md` | Wave 4 | Data file structure, naming, types |
+| `smart-quiz/quiz-adapter.md` | Wave 4 | Reuse quiz components cho content types mới |
+| `smart-quiz/canvas-svg-patterns.md` | Wave 3 | SVG animation, canvas, lazy load |
+| `smart-quiz/supabase-patterns.md` | Wave 6 | Auth, RLS, sync, offline fallback |
+
+> Xem chi tiết: `smart-quiz/README.md`
 
 ### Reference
 | File | Dùng khi |
