@@ -1,0 +1,10 @@
+{
+  "version": "0.2",
+  "language": "en,vi",
+  "ignorePaths": [
+    ".claude/**",
+    "svelte-app/src/lib/data/**",
+    "docs/**",
+    "*.md"
+  ]
+}
