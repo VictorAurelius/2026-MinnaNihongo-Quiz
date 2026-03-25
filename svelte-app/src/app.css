@@ -17,11 +17,11 @@
   --primary-hover: #0059b3;
   --accent:        #5856d6;
   --accent-hover:  #4240a8;
-  --success:       #34c759;
+  --success:       #1a8a3a;
   --success-bg:    #e8f9ed;
   --danger:        #ff3b30;
   --danger-bg:     #fce8e6;
-  --warning:       #ff9500;
+  --warning:       #c27400;
   --shadow:        0 1px 3px rgba(0,0,0,.08);
   --shadow-lg:     0 4px 16px rgba(0,0,0,.10);
   --radius:        12px;
@@ -74,6 +74,31 @@ body {
   transition: background var(--transition), color var(--transition);
 }
 
+/* ---------- Accessibility ---------- */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- Header ---------- */
 #app-header {
   position: sticky;
@@ -119,7 +144,7 @@ body {
 }
 
 /* ---------- Main / Screens ---------- */
-#app {
+#main-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
@@ -2169,7 +2194,7 @@ body {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 600px) {
-  #app {
+  #main-content {
     padding: 1rem .75rem 2rem;
   }
   .lesson-grid {

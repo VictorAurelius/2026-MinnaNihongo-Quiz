@@ -3,6 +3,7 @@
   import { uiStore } from '$lib/stores';
   import { onMount } from 'svelte';
   import Header from '$lib/components/layout/Header.svelte';
+  import SkipLink from '$lib/components/common/SkipLink.svelte';
   import {
     registerServiceWorker,
     setupInstallPrompt,
@@ -51,6 +52,7 @@
 </script>
 
 <div class="app">
+  <SkipLink />
   <Header />
 
   {#if $updateAvailable}
@@ -70,7 +72,7 @@
     </div>
   {/if}
 
-  <main id="app">
+  <main id="main-content">
     <slot />
   </main>
 </div>
