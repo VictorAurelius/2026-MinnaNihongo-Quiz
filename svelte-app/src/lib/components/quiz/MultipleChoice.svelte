@@ -92,7 +92,7 @@
 </div>
 
 {#if answered}
-  <div class="feedback" class:correct={selectedOption === answer} class:wrong={selectedOption !== answer}>
+  <div class="feedback" class:correct={selectedOption === answer} class:wrong={selectedOption !== answer} aria-live="polite" aria-atomic="true">
     {#if selectedOption === answer}
       ✓ Correct!
     {:else}

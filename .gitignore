@@ -9,7 +9,6 @@ Thumbs.db
 desktop.ini
 
 # Editor Directories
-.vscode/
 .idea/
 *.swp
 *.swo
@@ -48,5 +47,7 @@ temp/
 # System Files
 *.bak
 *.backup
-documents/06-diagrams/tools/plantuml.jar
+# Diagrams — tools (binary) + rendered output (generated)
+documents/06-diagrams/tools/
 documents/06-diagrams/rendered/
+*.jar

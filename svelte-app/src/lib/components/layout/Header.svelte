@@ -36,12 +36,15 @@
     if (p.startsWith('/results')) return 'Results';
     if (p.startsWith('/alphabet')) return 'Alphabet';
     if (p.startsWith('/counters')) return 'Counters';
+    if (p.match(/^\/hsk\/[^/]+\/quiz/)) return 'HSK Quiz';
     if (p.startsWith('/hsk/')) return 'HSK Vocabulary';
     if (p === '/hsk') return 'HSK 5';
     if (p.match(/^\/kanji\/\d+\/reference/)) return 'Kanji Reference';
     if (p.match(/^\/kanji\/\d+\/quiz/)) return 'Kanji Quiz';
     if (p.match(/^\/kanji\/\d+/)) return 'Kanji Lesson';
+    if (p === '/kanji/radicals') return 'Bộ Thủ';
     if (p === '/kanji') return 'Kanji';
+    if (p === '/mock-test') return 'JLPT Mock Test';
     if (p === '/settings') return 'Settings';
     if (p === '/stats') return 'Statistics';
     if (p === '/review') return 'Review';
@@ -58,7 +61,11 @@
     {#if !isHome}
       <BackButton text="" />
     {/if}
-    <h1 id="header-title">{pageTitle}</h1>
+    {#if isHome}
+      <img src="{base}/logo.svg" alt="Smart Quiz" class="header-logo" height="24" />
+    {:else}
+      <h1 id="header-title">{pageTitle}</h1>
+    {/if}
   </div>
 
   <div class="header-right">
@@ -156,6 +163,11 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
+  }
+
+  .header-logo {
+    height: 24px;
+    width: auto;
   }
 
   #header-title {

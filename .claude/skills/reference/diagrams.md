@@ -33,17 +33,37 @@ documents/06-diagrams/
 
 ## PlantUML Setup
 
-### Install
+### Prerequisites
+
+**MUST install CẢ HAI:**
+
+1. **Java 8+** (runtime cho PlantUML)
+2. **Graphviz** (render engine cho hầu hết diagram types)
 
 ```bash
-# Option 1: Download jar (cần Java 8+)
+# Ubuntu/WSL2:
+sudo apt-get install -y default-jre graphviz
+
+# Verify:
+java -version
+dot -V
+```
+
+**Không có Graphviz → PNG render ra lỗi đỏ "Cannot find Graphviz"** thay vì diagram thật.
+
+### Install PlantUML
+
+```bash
+# Download jar vào tools/ (gitignored)
 mkdir -p documents/06-diagrams/tools
 curl -L -o documents/06-diagrams/tools/plantuml.jar \
   "https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar"
 
-# Option 2: VS Code extension (preview only, không render file)
-# Extension: jebbs.plantuml
+# Verify:
+java -jar documents/06-diagrams/tools/plantuml.jar -testdot
 ```
+
+**VS Code extension** (preview only): `jebbs.plantuml`
 
 ### Render
 
@@ -100,9 +120,51 @@ mmdc -i documents/06-diagrams/source/architecture.mmd \
 | Deployment | Infra topology | Khi setup production |
 | Sequence (API) | Tương tác giữa services | Cho cross-service flows |
 
+## Render Tool
+
+**MUST** dùng `scripts/render-diagrams.sh` để render — KHÔNG dùng `java -jar` trực tiếp hay tool khác.
+
+**Lý do:**
+- Script xử lý paths, output directory, error handling tự động
+- Hỗ trợ cả PlantUML + Mermaid
+- `--check` mode để verify tools available
+- Consistent output location (`documents/06-diagrams/rendered/`)
+
+```bash
+scripts/render-diagrams.sh              # Render tất cả
+scripts/render-diagrams.sh --check      # Kiểm tra tools
+scripts/render-diagrams.sh file.puml    # Render 1 file
+```
+
+## Verification (BẮT BUỘC)
+
+Sau khi render, **PHẢI mở từng PNG kiểm tra**:
+
+1. **Mở file PNG** trong image viewer hoặc browser
+2. **Kiểm tra lỗi:**
+   - ❌ Hình có khung đỏ "Syntax Error" → Fix source `.puml`
+   - ❌ Hình trắng trống → File source rỗng hoặc sai encoding
+   - ❌ Text bị cắt / overlap → Điều chỉnh layout
+   - ❌ Arrow thiếu / sai hướng → Check connections
+3. **Nếu lỗi:** Fix source → Re-render → Verify lại
+4. **Nếu OK:** Proceed to commit
+
+**Anti-pattern:** Render xong commit ngay mà KHÔNG xem PNG → deploy diagram lỗi, mất credibility.
+
+## .gitignore
+
+**MUST** thêm vào `.gitignore`:
+```
+*.jar
+documents/06-diagrams/tools/
+```
+
+Jar files quá lớn (28MB+), KHÔNG commit vào git. Mỗi developer tự download khi cần.
+
 ## Workflow
 
 1. Tạo source file trong `documents/06-diagrams/source/`
 2. Render: `scripts/render-diagrams.sh`
-3. Commit CẢ source + rendered: `git add documents/06-diagrams/`
-4. Update `documents/06-diagrams/README.md` index
+3. **Verify: Mở từng PNG kiểm tra lỗi** ← BẮT BUỘC
+4. Commit CẢ source + rendered: `git add documents/06-diagrams/`
+5. Update `documents/06-diagrams/README.md` index

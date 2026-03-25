@@ -9,10 +9,13 @@
   import { base } from '$app/paths';
   import { getKanjiLessonData } from '$lib/data/kanji/lessons';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import StrokeOrder from '$lib/components/kanji/StrokeOrder.svelte';
+  import RadicalBreakdown from '$lib/components/kanji/RadicalBreakdown.svelte';
   import type { KanjiItem } from '$lib/types';
 
   let searchTerm = '';
   let expandedKanji: string | null = null;
+  let showStrokes: string | null = null;
 
   $: lessonId = parseInt($page.params.lesson || '0');
   $: lessonData = lessonId > 0 ? getKanjiLessonData(lessonId) : null;
@@ -116,7 +119,22 @@
             </div>
           </div>
 
-          {#if expandedKanji === item.character && item.examples.length > 0}
+          {#if expandedKanji === item.character}
+            <!-- Stroke Order -->
+            <div class="kanji-stroke-section">
+              <button class="btn-toggle-strokes" on:click|stopPropagation={() => showStrokes = showStrokes === item.character ? null : item.character}>
+                {showStrokes === item.character ? 'Hide' : 'Show'} Strokes
+              </button>
+              {#if showStrokes === item.character}
+                <StrokeOrder character={item.character} size={120} />
+              {/if}
+            </div>
+
+            <!-- Radical Breakdown -->
+            <RadicalBreakdown character={item.character} />
+
+            <!-- Examples -->
+            {#if item.examples.length > 0}
             <div class="kanji-examples">
               <div class="examples-title">Examples:</div>
               {#each item.examples as ex}
@@ -127,6 +145,7 @@
                 </div>
               {/each}
             </div>
+            {/if}
           {/if}
         </div>
       {/each}

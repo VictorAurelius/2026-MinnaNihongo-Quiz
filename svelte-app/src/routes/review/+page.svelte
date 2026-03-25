@@ -9,6 +9,7 @@
   import { goto } from '$app/navigation';
   import { progressStore } from '$lib/stores';
   import { getDueItems, reviewItem } from '$lib/utils/srsUtils';
+  import SkeletonCard from '$lib/components/common/SkeletonCard.svelte';
   import { recordStudySession } from '$lib/utils/achievementUtils';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
   import { getCourse } from '$lib/data/courses';
@@ -91,8 +92,9 @@
 
 <div class="review-page">
   {#if !loaded}
-    <div class="empty-state">
-      <p>Loading...</p>
+    <div class="skeleton-loading">
+      <SkeletonCard />
+      <SkeletonCard />
     </div>
   {:else if cards.length === 0}
     <div class="empty-state">

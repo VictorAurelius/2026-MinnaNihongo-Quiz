@@ -11,10 +11,10 @@
 
 | # | Diagram | Source | Type | Wave | Status |
 |---|---------|--------|------|------|--------|
-| 1 | App Architecture (v2 current) | [source/architecture-v2.mmd](source/architecture-v2.mmd) | Mermaid | Pre-wave | [ ] |
-| 2 | Route Map | [source/route-map.mmd](source/route-map.mmd) | Mermaid | Pre-wave | [ ] |
-| 3 | Component Hierarchy | [source/component-tree.mmd](source/component-tree.mmd) | Mermaid | Pre-wave | [ ] |
-| 4 | Data Store Flow | [source/store-flow.mmd](source/store-flow.mmd) | Mermaid | Pre-wave | [ ] |
+| 1 | App Architecture (v2 current) | [source/architecture-v2.puml](source/architecture-v2.puml) | PlantUML | Pre-wave | [x] |
+| 2 | Route Map | [source/route-map.puml](source/route-map.puml) | PlantUML | Pre-wave | [x] |
+| 3 | Component Hierarchy | [source/component-tree.puml](source/component-tree.puml) | PlantUML | Pre-wave | [x] |
+| 4 | Data Store Flow | [source/store-flow.puml](source/store-flow.puml) | PlantUML | Pre-wave | [x] |
 | 5 | Quiz Flow (user journey) | [source/quiz-flow.mmd](source/quiz-flow.mmd) | Mermaid | Wave 1 | [ ] |
 | 6 | SEO + PWA Lifecycle | [source/pwa-lifecycle.mmd](source/pwa-lifecycle.mmd) | Mermaid | Wave 1 | [ ] |
 | 7 | Learning Path State Machine | [source/learning-path-sm.puml](source/learning-path-sm.puml) | PlantUML | Wave 2 | [ ] |
