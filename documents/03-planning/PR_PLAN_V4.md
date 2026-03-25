@@ -1,597 +1,551 @@
 # PR Plan v4.0 — Smart Quiz "Full Parity + Beyond"
 
-> **Ngày:** 2026-03-23
+> **Ngày:** 2026-03-25 (rewrite theo kit rules)
 > **Baseline:** v2.0 (100/100 audit, 605 tests)
-> **Mục tiêu:** Có TẤT CẢ tính năng Nhai Kanji + vượt trội ở quiz, bilingual, offline, a11y
+> **Mục tiêu:** Có TẤT CẢ tính năng Nhai Kanji + vượt ở quiz, bilingual, offline, a11y
 > **Methodology:** Superpowers (Brainstorm → TDD → Implement → Verify)
+> **Kit rules applied:** waves + audit checkpoints, business docs first, time estimates, verification per task
 
 ---
 
-## Tổng quan 9 Phases, 19 PRs
+## Wave Overview (8 waves, 19 PRs)
 
-| Phase | Tên | PRs | Mục tiêu |
-|-------|-----|-----|----------|
-| 1 | SEO & Visibility | #1 | Discoverable trên Google + social |
-| 2 | Learning Path | #2, #3 | Guided learning + JLPT mock test |
-| 3 | Kanji Core | #4, #5 | Stroke order + chiết tự bộ thủ |
-| 4 | Bilingual HSK | #6, #7 | HSK quiz modes + HSK1-4 data |
-| 5 | UI Polish & A11y | #8, #9 | Skeleton, branding, WCAG AA |
-| 6 | Kanji Mastery | #10, #11 | Luyện viết tay + N3→N1 kanji data (2500+) |
-| 7 | User System | #12, #13 | Supabase auth + cloud sync + leaderboard |
-| 8 | Content Expansion | #14, #15, #16 | N3→N1 vocab/grammar + advanced SRS |
-| 9 | Premium & Community | #17, #18, #19 | Font settings, premium tier, community |
+| Wave | PRs | Deliverable | Audit Checkpoint |
+|------|-----|-------------|-----------------|
+| **1** | #1, #8, #9 | User tìm thấy app + UX polished | SEO ≥ 6/10, audit ≥ 100/100 |
+| **2** | #2, #3 | Guided learning + mock test | Progression 8/10 |
+| **3** | #4, #5 | Kanji stroke + radicals | Kanji 7/10 |
+| **4** | #6, #7 | HSK quiz + HSK1-4 data | Bilingual 10/10 |
+| **5** | #10, #11 | Handwriting + 2500+ kanji | Kanji 9/10 |
+| **6** | #12, #13 | Auth + cloud sync + leaderboard | User 9/10 |
+| **7** | #14, #15, #16 | N3→N1 content + advanced SRS | Content 9/10 |
+| **8** | #17, #18, #19 | Fonts + premium + community | Business 8/10 |
 
----
-
-## Phase 1-5: Giữ nguyên từ PR Plan v3.0
-
-> Xem chi tiết brainstorm, TDD, acceptance criteria tại [PR_PLAN_V3.md](PR_PLAN_V3.md)
-
-| PR | Tên | Tests | Status |
-|----|-----|-------|--------|
-| #1 | SEO meta tags | 9 | [ ] |
-| #2 | Learning path + mastery unlock | 15 | [ ] |
-| #3 | JLPT mock test | 10 | [ ] |
-| #4 | Kanji stroke order (KanjiVG) | 9 | [ ] |
-| #5 | Kanji radicals (KRADFILE) | 11 | [ ] |
-| #6 | HSK quiz modes | 7 | [ ] |
-| #7 | HSK1-4 data | 10 | [ ] |
-| #8 | Skeleton loading + branding | 6 | [ ] |
-| #9 | Accessibility fixes | 10 | [ ] |
+**Quy trình mỗi wave:**
+1. Implement PRs
+2. `./scripts/test-local.sh all`
+3. `./scripts/quality-audit.sh --save`
+4. Update plan: đánh ✅, ghi PR number
+5. Review business gaps trước wave tiếp
 
 ---
 
-## Phase 6: Kanji Mastery (match Nhai Kanji writing + N1 coverage)
+## Wave 1: Foundation (SEO + UI Polish + A11y)
 
-### PR #10: Kanji handwriting recognition (luyện viết tay)
+### PR #1: SEO fundamentals
 
-**Branch:** `feat/kanji-handwriting`
+**Branch:** `feat/seo-meta-tags` | **Est:** 1h
 
 #### Brainstorm
-
-- **Problem:** Nhai Kanji core = luyện viết tay. Smart Quiz không có canvas draw.
-- **Solution:** Dùng [KanjiCanvas](https://github.com/asdfjkl/kanjicanvas) (MIT, client-side, stroke-order-free recognition).
-- **Risks:**
-  - KanjiCanvas API compatibility với Svelte? → Wrapper component, init on mount.
-  - Bundle size: `ref-patterns.js` data file lớn? → Lazy load khi user mở writing mode.
-  - Mobile touch events vs mouse events → KanjiCanvas hỗ trợ cả hai.
-  - Accuracy cho kanji phức tạp (>15 strokes)? → KanjiCanvas nhận dạng không phụ thuộc thứ tự/số nét.
-- **Edge cases:** User vẽ quá nhanh, vẽ sai hoàn toàn (trả top 5 candidates). Canvas resize trên mobile.
+- **Problem:** SEO 2/10 — app invisible trên Google, blank preview khi share link MXH
+- **Solution:** Thêm OG tags, Twitter cards, canonical URL, fix lang attribute
+- **Risks:** `lang` attribute — dùng `vi` (target audience) không phải `ja` (content)
+- **Edge cases:** SvelteKit `<svelte:head>` override `app.html` title — cần fallback + per-page
 
 #### Task Breakdown
 
-| # | Task | Files |
-|---|------|-------|
-| 1 | Integrate KanjiCanvas library | `package.json`, vendor setup |
-| 2 | Viết tests cho WritingCanvas | `src/tests/components/kanji/WritingCanvas.test.ts` (new) |
-| 3 | Implement WritingCanvas component | `src/lib/components/kanji/WritingCanvas.svelte` (new) |
-| 4 | Viết tests cho WritingQuiz | `src/tests/components/kanji/WritingQuiz.test.ts` (new) |
-| 5 | Implement WritingQuiz (quiz mode) | `src/lib/components/kanji/KanjiWritingQuiz.svelte` (new) |
-| 6 | Add writing mode to kanji quiz page | `src/routes/kanji/[lesson]/quiz/[mode]/+page.svelte` |
-| 7 | Add "Practice Writing" to kanji reference | `src/routes/kanji/[lesson]/reference/+page.svelte` |
+| # | Task | Files | Est | Verify |
+|---|------|-------|-----|--------|
+| 1 | Viết SEO tests | `src/tests/seo.test.ts` | 5m | Tests RED |
+| 2 | Thêm meta tags vào app.html | `src/app.html` | 5m | Tests GREEN |
+| 3 | Fix manifest.json (start_url, theme_color) | `static/manifest.json` | 3m | Grep verify |
+| 4 | Verify 25 routes có `<title>` | All `+page.svelte` | 5m | Grep 0 missing |
+| 5 | Tạo OG image placeholder | `static/og-image.png` | 2m | File exists |
 
-#### TDD — Test Cases
+#### TDD — Test Cases (9 tests)
 
 ```typescript
-// src/tests/components/kanji/WritingCanvas.test.ts
-describe('WritingCanvas', () => {
-  it('should render canvas element');
-  it('should have Clear button');
-  it('should have Undo button');
-  it('should call onRecognize callback with candidates array');
-  it('should show "Draw a kanji" placeholder when empty');
-  it('should support width/height props');
-  it('should have role="img" and aria-label');
-});
-
-// src/tests/components/kanji/WritingQuiz.test.ts
-describe('KanjiWritingQuiz', () => {
-  it('should show target kanji meaning/reading as question');
-  it('should show WritingCanvas for drawing');
-  it('should check if drawn kanji matches target');
-  it('should show correct/wrong feedback');
-  it('should advance to next question after feedback');
-  it('should show hint button revealing stroke count');
-  it('should dispatch correct/wrong events');
+describe('SEO Metadata', () => {
+  it('app.html should have default title tag');
+  it('app.html should have meta description');
+  it('app.html should have og:title, og:description, og:image, og:type');
+  it('app.html should have twitter:card, twitter:title, twitter:description');
+  it('app.html should have canonical URL');
+  it('app.html lang attribute should be "vi"');
+  it('manifest.json start_url should include base path');
+  it('manifest.json theme_color should match app.html');
+  it('every route +page.svelte should have <svelte:head> with <title>');
 });
 ```
 
 #### Acceptance Criteria
+- [ ] OG tags complete (title, desc, image, type, url)
+- [ ] Twitter cards complete
+- [ ] `lang="vi"`, canonical URL present
+- [ ] manifest.json start_url = `/2026-Smart-Quiz/`
+- [ ] 25/25 routes have `<title>`
+- [ ] Tests: 9 new pass | Build pass
 
-- [ ] Canvas vẽ kanji hoạt động trên desktop (mouse) + mobile (touch)
-- [ ] Nhận dạng trả top 5 candidates, match với target kanji
-- [ ] Clear/Undo buttons hoạt động
-- [ ] Writing quiz mode: hiện meaning → user vẽ kanji → check đúng/sai
-- [ ] Lazy load KanjiCanvas data (không tăng initial bundle)
-- [ ] Tích hợp vào kanji quiz page (mode=writing) + kanji reference ("Practice Writing")
-- [ ] Tests: ≥ 13 new tests pass
-- [ ] Build pass
+---
 
-### PR #11: N3→N1 kanji data expansion (2500+ kanji)
+### PR #8: Skeleton loading + branding
 
-**Branch:** `feat/kanji-n3-n1`
+**Branch:** `feat/ui-polish` | **Est:** 3h
 
 #### Brainstorm
-
-- **Problem:** Smart Quiz chỉ có 256 kanji (N5/N4). Nhai Kanji có 2500+.
-- **Solution:** Thêm kanji data cho N3 (~370), N2 (~370), N1 (~600). Total ~1600 kanji mới.
-- **Data source:** Dùng open source JLPT kanji lists + KANJIDIC2 (CC BY-SA 4.0) cho readings/meanings.
-- **Risks:**
-  - Data entry khối lượng lớn → Script tự động generate từ KANJIDIC2 XML, chỉ cần manual review Vietnamese meanings.
-  - Bundle size: 1600 kanji ~= 800KB raw → code-split per JLPT level, lazy load.
-  - KanjiVG SVG cho N3-N1: đã có sẵn (KanjiVG cover 6700+ kanji).
-- **Edge cases:** Kanji trùng giữa các levels. Kanji không có Hán Việt reading.
+- **Problem:** Blank flash khi chuyển trang. Không có logo (brand identity yếu)
+- **Solution:** Skeleton shimmer components + SVG logo
+- **Risks:** Skeleton pattern cho SvelteKit? → `onMount` loading state + `{#if}`
 
 #### Task Breakdown
 
-| # | Task | Files |
-|---|------|-------|
-| 1 | Script generate kanji data từ KANJIDIC2 | `scripts/generate-kanji-data.ts` (new) |
-| 2 | Manual review + thêm Vietnamese meanings | Data files |
-| 3 | Viết tests cho data integrity | `src/tests/data/kanji-all-levels.test.ts` (new) |
-| 4 | Tạo N3/N2/N1 kanji lesson files | `src/lib/data/kanji/n3/`, `n2/`, `n1/` (new) |
-| 5 | Update kanji index + types | `src/lib/data/kanji/lessons/index.ts` |
-| 6 | Update kanji landing page (level selector) | `src/routes/kanji/+page.svelte` |
-| 7 | Download KanjiVG SVGs cho 1600 kanji mới | `static/kanjivg/` |
+| # | Task | Files | Est | Verify |
+|---|------|-------|-----|--------|
+| 1 | Viết Skeleton tests | `src/tests/components/common/Skeleton.test.ts` | 5m | RED |
+| 2 | Implement Skeleton + SkeletonCard | `src/lib/components/common/Skeleton.svelte`, `SkeletonCard.svelte` | 10m | GREEN |
+| 3 | Thêm shimmer CSS | `src/app.css` | 5m | Visual |
+| 4 | Tạo logo SVG | `static/logo.svg` | 10m | File exists |
+| 5 | Thêm skeleton vào Course, Stats, Review pages | 3 route files | 15m | No blank flash |
+| 6 | Logo trong Header | `Header.svelte` | 5m | Visual |
 
-#### TDD — Test Cases
+#### TDD — Test Cases (6 tests)
 
 ```typescript
-describe('Kanji N3-N1 Data', () => {
-  it('should have N3 kanji (~370 characters)');
-  it('should have N2 kanji (~370 characters)');
-  it('should have N1 kanji (~600 characters)');
-  it('total kanji across all levels should be >= 1800');
-  it('each kanji should have character, onyomi, kunyomi, vietnamese, english');
-  it('each kanji should have at least 1 example');
-  it('no duplicate characters across levels');
-  it('every kanji should have corresponding KanjiVG SVG file');
-  it('KRADFILE mapping should exist for every kanji');
+describe('Skeleton', () => {
+  it('should render with default dimensions');
+  it('should accept custom width/height props');
+  it('should have shimmer animation class');
+  it('should have role="status" and aria-label');
+});
+describe('SkeletonCard', () => {
+  it('should render title + lines + button skeletons');
+  it('should have card container styling');
 });
 ```
 
 #### Acceptance Criteria
-
-- [ ] N3: ~370 kanji, N2: ~370 kanji, N1: ~600 kanji
-- [ ] Tổng ≥ 1800 kanji (256 existing + 1600 new)
-- [ ] Mỗi kanji: character, onyomi[], kunyomi[], vietnamese, english, examples[]
-- [ ] Kanji landing page có level selector (N5/N4/N3/N2/N1)
-- [ ] Code-split: mỗi level lazy load riêng
-- [ ] KanjiVG SVGs cho tất cả kanji mới
-- [ ] KRADFILE radical mapping cho tất cả
-- [ ] Tests: ≥ 9 new tests pass
-- [ ] Build pass, lazy chunk size hợp lý
+- [ ] Skeleton component reusable (width/height props)
+- [ ] Shimmer animation smooth
+- [ ] 3+ pages use skeleton loading
+- [ ] Logo SVG in Header (24px)
+- [ ] Tests: 6 new pass | Build pass
 
 ---
 
-## Phase 7: User System (match Nhai Kanji auth + cloud + leaderboard)
+### PR #9: Accessibility fixes
+
+**Branch:** `fix/accessibility` | **Est:** 3h
+
+#### Brainstorm
+- **Problem:** WCAG gaps: no focus-visible, no skip-link, no aria-live, contrast fail
+- **Risks:** Color changes (warning/success) may affect visual design → pick closest AA-compliant
+- **Edge cases:** Modal without focusable elements. `prefers-reduced-motion` must not break functionality
+
+#### Task Breakdown
+
+| # | Task | Files | Est | Verify |
+|---|------|-------|-----|--------|
+| 1 | Viết SkipLink + a11y tests | 2 test files | 10m | RED |
+| 2 | Implement SkipLink | `SkipLink.svelte` | 5m | GREEN |
+| 3 | focus-visible + reduced-motion + sr-only CSS | `app.css` | 10m | Tab navigation visible |
+| 4 | Fix warning/success colors (AA compliant) | `app.css` | 5m | Contrast ≥ 4.5:1 |
+| 5 | Add SkipLink to layout | `+layout.svelte` | 3m | Focus on Tab |
+| 6 | Add aria-live to quiz feedback | FlashCard, MC, TypingQuiz | 10m | Screen reader |
+| 7 | Focus trap in Modal | `Modal.svelte` | 15m | Tab cycles |
+
+#### TDD — Test Cases (10 tests)
+
+```typescript
+describe('SkipLink', () => {
+  it('should render link with "Skip to main content"');
+  it('should have href="#main-content"');
+  it('should have sr-only class');
+  it('should become visible on focus');
+});
+describe('Accessibility CSS', () => {
+  it('should have focus-visible styles');
+  it('should have prefers-reduced-motion media query');
+  it('should have sr-only utility class');
+  it('warning color contrast >= 4.5:1 on white');
+  it('success color contrast >= 4.5:1 on white');
+});
+describe('Modal focus trap', () => {
+  it('should trap Tab within modal');
+});
+```
+
+#### Acceptance Criteria
+- [ ] Skip link visible on Tab, hidden otherwise
+- [ ] focus-visible outline on all interactive elements
+- [ ] `prefers-reduced-motion` disables animations
+- [ ] Warning `#c27400` + success `#1a8a3a` pass WCAG AA
+- [ ] aria-live on quiz feedback
+- [ ] Modal focus trap
+- [ ] `npx svelte-check` — 0 warnings
+- [ ] Tests: 10 new pass | Build pass
+
+#### Wave 1 Checkpoint
+```bash
+./scripts/quality-audit.sh --save  # Expect: 100/100
+# Verify SEO: curl + grep og:title
+# Verify: 0 svelte-check warnings
+```
+
+---
+
+## Wave 2: Learning Path
+
+### PR #2: Learning path with mastery-based unlocking
+
+**Branch:** `feat/learning-path` | **Est:** 4h
+
+#### Brainstorm
+- **Problem:** 25 bài ngang nhau — user không biết học gì tiếp, không có motivation
+- **Solution:** Mastery unlock (bài N-1 ≥ 70% → unlock bài N) + "Continue" button
+- **Risks:** User cũ đã có progress → phải tính mastery từ existing data, không lock bài đã học
+- **Edge cases:** Course mới (n4) ít lessons. Clear progress → tất cả lock trừ bài 1
+
+#### Task Breakdown
+
+| # | Task | Files | Est | Verify |
+|---|------|-------|-----|--------|
+| 1 | Viết progressUtils tests | `tests/utils/progressUtils.test.ts` | 15m | RED (10 tests) |
+| 2 | Implement progressUtils | `lib/utils/progressUtils.ts` | 15m | GREEN |
+| 3 | Viết MasteryRing tests | `tests/components/common/MasteryRing.test.ts` | 10m | RED (5 tests) |
+| 4 | Implement MasteryRing SVG | `lib/components/common/MasteryRing.svelte` | 15m | GREEN |
+| 5 | Update course page UI | `routes/course/[courseId]/+page.svelte` | 20m | Visual + lock logic |
+
+#### TDD — Test Cases (15 tests)
+
+```typescript
+describe('getLessonMastery', () => {
+  it('return 0 for no progress');
+  it('return % based on masteryLevel >= 3');
+  it('return 100 when all mastered');
+  it('handle missing lesson gracefully');
+});
+describe('isLessonUnlocked', () => {
+  it('always unlock lesson 1');
+  it('lock lesson 2 when lesson 1 < 70%');
+  it('unlock lesson 2 when lesson 1 >= 70%');
+  it('unlock chain works');
+  it('handle empty progress');
+});
+describe('getNextLesson', () => {
+  it('return 1 for fresh user');
+  it('return first locked lesson');
+  it('return last if all unlocked');
+});
+describe('getCourseProgress', () => {
+  it('return 0/total for fresh');
+  it('count >= 70% as completed');
+});
+describe('MasteryRing', () => {
+  it('render SVG circle');
+  it('show percentage text');
+  it('show lock icon when locked');
+  it('correct stroke-dashoffset');
+  it('handle 0% and 100%');
+});
+```
+
+#### Acceptance Criteria
+- [ ] Lesson 1 always unlocked
+- [ ] Lesson N unlock when N-1 ≥ 70%
+- [ ] Course page: mastery ring + lock state per lesson
+- [ ] "Continue" button → next unlocked lesson
+- [ ] Existing progress respected
+- [ ] Tests: 15 new pass | Build pass
+
+---
+
+### PR #3: JLPT mock test
+
+**Branch:** `feat/jlpt-mock-test` | **Est:** 4h
+
+#### Brainstorm
+- **Problem:** Nhai Kanji có "Đề thi" — Smart Quiz không. User muốn biết level
+- **Solution:** 30 câu random mixed (vocab MC + grammar MC), timer 30 phút, JLPT scoring
+- **Risks:** Thiếu reading section → label "Vocabulary & Grammar Only". N4 grammar data sparse
+- **Edge cases:** User finish trước timer. Timer hết → auto submit. Resume sau refresh
+
+#### Task Breakdown
+
+| # | Task | Files | Est | Verify |
+|---|------|-------|-----|--------|
+| 1 | Viết mockTestUtils tests | `tests/utils/mockTestUtils.test.ts` | 10m | RED (7 tests) |
+| 2 | Implement mockTestUtils | `lib/utils/mockTestUtils.ts` | 15m | GREEN |
+| 3 | Implement mock test page | `routes/mock-test/+page.svelte` | 30m | E2E manual |
+| 4 | Add timer component tests | `tests/components/common/Timer.test.ts` | 5m | RED (3 tests) |
+| 5 | Implement Timer | `lib/components/common/Timer.svelte` | 10m | GREEN |
+| 6 | Add nav link + home card | `Header.svelte`, `+page.svelte` | 5m | Visual |
+
+#### TDD — Test Cases (10 tests)
+
+```typescript
+describe('generateMockTest', () => {
+  it('generate exactly 30 questions for N5');
+  it('include both vocab and grammar');
+  it('no duplicates');
+  it('shuffle randomly');
+  it('handle N4 level');
+  it('return empty for invalid level');
+  it('each question has id, question, answer, options, type');
+});
+describe('calculateJLPTScore', () => {
+  it('pass when total >= 80 and each section >= 19');
+  it('fail when total < 80');
+  it('fail when one section < 19 even if total >= 80');
+});
+```
+
+#### Acceptance Criteria
+- [ ] 30 random questions, no duplicates, mixed vocab+grammar
+- [ ] Timer 30 min, auto-submit on expire
+- [ ] Results: vocab score, grammar score, total, pass/fail
+- [ ] N5 and N4 levels work
+- [ ] Home page "JLPT Mock Test" card
+- [ ] Tests: 10 new pass | Build pass
+
+#### Wave 2 Checkpoint
+```bash
+./scripts/quality-audit.sh --save
+# Verify: learning path locks/unlocks correctly
+# Verify: mock test timer + scoring
+```
+
+---
+
+## Wave 3: Kanji Core
+
+### PR #4: Kanji stroke order (KanjiVG)
+
+**Branch:** `feat/kanji-stroke-order` | **Est:** 6h
+
+#### Brainstorm
+- **Problem:** Nhai Kanji core = stroke order. Smart Quiz chỉ reference table
+- **Solution:** KanjiVG SVGs (CC BY-SA 3.0, 6700+ kanji) + CSS stroke animation
+- **Risks:** 256 SVGs ~5MB → lazy load per character. SVG format variation → parser needed
+- **Edge cases:** Missing SVG → fallback message. Browser support stroke-dasharray → IE11+
+
+#### Task Breakdown
+
+| # | Task | Files | Est | Verify |
+|---|------|-------|-----|--------|
+| 1 | Download KanjiVG SVGs (256) | `static/kanjivg/` | 15m | `ls | wc -l` = 256 |
+| 2 | Viết StrokeOrder tests | `tests/components/kanji/StrokeOrder.test.ts` | 10m | RED |
+| 3 | Implement StrokeOrder | `lib/components/kanji/StrokeOrder.svelte` | 30m | GREEN |
+| 4 | Integrate kanji reference page | `routes/kanji/[lesson]/reference/+page.svelte` | 15m | Visual |
+| 5 | Integrate KanjiFlashCard back | `lib/components/kanji/KanjiFlashCard.svelte` | 10m | Visual |
+
+#### TDD — Test Cases (9 tests)
+```typescript
+describe('StrokeOrder', () => {
+  it('render SVG container');
+  it('show stroke counter');
+  it('Play/Pause button');
+  it('speed control (0.5x, 1x, 2x)');
+  it('Step forward/back');
+  it('fallback when SVG not found');
+  it('reset on character change');
+  it('autoPlay prop');
+  it('no autoplay when false');
+});
+```
+
+#### Acceptance Criteria
+- [ ] 256 SVGs in static/kanjivg/
+- [ ] Smooth stroke animation (CSS stroke-dasharray)
+- [ ] Controls: Play/Pause, Speed, Step
+- [ ] Lazy load SVG per character
+- [ ] Graceful fallback
+- [ ] Tests: 9 new pass | Build pass | Bundle < +1MB
+
+---
+
+### PR #5: Kanji radicals (KRADFILE)
+
+**Branch:** `feat/kanji-radicals` | **Est:** 5h
+
+#### Brainstorm
+- **Problem:** Nhai Kanji có "chiết tự trực quan". Smart Quiz không
+- **Solution:** KRADFILE (public domain) kanji→radicals mapping. 214 bộ thủ with Hán Việt names
+- **Risks:** KRADFILE chỉ list radicals, không visual positioning → simple list layout
+- **Edge cases:** Simple kanji (一) = few radicals. Radical not in current 256 kanji
+
+#### Task Breakdown
+
+| # | Task | Files | Est | Verify |
+|---|------|-------|-----|--------|
+| 1 | Tạo radicals data + mapping | `lib/data/kanji/radicals.ts` | 30m | Data file exists |
+| 2 | Viết radicals data tests | `tests/data/radicals.test.ts` | 10m | RED (7 tests) |
+| 3 | Viết RadicalBreakdown tests | `tests/components/kanji/RadicalBreakdown.test.ts` | 5m | RED (4 tests) |
+| 4 | Implement RadicalBreakdown | `lib/components/kanji/RadicalBreakdown.svelte` | 15m | GREEN |
+| 5 | Integrate kanji reference | `routes/kanji/[lesson]/reference/+page.svelte` | 10m | Visual |
+| 6 | Implement 214 radicals page | `routes/kanji/radicals/+page.svelte` | 20m | Visual + nav |
+
+#### TDD — Test Cases (11 tests)
+```typescript
+describe('Radicals Data', () => {
+  it('214 Kangxi radicals');
+  it('each has character, meaningVi, meaningEn, strokeCount');
+  it('getRadicals("会") returns radicals');
+  it('getRadicals unknown = empty');
+  it('getKanjiByRadical("人") returns kanji');
+  it('getKanjiByRadical unknown = empty');
+  it('all 256 kanji have >= 1 radical');
+});
+describe('RadicalBreakdown', () => {
+  it('render kanji large');
+  it('list radicals with Hán Việt');
+  it('show "No data" for unknown');
+  it('radicals are clickable');
+});
+```
+
+#### Acceptance Criteria
+- [ ] 214 radicals with character, meaningVi, meaningEn
+- [ ] 256 kanji have radical mapping
+- [ ] RadicalBreakdown in reference expanded card
+- [ ] `/kanji/radicals` page with search/filter
+- [ ] Click radical → kanji list
+- [ ] Tests: 11 new pass | Build pass
+
+#### Wave 3 Checkpoint
+```bash
+./scripts/quality-audit.sh --save
+# Verify: stroke animation plays correctly
+# Verify: radical breakdown shows for all kanji
+```
+
+---
+
+## Wave 4: Bilingual Advantage
+
+### PR #6: HSK quiz modes
+**Branch:** `feat/hsk-quiz` | **Est:** 4h | **Tests:** 7
+
+Reuse existing quiz components with HSK adapter. 3 modes × 3 directions. TTS `playChineseAudio()`.
+
+### PR #7: HSK1-4 data
+**Branch:** `feat/hsk-levels` | **Est:** 8h | **Tests:** 10
+
+HSK1 ~150, HSK2 ~150, HSK3 ~300, HSK4 ~600 words. Code-split per level. Level selector on landing.
+
+#### Wave 4 Checkpoint: Bilingual 10/10
+
+---
+
+## Wave 5: Kanji Mastery
+
+### PR #10: Kanji handwriting (KanjiCanvas)
+**Branch:** `feat/kanji-handwriting` | **Est:** 6h | **Tests:** 13
+
+Canvas draw + recognition (MIT, client-side). Writing quiz mode. Lazy load pattern data.
+
+### PR #11: N3→N1 kanji data (2500+)
+**Branch:** `feat/kanji-n3-n1` | **Est:** 8h | **Tests:** 9
+
+**Split into sub-PRs if needed:**
+- #11a: N3 kanji (~370) + script generate từ KANJIDIC2
+- #11b: N2 kanji (~370)
+- #11c: N1 kanji (~600) + level selector UI
+
+#### Wave 5 Checkpoint: Kanji 9/10
+
+---
+
+## Wave 6: User System
 
 ### PR #12: Supabase auth + cloud sync
+**Branch:** `feat/supabase-auth` | **Est:** 8h | **Tests:** 12
 
-**Branch:** `feat/supabase-auth`
+Google OAuth. localStorage primary, cloud sync khi online. Migration on first login. RLS policies.
 
-#### Brainstorm
+**Business doc required:** `documents/01-business/auth/rules.md` — auth rules, data ownership, sync strategy.
 
-- **Problem:** Smart Quiz chỉ localStorage → mất data khi xóa browser, không sync across devices.
-- **Solution:** Supabase (free tier: 50K MAU, 500MB DB, unlimited API). Client-side only, giữ adapter-static.
-- **Tech:** `@supabase/supabase-js` (không cần `@supabase/ssr` vì static site).
-- **Auth methods:** Google OAuth + GitHub OAuth (Supabase built-in).
-- **Risks:**
-  - Supabase project pause sau 7 ngày inactive (free tier) → cron job ping hoặc user activity.
-  - RLS (Row Level Security) cần setup đúng → user chỉ đọc/ghi data của mình.
-  - Migration: existing localStorage progress → sync lên cloud khi user đăng nhập lần đầu.
-  - Offline fallback: localStorage vẫn là primary, sync lên cloud khi online.
-- **Edge cases:** Conflict khi cùng account login 2 devices → last-write-wins với timestamp.
+### PR #13: Leaderboard
+**Branch:** `feat/leaderboard` | **Est:** 4h | **Tests:** 6 | **Depends:** PR #12
 
-#### Task Breakdown
+Opt-in public profile. Top 50, 3 categories. Cloud data = source of truth (anti-cheat).
 
-| # | Task | Files |
-|---|------|-------|
-| 1 | Setup Supabase project + DB schema | Supabase dashboard, `supabase/migrations/` |
-| 2 | Viết tests cho auth utils | `src/tests/utils/authUtils.test.ts` (new) |
-| 3 | Implement auth utils | `src/lib/utils/authUtils.ts` (new) |
-| 4 | Viết tests cho sync utils | `src/tests/utils/syncUtils.test.ts` (new) |
-| 5 | Implement sync utils | `src/lib/utils/syncUtils.ts` (new) |
-| 6 | Create auth store | `src/lib/stores/auth.ts` (new) |
-| 7 | Add login/logout UI | `src/lib/components/common/AuthButton.svelte` (new) |
-| 8 | Add auth to Header + Settings page | `Header.svelte`, `settings/+page.svelte` |
-| 9 | Migration: localStorage → Supabase on first login | syncUtils |
-| 10 | Setup RLS policies | Supabase dashboard |
-
-#### TDD — Test Cases
-
-```typescript
-// src/tests/utils/authUtils.test.ts
-describe('Auth Utils', () => {
-  it('isLoggedIn() should return false when no session');
-  it('getCurrentUser() should return null when not logged in');
-  it('signInWithGoogle() should call supabase.auth.signInWithOAuth');
-  it('signOut() should clear session');
-});
-
-// src/tests/utils/syncUtils.test.ts
-describe('Sync Utils', () => {
-  it('syncProgressToCloud() should upsert progress data');
-  it('syncProgressFromCloud() should fetch and merge with local');
-  it('mergeProgress() should take latest by timestamp');
-  it('migrateLocalToCloud() should upload localStorage data on first login');
-  it('should fallback to localStorage when offline');
-  it('should handle empty cloud data (new user)');
-  it('should not overwrite newer cloud data with older local data');
-});
-```
-
-#### Supabase DB Schema
-
-```sql
--- users progress
-create table user_progress (
-  id uuid primary key default gen_random_uuid(),
-  user_id uuid references auth.users(id) on delete cascade,
-  progress_data jsonb not null,  -- same structure as ProgressState
-  streak_data jsonb,
-  srs_data jsonb,
-  updated_at timestamptz default now(),
-  unique(user_id)
-);
-
--- RLS: user can only read/write their own data
-alter table user_progress enable row level security;
-create policy "Users can read own data" on user_progress for select using (auth.uid() = user_id);
-create policy "Users can insert own data" on user_progress for insert with check (auth.uid() = user_id);
-create policy "Users can update own data" on user_progress for update using (auth.uid() = user_id);
-```
-
-#### Acceptance Criteria
-
-- [ ] Google OAuth login/logout hoạt động
-- [ ] Progress auto-sync lên Supabase khi online
-- [ ] Offline fallback: localStorage vẫn hoạt động bình thường
-- [ ] First login: migrate localStorage → cloud
-- [ ] Cross-device: login device B → thấy progress từ device A
-- [ ] RLS: user không thể đọc data user khác
-- [ ] Settings page hiện login status + sync status
-- [ ] Tests: ≥ 12 new tests pass
-- [ ] Build pass (adapter-static vẫn hoạt động)
-
-### PR #13: Leaderboard / Xếp hạng
-
-**Branch:** `feat/leaderboard`
-
-#### Brainstorm
-
-- **Problem:** Nhai Kanji có xếp hạng → tạo competitive motivation. Smart Quiz không có social.
-- **Solution:** Supabase query top users by score/streak/mastery. Opt-in (user chọn public profile).
-- **Risks:**
-  - Privacy: không expose data user không muốn → opt-in public profile.
-  - Performance: query leaderboard aggregation → Supabase view hoặc materialized view.
-  - Cheating: user sửa localStorage → cloud data là source of truth cho leaderboard.
-- **Dependencies:** PR #12 (Supabase auth) phải xong trước.
-
-#### Task Breakdown
-
-| # | Task | Files |
-|---|------|-------|
-| 1 | DB schema cho leaderboard | Supabase migration |
-| 2 | Viết tests cho leaderboard utils | `src/tests/utils/leaderboardUtils.test.ts` (new) |
-| 3 | Implement leaderboard utils | `src/lib/utils/leaderboardUtils.ts` (new) |
-| 4 | Implement leaderboard page | `src/routes/leaderboard/+page.svelte` (new) |
-| 5 | Add opt-in toggle in settings | `settings/+page.svelte` |
-| 6 | Add nav link | `Header.svelte` |
-
-#### TDD — Test Cases
-
-```typescript
-describe('Leaderboard', () => {
-  it('getTopUsers(category, limit) should return sorted array');
-  it('should support categories: streak, mastery, totalCorrect');
-  it('should only include opted-in users');
-  it('getCurrentUserRank() should return rank number');
-  it('should handle empty leaderboard');
-  it('should handle user not opted in');
-});
-```
-
-#### Acceptance Criteria
-
-- [ ] Leaderboard page hiển thị top 50 users
-- [ ] 3 categories: Longest Streak, Total Mastery, Total Correct
-- [ ] User rank hiện ở cuối list
-- [ ] Opt-in toggle trong Settings (default off)
-- [ ] Chỉ hiện display name (không hiện email)
-- [ ] Tests: ≥ 6 new tests pass
+#### Wave 6 Checkpoint: User 9/10
 
 ---
 
-## Phase 8: Content Expansion (N3→N1 vocab/grammar + advanced SRS)
+## Wave 7: Content Expansion
 
-### PR #14: N3 vocabulary + grammar data
+### PR #14: N3 vocab + grammar (Minna bài 26-50)
+**Branch:** `feat/n3-content` | **Est:** 8h | **Tests:** 7
 
-**Branch:** `feat/n3-content`
+**Split into sub-PRs:**
+- #14a: Bài 26-35 (10 lessons)
+- #14b: Bài 36-45 (10 lessons)
+- #14c: Bài 46-50 (5 lessons) + register course
 
-#### Brainstorm
+### PR #15: N2 + N1 vocab
+**Branch:** `feat/n2-n1-vocab` | **Est:** 12h | **Tests:** 8
 
-- **Problem:** Smart Quiz chỉ có N5/N4. Nhai Kanji có đến N1.
-- **Solution:** Thêm N3 course (Minna no Nihongo Sơ cấp II, bài 26-50).
-- **Data source:** Minna no Nihongo textbook (bài 26-50), ~500 vocab + ~80 grammar patterns.
-- **Risks:** Data entry lớn → chia nhỏ thành batches.
+**Split:** N2 and N1 as separate sub-PRs. Script-assisted from open data.
 
-#### Task Breakdown
+### PR #16: Advanced SRS
+**Branch:** `feat/advanced-srs` | **Est:** 5h | **Tests:** 12
 
-| # | Task | Files |
-|---|------|-------|
-| 1 | Tests data integrity | `src/tests/data/n3-content.test.ts` (new) |
-| 2 | Tạo N3 course metadata | `src/lib/data/courses/n3/` (new) |
-| 3 | Tạo lesson files (bài 26-50) | 25 lesson files |
-| 4 | Register N3 trong course index | `src/lib/data/courses/index.ts` |
+Learning steps (1m→10m→1d), leech detection (>8 fails), quality from response time, adaptive difficulty. Backward compatible with existing data.
 
-#### TDD — Test Cases
-
-```typescript
-describe('N3 Content', () => {
-  it('should have 25 lessons (26-50)');
-  it('each lesson should have >= 10 vocabulary items');
-  it('each lesson should have >= 2 grammar patterns');
-  it('total vocabulary should be >= 500');
-  it('total grammar patterns should be >= 80');
-  it('all VocabItem types should be valid');
-  it('getCourse("n3") should return valid course');
-});
-```
-
-#### Acceptance Criteria
-
-- [ ] N3 course: 25 lessons (bài 26-50)
-- [ ] ≥ 500 vocab items, ≥ 80 grammar patterns
-- [ ] Course page hiện N3 cùng N5/N4
-- [ ] Tất cả quiz modes hoạt động với N3
-- [ ] Tests: ≥ 7 new tests pass
-
-### PR #15: N2 + N1 vocabulary data (Shin Kanzen Master)
-
-**Branch:** `feat/n2-n1-vocab`
-
-> Tương tự PR #14 nhưng cho N2/N1. Scope lớn hơn — có thể chia thành nhiều sub-PRs.
-
-#### Acceptance Criteria
-
-- [ ] N2: ≥ 1000 vocab items
-- [ ] N1: ≥ 1500 vocab items
-- [ ] Organized theo lessons/chapters
-- [ ] Tests: ≥ 8 new tests pass
-
-### PR #16: Advanced SRS (learning steps, leech detection, adaptive)
-
-**Branch:** `feat/advanced-srs`
-
-#### Brainstorm
-
-- **Problem:** SRS hiện tại basic (SM-2 binary quality). Nhai Kanji mature hơn.
-- **Solution:** Thêm learning steps (1m→10m→1d), leech detection (>8 fails), granular quality (0-5 dựa trên time), adaptive difficulty.
-- **Risks:** Complexity tăng → cần backward compatible với existing SRS data.
-
-#### Task Breakdown
-
-| # | Task | Files |
-|---|------|-------|
-| 1 | Viết tests cho advanced SRS | `src/tests/utils/srsUtils.test.ts` (update) |
-| 2 | Thêm learning steps logic | `src/lib/utils/srsUtils.ts` |
-| 3 | Thêm leech detection | `src/lib/utils/srsUtils.ts` |
-| 4 | Quality mapping từ response time | `src/lib/utils/srsUtils.ts` |
-| 5 | Adaptive difficulty (ưu tiên weak items) | `src/lib/utils/srsUtils.ts` |
-| 6 | Connect mastery level với SRS easeFactor | `src/lib/stores/progress.ts` |
-| 7 | Update review page UI | `src/routes/review/+page.svelte` |
-
-#### TDD — Test Cases
-
-```typescript
-describe('Advanced SRS', () => {
-  // Learning steps
-  it('new card should go through learning steps: 1m, 10m');
-  it('graduating card should enter review with interval=1d');
-  it('failing learning card should reset to step 0');
-
-  // Leech detection
-  it('card with >8 consecutive fails should be marked as leech');
-  it('leech cards should be flagged in review UI');
-  it('leech status should reset when card gets 3 consecutive correct');
-
-  // Quality from response time
-  it('answer < 5s should map to quality 5 (easy)');
-  it('answer 5-15s should map to quality 4 (good)');
-  it('answer 15-30s should map to quality 3 (hard)');
-  it('wrong answer should map to quality 1');
-
-  // Adaptive
-  it('review should prioritize items with lowest easeFactor');
-  it('review should mix new + review items (80/20)');
-
-  // Mastery connection
-  it('SRS easeFactor should update mastery level');
-  it('mastery >= 4 when easeFactor >= 2.2 and interval >= 21d');
-});
-```
-
-#### Acceptance Criteria
-
-- [ ] Learning steps: new → 1m → 10m → 1d → review
-- [ ] Leech detection: flag sau 8 fails, hiện warning trong review UI
-- [ ] Quality 0-5 tự động tính từ response time
-- [ ] Adaptive: weak items xuất hiện nhiều hơn
-- [ ] Mastery level đồng bộ với SRS metrics
-- [ ] Backward compatible với existing SRS localStorage data
-- [ ] Tests: ≥ 12 new tests pass
+#### Wave 7 Checkpoint: Content 9/10
 
 ---
 
-## Phase 9: Premium & Community
+## Wave 8: Premium & Community
 
-### PR #17: Custom font selection
+### PR #17: Custom fonts
+**Branch:** `feat/custom-fonts` | **Est:** 3h | **Tests:** 4
 
-**Branch:** `feat/custom-fonts`
+4 fonts (Noto, Zen Maru, UD Digi, Klee One). Unicode-range subsetting. User choice in Settings.
 
-#### Brainstorm
+### PR #18: Premium tier
+**Branch:** `feat/premium` | **Est:** 6h | **Tests:** 5
 
-- **Problem:** Nhai Kanji cho user chọn font kanji (Zen Maru Gothic, UD Digi Kyokasho, etc.). Smart Quiz chỉ có Noto Sans JP.
-- **Solution:** Thêm 3-4 font kanji chuyên dụng, cho user chọn trong Settings.
+`isPremium(user)` gate. Free: N5 + HSK1-3 + basic quiz. Premium: N4-N1 + advanced features. Stripe placeholder.
 
-#### Task Breakdown
+**Business doc required:** `documents/01-business/premium/rules.md` — free vs premium matrix, pricing.
 
-| # | Task | Files |
-|---|------|-------|
-| 1 | Thêm font files (woff2) | `static/fonts/` (new) |
-| 2 | Viết tests | `src/tests/utils/fontUtils.test.ts` (new) |
-| 3 | Font loading utils | `src/lib/utils/fontUtils.ts` (new) |
-| 4 | Font selector trong Settings | `settings/+page.svelte` |
-| 5 | Apply font preference globally | `src/app.css`, `+layout.svelte` |
+### PR #19: Community
+**Branch:** `feat/community` | **Est:** 2h | **Tests:** 0
 
-#### TDD — Test Cases
+Discord + GitHub Discussions links. "Share progress" shareable card. Lightweight, no custom backend.
 
-```typescript
-describe('Font Utils', () => {
-  it('getAvailableFonts() should return list of font options');
-  it('setFont(fontId) should save to localStorage');
-  it('getFont() should return saved font or default');
-  it('each font should have id, name, family, preview text');
-});
-```
-
-#### Fonts to include
-
-| Font | Use case | Size (woff2) |
-|------|----------|-------------|
-| Noto Sans JP (default) | Clean, neutral | ~4MB subset |
-| Zen Maru Gothic | Rounded, friendly | ~3MB subset |
-| UD Digi Kyokasho | Textbook style | ~3MB subset |
-| Klee One | Handwriting style | ~3MB subset |
-
-> Dùng unicode-range subsetting để chỉ load glyphs cần thiết (~500KB mỗi font thay vì full).
-
-#### Acceptance Criteria
-
-- [ ] Settings page có font selector với preview
-- [ ] 4 font options (Noto Sans JP, Zen Maru Gothic, UD Digi Kyokasho, Klee One)
-- [ ] Font preference persist qua localStorage (+ cloud sync nếu logged in)
-- [ ] Font apply global cho tất cả Japanese text
-- [ ] Lazy load: font chỉ download khi user chọn
-- [ ] Tests: ≥ 4 new tests pass
-
-### PR #18: Premium tier (freemium model)
-
-**Branch:** `feat/premium`
-
-#### Brainstorm
-
-- **Problem:** Smart Quiz $0 revenue, không bền vững nếu scale. Nhai Kanji có 3 gói trả phí.
-- **Solution:** Freemium — free tier đủ tốt (N5 + HSK1-3 + basic quiz), premium unlock N4-N1 + advanced SRS + mock test + writing + cloud sync.
-- **Payment:** Stripe (global) hoặc MoMo/ZaloPay (Vietnam).
-- **Risks:** Paywall quá aggressive → user bỏ đi. → Giữ free tier generous.
-
-#### Free vs Premium
-
-| Feature | Free | Premium |
-|---------|------|---------|
-| N5 vocab + grammar + quiz | ✅ | ✅ |
-| HSK1-3 | ✅ | ✅ |
-| Kanji N5 (reference + stroke) | ✅ | ✅ |
-| Basic flashcard + MC | ✅ | ✅ |
-| Dark mode, offline | ✅ | ✅ |
-| N4/N3/N2/N1 content | ❌ | ✅ |
-| HSK4-5 | ❌ | ✅ |
-| Typing quiz + Writing quiz | ❌ | ✅ |
-| JLPT mock test | ❌ | ✅ |
-| Advanced SRS + leech detection | ❌ | ✅ |
-| Cloud sync + cross-device | ❌ | ✅ |
-| Leaderboard | ❌ | ✅ |
-| Custom fonts | ❌ | ✅ |
-
-#### Acceptance Criteria
-
-- [ ] Premium gate check: `isPremium(user)` function
-- [ ] Free content fully accessible without login
-- [ ] Premium features show "Upgrade" prompt
-- [ ] Stripe checkout integration (hoặc placeholder)
-- [ ] Premium status sync via Supabase user metadata
-
-### PR #19: Community integration
-
-**Branch:** `feat/community`
-
-#### Brainstorm
-
-- **Problem:** Nhai Kanji có Facebook group + TikTok. Smart Quiz không có community.
-- **Solution:** Nhẹ nhàng — link đến Discord server + GitHub Discussions. Không cần build custom forum.
-
-#### Acceptance Criteria
-
-- [ ] Discord invite link trong Settings/About page
-- [ ] GitHub Discussions link cho feedback
-- [ ] "Share progress" button (tạo shareable image card)
-- [ ] Footer với community links
+#### Wave 8 Checkpoint: Business 8/10, final audit
 
 ---
 
-## Test Coverage Summary — Full Plan
+## Summary
 
-| Phase | PRs | New Tests |
-|-------|-----|-----------|
-| 1-5 (v3.0) | #1-#9 | ~87 |
-| 6 Kanji Mastery | #10-#11 | ~22 |
-| 7 User System | #12-#13 | ~18 |
-| 8 Content Expansion | #14-#16 | ~27 |
-| 9 Premium & Community | #17-#19 | ~10 |
-| **Total** | **19 PRs** | **~164 new tests** |
-| **Final total** | | **605 + 164 = ~769 tests** |
-
----
-
-## Thứ tự thực hiện & Dependencies
-
-```
-Phase 1: #1 SEO ─────────────────────────────────────────────────────┐
-Phase 2: #2 Learning Path ──── #3 Mock Test                          │
-Phase 5: #8 UI Polish ──────── #9 A11y                               │  Parallel
-Phase 3: #4 Stroke Order ───── #5 Radicals                           │  tracks
-Phase 4: #6 HSK Quiz ────────  #7 HSK1-4 Data                        │
-                                                                      │
-Phase 6: #10 Handwriting ──── #11 N3-N1 Kanji (depends on #4,#5)     │
-Phase 7: #12 Supabase Auth ── #13 Leaderboard (depends on #12)       │
-Phase 8: #14 N3 Content ───── #15 N2-N1 Content ── #16 Advanced SRS  │
-Phase 9: #17 Fonts ─── #18 Premium (depends on #12) ── #19 Community │
-```
+| Metric | Value |
+|--------|-------|
+| **Total PRs** | 19 (+ sub-PRs for data) |
+| **Total new tests** | ~164 |
+| **Final test count** | 605 + 164 = ~769 |
+| **Audit checkpoints** | 8 (1 per wave) |
+| **Business docs required** | 2 (auth, premium) |
+| **Target score** | 104/120 (vs Nhai Kanji 88/120) |
 
 ---
 
-## Scoring dự kiến sau 19 PRs
+## Tracking
 
-### So với Nhai Kanji
-
-| Category | Hiện tại | Sau v4.0 | Nhai Kanji | Result |
-|----------|---------|----------|------------|--------|
-| Nội dung Kanji | 3/10 | **9/10** | 9/10 | **Ngang** |
-| Nội dung Vocab | 7/10 | **9/10** | 7/10 | **Vượt** |
-| Nội dung Grammar | 6/10 | **8/10** | 8/10 | **Ngang** |
-| Quiz modes | 9/10 | **10/10** | 6/10 | **Vượt** |
-| Kanji đặc biệt | 2/10 | **9/10** | 10/10 | **Gần ngang** |
-| SRS | 5/10 | **9/10** | 9/10 | **Ngang** |
-| Gamification | 5/10 | **8/10** | 8/10 | **Ngang** |
-| User system | 2/10 | **9/10** | 9/10 | **Ngang** |
-| UI/UX | 7/10 | **9/10** | 9/10 | **Ngang** |
-| Bilingual | 8/10 | **10/10** | 2/10 | **Vượt xa** |
-| Offline/PWA | 7/10 | **9/10** | 4/10 | **Vượt xa** |
-| Community | 1/10 | **5/10** | 7/10 | Gần ngang |
-| **Total** | **62/120** | **104/120** | **88/120** | **Vượt +16** |
-
-### Điểm VƯỢT Nhai Kanji
-
-| Thế mạnh | Smart Quiz v4.0 | Nhai Kanji |
-|----------|----------------|------------|
-| Quiz modes | 10/10 (5 modes) | 6/10 |
-| Bilingual JP+CN | 10/10 (HSK1-5) | 2/10 |
-| Offline/PWA | 9/10 | 4/10 |
-| Vocab content | 9/10 (N5-N1 + HSK1-5) | 7/10 |
-| Accessibility | WCAG AA | Minimal |
-| Open source + DX | 9/10 (769 tests, CI) | 5/10 |
+| Wave | PR | Name | Tests | Status |
+|------|----|------|-------|--------|
+| 1 | #1 | SEO meta tags | 9 | [ ] |
+| 1 | #8 | Skeleton + branding | 6 | [ ] |
+| 1 | #9 | Accessibility | 10 | [ ] |
+| 2 | #2 | Learning path | 15 | [ ] |
+| 2 | #3 | JLPT mock test | 10 | [ ] |
+| 3 | #4 | Kanji stroke order | 9 | [ ] |
+| 3 | #5 | Kanji radicals | 11 | [ ] |
+| 4 | #6 | HSK quiz modes | 7 | [ ] |
+| 4 | #7 | HSK1-4 data | 10 | [ ] |
+| 5 | #10 | Kanji handwriting | 13 | [ ] |
+| 5 | #11 | N3→N1 kanji | 9 | [ ] |
+| 6 | #12 | Supabase auth | 12 | [ ] |
+| 6 | #13 | Leaderboard | 6 | [ ] |
+| 7 | #14 | N3 content | 7 | [ ] |
+| 7 | #15 | N2-N1 vocab | 8 | [ ] |
+| 7 | #16 | Advanced SRS | 12 | [ ] |
+| 8 | #17 | Custom fonts | 4 | [ ] |
+| 8 | #18 | Premium tier | 5 | [ ] |
+| 8 | #19 | Community | 0 | [ ] |
 
 ---
 
@@ -599,9 +553,9 @@ Phase 9: #17 Fonts ─── #18 Premium (depends on #12) ── #19 Community �
 
 | Feature | Lý do |
 |---------|-------|
-| Kanji writing practice with stroke order validation | Cần stroke detection ML, rất phức tạp |
-| N1 grammar (Shin Kanzen Master full) | Data entry cực lớn |
-| Listening comprehension (audio passages) | Cần recorded audio |
-| Reading comprehension (passage quiz) | Cần curated passages |
-| Mobile native app (React Native / Capacitor) | Khác stack hoàn toàn |
-| AI-powered explanations | Cần API budget |
+| Stroke order validation (draw + check) | ML complexity |
+| N1 grammar full (Shin Kanzen Master) | Data entry cực lớn |
+| Listening comprehension | Cần recorded audio |
+| Reading comprehension | Cần curated passages |
+| Mobile native app | Khác stack |
+| AI explanations | API budget |
