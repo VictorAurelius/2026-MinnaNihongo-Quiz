@@ -188,8 +188,8 @@ section "9/10" "Documentation"
 
 S=0
 [[ -f "$ROOT/CLAUDE.md" ]]              && { S=$((S+3)); pass "CLAUDE.md"; }          || fail "CLAUDE.md missing"
-[[ -f "$ROOT/docs/TECHNICAL.md" ]]      && { S=$((S+2)); pass "TECHNICAL.md"; }       || fail "missing"
-[[ -f "$ROOT/docs/BUSINESS_LOGIC.md" ]] && { S=$((S+2)); pass "BUSINESS_LOGIC.md"; }  || fail "missing"
+[[ -f "$ROOT/documents/02-architecture/TECHNICAL.md" ]] && { S=$((S+2)); pass "TECHNICAL.md"; }       || fail "missing"
+[[ -f "$ROOT/documents/01-business/BUSINESS_LOGIC.md" ]] && { S=$((S+2)); pass "BUSINESS_LOGIC.md"; }  || fail "missing"
 [[ -f "$ROOT/README.md" ]]              && { S=$((S+3)); pass "README.md"; }           || fail "missing"
 score "Docs" $S
 
@@ -241,7 +241,7 @@ echo -e "${BOLD}═════════════════════�
 
 # Save
 if $SAVE_REPORT; then
-  OUT="$ROOT/docs/quality-audit-$DATE.md"
+  OUT="$ROOT/documents/04-quality/quality-audit-$DATE.md"
   {
     echo "# Smart Quiz — Quality Audit Report"
     echo ""; echo "**Date:** $DATE | **Commit:** $COMMIT | **Script:** quality-audit.sh"
