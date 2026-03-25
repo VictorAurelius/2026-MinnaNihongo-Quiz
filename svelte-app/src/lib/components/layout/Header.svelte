@@ -42,6 +42,7 @@
     if (p.match(/^\/kanji\/\d+\/quiz/)) return 'Kanji Quiz';
     if (p.match(/^\/kanji\/\d+/)) return 'Kanji Lesson';
     if (p === '/kanji') return 'Kanji';
+    if (p === '/mock-test') return 'JLPT Mock Test';
     if (p === '/settings') return 'Settings';
     if (p === '/stats') return 'Statistics';
     if (p === '/review') return 'Review';

@@ -143,6 +143,15 @@
         </div>
         <span class="card-arrow">→</span>
       </button>
+      <!-- Mock Test -->
+      <button class="section-card card-mock" on:click={() => goto(`${base}/mock-test`)}>
+        <div class="card-icon-jp">試</div>
+        <div class="card-content">
+          <h3>JLPT Mock Test</h3>
+          <p>30 questions · 30 min · Pass/Fail</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </button>
     </div>
   </section>
 
