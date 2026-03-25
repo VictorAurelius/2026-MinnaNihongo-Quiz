@@ -28,7 +28,13 @@
 ### Quality
 | File | Dùng khi |
 |------|----------|
-| `quality/quality-audit.md` | Đánh giá chất lượng /100 điểm |
+| `quality-audit.md` | Đánh giá chất lượng /100 điểm (project-specific, invokable) |
+
+### Project-specific
+| File | Dùng khi |
+|------|----------|
+| `continue/SKILL.md` | Xác định action ưu tiên nhất và thực hiện |
+| `fix-spa-routing.md` | Fix SPA routing issues (base path) |
 
 ### Reference
 | File | Dùng khi |
@@ -44,3 +50,6 @@
 | `scripts/test-local.sh --quick` | Quick check (compile/lint only) |
 | `scripts/check-ci.sh` | Sau push — đợi CI |
 | `scripts/check-ci.sh --status` | Quick CI status (audit, review) |
+| `scripts/quality-audit.sh` | Chấm điểm quality 100/100 |
+| `scripts/quality-audit.sh --save` | Chấm + lưu report vào docs/ |
+| `scripts/pre-commit-check.sh` | Pre-commit: sensitive data, TODO markers |

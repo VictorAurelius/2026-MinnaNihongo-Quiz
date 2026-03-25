@@ -1,5 +1,55 @@
 # CLAUDE.md — Project Conventions for Smart Quiz
 
+## Communication Language
+
+Giao tiếp bằng **tiếng Việt**. Code, commit messages, PR titles/bodies giữ tiếng Anh.
+
+## Development Workflow — Superpowers Methodology
+
+Mỗi PR tuân theo quy trình:
+
+1. **Brainstorm** → `.claude/skills/core/brainstorming-methodology.md`
+2. **Task Breakdown** → `.claude/skills/core/task-breakdown-guide.md`
+3. **TDD** → `.claude/skills/core/tdd-enforcement.md` (viết test TRƯỚC code)
+4. **Implementation** → Theo patterns bên dưới
+5. **Self-test** → `./scripts/test-local.sh` (BẮT BUỘC trước push)
+6. **Push + CI** → `./scripts/check-ci.sh`
+7. **Code Review** → `.claude/skills/core/two-stage-code-review.md`
+
+**KHÔNG BAO GIỜ:**
+- Chạy lệnh ad-hoc thay scripts (xem bảng Scripts bên dưới)
+- Push code chưa test local
+- Kết luận CI pass/fail khi đang in_progress
+- Code trước khi brainstorm (Medium+ complexity)
+
+## Scripts (PHẢI dùng, KHÔNG lệnh ad-hoc)
+
+| Việc | Script | KHÔNG dùng |
+|------|--------|------------|
+| Test local | `./scripts/test-local.sh` | `npx vitest run` trực tiếp |
+| Test nhanh | `./scripts/test-local.sh --quick` | `npx vite build` trực tiếp |
+| CI status | `./scripts/check-ci.sh --status` | `gh run list` trực tiếp |
+| CI đợi | `./scripts/check-ci.sh` | `gh run watch` trực tiếp |
+| Quality audit | `./scripts/quality-audit.sh` | Chạy từng lệnh grep/count |
+
+## Git Workflow (Main-Only)
+
+- **Main branch:** `main` (auto-deploy GitHub Pages)
+- **Feature branches:** `feat/`, `fix/`, `docs/`, `test/`, `chore/`
+- **Commit convention:** `<type>(<scope>): <subject>` (conventional commits)
+- **Merge:** Tạo PR → CI green → merge → delete branch
+- **KHÔNG commit trực tiếp lên main** (trừ docs/config nhỏ)
+
+## Living Documents
+
+| Document | Update khi |
+|----------|-----------|
+| `CLAUDE.md` | Thêm pattern/convention mới |
+| `docs/CHANGELOG.md` | Mỗi version release |
+| `docs/FEATURE_ROADMAP.md` | Thêm/hoàn thành feature |
+| `docs/PR_PLAN_V4.md` | Implement xong PR → đánh ✅ |
+| `docs/quality-audit-*.md` | Chạy audit script |
+
 ## Project Overview
 
 Smart Quiz is a bilingual language learning SPA built with SvelteKit 2 + TypeScript. It covers Japanese (Minna no Nihongo N5/N4, 50 lessons) and Chinese (HSK5, 1600+ words), with kanji reference, grammar comparison, and multiple quiz modes.
