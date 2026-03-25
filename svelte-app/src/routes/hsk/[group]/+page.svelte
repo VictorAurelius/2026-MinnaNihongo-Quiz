@@ -63,6 +63,13 @@
       </div>
     </header>
 
+    <!-- Quiz Modes -->
+    <div class="quiz-modes">
+      <a href="{base}/hsk/{groupId}/quiz/flashcard?direction=chinese-vi" class="btn btn-primary">🎴 Flashcard</a>
+      <a href="{base}/hsk/{groupId}/quiz/mc?direction=chinese-vi" class="btn btn-accent">✓ Multiple Choice</a>
+      <a href="{base}/hsk/{groupId}/quiz/typing?direction=chinese-vi" class="btn btn-success">⌨️ Typing</a>
+    </div>
+
     <!-- Controls -->
     <div class="controls">
       <div class="search-box">

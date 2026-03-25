@@ -36,6 +36,7 @@
     if (p.startsWith('/results')) return 'Results';
     if (p.startsWith('/alphabet')) return 'Alphabet';
     if (p.startsWith('/counters')) return 'Counters';
+    if (p.match(/^\/hsk\/[^/]+\/quiz/)) return 'HSK Quiz';
     if (p.startsWith('/hsk/')) return 'HSK Vocabulary';
     if (p === '/hsk') return 'HSK 5';
     if (p.match(/^\/kanji\/\d+\/reference/)) return 'Kanji Reference';
