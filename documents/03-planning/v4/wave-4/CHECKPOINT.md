@@ -1,12 +1,22 @@
-# Wave 4 Checkpoint
+# Wave 4 Checkpoint — Bilingual Advantage
 
 ## PRs in Wave
-> Chi tiết sẽ bổ sung trước khi bắt đầu wave này.
+
+| PR | Name | Status | Tests | Actual PR |
+|----|------|--------|-------|-----------|
+| #6 | [HSK quiz modes](pr-06-hsk-quiz.md) | [ ] | 7 | |
+| #7 | [HSK1-4 data](pr-07-hsk-levels.md) | [ ] | 10 | |
 
 ## Entry Criteria
-- [ ] Wave 3 checkpoint passed
+- [x] Wave 3 checkpoint passed (97/100, 677 tests)
 
 ## Exit Criteria
-- [ ] Audit score maintained
-- [ ] All wave tests pass
-- [ ] Business gaps checked
+- [ ] `./scripts/quality-audit.sh --save` ≥ 97/100
+- [ ] HSK quiz: 3 modes × 3 directions working
+- [ ] HSK1-4 data: ≥ 2800 total words across 5 levels
+- [ ] HSK landing page: level selector
+- [ ] Tests: ≥ 694 (677 + 17 new)
+- [ ] Business gaps: none
+
+## Audit Report
+> Chạy sau wave complete
