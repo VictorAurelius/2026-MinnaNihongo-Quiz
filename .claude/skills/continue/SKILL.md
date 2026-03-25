@@ -11,9 +11,9 @@ argument-hint: "[optional context]"
 
 Đọc các plan/tracking documents theo thứ tự, tìm item ưu tiên cao nhất chưa hoàn thành:
 
-1. `docs/QUALITY_AUDIT_PR_PLAN.md` — audit gaps cần fix
-2. `docs/CHANGELOG.md` — [Unreleased] planned features
-3. `docs/PROJECT_SUMMARY.md` — tổng quan tính năng hiện tại
+1. `documents/03-planning/QUALITY_AUDIT_PR_PLAN.md` — audit gaps cần fix
+2. `documents/05-guides/CHANGELOG.md` — [Unreleased] planned features
+3. `documents/02-architecture/PROJECT_SUMMARY.md` — tổng quan tính năng hiện tại
 
 Nếu không tìm thấy task cụ thể, kiểm tra health:
 - Open PRs: `gh pr list --state open`
@@ -66,7 +66,7 @@ Context bổ sung từ user: $ARGUMENTS
 
 ## Step 4: Update Documents
 Sau khi PR tạo xong:
-- Update `docs/CHANGELOG.md` nếu là feature/fix đáng ghi nhận
+- Update `documents/05-guides/CHANGELOG.md` nếu là feature/fix đáng ghi nhận
 - Update plan document: đánh dấu ✅, thêm PR number
 
 ## Rules

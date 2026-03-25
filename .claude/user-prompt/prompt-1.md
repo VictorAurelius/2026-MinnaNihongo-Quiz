@@ -1,31 +1,23 @@
-tạo PR để viết documents chuẩn cho dự án
+đọc hướng dẫn .claude\starter-kit
 
-tài liệu technical và business-logic nữa
+tạo PR để thực hiện update
 
-custom lại skill .claude\skills\quality-audit\SKILL.md cho dự án này
+1. cấu hình lại không warnings cho file md
+2. cấp full quyền trong .claude\settings.local.json để tránh hỏi quyền
 
-skill chưa được apply, check lại format chuẩn của skill
+tôi không muốn IDE warnings file md như này
 
-tạo PR plan để chứa các PR giúp dự án đạt điểm tối đa có thể
+check lại có cần:
+1. refactor lại nội dung skills, docs, scripts sẵn có theo rule của kit không?
+2. có cần refactor lại cấu trúc của .claude và folder khác tốt hơn không
+3. cập nhật các plan chưa được implement theo chuẩn của kit
+4. tạo PR riêng để cập nhật đúng theo rule PR mới
 
-ghi lại PR plan vào documents
+2. có cần refactor lại cấu trúc của .claude và folder khác tốt hơn không
+ý tôi là các file đang khá phân tán và không có cấu trúc khoa học, ví dụ docs có nhiều vị trí: .claude\archive, .claude\docs, .claude\scripts, docs
 
-ý tôi là tạo hẳn 1 báo cáo về list PR cần thực hiện để dự án đạt điểm tối đa
+ngoài ra các file nằm ở root quá nhiều, không được chia rõ ràng vào sub folder, khó nhận biết status và action tiếp theo
 
-giao tiếp bằng tiếng việt
+merge và tạo PR riêng, chưa thực hiện luôn
 
-thực hiện tất cả theo chuẩn phát triển feature
-
-tạo PR để fix
-
-sao ko có home nhỉ: https://victoraurelius.github.io/2026-Smart-Quiz/
-
-tự web search để verify
-
-đặt thêm log để dễ check
-
-quality-audit lại dự án
-
-viết script để giúp quá trình quality-audit tốt hơn
-
-tạo PR để tiếp tục nâng điểm
+đọc .claude\starter-kit\CHANGELOG.md, thực hiện thu thập dữ liệu và update plan theo kit mới

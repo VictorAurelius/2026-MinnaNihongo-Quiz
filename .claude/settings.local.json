@@ -9,7 +9,10 @@
       "Grep(*)",
       "WebFetch(*)",
       "WebSearch(*)",
-      "Agent(*)"
+      "Agent(*)",
+      "Bash(rm /mnt/e/person/2026-Smart-Quiz/.claude/skills/quality/quality-audit.md)",
+      "Bash(rmdir /mnt/e/person/2026-Smart-Quiz/.claude/skills/quality/)",
+      "Bash(mkdir:*)"
     ]
   }
 }
