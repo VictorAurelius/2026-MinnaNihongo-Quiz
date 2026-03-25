@@ -22,6 +22,16 @@
 - [ ] Tests: ≥ 630 (605 + 25 new)
 - [ ] Business gaps: none identified
 
+## Diagrams Created
+| Diagram | File | Created by PR |
+|---------|------|---------------|
+| Architecture v2 (current) | `06-diagrams/source/architecture-v2.mmd` | Pre-wave |
+| Route Map | `06-diagrams/source/route-map.mmd` | Pre-wave |
+| Component Hierarchy | `06-diagrams/source/component-tree.mmd` | Pre-wave |
+| Data Store Flow | `06-diagrams/source/store-flow.mmd` | Pre-wave |
+| Quiz Flow | `06-diagrams/source/quiz-flow.mmd` | #8 |
+| PWA Lifecycle | `06-diagrams/source/pwa-lifecycle.mmd` | #1 |
+
 ## Skills Created
 | Skill | File | Created by PR |
 |-------|------|---------------|
