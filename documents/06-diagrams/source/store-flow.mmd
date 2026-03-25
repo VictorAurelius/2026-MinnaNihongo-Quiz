@@ -1,0 +1,54 @@
+---
+title: Smart Quiz — Data Store Flow
+---
+graph LR
+    subgraph Stores["Svelte Stores"]
+        PS["progressStore<br/>lessons, hsk, settings"]
+        QS["quizStore<br/>mode, direction, questions,<br/>currentIndex, score, wrongItems"]
+        US["uiStore<br/>darkMode, showVirtualKeyboard,<br/>activeModal, breadcrumbs"]
+    end
+
+    subgraph Derived["Derived Stores"]
+        IC["isComplete<br/>(currentIndex >= questions.length)"]
+        CQ["currentQuestion<br/>(questions[currentIndex])"]
+        ACC["accuracy<br/>(score / total)"]
+        PROG["progress<br/>(current, total, %)"]
+    end
+
+    subgraph Storage["Persistence"]
+        LS_P["localStorage<br/>minna_vocab_progress"]
+        LS_S["localStorage<br/>smart_quiz_streak"]
+        LS_SRS["localStorage<br/>smart_quiz_srs"]
+        LS_UI["localStorage<br/>dark_mode"]
+    end
+
+    subgraph Actions["Store Actions"]
+        ULP["updateLessonProgress<br/>(lesson, vocabId, correct)"]
+        SQ["startQuiz<br/>(mode, direction, questions)"]
+        AC["answerCorrect / answerWrong"]
+        EQ["endQuiz → recordStudySession"]
+        TDM["toggleDarkMode"]
+        EXP["exportProgress / importProgress"]
+    end
+
+    subgraph External["External Utils"]
+        SRS["srsUtils<br/>reviewItem, getDueItems"]
+        ACH["achievementUtils<br/>loadStreak, checkAchievements"]
+    end
+
+    PS -->|auto-sync| LS_P
+    US -->|auto-sync| LS_UI
+    SRS --> LS_SRS
+    ACH --> LS_S
+
+    QS --> IC & CQ & ACC & PROG
+
+    ULP --> PS
+    SQ & AC & EQ --> QS
+    EQ --> ACH
+    TDM --> US
+    EXP --> PS
+
+    style PS fill:#6366f1,color:#fff
+    style QS fill:#0071e3,color:#fff
+    style US fill:#5856d6,color:#fff
