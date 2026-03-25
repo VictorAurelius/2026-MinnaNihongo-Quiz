@@ -1,0 +1,47 @@
+@startuml component-tree
+title Smart Quiz — Component Hierarchy (17 components)
+
+skinparam backgroundColor white
+skinparam packageStyle rectangle
+
+package "layout/" #E8EAF6 {
+  [Header.svelte\nnav, dark mode, settings,\nreview badge, back button]
+}
+
+package "common/ (5)" #E8F5E9 {
+  [Button.svelte\nvariant, size, icon]
+  [Card.svelte]
+  [Modal.svelte\naria-modal, focus trap]
+  [ProgressBar.svelte\ncurrent/total, aria-valuenow]
+  [BackButton.svelte]
+}
+
+package "quiz/ (4)" #E3F2FD {
+  [FlashCard.svelte\n3D flip, F1 speak,\nauto-speak, auto-flip]
+  [MultipleChoice.svelte\nF1, 1-4 keys, state reset]
+  [TypingQuiz.svelte\nF1, Enter flow,\nauto-focus, VK support]
+  [VirtualKeyboard.svelte\nHiragana/Katakana,\ndakuten, haptic]
+}
+
+package "kanji/ (3)" #FFF3E0 {
+  [KanjiFlashCard.svelte\ncharacter + readings]
+  [KanjiMultipleChoice.svelte\nkanji -> meaning]
+  [KanjiTypingQuiz.svelte\ntype meaning/reading]
+}
+
+package "grammar/ (4)" #FCE4EC {
+  [GrammarCard.svelte]
+  [ComparisonCard.svelte]
+  [ComparisonModal.svelte]
+  [GrammarDetailModal.svelte]
+}
+
+[TypingQuiz.svelte\nF1, Enter flow,\nauto-focus, VK support] --> [VirtualKeyboard.svelte\nHiragana/Katakana,\ndakuten, haptic]
+
+note right of "quiz/ (4)"
+  Shared patterns:
+  - F1 keyboard shortcut
+  - State reset (prevAnswer)
+  - playJapaneseAudio()
+end note
+@enduml
