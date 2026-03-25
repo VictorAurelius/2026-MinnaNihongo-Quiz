@@ -2,7 +2,7 @@
   "name": "Smart Quiz - Japanese & Chinese Learning",
   "short_name": "Smart Quiz",
   "description": "Interactive quiz app for learning Japanese JLPT vocabulary, grammar, Hiragana, Katakana, and Chinese HSK vocabulary",
-  "start_url": "/",
+  "start_url": "/2026-Smart-Quiz/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6366f1",
@@ -30,28 +30,28 @@
       "name": "Lessons",
       "short_name": "Lessons",
       "description": "Browse JLPT lessons",
-      "url": "/",
+      "url": "/2026-Smart-Quiz/",
       "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "Grammar",
       "short_name": "Grammar",
       "description": "Grammar reference",
-      "url": "/grammar-reference",
+      "url": "/2026-Smart-Quiz/grammar-reference",
       "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "Alphabet",
       "short_name": "Alphabet",
       "description": "Hiragana & Katakana",
-      "url": "/alphabet",
+      "url": "/2026-Smart-Quiz/alphabet",
       "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "HSK",
       "short_name": "HSK",
       "description": "Chinese vocabulary",
-      "url": "/hsk",
+      "url": "/2026-Smart-Quiz/hsk",
       "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
     }
   ]
