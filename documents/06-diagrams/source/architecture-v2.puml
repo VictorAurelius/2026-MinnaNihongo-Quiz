@@ -1,0 +1,78 @@
+@startuml architecture-v2
+title Smart Quiz v2 — Architecture Overview
+
+skinparam backgroundColor white
+skinparam componentStyle rectangle
+
+package "Browser (SPA + PWA)" {
+  package "SvelteKit Routes (25 pages)" as Routes {
+    [Home /] as Home
+    [/courses] as Courses
+    [/course/:id/lesson/:id] as Lesson
+    [/quiz/:mode] as Quiz
+    [/grammar-quiz/:mode] as GrammarQuiz
+    [/results] as Results
+    [/kanji/:lesson] as Kanji
+    [/hsk/:group] as HSK
+    [/alphabet] as Alphabet
+    [/counters] as Counters
+    [/grammar-reference] as GrammarRef
+    [/stats] as Stats
+    [/review] as Review
+    [/settings] as Settings
+    [/mock-test] as MockTest
+  }
+
+  package "Components (17)" as Comps {
+    [quiz: FlashCard, MC,\nTypingQuiz, VirtualKeyboard] as QuizC
+    [kanji: KanjiFlashCard,\nKanjiMC, KanjiTyping] as KanjiC
+    [grammar: GrammarCard,\nComparisonCard, Modals] as GramC
+    [common: Button, Card,\nModal, ProgressBar, BackButton] as CommonC
+    [layout: Header] as LayoutC
+  }
+
+  package "Stores" as Stores {
+    [quizStore\nmode, questions, score] as QS
+    [progressStore\nlessons, hsk, settings] as PS
+    [uiStore\ndarkMode, keyboard, modal] as US
+  }
+
+  package "Utils" as Utils {
+    [audioUtils\nplayJapaneseAudio\nplayChineseAudio] as AU
+    [quizUtils\ncheckAnswer, generateMC] as QU
+    [srsUtils\nSM-2 algorithm] as SRS
+    [achievementUtils\nstreaks, achievements] as ACH
+    [statsUtils\nmastery, lesson stats] as STU
+  }
+
+  package "Static Data (93 TS)" as Data {
+    [minna/lessons\n25 lessons, 1100+ vocab] as Minna
+    [kanji/lessons\n25 lessons, 256 kanji] as KData
+    [hsk\n5 groups, 1603 words] as HData
+    [courses\nN5, N4 registry] as CData
+  }
+
+  database "localStorage" as LS {
+    [progress]
+    [streak]
+    [srs]
+    [settings]
+  }
+
+  [Service Worker\ncache-first + runtime] as SW
+}
+
+package "Deploy" {
+  [GitHub Pages\nvictoraurelius.github.io] as GHP
+  [GitHub Actions\nCI + Deploy] as GHA
+}
+
+Routes --> Comps
+Comps --> Stores
+Comps --> Utils
+Stores --> LS
+Routes --> Data
+SW ..> Routes : cache
+
+GHA --> GHP : build + deploy
+@enduml

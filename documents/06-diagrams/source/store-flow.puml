@@ -1,0 +1,71 @@
+@startuml store-flow
+title Smart Quiz — Data Store Flow
+
+skinparam backgroundColor white
+
+package "Svelte Stores" {
+  rectangle "progressStore" as PS #E8EAF6 {
+    card "lessons: Record<number, LessonProgress>"
+    card "hsk: Record<number, LessonProgress>"
+    card "settings: defaultDirection, autoPlay, showEnglish"
+  }
+
+  rectangle "quizStore" as QS #E3F2FD {
+    card "mode, direction, courseId, lessonNumber"
+    card "questions[], currentIndex, score"
+    card "wrongItems[], startTime, endTime"
+  }
+
+  rectangle "uiStore" as US #FFF3E0 {
+    card "darkMode, showVirtualKeyboard"
+    card "activeModal, breadcrumbs"
+  }
+}
+
+package "Derived Stores" {
+  [isComplete] as IC
+  [currentQuestion] as CQ
+  [accuracy] as ACC
+  [progress (current, total, %)] as PROG
+}
+
+QS --> IC
+QS --> CQ
+QS --> ACC
+QS --> PROG
+
+package "Actions" {
+  [updateLessonProgress\nlesson, vocabId, correct] as ULP
+  [startQuiz\nmode, direction, questions] as SQ
+  [answerCorrect / answerWrong] as ANS
+  [endQuiz -> recordStudySession] as EQ
+  [exportProgress / importProgress] as EXP
+  [toggleDarkMode] as TDM
+}
+
+ULP --> PS
+SQ --> QS
+ANS --> QS
+EQ --> QS
+EXP --> PS
+TDM --> US
+
+database "localStorage" as LS {
+  [minna_vocab_progress]
+  [smart_quiz_streak]
+  [smart_quiz_srs]
+  [dark_mode]
+}
+
+PS --> [minna_vocab_progress] : auto-sync
+US --> [dark_mode] : auto-sync
+
+package "External Utils" {
+  [srsUtils -> SM-2] as SRS
+  [achievementUtils -> streaks] as ACH
+}
+
+SRS --> [smart_quiz_srs]
+ACH --> [smart_quiz_streak]
+EQ --> ACH : recordStudySession
+@enduml
