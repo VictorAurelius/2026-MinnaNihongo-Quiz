@@ -1,6 +1,9 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import { getPremiumFeatures, isPremium, setPremium } from '$lib/utils/premiumUtils';
+  import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
+  import Badge from '$lib/components/ui/badge/badge.svelte';
+  import UiButton from '$lib/components/ui/button/button.svelte';
 
   $: premium = isPremium();
   $: features = getPremiumFeatures();
@@ -17,164 +20,67 @@
   <title>Premium - Smart Quiz</title>
 </svelte:head>
 
-<div class="premium-page">
-  <header class="premium-header">
-    <h1>Smart Quiz Premium</h1>
-    <p class="subtitle">Unlock advanced features for serious learners</p>
+<div class="mx-auto max-w-xl p-4 animate-in">
+  <header class="text-center mb-6">
+    <h1 class="text-2xl font-bold mb-1">Smart Quiz Premium</h1>
+    <p class="text-sm text-muted-foreground">Unlock advanced features for serious learners</p>
   </header>
 
-  {#if premium}
-    <div class="status-badge active">Premium Active</div>
-  {:else}
-    <div class="status-badge free">Free Plan</div>
-  {/if}
+  <div class="text-center mb-6">
+    {#if premium}
+      <Badge class="bg-success text-white px-4 py-1.5 text-sm">Premium Active</Badge>
+    {:else}
+      <Badge variant="secondary" class="px-4 py-1.5 text-sm">Free Plan</Badge>
+    {/if}
+  </div>
 
-  <section class="features-section">
-    <h2>Free Features</h2>
-    <div class="feature-list">
+  <Card class="mb-3">
+    <CardHeader class="pb-2"><CardTitle class="text-sm">Free Features</CardTitle></CardHeader>
+    <CardContent class="flex flex-col gap-2">
       {#each freeFeatures as feature}
-        <div class="feature-item free">
-          <span class="feature-check">✅</span>
+        <div class="flex items-center gap-3 py-1">
+          <span class="text-lg">✅</span>
           <div>
-            <strong>{feature.name}</strong>
-            <span class="feature-desc">{feature.description}</span>
+            <strong class="text-sm block">{feature.name}</strong>
+            <span class="text-xs text-muted-foreground">{feature.description}</span>
           </div>
         </div>
       {/each}
-    </div>
-  </section>
+    </CardContent>
+  </Card>
 
-  <section class="features-section">
-    <h2>Premium Features</h2>
-    <div class="feature-list">
+  <Card class="mb-3">
+    <CardHeader class="pb-2"><CardTitle class="text-sm">Premium Features</CardTitle></CardHeader>
+    <CardContent class="flex flex-col gap-2">
       {#each premiumFeatures as feature}
-        <div class="feature-item premium" class:unlocked={premium}>
-          <span class="feature-check">{premium ? '✅' : '🔒'}</span>
+        <div class="flex items-center gap-3 py-1 {premium ? '' : 'opacity-60'}">
+          <span class="text-lg">{premium ? '✅' : '🔒'}</span>
           <div>
-            <strong>{feature.name}</strong>
-            <span class="feature-desc">{feature.description}</span>
+            <strong class="text-sm block">{feature.name}</strong>
+            <span class="text-xs text-muted-foreground">{feature.description}</span>
           </div>
         </div>
       {/each}
-    </div>
-  </section>
+    </CardContent>
+  </Card>
 
-  <!-- Dev toggle (v1 — no payment) -->
-  <section class="features-section">
-    <h2>Activation</h2>
-    <p class="note">Premium is currently free during beta. Toggle below to try premium features.</p>
-    <button class="btn" class:btn-primary={!premium} class:btn-danger={premium} on:click={togglePremium}>
-      {premium ? 'Deactivate Premium' : 'Activate Premium (Free Beta)'}
-    </button>
-  </section>
+  <Card class="mb-3">
+    <CardHeader class="pb-2"><CardTitle class="text-sm">Activation</CardTitle></CardHeader>
+    <CardContent>
+      <p class="text-sm text-muted-foreground mb-3">Premium is currently free during beta. Toggle below to try premium features.</p>
+      <UiButton
+        variant={premium ? 'destructive' : 'default'}
+        onclick={togglePremium}
+      >
+        {premium ? 'Deactivate Premium' : 'Activate Premium (Free Beta)'}
+      </UiButton>
+    </CardContent>
+  </Card>
 
-  <a href="{base}/" class="back-link">← Back to Home</a>
+  <a href="{base}/" class="inline-block mt-3 text-primary text-sm no-underline hover:underline">← Back to Home</a>
 </div>
 
 <style>
-  .premium-page {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-
-  .premium-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .premium-header h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .subtitle {
-    color: var(--text-muted, #6b7280);
-    font-size: 0.95rem;
-  }
-
-  .status-badge {
-    text-align: center;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .status-badge.active {
-    background: color-mix(in srgb, var(--success, #22c55e) 15%, transparent);
-    color: var(--success, #22c55e);
-  }
-
-  .status-badge.free {
-    background: color-mix(in srgb, var(--primary, #6366f1) 10%, transparent);
-    color: var(--primary, #6366f1);
-  }
-
-  .features-section {
-    background: var(--bg-card, #fff);
-    border: 1px solid var(--border, #e5e7eb);
-    border-radius: var(--radius, 0.5rem);
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-  }
-
-  .features-section h2 {
-    font-size: 1rem;
-    margin: 0 0 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border, #e5e7eb);
-  }
-
-  .feature-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .feature-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 0;
-  }
-
-  .feature-check { font-size: 1.1rem; }
-
-  .feature-item strong {
-    display: block;
-    font-size: 0.9rem;
-  }
-
-  .feature-desc {
-    font-size: 0.8rem;
-    color: var(--text-muted, #6b7280);
-  }
-
-  .note {
-    font-size: 0.85rem;
-    color: var(--text-muted, #6b7280);
-    margin-bottom: 0.75rem;
-  }
-
-  .back-link {
-    display: inline-block;
-    margin-top: 1rem;
-    color: var(--primary, #6366f1);
-    text-decoration: none;
-    font-size: 0.9rem;
-  }
-
-  .btn {
-    padding: 0.6rem 1.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-
-  .btn-primary { background: var(--primary, #6366f1); color: white; }
-  .btn-danger { background: var(--danger, #ef4444); color: white; }
+  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
+  .animate-in { animation: fade-in 0.25s ease; }
 </style>
