@@ -40,25 +40,30 @@ Merge `v4-dev` → `main` sau mỗi wave complete + audit pass.
 
 | Wave | PR | Name | Tests | Status | Actual PR |
 |------|----|------|-------|--------|-----------|
-| 1 | #1 | [SEO meta tags](wave-1/pr-01-seo.md) | 9 | [ ] | |
-| 1 | #8 | [Skeleton + branding](wave-1/pr-08-skeleton.md) | 6 | [ ] | |
-| 1 | #9 | [Accessibility](wave-1/pr-09-a11y.md) | 10 | [ ] | |
-| 2 | #2 | [Learning path](wave-2/pr-02-learning-path.md) | 15 | [ ] | |
-| 2 | #3 | [JLPT mock test](wave-2/pr-03-mock-test.md) | 10 | [ ] | |
-| 3 | #4 | [Kanji stroke order](wave-3/pr-04-stroke-order.md) | 9 | [ ] | |
-| 3 | #5 | [Kanji radicals](wave-3/pr-05-radicals.md) | 11 | [ ] | |
-| 4 | #6 | [HSK quiz modes](wave-4/pr-06-hsk-quiz.md) | 7 | [ ] | |
-| 4 | #7 | [HSK1-4 data](wave-4/pr-07-hsk-levels.md) | 10 | [ ] | |
-| 5 | #10 | [Kanji handwriting](wave-5/pr-10-handwriting.md) | 13 | [ ] | |
-| 5 | #11 | [N3-N1 kanji](wave-5/pr-11-kanji-n3-n1.md) | 9 | [ ] | |
-| 6 | #12 | [Supabase auth](wave-6/pr-12-auth.md) | 12 | [ ] | |
-| 6 | #13 | [Leaderboard](wave-6/pr-13-leaderboard.md) | 6 | [ ] | |
-| 7 | #14 | [N3 content](wave-7/pr-14-n3-content.md) | 7 | [ ] | |
-| 7 | #15 | [N2-N1 vocab](wave-7/pr-15-n2-n1-vocab.md) | 8 | [ ] | |
-| 7 | #16 | [Advanced SRS](wave-7/pr-16-advanced-srs.md) | 12 | [ ] | |
-| 8 | #17 | [Custom fonts](wave-8/pr-17-fonts.md) | 4 | [ ] | |
-| 8 | #18 | [Premium tier](wave-8/pr-18-premium.md) | 5 | [ ] | |
-| 8 | #19 | [Community](wave-8/pr-19-community.md) | 0 | [ ] | |
+| 1 | #1 | [SEO meta tags](wave-1/pr-01-seo.md) | 9 | ✅ | #38 |
+| 1 | #8 | [Skeleton + branding](wave-1/pr-08-skeleton.md) | 6 | ✅ | #39 |
+| 1 | #9 | [Accessibility](wave-1/pr-09-a11y.md) | 10 | ✅ | #40 |
+| 2 | #2 | [Learning path](wave-2/pr-02-learning-path.md) | 15 | ✅ | #41 |
+| 2 | #3 | [JLPT mock test](wave-2/pr-03-mock-test.md) | 10 | ✅ | #42 |
+| 3 | #4 | [Kanji stroke order](wave-3/pr-04-stroke-order.md) | 9 | ✅ | #45 |
+| 3 | #5 | [Kanji radicals](wave-3/pr-05-radicals.md) | 11 | ✅ | #46 |
+| 4 | #6 | [HSK quiz modes](wave-4/pr-06-hsk-quiz.md) | 7 | ✅ | #48 |
+| 4 | #7 | [HSK1-4 data](wave-4/pr-07-hsk-levels.md) | 10 | ✅ | #49 |
+| 5 | #10 | [Kanji handwriting](wave-5/pr-10-handwriting.md) | 13 | ✅ | #50 |
+| 5 | #11 | [N3-N1 kanji](wave-5/pr-11-kanji-n3-n1.md) | 9 | ✅ | #51 |
+| 6 | #12 | [Supabase auth](wave-6/pr-12-auth.md) | 12 | ⏸️ blocked | — |
+| 6 | #13 | [Leaderboard](wave-6/pr-13-leaderboard.md) | 6 | ⏸️ blocked | — |
+| 7 | #14 | [N3 content](wave-7/pr-14-n3-content.md) | 7 | ✅ | #58 |
+| 7 | #15 | [N2-N1 vocab](wave-7/pr-15-n2-n1-vocab.md) | 8 | ✅ | #59 |
+| 7 | #16 | [Advanced SRS](wave-7/pr-16-advanced-srs.md) | 12 | ✅ | #60 |
+| 8 | #17 | [Custom fonts](wave-8/pr-17-fonts.md) | 4 | ✅ | #62 |
+| 8 | #18 | [Premium tier](wave-8/pr-18-premium.md) | 5 | ✅ | #63 |
+| 8 | #19 | [Community](wave-8/pr-19-community.md) | 0 | ✅ | #63 |
+| UI | #20 | ConfirmDialog + hardcoded colors fix | — | ✅ | #66 |
+| UI | #21 | Toast + page states | — | ✅ | #67 |
+| UI | #22 | Foundation — Tailwind + shadcn | — | ✅ | #68 |
+| UI | #23 | Core pages redesign | — | ✅ | #69 |
+| UI | #24 | Content + supporting pages | — | ✅ | #70 |
 
 ---
 
@@ -134,10 +139,12 @@ Khi implement, nếu phát hiện pattern mới cần document:
 
 ## Metrics
 
-| Metric | Current | After v4.0 |
-|--------|---------|-----------|
-| Tests | 605 | ~769 |
-| Routes | 25 | ~35 |
-| Kanji | 256 | 2500+ |
-| HSK words | 1600 | 3200+ |
-| Score vs Nhai Kanji | 62/120 | 104/120 |
+| Metric | Start | Current | Target |
+|--------|-------|---------|--------|
+| Tests | 605 | 755 | ~769 |
+| Routes | 25 | ~35 | ~35 |
+| Kanji | 256 | 1,125 | 2,500+ |
+| HSK words | 1,600 | 1,600+ | 3,200+ |
+| CSS lines (app.css) | 2,697 | ~200 + Tailwind | — |
+| Design system | None | shadcn-svelte + Tailwind v4 | — |
+| Waves complete | 0/8 | 7/8 (Wave 6 blocked) | 8/8 |
