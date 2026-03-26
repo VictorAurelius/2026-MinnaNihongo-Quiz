@@ -5,7 +5,7 @@
 
 import type { LessonData } from './lesson';
 
-export type CourseId = 'n5' | 'n4' | 'n3';
+export type CourseId = 'n5' | 'n4' | 'n3' | 'n2' | 'n1';
 
 export interface CourseMetadata {
   id: CourseId;

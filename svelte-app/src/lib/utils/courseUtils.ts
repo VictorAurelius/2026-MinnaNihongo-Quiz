@@ -42,12 +42,12 @@ export function buildGrammarUrl(courseId: CourseId, lessonNumber: number): strin
  */
 export function parseCourseFromUrl(searchParams: URLSearchParams): CourseId {
   const course = searchParams.get('course');
-  return (course === 'n5' || course === 'n4' || course === 'n3') ? course : 'n5';
+  return (course === 'n5' || course === 'n4' || course === 'n3' || course === 'n2' || course === 'n1') ? course : 'n5';
 }
 
 /**
  * Validate if a string is a valid CourseId
  */
 export function isValidCourseId(courseId: string): courseId is CourseId {
-  return courseId === 'n5' || courseId === 'n4' || courseId === 'n3';
+  return courseId === 'n5' || courseId === 'n4' || courseId === 'n3' || courseId === 'n2' || courseId === 'n1';
 }
