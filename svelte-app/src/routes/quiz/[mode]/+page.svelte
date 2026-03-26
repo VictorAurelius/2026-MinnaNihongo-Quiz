@@ -16,6 +16,7 @@
   import TypingQuiz from '$lib/components/quiz/TypingQuiz.svelte';
   import ProgressBar from '$lib/components/common/ProgressBar.svelte';
   import type { QuizMode, QuizDirection, CourseId } from '$lib/types';
+  import { showToast } from '$lib/stores/toast';
 
   $: mode = $page.params.mode as QuizMode;
   $: courseId = parseCourseFromUrl($page.url.searchParams);
@@ -56,6 +57,7 @@
     // Check if quiz is complete
     setTimeout(() => {
       if ($isComplete) {
+        showToast('Quiz complete!', 'success');
         goto(`${base}/results`);
       }
     }, 300);
@@ -68,6 +70,7 @@
     // Check if quiz is complete
     setTimeout(() => {
       if ($isComplete) {
+        showToast('Quiz complete!', 'success');
         goto(`${base}/results`);
       }
     }, 300);
