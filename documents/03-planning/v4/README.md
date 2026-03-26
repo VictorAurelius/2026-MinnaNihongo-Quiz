@@ -33,6 +33,7 @@ Merge `v4-dev` → `main` sau mỗi wave complete + audit pass.
 | 6 | [wave-6/](wave-6/) | #12 Auth, #13 Leaderboard | User system | User 9/10 |
 | 7 | [wave-7/](wave-7/) | #14 N3, #15 N2-N1, #16 SRS | Content complete | Content 9/10 |
 | 8 | [wave-8/](wave-8/) | #17 Fonts, #18 Premium, #19 Community | Business ready | Business 8/10 |
+| 9 | [wave-9/](wave-9/) | #25 N2 course, #26 N1 course | JLPT N2+N1 complete | Content 10/10 |
 
 ---
 
@@ -64,6 +65,8 @@ Merge `v4-dev` → `main` sau mỗi wave complete + audit pass.
 | UI | #22 | Foundation — Tailwind + shadcn | — | ✅ | #68 |
 | UI | #23 | Core pages redesign | — | ✅ | #69 |
 | UI | #24 | Content + supporting pages | — | ✅ | #70 |
+| 9 | #25 | [N2 full course](wave-9/pr-25-n2-course.md) | 10 | [ ] | |
+| 9 | #26 | [N1 full course](wave-9/pr-26-n1-course.md) | 10 | [ ] | |
 
 ---
 
