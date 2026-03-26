@@ -6,8 +6,10 @@
 import type { Course, CourseId, CourseMetadata } from '$lib/types/course';
 import { N5_METADATA } from './n5/metadata';
 import { N4_METADATA } from './n4/metadata';
+import { N3_METADATA } from './n3/metadata';
 import * as n5Lessons from '../minna/lessons';
 import * as n4Lessons from './n4/lessons';
+import * as n3Lessons from './n3/lessons';
 
 const COURSES: Record<CourseId, Course> = {
   n5: {
@@ -21,6 +23,12 @@ const COURSES: Record<CourseId, Course> = {
     getLessonData: n4Lessons.getLessonData,
     getAllLessons: n4Lessons.getAllLessons,
     getLessonMetadata: n4Lessons.getLessonMetadata
+  },
+  n3: {
+    metadata: N3_METADATA,
+    getLessonData: n3Lessons.getLessonData,
+    getAllLessons: n3Lessons.getAllLessons,
+    getLessonMetadata: n3Lessons.getLessonMetadata
   }
 };
 

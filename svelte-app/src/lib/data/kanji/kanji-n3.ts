@@ -9,7 +9,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'bad',
     english: 'bad, vice, rascal',
-    examples: [],
+    examples: [
+      { word: '悪い', reading: 'わるい', meaning: 'bad' },
+      { word: '悪魔', reading: 'あくま', meaning: 'devil, demon' },
+    ],
   },
   {
     character: '暗',
@@ -19,7 +22,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'darkness',
     english: 'darkness, disappear, shade',
-    examples: [],
+    examples: [
+      { word: '暗い', reading: 'くらい', meaning: 'dark, gloomy' },
+      { word: '暗記', reading: 'あんき', meaning: 'memorization' },
+    ],
   },
   {
     character: '以',
@@ -29,7 +35,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'by means of',
     english: 'by means of, because, in view of',
-    examples: [],
+    examples: [
+      { word: '以上', reading: 'いじょう', meaning: 'more than, above' },
+      { word: '以下', reading: 'いか', meaning: 'less than, below' },
+    ],
   },
   {
     character: '運',
@@ -39,7 +48,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'carry',
     english: 'carry, luck, destiny',
-    examples: [],
+    examples: [
+      { word: '運動', reading: 'うんどう', meaning: 'exercise, movement' },
+      { word: '運転', reading: 'うんてん', meaning: 'driving, operation' },
+    ],
   },
   {
     character: '映',
@@ -49,7 +61,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'reflect',
     english: 'reflect, reflection, projection',
-    examples: [],
+    examples: [
+      { word: '映画', reading: 'えいが', meaning: 'movie, film' },
+      { word: '映る', reading: 'うつる', meaning: 'to be reflected' },
+    ],
   },
   {
     character: '英',
@@ -59,7 +74,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'england',
     english: 'England, English, hero',
-    examples: [],
+    examples: [
+      { word: '英語', reading: 'えいご', meaning: 'English language' },
+      { word: '英雄', reading: 'えいゆう', meaning: 'hero' },
+    ],
   },
   {
     character: '屋',
@@ -69,7 +87,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'roof',
     english: 'roof, house, shop',
-    examples: [],
+    examples: [
+      { word: '部屋', reading: 'へや', meaning: 'room' },
+      { word: '屋上', reading: 'おくじょう', meaning: 'rooftop' },
+    ],
   },
   {
     character: '音',
@@ -79,7 +100,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'sound',
     english: 'sound, noise',
-    examples: [],
+    examples: [
+      { word: '音楽', reading: 'おんがく', meaning: 'music' },
+      { word: '音', reading: 'おと', meaning: 'sound, noise' },
+    ],
   },
   {
     character: '家',
@@ -89,7 +113,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'house',
     english: 'house, home, family',
-    examples: [],
+    examples: [
+      { word: '家族', reading: 'かぞく', meaning: 'family' },
+      { word: '家', reading: 'いえ', meaning: 'house, home' },
+    ],
   },
   {
     character: '歌',
@@ -99,7 +126,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'song',
     english: 'song, sing',
-    examples: [],
+    examples: [
+      { word: '歌手', reading: 'かしゅ', meaning: 'singer' },
+      { word: '歌う', reading: 'うたう', meaning: 'to sing' },
+    ],
   },
   {
     character: '画',
@@ -109,7 +139,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'brush-stroke',
     english: 'brush-stroke, picture',
-    examples: [],
+    examples: [
+      { word: '映画', reading: 'えいが', meaning: 'movie, film' },
+      { word: '計画', reading: 'けいかく', meaning: 'plan, project' },
+    ],
   },
   {
     character: '顔',
@@ -119,7 +152,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'face',
     english: 'face, expression',
-    examples: [],
+    examples: [
+      { word: '顔', reading: 'かお', meaning: 'face' },
+      { word: '笑顔', reading: 'えがお', meaning: 'smiling face' },
+    ],
   },
   {
     character: '起',
@@ -129,7 +165,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'rouse',
     english: 'rouse, wake up, get up',
-    examples: [],
+    examples: [
+      { word: '起きる', reading: 'おきる', meaning: 'to wake up, to get up' },
+      { word: '起こる', reading: 'おこる', meaning: 'to occur, to happen' },
+    ],
   },
   {
     character: '急',
@@ -139,7 +178,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'hurry',
     english: 'hurry, emergency, sudden',
-    examples: [],
+    examples: [
+      { word: '急ぐ', reading: 'いそぐ', meaning: 'to hurry' },
+      { word: '急行', reading: 'きゅうこう', meaning: 'express train' },
+    ],
   },
   {
     character: '牛',
@@ -149,7 +191,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'cow',
     english: 'cow',
-    examples: [],
+    examples: [
+      { word: '牛肉', reading: 'ぎゅうにく', meaning: 'beef' },
+      { word: '牛乳', reading: 'ぎゅうにゅう', meaning: 'milk' },
+    ],
   },
   {
     character: '去',
@@ -159,7 +204,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'gone',
     english: 'gone, past, quit',
-    examples: [],
+    examples: [
+      { word: '去年', reading: 'きょねん', meaning: 'last year' },
+      { word: '過去', reading: 'かこ', meaning: 'the past' },
+    ],
   },
   {
     character: '京',
@@ -169,7 +217,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'capital',
     english: 'capital, 10**16',
-    examples: [],
+    examples: [
+      { word: '東京', reading: 'とうきょう', meaning: 'Tokyo' },
+      { word: '京都', reading: 'きょうと', meaning: 'Kyoto' },
+    ],
   },
   {
     character: '区',
@@ -179,7 +230,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'ward',
     english: 'ward, district',
-    examples: [],
+    examples: [
+      { word: '区別', reading: 'くべつ', meaning: 'distinction, difference' },
+      { word: '地区', reading: 'ちく', meaning: 'district, area' },
+    ],
   },
   {
     character: '計',
@@ -189,7 +243,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'plot',
     english: 'plot, plan, scheme',
-    examples: [],
+    examples: [
+      { word: '時計', reading: 'とけい', meaning: 'clock, watch' },
+      { word: '計画', reading: 'けいかく', meaning: 'plan, project' },
+    ],
   },
   {
     character: '建',
@@ -199,7 +256,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'build',
     english: 'build',
-    examples: [],
+    examples: [
+      { word: '建物', reading: 'たてもの', meaning: 'building' },
+      { word: '建てる', reading: 'たてる', meaning: 'to build, to construct' },
+    ],
   },
   {
     character: '犬',
@@ -209,7 +269,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'dog',
     english: 'dog',
-    examples: [],
+    examples: [
+      { word: '犬', reading: 'いぬ', meaning: 'dog' },
+      { word: '子犬', reading: 'こいぬ', meaning: 'puppy' },
+    ],
   },
   {
     character: '県',
@@ -219,7 +282,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'prefecture',
     english: 'prefecture',
-    examples: [],
+    examples: [
+      { word: '県', reading: 'けん', meaning: 'prefecture' },
+      { word: '県庁', reading: 'けんちょう', meaning: 'prefectural office' },
+    ],
   },
   {
     character: '光',
@@ -229,7 +295,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'ray',
     english: 'ray, light',
-    examples: [],
+    examples: [
+      { word: '光', reading: 'ひかり', meaning: 'light, ray' },
+      { word: '観光', reading: 'かんこう', meaning: 'sightseeing, tourism' },
+    ],
   },
   {
     character: '工',
@@ -239,7 +308,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'craft',
     english: 'craft, construction, katakana e radical (no. 48)',
-    examples: [],
+    examples: [
+      { word: '工場', reading: 'こうじょう', meaning: 'factory' },
+      { word: '工事', reading: 'こうじ', meaning: 'construction work' },
+    ],
   },
   {
     character: '市',
@@ -249,7 +321,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'market',
     english: 'market, city, town',
-    examples: [],
+    examples: [
+      { word: '市場', reading: 'しじょう', meaning: 'market' },
+      { word: '都市', reading: 'とし', meaning: 'city' },
+    ],
   },
   {
     character: '死',
@@ -259,7 +334,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'death',
     english: 'death, die',
-    examples: [],
+    examples: [
+      { word: '死ぬ', reading: 'しぬ', meaning: 'to die' },
+      { word: '死亡', reading: 'しぼう', meaning: 'death, mortality' },
+    ],
   },
   {
     character: '紙',
@@ -269,7 +347,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'paper',
     english: 'paper',
-    examples: [],
+    examples: [
+      { word: '紙', reading: 'かみ', meaning: 'paper' },
+      { word: '手紙', reading: 'てがみ', meaning: 'letter' },
+    ],
   },
   {
     character: '質',
@@ -279,7 +360,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'substance',
     english: 'substance, quality, matter',
-    examples: [],
+    examples: [
+      { word: '質問', reading: 'しつもん', meaning: 'question' },
+      { word: '品質', reading: 'ひんしつ', meaning: 'quality' },
+    ],
   },
   {
     character: '写',
@@ -289,7 +373,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'copy',
     english: 'copy, be photographed, describe',
-    examples: [],
+    examples: [
+      { word: '写真', reading: 'しゃしん', meaning: 'photograph' },
+      { word: '写す', reading: 'うつす', meaning: 'to copy, to photograph' },
+    ],
   },
   {
     character: '首',
@@ -299,7 +386,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'neck',
     english: 'neck, counter for songs and poems',
-    examples: [],
+    examples: [
+      { word: '首', reading: 'くび', meaning: 'neck' },
+      { word: '首都', reading: 'しゅと', meaning: 'capital city' },
+    ],
   },
   {
     character: '集',
@@ -309,7 +399,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'gather',
     english: 'gather, meet, congregate',
-    examples: [],
+    examples: [
+      { word: '集める', reading: 'あつめる', meaning: 'to collect, to gather' },
+      { word: '集合', reading: 'しゅうごう', meaning: 'gathering, assembly' },
+    ],
   },
   {
     character: '住',
@@ -319,7 +412,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'dwell',
     english: 'dwell, reside, live',
-    examples: [],
+    examples: [
+      { word: '住む', reading: 'すむ', meaning: 'to live, to reside' },
+      { word: '住所', reading: 'じゅうしょ', meaning: 'address' },
+    ],
   },
   {
     character: '森',
@@ -329,7 +425,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'forest',
     english: 'forest, woods',
-    examples: [],
+    examples: [
+      { word: '森', reading: 'もり', meaning: 'forest' },
+      { word: '森林', reading: 'しんりん', meaning: 'forest, woods' },
+    ],
   },
   {
     character: '真',
@@ -339,7 +438,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'true',
     english: 'true, reality, Buddhist sect',
-    examples: [],
+    examples: [
+      { word: '写真', reading: 'しゃしん', meaning: 'photograph' },
+      { word: '真実', reading: 'しんじつ', meaning: 'truth, reality' },
+    ],
   },
   {
     character: '親',
@@ -349,7 +451,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'parent',
     english: 'parent, intimacy, relative',
-    examples: [],
+    examples: [
+      { word: '親', reading: 'おや', meaning: 'parent' },
+      { word: '親切', reading: 'しんせつ', meaning: 'kindness, gentle' },
+    ],
   },
   {
     character: '進',
@@ -359,7 +464,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'advance',
     english: 'advance, proceed, progress',
-    examples: [],
+    examples: [
+      { word: '進む', reading: 'すすむ', meaning: 'to advance, to proceed' },
+      { word: '進歩', reading: 'しんぽ', meaning: 'progress' },
+    ],
   },
   {
     character: '声',
@@ -369,7 +477,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'voice',
     english: 'voice',
-    examples: [],
+    examples: [
+      { word: '声', reading: 'こえ', meaning: 'voice' },
+      { word: '大声', reading: 'おおごえ', meaning: 'loud voice' },
+    ],
   },
   {
     character: '切',
@@ -379,7 +490,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'cut',
     english: 'cut, cutoff, be sharp',
-    examples: [],
+    examples: [
+      { word: '切る', reading: 'きる', meaning: 'to cut' },
+      { word: '大切', reading: 'たいせつ', meaning: 'important, precious' },
+    ],
   },
   {
     character: '洗',
@@ -389,7 +503,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'wash',
     english: 'wash, inquire into, probe',
-    examples: [],
+    examples: [
+      { word: '洗う', reading: 'あらう', meaning: 'to wash' },
+      { word: '洗濯', reading: 'せんたく', meaning: 'laundry, washing' },
+    ],
   },
   {
     character: '族',
@@ -399,7 +516,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'tribe',
     english: 'tribe, family',
-    examples: [],
+    examples: [
+      { word: '家族', reading: 'かぞく', meaning: 'family' },
+      { word: '民族', reading: 'みんぞく', meaning: 'ethnic group, nation' },
+    ],
   },
   {
     character: '村',
@@ -409,7 +529,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'village',
     english: 'village, town',
-    examples: [],
+    examples: [
+      { word: '村', reading: 'むら', meaning: 'village' },
+      { word: '村長', reading: 'そんちょう', meaning: 'village chief' },
+    ],
   },
   {
     character: '太',
@@ -419,7 +542,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'plump',
     english: 'plump, thick, big around',
-    examples: [],
+    examples: [
+      { word: '太い', reading: 'ふとい', meaning: 'thick, fat' },
+      { word: '太陽', reading: 'たいよう', meaning: 'sun' },
+    ],
   },
   {
     character: '代',
@@ -429,7 +555,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'substitute',
     english: 'substitute, change, convert',
-    examples: [],
+    examples: [
+      { word: '時代', reading: 'じだい', meaning: 'era, period' },
+      { word: '代わり', reading: 'かわり', meaning: 'substitute, replacement' },
+    ],
   },
   {
     character: '短',
@@ -439,7 +568,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'short',
     english: 'short, brevity, fault',
-    examples: [],
+    examples: [
+      { word: '短い', reading: 'みじかい', meaning: 'short' },
+      { word: '短期', reading: 'たんき', meaning: 'short term' },
+    ],
   },
   {
     character: '池',
@@ -449,7 +581,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'pond',
     english: 'pond, cistern, pool',
-    examples: [],
+    examples: [
+      { word: '池', reading: 'いけ', meaning: 'pond' },
+      { word: '電池', reading: 'でんち', meaning: 'battery' },
+    ],
   },
   {
     character: '昼',
@@ -459,7 +594,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'daytime',
     english: 'daytime, noon',
-    examples: [],
+    examples: [
+      { word: '昼', reading: 'ひる', meaning: 'noon, daytime' },
+      { word: '昼食', reading: 'ちゅうしょく', meaning: 'lunch' },
+    ],
   },
   {
     character: '朝',
@@ -469,7 +607,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'morning',
     english: 'morning, dynasty, regime',
-    examples: [],
+    examples: [
+      { word: '朝', reading: 'あさ', meaning: 'morning' },
+      { word: '朝食', reading: 'ちょうしょく', meaning: 'breakfast' },
+    ],
   },
   {
     character: '町',
@@ -479,7 +620,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'town',
     english: 'town, village, block',
-    examples: [],
+    examples: [
+      { word: '町', reading: 'まち', meaning: 'town' },
+      { word: '町中', reading: 'まちなか', meaning: 'downtown, in town' },
+    ],
   },
   {
     character: '鳥',
@@ -489,7 +633,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'bird',
     english: 'bird, chicken',
-    examples: [],
+    examples: [
+      { word: '鳥', reading: 'とり', meaning: 'bird' },
+      { word: '焼き鳥', reading: 'やきとり', meaning: 'grilled chicken skewer' },
+    ],
   },
   {
     character: '通',
@@ -499,7 +646,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'traffic',
     english: 'traffic, pass through, avenue',
-    examples: [],
+    examples: [
+      { word: '通る', reading: 'とおる', meaning: 'to pass through' },
+      { word: '交通', reading: 'こうつう', meaning: 'traffic, transportation' },
+    ],
   },
   {
     character: '低',
@@ -509,7 +659,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'lower',
     english: 'lower, short, humble',
-    examples: [],
+    examples: [
+      { word: '低い', reading: 'ひくい', meaning: 'low, short' },
+      { word: '最低', reading: 'さいてい', meaning: 'minimum, worst' },
+    ],
   },
   {
     character: '田',
@@ -519,7 +672,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'rice field',
     english: 'rice field, rice paddy',
-    examples: [],
+    examples: [
+      { word: '田んぼ', reading: 'たんぼ', meaning: 'rice paddy' },
+      { word: '田舎', reading: 'いなか', meaning: 'countryside' },
+    ],
   },
   {
     character: '都',
@@ -529,7 +685,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'metropolis',
     english: 'metropolis, capital, all',
-    examples: [],
+    examples: [
+      { word: '都市', reading: 'とし', meaning: 'city' },
+      { word: '東京都', reading: 'とうきょうと', meaning: 'Tokyo Metropolis' },
+    ],
   },
   {
     character: '堂',
@@ -539,7 +698,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'public chamber',
     english: 'public chamber, hall',
-    examples: [],
+    examples: [
+      { word: '食堂', reading: 'しょくどう', meaning: 'dining hall, cafeteria' },
+      { word: '堂々', reading: 'どうどう', meaning: 'magnificent, imposing' },
+    ],
   },
   {
     character: '飯',
@@ -549,7 +711,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'meal',
     english: 'meal, boiled rice',
-    examples: [],
+    examples: [
+      { word: 'ご飯', reading: 'ごはん', meaning: 'rice, meal' },
+      { word: '朝飯', reading: 'あさめし', meaning: 'breakfast' },
+    ],
   },
   {
     character: '不',
@@ -559,7 +724,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'negative',
     english: 'negative, non-, bad',
-    examples: [],
+    examples: [
+      { word: '不便', reading: 'ふべん', meaning: 'inconvenient' },
+      { word: '不安', reading: 'ふあん', meaning: 'anxiety, unease' },
+    ],
   },
   {
     character: '服',
@@ -569,7 +737,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'clothing',
     english: 'clothing, admit, obey',
-    examples: [],
+    examples: [
+      { word: '洋服', reading: 'ようふく', meaning: 'Western clothes' },
+      { word: '服', reading: 'ふく', meaning: 'clothes' },
+    ],
   },
   {
     character: '便',
@@ -579,7 +750,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'convenience',
     english: 'convenience, facility, excrement',
-    examples: [],
+    examples: [
+      { word: '便利', reading: 'べんり', meaning: 'convenient, handy' },
+      { word: '便', reading: 'びん', meaning: 'mail, flight' },
+    ],
   },
   {
     character: '勉',
@@ -589,7 +763,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'exertion',
     english: 'exertion, endeavour, encourage',
-    examples: [],
+    examples: [
+      { word: '勉強', reading: 'べんきょう', meaning: 'study' },
+      { word: '勉強する', reading: 'べんきょうする', meaning: 'to study' },
+    ],
   },
   {
     character: '方',
@@ -599,7 +776,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'direction',
     english: 'direction, person, alternative',
-    examples: [],
+    examples: [
+      { word: '方法', reading: 'ほうほう', meaning: 'method, way' },
+      { word: '読み方', reading: 'よみかた', meaning: 'way of reading' },
+    ],
   },
   {
     character: '明',
@@ -609,7 +789,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'bright',
     english: 'bright, light',
-    examples: [],
+    examples: [
+      { word: '明るい', reading: 'あかるい', meaning: 'bright, cheerful' },
+      { word: '説明', reading: 'せつめい', meaning: 'explanation' },
+    ],
   },
   {
     character: '門',
@@ -619,7 +802,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'gate',
     english: 'gate, counter for cannons',
-    examples: [],
+    examples: [
+      { word: '門', reading: 'もん', meaning: 'gate' },
+      { word: '専門', reading: 'せんもん', meaning: 'specialty, expertise' },
+    ],
   },
   {
     character: '夜',
@@ -629,7 +815,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'night',
     english: 'night, evening',
-    examples: [],
+    examples: [
+      { word: '夜', reading: 'よる', meaning: 'night' },
+      { word: '今夜', reading: 'こんや', meaning: 'tonight' },
+    ],
   },
   {
     character: '薬',
@@ -639,7 +828,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'medicine',
     english: 'medicine, chemical, enamel',
-    examples: [],
+    examples: [
+      { word: '薬', reading: 'くすり', meaning: 'medicine, drug' },
+      { word: '薬局', reading: 'やっきょく', meaning: 'pharmacy' },
+    ],
   },
   {
     character: '有',
@@ -649,7 +841,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'possess',
     english: 'possess, have, exist',
-    examples: [],
+    examples: [
+      { word: '有名', reading: 'ゆうめい', meaning: 'famous' },
+      { word: '有る', reading: 'ある', meaning: 'to exist, to have' },
+    ],
   },
   {
     character: '夕',
@@ -659,7 +854,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'evening',
     english: 'evening',
-    examples: [],
+    examples: [
+      { word: '夕方', reading: 'ゆうがた', meaning: 'evening' },
+      { word: '夕食', reading: 'ゆうしょく', meaning: 'dinner, evening meal' },
+    ],
   },
   {
     character: '曜',
@@ -669,7 +867,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'weekday',
     english: 'weekday',
-    examples: [],
+    examples: [
+      { word: '曜日', reading: 'ようび', meaning: 'day of the week' },
+      { word: '月曜日', reading: 'げつようび', meaning: 'Monday' },
+    ],
   },
   {
     character: '洋',
@@ -679,7 +880,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'ocean',
     english: 'ocean, sea, foreign',
-    examples: [],
+    examples: [
+      { word: '洋服', reading: 'ようふく', meaning: 'Western clothes' },
+      { word: '太平洋', reading: 'たいへいよう', meaning: 'Pacific Ocean' },
+    ],
   },
   {
     character: '旅',
@@ -689,7 +893,10 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'trip',
     english: 'trip, travel',
-    examples: [],
+    examples: [
+      { word: '旅行', reading: 'りょこう', meaning: 'travel, trip' },
+      { word: '旅館', reading: 'りょかん', meaning: 'Japanese inn' },
+    ],
   },
   {
     character: '林',
@@ -699,6 +906,9 @@ export const KANJI_N3_DATA: KanjiItem[] = [
     jlpt: 3,
     vietnamese: 'grove',
     english: 'grove, forest',
-    examples: [],
+    examples: [
+      { word: '林', reading: 'はやし', meaning: 'grove, forest' },
+      { word: '森林', reading: 'しんりん', meaning: 'forest, woods' },
+    ],
   },
 ];
