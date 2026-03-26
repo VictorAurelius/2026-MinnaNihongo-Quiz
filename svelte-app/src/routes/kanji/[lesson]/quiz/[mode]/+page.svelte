@@ -14,6 +14,7 @@
   import KanjiFlashCard from '$lib/components/kanji/KanjiFlashCard.svelte';
   import KanjiMultipleChoice from '$lib/components/kanji/KanjiMultipleChoice.svelte';
   import KanjiTypingQuiz from '$lib/components/kanji/KanjiTypingQuiz.svelte';
+  import KanjiWritingQuiz from '$lib/components/kanji/KanjiWritingQuiz.svelte';
   import ProgressBar from '$lib/components/common/ProgressBar.svelte';
   import SkeletonCard from '$lib/components/common/SkeletonCard.svelte';
 
@@ -153,6 +154,15 @@
     {:else if mode === 'typing'}
       {#key currentQuestion.id}
         <KanjiTypingQuiz
+          item={currentQuestion.item}
+          answer={currentQuestion.answer}
+          on:correct={handleCorrect}
+          on:wrong={handleWrong}
+        />
+      {/key}
+    {:else if mode === 'writing'}
+      {#key currentQuestion.id}
+        <KanjiWritingQuiz
           item={currentQuestion.item}
           answer={currentQuestion.answer}
           on:correct={handleCorrect}
