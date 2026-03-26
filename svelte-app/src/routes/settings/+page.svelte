@@ -5,6 +5,7 @@
    */
 
   import { base } from '$app/paths';
+  import { onMount } from 'svelte';
   import {
     progressStore,
     updateSettings,
@@ -13,6 +14,20 @@
     importProgress
   } from '$lib/stores';
   import type { QuizDirection } from '$lib/types';
+  import { getAvailableFonts, getCurrentFont, setFont, initFont } from '$lib/utils/fontUtils';
+
+  const fonts = getAvailableFonts();
+  let selectedFont = 'system';
+
+  onMount(() => {
+    selectedFont = getCurrentFont();
+    initFont();
+  });
+
+  function handleFontChange(fontId: string) {
+    selectedFont = fontId;
+    setFont(fontId);
+  }
 
   // Quiz settings
   $: settings = $progressStore.settings;
@@ -115,6 +130,26 @@
     <div class="setting-row">
       <label for="showEnglish">Show English translations</label>
       <input id="showEnglish" type="checkbox" checked={settings.showEnglish} on:change={handleShowEnglishChange} />
+    </div>
+  </section>
+
+  <!-- Font Settings -->
+  <section class="settings-section">
+    <h2>Japanese Font</h2>
+    <div class="font-grid">
+      {#each fonts as font}
+        <button
+          class="font-card"
+          class:selected={selectedFont === font.id}
+          on:click={() => handleFontChange(font.id)}
+        >
+          <div class="font-preview" style="font-family: {font.family}">
+            {font.preview}
+          </div>
+          <div class="font-name">{font.name}</div>
+          <div class="font-name-ja">{font.nameJa}</div>
+        </button>
+      {/each}
     </div>
   </section>
 
@@ -322,6 +357,51 @@
   .message.error {
     background: var(--danger-bg);
     color: var(--danger);
+  }
+
+  /* Font Grid */
+  .font-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .font-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1rem 0.75rem;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+  }
+
+  .font-card:hover {
+    border-color: var(--primary);
+  }
+
+  .font-card.selected {
+    border-color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 8%, var(--bg));
+  }
+
+  .font-preview {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+
+  .font-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .font-name-ja {
+    font-size: 0.7rem;
+    color: var(--text-muted);
   }
 
   @media (max-width: 600px) {
