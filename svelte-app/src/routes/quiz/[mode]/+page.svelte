@@ -35,7 +35,6 @@
       return;
     }
 
-    // Use custom vocab if coming from vocabulary page selection
     let vocab = lessonData.vocabulary;
     const customRaw = sessionStorage.getItem('smartquiz_custom_vocab');
     if (customRaw) {
@@ -53,8 +52,6 @@
   function handleCorrect(event: CustomEvent) {
     answerCorrect();
     flipped = false;
-
-    // Check if quiz is complete
     setTimeout(() => {
       if ($isComplete) {
         showToast('Quiz complete!', 'success');
@@ -66,8 +63,6 @@
   function handleWrong(event: CustomEvent) {
     answerWrong();
     flipped = false;
-
-    // Check if quiz is complete
     setTimeout(() => {
       if ($isComplete) {
         showToast('Quiz complete!', 'success');
@@ -76,7 +71,6 @@
     }, 300);
   }
 
-  // Generate MC options when question changes
   $: if ($currentQuestion && mode === 'multiple-choice' && lessonData) {
     mcOptions = generateMCOptions(
       $currentQuestion.answer,
@@ -92,15 +86,13 @@
 </svelte:head>
 
 {#if lessonData && $currentQuestion}
-  <div class="quiz-container">
-    <!-- Progress Bar -->
+  <div class="mx-auto max-w-xl px-4 animate-in">
     <ProgressBar
       current={$progress.current}
       total={$progress.total}
       showText={true}
     />
 
-    <!-- Quiz Mode Rendering -->
     {#if mode === 'flashcard' && 'japanese' in $currentQuestion.item}
       <FlashCard
         item={$currentQuestion.item}
@@ -131,32 +123,17 @@
     {/if}
   </div>
 {:else}
-  <div class="loading">
+  <div class="text-center py-12 text-muted-foreground">
     <p>Loading quiz...</p>
   </div>
 {/if}
 
 <style>
-  .quiz-container {
-    max-width: 600px;
-    margin: 0 auto;
-    animation: fadeIn 0.25s ease;
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(0.5rem); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .loading {
-    text-align: center;
-    padding: 3rem;
-    color: var(--text-muted);
+  .animate-in {
+    animation: fade-in 0.25s ease;
   }
 </style>

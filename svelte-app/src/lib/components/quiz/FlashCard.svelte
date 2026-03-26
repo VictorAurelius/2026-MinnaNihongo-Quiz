@@ -152,7 +152,7 @@
   /* Front Side Styles */
   .fc-japanese {
     font-family: var(--font-jp);
-    font-size: 2rem;
+    font-size: 1.875rem; /* text-3xl — consistent across all quiz modes */
     font-weight: 700;
     text-align: center;
     line-height: 1.4;
@@ -199,7 +199,7 @@
     }
 
     .fc-japanese {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
 
     .fc-nav {
