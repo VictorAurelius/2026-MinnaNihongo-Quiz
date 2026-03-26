@@ -1,18 +1,8 @@
 # UI Business Rules — Design System
 
-> **Module:** UI Redesign — Queezy + Duolingo DS + BahasaKu templates
-> **Dependencies:** Figma exports, shadcn-svelte, Tailwind CSS v4
+> **Module:** UI Redesign — shadcn-svelte + Tailwind CSS v4
+> **Approach:** Component library as design system (no Figma templates)
 > **Skill ref:** `.claude/skills/reference/ui-template-guide.md`
-
----
-
-## Source Templates (ALL FREE)
-
-| Template | Role | Screens | Figma Link |
-|----------|------|---------|------------|
-| Queezy | Primary (quiz, home, results) | 52 | [Link](https://www.figma.com/community/file/1178996093139112052) |
-| Duolingo DS | Secondary (tokens, lesson, progress) | 16 | [Link](https://www.figma.com/community/file/1460744749282136015) |
-| BahasaKu | Supplementary (vocabulary, lesson grid) | 25+ | [Link](https://www.figma.com/community/file/1082985450689546470) |
 
 ---
 
@@ -20,190 +10,153 @@
 
 | ID | Rule | Rationale |
 |----|------|-----------|
-| BR-UI-001 | Mọi page/component PHẢI code từ Figma export, KHÔNG freeform | Consistency |
-| BR-UI-002 | Design tokens (colors, spacing, typography) PHẢI định nghĩa trước code | Single source of truth |
-| BR-UI-003 | Component library: shadcn-svelte (copy vào project, own code) | Maintainable, accessible |
-| BR-UI-004 | CSS framework: Tailwind CSS v4 (thay thế vanilla CSS) | Atomic, no duplication |
-| BR-UI-005 | Dark mode PHẢI hoạt động cho mọi component | Existing feature, must preserve |
-| BR-UI-006 | Mobile-first: design cho 375px trước, scale up | 60%+ users on mobile |
-| BR-UI-007 | Touch targets ≥ 44px trên mobile | WCAG 2.5.5 |
-| BR-UI-008 | Mỗi page PHẢI có 4 states: loading, error, empty, success | UI Template Guide |
-| BR-UI-009 | KHÔNG hardcoded hex colors — chỉ design tokens | Maintainability |
-| BR-UI-010 | Animation timing nhất quán: 150ms (micro), 300ms (page) | Predictable UX |
+| BR-UI-001 | Component library: shadcn-svelte (copy vào project, own code) | Professional, accessible, consistent |
+| BR-UI-002 | CSS framework: Tailwind CSS v4 (thay thế 2,697 dòng vanilla CSS) | Atomic, no duplication |
+| BR-UI-003 | Design tokens từ shadcn theme — customize 1 lần, apply everywhere | Single source of truth |
+| BR-UI-004 | Dark mode: shadcn built-in (class-based, CSS variables) | Existing feature preserved |
+| BR-UI-005 | Mobile-first: Tailwind responsive (`sm:`, `md:`, `lg:`) | 60%+ users on mobile |
+| BR-UI-006 | Touch targets ≥ 44px trên mobile | WCAG 2.5.5 |
+| BR-UI-007 | Mỗi page PHẢI có 4 states: loading, error, empty, success | UI Template Guide |
+| BR-UI-008 | KHÔNG hardcoded hex — chỉ Tailwind classes / CSS vars | Maintainability |
+| BR-UI-009 | Animation: Tailwind `animate-*` + `transition-*` | Consistent timing |
+| BR-UI-010 | 1 component = 1 implementation (KHÔNG parallel systems) | No duplication |
 
-## Design Tokens
+---
 
-> **TODO:** Finalize sau khi export Figma. Values below based on Queezy + Duolingo style analysis.
+## Design Tokens (shadcn default + customize)
 
-### Colors (Queezy-inspired: purple primary, gamified)
+### Colors (customize cho education/gamified feel)
 ```
-Light:
---primary:       #6C5CE7   (Queezy purple)
---primary-hover:  #5A4BD1
---accent:        #00D2D3   (Queezy teal)
---success:       #00B894   (green)
---danger:        #FF6B6B   (red)
---warning:       #FECA57   (yellow)
---bg:            #F8F9FE   (light lavender)
---bg-card:       #FFFFFF
---text:          #2D3436
---text-muted:    #636E72
---border:        #E8E8F0
-
-Dark:
---primary:       #A29BFE
---accent:        #55EFC4
---bg:            #1A1A2E
---bg-card:       #25253E
---text:          #F5F5F7
---text-muted:    #A0A0B0
---border:        #3A3A52
+--primary:       hsl(262, 80%, 60%)     Purple — gamified, friendly
+--primary-foreground: hsl(0, 0%, 100%)
+--secondary:     hsl(220, 14%, 96%)
+--accent:        hsl(174, 100%, 41%)    Teal — quiz success
+--destructive:   hsl(0, 72%, 63%)       Red — errors
+--muted:         hsl(220, 14%, 96%)
+--background:    hsl(240, 25%, 99%)     Light lavender
+--foreground:    hsl(220, 13%, 20%)
+--card:          hsl(0, 0%, 100%)
+--border:        hsl(240, 10%, 90%)
+--ring:          hsl(262, 80%, 60%)     Focus ring = primary
 ```
 
-### Typography Scale
+### Typography (Tailwind defaults + Japanese)
 ```
---text-xs:   0.75rem   (12px) — captions, badges
---text-sm:   0.875rem  (14px) — secondary text, hints
---text-base: 1rem      (16px) — body text
---text-lg:   1.125rem  (18px) — emphasized text
---text-xl:   1.25rem   (20px) — section headers
---text-2xl:  1.5rem    (24px) — page titles
---text-3xl:  2rem      (32px) — hero, quiz questions (ALL quiz modes same size)
+Font family: Inter (body) + Noto Sans JP (Japanese) + Noto Sans SC (Chinese)
+Scale: text-xs → text-sm → text-base → text-lg → text-xl → text-2xl → text-3xl
+Quiz question text: text-3xl (ALL modes — consistent)
 ```
 
-### Spacing Scale (8px base)
+### Spacing (Tailwind 4px base)
 ```
---space-1:  0.25rem  (4px)
---space-2:  0.5rem   (8px)
---space-3:  0.75rem  (12px)
---space-4:  1rem     (16px)
---space-5:  1.25rem  (20px)
---space-6:  1.5rem   (24px)
---space-8:  2rem     (32px)
---space-10: 2.5rem   (40px)
---space-12: 3rem     (48px)
+Tailwind scale: 1(4px) 2(8px) 3(12px) 4(16px) 5(20px) 6(24px) 8(32px) 10(40px) 12(48px)
+Card padding: p-4 (mobile) → p-6 (desktop)
+Section gap: space-y-4 (mobile) → space-y-6 (desktop)
+Page padding: px-4 (mobile) → px-6 (desktop)
 ```
 
-### Border Radius (Queezy: very rounded)
+### Border Radius (rounded, friendly)
 ```
---radius-sm:   0.5rem   (8px)
---radius-md:   0.75rem  (12px)
---radius-lg:   1rem     (16px)
---radius-xl:   1.5rem   (24px)
---radius-full: 9999px   (pill/circle)
-```
-
-### Shadows
-```
---shadow-sm:  0 1px 2px rgba(0,0,0,0.05)
---shadow-md:  0 4px 12px rgba(0,0,0,0.08)
---shadow-lg:  0 8px 24px rgba(0,0,0,0.12)
-```
-
-### Animations
-```
---duration-fast:   150ms   (micro: hover, press)
---duration-normal: 300ms   (page transitions, card flip)
---ease-out:        cubic-bezier(0.16, 1, 0.3, 1)
+radius: 0.75rem (shadcn default — rounded-xl feel)
+Cards: rounded-xl
+Buttons: rounded-lg
+Inputs: rounded-md
+Badges: rounded-full
 ```
 
 ---
 
-## Component Inventory
+## Component Migration Plan
 
-| Component | Hiện tại | Target (shadcn) | Priority |
-|-----------|----------|-----------------|----------|
-| Button | 2 systems song song | shadcn Button (primary, secondary, danger, ghost, outline) | P0 |
-| Card | 4+ variants inconsistent | shadcn Card (base + quiz variant + course variant) | P0 |
-| Dialog/Modal | 2 implementations | shadcn Dialog | P0 |
-| Input/Select | Minimal styling | shadcn Input/Select | P0 |
-| Toast | Custom Toast.svelte | shadcn Sonner | P1 |
-| Progress | Custom ProgressBar | shadcn Progress | P1 |
-| Badge | None | shadcn Badge (level, streak, status) | P1 |
-| Tabs | None | shadcn Tabs (quiz direction, vocabulary filter) | P1 |
-| Skeleton | Custom Skeleton.svelte | shadcn Skeleton | P2 |
-| Avatar | None | shadcn Avatar (leaderboard, profile) | P2 |
-
----
-
-## Page Redesign Priority + Template Mapping
-
-| Priority | Page | Template Source | Key Changes |
-|----------|------|----------------|-------------|
-| P0 | Home `/` | Queezy Home + Duolingo tree | Hero section, course cards gamified, streak display |
-| P0 | Courses `/courses` | Queezy Discover | Category cards with icons, progress badges |
-| P0 | Quiz MC `/quiz/multiple-choice` | Queezy Quiz MC | 4-option cards (not radio buttons), progress bar |
-| P0 | Quiz Flashcard `/quiz/flashcard` | Queezy Quiz (adapted) | Card flip with gradient, swipe gesture hint |
-| P0 | Quiz Typing `/quiz/typing` | Queezy Quiz (adapted) | Clean input, virtual keyboard consistent |
-| P0 | Results `/results` | Queezy Results | Score ring, stats summary, share card |
-| P1 | Lesson Grid `/course/[id]` | Duolingo Lesson Tree | Mastery rings, lock states, path visual |
-| P1 | Vocabulary `/course/[id]/lesson/[n]/vocabulary` | BahasaKu Vocabulary | Clean table, TTS button, search |
-| P1 | Grammar | BahasaKu Lesson | Pattern cards, example blocks |
-| P1 | Review `/review` | Duolingo Lesson | SRS cards, filter tabs, streak |
-| P2 | Settings `/settings` | Queezy Profile | Grouped sections, toggles |
-| P2 | Stats `/stats` | Duolingo Progress | Charts, streak calendar, mastery map |
-| P3 | About `/about` | Queezy Profile | Community links, credits |
-| P3 | Premium `/premium` | Queezy Onboarding | Feature comparison, CTA |
-| P3 | Kanji `/kanji` | Custom (no template) | Keep existing + apply design tokens |
-| P3 | HSK `/hsk` | BahasaKu Vocabulary | Apply vocab template |
+| Current | Issues | shadcn Target | Notes |
+|---------|--------|---------------|-------|
+| Button.svelte + .btn CSS | 2 parallel systems | `shadcn Button` | Variants: default, secondary, destructive, outline, ghost |
+| Card.svelte (unused) + 4 CSS patterns | Inconsistent padding/style | `shadcn Card` | CardHeader, CardContent, CardFooter |
+| Modal.svelte + ConfirmDialog.svelte | 2 implementations | `shadcn Dialog` + `AlertDialog` | AlertDialog for destructive |
+| Input (raw HTML) | Minimal styling, no states | `shadcn Input` + `Select` | Focus, error, disabled states |
+| Toast.svelte | Custom | `shadcn Sonner` | Auto-dismiss, multiple types |
+| ProgressBar.svelte | Basic | `shadcn Progress` | Animated, accessible |
+| Skeleton.svelte | Basic | `shadcn Skeleton` | Pulse animation |
+| (none) | Missing | `shadcn Badge` | Level, streak, status indicators |
+| (none) | Missing | `shadcn Tabs` | Quiz direction, filters |
+| (none) | Missing | `shadcn Separator` | Section dividers |
+| Header.svelte | Custom nav | Redesign with shadcn Button + Sheet | Mobile: bottom nav or hamburger Sheet |
 
 ---
 
-## Migration Strategy
+## Page Redesign Scope
+
+| Page | Current Issues | Redesign Goal |
+|------|---------------|---------------|
+| Home `/` | Cluttered, no visual hierarchy | Hero + course cards (shadcn Card) + streak badge |
+| Courses `/courses` | Plain grid | Gamified cards with progress Badge + mastery ring |
+| Quiz (all 3 modes) | 3 different font sizes, inconsistent cards | Unified quiz Card, same text scale, consistent nav |
+| Results `/results` | Basic score display | Score ring (shadcn Progress), stats grid, share |
+| Lesson Grid `/course/[id]` | Plain list | Path-style grid with lock/mastery states |
+| Vocabulary | Functional but plain | Clean table with Badge types, TTS button |
+| Settings | Works but boring | Grouped sections with Switch/Select, clean spacing |
+| Review `/review` | Functional | Filter Tabs, streak display, card stack |
+| Stats `/stats` | Basic | Dashboard layout with cards + progress |
+| About/Premium | Minimal | Professional cards, feature grid |
+
+---
+
+## Migration Strategy (3 PRs)
 
 ```
-Phase 1: Foundation (1 PR)
-├── Install Tailwind CSS v4 + shadcn-svelte
-├── Define design tokens in tailwind.config
-├── Create base components (Button, Card, Input, Dialog)
-├── Create layout shell (Header redesign, page wrapper)
-├── app.css → Tailwind globals + token vars
-├── Verify dark mode + existing tests pass
-└── Est: 4-6h
+PR #22: Foundation — Tailwind + shadcn setup
+├── Install: tailwindcss v4, shadcn-svelte, bits-ui
+├── Configure: tailwind.config, app.css → Tailwind base
+├── Add shadcn components: Button, Card, Dialog, Input, Badge, Tabs, Progress, Skeleton, Sonner
+├── Migrate Header → shadcn components
+├── Preserve: ALL existing functionality + tests
+├── Delete: duplicate CSS (Button.svelte old, .btn classes, Card.svelte old)
+├── Dark mode: verify shadcn theme switching works
+└── Tests: existing 755 pass + build pass
 
-Phase 2: Core Pages — P0 (1-2 PRs)
-├── Home → Queezy dashboard
-├── Courses → Queezy discover
-├── Quiz modes (3) → Queezy quiz
-├── Results → Queezy results
-└── Est: 4-6h
+PR #23: Core Pages Redesign — Home, Courses, Quiz, Results
+├── Home: hero section, course cards, streak/progress
+├── Courses: gamified grid with badges
+├── Quiz (3 modes): unified card, consistent text, better nav
+├── Results: score ring, stats, next action
+└── Tests: existing pass + visual regression manual
 
-Phase 3: Content Pages — P1 (1-2 PRs)
-├── Lesson grid → Duolingo tree
-├── Vocabulary → BahasaKu vocab
-├── Grammar → BahasaKu lesson
-├── Review/SRS → Duolingo lesson
-└── Est: 3-4h
-
-Phase 4: Supporting Pages — P2/P3 (1 PR)
-├── Settings, Stats, About, Premium
-├── Kanji, HSK (apply tokens only)
-└── Est: 2-3h
+PR #24: Content + Supporting Pages — Lessons, Vocab, Grammar, Settings, Stats
+├── Lesson grid: mastery path visual
+├── Vocabulary: shadcn Table pattern
+├── Grammar: pattern cards
+├── Settings: grouped sections, shadcn Switch/Select
+├── Stats: dashboard cards
+├── Review: filter tabs, streak
+├── About/Premium: professional layout
+├── Kanji/HSK: apply tokens (minimal changes)
+└── Tests: existing pass + build pass
 ```
 
 ---
 
-## Anti-patterns (KHÔNG được làm)
+## Anti-patterns
 
-| Anti-pattern | Thay bằng |
-|-------------|-----------|
-| Hardcoded hex colors | Tailwind classes / CSS vars |
-| Ad-hoc spacing (0.35rem, 0.82rem...) | Tailwind spacing scale (space-1 → space-12) |
+| KHÔNG | Thay bằng |
+|-------|-----------|
+| Hardcoded hex colors | Tailwind classes (`bg-primary`, `text-muted-foreground`) |
+| Ad-hoc spacing | Tailwind scale (`p-4`, `gap-6`, `space-y-4`) |
 | Multiple button/card systems | Single shadcn component |
-| `window.confirm` | shadcn Dialog |
-| Component-level @keyframes duplication | Tailwind `animate-*` utilities |
-| 2,697 lines app.css | Tailwind utilities + ~200 lines globals |
-| 13+ font sizes scattered | 7-level type scale |
-| Quiz modes khác font size | `--text-3xl` cho tất cả quiz question text |
+| `window.confirm` | shadcn AlertDialog |
+| @keyframes duplication | Tailwind `animate-*` |
+| 2,697 lines app.css | ~200 lines globals + Tailwind utilities |
+| 13+ font sizes | Tailwind type scale (7 levels) |
+| Quiz modes khác font size | `text-3xl` cho tất cả |
+| Inline styles for layout | Tailwind flex/grid utilities |
 
 ---
 
-## Blocking: Figma Export Required
+## Risk Assessment
 
-**Trước khi bắt đầu Phase 2+, user PHẢI export Figma screens:**
-1. Duplicate 3 templates vào Figma drafts
-2. Export key screens (PNG 2x) → `documents/06-diagrams/figma/exports/`
-3. Commit vào repo
-4. Claude đọc PNGs → code pixel-perfect
-
-**Phase 1 (Foundation) có thể bắt đầu ngay** — chỉ cần design tokens, không cần screen exports.
+| Risk | Impact | Mitigation |
+|------|--------|------------|
+| Tailwind migration breaks existing styles | HIGH | Phase 1: coexist, phase 2-3: migrate page by page |
+| 755 tests break | HIGH | Run after every component swap, fix immediately |
+| Dark mode regression | MEDIUM | shadcn dark mode = class-based (same as current) |
+| Bundle size increase | LOW | Tailwind purges unused, shadcn tree-shakes |
+| Japanese font rendering | LOW | Keep --font-jp variable, apply via Tailwind config |
