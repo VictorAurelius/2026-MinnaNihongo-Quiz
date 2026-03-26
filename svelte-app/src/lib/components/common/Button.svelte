@@ -106,7 +106,7 @@
   /* Variants - using global CSS variables */
   .btn-primary {
     background: var(--primary);
-    color: #fff;
+    color: white;
   }
   .btn-primary:hover:not(:disabled) {
     background: var(--primary-hover);
@@ -114,7 +114,7 @@
 
   .btn-accent {
     background: var(--accent);
-    color: #fff;
+    color: white;
   }
   .btn-accent:hover:not(:disabled) {
     background: var(--accent-hover);
@@ -122,7 +122,7 @@
 
   .btn-success {
     background: var(--success);
-    color: #fff;
+    color: white;
   }
   .btn-success:hover:not(:disabled) {
     opacity: 0.85;
@@ -130,7 +130,7 @@
 
   .btn-danger {
     background: var(--danger);
-    color: #fff;
+    color: white;
   }
   .btn-danger:hover:not(:disabled) {
     opacity: 0.85;

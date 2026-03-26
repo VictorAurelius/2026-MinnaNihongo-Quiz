@@ -15,9 +15,11 @@
   } from '$lib/stores';
   import type { QuizDirection } from '$lib/types';
   import { getAvailableFonts, getCurrentFont, setFont, initFont } from '$lib/utils/fontUtils';
+  import ConfirmDialog from '$lib/components/common/ConfirmDialog.svelte';
 
   const fonts = getAvailableFonts();
   let selectedFont = 'system';
+  let showClearConfirm = false;
 
   onMount(() => {
     selectedFont = getCurrentFont();
@@ -212,10 +214,19 @@
         <strong>Clear All Progress</strong>
         <span class="action-desc">Delete all saved data permanently</span>
       </div>
-      <button class="btn btn-danger" on:click={clearProgress}>Clear</button>
+      <button class="btn btn-danger" on:click={() => showClearConfirm = true}>Clear</button>
     </div>
   </section>
 </div>
+
+<ConfirmDialog
+  bind:open={showClearConfirm}
+  title="Clear All Progress"
+  message="Are you sure you want to clear all progress? This cannot be undone."
+  confirmText="Clear All"
+  destructive
+  on:confirm={clearProgress}
+/>
 
 <style>
   .settings-page {

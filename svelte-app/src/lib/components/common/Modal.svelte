@@ -145,7 +145,7 @@
     padding: 1.25rem 1.5rem;
     border-bottom: 1px solid var(--border);
     background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: #fff;
+    color: white;
   }
 
   .modal-title {
@@ -163,7 +163,7 @@
     background: rgba(255, 255, 255, 0.2);
     border: none;
     border-radius: 50%;
-    color: #fff;
+    color: white;
     font-size: 1.5rem;
     cursor: pointer;
     transition: background var(--transition);
