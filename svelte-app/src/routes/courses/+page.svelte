@@ -22,6 +22,12 @@
     <p class="subtitle">Select a course to begin studying</p>
   </div>
 
+  {#if courses.length === 0}
+    <div class="error-state">
+      <p>No courses available. Please check back later.</p>
+    </div>
+  {/if}
+
   <div class="course-grid">
     {#each courses as course}
       <button
@@ -137,6 +143,12 @@
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.05em;
+  }
+
+  .error-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
   }
 
   @media (max-width: 600px) {

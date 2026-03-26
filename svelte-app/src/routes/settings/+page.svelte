@@ -16,6 +16,7 @@
   import type { QuizDirection } from '$lib/types';
   import { getAvailableFonts, getCurrentFont, setFont, initFont } from '$lib/utils/fontUtils';
   import ConfirmDialog from '$lib/components/common/ConfirmDialog.svelte';
+  import { showToast } from '$lib/stores/toast';
 
   const fonts = getAvailableFonts();
   let selectedFont = 'system';
@@ -225,7 +226,7 @@
   message="Are you sure you want to clear all progress? This cannot be undone."
   confirmText="Clear All"
   destructive
-  on:confirm={clearProgress}
+  on:confirm={() => { clearProgress(); showToast('Progress cleared', 'success'); }}
 />
 
 <style>
