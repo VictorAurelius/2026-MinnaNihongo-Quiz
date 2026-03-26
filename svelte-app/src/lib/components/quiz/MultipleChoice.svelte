@@ -126,7 +126,7 @@
 
   .question-text {
     font-family: var(--font-jp);
-    font-size: 1.6rem;
+    font-size: 1.875rem; /* text-3xl — consistent across all quiz modes */
     font-weight: 700;
     line-height: 1.4;
     margin-bottom: 0.5rem;
@@ -229,7 +229,7 @@
 
   @media (max-width: 600px) {
     .question-text {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
     }
 
     .mc-option {

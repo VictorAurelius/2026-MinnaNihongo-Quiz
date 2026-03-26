@@ -1,7 +1,7 @@
 <script lang="ts">
   /**
    * Home / Landing Page
-   * Attractive intro with quick access to all sections
+   * Redesigned with Tailwind CSS + shadcn components
    */
 
   import { goto } from '$app/navigation';
@@ -10,8 +10,8 @@
   import { getAllCourses } from '$lib/data/courses';
   import { getKanjiLessonMetadata } from '$lib/data/kanji/lessons';
   import { HSK5_DATA } from '$lib/data/hsk';
-
-  console.log('[SmartQuiz] Home page script init');
+  import { Card, CardContent } from '$lib/components/ui/card';
+  import Badge from '$lib/components/ui/badge/badge.svelte';
 
   let courses: ReturnType<typeof getAllCourses> = [];
   let totalLessons = 0;
@@ -26,435 +26,126 @@
       sum + c.getAllLessons().reduce((s, l) => s + l.vocabulary.length, 0), 0);
     kanjiCount = getKanjiLessonMetadata().reduce((sum, l) => sum + l.kanjiCount, 0);
     hskWordCount = HSK5_DATA.reduce((sum, g) => sum + g.words.length, 0);
-    console.log('[SmartQuiz] Home data loaded:', { courses: courses.length, totalLessons, totalVocab, kanjiCount, hskWordCount });
   } catch (e) {
     console.error('[SmartQuiz] Home data error:', e);
   }
 
-  onMount(() => {
-    console.log('[SmartQuiz] Home page mounted');
-  });
+  const sections = [
+    ...courses.map(c => ({
+      icon: c.metadata.icon,
+      title: c.metadata.title,
+      desc: c.metadata.description,
+      href: `${base}/course/${c.metadata.id}`,
+      iconClass: '',
+    })),
+    { icon: '漢', title: 'Kanji', desc: `${kanjiCount} kanji — readings, meanings & examples`, href: `${base}/kanji`, iconClass: 'font-jp' },
+    { icon: 'あ', title: 'Alphabet', desc: 'Hiragana & Katakana charts', href: `${base}/alphabet`, iconClass: 'font-jp' },
+    { icon: '文', title: 'Grammar Reference', desc: 'Patterns, comparisons & examples', href: `${base}/grammar-reference`, iconClass: 'font-jp' },
+    { icon: '数', title: 'Counters', desc: 'Japanese counting systems', href: `${base}/counters`, iconClass: 'font-jp' },
+    { icon: '中', title: 'HSK 5 Vocabulary', desc: `${hskWordCount}+ Chinese words`, href: `${base}/hsk`, iconClass: 'font-cn' },
+    { icon: '試', title: 'JLPT Mock Test', desc: '30 questions · 30 min · Pass/Fail', href: `${base}/mock-test`, iconClass: 'font-jp' },
+  ];
+
+  const quizModes = [
+    { icon: '🎴', name: 'Flashcard', desc: 'Flip to reveal' },
+    { icon: '✓', name: 'Multiple Choice', desc: 'Pick the answer' },
+    { icon: '⌨️', name: 'Typing', desc: 'Type to answer' },
+  ];
+
+  const stats = [
+    { value: totalLessons, label: 'Lessons' },
+    { value: `${totalVocab}+`, label: 'Words' },
+    { value: kanjiCount, label: 'Kanji' },
+    { value: `${hskWordCount}+`, label: 'HSK Words' },
+  ];
 </script>
 
 <svelte:head>
   <title>Smart Quiz - Japanese & Chinese Learning</title>
 </svelte:head>
 
-<div class="landing">
+<div class="mx-auto max-w-2xl animate-in fade-in slide-in-from-bottom-2 duration-300">
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-badge">Smart Quiz</div>
-    <h1 class="hero-title">
-      Learn <span class="hero-jp">日本語</span> &amp; <span class="hero-cn">中文</span>
+  <section class="py-8 px-4 text-center">
+    <Badge variant="outline" class="mb-4 text-xs font-bold uppercase tracking-wider">Smart Quiz</Badge>
+    <h1 class="text-3xl font-extrabold leading-tight mb-3">
+      Learn <span class="text-primary" style="font-family: var(--font-jp)">日本語</span>
+      &amp;
+      <span style="font-family: var(--font-cn); color: hsl(174, 100%, 41%)">中文</span>
     </h1>
-    <p class="hero-subtitle">
+    <p class="text-muted-foreground text-sm leading-relaxed max-w-md mx-auto mb-6">
       Interactive flashcards, quizzes, and reference tables for Japanese &amp; Chinese learners
     </p>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-number">{totalLessons}</span>
-        <span class="stat-label">Lessons</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-number">{totalVocab}+</span>
-        <span class="stat-label">Words</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-number">{kanjiCount}</span>
-        <span class="stat-label">Kanji</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-number">{hskWordCount}+</span>
-        <span class="stat-label">HSK Words</span>
-      </div>
+
+    <!-- Stats Row -->
+    <div class="flex justify-center items-center gap-4 flex-wrap">
+      {#each stats as stat, i}
+        {#if i > 0}
+          <div class="w-px h-7 bg-border"></div>
+        {/if}
+        <div class="flex flex-col items-center">
+          <span class="text-xl font-extrabold text-primary">{stat.value}</span>
+          <span class="text-[0.7rem] font-semibold text-muted-foreground uppercase tracking-wide">{stat.label}</span>
+        </div>
+      {/each}
     </div>
   </section>
 
   <!-- Section Cards -->
-  <section class="sections">
-    <h2 class="sections-title">Start Learning</h2>
+  <section class="mb-6 px-4">
+    <h2 class="text-lg font-bold mb-3">Start Learning</h2>
 
-    <div class="section-grid">
-      <!-- Japanese Courses -->
-      {#each courses as course}
+    <div class="flex flex-col gap-2.5">
+      {#each sections as section}
         <button
-          class="section-card card-lessons"
-          style="--course-color: {course.metadata.color}"
-          on:click={() => goto(`${base}/course/${course.metadata.id}`)}
+          class="flex items-center gap-3.5 w-full p-3.5 bg-card border border-border rounded-xl text-left transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 cursor-pointer group"
+          on:click={() => goto(section.href)}
         >
-          <div class="card-icon">{course.metadata.icon}</div>
-          <div class="card-content">
-            <h3>{course.metadata.title}</h3>
-            <p>{course.metadata.description}</p>
+          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary text-xl font-bold {section.iconClass}">
+            {section.icon}
           </div>
-          <span class="card-arrow">→</span>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-sm font-bold text-foreground">{section.title}</h3>
+            <p class="text-xs text-muted-foreground leading-snug">{section.desc}</p>
+          </div>
+          <span class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary">→</span>
         </button>
       {/each}
-
-      <!-- Kanji -->
-      <button class="section-card card-kanji" on:click={() => goto(`${base}/kanji`)}>
-        <div class="card-icon-jp">漢</div>
-        <div class="card-content">
-          <h3>Kanji</h3>
-          <p>{kanjiCount} kanji — readings, meanings &amp; examples</p>
-        </div>
-        <span class="card-arrow">→</span>
-      </button>
-
-      <!-- Alphabet -->
-      <button class="section-card card-alphabet" on:click={() => goto(`${base}/alphabet`)}>
-        <div class="card-icon-jp">あ</div>
-        <div class="card-content">
-          <h3>Alphabet</h3>
-          <p>Hiragana &amp; Katakana charts</p>
-        </div>
-        <span class="card-arrow">→</span>
-      </button>
-
-      <!-- Grammar -->
-      <button class="section-card card-grammar" on:click={() => goto(`${base}/grammar-reference`)}>
-        <div class="card-icon-jp">文</div>
-        <div class="card-content">
-          <h3>Grammar Reference</h3>
-          <p>Patterns, comparisons &amp; examples</p>
-        </div>
-        <span class="card-arrow">→</span>
-      </button>
-
-      <!-- Counters -->
-      <button class="section-card card-counters" on:click={() => goto(`${base}/counters`)}>
-        <div class="card-icon-jp">数</div>
-        <div class="card-content">
-          <h3>Counters</h3>
-          <p>Japanese counting systems</p>
-        </div>
-        <span class="card-arrow">→</span>
-      </button>
-
-      <!-- HSK -->
-      <button class="section-card card-hsk" on:click={() => goto(`${base}/hsk`)}>
-        <div class="card-icon-jp card-icon-cn">中</div>
-        <div class="card-content">
-          <h3>HSK 5 Vocabulary</h3>
-          <p>{hskWordCount}+ Chinese words</p>
-        </div>
-        <span class="card-arrow">→</span>
-      </button>
-      <!-- Mock Test -->
-      <button class="section-card card-mock" on:click={() => goto(`${base}/mock-test`)}>
-        <div class="card-icon-jp">試</div>
-        <div class="card-content">
-          <h3>JLPT Mock Test</h3>
-          <p>30 questions · 30 min · Pass/Fail</p>
-        </div>
-        <span class="card-arrow">→</span>
-      </button>
     </div>
   </section>
 
-  <!-- Quiz modes highlight -->
-  <section class="modes">
-    <h2 class="modes-title">3 Quiz Modes</h2>
-    <div class="modes-grid">
-      <div class="mode-card">
-        <span class="mode-icon">🎴</span>
-        <span class="mode-name">Flashcard</span>
-        <span class="mode-desc">Flip to reveal</span>
-      </div>
-      <div class="mode-card">
-        <span class="mode-icon">✓</span>
-        <span class="mode-name">Multiple Choice</span>
-        <span class="mode-desc">Pick the answer</span>
-      </div>
-      <div class="mode-card">
-        <span class="mode-icon">⌨️</span>
-        <span class="mode-name">Typing</span>
-        <span class="mode-desc">Type to answer</span>
-      </div>
+  <!-- Quiz Modes -->
+  <section class="mb-8 px-4">
+    <h2 class="text-lg font-bold mb-3">3 Quiz Modes</h2>
+    <div class="grid grid-cols-3 gap-2.5">
+      {#each quizModes as mode}
+        <Card class="text-center">
+          <CardContent class="p-4 flex flex-col items-center gap-1">
+            <span class="text-2xl leading-none">{mode.icon}</span>
+            <span class="text-xs font-bold">{mode.name}</span>
+            <span class="text-[0.68rem] text-muted-foreground">{mode.desc}</span>
+          </CardContent>
+        </Card>
+      {/each}
     </div>
   </section>
 </div>
 
 <style>
-  .landing {
-    max-width: 700px;
-    margin: 0 auto;
-    animation: fadeIn 0.3s ease;
+  /* Font family helpers for Japanese/Chinese icon text */
+  .font-jp { font-family: var(--font-jp); }
+  .font-cn { font-family: var(--font-cn); }
+
+  /* Tailwind v4 animate-in keyframes */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  @keyframes slide-in-from-bottom-2 {
+    from { transform: translateY(0.5rem); }
+    to { transform: translateY(0); }
   }
-
-  /* --- Hero --- */
-  .hero {
-    text-align: center;
-    padding: 2rem 1rem 1.75rem;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    padding: 0.3rem 0.9rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--primary);
-    background: color-mix(in srgb, var(--primary) 10%, transparent);
-    border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
-    border-radius: 20px;
-    margin-bottom: 1rem;
-  }
-
-  .hero-title {
-    font-size: 1.8rem;
-    font-weight: 800;
-    line-height: 1.3;
-    margin-bottom: 0.75rem;
-  }
-
-  .hero-jp {
-    font-family: var(--font-jp);
-    color: var(--primary);
-  }
-
-  .hero-cn {
-    font-family: var(--font-cn);
-    color: var(--accent);
-  }
-
-  .hero-subtitle {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-    max-width: 440px;
-    margin: 0 auto 1.5rem;
-  }
-
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .stat-number {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--primary);
-  }
-
-  .stat-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .stat-divider {
-    width: 1px;
-    height: 28px;
-    background: var(--border);
-  }
-
-  /* --- Sections --- */
-  .sections {
-    margin-bottom: 1.5rem;
-  }
-
-  .sections-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-
-  .section-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .section-card {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    width: 100%;
-    padding: 0.9rem 1.1rem;
-    background: var(--bg-card);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius);
-    cursor: pointer;
-    text-align: left;
-    font-family: inherit;
-    color: var(--text);
-    transition: all 0.2s ease;
-  }
-
-  .section-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .section-card:active {
-    transform: translateY(0);
-  }
-
-  .card-icon {
-    font-size: 1.8rem;
-    line-height: 1;
-    flex-shrink: 0;
-    width: 2.5rem;
-    text-align: center;
-  }
-
-  .card-icon-jp {
-    font-family: var(--font-jp);
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 1;
-    flex-shrink: 0;
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: color-mix(in srgb, var(--primary) 10%, transparent);
-    color: var(--primary);
-    border-radius: var(--radius-sm);
-  }
-
-  .card-icon-cn {
-    font-family: var(--font-cn);
-    background: color-mix(in srgb, var(--accent) 10%, transparent);
-    color: var(--accent);
-  }
-
-  .card-content {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .card-content h3 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 0.15rem;
-  }
-
-  .card-content p {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    line-height: 1.4;
-  }
-
-  .card-arrow {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    flex-shrink: 0;
-    transition: transform 0.2s;
-  }
-
-  .section-card:hover .card-arrow {
-    transform: translateX(3px);
-    color: var(--primary);
-  }
-
-  /* --- Quiz Modes --- */
-  .modes {
-    margin-bottom: 2rem;
-  }
-
-  .modes-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-
-  .modes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.6rem;
-  }
-
-  .mode-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 1rem 0.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    text-align: center;
-  }
-
-  .mode-icon {
-    font-size: 1.5rem;
-    line-height: 1;
-  }
-
-  .mode-name {
-    font-size: 0.8rem;
-    font-weight: 700;
-  }
-
-  .mode-desc {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-  }
-
-  /* --- Responsive --- */
-  @media (max-width: 600px) {
-    .hero {
-      padding: 1.5rem 0.5rem 1.25rem;
-    }
-
-    .hero-title {
-      font-size: 1.45rem;
-    }
-
-    .hero-subtitle {
-      font-size: 0.88rem;
-    }
-
-    .hero-stats {
-      gap: 0.7rem;
-    }
-
-    .stat-number {
-      font-size: 1.1rem;
-    }
-
-    .section-card {
-      padding: 0.75rem 0.9rem;
-    }
-
-    .card-content h3 {
-      font-size: 0.88rem;
-    }
-
-    .modes-grid {
-      gap: 0.4rem;
-    }
-
-    .mode-card {
-      padding: 0.75rem 0.35rem;
-    }
-
-    .mode-name {
-      font-size: 0.72rem;
-    }
+  .animate-in {
+    animation: fade-in 0.3s ease, slide-in-from-bottom-2 0.3s ease;
   }
 </style>
