@@ -7,6 +7,17 @@ Quản lý theo Semantic Versioning: `MAJOR.MINOR.PATCH`
 
 ---
 
+## [1.3.1] — 2026-03-26
+
+### Changed
+- `skills/reference/ui-template-guide.md` — Add "Option B: Component Library as Design System"
+  - When to choose component library over Figma (solo dev, rapid iteration, no designer)
+  - Framework-agnostic library table (Svelte, React, Vue, CSS-only)
+  - Business doc template for design tokens + component inventory
+  - Migration rules (coexist → swap → delete old)
+  - Additional anti-patterns: duplicate component systems, custom CSS over library
+  - Pre-commit checks updated for multi-framework (*.svelte, *.tsx, *.vue)
+
 ## [1.3.0] — 2026-03-26
 
 ### Added

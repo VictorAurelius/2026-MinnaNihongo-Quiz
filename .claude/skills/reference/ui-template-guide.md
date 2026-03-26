@@ -4,12 +4,17 @@
 
 **NEVER render UI freeform.** Every page/component MUST be based on:
 1. Figma template (if available) → pixel-perfect
-2. Page templates from frontend standards → copy-paste
-3. Existing page in codebase → follow pattern
+2. Component library as design system → built-in tokens + components
+3. Page templates from frontend standards → copy-paste
+4. Existing page in codebase → follow pattern
 
-**Priority:** Figma > Page template > Copy existing > Freeform (AVOID)
+**Priority:** Figma > Component library > Page template > Copy existing > Freeform (AVOID)
 
-## Figma Workflow
+---
+
+## Option A: Figma Workflow
+
+Best when: designer available, pixel-perfect required, custom branding.
 
 ### Setup
 
@@ -41,7 +46,84 @@ documents/06-diagrams/figma/
 2. Document design decisions in `figma/README.md`
 3. Code from screenshots — maintain consistency
 
-## Page Checklist (MANDATORY)
+---
+
+## Option B: Component Library as Design System
+
+Best when: no designer, solo dev, rapid iteration, professional quality needed fast.
+
+### Concept
+
+A mature component library already IS a design system:
+- **Design tokens** (colors, spacing, typography, radius, shadows) — pre-defined, customizable
+- **Components** (Button, Card, Dialog, Input, Badge, Tabs...) — accessible, dark mode, responsive
+- **Consistency** — enforced by library, not by developer discipline
+
+### When to choose this over Figma
+
+| Situation | Figma | Component library |
+|-----------|-------|-------------------|
+| Designer on team | ✅ | ❌ |
+| Solo developer | ❌ overkill | ✅ |
+| Existing ugly codebase | Slow (export → code) | Fast (swap components) |
+| Custom branding critical | ✅ | ⚠️ customize theme |
+| Speed priority | Slow | ✅ fast |
+
+### Process
+
+1. **Choose library** matching your framework:
+
+| Framework | Library | Description |
+|-----------|---------|-------------|
+| Svelte/SvelteKit | shadcn-svelte | Accessible, copy-paste components |
+| Next.js/React | shadcn/ui | Most popular, Radix-based |
+| Vue/Nuxt | shadcn-vue | Vue port |
+| Any (CSS-only) | DaisyUI | Tailwind plugin, no JS |
+
+2. **Install + configure** (Tailwind CSS + component library)
+3. **Customize theme once** → document in `documents/01-business/ui/rules.md`:
+   - Colors (primary, accent, destructive...)
+   - Typography scale
+   - Spacing scale
+   - Border radius
+4. **Migrate components** — replace custom CSS with library components
+5. **Delete old CSS** — reduce duplication
+
+### Business Doc Required
+
+Before migrating, create `documents/01-business/ui/rules.md` with:
+
+```markdown
+## Design Tokens
+- Colors: primary, secondary, accent, destructive, muted, background, foreground
+- Typography: text-xs → text-3xl (7 levels)
+- Spacing: 4px base scale
+- Radius: sm, md, lg, xl, full
+
+## Component Inventory
+| Current | Issues | Target Component |
+|---------|--------|-----------------|
+| ...     | ...    | ...             |
+
+## Migration Strategy
+Phase 1: Foundation (install + base components)
+Phase 2: Core pages (highest traffic)
+Phase 3: Supporting pages
+```
+
+### Migration Rules
+
+| Rule | Rationale |
+|------|-----------|
+| Install framework first, coexist with old CSS | Don't break existing features |
+| Migrate 1 component at a time | Testable increments |
+| Delete old CSS after migration, not before | Safety net |
+| Run full test suite after each component swap | Catch regressions |
+| 1 component = 1 implementation (delete duplicates) | No parallel systems |
+
+---
+
+## Page Checklist (MANDATORY — both options)
 
 Every new page/component MUST pass before commit:
 
@@ -61,7 +143,7 @@ Every new page/component MUST pass before commit:
 - [ ] Colors: design tokens only (NO hardcoded hex)
 - [ ] NO inline styles (except dynamic values)
 - [ ] Icons: consistent library + consistent sizes
-- [ ] Spacing: follow project spacing tokens
+- [ ] Spacing: follow project spacing scale
 
 ## Anti-patterns
 
@@ -85,19 +167,29 @@ if (window.confirm('Delete?')) handleDelete();
 {data?.map(item => <Card />)}
 // ✅ With empty state
 {data?.length === 0 ? <EmptyState /> : data.map(item => <Card />)}
+
+// ❌ Two button systems
+<Button /> + <button class="btn btn-primary">
+// ✅ One system
+<Button variant="default" />
+
+// ❌ Custom CSS when library component exists
+.my-card { padding: 1.1rem; border: 1px solid... }
+// ✅ Library component
+<Card><CardContent>...</CardContent></Card>
 ```
 
 ## Pre-commit Quality Check
 
 ```bash
-# Hardcoded colors
-grep -rn 'bg-\[#\|text-\[#' src/ --include="*.tsx" && echo "Use design tokens"
+# Hardcoded colors (adjust glob for your framework: *.tsx, *.svelte, *.vue)
+grep -rn 'bg-\[#\|text-\[#\|color: #\|background: #' src/ --include="*.svelte" --include="*.tsx"
 
 # window.confirm
-grep -rn "window.confirm" src/ --include="*.tsx" && echo "Use ConfirmDialog"
+grep -rn "window.confirm\|[^.]confirm(" src/ --include="*.svelte" --include="*.tsx" --include="*.ts"
 
-# Missing error handling
-for page in $(find src/app -name "page.tsx"); do
-  grep -q "error\|Error" "$page" || echo "Missing error: $page"
-done
+# Duplicate component systems (example: both .btn CSS and <Button> component)
+echo "--- Check for parallel button systems ---"
+grep -rn 'class="btn ' src/ --include="*.svelte" --include="*.tsx" | head -5
+echo "--- Should use <Button> component instead ---"
 ```
