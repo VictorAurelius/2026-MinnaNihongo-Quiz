@@ -338,7 +338,7 @@
   .streak-badge {
     font-size: 1.1rem;
     margin-bottom: 1rem;
-    color: #f59e0b;
+    color: var(--warning);
     font-weight: 600;
   }
 

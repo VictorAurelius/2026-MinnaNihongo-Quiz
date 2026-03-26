@@ -179,8 +179,8 @@
     color: white;
   }
 
-  .level-badge.n2 { background: #8b5cf6; }
-  .level-badge.n1 { background: #ef4444; }
+  .level-badge.n2 { background: var(--accent); }
+  .level-badge.n1 { background: var(--danger); }
 
   h1 {
     font-size: 1.3rem;

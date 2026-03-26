@@ -68,7 +68,7 @@
   .progress-text-inside {
     font-size: 0.7rem;
     font-weight: 700;
-    color: #fff;
+    color: white;
     white-space: nowrap;
   }
 </style>

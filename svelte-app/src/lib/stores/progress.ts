@@ -110,18 +110,16 @@ export function updateSettings(settings: Partial<ProgressState['settings']>) {
 
 export function clearProgress() {
   if (browser) {
-    if (confirm('Are you sure you want to clear all progress? This cannot be undone.')) {
-      localStorage.removeItem(STORAGE_KEY);
-      progressStore.set({
-        lessons: {},
-        hsk: {},
-        settings: {
-          defaultDirection: 'ja-vi',
-          autoPlay: false,
-          showEnglish: true
-        }
-      });
-    }
+    localStorage.removeItem(STORAGE_KEY);
+    progressStore.set({
+      lessons: {},
+      hsk: {},
+      settings: {
+        defaultDirection: 'ja-vi',
+        autoPlay: false,
+        showEnglish: true
+      }
+    });
   }
 }
 

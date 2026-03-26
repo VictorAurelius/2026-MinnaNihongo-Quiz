@@ -108,7 +108,7 @@
     padding: 1.5rem;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     border-radius: var(--radius);
-    color: #fff;
+    color: white;
   }
 
   .lesson-number-badge {
