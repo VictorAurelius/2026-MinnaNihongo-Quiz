@@ -1,13 +1,14 @@
 <script lang="ts">
   /**
    * Course Selection Page
-   * Displays all available Japanese courses
+   * Displays all available Japanese courses with shadcn Cards
    */
 
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { getAllCourses } from '$lib/data/courses';
-  import Button from '$lib/components/common/Button.svelte';
+  import { Card, CardContent } from '$lib/components/ui/card';
+  import Badge from '$lib/components/ui/badge/badge.svelte';
 
   const courses = getAllCourses();
 </script>
@@ -16,148 +17,47 @@
   <title>Courses - Smart Quiz</title>
 </svelte:head>
 
-<div class="courses-page">
-  <div class="page-header">
-    <h1>📚 Japanese Courses</h1>
-    <p class="subtitle">Select a course to begin studying</p>
+<div class="mx-auto max-w-3xl p-4 animate-in">
+  <div class="text-center mb-8">
+    <h1 class="text-2xl font-bold text-foreground mb-2">Japanese Courses</h1>
+    <p class="text-muted-foreground text-sm">Select a course to begin studying</p>
   </div>
 
   {#if courses.length === 0}
-    <div class="error-state">
+    <div class="text-center py-12 text-muted-foreground">
       <p>No courses available. Please check back later.</p>
     </div>
   {/if}
 
-  <div class="course-grid">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
     {#each courses as course}
       <button
-        class="course-card"
-        style="--course-color: {course.metadata.color}"
+        class="group text-left"
         on:click={() => goto(`${base}/course/${course.metadata.id}`)}
       >
-        <div class="course-icon">{course.metadata.icon}</div>
-        <h2 class="course-title">{course.metadata.title}</h2>
-        <p class="course-description">{course.metadata.description}</p>
-        <span class="course-level-badge">{course.metadata.level}</span>
+        <Card class="relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:border-primary cursor-pointer h-full">
+          <!-- Color accent bar -->
+          <div class="absolute top-0 inset-x-0 h-1 opacity-80" style="background: {course.metadata.color}"></div>
+          <CardContent class="pt-8 pb-6 px-6 text-center flex flex-col items-center gap-3">
+            <span class="text-5xl">{course.metadata.icon}</span>
+            <h2 class="text-xl font-bold text-foreground">{course.metadata.title}</h2>
+            <p class="text-sm text-muted-foreground leading-relaxed">{course.metadata.description}</p>
+            <Badge class="mt-1" style="background: {course.metadata.color}; color: white">
+              {course.metadata.level}
+            </Badge>
+          </CardContent>
+        </Card>
       </button>
     {/each}
   </div>
 </div>
 
 <style>
-  .courses-page {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-    animation: fadeIn 0.25s ease;
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(0.5rem); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .page-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .page-header h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0 0 0.5rem 0;
-    color: var(--text);
-  }
-
-  .subtitle {
-    color: var(--text-muted);
-    font-size: 1rem;
-  }
-
-  .course-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .course-card {
-    position: relative;
-    padding: 2rem;
-    background: var(--card-bg);
-    border: 2px solid var(--border);
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .course-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--course-color, var(--primary));
-    opacity: 0.8;
-  }
-
-  .course-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    border-color: var(--course-color);
-  }
-
-  .course-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-  }
-
-  .course-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0 0 0.75rem 0;
-    color: var(--text);
-  }
-
-  .course-description {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
-
-  .course-level-badge {
-    display: inline-block;
-    padding: 0.35rem 0.75rem;
-    background: var(--course-color);
-    color: white;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-  }
-
-  .error-state {
-    text-align: center;
-    padding: 3rem 1rem;
-    color: var(--text-muted);
-  }
-
-  @media (max-width: 600px) {
-    .course-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .page-header h1 {
-      font-size: 1.5rem;
-    }
+  .animate-in {
+    animation: fade-in 0.25s ease;
   }
 </style>

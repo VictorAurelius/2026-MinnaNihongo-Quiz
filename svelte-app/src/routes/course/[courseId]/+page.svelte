@@ -1,7 +1,7 @@
 <script lang="ts">
   /**
    * Course Lesson Grid
-   * Displays all lessons for a specific course
+   * Displays all lessons for a specific course with mastery rings
    */
 
   import { page } from '$app/stores';
@@ -12,6 +12,9 @@
   import { progressStore } from '$lib/stores';
   import { getLessonMastery, isLessonUnlocked, getNextLesson, getCourseProgress } from '$lib/utils/progressUtils';
   import MasteryRing from '$lib/components/common/MasteryRing.svelte';
+  import { Card, CardContent } from '$lib/components/ui/card';
+  import Badge from '$lib/components/ui/badge/badge.svelte';
+  import UiButton from '$lib/components/ui/button/button.svelte';
   import type { CourseId } from '$lib/types/course';
 
   $: courseId = $page.params.courseId as CourseId;
@@ -26,271 +29,81 @@
 </svelte:head>
 
 {#if course}
-  <div class="lessons-page">
+  <div class="animate-in">
     <!-- Course Header -->
-    <div class="course-header" style="--course-color: {course.metadata.color}">
-      <button class="back-button" on:click={() => goto(`${base}/courses`)}>
-        ← Back to Courses
+    <div
+      class="text-white py-8 px-4 text-center relative"
+      style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
+    >
+      <button
+        class="absolute top-4 left-4 bg-white/20 hover:bg-white/30 text-white border-none px-3 py-1.5 rounded-lg text-sm cursor-pointer transition-colors"
+        on:click={() => goto(`${base}/courses`)}
+      >
+        ← Back
       </button>
-      <div class="course-icon-large">{course.metadata.icon}</div>
-      <h1 class="course-title-large">{course.metadata.title}</h1>
-      <p class="course-description">{course.metadata.description}</p>
-      <div class="course-progress">
+      <div class="text-5xl mb-2">{course.metadata.icon}</div>
+      <h1 class="text-2xl font-bold mb-1">{course.metadata.title}</h1>
+      <p class="text-sm opacity-90">{course.metadata.description}</p>
+      <p class="text-xs opacity-75 mt-2">
         {courseProgress.completed}/{courseProgress.total} lessons mastered ({courseProgress.percentage}%)
-      </div>
+      </p>
     </div>
 
-    <!-- Continue Button -->
-    <div class="lessons-container">
-      <button class="btn btn-primary btn-lg continue-btn" on:click={() => goto(buildLessonUrl(courseId, nextLesson))}>
+    <!-- Content -->
+    <div class="max-w-5xl mx-auto px-4 py-6">
+      <!-- Continue Button -->
+      <UiButton
+        size="lg"
+        class="w-full mb-6"
+        onclick={() => goto(buildLessonUrl(courseId, nextLesson))}
+      >
         Continue — Bài {nextLesson} →
-      </button>
+      </UiButton>
 
-      <h2 class="section-title">📖 Lessons</h2>
-      <div class="lesson-grid">
+      <h2 class="text-lg font-bold mb-4">Lessons</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {#each lessons as lesson}
           {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
           {@const unlocked = isLessonUnlocked($progressStore, courseId, lesson.lessonNumber)}
           <button
-            class="lesson-card"
-            class:locked={!unlocked}
+            class="text-left w-full transition-all duration-200 {unlocked ? 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer' : 'opacity-50 cursor-not-allowed'}"
             disabled={!unlocked}
             on:click={() => unlocked && goto(buildLessonUrl(courseId, lesson.lessonNumber))}
             title={unlocked ? '' : `Complete Bài ${lesson.lessonNumber - 1} first (need 70% mastery)`}
           >
-            <div class="lesson-card-header">
-              <div class="lesson-number">Bài {lesson.lessonNumber}</div>
-              <MasteryRing percentage={mastery} size={40} locked={!unlocked} />
-            </div>
-            <h3 class="lesson-title">{lesson.title}</h3>
-            <div class="lesson-stats">
-              <span class="stat">
-                <span class="stat-icon">📚</span>
-                {lesson.vocabCount} từ
-              </span>
-              <span class="stat">
-                <span class="stat-icon">📖</span>
-                {lesson.grammarCount} ngữ pháp
-              </span>
-            </div>
+            <Card class="h-full {unlocked ? 'hover:border-primary' : ''}">
+              <CardContent class="p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <Badge variant="default" class="text-xs">Bài {lesson.lessonNumber}</Badge>
+                  <MasteryRing percentage={mastery} size={36} locked={!unlocked} />
+                </div>
+                <h3 class="text-sm font-semibold text-foreground mb-2 leading-snug">{lesson.title}</h3>
+                <div class="flex gap-3 text-xs text-muted-foreground">
+                  <span>📚 {lesson.vocabCount} từ</span>
+                  <span>📖 {lesson.grammarCount} ngữ pháp</span>
+                </div>
+              </CardContent>
+            </Card>
           </button>
         {/each}
       </div>
     </div>
   </div>
 {:else}
-  <div class="error-state">
-    <h2>Course Not Found</h2>
-    <p>The course you're looking for doesn't exist.</p>
-    <button class="button-primary" on:click={() => goto(`${base}/courses`)}>
-      View All Courses
-    </button>
+  <div class="text-center py-12 px-6">
+    <h2 class="text-xl font-bold mb-3 text-foreground">Course Not Found</h2>
+    <p class="text-muted-foreground mb-4">The course you're looking for doesn't exist.</p>
+    <UiButton onclick={() => goto(`${base}/courses`)}>View All Courses</UiButton>
   </div>
 {/if}
 
 <style>
-  .lessons-page {
-    animation: fadeIn 0.25s ease;
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(0.5rem); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .course-header {
-    background: linear-gradient(135deg, var(--course-color, var(--primary)), var(--accent));
-    color: white;
-    padding: 2rem 1rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    position: relative;
-  }
-
-  .back-button {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius);
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.2s ease;
-  }
-
-  .back-button:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
-
-  .course-icon-large {
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .course-title-large {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0 0 0.5rem 0;
-  }
-
-  .course-description {
-    font-size: 1rem;
-    opacity: 0.9;
-  }
-
-  .lessons-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem 2rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0 0 1.5rem 0;
-    color: var(--text);
-  }
-
-  .lesson-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-
-  .course-progress {
-    font-size: 0.9rem;
-    opacity: 0.85;
-    margin-top: 0.5rem;
-  }
-
-  .continue-btn {
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-
-  .lesson-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-  }
-
-  .lesson-card.locked {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .lesson-card.locked:hover {
-    transform: none;
-    box-shadow: none;
-    border-color: var(--border);
-  }
-
-  .lesson-card {
-    background: var(--card-bg);
-    border: 2px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: left;
-  }
-
-  .lesson-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary);
-  }
-
-  .lesson-number {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background: var(--primary);
-    color: white;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.75rem;
-  }
-
-  .lesson-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 0 1rem 0;
-    color: var(--text);
-    line-height: 1.4;
-  }
-
-  .lesson-stats {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-  }
-
-  .stat {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .stat-icon {
-    font-size: 1rem;
-  }
-
-  .error-state {
-    text-align: center;
-    padding: 3rem 1.5rem;
-  }
-
-  .error-state h2 {
-    margin-bottom: 1rem;
-  }
-
-  .error-state p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .button-primary {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius);
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background 0.2s ease;
-  }
-
-  .button-primary:hover {
-    background: var(--primary-hover);
-  }
-
-  @media (max-width: 600px) {
-    .lesson-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .course-title-large {
-      font-size: 1.5rem;
-    }
-
-    .back-button {
-      position: static;
-      margin-bottom: 1rem;
-    }
+  .animate-in {
+    animation: fade-in 0.25s ease;
   }
 </style>
