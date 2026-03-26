@@ -48,6 +48,9 @@
     if (p === '/settings') return 'Settings';
     if (p === '/stats') return 'Statistics';
     if (p === '/review') return 'Review';
+    if (p === '/premium') return 'Premium';
+    if (p === '/about') return 'About';
+    if (p.startsWith('/vocab/')) return 'Vocabulary';
     return 'Smart Quiz';
   }
 
