@@ -13,6 +13,7 @@
     showInstallPrompt,
     isPWA
   } from '$lib/utils/pwa';
+  import { initFont } from '$lib/utils/fontUtils';
 
   let showInstallBanner = false;
 
@@ -21,6 +22,7 @@
     console.log('[SmartQuiz] Layout mounted');
     const darkMode = $uiStore.darkMode;
     document.documentElement.classList.toggle('dark', darkMode);
+    initFont();
 
     registerServiceWorker().then(() => console.log('[SmartQuiz] SW registered'))
       .catch(e => console.error('[SmartQuiz] SW failed:', e));
