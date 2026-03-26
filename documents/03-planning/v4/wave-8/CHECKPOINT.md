@@ -1,12 +1,28 @@
-# Wave 8 Checkpoint
+# Wave 8 Checkpoint — Business Ready
 
 ## PRs in Wave
-> Chi tiết sẽ bổ sung trước khi bắt đầu wave này.
+
+| PR | Name | Status | Tests | Actual PR |
+|----|------|--------|-------|-----------|
+| #17 | [Custom fonts](pr-17-fonts.md) | [ ] | 4 | |
+| #18 | [Premium tier](pr-18-premium.md) | [ ] | 5 | |
+| #19 | [Community](pr-19-community.md) | [ ] | 3 | |
+
+## Business Docs
+- [x] `documents/01-business/premium/rules.md` — Premium rules + font rules + community rules
 
 ## Entry Criteria
-- [ ] Wave 7 checkpoint passed
+- [x] Wave 7 checkpoint passed (737 tests)
+- [x] Business docs created (premium rules)
 
 ## Exit Criteria
-- [ ] Audit score maintained
-- [ ] All wave tests pass
-- [ ] Business gaps checked
+- [ ] Custom font selector in Settings (4 options)
+- [ ] Premium gate UI for N2/N1 content
+- [ ] /about page with community links
+- [ ] Share progress card
+- [ ] Tests: ≥ 749 (737 + 12 new)
+- [ ] Build pass
+- [ ] Business gaps: none
+
+## Audit Report
+> Chạy sau wave complete
