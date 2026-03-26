@@ -294,8 +294,8 @@
   }
 
   .keyboard-key.accent:hover {
-    background: #e68a00;
-    border-color: #e68a00;
+    background: var(--warning-dark);
+    border-color: var(--warning-dark);
   }
 
   .keyboard-key.special {

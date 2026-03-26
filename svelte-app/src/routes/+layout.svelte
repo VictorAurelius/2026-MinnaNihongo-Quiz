@@ -14,6 +14,8 @@
     isPWA
   } from '$lib/utils/pwa';
   import { initFont } from '$lib/utils/fontUtils';
+  import Toast from '$lib/components/common/Toast.svelte';
+  import { toastStore } from '$lib/stores/toast';
 
   let showInstallBanner = false;
 
@@ -77,6 +79,10 @@
   <main id="main-content">
     <slot />
   </main>
+
+  {#if $toastStore}
+    <Toast message={$toastStore.message} type={$toastStore.type} />
+  {/if}
 </div>
 
 <style>

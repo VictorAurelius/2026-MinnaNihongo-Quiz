@@ -7,6 +7,38 @@ Quản lý theo Semantic Versioning: `MAJOR.MINOR.PATCH`
 
 ---
 
+## [1.3.0] — 2026-03-26
+
+### Added
+- `skills/reference/ui-template-guide.md` — Figma/template-first UI workflow, page checklist, anti-patterns
+- `kit-manifest.yml` — File classification for safe upgrades (override-safe/new-only/merge-required)
+- `VERSION` file — Tracks kit version for upgrade detection
+- `install-remote.sh` — Install/upgrade from remote git repo
+- `GETTING-STARTED.md`, `CONTRIBUTING.md` — Onboarding docs
+
+### Changed
+- `upgrade-project.sh` — Full plan-based upgrade flow (--plan → --apply → --force)
+
+### Applied to Smart Quiz
+- Added `ui-template-guide.md` skill
+- Skipped `test-local.sh` (project-specific config)
+- Skipped `development-workflow.md` (project-specific config)
+
+## [1.2.0] — 2026-03-25
+
+### Added
+- `skills/continue.md` — Priority action skill for continuing work
+
+## [1.1.1] — 2026-03-25
+
+### Added
+- `.claude-plugin/plugin.json` — Plugin metadata
+- `install-remote.sh` — Remote install script
+- `EXTRACTION-GUIDE.md`
+
+### Changed
+- `skills/reference/diagrams.md` — Graphviz requirement, render rules, verification
+
 ## [1.1.0] — 2026-03-25
 
 ### Added

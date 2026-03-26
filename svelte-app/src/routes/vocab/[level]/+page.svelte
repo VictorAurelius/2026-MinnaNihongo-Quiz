@@ -3,6 +3,7 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import SkeletonCard from '$lib/components/common/SkeletonCard.svelte';
 
   let searchTerm = '';
   let selectedGroup = 'all';
@@ -13,20 +14,26 @@
   // Dynamic import based on level
   let vocabData: any[] = [];
   let groupedData: Record<string, any[]> = {};
+  let loading = false;
 
   $: if (isValidLevel) {
     loadData(level);
   }
 
   async function loadData(lvl: string) {
-    if (lvl === 'n2') {
-      const mod = await import('$lib/data/vocab/n2');
-      vocabData = mod.N2_VOCAB_DATA;
-      groupedData = mod.getN2VocabByGroup();
-    } else if (lvl === 'n1') {
-      const mod = await import('$lib/data/vocab/n1');
-      vocabData = mod.N1_VOCAB_DATA;
-      groupedData = mod.getN1VocabByGroup();
+    loading = true;
+    try {
+      if (lvl === 'n2') {
+        const mod = await import('$lib/data/vocab/n2');
+        vocabData = mod.N2_VOCAB_DATA;
+        groupedData = mod.getN2VocabByGroup();
+      } else if (lvl === 'n1') {
+        const mod = await import('$lib/data/vocab/n1');
+        vocabData = mod.N1_VOCAB_DATA;
+        groupedData = mod.getN1VocabByGroup();
+      }
+    } finally {
+      loading = false;
     }
   }
 
@@ -63,6 +70,12 @@
       <h2>Level not found</h2>
       <p>The level "{level}" is not available. Choose N2 or N1.</p>
       <button class="btn-primary" on:click={() => goto(`${base}/courses`)}>Back to Courses</button>
+    </div>
+  {:else if loading}
+    <div class="loading-state">
+      <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard />
     </div>
   {:else}
     <header class="page-header">
@@ -146,6 +159,13 @@
     padding: 1rem;
   }
 
+  .loading-state {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
   .error-state {
     text-align: center;
     padding: 3rem 1rem;
@@ -179,8 +199,8 @@
     color: white;
   }
 
-  .level-badge.n2 { background: #8b5cf6; }
-  .level-badge.n1 { background: #ef4444; }
+  .level-badge.n2 { background: var(--accent); }
+  .level-badge.n1 { background: var(--danger); }
 
   h1 {
     font-size: 1.3rem;

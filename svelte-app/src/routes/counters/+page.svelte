@@ -299,7 +299,7 @@
   }
 
   .numbers-table tr.irregular {
-    background: #fff5f5;
+    background: var(--danger-bg);
   }
 
   .numbers-table tr.irregular td {
@@ -455,7 +455,7 @@
   }
 
   .reading-item.irregular {
-    background: #fff5f5;
+    background: var(--danger-bg);
     border-color: var(--error);
   }
 
@@ -521,7 +521,7 @@
   .irregular-marker {
     width: 12px;
     height: 12px;
-    background: #fff5f5;
+    background: var(--danger-bg);
     border: 2px solid var(--error);
     border-radius: 2px;
   }

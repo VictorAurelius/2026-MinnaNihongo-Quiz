@@ -349,7 +349,7 @@
     padding: 0.1rem 0.4rem;
     border-radius: 8px;
     background: var(--primary);
-    color: #fff;
+    color: white;
   }
 
   .btn-speak {
