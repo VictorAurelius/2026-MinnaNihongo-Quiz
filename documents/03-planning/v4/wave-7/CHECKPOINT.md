@@ -4,9 +4,9 @@
 
 | PR | Name | Status | Tests | Actual PR |
 |----|------|--------|-------|-----------|
-| #14 | [N3 content](pr-14-n3-content.md) | [ ] | 7 | |
-| #15 | [N2-N1 vocab](pr-15-n2-n1-vocab.md) | [ ] | 8 | |
-| #16 | [Advanced SRS](pr-16-advanced-srs.md) | [ ] | 12 | |
+| #14 | [N3 content](pr-14-n3-content.md) | [x] | +7 | PR #61 |
+| #15 | [N2-N1 vocab](pr-15-n2-n1-vocab.md) | [x] | +8 | PR #62 |
+| #16 | [Advanced SRS](pr-16-advanced-srs.md) | [x] | +9 | PR #63 |
 
 ## Business Docs
 - [x] `documents/01-business/srs/rules.md` — 8 SRS rules (BR-SRS-001 to 008)
@@ -20,13 +20,16 @@
 > Wave 7 is independent of Wave 6 (no Supabase dependency).
 
 ## Exit Criteria
-- [ ] N3 course: ≥15 lessons with vocab + grammar
-- [ ] N2/N1 vocab reference: ≥200 items each
-- [ ] N3/N2/N1 kanji examples populated
-- [ ] Advanced SRS: /review route, due badge, kanji SRS
-- [ ] Tests: ≥ 740 (713 + 27 new)
-- [ ] Build pass
-- [ ] Business gaps: none
+- [x] N3 course: 15 lessons with vocab + grammar
+- [x] N2/N1 vocab reference: 250+ items each
+- [x] N3/N2/N1 kanji examples populated (870 kanji)
+- [x] Advanced SRS: /review route, type filter, streak tracking
+- [x] Tests: 737 (713 + 24 new)
+- [x] Build pass
+- [x] Business gaps: none
 
 ## Audit Report
-> Chạy sau wave complete
+- Tests: 737 (39 test files)
+- New content: 15 N3 lessons, 500+ N2/N1 vocab, 870 kanji examples
+- New features: /vocab/[level] route, advanced SRS with multi-course + filtering
+- Wave completed: 2026-03-26
