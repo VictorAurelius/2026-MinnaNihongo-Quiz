@@ -55,7 +55,7 @@
   }
 </script>
 
-<div class="app">
+<div class="app min-h-screen bg-background text-foreground">
   <SkipLink />
   <Header />
 
@@ -76,7 +76,7 @@
     </div>
   {/if}
 
-  <main id="main-content">
+  <main id="main-content" class="flex-1">
     <slot />
   </main>
 

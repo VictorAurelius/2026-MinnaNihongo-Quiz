@@ -105,7 +105,7 @@
 
 <!-- Bottom navigation on home page — scrollable on mobile -->
 {#if isHome}
-  <nav class="flex gap-1.5 px-3 py-2 bg-card border-b border-border overflow-x-auto scrollbar-hide">
+  <nav class="flex justify-center gap-1.5 px-3 py-2 bg-card border-b border-border overflow-x-auto scrollbar-hide flex-wrap">
     {#each [
       { href: `${base}/courses`, icon: '📚', label: 'Courses', jp: false },
       { href: `${base}/kanji`, icon: '漢', label: 'Kanji', jp: true },
