@@ -53,26 +53,26 @@
   <title>Alphabet - Smart Quiz</title>
 </svelte:head>
 
-<div class="alphabet-page">
+<div class="min-h-screen pb-8">
   <!-- Header -->
-  <div class="page-header">
-    <div class="page-header-top">
+  <div class="p-6 bg-secondary border-b border-border">
+    <div class="flex items-center gap-4">
       <BackButton />
-      <h1>🔤 Bảng chữ cái</h1>
+      <h1 class="text-2xl font-bold text-foreground">🔤 Bảng chữ cái</h1>
     </div>
   </div>
 
   <!-- Tabs -->
-  <div class="alphabet-tabs">
+  <div class="flex bg-background border-b-2 border-border px-6 overflow-x-auto">
     <button
-      class="tab"
+      class="tab flex-1 px-6 py-4 bg-transparent border-b-3 border-transparent text-muted-foreground text-[0.95rem] font-semibold cursor-pointer whitespace-nowrap transition-all duration-200 hover:text-foreground hover:bg-muted"
       class:active={currentScript === 'hiragana'}
       on:click={() => switchScript('hiragana')}
     >
       Hiragana (ひらがな)
     </button>
     <button
-      class="tab"
+      class="tab flex-1 px-6 py-4 bg-transparent border-b-3 border-transparent text-muted-foreground text-[0.95rem] font-semibold cursor-pointer whitespace-nowrap transition-all duration-200 hover:text-foreground hover:bg-muted"
       class:active={currentScript === 'katakana'}
       on:click={() => switchScript('katakana')}
     >
@@ -81,18 +81,18 @@
   </div>
 
   <!-- Content -->
-  <div class="alphabet-content">
+  <div class="p-6">
     <!-- Basic Characters Table -->
-    <div class="alpha-section">
-      <h2 class="section-heading">Bảng cơ bản (46 ký tự)</h2>
+    <div class="mb-12">
+      <h2 class="text-xl font-bold text-foreground mb-6">Bảng cơ bản (46 ký tự)</h2>
 
-      <div class="table-wrapper">
-        <table class="alpha-table">
+      <div class="overflow-x-auto rounded-lg bg-secondary p-4">
+        <table class="w-full border-collapse text-base">
           <thead>
             <tr>
               <th></th>
               {#each COL_HEADERS as col}
-                <th>{col}</th>
+                <th class="py-3 px-2 text-center font-semibold text-muted-foreground text-sm uppercase">{col}</th>
               {/each}
             </tr>
           </thead>
@@ -101,13 +101,13 @@
               {@const firstCell = row.find(Boolean)}
               {#if firstCell}
                 <tr>
-                  <th class="alpha-row-label">
+                  <th class="py-3 px-4 text-right font-semibold text-muted-foreground text-sm min-w-[80px]">
                     {ROW_LABELS[firstCell.row] || firstCell.row}
                   </th>
                   {#each row as cell}
                     {#if cell}
                       <td
-                        class="alpha-cell"
+                        class="alpha-cell py-4 px-2 text-center border border-border bg-background transition-all duration-200"
                         class:alpha-cell--audio={hasAudioSupport}
                         title={hasAudioSupport ? `Phát âm: ${cell.romaji}` : cell.romaji}
                         on:click={() => speakKana(cell.kana)}
@@ -115,11 +115,11 @@
                         tabindex={hasAudioSupport ? 0 : -1}
                         role={hasAudioSupport ? 'button' : undefined}
                       >
-                        <span class="alpha-kana">{cell.kana}</span>
-                        <span class="alpha-romaji">{cell.romaji}</span>
+                        <span class="block text-3xl font-medium text-foreground mb-1 md:text-2xl">{cell.kana}</span>
+                        <span class="block text-xs text-muted-foreground italic md:text-[0.75rem]">{cell.romaji}</span>
                       </td>
                     {:else}
-                      <td class="alpha-cell alpha-cell--empty"></td>
+                      <td class="py-4 px-2 text-center border border-border bg-secondary opacity-30"></td>
                     {/if}
                   {/each}
                 </tr>
@@ -132,8 +132,8 @@
 
     <!-- Combo Characters (Youon) -->
     {#if currentData.combo.length > 0}
-      <div class="alpha-section">
-        <h2 class="section-heading">
+      <div class="mb-12">
+        <h2 class="text-xl font-bold text-foreground mb-6">
           拗音 (Youon) - {currentScript === 'hiragana' ? 'Hiragana' : 'Katakana'}
         </h2>
 
@@ -141,7 +141,7 @@
           {#each currentData.combo as cell}
             <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
             <div
-              class="alpha-cell alpha-combo-cell"
+              class="alpha-cell py-5 px-3 text-center border border-border bg-background rounded-lg transition-all duration-200"
               class:alpha-cell--audio={hasAudioSupport}
               title={hasAudioSupport ? `Phát âm: ${cell.romaji}` : cell.romaji}
               on:click={() => speakKana(cell.kana)}
@@ -149,8 +149,8 @@
               tabindex={hasAudioSupport ? 0 : -1}
               role={hasAudioSupport ? 'button' : undefined}
             >
-              <span class="alpha-kana">{cell.kana}</span>
-              <span class="alpha-romaji">{cell.romaji}</span>
+              <span class="block text-3xl font-medium text-foreground mb-1 md:text-2xl">{cell.kana}</span>
+              <span class="block text-xs text-muted-foreground italic md:text-[0.75rem]">{cell.romaji}</span>
             </div>
           {/each}
         </div>
@@ -158,9 +158,9 @@
     {/if}
 
     <!-- Quiz Actions -->
-    <div class="quiz-actions">
-      <h3 class="quiz-actions-heading">Luyện tập</h3>
-      <div class="quiz-buttons">
+    <div class="my-12 p-8 bg-secondary rounded-xl border-2 border-dashed border-border">
+      <h3 class="text-lg font-bold text-foreground mb-6 text-center">Luyện tập</h3>
+      <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
         <Button variant="primary" size="lg">
           🎯 Quiz {currentScript === 'hiragana' ? 'Hiragana' : 'Katakana'}
         </Button>
@@ -172,7 +172,7 @@
 
     <!-- Audio Note -->
     {#if hasAudioSupport}
-      <p class="audio-note">
+      <p class="text-center text-muted-foreground text-sm mt-8 italic">
         💡 Nhấp vào ký tự để nghe phát âm
       </p>
     {/if}
@@ -180,121 +180,9 @@
 </div>
 
 <style>
-  .alphabet-page {
-    min-height: 100vh;
-    padding-bottom: 2rem;
-  }
-
-  .page-header {
-    padding: 1.5rem;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .page-header-top {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .page-header h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-
-  .alphabet-tabs {
-    display: flex;
-    background: var(--bg-primary);
-    border-bottom: 2px solid var(--border);
-    padding: 0 1.5rem;
-    overflow-x: auto;
-  }
-
-  .tab {
-    flex: 1;
-    padding: 1rem 1.5rem;
-    background: transparent;
-    border: none;
-    border-bottom: 3px solid transparent;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.2s;
-  }
-
-  .tab:hover {
-    color: var(--text-primary);
-    background: var(--bg-hover);
-  }
-
   .tab.active {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
-  }
-
-  .alphabet-content {
-    padding: 1.5rem;
-  }
-
-  .alpha-section {
-    margin-bottom: 3rem;
-  }
-
-  .section-heading {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-  }
-
-  .table-wrapper {
-    overflow-x: auto;
-    border-radius: 8px;
-    background: var(--bg-secondary);
-    padding: 1rem;
-  }
-
-  .alpha-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 1rem;
-  }
-
-  .alpha-table thead th {
-    padding: 0.75rem 0.5rem;
-    text-align: center;
-    font-weight: 600;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-  }
-
-  .alpha-table tbody th {
-    padding: 0.75rem 1rem;
-    text-align: right;
-    font-weight: 600;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-  }
-
-  .alpha-row-label {
-    min-width: 80px;
-  }
-
-  .alpha-cell {
-    padding: 1rem 0.5rem;
-    text-align: center;
-    border: 1px solid var(--border);
-    background: var(--bg-primary);
-    transition: all 0.2s;
-  }
-
-  .alpha-cell--empty {
-    background: var(--bg-secondary);
-    opacity: 0.3;
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
   }
 
   .alpha-cell--audio {
@@ -302,29 +190,14 @@
   }
 
   .alpha-cell--audio:hover {
-    background: var(--primary-bg);
-    border-color: var(--primary);
+    background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+    border-color: var(--color-primary);
     transform: scale(1.05);
   }
 
   .alpha-cell--audio:focus {
-    outline: 2px solid var(--primary);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
-  }
-
-  .alpha-kana {
-    display: block;
-    font-size: 1.75rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 0.25rem;
-  }
-
-  .alpha-romaji {
-    display: block;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-style: italic;
   }
 
   .alpha-combo-grid {
@@ -333,54 +206,7 @@
     gap: 0.75rem;
   }
 
-  .alpha-combo-cell {
-    padding: 1.25rem 0.75rem;
-    border-radius: 8px;
-  }
-
-  .quiz-actions {
-    margin: 3rem 0;
-    padding: 2rem;
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    border: 2px dashed var(--border);
-  }
-
-  .quiz-actions-heading {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-
-  .quiz-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-
-  .audio-note {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-top: 2rem;
-    font-style: italic;
-  }
-
   @media (max-width: 768px) {
-    .alpha-table {
-      font-size: 0.9rem;
-    }
-
-    .alpha-kana {
-      font-size: 1.5rem;
-    }
-
-    .alpha-romaji {
-      font-size: 0.75rem;
-    }
-
     .alpha-combo-grid {
       grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     }
