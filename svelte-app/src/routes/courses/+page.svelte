@@ -30,7 +30,7 @@
     {#each courses as course}
       <a
         href="{base}/course/{course.metadata.id}"
-        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg cursor-pointer group relative overflow-hidden"
+        class="flex items-center gap-4 w-full px-5 py-4 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group relative overflow-hidden"
       >
         <!-- Color accent -->
         <div class="absolute left-0 inset-y-0 w-1 rounded-l-xl" style="background: {course.metadata.color}"></div>

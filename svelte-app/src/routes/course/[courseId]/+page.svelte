@@ -67,7 +67,7 @@
           {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
           <a
             href={buildLessonUrl(courseId, lesson.lessonNumber)}
-            class="flex items-center gap-3 w-full px-3 py-2.5 bg-card border border-border rounded-lg shadow-sm text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-md cursor-pointer group"
+            class="flex items-center gap-4 w-full px-4 py-3 bg-card border border-border rounded-lg shadow-sm text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-md active:scale-[0.98] cursor-pointer group"
           >
             <!-- Lesson number -->
             <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">

@@ -110,7 +110,7 @@
       <Settings2 size={12} aria-hidden="true" /> Quiz Settings
     </h3>
     <div class="bg-card rounded-xl shadow-sm overflow-hidden">
-      <div class="flex items-center justify-between px-4 py-3.5">
+      <div class="flex items-center justify-between px-5 py-4">
         <label for="direction" class="text-sm font-medium">Default Direction</label>
         <select
           id="direction"
@@ -123,14 +123,14 @@
           {/each}
         </select>
       </div>
-      <div class="h-px bg-border/50 mx-4"></div>
-      <div class="flex items-center justify-between px-4 py-3.5">
+      <div class="h-px bg-border/50 mx-5"></div>
+      <div class="flex items-center justify-between px-5 py-4">
         <label for="autoPlay" class="text-sm font-medium">Auto-speak on new card</label>
         <input id="autoPlay" type="checkbox" checked={settings.autoPlay} on:change={handleAutoPlayChange}
           class="w-5 h-5 accent-primary cursor-pointer" />
       </div>
-      <div class="h-px bg-border/50 mx-4"></div>
-      <div class="flex items-center justify-between px-4 py-3.5">
+      <div class="h-px bg-border/50 mx-5"></div>
+      <div class="flex items-center justify-between px-5 py-4">
         <label for="showEnglish" class="text-sm font-medium">Show English translations</label>
         <input id="showEnglish" type="checkbox" checked={settings.showEnglish} on:change={handleShowEnglishChange}
           class="w-5 h-5 accent-primary cursor-pointer" />
@@ -188,22 +188,22 @@
     <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
       <Database size={12} aria-hidden="true" /> Data Management
     </h3>
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2.5">
       <button
-        class="flex items-center gap-3 w-full p-3.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md cursor-pointer group"
+        class="flex items-center gap-4 w-full px-5 py-4 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md active:scale-[0.98] cursor-pointer group"
         on:click={handleExport}
       >
-        <Download size={20} class="text-primary flex-shrink-0" aria-hidden="true" />
+        <Download size={22} class="text-primary flex-shrink-0" aria-hidden="true" />
         <div class="flex-1 min-w-0">
           <strong class="text-sm block">Export Progress</strong>
           <span class="text-xs text-muted-foreground">Download as JSON</span>
         </div>
       </button>
       <button
-        class="flex items-center gap-3 w-full p-3.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md cursor-pointer group"
+        class="flex items-center gap-4 w-full px-5 py-4 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md active:scale-[0.98] cursor-pointer group"
         on:click={handleImportClick}
       >
-        <Upload size={20} class="text-primary flex-shrink-0" aria-hidden="true" />
+        <Upload size={22} class="text-primary flex-shrink-0" aria-hidden="true" />
         <div class="flex-1 min-w-0">
           <strong class="text-sm block">Import Progress</strong>
           <span class="text-xs text-muted-foreground">Restore from file</span>
@@ -211,10 +211,10 @@
       </button>
       <input type="file" accept=".json" bind:this={fileInput} on:change={handleFileChange} class="hidden" />
       <button
-        class="flex items-center gap-3 w-full p-3.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md cursor-pointer group"
+        class="flex items-center gap-4 w-full px-5 py-4 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md active:scale-[0.98] cursor-pointer group"
         on:click={() => showClearConfirm = true}
       >
-        <Trash2 size={20} class="text-destructive flex-shrink-0" aria-hidden="true" />
+        <Trash2 size={22} class="text-destructive flex-shrink-0" aria-hidden="true" />
         <div class="flex-1 min-w-0">
           <strong class="text-sm block text-destructive">Clear All Progress</strong>
           <span class="text-xs text-muted-foreground">Delete permanently</span>

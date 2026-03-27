@@ -104,7 +104,7 @@
       {#each sections as section}
         <a
           href={section.href}
-          class="flex items-center gap-3.5 w-full p-3.5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 cursor-pointer group"
+          class="flex items-center gap-4 w-full px-5 py-4 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group"
         >
           <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary text-xl font-bold {section.iconClass}">
             {section.icon}

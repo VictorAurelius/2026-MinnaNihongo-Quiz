@@ -88,28 +88,28 @@
         <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
           <PenLine size={12} aria-hidden="true" /> Quiz Modes
         </h3>
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-2.5">
           <button
-            class="flex items-center gap-3 w-full p-3.5 bg-primary text-primary-foreground rounded-xl shadow-md text-left transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
+            class="flex items-center gap-4 w-full px-5 py-4 bg-primary text-primary-foreground rounded-xl shadow-md text-left transition-all hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
             on:click={() => startQuiz('flashcard')}
           >
-            <Layers size={20} aria-hidden="true" />
+            <Layers size={22} aria-hidden="true" />
             <span class="font-semibold text-sm">Flashcard Quiz</span>
             <ChevronRight size={16} class="ml-auto opacity-60" aria-hidden="true" />
           </button>
           <button
-            class="flex items-center gap-3 w-full p-3.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-4 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
             on:click={() => startQuiz('multiple-choice')}
           >
-            <CheckCircle size={20} class="text-primary" aria-hidden="true" />
+            <CheckCircle size={22} class="text-primary" aria-hidden="true" />
             <span class="font-semibold text-sm">Multiple Choice</span>
             <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-primary" aria-hidden="true" />
           </button>
           <button
-            class="flex items-center gap-3 w-full p-3.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-4 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
             on:click={() => startQuiz('typing')}
           >
-            <Keyboard size={20} class="text-primary" aria-hidden="true" />
+            <Keyboard size={22} class="text-primary" aria-hidden="true" />
             <span class="font-semibold text-sm">Typing Quiz</span>
             <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-primary" aria-hidden="true" />
           </button>
@@ -123,10 +123,10 @@
             <PenLine size={12} aria-hidden="true" /> Grammar
           </h3>
           <button
-            class="flex items-center gap-3 w-full p-3.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-4 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
             on:click={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}
           >
-            <PenLine size={20} class="text-success" aria-hidden="true" />
+            <PenLine size={22} class="text-success" aria-hidden="true" />
             <span class="font-semibold text-sm">Grammar Quiz ({lesson.grammar.length} patterns)</span>
             <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-success" aria-hidden="true" />
           </button>
@@ -138,20 +138,20 @@
         <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
           <BookOpen size={12} aria-hidden="true" /> Study Materials
         </h3>
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-2.5">
           <button
-            class="flex items-center gap-3 w-full p-3.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-4 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
             on:click={() => goto(buildVocabularyUrl(courseId, lessonId))}
           >
-            <BookOpen size={20} class="text-warning" aria-hidden="true" />
+            <BookOpen size={22} class="text-warning" aria-hidden="true" />
             <span class="font-semibold text-sm">Vocabulary ({lesson.vocabulary.length})</span>
             <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-warning" aria-hidden="true" />
           </button>
           <button
-            class="flex items-center gap-3 w-full p-3.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-4 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
             on:click={() => goto(buildGrammarUrl(courseId, lessonId))}
           >
-            <Book size={20} class="text-warning" aria-hidden="true" />
+            <Book size={22} class="text-warning" aria-hidden="true" />
             <span class="font-semibold text-sm">Grammar ({lesson.grammar.length})</span>
             <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-warning" aria-hidden="true" />
           </button>

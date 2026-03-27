@@ -63,7 +63,7 @@
       {#each lessons as lesson}
         <a
           href="{base}/kanji/{lesson.lessonNumber}"
-          class="flex items-center gap-3 w-full px-3 py-2.5 bg-card rounded-lg shadow-sm text-left no-underline transition-all duration-150 hover:shadow-md hover:-translate-y-0.5 cursor-pointer group"
+          class="flex items-center gap-4 w-full px-4 py-3 bg-card rounded-lg shadow-sm text-left no-underline transition-all duration-150 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
         >
           <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary/15 text-primary text-xs font-bold">
             {lesson.lessonNumber}
