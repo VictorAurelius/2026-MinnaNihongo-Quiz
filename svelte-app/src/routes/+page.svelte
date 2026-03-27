@@ -4,7 +4,6 @@
    * Redesigned with Tailwind CSS + shadcn components
    */
 
-  import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
   import { getAllCourses } from '$lib/data/courses';
@@ -97,9 +96,9 @@
 
     <div class="flex flex-col gap-2.5">
       {#each sections as section}
-        <button
-          class="flex items-center gap-3.5 w-full p-3.5 bg-card border border-border rounded-xl text-left transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 cursor-pointer group"
-          on:click={() => goto(section.href)}
+        <a
+          href={section.href}
+          class="flex items-center gap-3.5 w-full p-3.5 bg-card border border-border rounded-xl text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 cursor-pointer group"
         >
           <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary text-xl font-bold {section.iconClass}">
             {section.icon}
@@ -109,7 +108,7 @@
             <p class="text-xs text-muted-foreground leading-snug">{section.desc}</p>
           </div>
           <span class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary">→</span>
-        </button>
+        </a>
       {/each}
     </div>
   </section>
@@ -135,17 +134,4 @@
   /* Font family helpers for Japanese/Chinese icon text */
   .font-jp { font-family: var(--font-jp); }
   .font-cn { font-family: var(--font-cn); }
-
-  /* Tailwind v4 animate-in keyframes */
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes slide-in-from-bottom-2 {
-    from { transform: translateY(0.5rem); }
-    to { transform: translateY(0); }
-  }
-  .animate-in {
-    animation: fade-in 0.3s ease, slide-in-from-bottom-2 0.3s ease;
-  }
 </style>

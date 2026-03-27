@@ -61,9 +61,9 @@
       <div class="flex flex-col gap-1.5">
         {#each lessons as lesson}
           {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
-          <button
-            class="flex items-center gap-3 w-full px-3 py-2.5 bg-card border border-border rounded-lg text-left transition-all duration-150 hover:border-primary hover:shadow-sm cursor-pointer group"
-            on:click={() => goto(buildLessonUrl(courseId, lesson.lessonNumber))}
+          <a
+            href={buildLessonUrl(courseId, lesson.lessonNumber)}
+            class="flex items-center gap-3 w-full px-3 py-2.5 bg-card border border-border rounded-lg text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-sm cursor-pointer group"
           >
             <!-- Lesson number -->
             <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
@@ -85,7 +85,7 @@
               <MasteryRing percentage={mastery} size={32} />
               <span class="text-muted-foreground text-xs group-hover:text-primary group-hover:translate-x-0.5 transition-all">→</span>
             </div>
-          </button>
+          </a>
         {/each}
       </div>
     </div>
@@ -97,8 +97,3 @@
     <UiButton onclick={() => goto(`${base}/courses`)}>View All Courses</UiButton>
   </div>
 {/if}
-
-<style>
-  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
-  .animate-in { animation: fade-in 0.25s ease; }
-</style>

@@ -70,7 +70,8 @@
     <CardContent class="flex flex-col items-center gap-4">
       <!-- Score Circle -->
       <div class="relative w-32 h-32">
-        <svg class="w-full h-full -rotate-90" viewBox="0 0 36 36">
+        <svg class="w-full h-full -rotate-90" viewBox="0 0 36 36" role="img" aria-label="Score: {stats.percentage}%">
+          <title>Quiz score: {stats.percentage}%</title>
           <circle
             class="fill-none stroke-border"
             cx="18" cy="18" r="15.915"
@@ -144,13 +145,3 @@
     </CardContent>
   </Card>
 </div>
-
-<style>
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(0.5rem); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-in {
-    animation: fade-in 0.25s ease;
-  }
-</style>

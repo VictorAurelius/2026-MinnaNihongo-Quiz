@@ -219,9 +219,6 @@
 </div>
 
 <style>
-  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
-  .animate-in { animation: fade-in 0.25s ease; }
-
   /* 3D Flashcard — must be scoped CSS for preserve-3d to work */
   .flashcard {
     perspective: 800px;
