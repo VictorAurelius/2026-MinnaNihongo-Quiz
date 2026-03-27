@@ -7,6 +7,7 @@
   import type { VocabItem } from '$lib/types';
   import { createEventDispatcher, afterUpdate } from 'svelte';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import { Volume2, Check, X } from 'lucide-svelte';
 
   export let item: VocabItem;
   export let questionText = '';  // display text (based on direction)
@@ -80,7 +81,7 @@
       <div class="fc-japanese">{frontText}</div>
       <div class="hint-text">Space to flip · F1 to speak</div>
       <button class="btn-speak btn-speak--fc" on:click|stopPropagation={() => playJapaneseAudio(item.kana || item.japanese)}>
-        🔊 Speak (F1)
+        <Volume2 size={16} aria-hidden="true" /> Speak (F1)
       </button>
     </div>
 
@@ -97,10 +98,10 @@
 <!-- Navigation Controls -->
 <div class="fc-nav">
   <button class="btn btn-danger" on:click={handleWrong}>
-    ✗ Wrong
+    <X size={16} aria-hidden="true" /> Wrong
   </button>
   <button class="btn btn-success" on:click={handleCorrect}>
-    ✓ Correct
+    <Check size={16} aria-hidden="true" /> Correct
   </button>
 </div>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import type { GrammarPattern } from '$lib/types';
+  import { Lightbulb, Brain } from 'lucide-svelte';
 
   export let pattern: GrammarPattern;
   export let selected = false;
@@ -55,11 +56,11 @@
 
   <div class="pattern-card-actions">
     <button class="btn-text" on:click={handleDetail}>
-      💡 Chi tiết
+      <Lightbulb size={14} aria-hidden="true" /> Chi tiết
     </button>
     {#if pattern.meta?.tips}
       <button class="btn-text btn-tips">
-        🧠 Tips
+        <Brain size={14} aria-hidden="true" /> Tips
       </button>
     {/if}
   </div>

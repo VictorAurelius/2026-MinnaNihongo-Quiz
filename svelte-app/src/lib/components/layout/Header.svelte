@@ -10,6 +10,7 @@
   import { base } from '$app/paths';
   import { getDueCount } from '$lib/utils/srsUtils';
   import BackButton from '../common/BackButton.svelte';
+  import { Home, Settings, Sun, Moon, BookOpen, BarChart3, RefreshCw } from 'lucide-svelte';
 
   $: dueCount = getDueCount($progressStore);
 
@@ -74,31 +75,35 @@
   <div class="flex items-center gap-1">
     {#if !isHome}
       <button
-        class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors text-base"
+        class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors"
         on:click={goHome}
         aria-label="Go to home"
         title="Home"
       >
-        🏠
+        <Home size={18} aria-hidden="true" />
       </button>
     {/if}
 
     <a
       href="{base}/settings"
-      class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors text-base no-underline"
+      class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors no-underline"
       aria-label="Settings"
       title="Settings"
     >
-      ⚙️
+      <Settings size={18} aria-hidden="true" />
     </a>
 
     <button
-      class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors text-base"
+      class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors"
       on:click={toggleDarkMode}
       aria-label="Toggle dark mode"
       title="Toggle dark mode"
     >
-      {$uiStore.darkMode ? '☀️' : '🌙'}
+      {#if $uiStore.darkMode}
+        <Sun size={18} aria-hidden="true" />
+      {:else}
+        <Moon size={18} aria-hidden="true" />
+      {/if}
     </button>
   </div>
 </header>
@@ -107,20 +112,28 @@
 {#if isHome}
   <nav class="flex justify-center gap-1.5 px-3 py-2 bg-card border-b border-border overflow-x-auto scrollbar-hide flex-wrap">
     {#each [
-      { href: `${base}/courses`, icon: '📚', label: 'Courses', jp: false },
-      { href: `${base}/kanji`, icon: '漢', label: 'Kanji', jp: true },
-      { href: `${base}/alphabet`, icon: 'あ', label: 'Alphabet', jp: true },
-      { href: `${base}/grammar-reference`, icon: '文', label: 'Grammar', jp: true },
-      { href: `${base}/counters`, icon: '数', label: 'Counters', jp: true },
-      { href: `${base}/hsk`, icon: '中', label: 'HSK', jp: true },
-      { href: `${base}/stats`, icon: '📊', label: 'Stats', jp: false },
-      { href: `${base}/review`, icon: '🔄', label: dueCount > 0 ? `Review (${dueCount})` : 'Review', jp: false },
-    ] as link}
+      { href: `${base}/courses`, label: 'Courses', jp: false, text: '' },
+      { href: `${base}/kanji`, label: 'Kanji', jp: true, text: '漢' },
+      { href: `${base}/alphabet`, label: 'Alphabet', jp: true, text: 'あ' },
+      { href: `${base}/grammar-reference`, label: 'Grammar', jp: true, text: '文' },
+      { href: `${base}/counters`, label: 'Counters', jp: true, text: '数' },
+      { href: `${base}/hsk`, label: 'HSK', jp: true, text: '中' },
+      { href: `${base}/stats`, label: 'Stats', jp: false, text: '' },
+      { href: `${base}/review`, label: dueCount > 0 ? `Review (${dueCount})` : 'Review', jp: false, text: '' },
+    ] as link, i}
       <a
         href={link.href}
         class="inline-flex items-center gap-1 px-2 py-1.5 text-[0.7rem] font-semibold text-muted-foreground no-underline border border-border rounded-full hover:text-primary hover:border-primary hover:bg-muted transition-colors whitespace-nowrap flex-shrink-0"
       >
-        <span class="text-xs" style={link.jp ? 'font-family: var(--font-jp)' : ''}>{link.icon}</span>
+        {#if link.text}
+          <span class="text-xs" style={link.jp ? 'font-family: var(--font-jp)' : ''}>{link.text}</span>
+        {:else if i === 0}
+          <BookOpen size={12} aria-hidden="true" />
+        {:else if i === 6}
+          <BarChart3 size={12} aria-hidden="true" />
+        {:else if i === 7}
+          <RefreshCw size={12} aria-hidden="true" />
+        {/if}
         <span>{link.label}</span>
       </a>
     {/each}
