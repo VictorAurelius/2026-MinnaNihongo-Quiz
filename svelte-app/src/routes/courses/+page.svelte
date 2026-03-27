@@ -6,6 +6,7 @@
   import { base } from '$app/paths';
   import { getAllCourses } from '$lib/data/courses';
   import Badge from '$lib/components/ui/badge/badge.svelte';
+  import PageEmpty from '$lib/components/common/PageEmpty.svelte';
 
   const courses = getAllCourses();
 </script>
@@ -21,9 +22,7 @@
   </div>
 
   {#if courses.length === 0}
-    <div class="text-center py-12 text-muted-foreground">
-      <p>No courses available. Please check back later.</p>
-    </div>
+    <PageEmpty title="No courses available" description="Please check back later." />
   {/if}
 
   <div class="flex flex-col gap-3">

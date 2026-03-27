@@ -6,13 +6,23 @@
 
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+  import { onMount } from 'svelte';
   import { quizStore, startQuiz, resetQuiz } from '$lib/stores';
   import { calculateStats, formatDuration, generateQuestions } from '$lib/utils/quizUtils';
   import { getCourse } from '$lib/data/courses';
+  import { showToast } from '$lib/stores/toast';
   import type { CourseId } from '$lib/types/course';
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import { PartyPopper, ThumbsUp, Zap, BookOpen, PenLine, RefreshCw, ArrowLeft, Home } from 'lucide-svelte';
+
+  // Guard: redirect if no quiz data
+  onMount(() => {
+    if ($quizStore.questions.length === 0) {
+      showToast('No quiz results to show', 'error');
+      goto(`${base}/`);
+    }
+  });
 
   $: stats = calculateStats($quizStore.score, $quizStore.questions.length);
   $: duration = $quizStore.endTime
@@ -62,6 +72,7 @@
   <title>Quiz Results - Smart Quiz</title>
 </svelte:head>
 
+{#if $quizStore.questions.length > 0}
 <div class="mx-auto max-w-md animate-in px-4">
   <Card>
     <CardHeader class="text-center pb-2">
@@ -145,3 +156,4 @@
     </CardContent>
   </Card>
 </div>
+{/if}

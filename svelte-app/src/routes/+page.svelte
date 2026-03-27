@@ -5,18 +5,19 @@
    */
 
   import { base } from '$app/paths';
-  import { onMount } from 'svelte';
   import { getAllCourses } from '$lib/data/courses';
   import { getKanjiLessonMetadata } from '$lib/data/kanji/lessons';
   import { HSK5_DATA } from '$lib/data/hsk';
   import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
+  import PageError from '$lib/components/common/PageError.svelte';
 
   let courses: ReturnType<typeof getAllCourses> = [];
   let totalLessons = 0;
   let totalVocab = 0;
   let kanjiCount = 0;
   let hskWordCount = 0;
+  let dataError = false;
 
   try {
     courses = getAllCourses();
@@ -27,6 +28,7 @@
     hskWordCount = HSK5_DATA.reduce((sum, g) => sum + g.words.length, 0);
   } catch (e) {
     console.error('[SmartQuiz] Home data error:', e);
+    dataError = true;
   }
 
   const sections = [
@@ -63,6 +65,9 @@
   <title>Smart Quiz - Japanese & Chinese Learning</title>
 </svelte:head>
 
+{#if dataError}
+  <PageError message="Failed to load course data. Please refresh the page." retry={() => location.reload()} />
+{:else}
 <div class="mx-auto max-w-2xl animate-in fade-in slide-in-from-bottom-2 duration-300">
   <!-- Hero Section -->
   <section class="py-6 px-4 text-center">
@@ -129,6 +134,7 @@
     </div>
   </section>
 </div>
+{/if}
 
 <style>
   /* Font family helpers for Japanese/Chinese icon text */
