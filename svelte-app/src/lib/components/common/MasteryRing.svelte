@@ -1,7 +1,6 @@
 <script lang="ts">
   export let percentage = 0;
   export let size = 48;
-  export let locked = false;
 
   $: radius = (size - 6) / 2;
   $: circumference = 2 * Math.PI * radius;
@@ -20,7 +19,7 @@
     {/if}
   </svg>
   <span class="mastery-text">
-    {#if locked}🔒{:else}{percentage}%{/if}
+{percentage}%
   </span>
 </div>
 
