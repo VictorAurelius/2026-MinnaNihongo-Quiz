@@ -30,9 +30,26 @@
 |------|----------|
 | `quality/quality-audit.md` | Đánh giá chất lượng /100 điểm |
 
+### Frontend Design (MỚI — Anthropic + Impeccable)
+| File | Dùng khi |
+|------|----------|
+| `frontend-design/SKILL.md` | **Mọi UI work** — design thinking, aesthetics, anti-patterns, AI slop test |
+| `frontend-design/reference/typography.md` | Font, scale, pairing, fluid type, loading |
+| `frontend-design/reference/color-and-contrast.md` | OKLCH, palettes, dark mode, a11y contrast |
+| `frontend-design/reference/spatial-design.md` | Grid, spacing, hierarchy, container queries |
+| `frontend-design/reference/motion-design.md` | Timing, easing, reduced motion, stagger |
+| `frontend-design/reference/interaction-design.md` | Forms, focus, loading, modals, keyboard nav |
+| `frontend-design/reference/responsive-design.md` | Mobile-first, fluid, breakpoints, touch targets |
+| `frontend-design/reference/ux-writing.md` | Labels, errors, empty states, voice & tone |
+| `frontend-design/commands/audit.md` | Technical quality audit — scored report (a11y, perf, responsive) |
+| `frontend-design/commands/critique.md` | UX design review — heuristics scoring |
+| `frontend-design/commands/polish.md` | Final pass before shipping — comprehensive checklist |
+| `frontend-design/commands/*.md` | 20 targeted commands (typeset, arrange, animate, colorize, etc.) |
+
 ### Reference
 | File | Dùng khi |
 |------|----------|
+| `reference/ui-template-guide.md` | Chọn approach: Figma vs Component library, page checklist |
 | `reference/business-docs-3-layer.md` | Thiết kế business docs (rules + use-cases + api-contract) |
 | `reference/service-docs-standard.md` | Chuẩn README + QUICK-START cho mỗi service |
 | `reference/project-structure.md` | Cấu trúc folder best practice, khi nào refactor |
