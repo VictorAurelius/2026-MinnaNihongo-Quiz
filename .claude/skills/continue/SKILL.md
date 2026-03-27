@@ -63,7 +63,7 @@ Context bổ sung từ user: $ARGUMENTS
 - `git push -u origin <branch>`
 - `gh pr create --base v4-dev` với Summary + Test plan
 - KHÔNG merge — chờ user approve
-- Sau wave complete: merge `v4-dev` → `main` (audit + regression pass)
+- Sau wave complete: chạy `/quality-audit` — phải ≥ 95/100 trước khi merge `v4-dev` → `main`
 
 ## Step 4: Update Documents
 Sau khi PR tạo xong:

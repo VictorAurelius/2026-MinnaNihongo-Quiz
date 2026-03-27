@@ -9,12 +9,11 @@
   import { base } from '$app/paths';
   import { getCourse } from '$lib/data/courses';
   import { buildQuizUrl, buildVocabularyUrl, buildGrammarUrl } from '$lib/utils/courseUtils';
-  import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import BackButton from '$lib/components/common/BackButton.svelte';
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
-  import { RefreshCw, PenLine, Layers, CheckCircle, Keyboard, BookOpen, Book } from 'lucide-svelte';
+  import { RefreshCw, PenLine, Layers, CheckCircle, Keyboard, BookOpen, Book, ChevronRight } from 'lucide-svelte';
   import type { CourseId } from '$lib/types/course';
   import type { QuizDirection } from '$lib/types';
 
@@ -44,85 +43,120 @@
   <div class="mx-auto max-w-xl animate-in">
     <!-- Lesson Header -->
     <div
-      class="text-white py-8 px-4 text-center relative"
+      class="text-white pt-3 pb-5 px-4"
       style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
     >
-      <div class="absolute top-4 left-4">
+      <div class="mb-3">
         <BackButton href={`/course/${courseId}`} variant="overlay" />
       </div>
-      <Badge class="bg-white/20 text-white border-0 mb-2">Bài {lesson.lessonNumber}</Badge>
-      <h1 class="text-xl font-bold mb-2">{lesson.title}</h1>
-      <div class="flex items-center justify-center gap-2 text-sm opacity-90">
-        <span>{lesson.vocabulary.length} từ vựng</span>
-        <span>•</span>
-        <span>{lesson.grammar.length} ngữ pháp</span>
+      <div class="text-center">
+        <Badge class="bg-white/20 text-white border-0 mb-2">Bài {lesson.lessonNumber}</Badge>
+        <h1 class="text-xl font-bold mb-2">{lesson.title}</h1>
+        <div class="flex items-center justify-center gap-2 text-sm opacity-90">
+          <span>{lesson.vocabulary.length} từ vựng</span>
+          <span>•</span>
+          <span>{lesson.grammar.length} ngữ pháp</span>
+        </div>
       </div>
     </div>
 
-    <div class="px-4 py-6 flex flex-col gap-6">
+    <div class="px-4 py-6 flex flex-col gap-8">
       <!-- Direction Selector -->
-      <Card>
-        <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><RefreshCw size={14} aria-hidden="true" /> Quiz Direction</CardTitle></CardHeader>
-        <CardContent>
-          <div class="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Quiz direction">
-            {#each directions as dir}
-              <button
-                role="radio"
-                aria-checked={selectedDirection === dir.value}
-                class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg border-2 text-sm font-semibold transition-all cursor-pointer
-                  {selectedDirection === dir.value
-                    ? 'border-primary bg-primary/10 text-primary'
-                    : 'border-border bg-card text-muted-foreground hover:border-primary hover:text-foreground'}"
-                on:click={() => selectedDirection = dir.value}
-              >
-                <span class="text-xs">{dir.icon}</span>
-                <span>{dir.label}</span>
-              </button>
-            {/each}
-          </div>
-        </CardContent>
-      </Card>
+      <section>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+          <RefreshCw size={12} aria-hidden="true" /> Direction
+        </h3>
+        <div class="grid grid-cols-3 gap-3" role="radiogroup" aria-label="Quiz direction">
+          {#each directions as dir}
+            <button
+              role="radio"
+              aria-checked={selectedDirection === dir.value}
+              class="py-3 px-4 rounded-xl text-sm font-semibold transition-all cursor-pointer active:scale-[0.97]
+                {selectedDirection === dir.value
+                  ? 'bg-primary text-primary-foreground shadow-md'
+                  : 'bg-card text-muted-foreground shadow-sm hover:bg-accent hover:text-foreground'}"
+              on:click={() => selectedDirection = dir.value}
+            >
+              {dir.label}
+            </button>
+          {/each}
+        </div>
+      </section>
 
       <!-- Quiz Modes -->
-      <Card>
-        <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><PenLine size={14} aria-hidden="true" /> Quiz Modes</CardTitle></CardHeader>
-        <CardContent class="flex flex-col gap-2.5">
-          <UiButton size="lg" class="w-full" onclick={() => startQuiz('flashcard')}>
-            <Layers size={16} aria-hidden="true" /> Flashcard Quiz
-          </UiButton>
-          <UiButton variant="secondary" size="lg" class="w-full" onclick={() => startQuiz('multiple-choice')}>
-            <CheckCircle size={16} aria-hidden="true" /> Multiple Choice
-          </UiButton>
-          <UiButton variant="outline" size="lg" class="w-full" onclick={() => startQuiz('typing')}>
-            <Keyboard size={16} aria-hidden="true" /> Typing Quiz
-          </UiButton>
-        </CardContent>
-      </Card>
+      <section>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+          <PenLine size={12} aria-hidden="true" /> Quiz Modes
+        </h3>
+        <div class="flex flex-col gap-3">
+          <button
+            class="flex items-center gap-4 w-full px-5 py-4.5 bg-primary text-primary-foreground rounded-xl shadow-md text-left transition-all hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+            on:click={() => startQuiz('flashcard')}
+          >
+            <Layers size={20} aria-hidden="true" />
+            <span class="font-semibold text-sm">Flashcard Quiz</span>
+            <ChevronRight size={16} class="ml-auto opacity-60" aria-hidden="true" />
+          </button>
+          <button
+            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+            on:click={() => startQuiz('multiple-choice')}
+          >
+            <CheckCircle size={20} class="text-primary" aria-hidden="true" />
+            <span class="font-semibold text-sm">Multiple Choice</span>
+            <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-primary" aria-hidden="true" />
+          </button>
+          <button
+            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+            on:click={() => startQuiz('typing')}
+          >
+            <Keyboard size={20} class="text-primary" aria-hidden="true" />
+            <span class="font-semibold text-sm">Typing Quiz</span>
+            <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-primary" aria-hidden="true" />
+          </button>
+        </div>
+      </section>
 
       <!-- Grammar Quiz -->
       {#if lesson.grammar.length > 0}
-        <Card>
-          <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><PenLine size={14} aria-hidden="true" /> Grammar Quiz</CardTitle></CardHeader>
-          <CardContent>
-            <UiButton variant="outline" class="w-full" onclick={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}>
-              <PenLine size={16} aria-hidden="true" /> Grammar Quiz ({lesson.grammar.length} patterns)
-            </UiButton>
-          </CardContent>
-        </Card>
+        <section>
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+            <PenLine size={12} aria-hidden="true" /> Grammar
+          </h3>
+          <button
+            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+            on:click={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}
+          >
+            <PenLine size={20} class="text-success" aria-hidden="true" />
+            <span class="font-semibold text-sm">Grammar Quiz ({lesson.grammar.length} patterns)</span>
+            <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-success" aria-hidden="true" />
+          </button>
+        </section>
       {/if}
 
       <!-- Study Materials -->
-      <Card>
-        <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><BookOpen size={14} aria-hidden="true" /> Study Materials</CardTitle></CardHeader>
-        <CardContent class="flex flex-col gap-2.5">
-          <UiButton variant="outline" class="w-full" onclick={() => goto(buildVocabularyUrl(courseId, lessonId))}>
-            <BookOpen size={16} aria-hidden="true" /> View Vocabulary ({lesson.vocabulary.length})
-          </UiButton>
-          <UiButton variant="outline" class="w-full" onclick={() => goto(buildGrammarUrl(courseId, lessonId))}>
-            <Book size={16} aria-hidden="true" /> View Grammar ({lesson.grammar.length})
-          </UiButton>
-        </CardContent>
-      </Card>
+      <section>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+          <BookOpen size={12} aria-hidden="true" /> Study Materials
+        </h3>
+        <div class="flex flex-col gap-3">
+          <button
+            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+            on:click={() => goto(buildVocabularyUrl(courseId, lessonId))}
+          >
+            <BookOpen size={20} class="text-warning" aria-hidden="true" />
+            <span class="font-semibold text-sm">Vocabulary ({lesson.vocabulary.length})</span>
+            <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-warning" aria-hidden="true" />
+          </button>
+          <button
+            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+            on:click={() => goto(buildGrammarUrl(courseId, lessonId))}
+          >
+            <Book size={20} class="text-warning" aria-hidden="true" />
+            <span class="font-semibold text-sm">Grammar ({lesson.grammar.length})</span>
+            <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-warning" aria-hidden="true" />
+          </button>
+        </div>
+      </section>
     </div>
   </div>
 {:else}

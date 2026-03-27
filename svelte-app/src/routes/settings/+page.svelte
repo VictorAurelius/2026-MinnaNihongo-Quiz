@@ -17,8 +17,8 @@
   import { getAvailableFonts, getCurrentFont, setFont, initFont } from '$lib/utils/fontUtils';
   import ConfirmDialog from '$lib/components/common/ConfirmDialog.svelte';
   import { showToast } from '$lib/stores/toast';
-  import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import { Settings2, Type, BarChart3, Database, Download, Upload, Trash2 } from 'lucide-svelte';
 
   const fonts = getAvailableFonts();
   let selectedFont = 'system';
@@ -103,110 +103,125 @@
   <title>Settings - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl p-4 animate-in">
+<div class="mx-auto max-w-xl p-4 animate-in flex flex-col gap-8">
   <!-- Quiz Settings -->
-  <Card class="mb-3">
-    <CardHeader class="pb-2"><CardTitle class="text-sm">Quiz Settings</CardTitle></CardHeader>
-    <CardContent>
-      <div class="flex items-center justify-between py-2.5 border-b border-border">
+  <section>
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+      <Settings2 size={12} aria-hidden="true" /> Quiz Settings
+    </h3>
+    <div class="bg-card rounded-xl shadow-sm overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4.5">
         <label for="direction" class="text-sm font-medium">Default Direction</label>
         <select
           id="direction"
           value={settings.defaultDirection}
           on:change={handleDirectionChange}
-          class="px-2.5 py-1.5 border border-border rounded-md bg-background text-foreground text-sm"
+          class="px-3 py-1.5 rounded-lg bg-muted text-foreground text-sm font-medium border-0 cursor-pointer"
         >
           {#each directions as d}
             <option value={d.value}>{d.label}</option>
           {/each}
         </select>
       </div>
-      <div class="flex items-center justify-between py-2.5 border-b border-border">
+      <div class="h-px bg-border/50 mx-5"></div>
+      <div class="flex items-center justify-between px-5 py-4.5">
         <label for="autoPlay" class="text-sm font-medium">Auto-speak on new card</label>
         <input id="autoPlay" type="checkbox" checked={settings.autoPlay} on:change={handleAutoPlayChange}
-          class="w-5 h-5 accent-primary" />
+          class="w-5 h-5 accent-primary cursor-pointer" />
       </div>
-      <div class="flex items-center justify-between py-2.5">
+      <div class="h-px bg-border/50 mx-5"></div>
+      <div class="flex items-center justify-between px-5 py-4.5">
         <label for="showEnglish" class="text-sm font-medium">Show English translations</label>
         <input id="showEnglish" type="checkbox" checked={settings.showEnglish} on:change={handleShowEnglishChange}
-          class="w-5 h-5 accent-primary" />
+          class="w-5 h-5 accent-primary cursor-pointer" />
       </div>
-    </CardContent>
-  </Card>
+    </div>
+  </section>
 
   <!-- Font Settings -->
-  <Card class="mb-3">
-    <CardHeader class="pb-2"><CardTitle class="text-sm">Japanese Font</CardTitle></CardHeader>
-    <CardContent>
-      <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-label="Font selection">
-        {#each fonts as font}
-          <button
-            role="radio"
-            aria-checked={selectedFont === font.id}
-            class="flex flex-col items-center gap-1.5 p-3.5 rounded-xl border-2 cursor-pointer transition-all text-center
-              {selectedFont === font.id
-                ? 'border-primary bg-primary/5'
-                : 'border-border bg-muted hover:border-primary'}"
-            on:click={() => handleFontChange(font.id)}
-          >
-            <div class="text-xl leading-snug" style="font-family: {font.family}">{font.preview}</div>
-            <div class="text-xs font-semibold">{font.name}</div>
-            <div class="text-[0.65rem] text-muted-foreground">{font.nameJa}</div>
-          </button>
-        {/each}
-      </div>
-    </CardContent>
-  </Card>
+  <section>
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+      <Type size={12} aria-hidden="true" /> Japanese Font
+    </h3>
+    <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-label="Font selection">
+      {#each fonts as font}
+        <button
+          role="radio"
+          aria-checked={selectedFont === font.id}
+          class="flex flex-col items-center gap-2 p-5 rounded-xl cursor-pointer transition-all text-center active:scale-[0.97]
+            {selectedFont === font.id
+              ? 'bg-primary/10 shadow-md ring-2 ring-primary'
+              : 'bg-card shadow-sm hover:shadow-md hover:-translate-y-0.5'}"
+          on:click={() => handleFontChange(font.id)}
+        >
+          <div class="text-xl leading-snug" style="font-family: {font.family}">{font.preview}</div>
+          <div class="text-xs font-semibold">{font.name}</div>
+          <div class="text-[0.65rem] text-muted-foreground">{font.nameJa}</div>
+        </button>
+      {/each}
+    </div>
+  </section>
 
   <!-- Progress Summary -->
-  <Card class="mb-3">
-    <CardHeader class="pb-2"><CardTitle class="text-sm">Progress Summary</CardTitle></CardHeader>
-    <CardContent>
-      <div class="grid grid-cols-3 gap-3">
-        <div class="flex flex-col items-center gap-0.5 p-3 bg-muted rounded-lg">
-          <span class="text-2xl font-bold text-primary">{lessonCount}</span>
-          <span class="text-[0.7rem] text-muted-foreground text-center">Lessons studied</span>
-        </div>
-        <div class="flex flex-col items-center gap-0.5 p-3 bg-muted rounded-lg">
-          <span class="text-2xl font-bold text-primary">{totalItems}</span>
-          <span class="text-[0.7rem] text-muted-foreground text-center">Words practiced</span>
-        </div>
-        <div class="flex flex-col items-center gap-0.5 p-3 bg-muted rounded-lg">
-          <span class="text-2xl font-bold text-primary">{hskCount}</span>
-          <span class="text-[0.7rem] text-muted-foreground text-center">HSK groups</span>
-        </div>
+  <section>
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+      <BarChart3 size={12} aria-hidden="true" /> Progress Summary
+    </h3>
+    <div class="grid grid-cols-3 gap-3">
+      <div class="flex flex-col items-center gap-1 p-5 bg-card rounded-xl shadow-sm">
+        <span class="text-2xl font-bold text-primary">{lessonCount}</span>
+        <span class="text-[0.7rem] text-muted-foreground text-center">Lessons studied</span>
       </div>
-    </CardContent>
-  </Card>
+      <div class="flex flex-col items-center gap-1 p-5 bg-card rounded-xl shadow-sm">
+        <span class="text-2xl font-bold text-primary">{totalItems}</span>
+        <span class="text-[0.7rem] text-muted-foreground text-center">Words practiced</span>
+      </div>
+      <div class="flex flex-col items-center gap-1 p-5 bg-card rounded-xl shadow-sm">
+        <span class="text-2xl font-bold text-primary">{hskCount}</span>
+        <span class="text-[0.7rem] text-muted-foreground text-center">HSK groups</span>
+      </div>
+    </div>
+  </section>
 
   <!-- Data Management -->
-  <Card class="mb-3">
-    <CardHeader class="pb-2"><CardTitle class="text-sm">Data Management</CardTitle></CardHeader>
-    <CardContent>
-      <div class="flex items-center justify-between gap-3 py-3 border-b border-border">
-        <div class="min-w-0">
+  <section>
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+      <Database size={12} aria-hidden="true" /> Data Management
+    </h3>
+    <div class="flex flex-col gap-3">
+      <button
+        class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md active:scale-[0.98] cursor-pointer group"
+        on:click={handleExport}
+      >
+        <Download size={20} class="text-primary flex-shrink-0" aria-hidden="true" />
+        <div class="flex-1 min-w-0">
           <strong class="text-sm block">Export Progress</strong>
           <span class="text-xs text-muted-foreground">Download as JSON</span>
         </div>
-        <div class="flex-shrink-0"><UiButton size="sm" onclick={handleExport}>Export</UiButton></div>
-      </div>
-      <div class="flex items-center justify-between gap-3 py-3 border-b border-border">
-        <div class="min-w-0">
+      </button>
+      <button
+        class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md active:scale-[0.98] cursor-pointer group"
+        on:click={handleImportClick}
+      >
+        <Upload size={20} class="text-primary flex-shrink-0" aria-hidden="true" />
+        <div class="flex-1 min-w-0">
           <strong class="text-sm block">Import Progress</strong>
           <span class="text-xs text-muted-foreground">Restore from file</span>
         </div>
-        <div class="flex-shrink-0"><UiButton variant="secondary" size="sm" onclick={handleImportClick}>Import</UiButton></div>
-        <input type="file" accept=".json" bind:this={fileInput} on:change={handleFileChange} class="hidden" />
-      </div>
-      <div class="flex items-center justify-between gap-3 py-3 mt-2">
-        <div class="min-w-0">
+      </button>
+      <input type="file" accept=".json" bind:this={fileInput} on:change={handleFileChange} class="hidden" />
+      <button
+        class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md active:scale-[0.98] cursor-pointer group"
+        on:click={() => showClearConfirm = true}
+      >
+        <Trash2 size={20} class="text-destructive flex-shrink-0" aria-hidden="true" />
+        <div class="flex-1 min-w-0">
           <strong class="text-sm block text-destructive">Clear All Progress</strong>
           <span class="text-xs text-muted-foreground">Delete permanently</span>
         </div>
-        <div class="flex-shrink-0"><UiButton variant="destructive" size="sm" onclick={() => showClearConfirm = true}>Clear</UiButton></div>
-      </div>
-    </CardContent>
-  </Card>
+      </button>
+    </div>
+  </section>
 </div>
 
 <ConfirmDialog

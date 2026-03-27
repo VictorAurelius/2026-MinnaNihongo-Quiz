@@ -15,6 +15,7 @@
   import BackButton from '$lib/components/common/BackButton.svelte';
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import { ChevronRight } from 'lucide-svelte';
   import type { CourseId } from '$lib/types/course';
 
   $: courseId = $page.params.courseId as CourseId;
@@ -32,17 +33,19 @@
   <div class="animate-in">
     <!-- Course Header -->
     <div
-      class="text-white py-6 px-4 text-center relative"
+      class="text-white pt-3 pb-5 px-4"
       style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
     >
-      <div class="absolute top-3 left-3">
+      <div class="mb-3">
         <BackButton href="/courses" variant="overlay" />
       </div>
-      <h1 class="text-xl font-bold mb-1">{course.metadata.title}</h1>
-      <p class="text-xs opacity-90">{course.metadata.description}</p>
-      <p class="text-xs opacity-75 mt-1">
-        {courseProgress.completed}/{courseProgress.total} lessons mastered ({courseProgress.percentage}%)
-      </p>
+      <div class="text-center">
+        <h1 class="text-xl font-bold mb-1">{course.metadata.title}</h1>
+        <p class="text-xs opacity-90">{course.metadata.description}</p>
+        <p class="text-xs opacity-75 mt-1">
+          {courseProgress.completed}/{courseProgress.total} lessons mastered ({courseProgress.percentage}%)
+        </p>
+      </div>
     </div>
 
     <!-- Content -->
@@ -59,12 +62,12 @@
       <h2 class="text-base font-bold mb-3">Lessons ({lessons.length})</h2>
 
       <!-- Lesson rows — compact, readable on all screen sizes -->
-      <div class="flex flex-col gap-1.5">
+      <div class="flex flex-col gap-2">
         {#each lessons as lesson}
           {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
           <a
             href={buildLessonUrl(courseId, lesson.lessonNumber)}
-            class="flex items-center gap-3 w-full px-3 py-2.5 bg-card border border-border rounded-lg text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-sm cursor-pointer group"
+            class="flex items-center gap-4 w-full px-4 py-3.5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-md active:scale-[0.98] cursor-pointer group"
           >
             <!-- Lesson number -->
             <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
@@ -84,7 +87,7 @@
             <!-- Mastery + arrow -->
             <div class="flex items-center gap-2 flex-shrink-0">
               <MasteryRing percentage={mastery} size={32} />
-              <span class="text-muted-foreground text-xs group-hover:text-primary group-hover:translate-x-0.5 transition-all">→</span>
+              <ChevronRight size={16} class="text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
             </div>
           </a>
         {/each}

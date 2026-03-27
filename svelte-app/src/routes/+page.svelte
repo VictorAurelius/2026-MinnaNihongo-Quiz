@@ -11,7 +11,7 @@
   import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import PageError from '$lib/components/common/PageError.svelte';
-  import { Layers, CheckCircle, Keyboard } from 'lucide-svelte';
+  import { Layers, CheckCircle, Keyboard, ChevronRight } from 'lucide-svelte';
 
   let courses: ReturnType<typeof getAllCourses> = [];
   let totalLessons = 0;
@@ -100,11 +100,11 @@
   <section class="mb-6 px-4">
     <h2 class="text-lg font-bold mb-3">Start Learning</h2>
 
-    <div class="flex flex-col gap-2.5">
+    <div class="flex flex-col gap-3">
       {#each sections as section}
         <a
           href={section.href}
-          class="flex items-center gap-3.5 w-full p-3.5 bg-card border border-border rounded-xl text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 cursor-pointer group"
+          class="flex items-center gap-4 w-full px-5 py-4 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group"
         >
           <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary text-xl font-bold {section.iconClass}">
             {section.icon}
@@ -113,7 +113,7 @@
             <h3 class="text-sm font-bold text-foreground">{section.title}</h3>
             <p class="text-xs text-muted-foreground leading-snug">{section.desc}</p>
           </div>
-          <span class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary">→</span>
+          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
         </a>
       {/each}
     </div>
@@ -122,10 +122,10 @@
   <!-- Quiz Modes -->
   <section class="mb-8 px-4">
     <h2 class="text-lg font-bold mb-3">3 Quiz Modes</h2>
-    <div class="grid grid-cols-3 gap-2.5">
+    <div class="grid grid-cols-3 gap-3">
       {#each quizModes as mode}
-        <Card class="text-center">
-          <CardContent class="p-4 flex flex-col items-center gap-1">
+        <Card class="text-center shadow-md">
+          <CardContent class="p-5 flex flex-col items-center gap-1.5">
             <svelte:component this={mode.component} size={24} class="text-primary" aria-hidden="true" />
             <span class="text-xs font-bold">{mode.name}</span>
             <span class="text-[0.68rem] text-muted-foreground">{mode.desc}</span>

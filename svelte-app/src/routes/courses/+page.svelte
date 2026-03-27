@@ -7,6 +7,7 @@
   import { getAllCourses } from '$lib/data/courses';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
+  import { ChevronRight } from 'lucide-svelte';
 
   const courses = getAllCourses();
 </script>
@@ -29,7 +30,7 @@
     {#each courses as course}
       <a
         href="{base}/course/{course.metadata.id}"
-        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg cursor-pointer group relative overflow-hidden"
+        class="flex items-center gap-4 w-full px-5 py-4 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group relative overflow-hidden"
       >
         <!-- Color accent -->
         <div class="absolute left-0 inset-y-0 w-1 rounded-l-xl" style="background: {course.metadata.color}"></div>
@@ -42,7 +43,7 @@
           </div>
           <p class="text-xs text-muted-foreground leading-snug">{course.metadata.description}</p>
         </div>
-        <span class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform">→</span>
+        <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform" aria-hidden="true" />
       </a>
     {/each}
   </div>
