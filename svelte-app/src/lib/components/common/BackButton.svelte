@@ -7,6 +7,7 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { page } from '$app/stores';
+  import { ArrowLeft } from 'lucide-svelte';
 
   export let href: string | undefined = undefined;
   export let showIcon = true;
@@ -44,7 +45,7 @@
   aria-label="Go back"
 >
   {#if showIcon}
-    <span class="back-icon">←</span>
+    <ArrowLeft size={16} aria-hidden="true" />
   {/if}
   {#if text}
     <span class="back-text">{text}</span>
@@ -84,11 +85,6 @@
     background: rgba(255, 255, 255, 0.3);
     border-color: transparent;
     color: white;
-  }
-
-  .back-icon {
-    font-size: 1.2em;
-    line-height: 1;
   }
 
   .back-text {

@@ -10,7 +10,9 @@
   import { getCourse } from '$lib/data/courses';
   import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
+  import BackButton from '$lib/components/common/BackButton.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import { BookOpen, X } from 'lucide-svelte';
   import type { CourseId } from '$lib/types/course';
 
   let searchTerm = '';
@@ -36,10 +38,6 @@
   function toggleExpand(index: number) {
     expandedIndex = expandedIndex === index ? null : index;
   }
-
-  function goBack() {
-    goto(`${base}/course/${courseId}/lesson/${lessonId}`);
-  }
 </script>
 
 <svelte:head>
@@ -50,10 +48,10 @@
   <div class="mx-auto max-w-3xl p-4 animate-in">
     <!-- Header -->
     <div class="text-center mb-5 relative">
-      <button class="sm:absolute top-0 left-0 mb-3 sm:mb-0 text-sm px-3 py-1.5 bg-card border border-border rounded-lg hover:border-primary transition-colors cursor-pointer" on:click={goBack}>
-        ← Back to Lesson
-      </button>
-      <h2 class="text-xl font-bold mb-1">📖 Grammar - Bài {lessonData.lessonNumber}</h2>
+      <div class="sm:absolute top-0 left-0 mb-3 sm:mb-0">
+        <BackButton href={`/course/${courseId}/lesson/${lessonId}`} text="Back to Lesson" />
+      </div>
+      <h2 class="text-xl font-bold mb-1 inline-flex items-center gap-1.5"><BookOpen size={20} aria-hidden="true" /> Grammar - Bài {lessonData.lessonNumber}</h2>
       <p class="text-sm text-muted-foreground">{lessonData.title}</p>
       <p class="text-sm font-semibold text-primary">{grammar.length} ngữ pháp</p>
     </div>
@@ -67,7 +65,7 @@
         class="w-full py-2.5 pl-3 pr-10 border border-border rounded-xl text-sm bg-card text-foreground focus:outline-none focus:border-primary transition-colors"
       />
       {#if searchTerm}
-        <button class="absolute right-2.5 top-1/2 -translate-y-1/2 bg-transparent border-none text-muted-foreground cursor-pointer text-base hover:text-foreground" on:click={() => searchTerm = ''}>✕</button>
+        <button class="absolute right-2.5 top-1/2 -translate-y-1/2 bg-transparent border-none text-muted-foreground cursor-pointer hover:text-foreground" on:click={() => searchTerm = ''}><X size={16} aria-hidden="true" /></button>
       {/if}
     </div>
 

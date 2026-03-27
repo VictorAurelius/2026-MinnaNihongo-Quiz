@@ -13,6 +13,7 @@
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import BackButton from '$lib/components/common/BackButton.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import { RefreshCw, PenLine, Layers, CheckCircle, Keyboard, BookOpen, Book } from 'lucide-svelte';
   import type { CourseId } from '$lib/types/course';
   import type { QuizDirection } from '$lib/types';
 
@@ -24,9 +25,9 @@
   let selectedDirection: QuizDirection = 'ja-vi';
 
   const directions: { value: QuizDirection; label: string; icon: string }[] = [
-    { value: 'ja-vi', label: 'JP → VN', icon: '🇯🇵→🇻🇳' },
-    { value: 'vi-ja', label: 'VN → JP', icon: '🇻🇳→🇯🇵' },
-    { value: 'vi-romaji', label: 'VN → Romaji', icon: '🇻🇳→abc' }
+    { value: 'ja-vi', label: 'JP → VN', icon: 'JP→VN' },
+    { value: 'vi-ja', label: 'VN → JP', icon: 'VN→JP' },
+    { value: 'vi-romaji', label: 'VN → Romaji', icon: 'VN→abc' }
   ];
 
   function startQuiz(mode: string) {
@@ -60,7 +61,7 @@
     <div class="px-4 py-6 flex flex-col gap-6">
       <!-- Direction Selector -->
       <Card>
-        <CardHeader class="pb-2"><CardTitle class="text-sm">🔄 Quiz Direction</CardTitle></CardHeader>
+        <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><RefreshCw size={14} aria-hidden="true" /> Quiz Direction</CardTitle></CardHeader>
         <CardContent>
           <div class="grid grid-cols-3 gap-2">
             {#each directions as dir}
@@ -81,16 +82,16 @@
 
       <!-- Quiz Modes -->
       <Card>
-        <CardHeader class="pb-2"><CardTitle class="text-sm">📝 Quiz Modes</CardTitle></CardHeader>
+        <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><PenLine size={14} aria-hidden="true" /> Quiz Modes</CardTitle></CardHeader>
         <CardContent class="flex flex-col gap-2.5">
           <UiButton size="lg" class="w-full" onclick={() => startQuiz('flashcard')}>
-            🎴 Flashcard Quiz
+            <Layers size={16} aria-hidden="true" /> Flashcard Quiz
           </UiButton>
           <UiButton variant="secondary" size="lg" class="w-full" onclick={() => startQuiz('multiple-choice')}>
-            ✓ Multiple Choice
+            <CheckCircle size={16} aria-hidden="true" /> Multiple Choice
           </UiButton>
           <UiButton variant="outline" size="lg" class="w-full" onclick={() => startQuiz('typing')}>
-            ⌨️ Typing Quiz
+            <Keyboard size={16} aria-hidden="true" /> Typing Quiz
           </UiButton>
         </CardContent>
       </Card>
@@ -98,10 +99,10 @@
       <!-- Grammar Quiz -->
       {#if lesson.grammar.length > 0}
         <Card>
-          <CardHeader class="pb-2"><CardTitle class="text-sm">📝 Grammar Quiz</CardTitle></CardHeader>
+          <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><PenLine size={14} aria-hidden="true" /> Grammar Quiz</CardTitle></CardHeader>
           <CardContent>
             <UiButton variant="outline" class="w-full" onclick={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}>
-              📝 Grammar Quiz ({lesson.grammar.length} patterns)
+              <PenLine size={16} aria-hidden="true" /> Grammar Quiz ({lesson.grammar.length} patterns)
             </UiButton>
           </CardContent>
         </Card>
@@ -109,13 +110,13 @@
 
       <!-- Study Materials -->
       <Card>
-        <CardHeader class="pb-2"><CardTitle class="text-sm">📚 Study Materials</CardTitle></CardHeader>
+        <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><BookOpen size={14} aria-hidden="true" /> Study Materials</CardTitle></CardHeader>
         <CardContent class="flex flex-col gap-2.5">
           <UiButton variant="outline" class="w-full" onclick={() => goto(buildVocabularyUrl(courseId, lessonId))}>
-            📚 View Vocabulary ({lesson.vocabulary.length})
+            <BookOpen size={16} aria-hidden="true" /> View Vocabulary ({lesson.vocabulary.length})
           </UiButton>
           <UiButton variant="outline" class="w-full" onclick={() => goto(buildGrammarUrl(courseId, lessonId))}>
-            📖 View Grammar ({lesson.grammar.length})
+            <Book size={16} aria-hidden="true" /> View Grammar ({lesson.grammar.length})
           </UiButton>
         </CardContent>
       </Card>

@@ -16,6 +16,7 @@
   import { initFont } from '$lib/utils/fontUtils';
   import Toast from '$lib/components/common/Toast.svelte';
   import { toastStore } from '$lib/stores/toast';
+  import { X } from 'lucide-svelte';
 
   let showInstallBanner = false;
 
@@ -71,7 +72,7 @@
       <span>Install Smart Quiz for offline access</span>
       <div class="banner-actions">
         <button class="banner-btn" on:click={handleInstall}>Install</button>
-        <button class="banner-dismiss" on:click={dismissInstall}>✕</button>
+        <button class="banner-dismiss" on:click={dismissInstall}><X size={16} aria-hidden="true" /></button>
       </div>
     </div>
   {/if}

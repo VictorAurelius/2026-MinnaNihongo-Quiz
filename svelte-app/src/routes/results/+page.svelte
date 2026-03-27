@@ -12,6 +12,7 @@
   import type { CourseId } from '$lib/types/course';
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import { PartyPopper, ThumbsUp, Zap, BookOpen, PenLine, RefreshCw, ArrowLeft, Home } from 'lucide-svelte';
 
   $: stats = calculateStats($quizStore.score, $quizStore.questions.length);
   $: duration = $quizStore.endTime
@@ -113,13 +114,13 @@
       <!-- Feedback -->
       <div class="w-full rounded-lg bg-muted p-3 text-center text-sm font-semibold text-primary">
         {#if stats.percentage === 100}
-          🎉 Perfect score! Excellent work!
+          <PartyPopper size={16} aria-hidden="true" /> Perfect score! Excellent work!
         {:else if stats.percentage >= 80}
-          👍 Great job! Keep it up!
+          <ThumbsUp size={16} aria-hidden="true" /> Great job! Keep it up!
         {:else if stats.percentage >= 60}
-          💪 Good effort! Practice makes perfect.
+          <Zap size={16} aria-hidden="true" /> Good effort! Practice makes perfect.
         {:else}
-          📚 Keep practicing! You'll get better.
+          <BookOpen size={16} aria-hidden="true" /> Keep practicing! You'll get better.
         {/if}
       </div>
 
@@ -127,17 +128,17 @@
       <div class="flex flex-col gap-2.5 w-full">
         {#if wrongCount > 0}
           <UiButton variant="default" size="lg" class="w-full" onclick={retryWrong}>
-            📝 Retry {wrongCount} Wrong Items
+            <PenLine size={16} aria-hidden="true" /> Retry {wrongCount} Wrong Items
           </UiButton>
         {/if}
         <UiButton variant="secondary" size="lg" class="w-full" onclick={retryAll}>
-          🔄 Retry All
+          <RefreshCw size={16} aria-hidden="true" /> Retry All
         </UiButton>
         <UiButton variant="outline" class="w-full" onclick={backToLesson}>
-          ← Back to Lesson
+          <ArrowLeft size={16} aria-hidden="true" /> Back to Lesson
         </UiButton>
         <UiButton variant="ghost" class="w-full" onclick={backToHome}>
-          🏠 Home
+          <Home size={16} aria-hidden="true" /> Home
         </UiButton>
       </div>
     </CardContent>

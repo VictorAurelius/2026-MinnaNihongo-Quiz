@@ -26,9 +26,8 @@ describe('BackButton Component', () => {
     it('should render icon by default', () => {
       const { container } = render(BackButton);
 
-      const icon = container.querySelector('.back-icon');
-      expect(icon).toBeInTheDocument();
-      expect(icon?.textContent).toBe('←');
+      const svg = container.querySelector('svg');
+      expect(svg).toBeInTheDocument();
     });
 
     it('should render text by default', () => {
@@ -46,8 +45,8 @@ describe('BackButton Component', () => {
         props: { showIcon: true }
       });
 
-      const icon = container.querySelector('.back-icon');
-      expect(icon).toBeInTheDocument();
+      const svg = container.querySelector('svg');
+      expect(svg).toBeInTheDocument();
     });
 
     it('should hide icon when showIcon is false', () => {
@@ -55,8 +54,8 @@ describe('BackButton Component', () => {
         props: { showIcon: false }
       });
 
-      const icon = container.querySelector('.back-icon');
-      expect(icon).not.toBeInTheDocument();
+      const svg = container.querySelector('svg');
+      expect(svg).not.toBeInTheDocument();
     });
   });
 
@@ -152,10 +151,10 @@ describe('BackButton Component', () => {
         props: { showIcon: true, text: '' }
       });
 
-      const icon = container.querySelector('.back-icon');
+      const svg = container.querySelector('svg');
       const text = container.querySelector('.back-text');
 
-      expect(icon).toBeInTheDocument();
+      expect(svg).toBeInTheDocument();
       expect(text).not.toBeInTheDocument();
     });
 
@@ -164,10 +163,10 @@ describe('BackButton Component', () => {
         props: { showIcon: false, text: 'Back' }
       });
 
-      const icon = container.querySelector('.back-icon');
+      const svg = container.querySelector('svg');
       const text = container.querySelector('.back-text');
 
-      expect(icon).not.toBeInTheDocument();
+      expect(svg).not.toBeInTheDocument();
       expect(text).toBeInTheDocument();
     });
 
@@ -180,11 +179,11 @@ describe('BackButton Component', () => {
         }
       });
 
-      const icon = container.querySelector('.back-icon');
+      const svg = container.querySelector('svg');
       const text = container.querySelector('.back-text');
       const button = screen.getByRole('button');
 
-      expect(icon).toBeInTheDocument();
+      expect(svg).toBeInTheDocument();
       expect(text?.textContent).toBe('Return');
       expect(button).toBeInTheDocument();
     });

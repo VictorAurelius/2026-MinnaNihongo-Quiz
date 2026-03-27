@@ -114,9 +114,8 @@ describe('TypingQuiz Component', () => {
         props: { question: createMockQuestion(), answer: '食べる' }
       });
 
-      // The keyboard toggle button contains ⌨️
-      const buttons = container.querySelectorAll('button');
-      const kbButton = Array.from(buttons).find(b => b.textContent?.includes('⌨'));
+      // The keyboard toggle button has aria-label "Toggle keyboard"
+      const kbButton = container.querySelector('button[aria-label="Toggle keyboard"]');
       expect(kbButton).toBeTruthy();
     });
   });

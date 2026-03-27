@@ -7,6 +7,7 @@
   import type { KanjiItem } from '$lib/types';
   import { createEventDispatcher } from 'svelte';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import { Volume2, Check, X } from 'lucide-svelte';
 
   export let item: KanjiItem;
   export let options: string[] = [];
@@ -74,7 +75,7 @@
     {/if}
   </div>
   <button class="btn-speak btn-speak--fc" on:click={() => playJapaneseAudio(item.character)}>
-    🔊 Speak (F1)
+    <Volume2 size={16} aria-hidden="true" /> Speak (F1)
   </button>
 </div>
 
@@ -94,9 +95,9 @@
 {#if answered}
   <div class="feedback" class:correct={selectedOption === answer} class:wrong={selectedOption !== answer} aria-live="polite" aria-atomic="true">
     {#if selectedOption === answer}
-      ✓ Correct!
+      <Check size={16} aria-hidden="true" /> Correct!
     {:else}
-      ✗ Wrong! The correct answer is: {answer}
+      <X size={16} aria-hidden="true" /> Wrong! The correct answer is: {answer}
     {/if}
   </div>
 {/if}

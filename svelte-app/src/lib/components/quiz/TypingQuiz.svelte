@@ -10,6 +10,7 @@
   import { showVirtualKeyboard, hideVirtualKeyboard, uiStore } from '$lib/stores';
   import { checkAnswer as checkQuizAnswer } from '$lib/utils/quizUtils';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import { Volume2, Check, X, Lightbulb, Keyboard, ArrowRight } from 'lucide-svelte';
 
   export let question: VocabItem;
   export let questionText = '';
@@ -120,7 +121,7 @@
     <div class="question-romaji">{question.english}</div>
   {/if}
   <button class="btn-speak btn-speak--fc" on:click={() => playJapaneseAudio(question.kana || question.japanese)}>
-    🔊 Speak (F1)
+    <Volume2 size={16} aria-hidden="true" /> Speak (F1)
   </button>
 </div>
 
@@ -134,8 +135,8 @@
     disabled={answered}
     autocomplete="off"
   />
-  <button class="btn btn-secondary" on:click={toggleKeyboard}>
-    ⌨️
+  <button class="btn btn-secondary" on:click={toggleKeyboard} aria-label="Toggle keyboard">
+    <Keyboard size={18} aria-hidden="true" />
   </button>
 </div>
 
@@ -158,7 +159,7 @@
 <div class="romaji-hint-wrapper">
   {#if !showHint}
     <button class="btn-hint" on:click={toggleHint}>
-      💡 Show Romaji Hint
+      <Lightbulb size={14} aria-hidden="true" /> Show Romaji Hint
     </button>
   {:else if question.kana}
     <div class="hint-romaji">{question.kana}</div>
@@ -168,13 +169,13 @@
 {#if answered}
   <div class="feedback" class:correct={isCorrect} class:wrong={!isCorrect} aria-live="polite" aria-atomic="true">
     {#if isCorrect}
-      ✓ Correct!
+      <Check size={16} aria-hidden="true" /> Correct!
     {:else}
-      ✗ Wrong! The correct answer is: {answer}
+      <X size={16} aria-hidden="true" /> Wrong! The correct answer is: {answer}
     {/if}
   </div>
   <button class="btn btn-primary btn-lg" on:click={advance}>
-    Next Question →
+    Next Question <ArrowRight size={16} aria-hidden="true" />
   </button>
   <div class="hint-text">Press Enter to continue</div>
 {:else}
