@@ -13,6 +13,7 @@
   import { getLessonMastery, getNextLesson, getCourseProgress } from '$lib/utils/progressUtils';
   import MasteryRing from '$lib/components/common/MasteryRing.svelte';
   import BackButton from '$lib/components/common/BackButton.svelte';
+  import PageEmpty from '$lib/components/common/PageEmpty.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import type { CourseId } from '$lib/types/course';
 
@@ -91,9 +92,9 @@
     </div>
   </div>
 {:else}
-  <div class="text-center py-12 px-6">
-    <h2 class="text-xl font-bold mb-3 text-foreground">Course Not Found</h2>
-    <p class="text-muted-foreground mb-4">The course you're looking for doesn't exist.</p>
-    <UiButton onclick={() => goto(`${base}/courses`)}>View All Courses</UiButton>
-  </div>
+  <PageEmpty
+    title="Course Not Found"
+    description="The course you're looking for doesn't exist."
+    action={{ label: 'View All Courses', href: '/courses' }}
+  />
 {/if}

@@ -12,6 +12,7 @@
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import BackButton from '$lib/components/common/BackButton.svelte';
+  import PageEmpty from '$lib/components/common/PageEmpty.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import { RefreshCw, PenLine, Layers, CheckCircle, Keyboard, BookOpen, Book } from 'lucide-svelte';
   import type { CourseId } from '$lib/types/course';
@@ -125,9 +126,9 @@
     </div>
   </div>
 {:else}
-  <div class="text-center py-12 px-6">
-    <h2 class="text-xl font-bold mb-3">Lesson Not Found</h2>
-    <p class="text-muted-foreground mb-4">The lesson you're looking for doesn't exist.</p>
-    <UiButton onclick={() => goto(`${base}/courses`)}>Back to Courses</UiButton>
-  </div>
+  <PageEmpty
+    title="Lesson Not Found"
+    description="The lesson you're looking for doesn't exist."
+    action={{ label: 'Back to Courses', href: '/courses' }}
+  />
 {/if}

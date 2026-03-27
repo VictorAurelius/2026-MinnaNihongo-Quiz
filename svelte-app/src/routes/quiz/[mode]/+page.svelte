@@ -15,6 +15,7 @@
   import MultipleChoice from '$lib/components/quiz/MultipleChoice.svelte';
   import TypingQuiz from '$lib/components/quiz/TypingQuiz.svelte';
   import ProgressBar from '$lib/components/common/ProgressBar.svelte';
+  import { Skeleton } from '$lib/components/ui/skeleton';
   import type { QuizMode, QuizDirection, CourseId } from '$lib/types';
   import { showToast } from '$lib/stores/toast';
 
@@ -123,7 +124,12 @@
     {/if}
   </div>
 {:else}
-  <div class="text-center py-12 text-muted-foreground">
-    <p>Loading quiz...</p>
+  <div class="mx-auto max-w-xl px-4 space-y-4 animate-in">
+    <Skeleton class="h-2 w-full rounded-full" />
+    <Skeleton class="h-64 w-full rounded-lg" />
+    <div class="flex gap-2">
+      <Skeleton class="h-10 flex-1 rounded-md" />
+      <Skeleton class="h-10 flex-1 rounded-md" />
+    </div>
   </div>
 {/if}
