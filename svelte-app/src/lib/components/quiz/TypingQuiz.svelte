@@ -185,18 +185,18 @@
 
 <style>
   .quiz-question-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius);
     padding: 1.5rem;
     margin-bottom: 1.25rem;
-    box-shadow: var(--shadow);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     text-align: center;
   }
 
   .question-label {
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 0.4rem;
   }
 
@@ -210,7 +210,7 @@
 
   .question-romaji {
     font-size: 0.95rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
     margin-top: 0.5rem;
   }
@@ -226,24 +226,24 @@
     padding: 0.75rem 1rem;
     font-size: 1.1rem;
     font-family: var(--font-jp);
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: var(--bg-card);
-    color: var(--text);
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-card);
+    color: var(--color-foreground);
     outline: none;
-    transition: border-color var(--transition);
+    transition: border-color 0.2s ease;
   }
 
   .typing-input:focus {
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .typing-input.correct {
-    border-color: var(--success);
+    border-color: var(--color-success);
   }
 
   .typing-input.wrong {
-    border-color: var(--danger);
+    border-color: var(--color-destructive);
   }
 
   .romaji-hint-wrapper {
@@ -264,31 +264,31 @@
     font-weight: 500;
     font-family: inherit;
     background: transparent;
-    color: var(--text-muted);
-    border: 1.5px dashed var(--border);
-    border-radius: var(--radius-sm);
+    color: var(--color-muted-foreground);
+    border: 1.5px dashed var(--color-border);
+    border-radius: 8px;
     cursor: pointer;
-    transition: all var(--transition);
+    transition: all 0.2s ease;
   }
 
   .btn-hint:hover {
-    background: var(--border);
-    color: var(--text);
+    background: var(--color-border);
+    color: var(--color-foreground);
   }
 
   .hint-romaji {
     font-size: 0.9rem;
-    color: var(--primary);
+    color: var(--color-primary);
     font-style: italic;
     padding: 0.4rem 0.8rem;
-    background: var(--bg);
-    border-radius: var(--radius-sm);
+    background: var(--color-background);
+    border-radius: 8px;
     letter-spacing: 0.02em;
   }
 
   .feedback {
     padding: 0.8rem 1rem;
-    border-radius: var(--radius-sm);
+    border-radius: 8px;
     margin-bottom: 1rem;
     font-weight: 600;
     font-size: 0.95rem;
@@ -296,19 +296,19 @@
   }
 
   .feedback.correct {
-    background: var(--success-bg);
-    color: var(--success);
+    background: color-mix(in srgb, var(--color-success) 12%, var(--color-background));
+    color: var(--color-success);
   }
 
   .feedback.wrong {
-    background: var(--danger-bg);
-    color: var(--danger);
+    background: color-mix(in srgb, var(--color-destructive) 12%, var(--color-background));
+    color: var(--color-destructive);
   }
 
   .hint-text {
     text-align: center;
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-top: 0.5rem;
   }
 

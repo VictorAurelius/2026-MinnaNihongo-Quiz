@@ -137,10 +137,10 @@
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
@@ -162,7 +162,7 @@
   .hint-text {
     text-align: center;
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-top: 1rem;
   }
 
@@ -177,7 +177,7 @@
   .fc-example {
     font-family: var(--font-jp);
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
     text-align: center;
     margin-top: 0.5rem;

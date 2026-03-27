@@ -22,20 +22,32 @@
   function handleClick(event: MouseEvent) {
     dispatch('click', event);
   }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (clickable && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      dispatch('click', event);
+    }
+  }
 </script>
 
-<!-- svelte-ignore a11y_click_events_have_key_events -->
-<!-- svelte-ignore a11y_no_static_element_interactions -->
-<div class={classes} on:click={handleClick} {...$$restProps}>
+<div
+  class={classes}
+  on:click={handleClick}
+  on:keydown={handleKeydown}
+  role={clickable ? 'button' : undefined}
+  tabindex={clickable ? 0 : undefined}
+  {...$$restProps}
+>
   <slot />
 </div>
 
 <style>
   .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
 
   .card-padding-sm {
@@ -52,8 +64,8 @@
 
   .card-hover:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary);
   }
 
   .card-clickable {
