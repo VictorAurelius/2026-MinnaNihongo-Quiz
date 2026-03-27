@@ -129,7 +129,7 @@
 
   <!-- Type Filter -->
   <div class="flex gap-2 mb-4">
-    {#each [{ type: 'all', label: 'All' }, { type: 'vocab', label: 'Vocab' }, { type: 'kanji', label: 'Kanji' }] as f}
+    {#each [{ type: 'all' as const, label: 'All' }, { type: 'vocab' as const, label: 'Vocab' }, { type: 'kanji' as const, label: 'Kanji' }] as f}
       <button
         class="px-3.5 py-1.5 rounded-full border text-sm cursor-pointer transition-all
           {filterType === f.type ? 'bg-primary text-white border-primary' : 'bg-card text-muted-foreground border-border hover:border-primary'}"
