@@ -10,7 +10,7 @@
   import { getCourse } from '$lib/data/courses';
   import { buildLessonUrl } from '$lib/utils/courseUtils';
   import { progressStore } from '$lib/stores';
-  import { getLessonMastery, isLessonUnlocked, getNextLesson, getCourseProgress } from '$lib/utils/progressUtils';
+  import { getLessonMastery, getNextLesson, getCourseProgress } from '$lib/utils/progressUtils';
   import MasteryRing from '$lib/components/common/MasteryRing.svelte';
   import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
@@ -65,18 +65,15 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {#each lessons as lesson}
           {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
-          {@const unlocked = isLessonUnlocked($progressStore, courseId, lesson.lessonNumber)}
           <button
-            class="text-left w-full transition-all duration-200 {unlocked ? 'hover:-translate-y-0.5 hover:shadow-lg cursor-pointer' : 'opacity-50 cursor-not-allowed'}"
-            disabled={!unlocked}
-            on:click={() => unlocked && goto(buildLessonUrl(courseId, lesson.lessonNumber))}
-            title={unlocked ? '' : `Complete Bài ${lesson.lessonNumber - 1} first (need 70% mastery)`}
+            class="text-left w-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg cursor-pointer"
+            on:click={() => goto(buildLessonUrl(courseId, lesson.lessonNumber))}
           >
-            <Card class="h-full {unlocked ? 'hover:border-primary' : ''}">
+            <Card class="h-full hover:border-primary">
               <CardContent class="p-4">
                 <div class="flex items-center justify-between mb-2">
                   <Badge variant="default" class="text-xs">Bài {lesson.lessonNumber}</Badge>
-                  <MasteryRing percentage={mastery} size={36} locked={!unlocked} />
+                  <MasteryRing percentage={mastery} size={36} />
                 </div>
                 <h3 class="text-sm font-semibold text-foreground mb-2 leading-snug">{lesson.title}</h3>
                 <div class="flex gap-3 text-xs text-muted-foreground">

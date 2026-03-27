@@ -18,9 +18,9 @@ export function getLessonMastery(state: ProgressState, courseId: string, lessonN
   return Math.round((mastered / items.length) * 100);
 }
 
-export function isLessonUnlocked(state: ProgressState, courseId: string, lessonNumber: number): boolean {
-  if (lessonNumber <= 1) return true;
-  return getLessonMastery(state, courseId, lessonNumber - 1) >= MASTERY_THRESHOLD;
+export function isLessonUnlocked(_state: ProgressState, _courseId: string, _lessonNumber: number): boolean {
+  // All lessons are always unlocked — no gating by mastery
+  return true;
 }
 
 export function getNextLesson(state: ProgressState, courseId: string): number {

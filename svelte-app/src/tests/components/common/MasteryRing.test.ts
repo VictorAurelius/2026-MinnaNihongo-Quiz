@@ -17,9 +17,10 @@ describe('MasteryRing', () => {
     expect(container.textContent).toContain('75');
   });
 
-  it('should show lock icon when locked=true', () => {
-    const { container } = render(MasteryRing, { props: { percentage: 0, locked: true } });
-    expect(container.textContent).toContain('🔒');
+  it('should always show percentage (no lock)', () => {
+    const { container } = render(MasteryRing, { props: { percentage: 0 } });
+    expect(container.textContent).toContain('0');
+    expect(container.textContent).not.toContain('🔒');
   });
 
   it('should handle 0% edge case', () => {

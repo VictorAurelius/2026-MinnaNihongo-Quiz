@@ -43,26 +43,10 @@ describe('getLessonMastery', () => {
 });
 
 describe('isLessonUnlocked', () => {
-  it('should always unlock lesson 1', () => {
+  it('should always return true — no lesson locking', () => {
     expect(isLessonUnlocked(makeState(), 'n5', 1)).toBe(true);
-  });
-
-  it('should lock lesson 2 when lesson 1 mastery < 70%', () => {
-    const state = makeState({
-      1: makeLesson(1, { w1: { masteryLevel: 2 }, w2: { masteryLevel: 1 } })
-    });
-    expect(isLessonUnlocked(state, 'n5', 2)).toBe(false);
-  });
-
-  it('should unlock lesson 2 when lesson 1 mastery >= 70%', () => {
-    const state = makeState({
-      1: makeLesson(1, { w1: { masteryLevel: 5 }, w2: { masteryLevel: 4 }, w3: { masteryLevel: 3 } })
-    });
-    expect(isLessonUnlocked(state, 'n5', 2)).toBe(true);
-  });
-
-  it('should handle empty progress state', () => {
-    expect(isLessonUnlocked(makeState(), 'n5', 5)).toBe(false);
+    expect(isLessonUnlocked(makeState(), 'n5', 2)).toBe(true);
+    expect(isLessonUnlocked(makeState(), 'n5', 25)).toBe(true);
   });
 });
 
