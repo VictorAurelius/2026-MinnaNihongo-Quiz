@@ -1,5 +1,7 @@
 # UI Template Guide — Code from Design, Not Freeform
 
+> **See also**: `.claude/skills/frontend-design/SKILL.md` for comprehensive design aesthetics, anti-patterns, and quality commands (audit, critique, polish, etc.). Reference files in `frontend-design/reference/` cover typography, color, spatial, motion, interaction, responsive, and UX writing.
+
 ## Principle
 
 **NEVER render UI freeform.** Every page/component MUST be based on:
