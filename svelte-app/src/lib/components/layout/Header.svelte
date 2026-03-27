@@ -103,9 +103,9 @@
   </div>
 </header>
 
-<!-- Bottom navigation on home page -->
+<!-- Bottom navigation on home page — scrollable on mobile -->
 {#if isHome}
-  <nav class="flex justify-center gap-1.5 sm:gap-2 px-3 py-2.5 bg-card border-b border-border flex-wrap">
+  <nav class="flex gap-1.5 px-3 py-2 bg-card border-b border-border overflow-x-auto scrollbar-hide">
     {#each [
       { href: `${base}/courses`, icon: '📚', label: 'Courses', jp: false },
       { href: `${base}/kanji`, icon: '漢', label: 'Kanji', jp: true },
@@ -118,11 +118,16 @@
     ] as link}
       <a
         href={link.href}
-        class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-muted-foreground no-underline border border-border rounded-lg hover:text-primary hover:border-primary hover:bg-muted transition-colors"
+        class="inline-flex items-center gap-1 px-2 py-1.5 text-[0.7rem] font-semibold text-muted-foreground no-underline border border-border rounded-full hover:text-primary hover:border-primary hover:bg-muted transition-colors whitespace-nowrap flex-shrink-0"
       >
-        <span class="text-sm" style={link.jp ? 'font-family: var(--font-jp)' : ''}>{link.icon}</span>
+        <span class="text-xs" style={link.jp ? 'font-family: var(--font-jp)' : ''}>{link.icon}</span>
         <span>{link.label}</span>
       </a>
     {/each}
   </nav>
 {/if}
+
+<style>
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+</style>

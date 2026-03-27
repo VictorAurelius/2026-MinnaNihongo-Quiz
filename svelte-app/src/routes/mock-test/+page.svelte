@@ -94,17 +94,18 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="mx-auto max-w-xl p-4 animate-in">
+<div class="mx-auto max-w-xl p-4 animate-in min-h-[70vh] flex flex-col">
   {#if !started}
-    <Card>
-      <CardContent class="py-12 text-center">
+    <Card class="flex-1 flex flex-col justify-center">
+      <CardContent class="py-10 text-center">
+        <div class="text-4xl mb-4">📝</div>
         <h1 class="text-2xl font-bold mb-2">JLPT Mock Test</h1>
         <p class="text-muted-foreground mb-6">30 questions · 30 minutes · Vocabulary & Grammar</p>
 
         <div class="flex gap-3 justify-center mb-6">
-          {#each ['n5', 'n4'] as lvl}
+          {#each ['n5', 'n4', 'n3'] as lvl}
             <button
-              class="px-6 py-3 text-lg font-bold border-2 rounded-xl cursor-pointer transition-all
+              class="px-5 py-3 text-lg font-bold border-2 rounded-xl cursor-pointer transition-all
                 {selectedLevel === lvl ? 'border-primary bg-primary/10 text-primary' : 'border-border bg-card text-foreground hover:border-primary'}"
               on:click={() => selectedLevel = lvl}
             >
@@ -114,6 +115,10 @@
         </div>
 
         <UiButton size="lg" onclick={startTest}>Start Test</UiButton>
+
+        <div class="mt-6 text-xs text-muted-foreground">
+          <p>Press 1-4 to answer · Auto-advance after each question</p>
+        </div>
       </CardContent>
     </Card>
 

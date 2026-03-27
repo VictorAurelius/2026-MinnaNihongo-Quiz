@@ -181,27 +181,27 @@
   <Card class="mb-3">
     <CardHeader class="pb-2"><CardTitle class="text-sm">Data Management</CardTitle></CardHeader>
     <CardContent>
-      <div class="flex items-center justify-between py-3 border-b border-border">
-        <div>
+      <div class="flex items-center justify-between gap-3 py-3 border-b border-border">
+        <div class="min-w-0">
           <strong class="text-sm block">Export Progress</strong>
-          <span class="text-xs text-muted-foreground">Download your progress as a JSON file</span>
+          <span class="text-xs text-muted-foreground">Download as JSON</span>
         </div>
-        <UiButton size="sm" onclick={handleExport}>Export</UiButton>
+        <div class="flex-shrink-0"><UiButton size="sm" onclick={handleExport}>Export</UiButton></div>
       </div>
-      <div class="flex items-center justify-between py-3 border-b border-border">
-        <div>
+      <div class="flex items-center justify-between gap-3 py-3 border-b border-border">
+        <div class="min-w-0">
           <strong class="text-sm block">Import Progress</strong>
-          <span class="text-xs text-muted-foreground">Restore from a previously exported file</span>
+          <span class="text-xs text-muted-foreground">Restore from file</span>
         </div>
-        <UiButton variant="secondary" size="sm" onclick={handleImportClick}>Import</UiButton>
+        <div class="flex-shrink-0"><UiButton variant="secondary" size="sm" onclick={handleImportClick}>Import</UiButton></div>
         <input type="file" accept=".json" bind:this={fileInput} on:change={handleFileChange} class="hidden" />
       </div>
-      <div class="flex items-center justify-between py-3 mt-2">
-        <div>
+      <div class="flex items-center justify-between gap-3 py-3 mt-2">
+        <div class="min-w-0">
           <strong class="text-sm block text-destructive">Clear All Progress</strong>
-          <span class="text-xs text-muted-foreground">Delete all saved data permanently</span>
+          <span class="text-xs text-muted-foreground">Delete permanently</span>
         </div>
-        <UiButton variant="destructive" size="sm" onclick={() => showClearConfirm = true}>Clear</UiButton>
+        <div class="flex-shrink-0"><UiButton variant="destructive" size="sm" onclick={() => showClearConfirm = true}>Clear</UiButton></div>
       </div>
     </CardContent>
   </Card>
