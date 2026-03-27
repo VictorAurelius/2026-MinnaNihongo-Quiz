@@ -3,7 +3,6 @@
    * Course Selection Page — compact horizontal cards
    */
 
-  import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { getAllCourses } from '$lib/data/courses';
   import Badge from '$lib/components/ui/badge/badge.svelte';
@@ -29,9 +28,9 @@
 
   <div class="flex flex-col gap-3">
     {#each courses as course}
-      <button
-        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl text-left transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg cursor-pointer group relative overflow-hidden"
-        on:click={() => goto(`${base}/course/${course.metadata.id}`)}
+      <a
+        href="{base}/course/{course.metadata.id}"
+        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg cursor-pointer group relative overflow-hidden"
       >
         <!-- Color accent -->
         <div class="absolute left-0 inset-y-0 w-1 rounded-l-xl" style="background: {course.metadata.color}"></div>
@@ -45,12 +44,7 @@
           <p class="text-xs text-muted-foreground leading-snug">{course.metadata.description}</p>
         </div>
         <span class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform">→</span>
-      </button>
+      </a>
     {/each}
   </div>
 </div>
-
-<style>
-  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
-  .animate-in { animation: fade-in 0.25s ease; }
-</style>

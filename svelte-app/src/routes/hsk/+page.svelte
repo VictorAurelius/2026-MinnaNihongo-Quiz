@@ -1,6 +1,5 @@
 <script lang="ts">
   import { getAllHSKLevels, getHSKData } from '$lib/data/hsk';
-  import { goto } from '$app/navigation';
   import { base } from '$app/paths';
 
   const levels = getAllHSKLevels();
@@ -8,10 +7,6 @@
 
   $: groups = getHSKData(selectedLevel);
   $: totalWords = groups.reduce((s, g) => s + g.words.length, 0);
-
-  function navigateToGroup(groupId: string) {
-    goto(`${base}/hsk/${groupId}`);
-  }
 </script>
 
 <svelte:head>
@@ -24,9 +19,11 @@
     <p class="text-sm text-muted-foreground">汉语水平考试 — Chinese Proficiency Test</p>
   </header>
 
-  <div class="flex gap-2 justify-center mb-4 flex-wrap">
+  <div class="flex gap-2 justify-center mb-4 flex-wrap" role="radiogroup" aria-label="HSK level">
     {#each levels as lvl}
       <button
+        role="radio"
+        aria-checked={selectedLevel === lvl.level}
         class="flex flex-col items-center gap-0.5 px-4 py-2 border-2 rounded-lg cursor-pointer transition-all
           {selectedLevel === lvl.level ? 'border-primary bg-primary/10 text-primary' : 'border-border bg-card text-foreground hover:border-primary'}"
         on:click={() => selectedLevel = lvl.level}
@@ -41,9 +38,9 @@
 
   <div class="flex flex-col gap-3">
     {#each groups as group}
-      <button
-        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl cursor-pointer text-left transition-all hover:border-primary hover:-translate-y-0.5 hover:shadow-lg group"
-        on:click={() => navigateToGroup(group.id)}
+      <a
+        href="{base}/hsk/{group.id}"
+        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl cursor-pointer text-left no-underline transition-all hover:border-primary hover:-translate-y-0.5 hover:shadow-lg group"
       >
         <div class="w-12 h-12 flex items-center justify-center bg-primary/80 text-white text-xl font-bold rounded-lg flex-shrink-0" style="font-family: var(--font-cn)">
           {group.id.toUpperCase()}
@@ -53,12 +50,7 @@
           <p class="text-sm text-muted-foreground">{group.words.length} words</p>
         </div>
         <span class="text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary">→</span>
-      </button>
+      </a>
     {/each}
   </div>
 </div>
-
-<style>
-  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-  .animate-in { animation: fade-in 0.25s ease; }
-</style>

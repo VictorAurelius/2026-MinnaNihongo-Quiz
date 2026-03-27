@@ -101,7 +101,9 @@
     <!-- Controls -->
     <div class="flex gap-3 mb-3 flex-wrap">
       <div class="flex-1 min-w-[200px] relative">
+        <label for="vocab-search" class="sr-only">Search vocabulary</label>
         <input
+          id="vocab-search"
           type="text"
           placeholder="Search Japanese, Kana, Vietnamese, English..."
           bind:value={searchTerm}
@@ -218,9 +220,6 @@
 {/if}
 
 <style>
-  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
-  .animate-in { animation: fade-in 0.25s ease; }
-
   .vocab-card {
     background: var(--color-card);
     border: 1px solid var(--color-border);

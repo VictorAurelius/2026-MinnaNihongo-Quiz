@@ -58,7 +58,9 @@
 
     <!-- Search -->
     <div class="relative mb-4">
+      <label for="grammar-search" class="sr-only">Search grammar patterns</label>
       <input
+        id="grammar-search"
         type="text"
         placeholder="Search patterns, meanings..."
         bind:value={searchTerm}
@@ -131,8 +133,3 @@
     <UiButton onclick={() => goto(`${base}/courses`)}>Back to Courses</UiButton>
   </div>
 {/if}
-
-<style>
-  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
-  .animate-in { animation: fade-in 0.25s ease; }
-</style>

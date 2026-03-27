@@ -63,9 +63,11 @@
       <Card>
         <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><RefreshCw size={14} aria-hidden="true" /> Quiz Direction</CardTitle></CardHeader>
         <CardContent>
-          <div class="grid grid-cols-3 gap-2">
+          <div class="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Quiz direction">
             {#each directions as dir}
               <button
+                role="radio"
+                aria-checked={selectedDirection === dir.value}
                 class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg border-2 text-sm font-semibold transition-all cursor-pointer
                   {selectedDirection === dir.value
                     ? 'border-primary bg-primary/10 text-primary'
@@ -129,8 +131,3 @@
     <UiButton onclick={() => goto(`${base}/courses`)}>Back to Courses</UiButton>
   </div>
 {/if}
-
-<style>
-  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
-  .animate-in { animation: fade-in 0.25s ease; }
-</style>
