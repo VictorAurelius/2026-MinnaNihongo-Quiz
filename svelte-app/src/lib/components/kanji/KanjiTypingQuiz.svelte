@@ -7,6 +7,7 @@
   import type { KanjiItem } from '$lib/types';
   import { createEventDispatcher } from 'svelte';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import { Volume2, Check, X, Lightbulb, ArrowRight } from 'lucide-svelte';
 
   export let item: KanjiItem;
   export let answer: string;
@@ -77,7 +78,7 @@
   <div class="question-label">Type the meaning of this kanji:</div>
   <div class="question-kanji">{item.character}</div>
   <button class="btn-speak btn-speak--fc" on:click={() => playJapaneseAudio(item.character)}>
-    🔊 Speak (F1)
+    <Volume2 size={16} aria-hidden="true" /> Speak (F1)
   </button>
 </div>
 
@@ -97,7 +98,7 @@
 <div class="hint-wrapper">
   {#if !showHint}
     <button class="btn-hint" on:click={toggleHint}>
-      💡 Show Hint
+      <Lightbulb size={14} aria-hidden="true" /> Show Hint
     </button>
   {:else}
     <div class="hint-content">
@@ -114,13 +115,13 @@
 {#if answered}
   <div class="feedback" class:correct={isCorrect} class:wrong={!isCorrect} aria-live="polite" aria-atomic="true">
     {#if isCorrect}
-      ✓ Correct!
+      <Check size={16} aria-hidden="true" /> Correct!
     {:else}
-      ✗ Wrong! The correct answer is: {answer}
+      <X size={16} aria-hidden="true" /> Wrong! The correct answer is: {answer}
     {/if}
   </div>
   <button class="btn btn-primary btn-lg" on:click={advance}>
-    Next Question →
+    Next Question <ArrowRight size={16} aria-hidden="true" />
   </button>
   <div class="hint-text">Press Enter to continue</div>
 {:else}

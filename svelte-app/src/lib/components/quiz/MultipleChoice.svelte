@@ -7,6 +7,7 @@
   import type { VocabItem } from '$lib/types';
   import { createEventDispatcher } from 'svelte';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import { Volume2, Check, X } from 'lucide-svelte';
 
   export let question: VocabItem;
   export let questionText = '';  // display text (based on direction)
@@ -74,7 +75,7 @@
   <div class="question-label">What is the meaning of:</div>
   <div class="question-text">{displayText}</div>
   <button class="btn-speak btn-speak--fc" on:click={() => playJapaneseAudio(question.kana || question.japanese)}>
-    🔊 Speak (F1)
+    <Volume2 size={16} aria-hidden="true" /> Speak (F1)
   </button>
 </div>
 
@@ -94,9 +95,9 @@
 {#if answered}
   <div class="feedback" class:correct={selectedOption === answer} class:wrong={selectedOption !== answer} aria-live="polite" aria-atomic="true">
     {#if selectedOption === answer}
-      ✓ Correct!
+      <Check size={16} aria-hidden="true" /> Correct!
     {:else}
-      ✗ Wrong! The correct answer is: {answer}
+      <X size={16} aria-hidden="true" /> Wrong! The correct answer is: {answer}
     {/if}
   </div>
 {/if}
@@ -109,18 +110,18 @@
 
 <style>
   .quiz-question-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius);
     padding: 1.5rem;
     margin-bottom: 1.25rem;
-    box-shadow: var(--shadow);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     text-align: center;
   }
 
   .question-label {
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 0.4rem;
   }
 
@@ -134,7 +135,7 @@
 
   .question-romaji {
     font-size: 0.95rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
     margin-top: 0.5rem;
     letter-spacing: 0.02em;
@@ -157,27 +158,27 @@
     font-family: inherit;
     font-weight: 500;
     text-align: left;
-    background: var(--bg-card);
-    color: var(--text);
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
+    background: var(--color-card);
+    color: var(--color-foreground);
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
     cursor: pointer;
-    transition: border-color var(--transition), background var(--transition);
+    transition: border-color 0.2s ease, background 0.2s ease;
     line-height: 1.4;
   }
 
   .mc-option:hover:not(:disabled):not(.disabled) {
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .mc-option.correct {
-    border-color: var(--success);
-    background: var(--success-bg);
+    border-color: var(--color-success);
+    background: color-mix(in srgb, var(--color-success) 12%, var(--color-background));
   }
 
   .mc-option.wrong {
-    border-color: var(--danger);
-    background: var(--danger-bg);
+    border-color: var(--color-destructive);
+    background: color-mix(in srgb, var(--color-destructive) 12%, var(--color-background));
   }
 
   .mc-option.disabled {
@@ -195,7 +196,7 @@
     justify-content: center;
     min-width: 1.5rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--color-primary);
   }
 
   .mc-option-text {
@@ -204,7 +205,7 @@
 
   .feedback {
     padding: 0.8rem 1rem;
-    border-radius: var(--radius-sm);
+    border-radius: 8px;
     margin-bottom: 1rem;
     font-weight: 600;
     font-size: 0.95rem;
@@ -212,19 +213,19 @@
   }
 
   .feedback.correct {
-    background: var(--success-bg);
-    color: var(--success);
+    background: color-mix(in srgb, var(--color-success) 12%, var(--color-background));
+    color: var(--color-success);
   }
 
   .feedback.wrong {
-    background: var(--danger-bg);
-    color: var(--danger);
+    background: color-mix(in srgb, var(--color-destructive) 12%, var(--color-background));
+    color: var(--color-destructive);
   }
 
   .hint-text {
     text-align: center;
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
   }
 
   @media (max-width: 600px) {

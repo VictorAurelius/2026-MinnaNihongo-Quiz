@@ -14,11 +14,11 @@
 
 <style>
   .skeleton {
-    background: var(--border);
-    border-radius: var(--radius-sm);
+    background: var(--color-border);
+    border-radius: 8px;
   }
   .skeleton-shimmer {
-    background: linear-gradient(90deg, var(--border) 25%, var(--bg) 50%, var(--border) 75%);
+    background: linear-gradient(90deg, var(--color-border) 25%, var(--color-background) 50%, var(--color-border) 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
   }

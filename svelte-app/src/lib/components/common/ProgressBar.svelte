@@ -21,7 +21,7 @@
   <div class="progress-bar">
     <div
       class="progress-fill"
-      style="width: {percentage}%"
+      style="transform: scaleX({percentage / 100})"
       role="progressbar"
       aria-valuenow={current}
       aria-valuemin={0}
@@ -42,23 +42,25 @@
   .progress-text {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 0.4rem;
     text-align: right;
   }
 
   .progress-bar {
     height: 6px;
-    background: var(--border);
+    background: var(--color-border);
     border-radius: 3px;
     overflow: hidden;
   }
 
   .progress-fill {
     height: 100%;
-    background: var(--primary);
+    width: 100%;
+    background: var(--color-primary);
     border-radius: 3px;
-    transition: width 0.35s ease;
+    transition: transform 0.35s ease;
+    transform-origin: left;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -68,7 +70,7 @@
   .progress-text-inside {
     font-size: 0.7rem;
     font-weight: 700;
-    color: white;
+    color: var(--color-primary-foreground);
     white-space: nowrap;
   }
 </style>

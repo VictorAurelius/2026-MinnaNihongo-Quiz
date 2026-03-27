@@ -48,6 +48,18 @@ Mỗi PR tuân theo quy trình:
 - **Xem:** `documents/02-architecture/DEPLOYMENT_STRATEGY.md`
 - **Xem:** `documents/02-architecture/OFFLINE_FIRST_ARCHITECTURE.md`
 
+## Frontend Design Skills
+
+Mọi UI work PHẢI tham khảo design skills trước khi code:
+
+- **Design skill chính:** `.claude/skills/frontend-design/SKILL.md` — design thinking, aesthetics, AI slop test
+- **7 reference files:** `frontend-design/reference/` — typography, color, spatial, motion, interaction, responsive, UX writing
+- **20 design commands:** `frontend-design/commands/` — audit, critique, polish, typeset, arrange, animate, etc.
+- **Design context:** `.impeccable.md` (project root) — users, brand, aesthetic direction, design principles
+- **UI rules:** `documents/01-business/ui/rules.md` — design tokens, component inventory
+
+**Khi làm UI:** Đọc `SKILL.md` → check `.impeccable.md` → dùng shadcn-svelte components → follow design tokens.
+
 ## Living Documents
 
 | Document | Update khi |

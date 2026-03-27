@@ -8,8 +8,8 @@
   import { KANJI_N2_DATA } from '$lib/data/kanji/kanji-n2';
   import { KANJI_N1_DATA } from '$lib/data/kanji/kanji-n1';
   import { Card, CardContent } from '$lib/components/ui/card';
-  import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+  import { BookOpen } from 'lucide-svelte';
 
   const lessons = getKanjiLessonMetadata();
   let selectedLevel: 'n5n4' | 'n3' | 'n2' | 'n1' = 'n5n4';
@@ -40,9 +40,11 @@
 <div class="mx-auto max-w-4xl p-4 animate-in">
   <h2 class="text-xl font-bold mb-4">Kanji — {totalKanji} chữ Hán</h2>
 
-  <div class="flex gap-2 mb-4 flex-wrap">
+  <div class="flex gap-2 mb-4 flex-wrap" role="radiogroup" aria-label="JLPT level">
     {#each levels as lvl}
       <button
+        role="radio"
+        aria-checked={selectedLevel === lvl.id}
         class="flex flex-col items-center gap-0.5 px-4 py-2 border-2 rounded-lg cursor-pointer transition-all
           {selectedLevel === lvl.id ? 'border-primary bg-primary/10 text-primary' : 'border-border bg-card text-foreground hover:border-primary'}"
         on:click={() => selectedLevel = lvl.id}
@@ -53,12 +55,14 @@
     {/each}
   </div>
 
-  <a href="{base}/kanji/radicals" class="inline-block mb-4 text-sm text-primary font-semibold no-underline hover:underline">📚 214 Bộ Thủ →</a>
+  <a href="{base}/kanji/radicals" class="inline-flex items-center gap-1 mb-4 text-sm text-primary font-semibold no-underline hover:underline">
+    <BookOpen size={14} aria-hidden="true" /> 214 Bộ Thủ →
+  </a>
 
   {#if selectedLevel === 'n5n4'}
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
       {#each lessons as lesson}
-        <button class="text-left" on:click={() => goto(`${base}/kanji/${lesson.lessonNumber}`)}>
+        <a href="{base}/kanji/{lesson.lessonNumber}" class="text-left no-underline">
           <Card class="h-full hover:border-primary hover:-translate-y-0.5 hover:shadow-lg transition-all cursor-pointer">
             <CardContent class="p-4">
               <div class="text-xs font-bold text-primary mb-1">Bài {lesson.lessonNumber}</div>
@@ -66,7 +70,7 @@
               <div class="text-xs text-muted-foreground">{lesson.kanjiCount} kanji</div>
             </CardContent>
           </Card>
-        </button>
+        </a>
       {/each}
     </div>
   {:else}
@@ -80,8 +84,3 @@
     </div>
   {/if}
 </div>
-
-<style>
-  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-  .animate-in { animation: fade-in 0.25s ease; }
-</style>

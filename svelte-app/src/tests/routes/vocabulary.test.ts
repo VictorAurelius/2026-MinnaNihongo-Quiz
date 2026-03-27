@@ -114,7 +114,7 @@ describe('Vocabulary Page - Selection Feature', () => {
 
     it('practice bar is hidden when nothing is selected', () => {
       renderPage();
-      expect(screen.queryByText('🎴 Flashcard')).not.toBeInTheDocument();
+      expect(screen.queryByText('Flashcard')).not.toBeInTheDocument();
     });
   });
 
@@ -171,9 +171,9 @@ describe('Vocabulary Page - Selection Feature', () => {
 
       await user.click(getVocabCards(container)[0]);
 
-      expect(screen.getByText('🎴 Flashcard')).toBeInTheDocument();
-      expect(screen.getByText('✓ Trắc nghiệm')).toBeInTheDocument();
-      expect(screen.getByText('⌨️ Nhập chữ')).toBeInTheDocument();
+      expect(screen.getByText('Flashcard')).toBeInTheDocument();
+      expect(screen.getByText('Trắc nghiệm')).toBeInTheDocument();
+      expect(screen.getByText('Nhập chữ')).toBeInTheDocument();
     });
 
     it('shows correct count in practice bar', async () => {
@@ -195,7 +195,7 @@ describe('Vocabulary Page - Selection Feature', () => {
       await user.click(card);
       await user.click(card);
 
-      expect(screen.queryByText('🎴 Flashcard')).not.toBeInTheDocument();
+      expect(screen.queryByText('Flashcard')).not.toBeInTheDocument();
     });
   });
 
@@ -265,7 +265,7 @@ describe('Vocabulary Page - Selection Feature', () => {
       await user.click(getVocabCards(container)[0]);
       await user.click(screen.getByTitle('Bỏ chọn tất cả'));
 
-      expect(screen.queryByText('🎴 Flashcard')).not.toBeInTheDocument();
+      expect(screen.queryByText('Flashcard')).not.toBeInTheDocument();
     });
 
     it('"Xóa chọn" button is only visible when something is selected', async () => {
@@ -280,7 +280,7 @@ describe('Vocabulary Page - Selection Feature', () => {
       const { container } = renderPage();
 
       await user.click(getVocabCards(container)[0]);  // select 食べる
-      await user.click(screen.getByText('🎴 Flashcard'));
+      await user.click(screen.getByText('Flashcard'));
 
       const stored = JSON.parse(sessionStorageMock.getItem('smartquiz_custom_vocab') ?? '[]');
       expect(stored).toHaveLength(1);
@@ -293,7 +293,7 @@ describe('Vocabulary Page - Selection Feature', () => {
       const { container } = renderPage();
 
       await user.click(getVocabCards(container)[0]);
-      await user.click(screen.getByText('✓ Trắc nghiệm'));
+      await user.click(screen.getByText('Trắc nghiệm'));
 
       expect(goto).toHaveBeenCalledWith(expect.stringContaining('/quiz/multiple-choice'));
     });
@@ -303,7 +303,7 @@ describe('Vocabulary Page - Selection Feature', () => {
       const { container } = renderPage();
 
       await user.click(getVocabCards(container)[0]);
-      await user.click(screen.getByText('⌨️ Nhập chữ'));
+      await user.click(screen.getByText('Nhập chữ'));
 
       expect(goto).toHaveBeenCalledWith(expect.stringContaining('/quiz/typing'));
     });
@@ -314,7 +314,7 @@ describe('Vocabulary Page - Selection Feature', () => {
 
       await user.click(getVocabCards(container)[0]);
       await user.click(getVocabCards(container)[1]);
-      await user.click(screen.getByText('🎴 Flashcard'));
+      await user.click(screen.getByText('Flashcard'));
 
       const stored = JSON.parse(sessionStorageMock.getItem('smartquiz_custom_vocab') ?? '[]');
       expect(stored).toHaveLength(2);

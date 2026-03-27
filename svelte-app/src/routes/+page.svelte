@@ -4,20 +4,21 @@
    * Redesigned with Tailwind CSS + shadcn components
    */
 
-  import { goto } from '$app/navigation';
   import { base } from '$app/paths';
-  import { onMount } from 'svelte';
   import { getAllCourses } from '$lib/data/courses';
   import { getKanjiLessonMetadata } from '$lib/data/kanji/lessons';
   import { HSK5_DATA } from '$lib/data/hsk';
   import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
+  import PageError from '$lib/components/common/PageError.svelte';
+  import { Layers, CheckCircle, Keyboard } from 'lucide-svelte';
 
   let courses: ReturnType<typeof getAllCourses> = [];
   let totalLessons = 0;
   let totalVocab = 0;
   let kanjiCount = 0;
   let hskWordCount = 0;
+  let dataError = false;
 
   try {
     courses = getAllCourses();
@@ -28,6 +29,7 @@
     hskWordCount = HSK5_DATA.reduce((sum, g) => sum + g.words.length, 0);
   } catch (e) {
     console.error('[SmartQuiz] Home data error:', e);
+    dataError = true;
   }
 
   const sections = [
@@ -47,9 +49,9 @@
   ];
 
   const quizModes = [
-    { icon: '🎴', name: 'Flashcard', desc: 'Flip to reveal' },
-    { icon: '✓', name: 'Multiple Choice', desc: 'Pick the answer' },
-    { icon: '⌨️', name: 'Typing', desc: 'Type to answer' },
+    { component: Layers, name: 'Flashcard', desc: 'Flip to reveal' },
+    { component: CheckCircle, name: 'Multiple Choice', desc: 'Pick the answer' },
+    { component: Keyboard, name: 'Typing', desc: 'Type to answer' },
   ];
 
   const stats = [
@@ -64,6 +66,9 @@
   <title>Smart Quiz - Japanese & Chinese Learning</title>
 </svelte:head>
 
+{#if dataError}
+  <PageError message="Failed to load course data. Please refresh the page." retry={() => location.reload()} />
+{:else}
 <div class="mx-auto max-w-2xl animate-in fade-in slide-in-from-bottom-2 duration-300">
   <!-- Hero Section -->
   <section class="py-6 px-4 text-center">
@@ -97,9 +102,9 @@
 
     <div class="flex flex-col gap-2.5">
       {#each sections as section}
-        <button
-          class="flex items-center gap-3.5 w-full p-3.5 bg-card border border-border rounded-xl text-left transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 cursor-pointer group"
-          on:click={() => goto(section.href)}
+        <a
+          href={section.href}
+          class="flex items-center gap-3.5 w-full p-3.5 bg-card border border-border rounded-xl text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 cursor-pointer group"
         >
           <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary text-xl font-bold {section.iconClass}">
             {section.icon}
@@ -109,7 +114,7 @@
             <p class="text-xs text-muted-foreground leading-snug">{section.desc}</p>
           </div>
           <span class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary">→</span>
-        </button>
+        </a>
       {/each}
     </div>
   </section>
@@ -121,7 +126,7 @@
       {#each quizModes as mode}
         <Card class="text-center">
           <CardContent class="p-4 flex flex-col items-center gap-1">
-            <span class="text-2xl leading-none">{mode.icon}</span>
+            <svelte:component this={mode.component} size={24} class="text-primary" aria-hidden="true" />
             <span class="text-xs font-bold">{mode.name}</span>
             <span class="text-[0.68rem] text-muted-foreground">{mode.desc}</span>
           </CardContent>
@@ -130,22 +135,10 @@
     </div>
   </section>
 </div>
+{/if}
 
 <style>
   /* Font family helpers for Japanese/Chinese icon text */
   .font-jp { font-family: var(--font-jp); }
   .font-cn { font-family: var(--font-cn); }
-
-  /* Tailwind v4 animate-in keyframes */
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes slide-in-from-bottom-2 {
-    from { transform: translateY(0.5rem); }
-    to { transform: translateY(0); }
-  }
-  .animate-in {
-    animation: fade-in 0.3s ease, slide-in-from-bottom-2 0.3s ease;
-  }
 </style>

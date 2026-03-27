@@ -6,12 +6,23 @@
 
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+  import { onMount } from 'svelte';
   import { quizStore, startQuiz, resetQuiz } from '$lib/stores';
   import { calculateStats, formatDuration, generateQuestions } from '$lib/utils/quizUtils';
   import { getCourse } from '$lib/data/courses';
+  import { showToast } from '$lib/stores/toast';
   import type { CourseId } from '$lib/types/course';
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import { PartyPopper, ThumbsUp, Zap, BookOpen, PenLine, RefreshCw, ArrowLeft, Home } from 'lucide-svelte';
+
+  // Guard: redirect if no quiz data
+  onMount(() => {
+    if ($quizStore.questions.length === 0) {
+      showToast('No quiz results to show', 'error');
+      goto(`${base}/`);
+    }
+  });
 
   $: stats = calculateStats($quizStore.score, $quizStore.questions.length);
   $: duration = $quizStore.endTime
@@ -61,6 +72,7 @@
   <title>Quiz Results - Smart Quiz</title>
 </svelte:head>
 
+{#if $quizStore.questions.length > 0}
 <div class="mx-auto max-w-md animate-in px-4">
   <Card>
     <CardHeader class="text-center pb-2">
@@ -69,7 +81,8 @@
     <CardContent class="flex flex-col items-center gap-4">
       <!-- Score Circle -->
       <div class="relative w-32 h-32">
-        <svg class="w-full h-full -rotate-90" viewBox="0 0 36 36">
+        <svg class="w-full h-full -rotate-90" viewBox="0 0 36 36" role="img" aria-label="Score: {stats.percentage}%">
+          <title>Quiz score: {stats.percentage}%</title>
           <circle
             class="fill-none stroke-border"
             cx="18" cy="18" r="15.915"
@@ -113,13 +126,13 @@
       <!-- Feedback -->
       <div class="w-full rounded-lg bg-muted p-3 text-center text-sm font-semibold text-primary">
         {#if stats.percentage === 100}
-          🎉 Perfect score! Excellent work!
+          <PartyPopper size={16} aria-hidden="true" /> Perfect score! Excellent work!
         {:else if stats.percentage >= 80}
-          👍 Great job! Keep it up!
+          <ThumbsUp size={16} aria-hidden="true" /> Great job! Keep it up!
         {:else if stats.percentage >= 60}
-          💪 Good effort! Practice makes perfect.
+          <Zap size={16} aria-hidden="true" /> Good effort! Practice makes perfect.
         {:else}
-          📚 Keep practicing! You'll get better.
+          <BookOpen size={16} aria-hidden="true" /> Keep practicing! You'll get better.
         {/if}
       </div>
 
@@ -127,29 +140,20 @@
       <div class="flex flex-col gap-2.5 w-full">
         {#if wrongCount > 0}
           <UiButton variant="default" size="lg" class="w-full" onclick={retryWrong}>
-            📝 Retry {wrongCount} Wrong Items
+            <PenLine size={16} aria-hidden="true" /> Retry {wrongCount} Wrong Items
           </UiButton>
         {/if}
         <UiButton variant="secondary" size="lg" class="w-full" onclick={retryAll}>
-          🔄 Retry All
+          <RefreshCw size={16} aria-hidden="true" /> Retry All
         </UiButton>
         <UiButton variant="outline" class="w-full" onclick={backToLesson}>
-          ← Back to Lesson
+          <ArrowLeft size={16} aria-hidden="true" /> Back to Lesson
         </UiButton>
         <UiButton variant="ghost" class="w-full" onclick={backToHome}>
-          🏠 Home
+          <Home size={16} aria-hidden="true" /> Home
         </UiButton>
       </div>
     </CardContent>
   </Card>
 </div>
-
-<style>
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(0.5rem); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-in {
-    animation: fade-in 0.25s ease;
-  }
-</style>
+{/if}

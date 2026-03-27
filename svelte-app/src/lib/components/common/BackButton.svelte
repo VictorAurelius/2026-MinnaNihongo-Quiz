@@ -7,10 +7,12 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { page } from '$app/stores';
+  import { ArrowLeft } from 'lucide-svelte';
 
   export let href: string | undefined = undefined;
   export let showIcon = true;
   export let text = 'Back';
+  export let variant: 'default' | 'overlay' = 'default';
 
   // Routes that should go directly to home when back is pressed
   const HOME_PARENTS = new Set(['lesson', 'lessons', 'course', 'courses', 'quiz', 'results', 'alphabet', 'counters', 'grammar-reference', 'hsk', 'kanji']);
@@ -20,14 +22,8 @@
     const routePath = fullPathname.startsWith(base) && base
       ? fullPathname.slice(base.length) || '/'
       : fullPathname;
-    // /lesson/1/vocabulary → /lesson/1
-    // /lesson/1 → / (home, not /lesson)
-    // /quiz/flashcard → / (home)
-    // /hsk/a → /hsk
-    // /alphabet → /
     const parts = routePath.split('/').filter(Boolean);
     if (parts.length <= 1) return '/';
-    // If parent would be a top-level route like /lesson, /quiz → go home
     if (parts.length === 2 && HOME_PARENTS.has(parts[0])) return '/';
     parts.pop();
     return '/' + parts.join('/');
@@ -43,9 +39,13 @@
   }
 </script>
 
-<button class="icon-btn back-btn" on:click={handleBack} aria-label="Go back">
+<button
+  class="back-btn {variant === 'overlay' ? 'back-btn--overlay' : ''}"
+  on:click={handleBack}
+  aria-label="Go back"
+>
   {#if showIcon}
-    <span class="back-icon">←</span>
+    <ArrowLeft size={16} aria-hidden="true" />
   {/if}
   {#if text}
     <span class="back-text">{text}</span>
@@ -60,23 +60,31 @@
     padding: 0.4rem 0.8rem;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--text);
+    color: var(--color-foreground);
     background: transparent;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
     cursor: pointer;
-    transition: all var(--transition);
+    transition: all 0.2s ease;
   }
 
   .back-btn:hover {
-    background: var(--border);
-    border-color: var(--primary);
-    color: var(--primary);
+    background: var(--color-border);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
   }
 
-  .back-icon {
-    font-size: 1.2em;
-    line-height: 1;
+  /* Overlay variant — for use on gradient/colored backgrounds */
+  .back-btn--overlay {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: transparent;
+  }
+
+  .back-btn--overlay:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: transparent;
+    color: white;
   }
 
   .back-text {

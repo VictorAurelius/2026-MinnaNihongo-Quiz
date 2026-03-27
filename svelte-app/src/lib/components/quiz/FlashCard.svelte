@@ -7,6 +7,7 @@
   import type { VocabItem } from '$lib/types';
   import { createEventDispatcher, afterUpdate } from 'svelte';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import { Volume2, Check, X } from 'lucide-svelte';
 
   export let item: VocabItem;
   export let questionText = '';  // display text (based on direction)
@@ -80,7 +81,7 @@
       <div class="fc-japanese">{frontText}</div>
       <div class="hint-text">Space to flip · F1 to speak</div>
       <button class="btn-speak btn-speak--fc" on:click|stopPropagation={() => playJapaneseAudio(item.kana || item.japanese)}>
-        🔊 Speak (F1)
+        <Volume2 size={16} aria-hidden="true" /> Speak (F1)
       </button>
     </div>
 
@@ -97,10 +98,10 @@
 <!-- Navigation Controls -->
 <div class="fc-nav">
   <button class="btn btn-danger" on:click={handleWrong}>
-    ✗ Wrong
+    <X size={16} aria-hidden="true" /> Wrong
   </button>
   <button class="btn btn-success" on:click={handleCorrect}>
-    ✓ Correct
+    <Check size={16} aria-hidden="true" /> Correct
   </button>
 </div>
 
@@ -137,10 +138,10 @@
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
@@ -162,7 +163,7 @@
   .hint-text {
     text-align: center;
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-top: 1rem;
   }
 
@@ -177,7 +178,7 @@
   .fc-example {
     font-family: var(--font-jp);
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
     text-align: center;
     margin-top: 0.5rem;

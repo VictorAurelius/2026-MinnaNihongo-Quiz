@@ -5,15 +5,20 @@
    */
 
   import { closeModal } from '$lib/stores';
+  import { onMount } from 'svelte';
 
   export let isOpen = false;
   export let title = '';
   export let maxWidth: 'sm' | 'md' | 'lg' | 'xl' = 'md';
   export let showCloseButton = true;
 
+  let modalContentEl: HTMLDivElement;
+  let previouslyFocused: HTMLElement | null = null;
+
   function handleClose() {
     isOpen = false;
     closeModal();
+    previouslyFocused?.focus();
   }
 
   function handleOverlayClick() {
@@ -28,6 +33,22 @@
     if (e.key === 'Escape' && isOpen) {
       handleClose();
     }
+    // Focus trap
+    if (e.key === 'Tab' && isOpen && modalContentEl) {
+      const focusable = modalContentEl.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   }
 
   $: maxWidthClass = {
@@ -36,6 +57,17 @@
     lg: 'modal-content-lg',
     xl: 'modal-content-xl'
   }[maxWidth];
+
+  $: if (isOpen && modalContentEl) {
+    previouslyFocused = document.activeElement as HTMLElement;
+    // Focus first focusable element in modal
+    requestAnimationFrame(() => {
+      const first = modalContentEl?.querySelector<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      first?.focus();
+    });
+  }
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -45,11 +77,18 @@
     <!-- svelte-ignore a11y_no_static_element_interactions a11y_click_events_have_key_events -->
     <div class="modal-overlay" on:click={handleOverlayClick}></div>
 
-    <!-- svelte-ignore a11y_no_static_element_interactions a11y_click_events_have_key_events -->
-    <div class="modal-content {maxWidthClass}" on:click={handleContentClick}>
+    <div
+      class="modal-content {maxWidthClass}"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={title ? 'modal-title' : undefined}
+      bind:this={modalContentEl}
+      on:click={handleContentClick}
+      on:keydown
+    >
       {#if title || showCloseButton}
         <div class="modal-header">
-          <h2 class="modal-title">{title}</h2>
+          <h2 class="modal-title" id="modal-title">{title}</h2>
           {#if showCloseButton}
             <button class="modal-close" on:click={handleClose} aria-label="Close modal">
               ×
@@ -100,9 +139,9 @@
 
   .modal-content {
     position: relative;
-    background: var(--bg-card);
+    background: var(--color-card);
     border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     max-height: 85vh;
     width: 90%;
     overflow: hidden;
@@ -143,9 +182,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: white;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
   }
 
   .modal-title {
@@ -163,10 +202,10 @@
     background: rgba(255, 255, 255, 0.2);
     border: none;
     border-radius: 50%;
-    color: white;
+    color: var(--color-primary-foreground);
     font-size: 1.5rem;
     cursor: pointer;
-    transition: background var(--transition);
+    transition: background 0.2s ease;
   }
 
   .modal-close:hover {
@@ -181,7 +220,7 @@
 
   .modal-footer {
     padding: 1rem 1.5rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--color-border);
     display: flex;
     gap: 0.75rem;
     justify-content: flex-end;

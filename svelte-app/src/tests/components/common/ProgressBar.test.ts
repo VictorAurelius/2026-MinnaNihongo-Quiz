@@ -32,7 +32,7 @@ describe('ProgressBar Component', () => {
 
       const progressBar = screen.getByRole('progressbar');
       expect(progressBar).toHaveAttribute('aria-valuenow', '0');
-      expect(progressBar).toHaveStyle({ width: '0%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(0)' });
     });
 
     it('should calculate 50% when current is half of total', () => {
@@ -42,7 +42,7 @@ describe('ProgressBar Component', () => {
 
       const progressBar = screen.getByRole('progressbar');
       expect(progressBar).toHaveAttribute('aria-valuenow', '50');
-      expect(progressBar).toHaveStyle({ width: '50%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(0.5)' });
     });
 
     it('should calculate 100% when current equals total', () => {
@@ -52,7 +52,7 @@ describe('ProgressBar Component', () => {
 
       const progressBar = screen.getByRole('progressbar');
       expect(progressBar).toHaveAttribute('aria-valuenow', '100');
-      expect(progressBar).toHaveStyle({ width: '100%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(1)' });
     });
 
     it('should handle custom total values', () => {
@@ -62,7 +62,7 @@ describe('ProgressBar Component', () => {
 
       const progressBar = screen.getByRole('progressbar');
       expect(progressBar).toHaveAttribute('aria-valuenow', '7');
-      expect(progressBar).toHaveStyle({ width: '70%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(0.7)' });
     });
 
     it('should handle fractional percentages by rounding', () => {
@@ -72,7 +72,7 @@ describe('ProgressBar Component', () => {
 
       const progressBar = screen.getByRole('progressbar');
       // 1/3 = 33.33%, rounds to 33%
-      expect(progressBar).toHaveStyle({ width: '33%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(0.33)' });
     });
 
     it('should handle 0 total gracefully', () => {
@@ -81,7 +81,7 @@ describe('ProgressBar Component', () => {
       });
 
       const progressBar = screen.getByRole('progressbar');
-      expect(progressBar).toHaveStyle({ width: '0%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(0)' });
     });
   });
 
@@ -233,7 +233,7 @@ describe('ProgressBar Component', () => {
       });
 
       const progressBar = screen.getByRole('progressbar');
-      expect(progressBar).toHaveStyle({ width: '150%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(1.5)' });
     });
 
     it('should handle negative current value', () => {
@@ -252,7 +252,7 @@ describe('ProgressBar Component', () => {
 
       const progressBar = screen.getByRole('progressbar');
       expect(progressBar).toHaveAttribute('aria-valuenow', '500');
-      expect(progressBar).toHaveStyle({ width: '50%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(0.5)' });
     });
 
     it('should handle decimal values', () => {
@@ -261,7 +261,7 @@ describe('ProgressBar Component', () => {
       });
 
       const progressBar = screen.getByRole('progressbar');
-      expect(progressBar).toHaveStyle({ width: '75%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(0.75)' });
     });
   });
 
@@ -280,7 +280,7 @@ describe('ProgressBar Component', () => {
       const topText = container.querySelector('.progress-text');
 
       expect(progressBar).toHaveAttribute('aria-valuenow', '45');
-      expect(progressBar).toHaveStyle({ width: '75%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(0.75)' });
       expect(topText).toBeInTheDocument();
       expect(topText?.textContent).toBe('45 / 60 (75%)');
     });
@@ -292,7 +292,7 @@ describe('ProgressBar Component', () => {
 
       const progressBar = screen.getByRole('progressbar');
       expect(progressBar).toBeInTheDocument();
-      expect(progressBar).toHaveStyle({ width: '0%' });
+      expect(progressBar).toHaveStyle({ transform: 'scaleX(0)' });
     });
   });
 });

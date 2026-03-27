@@ -138,9 +138,11 @@
   <Card class="mb-3">
     <CardHeader class="pb-2"><CardTitle class="text-sm">Japanese Font</CardTitle></CardHeader>
     <CardContent>
-      <div class="grid grid-cols-2 gap-3">
+      <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-label="Font selection">
         {#each fonts as font}
           <button
+            role="radio"
+            aria-checked={selectedFont === font.id}
             class="flex flex-col items-center gap-1.5 p-3.5 rounded-xl border-2 cursor-pointer transition-all text-center
               {selectedFont === font.id
                 ? 'border-primary bg-primary/5'
@@ -217,7 +219,5 @@
 />
 
 <style>
-  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
-  .animate-in { animation: fade-in 0.25s ease; }
   .accent-primary { accent-color: var(--color-primary); }
 </style>

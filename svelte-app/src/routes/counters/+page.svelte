@@ -157,9 +157,6 @@
 </div>
 
 <style>
-  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-  .animate-in { animation: fade-in 0.25s ease; }
-
   .numbers-table { width: 100%; border-collapse: collapse; background: var(--color-card); }
   .numbers-table th { background: var(--color-muted); padding: 0.75rem; text-align: left; font-weight: 600; border-bottom: 2px solid var(--color-border); }
   .numbers-table td { padding: 0.75rem; border-bottom: 1px solid var(--color-border); }

@@ -11,7 +11,10 @@
   import { buildQuizUrl, buildVocabularyUrl, buildGrammarUrl } from '$lib/utils/courseUtils';
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
+  import BackButton from '$lib/components/common/BackButton.svelte';
+  import PageEmpty from '$lib/components/common/PageEmpty.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import { RefreshCw, PenLine, Layers, CheckCircle, Keyboard, BookOpen, Book } from 'lucide-svelte';
   import type { CourseId } from '$lib/types/course';
   import type { QuizDirection } from '$lib/types';
 
@@ -23,9 +26,9 @@
   let selectedDirection: QuizDirection = 'ja-vi';
 
   const directions: { value: QuizDirection; label: string; icon: string }[] = [
-    { value: 'ja-vi', label: 'JP → VN', icon: '🇯🇵→🇻🇳' },
-    { value: 'vi-ja', label: 'VN → JP', icon: '🇻🇳→🇯🇵' },
-    { value: 'vi-romaji', label: 'VN → Romaji', icon: '🇻🇳→abc' }
+    { value: 'ja-vi', label: 'JP → VN', icon: 'JP→VN' },
+    { value: 'vi-ja', label: 'VN → JP', icon: 'VN→JP' },
+    { value: 'vi-romaji', label: 'VN → Romaji', icon: 'VN→abc' }
   ];
 
   function startQuiz(mode: string) {
@@ -44,12 +47,9 @@
       class="text-white py-8 px-4 text-center relative"
       style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
     >
-      <button
-        class="absolute top-4 left-4 bg-white/20 hover:bg-white/30 text-white border-none px-3 py-1.5 rounded-lg text-sm cursor-pointer transition-colors"
-        on:click={() => goto(`${base}/course/${courseId}`)}
-      >
-        ← Back
-      </button>
+      <div class="absolute top-4 left-4">
+        <BackButton href={`/course/${courseId}`} variant="overlay" />
+      </div>
       <Badge class="bg-white/20 text-white border-0 mb-2">Bài {lesson.lessonNumber}</Badge>
       <h1 class="text-xl font-bold mb-2">{lesson.title}</h1>
       <div class="flex items-center justify-center gap-2 text-sm opacity-90">
@@ -62,11 +62,13 @@
     <div class="px-4 py-6 flex flex-col gap-6">
       <!-- Direction Selector -->
       <Card>
-        <CardHeader class="pb-2"><CardTitle class="text-sm">🔄 Quiz Direction</CardTitle></CardHeader>
+        <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><RefreshCw size={14} aria-hidden="true" /> Quiz Direction</CardTitle></CardHeader>
         <CardContent>
-          <div class="grid grid-cols-3 gap-2">
+          <div class="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Quiz direction">
             {#each directions as dir}
               <button
+                role="radio"
+                aria-checked={selectedDirection === dir.value}
                 class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg border-2 text-sm font-semibold transition-all cursor-pointer
                   {selectedDirection === dir.value
                     ? 'border-primary bg-primary/10 text-primary'
@@ -83,16 +85,16 @@
 
       <!-- Quiz Modes -->
       <Card>
-        <CardHeader class="pb-2"><CardTitle class="text-sm">📝 Quiz Modes</CardTitle></CardHeader>
+        <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><PenLine size={14} aria-hidden="true" /> Quiz Modes</CardTitle></CardHeader>
         <CardContent class="flex flex-col gap-2.5">
           <UiButton size="lg" class="w-full" onclick={() => startQuiz('flashcard')}>
-            🎴 Flashcard Quiz
+            <Layers size={16} aria-hidden="true" /> Flashcard Quiz
           </UiButton>
           <UiButton variant="secondary" size="lg" class="w-full" onclick={() => startQuiz('multiple-choice')}>
-            ✓ Multiple Choice
+            <CheckCircle size={16} aria-hidden="true" /> Multiple Choice
           </UiButton>
           <UiButton variant="outline" size="lg" class="w-full" onclick={() => startQuiz('typing')}>
-            ⌨️ Typing Quiz
+            <Keyboard size={16} aria-hidden="true" /> Typing Quiz
           </UiButton>
         </CardContent>
       </Card>
@@ -100,10 +102,10 @@
       <!-- Grammar Quiz -->
       {#if lesson.grammar.length > 0}
         <Card>
-          <CardHeader class="pb-2"><CardTitle class="text-sm">📝 Grammar Quiz</CardTitle></CardHeader>
+          <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><PenLine size={14} aria-hidden="true" /> Grammar Quiz</CardTitle></CardHeader>
           <CardContent>
             <UiButton variant="outline" class="w-full" onclick={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}>
-              📝 Grammar Quiz ({lesson.grammar.length} patterns)
+              <PenLine size={16} aria-hidden="true" /> Grammar Quiz ({lesson.grammar.length} patterns)
             </UiButton>
           </CardContent>
         </Card>
@@ -111,27 +113,22 @@
 
       <!-- Study Materials -->
       <Card>
-        <CardHeader class="pb-2"><CardTitle class="text-sm">📚 Study Materials</CardTitle></CardHeader>
+        <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><BookOpen size={14} aria-hidden="true" /> Study Materials</CardTitle></CardHeader>
         <CardContent class="flex flex-col gap-2.5">
           <UiButton variant="outline" class="w-full" onclick={() => goto(buildVocabularyUrl(courseId, lessonId))}>
-            📚 View Vocabulary ({lesson.vocabulary.length})
+            <BookOpen size={16} aria-hidden="true" /> View Vocabulary ({lesson.vocabulary.length})
           </UiButton>
           <UiButton variant="outline" class="w-full" onclick={() => goto(buildGrammarUrl(courseId, lessonId))}>
-            📖 View Grammar ({lesson.grammar.length})
+            <Book size={16} aria-hidden="true" /> View Grammar ({lesson.grammar.length})
           </UiButton>
         </CardContent>
       </Card>
     </div>
   </div>
 {:else}
-  <div class="text-center py-12 px-6">
-    <h2 class="text-xl font-bold mb-3">Lesson Not Found</h2>
-    <p class="text-muted-foreground mb-4">The lesson you're looking for doesn't exist.</p>
-    <UiButton onclick={() => goto(`${base}/courses`)}>Back to Courses</UiButton>
-  </div>
+  <PageEmpty
+    title="Lesson Not Found"
+    description="The lesson you're looking for doesn't exist."
+    action={{ label: 'Back to Courses', href: '/courses' }}
+  />
 {/if}
-
-<style>
-  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
-  .animate-in { animation: fade-in 0.25s ease; }
-</style>

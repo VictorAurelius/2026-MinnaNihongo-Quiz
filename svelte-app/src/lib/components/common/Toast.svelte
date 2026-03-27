@@ -5,7 +5,7 @@
 </script>
 
 {#if visible}
-  <div class="toast toast-{type}" role="alert" aria-live="polite">
+  <div class="toast toast-{type}" role="alert" aria-live="polite" aria-atomic="true">
     <span class="toast-message">{message}</span>
   </div>
 {/if}
@@ -17,7 +17,7 @@
     left: 50%;
     transform: translateX(-50%);
     padding: 0.75rem 1.25rem;
-    border-radius: var(--radius-sm, 0.375rem);
+    border-radius: 8px;
     font-size: 0.9rem;
     font-weight: 500;
     z-index: 9999;
@@ -28,18 +28,18 @@
   }
 
   .toast-success {
-    background: var(--success, #22c55e);
-    color: white;
+    background: var(--color-success);
+    color: var(--color-success-foreground);
   }
 
   .toast-error {
-    background: var(--danger, #ef4444);
-    color: white;
+    background: var(--color-destructive);
+    color: var(--color-destructive-foreground);
   }
 
   .toast-info {
-    background: var(--primary, #6366f1);
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
   }
 
   @keyframes slideInFromTop {
