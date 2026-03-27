@@ -39,49 +39,49 @@
 <div class="mx-auto max-w-4xl p-4 animate-in">
   <h2 class="text-xl font-bold mb-4">Kanji — {totalKanji} chữ Hán</h2>
 
-  <div class="flex gap-2 mb-4 flex-wrap" role="radiogroup" aria-label="JLPT level">
+  <div class="flex gap-2.5 mb-5 flex-wrap" role="radiogroup" aria-label="JLPT level">
     {#each levels as lvl}
       <button
         role="radio"
         aria-checked={selectedLevel === lvl.id}
-        class="flex flex-col items-center gap-0.5 px-4 py-2 border-2 rounded-lg cursor-pointer transition-all
+        class="flex flex-col items-center gap-0.5 px-5 py-3 border-2 rounded-xl cursor-pointer transition-all active:scale-[0.97]
           {selectedLevel === lvl.id ? 'border-primary bg-primary/10 text-primary' : 'border-border bg-card text-foreground hover:border-primary'}"
         on:click={() => selectedLevel = lvl.id}
       >
-        <span class="text-sm font-bold">{lvl.label}</span>
-        <span class="text-[0.7rem] text-muted-foreground">{lvl.count} chữ</span>
+        <span class="text-base font-bold">{lvl.label}</span>
+        <span class="text-xs text-muted-foreground">{lvl.count} chữ</span>
       </button>
     {/each}
   </div>
 
-  <a href="{base}/kanji/radicals" class="inline-flex items-center gap-1 mb-4 text-sm text-primary font-semibold no-underline hover:underline">
-    <BookOpen size={14} aria-hidden="true" /> 214 Bộ Thủ →
+  <a href="{base}/kanji/radicals" class="inline-flex items-center gap-1.5 mb-5 text-sm text-primary font-semibold no-underline hover:underline">
+    <BookOpen size={16} aria-hidden="true" /> 214 Bộ Thủ →
   </a>
 
   {#if selectedLevel === 'n5n4'}
-    <div class="flex flex-col gap-1.5">
+    <div class="flex flex-col gap-2">
       {#each lessons as lesson}
         <a
           href="{base}/kanji/{lesson.lessonNumber}"
-          class="flex items-center gap-4 w-full px-4 py-3 bg-card rounded-lg shadow-sm text-left no-underline transition-all duration-150 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+          class="flex items-center gap-4 w-full px-4 py-3.5 bg-card rounded-xl shadow-sm text-left no-underline transition-all duration-150 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
         >
-          <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary/15 text-primary text-xs font-bold">
+          <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-primary/15 text-primary text-sm font-bold">
             {lesson.lessonNumber}
           </span>
           <div class="flex-1 min-w-0">
-            <h3 class="text-sm font-semibold text-foreground leading-snug truncate" style="font-family: var(--font-jp)">{lesson.title}</h3>
-            <span class="text-[0.7rem] text-muted-foreground">{lesson.kanjiCount} kanji</span>
+            <h3 class="text-base font-semibold text-foreground leading-snug truncate" style="font-family: var(--font-jp)">{lesson.title}</h3>
+            <span class="text-xs text-muted-foreground">{lesson.kanjiCount} kanji</span>
           </div>
-          <ChevronRight size={16} class="flex-shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
         </a>
       {/each}
     </div>
   {:else}
-    <div class="grid gap-2" style="grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));">
+    <div class="grid gap-2.5" style="grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));">
       {#each getKanjiList(selectedLevel) as k}
-        <div class="flex flex-col items-center gap-0.5 p-2 bg-card border border-border rounded-lg cursor-default" title="{k.english} — {k.onyomi.join(', ')}">
-          <span class="text-3xl font-bold" style="font-family: var(--font-jp)">{k.character}</span>
-          <span class="text-[0.6rem] text-muted-foreground text-center overflow-hidden text-ellipsis whitespace-nowrap max-w-full">{k.english.split(',')[0]}</span>
+        <div class="flex flex-col items-center gap-1 p-3 bg-card border border-border rounded-xl cursor-default" title="{k.english} — {k.onyomi.join(', ')}">
+          <span class="text-4xl font-bold" style="font-family: var(--font-jp)">{k.character}</span>
+          <span class="text-xs text-muted-foreground text-center overflow-hidden text-ellipsis whitespace-nowrap max-w-full">{k.english.split(',')[0]}</span>
         </div>
       {/each}
     </div>

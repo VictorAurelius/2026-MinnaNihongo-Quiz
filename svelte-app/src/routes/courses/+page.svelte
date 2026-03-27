@@ -35,15 +35,15 @@
         <!-- Color accent -->
         <div class="absolute left-0 inset-y-0 w-1 rounded-l-xl" style="background: {course.metadata.color}"></div>
 
-        <span class="text-3xl pl-2 flex-shrink-0">{course.metadata.icon}</span>
+        <span class="text-4xl pl-2 flex-shrink-0">{course.metadata.icon}</span>
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-2 mb-0.5">
-            <h2 class="text-base font-bold text-foreground">{course.metadata.title}</h2>
-            <Badge class="text-[0.6rem] px-1.5 py-0" style="background: {course.metadata.color}; color: white">{course.metadata.level}</Badge>
+            <h2 class="text-lg font-bold text-foreground">{course.metadata.title}</h2>
+            <Badge class="text-[0.65rem] px-2 py-0.5" style="background: {course.metadata.color}; color: white">{course.metadata.level}</Badge>
           </div>
-          <p class="text-xs text-muted-foreground leading-snug">{course.metadata.description}</p>
+          <p class="text-sm text-muted-foreground leading-snug">{course.metadata.description}</p>
         </div>
-        <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform" aria-hidden="true" />
+        <ChevronRight size={20} class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform" aria-hidden="true" />
       </a>
     {/each}
   </div>

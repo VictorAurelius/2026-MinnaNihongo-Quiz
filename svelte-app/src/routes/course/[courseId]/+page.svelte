@@ -62,22 +62,22 @@
       <h2 class="text-base font-bold mb-3">Lessons ({lessons.length})</h2>
 
       <!-- Lesson rows — compact, readable on all screen sizes -->
-      <div class="flex flex-col gap-1.5">
+      <div class="flex flex-col gap-2">
         {#each lessons as lesson}
           {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
           <a
             href={buildLessonUrl(courseId, lesson.lessonNumber)}
-            class="flex items-center gap-4 w-full px-4 py-3 bg-card border border-border rounded-lg shadow-sm text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-md active:scale-[0.98] cursor-pointer group"
+            class="flex items-center gap-4 w-full px-4 py-3.5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-md active:scale-[0.98] cursor-pointer group"
           >
             <!-- Lesson number -->
-            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
+            <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
               {lesson.lessonNumber}
             </span>
 
             <!-- Title + stats -->
             <div class="flex-1 min-w-0">
-              <h3 class="text-sm font-semibold text-foreground leading-snug truncate" style="font-family: var(--font-jp)">{lesson.title}</h3>
-              <div class="flex gap-2 text-[0.7rem] text-muted-foreground mt-0.5">
+              <h3 class="text-base font-semibold text-foreground leading-snug truncate" style="font-family: var(--font-jp)">{lesson.title}</h3>
+              <div class="flex gap-2 text-xs text-muted-foreground mt-0.5">
                 <span>{lesson.vocabCount} từ</span>
                 <span>·</span>
                 <span>{lesson.grammarCount} ngữ pháp</span>
@@ -86,8 +86,8 @@
 
             <!-- Mastery + arrow -->
             <div class="flex items-center gap-2 flex-shrink-0">
-              <MasteryRing percentage={mastery} size={32} />
-              <ChevronRight size={16} class="text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+              <MasteryRing percentage={mastery} size={36} />
+              <ChevronRight size={18} class="text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
             </div>
           </a>
         {/each}

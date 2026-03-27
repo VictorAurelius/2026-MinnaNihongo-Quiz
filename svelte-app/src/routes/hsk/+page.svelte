@@ -20,17 +20,17 @@
     <p class="text-sm text-muted-foreground">汉语水平考试 — Chinese Proficiency Test</p>
   </header>
 
-  <div class="flex gap-2 justify-center mb-4 flex-wrap" role="radiogroup" aria-label="HSK level">
+  <div class="flex gap-2.5 justify-center mb-5 flex-wrap" role="radiogroup" aria-label="HSK level">
     {#each levels as lvl}
       <button
         role="radio"
         aria-checked={selectedLevel === lvl.level}
-        class="flex flex-col items-center gap-0.5 px-4 py-2 border-2 rounded-lg cursor-pointer transition-all
+        class="flex flex-col items-center gap-0.5 px-5 py-3 border-2 rounded-xl cursor-pointer transition-all active:scale-[0.97]
           {selectedLevel === lvl.level ? 'border-primary bg-primary/10 text-primary' : 'border-border bg-card text-foreground hover:border-primary'}"
         on:click={() => selectedLevel = lvl.level}
       >
-        <span class="text-sm font-bold">HSK {lvl.level}</span>
-        <span class="text-[0.7rem] text-muted-foreground">{lvl.wordCount} từ</span>
+        <span class="text-base font-bold">HSK {lvl.level}</span>
+        <span class="text-xs text-muted-foreground">{lvl.wordCount} từ</span>
       </button>
     {/each}
   </div>
@@ -43,14 +43,14 @@
         href="{base}/hsk/{group.id}"
         class="flex items-center gap-4 w-full px-5 py-4 bg-card border border-border rounded-xl shadow-sm cursor-pointer text-left no-underline transition-all hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] group"
       >
-        <div class="w-12 h-12 flex items-center justify-center bg-primary/80 text-white text-xl font-bold rounded-lg flex-shrink-0" style="font-family: var(--font-cn)">
+        <div class="w-14 h-14 flex items-center justify-center bg-primary/80 text-white text-2xl font-bold rounded-xl flex-shrink-0" style="font-family: var(--font-cn)">
           {group.id.toUpperCase()}
         </div>
         <div class="flex-1">
-          <h2 class="text-base font-semibold mb-0.5">{group.title}</h2>
+          <h2 class="text-lg font-semibold mb-0.5">{group.title}</h2>
           <p class="text-sm text-muted-foreground">{group.words.length} words</p>
         </div>
-        <ChevronRight size={18} class="text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
+        <ChevronRight size={20} class="text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
       </a>
     {/each}
   </div>
