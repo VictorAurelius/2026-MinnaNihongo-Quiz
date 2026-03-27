@@ -12,8 +12,6 @@
   import { progressStore } from '$lib/stores';
   import { getLessonMastery, getNextLesson, getCourseProgress } from '$lib/utils/progressUtils';
   import MasteryRing from '$lib/components/common/MasteryRing.svelte';
-  import { Card, CardContent } from '$lib/components/ui/card';
-  import Badge from '$lib/components/ui/badge/badge.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import type { CourseId } from '$lib/types/course';
 
@@ -32,56 +30,63 @@
   <div class="animate-in">
     <!-- Course Header -->
     <div
-      class="text-white py-8 px-4 text-center relative"
+      class="text-white py-6 px-4 text-center relative"
       style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
     >
       <button
-        class="absolute top-4 left-4 bg-white/20 hover:bg-white/30 text-white border-none px-3 py-1.5 rounded-lg text-sm cursor-pointer transition-colors"
+        class="absolute top-3 left-3 bg-white/20 hover:bg-white/30 text-white border-none px-3 py-1.5 rounded-lg text-sm cursor-pointer transition-colors"
         on:click={() => goto(`${base}/courses`)}
       >
         ← Back
       </button>
-      <div class="text-5xl mb-2">{course.metadata.icon}</div>
-      <h1 class="text-2xl font-bold mb-1">{course.metadata.title}</h1>
-      <p class="text-sm opacity-90">{course.metadata.description}</p>
-      <p class="text-xs opacity-75 mt-2">
+      <h1 class="text-xl font-bold mb-1">{course.metadata.title}</h1>
+      <p class="text-xs opacity-90">{course.metadata.description}</p>
+      <p class="text-xs opacity-75 mt-1">
         {courseProgress.completed}/{courseProgress.total} lessons mastered ({courseProgress.percentage}%)
       </p>
     </div>
 
     <!-- Content -->
-    <div class="max-w-5xl mx-auto px-4 py-6">
+    <div class="max-w-4xl mx-auto px-3 sm:px-4 py-4">
       <!-- Continue Button -->
       <UiButton
         size="lg"
-        class="w-full mb-6"
+        class="w-full mb-4"
         onclick={() => goto(buildLessonUrl(courseId, nextLesson))}
       >
         Continue — Bài {nextLesson} →
       </UiButton>
 
-      <h2 class="text-lg font-bold mb-4">Lessons</h2>
+      <h2 class="text-base font-bold mb-3">Lessons ({lessons.length})</h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Lesson rows — compact, readable on all screen sizes -->
+      <div class="flex flex-col gap-1.5">
         {#each lessons as lesson}
           {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
           <button
-            class="text-left w-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg cursor-pointer"
+            class="flex items-center gap-3 w-full px-3 py-2.5 bg-card border border-border rounded-lg text-left transition-all duration-150 hover:border-primary hover:shadow-sm cursor-pointer group"
             on:click={() => goto(buildLessonUrl(courseId, lesson.lessonNumber))}
           >
-            <Card class="h-full hover:border-primary">
-              <CardContent class="p-4">
-                <div class="flex items-center justify-between mb-2">
-                  <Badge variant="default" class="text-xs">Bài {lesson.lessonNumber}</Badge>
-                  <MasteryRing percentage={mastery} size={36} />
-                </div>
-                <h3 class="text-sm font-semibold text-foreground mb-2 leading-snug">{lesson.title}</h3>
-                <div class="flex gap-3 text-xs text-muted-foreground">
-                  <span>📚 {lesson.vocabCount} từ</span>
-                  <span>📖 {lesson.grammarCount} ngữ pháp</span>
-                </div>
-              </CardContent>
-            </Card>
+            <!-- Lesson number -->
+            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
+              {lesson.lessonNumber}
+            </span>
+
+            <!-- Title + stats -->
+            <div class="flex-1 min-w-0">
+              <h3 class="text-sm font-semibold text-foreground leading-snug truncate" style="font-family: var(--font-jp)">{lesson.title}</h3>
+              <div class="flex gap-2 text-[0.7rem] text-muted-foreground mt-0.5">
+                <span>{lesson.vocabCount} từ</span>
+                <span>·</span>
+                <span>{lesson.grammarCount} ngữ pháp</span>
+              </div>
+            </div>
+
+            <!-- Mastery + arrow -->
+            <div class="flex items-center gap-2 flex-shrink-0">
+              <MasteryRing percentage={mastery} size={32} />
+              <span class="text-muted-foreground text-xs group-hover:text-primary group-hover:translate-x-0.5 transition-all">→</span>
+            </div>
           </button>
         {/each}
       </div>
@@ -96,11 +101,6 @@
 {/if}
 
 <style>
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(0.5rem); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-in {
-    animation: fade-in 0.25s ease;
-  }
+  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
+  .animate-in { animation: fade-in 0.25s ease; }
 </style>
