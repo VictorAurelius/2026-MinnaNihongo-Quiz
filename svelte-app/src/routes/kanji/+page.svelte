@@ -60,10 +60,10 @@
   </a>
 
   {#if selectedLevel === 'n5n4'}
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
       {#each lessons as lesson}
         <a href="{base}/kanji/{lesson.lessonNumber}" class="text-left no-underline">
-          <Card class="h-full hover:border-primary hover:-translate-y-0.5 hover:shadow-lg transition-all cursor-pointer">
+          <Card class="h-full shadow-sm border-l-3 border-l-primary/40 hover:border-l-primary hover:-translate-y-0.5 hover:shadow-lg transition-all cursor-pointer">
             <CardContent class="p-4">
               <div class="text-xs font-bold text-primary mb-1">Bài {lesson.lessonNumber}</div>
               <div class="text-sm font-semibold mb-1" style="font-family: var(--font-jp)">{lesson.title}</div>

@@ -61,19 +61,19 @@
       </div>
     </div>
 
-    <div class="px-4 py-6 flex flex-col gap-6">
+    <div class="px-4 py-6 flex flex-col gap-7">
       <!-- Direction Selector -->
-      <Card>
+      <Card class="shadow-md border-l-3 border-l-primary/50">
         <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><RefreshCw size={14} aria-hidden="true" /> Quiz Direction</CardTitle></CardHeader>
         <CardContent>
-          <div class="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Quiz direction">
+          <div class="grid grid-cols-3 gap-2.5" role="radiogroup" aria-label="Quiz direction">
             {#each directions as dir}
               <button
                 role="radio"
                 aria-checked={selectedDirection === dir.value}
-                class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg border-2 text-sm font-semibold transition-all cursor-pointer
+                class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg border-2 text-sm font-semibold transition-all cursor-pointer
                   {selectedDirection === dir.value
-                    ? 'border-primary bg-primary/10 text-primary'
+                    ? 'border-primary bg-primary/10 text-primary shadow-sm'
                     : 'border-border bg-card text-muted-foreground hover:border-primary hover:text-foreground'}"
                 on:click={() => selectedDirection = dir.value}
               >
@@ -86,7 +86,7 @@
       </Card>
 
       <!-- Quiz Modes -->
-      <Card>
+      <Card class="shadow-md border-l-3 border-l-primary/50">
         <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><PenLine size={14} aria-hidden="true" /> Quiz Modes</CardTitle></CardHeader>
         <CardContent class="flex flex-col gap-2.5">
           <UiButton size="lg" class="w-full" onclick={() => startQuiz('flashcard')}>
@@ -103,7 +103,7 @@
 
       <!-- Grammar Quiz -->
       {#if lesson.grammar.length > 0}
-        <Card>
+        <Card class="shadow-md border-l-3 border-l-success/50">
           <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><PenLine size={14} aria-hidden="true" /> Grammar Quiz</CardTitle></CardHeader>
           <CardContent>
             <UiButton variant="outline" class="w-full" onclick={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}>
@@ -114,7 +114,7 @@
       {/if}
 
       <!-- Study Materials -->
-      <Card>
+      <Card class="shadow-md border-l-3 border-l-warning/50">
         <CardHeader class="pb-2"><CardTitle class="text-sm flex items-center gap-1.5"><BookOpen size={14} aria-hidden="true" /> Study Materials</CardTitle></CardHeader>
         <CardContent class="flex flex-col gap-2.5">
           <UiButton variant="outline" class="w-full" onclick={() => goto(buildVocabularyUrl(courseId, lessonId))}>
