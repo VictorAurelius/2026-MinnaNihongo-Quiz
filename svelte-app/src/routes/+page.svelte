@@ -66,7 +66,7 @@
 
 <div class="mx-auto max-w-2xl animate-in fade-in slide-in-from-bottom-2 duration-300">
   <!-- Hero Section -->
-  <section class="py-8 px-4 text-center">
+  <section class="py-6 px-4 text-center">
     <Badge variant="outline" class="mb-4 text-xs font-bold uppercase tracking-wider">Smart Quiz</Badge>
     <h1 class="text-3xl font-extrabold leading-tight mb-3">
       Learn <span class="text-primary" style="font-family: var(--font-jp)">日本語</span>

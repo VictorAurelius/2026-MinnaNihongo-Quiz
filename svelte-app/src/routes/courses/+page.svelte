@@ -1,13 +1,11 @@
 <script lang="ts">
   /**
-   * Course Selection Page
-   * Displays all available Japanese courses with shadcn Cards
+   * Course Selection Page — compact horizontal cards
    */
 
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { getAllCourses } from '$lib/data/courses';
-  import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
 
   const courses = getAllCourses();
@@ -17,9 +15,9 @@
   <title>Courses - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-3xl p-4 animate-in">
-  <div class="text-center mb-8">
-    <h1 class="text-2xl font-bold text-foreground mb-2">Japanese Courses</h1>
+<div class="mx-auto max-w-2xl p-4 animate-in">
+  <div class="text-center mb-6">
+    <h1 class="text-2xl font-bold text-foreground mb-1">Japanese Courses</h1>
     <p class="text-muted-foreground text-sm">Select a course to begin studying</p>
   </div>
 
@@ -29,35 +27,30 @@
     </div>
   {/if}
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  <div class="flex flex-col gap-3">
     {#each courses as course}
       <button
-        class="group text-left"
+        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl text-left transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg cursor-pointer group relative overflow-hidden"
         on:click={() => goto(`${base}/course/${course.metadata.id}`)}
       >
-        <Card class="relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:border-primary cursor-pointer h-full">
-          <!-- Color accent bar -->
-          <div class="absolute top-0 inset-x-0 h-1 opacity-80" style="background: {course.metadata.color}"></div>
-          <CardContent class="pt-8 pb-6 px-6 text-center flex flex-col items-center gap-3">
-            <span class="text-5xl">{course.metadata.icon}</span>
-            <h2 class="text-xl font-bold text-foreground">{course.metadata.title}</h2>
-            <p class="text-sm text-muted-foreground leading-relaxed">{course.metadata.description}</p>
-            <Badge class="mt-1" style="background: {course.metadata.color}; color: white">
-              {course.metadata.level}
-            </Badge>
-          </CardContent>
-        </Card>
+        <!-- Color accent -->
+        <div class="absolute left-0 inset-y-0 w-1 rounded-l-xl" style="background: {course.metadata.color}"></div>
+
+        <span class="text-3xl pl-2 flex-shrink-0">{course.metadata.icon}</span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-0.5">
+            <h2 class="text-base font-bold text-foreground">{course.metadata.title}</h2>
+            <Badge class="text-[0.6rem] px-1.5 py-0" style="background: {course.metadata.color}; color: white">{course.metadata.level}</Badge>
+          </div>
+          <p class="text-xs text-muted-foreground leading-snug">{course.metadata.description}</p>
+        </div>
+        <span class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform">→</span>
       </button>
     {/each}
   </div>
 </div>
 
 <style>
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(0.5rem); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-in {
-    animation: fade-in 0.25s ease;
-  }
+  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
+  .animate-in { animation: fade-in 0.25s ease; }
 </style>
