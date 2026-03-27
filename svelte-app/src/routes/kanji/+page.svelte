@@ -7,9 +7,8 @@
   import { KANJI_N3_DATA } from '$lib/data/kanji/kanji-n3';
   import { KANJI_N2_DATA } from '$lib/data/kanji/kanji-n2';
   import { KANJI_N1_DATA } from '$lib/data/kanji/kanji-n1';
-  import { Card, CardContent } from '$lib/components/ui/card';
   import { base } from '$app/paths';
-  import { BookOpen } from 'lucide-svelte';
+  import { BookOpen, ChevronRight } from 'lucide-svelte';
 
   const lessons = getKanjiLessonMetadata();
   let selectedLevel: 'n5n4' | 'n3' | 'n2' | 'n1' = 'n5n4';
@@ -60,16 +59,20 @@
   </a>
 
   {#if selectedLevel === 'n5n4'}
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div class="flex flex-col gap-1.5">
       {#each lessons as lesson}
-        <a href="{base}/kanji/{lesson.lessonNumber}" class="text-left no-underline">
-          <Card class="h-full shadow-sm border-l-3 border-l-primary/40 hover:border-l-primary hover:-translate-y-0.5 hover:shadow-lg transition-all cursor-pointer">
-            <CardContent class="p-4">
-              <div class="text-xs font-bold text-primary mb-1">Bài {lesson.lessonNumber}</div>
-              <div class="text-sm font-semibold mb-1" style="font-family: var(--font-jp)">{lesson.title}</div>
-              <div class="text-xs text-muted-foreground">{lesson.kanjiCount} kanji</div>
-            </CardContent>
-          </Card>
+        <a
+          href="{base}/kanji/{lesson.lessonNumber}"
+          class="flex items-center gap-3 w-full px-3 py-2.5 bg-card rounded-lg shadow-sm text-left no-underline transition-all duration-150 hover:shadow-md hover:-translate-y-0.5 cursor-pointer group"
+        >
+          <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary/15 text-primary text-xs font-bold">
+            {lesson.lessonNumber}
+          </span>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-sm font-semibold text-foreground leading-snug truncate" style="font-family: var(--font-jp)">{lesson.title}</h3>
+            <span class="text-[0.7rem] text-muted-foreground">{lesson.kanjiCount} kanji</span>
+          </div>
+          <ChevronRight size={16} class="flex-shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
         </a>
       {/each}
     </div>
