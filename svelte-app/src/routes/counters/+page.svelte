@@ -7,12 +7,9 @@
   let expandedCounters = new Set<number>();
 
   function toggleCounter(index: number) {
-    if (expandedCounters.has(index)) {
-      expandedCounters.delete(index);
-    } else {
-      expandedCounters.add(index);
-    }
-    expandedCounters = expandedCounters; // Trigger reactivity
+    if (expandedCounters.has(index)) expandedCounters.delete(index);
+    else expandedCounters.add(index);
+    expandedCounters = expandedCounters;
   }
 
   function speak(text: string) {
@@ -26,77 +23,55 @@
   <title>Trợ số từ - Japanese Counters</title>
 </svelte:head>
 
-<div class="counters-container">
-  <header class="page-header">
-    <h1>Số đếm & Trợ số từ</h1>
-    <p class="subtitle">Numbers & Japanese Counter Words</p>
+<div class="mx-auto max-w-4xl px-4 py-6 sm:px-6 animate-in">
+  <header class="text-center mb-6">
+    <h1 class="text-2xl font-bold mb-1">Số đếm & Trợ số từ</h1>
+    <p class="text-sm text-muted-foreground">Numbers & Japanese Counter Words</p>
   </header>
 
-  <!-- Tab Navigation -->
-  <div class="tabs">
+  <!-- Tabs -->
+  <div class="flex gap-2 mb-6 border-b-2 border-border">
     <button
-      class="tab"
-      class:active={activeTab === 'numbers'}
+      class="px-5 py-3 bg-transparent border-none border-b-[3px] text-base font-medium cursor-pointer transition-all
+        {activeTab === 'numbers' ? 'text-primary border-primary' : 'text-muted-foreground border-transparent hover:text-foreground hover:bg-muted'}"
       on:click={() => activeTab = 'numbers'}
-    >
-      📊 Số cơ bản
-    </button>
+    >📊 Số cơ bản</button>
     <button
-      class="tab"
-      class:active={activeTab === 'counters'}
+      class="px-5 py-3 bg-transparent border-none border-b-[3px] text-base font-medium cursor-pointer transition-all
+        {activeTab === 'counters' ? 'text-primary border-primary' : 'text-muted-foreground border-transparent hover:text-foreground hover:bg-muted'}"
       on:click={() => activeTab = 'counters'}
-    >
-      🔢 Trợ số từ ({COUNTERS_DATA.length})
-    </button>
+    >🔢 Trợ số từ ({COUNTERS_DATA.length})</button>
   </div>
 
   {#if activeTab === 'numbers'}
-    <!-- Numbers Section -->
-    <div class="section">
-      <h2>Số cơ bản (Basic Numbers)</h2>
-      <p class="section-desc">
-        Hệ thống số trong tiếng Nhật từ 0 đến 兆 (trillion)
-      </p>
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">Số cơ bản (Basic Numbers)</h2>
+      <p class="text-sm text-muted-foreground mb-4">Hệ thống số trong tiếng Nhật từ 0 đến 兆 (trillion)</p>
 
-      <div class="table-wrapper">
+      <div class="overflow-x-auto rounded-lg shadow-sm">
         <table class="numbers-table">
           <thead>
             <tr>
-              <th>Number</th>
-              <th>Kanji</th>
-              <th>Kana</th>
-              <th>Romaji</th>
-              {#if hasAudio}
-                <th>Audio</th>
-              {/if}
+              <th>Number</th><th>Kanji</th><th>Kana</th><th>Romaji</th>
+              {#if hasAudio}<th>Audio</th>{/if}
             </tr>
           </thead>
           <tbody>
             {#each NUMBERS_DATA as num}
               <tr class:irregular={num.note === 'irregular'}>
-                <td class="number-col">{num.number.toLocaleString()}</td>
-                <td class="jp-text kanji-col">{num.kanji}</td>
-                <td class="jp-text kana-col">
+                <td class="font-semibold font-mono">{num.number.toLocaleString()}</td>
+                <td class="text-lg" style="font-family: var(--font-jp)">{num.kanji}</td>
+                <td class="text-lg" style="font-family: var(--font-jp)">
                   {num.kana}
-                  {#if num.alt}
-                    <span class="alt"> / {num.alt.kana}</span>
-                  {/if}
+                  {#if num.alt}<span class="text-sm text-muted-foreground"> / {num.alt.kana}</span>{/if}
                 </td>
-                <td class="romaji-col">
+                <td>
                   {num.romaji}
-                  {#if num.alt}
-                    <span class="alt"> / {num.alt.romaji}</span>
-                  {/if}
+                  {#if num.alt}<span class="text-sm text-muted-foreground"> / {num.alt.romaji}</span>{/if}
                 </td>
                 {#if hasAudio}
                   <td>
-                    <button
-                      class="btn-speak"
-                      on:click={() => speak(num.kanji)}
-                      title="Phát âm"
-                    >
-                      🔊
-                    </button>
+                    <button class="border border-border rounded px-2 py-1 cursor-pointer text-base hover:border-primary hover:bg-muted transition-colors bg-transparent" on:click={() => speak(num.kanji)} title="Phát âm">🔊</button>
                   </td>
                 {/if}
               </tr>
@@ -104,86 +79,61 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
   {:else}
-    <!-- Counters Section -->
-    <div class="section">
-      <h2>Trợ số từ (Counter Words)</h2>
-      <p class="section-desc">
-        Từ đếm đặc biệt dùng để đếm các loại vật khác nhau trong tiếng Nhật
-      </p>
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">Trợ số từ (Counter Words)</h2>
+      <p class="text-sm text-muted-foreground mb-4">Từ đếm đặc biệt dùng để đếm các loại vật khác nhau trong tiếng Nhật</p>
 
-      <div class="counters-grid">
+      <div class="flex flex-col gap-3">
         {#each COUNTERS_DATA as counter, index}
           {@const isExpanded = expandedCounters.has(index)}
-          <div class="counter-card" class:expanded={isExpanded}>
-            <button
-              class="counter-header"
-              on:click={() => toggleCounter(index)}
-            >
-              <div class="counter-main">
-                <span class="counter-kanji jp-text">{counter.counter}</span>
-                <div class="counter-info">
-                  <span class="counter-reading">{counter.kana} ({counter.romaji})</span>
-                  <span class="counter-usage">{counter.vietnamese}</span>
+          <div class="bg-card border border-border rounded-xl overflow-hidden transition-all hover:shadow-md" class:border-primary={isExpanded}>
+            <button class="w-full flex items-center gap-4 p-4 bg-transparent border-none cursor-pointer text-left hover:bg-muted transition-colors" on:click={() => toggleCounter(index)}>
+              <div class="flex-1 flex items-center gap-4 sm:flex-row flex-col sm:items-center items-start">
+                <span class="text-4xl font-bold text-primary min-w-[60px] text-center" style="font-family: var(--font-jp)">{counter.counter}</span>
+                <div class="flex flex-col gap-1">
+                  <span class="text-lg font-medium">{counter.kana} ({counter.romaji})</span>
+                  <span class="text-sm text-muted-foreground">{counter.vietnamese}</span>
                   {#if counter.lesson}
-                    <span class="lesson-badge">Bài {counter.lesson}</span>
+                    <span class="inline-block w-fit bg-primary text-white text-xs font-semibold px-2 py-0.5 rounded-full mt-0.5">Bài {counter.lesson}</span>
                   {/if}
                 </div>
               </div>
               {#if hasAudio}
                 <!-- svelte-ignore a11y_no_static_element_interactions a11y_click_events_have_key_events -->
-                <span
-                  class="btn-speak inline"
-                  on:click|stopPropagation={() => speak(counter.counter)}
-                  title="Phát âm"
-                >
-                  🔊
-                </span>
+                <span class="border border-border rounded-lg px-2 py-1.5 cursor-pointer hover:border-primary transition-colors text-base" on:click|stopPropagation={() => speak(counter.counter)} title="Phát âm">🔊</span>
               {/if}
-              <span class="expand-icon">{isExpanded ? '▼' : '▶'}</span>
+              <span class="text-sm text-muted-foreground">{isExpanded ? '▼' : '▶'}</span>
             </button>
 
             {#if isExpanded}
-              <div class="counter-content">
-                <!-- Readings Table -->
-                <div class="readings-section">
-                  <h4>Cách đọc (1-10{counter.readings.length > 10 ? '+' : ''})</h4>
-                  <div class="readings-grid">
-                    {#each counter.readings as reading}
-                      <div class="reading-item" class:irregular={reading.irregular}>
-                        <span class="reading-number">{reading.number}</span>
-                        <span class="reading-form jp-text">{reading.form}</span>
-                        <span class="reading-kana">{reading.kana}</span>
-                        <span class="reading-romaji">({reading.romaji})</span>
-                        {#if hasAudio}
-                          <button
-                            class="btn-speak small"
-                            on:click={() => speak(reading.form)}
-                            title="Phát âm"
-                          >
-                            🔊
-                          </button>
-                        {/if}
-                      </div>
-                    {/each}
-                  </div>
+              <div class="p-5 border-t border-border bg-muted">
+                <h4 class="text-base font-semibold mb-3">Cách đọc (1-10{counter.readings.length > 10 ? '+' : ''})</h4>
+                <div class="readings-grid mb-4">
+                  {#each counter.readings as reading}
+                    <div class="reading-item" class:irregular={reading.irregular}>
+                      <span class="text-sm font-bold text-muted-foreground">{reading.number}</span>
+                      <span class="font-semibold text-lg" style="font-family: var(--font-jp)">{reading.form}</span>
+                      <span class="text-sm">{reading.kana}</span>
+                      <span class="text-xs text-muted-foreground col-span-full">({reading.romaji})</span>
+                      {#if hasAudio}
+                        <button class="border border-border rounded px-1.5 py-0.5 cursor-pointer text-xs hover:border-primary bg-transparent transition-colors" on:click={() => speak(reading.form)} title="Phát âm">🔊</button>
+                      {/if}
+                    </div>
+                  {/each}
                 </div>
 
-                <!-- Example -->
-                <div class="example-section">
-                  <h4>Ví dụ:</h4>
-                  <p class="example-jp jp-text">{counter.example.japanese}</p>
-                  <p class="example-vi">{counter.example.vietnamese}</p>
+                <div class="p-3 bg-card rounded-lg mb-3">
+                  <h4 class="text-base font-semibold mb-2">Ví dụ:</h4>
+                  <p class="text-lg mb-1" style="font-family: var(--font-jp)">{counter.example.japanese}</p>
+                  <p class="text-sm text-muted-foreground">{counter.example.vietnamese}</p>
                 </div>
 
-                <!-- Legend -->
                 {#if counter.readings.some(r => r.irregular)}
-                  <div class="legend">
-                    <span class="legend-item">
-                      <span class="irregular-marker"></span>
-                      Bất quy tắc (Irregular)
-                    </span>
+                  <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span class="w-3 h-3 bg-destructive/20 border-2 border-destructive rounded-sm"></span>
+                    Bất quy tắc (Irregular)
                   </div>
                 {/if}
               </div>
@@ -191,13 +141,13 @@
           </div>
         {/each}
       </div>
-    </div>
+    </section>
   {/if}
 
   <!-- Info Panel -->
-  <div class="info-panel">
-    <h3>💡 Ghi chú</h3>
-    <ul>
+  <div class="bg-muted border-l-4 border-primary p-5 rounded-lg mt-6">
+    <h3 class="text-lg font-bold mb-3">💡 Ghi chú</h3>
+    <ul class="list-none p-0 space-y-3 text-sm leading-relaxed">
       <li><strong>Trợ số từ (Counter words)</strong> là từ đặc biệt dùng khi đếm vật trong tiếng Nhật</li>
       <li>Mỗi loại vật dùng counter khác nhau (vật phẳng, vật dài, động vật, người...)</li>
       <li><strong>Màu đỏ</strong> chỉ các cách đọc bất quy tắc cần học thuộc</li>
@@ -207,373 +157,38 @@
 </div>
 
 <style>
-  .counters-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+  .animate-in { animation: fade-in 0.25s ease; }
 
-  .page-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .page-header h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .subtitle {
-    color: var(--text-secondary);
-    font-size: 1rem;
-  }
-
-  .tabs {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid var(--border-color);
-  }
-
-  .tab {
-    padding: 0.75rem 1.5rem;
-    background: none;
-    border: none;
-    border-bottom: 3px solid transparent;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    transition: all 0.2s;
-  }
-
-  .tab:hover {
-    color: var(--text-primary);
-    background: var(--bg-secondary);
-  }
-
-  .tab.active {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
-  }
-
-  .section {
-    margin-bottom: 2rem;
-  }
-
-  .section h2 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .section-desc {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-  }
-
-  .table-wrapper {
-    overflow-x: auto;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  }
-
-  .numbers-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-  }
-
-  .numbers-table th {
-    background: var(--bg-secondary);
-    padding: 0.75rem;
-    text-align: left;
-    font-weight: 600;
-    border-bottom: 2px solid var(--border-color);
-  }
-
-  .numbers-table td {
-    padding: 0.75rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .numbers-table tr.irregular {
-    background: var(--danger-bg);
-  }
-
-  .numbers-table tr.irregular td {
-    color: var(--error);
-  }
-
-  .number-col {
-    font-weight: 600;
-    font-family: monospace;
-  }
-
-  .jp-text {
-    font-size: 1.125rem;
-  }
-
-  .alt {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-  }
-
-  .btn-speak {
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    padding: 0.25rem 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s;
-  }
-
-  .btn-speak:hover {
-    background: var(--primary-light);
-    border-color: var(--primary);
-  }
-
-  .counters-grid {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .counter-card {
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.2s;
-  }
-
-  .counter-card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-
-  .counter-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.25rem;
-    background: white;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    transition: background 0.2s;
-  }
-
-  .counter-header:hover {
-    background: var(--bg-secondary);
-  }
-
-  .counter-main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .counter-kanji {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    min-width: 60px;
-    text-align: center;
-  }
-
-  .counter-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .counter-reading {
-    font-size: 1.125rem;
-    font-weight: 500;
-  }
-
-  .counter-usage {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-  }
-
-  .lesson-badge {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 0.125rem 0.5rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    width: fit-content;
-    margin-top: 0.25rem;
-  }
-
-  .btn-speak.inline {
-    padding: 0.5rem;
-  }
-
-
-  .expand-icon {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-  }
-
-  .counter-content {
-    padding: 1.25rem;
-    border-top: 1px solid var(--border-color);
-    background: var(--bg-secondary);
-  }
-
-  .readings-section h4,
-  .example-section h4 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: var(--text-primary);
-  }
+  .numbers-table { width: 100%; border-collapse: collapse; background: var(--color-card); }
+  .numbers-table th { background: var(--color-muted); padding: 0.75rem; text-align: left; font-weight: 600; border-bottom: 2px solid var(--color-border); }
+  .numbers-table td { padding: 0.75rem; border-bottom: 1px solid var(--color-border); }
+  .numbers-table tr.irregular { background: color-mix(in srgb, var(--color-destructive) 10%, var(--color-card)); }
+  .numbers-table tr.irregular td { color: var(--color-destructive); }
 
   .readings-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
   }
-
   .reading-item {
     display: grid;
-    grid-template-columns: 30px 1fr auto auto;
+    grid-template-columns: 30px 1fr auto;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem;
-    background: white;
-    border-radius: 4px;
-    border: 1px solid var(--border-color);
+    background: var(--color-card);
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-border);
   }
-
   .reading-item.irregular {
-    background: var(--danger-bg);
-    border-color: var(--error);
+    background: color-mix(in srgb, var(--color-destructive) 10%, var(--color-card));
+    border-color: var(--color-destructive);
   }
-
-  .reading-item.irregular .reading-kana {
-    color: var(--error);
-    font-weight: 600;
-  }
-
-  .reading-number {
-    font-weight: 700;
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-  }
-
-  .reading-form {
-    font-weight: 600;
-  }
-
-  .reading-kana {
-    font-size: 0.875rem;
-  }
-
-  .reading-romaji {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
-    grid-column: 2 / -1;
-  }
-
-  .btn-speak.small {
-    padding: 0.125rem 0.375rem;
-    font-size: 0.75rem;
-  }
-
-  .example-section {
-    padding: 1rem;
-    background: white;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-  }
-
-  .example-jp {
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .example-vi {
-    color: var(--text-secondary);
-  }
-
-  .legend {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .irregular-marker {
-    width: 12px;
-    height: 12px;
-    background: var(--danger-bg);
-    border: 2px solid var(--error);
-    border-radius: 2px;
-  }
-
-  .info-panel {
-    background: var(--bg-secondary);
-    border-left: 4px solid var(--primary);
-    padding: 1.5rem;
-    border-radius: 4px;
-    margin-top: 2rem;
-  }
-
-  .info-panel h3 {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-  }
-
-  .info-panel ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .info-panel li {
-    margin-bottom: 0.75rem;
-    line-height: 1.6;
-  }
-
-  .info-panel li:last-child {
-    margin-bottom: 0;
-  }
+  .reading-item.irregular span:nth-child(3) { color: var(--color-destructive); font-weight: 600; }
+  .col-span-full { grid-column: 2 / -1; }
 
   @media (max-width: 768px) {
-    .counters-container {
-      padding: 1rem 0.5rem;
-    }
-
-    .counter-main {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-
-    .counter-kanji {
-      min-width: auto;
-    }
-
-    .readings-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .numbers-table {
-      font-size: 0.875rem;
-    }
+    .readings-grid { grid-template-columns: 1fr; }
   }
 </style>

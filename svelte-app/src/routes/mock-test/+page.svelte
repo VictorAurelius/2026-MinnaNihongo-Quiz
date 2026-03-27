@@ -10,6 +10,8 @@
   import type { MockTestQuestion, JLPTScoreResult } from '$lib/utils/mockTestUtils';
   import { recordStudySession } from '$lib/utils/achievementUtils';
   import ProgressBar from '$lib/components/common/ProgressBar.svelte';
+  import { Card, CardContent } from '$lib/components/ui/card';
+  import UiButton from '$lib/components/ui/button/button.svelte';
 
   let selectedLevel = 'n5';
   let started = false;
@@ -18,7 +20,7 @@
   let answers: Record<string, string> = {};
   let selectedOption: string | null = null;
   let answered = false;
-  let timeRemaining = 30 * 60; // 30 minutes in seconds
+  let timeRemaining = 30 * 60;
   let timer: ReturnType<typeof setInterval>;
   let result: JLPTScoreResult | null = null;
 
@@ -35,13 +37,9 @@
     answers = {};
     result = null;
     timeRemaining = 30 * 60;
-
     timer = setInterval(() => {
       timeRemaining--;
-      if (timeRemaining <= 0) {
-        clearInterval(timer);
-        finishTest();
-      }
+      if (timeRemaining <= 0) { clearInterval(timer); finishTest(); }
     }, 1000);
   }
 
@@ -50,24 +48,19 @@
     selectedOption = option;
     answered = true;
     answers[currentQ.id] = option;
-
     setTimeout(() => {
       selectedOption = null;
       answered = false;
       currentIndex++;
-      if (currentIndex >= questions.length) {
-        finishTest();
-      }
+      if (currentIndex >= questions.length) finishTest();
     }, 800);
   }
 
   function finishTest() {
     clearInterval(timer);
     recordStudySession();
-
     const vocabQs = questions.filter(q => q.section === 'vocab');
     const grammarQs = questions.filter(q => q.section === 'grammar');
-
     result = calculateJLPTScore({
       vocabCorrect: vocabQs.filter(q => answers[q.id] === q.answer).length,
       vocabTotal: vocabQs.length,
@@ -86,10 +79,10 @@
   }
 
   function getOptionClass(option: string): string {
-    if (!answered) return 'mc-option';
-    if (option === currentQ?.answer) return 'mc-option correct';
-    if (option === selectedOption && option !== currentQ?.answer) return 'mc-option wrong';
-    return 'mc-option disabled';
+    if (!answered) return '';
+    if (option === currentQ?.answer) return 'correct';
+    if (option === selectedOption && option !== currentQ?.answer) return 'wrong';
+    return 'faded';
   }
 
   onDestroy(() => { clearInterval(timer); });
@@ -101,243 +94,132 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="mock-test-page">
+<div class="mx-auto max-w-xl p-4 animate-in">
   {#if !started}
-    <!-- Level Select -->
-    <div class="start-card">
-      <h1>JLPT Mock Test</h1>
-      <p class="desc">30 questions · 30 minutes · Vocabulary & Grammar</p>
+    <Card>
+      <CardContent class="py-12 text-center">
+        <h1 class="text-2xl font-bold mb-2">JLPT Mock Test</h1>
+        <p class="text-muted-foreground mb-6">30 questions · 30 minutes · Vocabulary & Grammar</p>
 
-      <div class="level-select">
-        <button class="level-btn" class:active={selectedLevel === 'n5'} on:click={() => selectedLevel = 'n5'}>N5</button>
-        <button class="level-btn" class:active={selectedLevel === 'n4'} on:click={() => selectedLevel = 'n4'}>N4</button>
-      </div>
+        <div class="flex gap-3 justify-center mb-6">
+          {#each ['n5', 'n4'] as lvl}
+            <button
+              class="px-6 py-3 text-lg font-bold border-2 rounded-xl cursor-pointer transition-all
+                {selectedLevel === lvl ? 'border-primary bg-primary/10 text-primary' : 'border-border bg-card text-foreground hover:border-primary'}"
+              on:click={() => selectedLevel = lvl}
+            >
+              {lvl.toUpperCase()}
+            </button>
+          {/each}
+        </div>
 
-      <button class="btn btn-primary btn-lg" on:click={startTest}>Start Test</button>
-    </div>
+        <UiButton size="lg" onclick={startTest}>Start Test</UiButton>
+      </CardContent>
+    </Card>
 
   {:else if isComplete && result}
-    <!-- Results -->
-    <div class="results-card">
-      <h2>{result.pass ? '🎉 PASSED!' : '📚 Not Yet'}</h2>
+    <Card>
+      <CardContent class="py-8 text-center">
+        <h2 class="text-2xl font-bold mb-6">{result.pass ? '🎉 PASSED!' : '📚 Not Yet'}</h2>
 
-      <div class="score-sections">
-        <div class="score-section">
-          <span class="section-label">Vocabulary</span>
-          <span class="section-score">{result.vocabPercentage}%</span>
-          <span class="section-detail">{result.vocabScore}/60</span>
+        <div class="flex gap-4 justify-center mb-6">
+          {#each [
+            { label: 'Vocabulary', score: result.vocabPercentage, detail: `${result.vocabScore}/60` },
+            { label: 'Grammar', score: result.grammarPercentage, detail: `${result.grammarScore}/60` }
+          ] as section}
+            <div class="flex flex-col items-center gap-1 px-6 py-4 bg-muted rounded-xl min-w-[120px]">
+              <span class="text-[0.7rem] text-muted-foreground font-semibold uppercase">{section.label}</span>
+              <span class="text-2xl font-bold text-primary">{section.score}%</span>
+              <span class="text-xs text-muted-foreground">{section.detail}</span>
+            </div>
+          {/each}
         </div>
-        <div class="score-section">
-          <span class="section-label">Grammar</span>
-          <span class="section-score">{result.grammarPercentage}%</span>
-          <span class="section-detail">{result.grammarScore}/60</span>
+
+        <div class="flex items-center justify-center gap-3 mb-4 text-lg">
+          <span class="font-semibold">Total</span>
+          <span class="text-3xl font-bold text-primary">{result.totalScore}/120</span>
+          <span class="text-muted-foreground">{result.totalPercentage}%</span>
         </div>
-      </div>
 
-      <div class="total-score">
-        <span class="total-label">Total</span>
-        <span class="total-value">{result.totalScore}/120</span>
-        <span class="total-pct">{result.totalPercentage}%</span>
-      </div>
+        <p class="text-sm text-muted-foreground mb-6">
+          {#if result.pass}
+            You meet the passing criteria for JLPT {selectedLevel.toUpperCase()}!
+          {:else}
+            Need ≥44% total AND ≥32% each section to pass.
+          {/if}
+        </p>
 
-      <div class="pass-info">
-        {#if result.pass}
-          You meet the passing criteria for JLPT {selectedLevel.toUpperCase()}!
-        {:else}
-          Need ≥44% total AND ≥32% each section to pass.
-        {/if}
-      </div>
-
-      <div class="results-actions">
-        <button class="btn btn-primary" on:click={startTest}>Try Again</button>
-        <a href="{base}/" class="btn btn-secondary">Home</a>
-      </div>
-    </div>
+        <div class="flex gap-3 justify-center flex-wrap">
+          <UiButton onclick={startTest}>Try Again</UiButton>
+          <UiButton variant="secondary" onclick={() => window.location.href = `${base}/`}>Home</UiButton>
+        </div>
+      </CardContent>
+    </Card>
 
   {:else if currentQ}
-    <!-- Quiz -->
-    <div class="test-header">
-      <div class="timer" class:warning={timeRemaining < 300}>
+    <div class="flex items-center gap-3 mb-4">
+      <div class="text-base font-bold min-w-[4rem] {timeRemaining < 300 ? 'text-destructive' : 'text-foreground'}" style="font-variant-numeric: tabular-nums">
         {minutes}:{seconds.toString().padStart(2, '0')}
       </div>
-      <ProgressBar current={currentIndex + 1} total={questions.length} showText={true} />
-      <div class="section-badge">{currentQ.section === 'vocab' ? '📚 Vocab' : '📖 Grammar'}</div>
-    </div>
-
-    <div class="question-card">
-      <div class="q-label">
-        {currentQ.section === 'vocab' ? 'What is the meaning of:' : 'Which meaning matches:'}
+      <div class="flex-1">
+        <ProgressBar current={currentIndex + 1} total={questions.length} showText={true} />
       </div>
-      <div class="q-text">{currentQ.question}</div>
+      <span class="text-xs font-semibold px-2 py-1 bg-muted rounded-md whitespace-nowrap">
+        {currentQ.section === 'vocab' ? '📚 Vocab' : '📖 Grammar'}
+      </span>
     </div>
 
-    <div class="mc-options">
+    <Card class="mb-4">
+      <CardContent class="py-6 text-center">
+        <div class="text-xs text-muted-foreground mb-2">
+          {currentQ.section === 'vocab' ? 'What is the meaning of:' : 'Which meaning matches:'}
+        </div>
+        <div class="text-xl font-bold" style="font-family: var(--font-jp)">{currentQ.question}</div>
+      </CardContent>
+    </Card>
+
+    <div class="flex flex-col gap-2 mb-4">
       {#each currentQ.options as option, idx}
         <button
-          class={getOptionClass(option)}
+          class="mc-option {getOptionClass(option)}"
           on:click={() => selectOption(option)}
           disabled={answered}
         >
-          <span class="mc-num">{idx + 1}.</span>
-          <span class="mc-text">{option}</span>
+          <span class="min-w-[1.5rem] font-bold text-primary">{idx + 1}.</span>
+          <span class="flex-1">{option}</span>
         </button>
       {/each}
     </div>
 
     {#if !answered}
-      <div class="hint-text">Press 1-4 to choose</div>
+      <p class="text-center text-xs text-muted-foreground">Press 1-4 to choose</p>
     {/if}
   {/if}
 </div>
 
 <style>
-  .mock-test-page {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1rem;
-    animation: fadeIn 0.25s ease;
-  }
+  @keyframes fade-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: translateY(0); } }
+  .animate-in { animation: fade-in 0.25s ease; }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Start */
-  .start-card {
-    text-align: center;
-    padding: 3rem 1.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .start-card h1 { margin-bottom: 0.5rem; }
-  .desc { color: var(--text-muted); margin-bottom: 2rem; }
-
-  .level-select {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-
-  .level-btn {
-    padding: 0.75rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    font-family: inherit;
-    border: 2px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--bg-card);
-    color: var(--text);
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-
-  .level-btn.active {
-    border-color: var(--primary);
-    background: color-mix(in srgb, var(--primary) 10%, var(--bg-card));
-    color: var(--primary);
-  }
-
-  /* Timer */
-  .test-header {
+  .mc-option {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    background: var(--color-card);
+    color: var(--color-foreground);
+    border: 2px solid var(--color-border);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
   }
-
-  .timer {
-    font-size: 1.1rem;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-    color: var(--text);
-    min-width: 4rem;
-  }
-
-  .timer.warning { color: var(--danger); }
-
-  .section-badge {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.5rem;
-    background: var(--bg);
-    border-radius: var(--radius-sm);
-    white-space: nowrap;
-  }
-
-  /* Question */
-  .question-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    box-shadow: var(--shadow);
-    text-align: center;
-  }
-
-  .q-label { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem; }
-  .q-text { font-size: 1.3rem; font-weight: 700; font-family: var(--font-jp); }
-
-  /* MC Options */
-  .mc-options { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
-
-  .mc-option {
-    display: flex; align-items: center; gap: 0.75rem;
-    width: 100%; padding: 0.8rem 1rem; font-size: 0.95rem;
-    font-family: inherit; font-weight: 500; text-align: left;
-    background: var(--bg-card); color: var(--text);
-    border: 2px solid var(--border); border-radius: var(--radius-sm);
-    cursor: pointer; transition: border-color 0.15s, background 0.15s;
-  }
-
-  .mc-option:hover:not(:disabled):not(.disabled) { border-color: var(--primary); }
-  .mc-option.correct { border-color: var(--success); background: var(--success-bg); }
-  .mc-option.wrong { border-color: var(--danger); background: var(--danger-bg); }
-  .mc-option.disabled { cursor: default; opacity: 0.7; }
-  .mc-option.correct.disabled { opacity: 1; }
-
-  .mc-num { min-width: 1.5rem; font-weight: 700; color: var(--primary); }
-  .hint-text { text-align: center; font-size: 0.78rem; color: var(--text-muted); }
-
-  /* Results */
-  .results-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 2rem;
-    text-align: center;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .results-card h2 { margin-bottom: 1.5rem; font-size: 1.5rem; }
-
-  .score-sections { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; }
-
-  .score-section {
-    display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
-    padding: 1rem 1.5rem; background: var(--bg); border-radius: var(--radius-sm);
-    min-width: 120px;
-  }
-
-  .section-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
-  .section-score { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
-  .section-detail { font-size: 0.78rem; color: var(--text-muted); }
-
-  .total-score {
-    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
-    margin-bottom: 1rem; font-size: 1.2rem;
-  }
-
-  .total-label { font-weight: 600; }
-  .total-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
-  .total-pct { color: var(--text-muted); }
-
-  .pass-info { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
-
-  .results-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  .mc-option:hover:not(:disabled):not(.faded) { border-color: var(--color-primary); }
+  .mc-option.correct { border-color: var(--color-success); background: color-mix(in srgb, var(--color-success) 10%, var(--color-card)); }
+  .mc-option.wrong { border-color: var(--color-destructive); background: color-mix(in srgb, var(--color-destructive) 10%, var(--color-card)); }
+  .mc-option.faded { cursor: default; opacity: 0.6; }
+  .mc-option.correct.faded { opacity: 1; }
 </style>
