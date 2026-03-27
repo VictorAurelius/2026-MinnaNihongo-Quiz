@@ -60,8 +60,28 @@
 | SkeletonCard | ❌ | legacy | 1 |
 | MasteryRing | ❌ | partial | 1 |
 
-### Screenshots
-> Not captured in this audit — directory created at `documents/04-quality/screenshots/`. Future audits will include screenshots per the updated skill process.
+### Screenshots (32 captures — 8 pages × 2 themes × 2 viewports)
+
+| Page | Light Desktop | Dark Desktop | Light Mobile | Dark Mobile |
+|------|--------------|-------------|-------------|------------|
+| Home | ![](screenshots/2026-03-27-home-light-desktop.png) | ![](screenshots/2026-03-27-home-dark-desktop.png) | ![](screenshots/2026-03-27-home-light-mobile.png) | ![](screenshots/2026-03-27-home-dark-mobile.png) |
+| Courses | ![](screenshots/2026-03-27-courses-light-desktop.png) | ![](screenshots/2026-03-27-courses-dark-desktop.png) | ![](screenshots/2026-03-27-courses-light-mobile.png) | ![](screenshots/2026-03-27-courses-dark-mobile.png) |
+| Course Detail | ![](screenshots/2026-03-27-course-detail-light-desktop.png) | ![](screenshots/2026-03-27-course-detail-dark-desktop.png) | ![](screenshots/2026-03-27-course-detail-light-mobile.png) | ![](screenshots/2026-03-27-course-detail-dark-mobile.png) |
+| Lesson Menu | ![](screenshots/2026-03-27-lesson-menu-light-desktop.png) | ![](screenshots/2026-03-27-lesson-menu-dark-desktop.png) | ![](screenshots/2026-03-27-lesson-menu-light-mobile.png) | ![](screenshots/2026-03-27-lesson-menu-dark-mobile.png) |
+| Vocabulary | ![](screenshots/2026-03-27-vocabulary-light-desktop.png) | ![](screenshots/2026-03-27-vocabulary-dark-desktop.png) | ![](screenshots/2026-03-27-vocabulary-light-mobile.png) | ![](screenshots/2026-03-27-vocabulary-dark-mobile.png) |
+| Kanji | ![](screenshots/2026-03-27-kanji-light-desktop.png) | ![](screenshots/2026-03-27-kanji-dark-desktop.png) | ![](screenshots/2026-03-27-kanji-light-mobile.png) | ![](screenshots/2026-03-27-kanji-dark-mobile.png) |
+| HSK | ![](screenshots/2026-03-27-hsk-light-desktop.png) | ![](screenshots/2026-03-27-hsk-dark-desktop.png) | ![](screenshots/2026-03-27-hsk-light-mobile.png) | ![](screenshots/2026-03-27-hsk-dark-mobile.png) |
+| Settings | ![](screenshots/2026-03-27-settings-light-desktop.png) | ![](screenshots/2026-03-27-settings-dark-desktop.png) | ![](screenshots/2026-03-27-settings-light-mobile.png) | ![](screenshots/2026-03-27-settings-dark-mobile.png) |
+
+> Captured via Playwright (`svelte-app/scripts/capture-screenshots.ts`) — committed as audit evidence.
+
+**Visual observations:**
+- Typography hierarchy rõ ràng: headings bold, descriptions muted, stats prominent
+- Spacing nhất quán theo Tailwind scale (p-4, gap-3, mb-2, etc.)
+- Dark mode contrast tốt: bg-background/card/border chuyển đổi mượt
+- Mobile responsive: nav bar wrap đúng, course list full-width, quiz modes stack vertical
+- Lucide icons nhất quán (Layers, CheckCircle, Keyboard cho quiz modes)
+- Không có AI slop tells (no gradient text, no glassmorphism, no bounce animations)
 
 ---
 
