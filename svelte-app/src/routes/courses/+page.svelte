@@ -7,6 +7,7 @@
   import { getAllCourses } from '$lib/data/courses';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
+  import { ChevronRight } from 'lucide-svelte';
 
   const courses = getAllCourses();
 </script>
@@ -42,7 +43,7 @@
           </div>
           <p class="text-xs text-muted-foreground leading-snug">{course.metadata.description}</p>
         </div>
-        <span class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform">→</span>
+        <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform" aria-hidden="true" />
       </a>
     {/each}
   </div>

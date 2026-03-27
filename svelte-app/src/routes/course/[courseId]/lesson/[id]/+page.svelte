@@ -44,18 +44,20 @@
   <div class="mx-auto max-w-xl animate-in">
     <!-- Lesson Header -->
     <div
-      class="text-white py-8 px-4 text-center relative"
+      class="text-white pt-3 pb-5 px-4"
       style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
     >
-      <div class="absolute top-4 left-4">
+      <div class="mb-3">
         <BackButton href={`/course/${courseId}`} variant="overlay" />
       </div>
-      <Badge class="bg-white/20 text-white border-0 mb-2">Bài {lesson.lessonNumber}</Badge>
-      <h1 class="text-xl font-bold mb-2">{lesson.title}</h1>
-      <div class="flex items-center justify-center gap-2 text-sm opacity-90">
-        <span>{lesson.vocabulary.length} từ vựng</span>
-        <span>•</span>
-        <span>{lesson.grammar.length} ngữ pháp</span>
+      <div class="text-center">
+        <Badge class="bg-white/20 text-white border-0 mb-2">Bài {lesson.lessonNumber}</Badge>
+        <h1 class="text-xl font-bold mb-2">{lesson.title}</h1>
+        <div class="flex items-center justify-center gap-2 text-sm opacity-90">
+          <span>{lesson.vocabulary.length} từ vựng</span>
+          <span>•</span>
+          <span>{lesson.grammar.length} ngữ pháp</span>
+        </div>
       </div>
     </div>
 

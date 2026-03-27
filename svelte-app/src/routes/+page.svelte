@@ -11,7 +11,7 @@
   import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import PageError from '$lib/components/common/PageError.svelte';
-  import { Layers, CheckCircle, Keyboard } from 'lucide-svelte';
+  import { Layers, CheckCircle, Keyboard, ChevronRight } from 'lucide-svelte';
 
   let courses: ReturnType<typeof getAllCourses> = [];
   let totalLessons = 0;
@@ -113,7 +113,7 @@
             <h3 class="text-sm font-bold text-foreground">{section.title}</h3>
             <p class="text-xs text-muted-foreground leading-snug">{section.desc}</p>
           </div>
-          <span class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary">→</span>
+          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
         </a>
       {/each}
     </div>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getAllHSKLevels, getHSKData } from '$lib/data/hsk';
   import { base } from '$app/paths';
+  import { ChevronRight } from 'lucide-svelte';
 
   const levels = getAllHSKLevels();
   let selectedLevel = 5;
@@ -49,7 +50,7 @@
           <h2 class="text-base font-semibold mb-0.5">{group.title}</h2>
           <p class="text-sm text-muted-foreground">{group.words.length} words</p>
         </div>
-        <span class="text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary">→</span>
+        <ChevronRight size={18} class="text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
       </a>
     {/each}
   </div>
