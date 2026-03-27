@@ -2,7 +2,7 @@
 
 /* ---------- shadcn-svelte Design Tokens ---------- */
 @theme {
-  --color-background: hsl(240 25% 99%);
+  --color-background: hsl(240 20% 96%);
   --color-foreground: hsl(220 13% 20%);
   --color-card: hsl(0 0% 100%);
   --color-card-foreground: hsl(220 13% 20%);
@@ -129,8 +129,8 @@ html {
 
 body {
   font-family: var(--font);
-  background: var(--bg);
-  color: var(--text);
+  background: var(--color-background, var(--bg));
+  color: var(--color-foreground, var(--text));
   line-height: 1.6;
   min-height: 100vh;
   transition: background var(--transition), color var(--transition);
