@@ -89,8 +89,8 @@
           <div class="w-px h-7 bg-border"></div>
         {/if}
         <div class="flex flex-col items-center">
-          <span class="text-2xl font-extrabold text-primary">{stat.value}</span>
-          <span class="text-xs font-semibold text-muted-foreground uppercase tracking-wide">{stat.label}</span>
+          <span class="text-xl font-extrabold text-primary">{stat.value}</span>
+          <span class="text-[0.7rem] font-semibold text-muted-foreground uppercase tracking-wide">{stat.label}</span>
         </div>
       {/each}
     </div>
@@ -106,14 +106,14 @@
           href={section.href}
           class="flex items-center gap-4 w-full px-5 py-4 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group"
         >
-          <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-primary/10 text-primary text-2xl font-bold {section.iconClass}">
+          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary text-xl font-bold {section.iconClass}">
             {section.icon}
           </div>
           <div class="flex-1 min-w-0">
-            <h3 class="text-base font-bold text-foreground">{section.title}</h3>
-            <p class="text-sm text-muted-foreground leading-snug">{section.desc}</p>
+            <h3 class="text-sm font-bold text-foreground">{section.title}</h3>
+            <p class="text-xs text-muted-foreground leading-snug">{section.desc}</p>
           </div>
-          <ChevronRight size={20} class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
+          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
         </a>
       {/each}
     </div>
@@ -126,9 +126,9 @@
       {#each quizModes as mode}
         <Card class="text-center shadow-md">
           <CardContent class="p-5 flex flex-col items-center gap-1.5">
-            <svelte:component this={mode.component} size={28} class="text-primary" aria-hidden="true" />
-            <span class="text-sm font-bold">{mode.name}</span>
-            <span class="text-xs text-muted-foreground">{mode.desc}</span>
+            <svelte:component this={mode.component} size={24} class="text-primary" aria-hidden="true" />
+            <span class="text-xs font-bold">{mode.name}</span>
+            <span class="text-[0.68rem] text-muted-foreground">{mode.desc}</span>
           </CardContent>
         </Card>
       {/each}
