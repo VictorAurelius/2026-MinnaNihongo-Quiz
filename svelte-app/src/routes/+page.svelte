@@ -11,6 +11,7 @@
   import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import PageError from '$lib/components/common/PageError.svelte';
+  import { Layers, CheckCircle, Keyboard } from 'lucide-svelte';
 
   let courses: ReturnType<typeof getAllCourses> = [];
   let totalLessons = 0;
@@ -48,9 +49,9 @@
   ];
 
   const quizModes = [
-    { icon: '🎴', name: 'Flashcard', desc: 'Flip to reveal' },
-    { icon: '✓', name: 'Multiple Choice', desc: 'Pick the answer' },
-    { icon: '⌨️', name: 'Typing', desc: 'Type to answer' },
+    { component: Layers, name: 'Flashcard', desc: 'Flip to reveal' },
+    { component: CheckCircle, name: 'Multiple Choice', desc: 'Pick the answer' },
+    { component: Keyboard, name: 'Typing', desc: 'Type to answer' },
   ];
 
   const stats = [
@@ -125,7 +126,7 @@
       {#each quizModes as mode}
         <Card class="text-center">
           <CardContent class="p-4 flex flex-col items-center gap-1">
-            <span class="text-2xl leading-none">{mode.icon}</span>
+            <svelte:component this={mode.component} size={24} class="text-primary" aria-hidden="true" />
             <span class="text-xs font-bold">{mode.name}</span>
             <span class="text-[0.68rem] text-muted-foreground">{mode.desc}</span>
           </CardContent>

@@ -21,7 +21,6 @@ export const canInstall = writable(false);
  */
 export async function registerServiceWorker(): Promise<ServiceWorkerRegistration | null> {
   if (typeof window === 'undefined' || !('serviceWorker' in navigator)) {
-    console.log('Service workers are not supported');
     return null;
   }
 
@@ -29,8 +28,6 @@ export async function registerServiceWorker(): Promise<ServiceWorkerRegistration
     const registration = await navigator.serviceWorker.register('/service-worker.js', {
       scope: '/'
     });
-
-    console.log('Service Worker registered successfully:', registration);
 
     // Check for updates periodically
     setInterval(() => {
@@ -44,7 +41,6 @@ export async function registerServiceWorker(): Promise<ServiceWorkerRegistration
 
       newWorker.addEventListener('statechange', () => {
         if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-          console.log('New service worker available');
           updateAvailable.set(true);
         }
       });
@@ -68,7 +64,6 @@ export async function unregisterServiceWorker(): Promise<boolean> {
   try {
     const registration = await navigator.serviceWorker.ready;
     const result = await registration.unregister();
-    console.log('Service Worker unregistered:', result);
     return result;
   } catch (error) {
     console.error('Service Worker unregistration failed:', error);
@@ -99,7 +94,6 @@ export function setupInstallPrompt() {
  */
 export async function showInstallPrompt(): Promise<'accepted' | 'dismissed' | null> {
   if (!deferredPrompt) {
-    console.log('Install prompt not available');
     return null;
   }
 
@@ -161,7 +155,6 @@ export async function clearAllCaches(): Promise<void> {
     await Promise.all(
       cacheNames.map(cacheName => caches.delete(cacheName))
     );
-    console.log('All caches cleared');
   } catch (error) {
     console.error('Failed to clear caches:', error);
   }

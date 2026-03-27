@@ -9,6 +9,7 @@
   import { KANJI_N1_DATA } from '$lib/data/kanji/kanji-n1';
   import { Card, CardContent } from '$lib/components/ui/card';
   import { base } from '$app/paths';
+  import { BookOpen } from 'lucide-svelte';
 
   const lessons = getKanjiLessonMetadata();
   let selectedLevel: 'n5n4' | 'n3' | 'n2' | 'n1' = 'n5n4';
@@ -54,7 +55,9 @@
     {/each}
   </div>
 
-  <a href="{base}/kanji/radicals" class="inline-block mb-4 text-sm text-primary font-semibold no-underline hover:underline">📚 214 Bộ Thủ →</a>
+  <a href="{base}/kanji/radicals" class="inline-flex items-center gap-1 mb-4 text-sm text-primary font-semibold no-underline hover:underline">
+    <BookOpen size={14} aria-hidden="true" /> 214 Bộ Thủ →
+  </a>
 
   {#if selectedLevel === 'n5n4'}
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
