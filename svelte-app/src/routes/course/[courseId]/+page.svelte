@@ -12,6 +12,7 @@
   import { progressStore } from '$lib/stores';
   import { getLessonMastery, getNextLesson, getCourseProgress } from '$lib/utils/progressUtils';
   import MasteryRing from '$lib/components/common/MasteryRing.svelte';
+  import BackButton from '$lib/components/common/BackButton.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import type { CourseId } from '$lib/types/course';
 
@@ -33,12 +34,9 @@
       class="text-white py-6 px-4 text-center relative"
       style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
     >
-      <button
-        class="absolute top-3 left-3 bg-white/20 hover:bg-white/30 text-white border-none px-3 py-1.5 rounded-lg text-sm cursor-pointer transition-colors"
-        on:click={() => goto(`${base}/courses`)}
-      >
-        ← Back
-      </button>
+      <div class="absolute top-3 left-3">
+        <BackButton href="/courses" variant="overlay" />
+      </div>
       <h1 class="text-xl font-bold mb-1">{course.metadata.title}</h1>
       <p class="text-xs opacity-90">{course.metadata.description}</p>
       <p class="text-xs opacity-75 mt-1">

@@ -11,6 +11,7 @@
   import { buildQuizUrl, buildVocabularyUrl, buildGrammarUrl } from '$lib/utils/courseUtils';
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
+  import BackButton from '$lib/components/common/BackButton.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import type { CourseId } from '$lib/types/course';
   import type { QuizDirection } from '$lib/types';
@@ -44,12 +45,9 @@
       class="text-white py-8 px-4 text-center relative"
       style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
     >
-      <button
-        class="absolute top-4 left-4 bg-white/20 hover:bg-white/30 text-white border-none px-3 py-1.5 rounded-lg text-sm cursor-pointer transition-colors"
-        on:click={() => goto(`${base}/course/${courseId}`)}
-      >
-        ← Back
-      </button>
+      <div class="absolute top-4 left-4">
+        <BackButton href={`/course/${courseId}`} variant="overlay" />
+      </div>
       <Badge class="bg-white/20 text-white border-0 mb-2">Bài {lesson.lessonNumber}</Badge>
       <h1 class="text-xl font-bold mb-2">{lesson.title}</h1>
       <div class="flex items-center justify-center gap-2 text-sm opacity-90">

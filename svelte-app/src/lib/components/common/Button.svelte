@@ -73,7 +73,7 @@
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: background var(--transition), transform 0.1s ease, box-shadow var(--transition);
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
     text-decoration: none;
     line-height: 1.4;
   }
@@ -103,42 +103,42 @@
     font-size: 1rem;
   }
 
-  /* Variants - using global CSS variables */
+  /* Variants — using Tailwind design tokens */
   .btn-primary {
-    background: var(--primary);
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
   }
   .btn-primary:hover:not(:disabled) {
-    background: var(--primary-hover);
+    background: color-mix(in srgb, var(--color-primary) 85%, black);
   }
 
   .btn-accent {
-    background: var(--accent);
-    color: white;
+    background: hsl(262 70% 50%);
+    color: var(--color-primary-foreground);
   }
   .btn-accent:hover:not(:disabled) {
-    background: var(--accent-hover);
+    background: hsl(262 70% 40%);
   }
 
   .btn-success {
-    background: var(--success);
-    color: white;
+    background: var(--color-success);
+    color: var(--color-success-foreground);
   }
   .btn-success:hover:not(:disabled) {
     opacity: 0.85;
   }
 
   .btn-danger {
-    background: var(--danger);
-    color: white;
+    background: var(--color-destructive);
+    color: var(--color-destructive-foreground);
   }
   .btn-danger:hover:not(:disabled) {
     opacity: 0.85;
   }
 
   .btn-secondary {
-    background: var(--border);
-    color: var(--text);
+    background: var(--color-border);
+    color: var(--color-foreground);
   }
   .btn-secondary:hover:not(:disabled) {
     opacity: 0.8;
@@ -146,11 +146,11 @@
 
   .btn-outline {
     background: transparent;
-    color: var(--text);
-    border: 1.5px solid var(--border);
+    color: var(--color-foreground);
+    border: 1.5px solid var(--color-border);
   }
   .btn-outline:hover:not(:disabled) {
-    background: var(--border);
+    background: var(--color-border);
   }
 
   .btn-icon {

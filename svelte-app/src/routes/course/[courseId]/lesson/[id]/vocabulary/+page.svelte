@@ -13,6 +13,7 @@
   import { buildQuizUrl } from '$lib/utils/courseUtils';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
   import Badge from '$lib/components/ui/badge/badge.svelte';
+  import BackButton from '$lib/components/common/BackButton.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import type { CourseId } from '$lib/types/course';
   import type { QuizMode, VocabItem } from '$lib/types';
@@ -67,10 +68,6 @@
     goto(buildQuizUrl(courseId, mode, lessonId));
   }
 
-  function goBack() {
-    goto(`${base}/course/${courseId}/lesson/${lessonId}`);
-  }
-
   let hasAudio = false;
   onMount(() => {
     hasAudio = 'speechSynthesis' in window;
@@ -92,9 +89,9 @@
   <div class="mx-auto max-w-3xl p-4 animate-in" class:pb-24={selectedSet.size > 0}>
     <!-- Header -->
     <div class="text-center mb-5 relative">
-      <button class="sm:absolute top-0 left-0 mb-3 sm:mb-0 text-sm px-3 py-1.5 bg-card border border-border rounded-lg hover:border-primary transition-colors cursor-pointer" on:click={goBack}>
-        ← Back to Lesson
-      </button>
+      <div class="sm:absolute top-0 left-0 mb-3 sm:mb-0">
+        <BackButton href={`/course/${courseId}/lesson/${lessonId}`} text="Back to Lesson" />
+      </div>
       <h2 class="text-xl font-bold mb-1">📚 Vocabulary - Bài {lessonData.lessonNumber}</h2>
       <p class="text-sm text-muted-foreground">{lessonData.title}</p>
       <p class="text-sm font-semibold text-primary">{vocabulary.length} từ vựng</p>
