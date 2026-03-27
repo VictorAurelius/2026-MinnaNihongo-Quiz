@@ -33,6 +33,7 @@ Merge `v4-dev` → `main` sau mỗi wave complete + audit pass.
 | 6 | [wave-6/](wave-6/) | #12 Auth, #13 Leaderboard | User system | User 9/10 |
 | 7 | [wave-7/](wave-7/) | #14 N3, #15 N2-N1, #16 SRS | Content complete | Content 9/10 |
 | 8 | [wave-8/](wave-8/) | #17 Fonts, #18 Premium, #19 Community | Business ready | Business 8/10 |
+| 11 | [wave-11/](wave-11/) | #25-30 UI/UX Overhaul | Audit 17+/20 | Design audit ≥ 17/20 |
 
 ---
 
@@ -64,6 +65,13 @@ Merge `v4-dev` → `main` sau mỗi wave complete + audit pass.
 | UI | #22 | Foundation — Tailwind + shadcn | — | ✅ | #68 |
 | UI | #23 | Core pages redesign | — | ✅ | #69 |
 | UI | #24 | Content + supporting pages | — | ✅ | #70 |
+| — | — | [Frontend design skills](../../..) | — | ✅ | #77 |
+| 11 | #25 | [CSS foundation cleanup](wave-11/pr-25-css-cleanup.md) | 5 | 📋 | — |
+| 11 | #26 | [Component migration](wave-11/pr-26-component-migration.md) | 15 | 📋 | — |
+| 11 | #27 | [Icon system](wave-11/pr-27-icon-system.md) | 8 | 📋 | — |
+| 11 | #28 | [Accessibility pass](wave-11/pr-28-accessibility.md) | 12 | 📋 | — |
+| 11 | #29 | [Page states + navigation](wave-11/pr-29-page-states.md) | 10 | 📋 | — |
+| 11 | #30 | [Final polish](wave-11/pr-30-polish.md) | 5 | 📋 | — |
 
 ---
 
