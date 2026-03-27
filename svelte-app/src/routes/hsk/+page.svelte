@@ -18,86 +18,47 @@
   <title>HSK Vocabulary — Smart Quiz</title>
 </svelte:head>
 
-<div class="hsk-page">
-  <header class="page-header">
-    <h1>HSK Vocabulary</h1>
-    <p class="subtitle">汉语水平考试 — Chinese Proficiency Test</p>
+<div class="mx-auto max-w-3xl p-4 animate-in">
+  <header class="text-center mb-6">
+    <h1 class="text-2xl font-bold mb-1">HSK Vocabulary</h1>
+    <p class="text-sm text-muted-foreground">汉语水平考试 — Chinese Proficiency Test</p>
   </header>
 
-  <!-- Level Selector -->
-  <div class="level-selector">
+  <div class="flex gap-2 justify-center mb-4 flex-wrap">
     {#each levels as lvl}
       <button
-        class="level-btn"
-        class:active={selectedLevel === lvl.level}
+        class="flex flex-col items-center gap-0.5 px-4 py-2 border-2 rounded-lg cursor-pointer transition-all
+          {selectedLevel === lvl.level ? 'border-primary bg-primary/10 text-primary' : 'border-border bg-card text-foreground hover:border-primary'}"
         on:click={() => selectedLevel = lvl.level}
       >
-        <span class="level-num">HSK {lvl.level}</span>
-        <span class="level-count">{lvl.wordCount} từ</span>
+        <span class="text-sm font-bold">HSK {lvl.level}</span>
+        <span class="text-[0.7rem] text-muted-foreground">{lvl.wordCount} từ</span>
       </button>
     {/each}
   </div>
 
-  <p class="total-info">HSK {selectedLevel} — {totalWords} words, {groups.length} group{groups.length > 1 ? 's' : ''}</p>
+  <p class="text-center text-sm text-muted-foreground mb-4">HSK {selectedLevel} — {totalWords} words, {groups.length} group{groups.length > 1 ? 's' : ''}</p>
 
-  <!-- Groups -->
-  <div class="groups-grid">
+  <div class="flex flex-col gap-3">
     {#each groups as group}
-      <button class="group-card" on:click={() => navigateToGroup(group.id)}>
-        <div class="group-letter">{group.id.toUpperCase()}</div>
-        <div class="group-info">
-          <h2 class="group-title">{group.title}</h2>
-          <p class="group-count">{group.words.length} words</p>
+      <button
+        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl cursor-pointer text-left transition-all hover:border-primary hover:-translate-y-0.5 hover:shadow-lg group"
+        on:click={() => navigateToGroup(group.id)}
+      >
+        <div class="w-12 h-12 flex items-center justify-center bg-primary/80 text-white text-xl font-bold rounded-lg flex-shrink-0" style="font-family: var(--font-cn)">
+          {group.id.toUpperCase()}
         </div>
-        <div class="arrow">→</div>
+        <div class="flex-1">
+          <h2 class="text-base font-semibold mb-0.5">{group.title}</h2>
+          <p class="text-sm text-muted-foreground">{group.words.length} words</p>
+        </div>
+        <span class="text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary">→</span>
       </button>
     {/each}
   </div>
 </div>
 
 <style>
-  .hsk-page { max-width: 800px; margin: 0 auto; padding: 1rem; animation: fadeIn 0.25s ease; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-  .page-header { text-align: center; margin-bottom: 1.5rem; }
-  .page-header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; }
-  .subtitle { font-size: 0.9rem; color: var(--text-muted); }
-
-  .level-selector { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
-  .level-btn {
-    display: flex; flex-direction: column; align-items: center; gap: 0.1rem;
-    padding: 0.5rem 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm);
-    background: var(--bg-card); font-family: inherit; cursor: pointer; transition: all 0.15s;
-    color: var(--text);
-  }
-  .level-btn:hover { border-color: var(--primary); }
-  .level-btn.active { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 10%, var(--bg-card)); color: var(--primary); }
-  .level-num { font-size: 0.9rem; font-weight: 700; }
-  .level-count { font-size: 0.7rem; color: var(--text-muted); }
-
-  .total-info { text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
-
-  .groups-grid { display: flex; flex-direction: column; gap: 0.75rem; }
-  .group-card {
-    display: flex; align-items: center; gap: 1rem; width: 100%;
-    padding: 1rem; background: var(--bg-card); border: 1.5px solid var(--border);
-    border-radius: var(--radius); cursor: pointer; text-align: left;
-    font-family: inherit; color: var(--text); transition: all 0.2s;
-  }
-  .group-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-  .group-letter {
-    width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center;
-    background: var(--accent); color: white; font-size: 1.3rem; font-weight: 700; border-radius: var(--radius-sm); flex-shrink: 0;
-  }
-  .group-info { flex: 1; }
-  .group-title { font-size: 1rem; font-weight: 600; margin: 0 0 0.15rem; }
-  .group-count { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
-  .arrow { color: var(--text-muted); font-size: 1.1rem; transition: transform 0.2s; }
-  .group-card:hover .arrow { transform: translateX(3px); color: var(--primary); }
-
-  @media (max-width: 600px) {
-    .level-selector { gap: 0.3rem; }
-    .level-btn { padding: 0.4rem 0.6rem; }
-    .level-num { font-size: 0.8rem; }
-  }
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+  .animate-in { animation: fade-in 0.25s ease; }
 </style>
