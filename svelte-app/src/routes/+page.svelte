@@ -104,7 +104,7 @@
       {#each sections as section}
         <a
           href={section.href}
-          class="flex items-center gap-3.5 w-full p-3.5 bg-card border border-border rounded-xl text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 cursor-pointer group"
+          class="flex items-center gap-3.5 w-full p-3.5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 cursor-pointer group"
         >
           <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary text-xl font-bold {section.iconClass}">
             {section.icon}
@@ -124,7 +124,7 @@
     <h2 class="text-lg font-bold mb-3">3 Quiz Modes</h2>
     <div class="grid grid-cols-3 gap-2.5">
       {#each quizModes as mode}
-        <Card class="text-center">
+        <Card class="text-center shadow-md">
           <CardContent class="p-4 flex flex-col items-center gap-1">
             <svelte:component this={mode.component} size={24} class="text-primary" aria-hidden="true" />
             <span class="text-xs font-bold">{mode.name}</span>

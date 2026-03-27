@@ -41,7 +41,7 @@
     {#each groups as group}
       <a
         href="{base}/hsk/{group.id}"
-        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl cursor-pointer text-left no-underline transition-all hover:border-primary hover:-translate-y-0.5 hover:shadow-lg group"
+        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl shadow-sm cursor-pointer text-left no-underline transition-all hover:border-primary hover:-translate-y-0.5 hover:shadow-lg group"
       >
         <div class="w-12 h-12 flex items-center justify-center bg-primary/80 text-white text-xl font-bold rounded-lg flex-shrink-0" style="font-family: var(--font-cn)">
           {group.id.toUpperCase()}
