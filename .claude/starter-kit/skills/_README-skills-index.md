@@ -1,10 +1,12 @@
 # Skills Index — Khi nào dùng skill nào?
 
+> **Cách viết skills đúng**: Xem `rules/skill-conventions.md` (Anthropic best practices)
+
 ## Quy trình phát triển (theo thứ tự)
 
-1. **Brainstorm** → `core/brainstorming-methodology.md`
+1. **Brainstorm** → `core/brainstorming-methodology.md` (decision log, không dạy cách brainstorm)
 2. **Task Breakdown** → `core/task-breakdown-guide.md`
-3. **TDD** → `core/tdd-enforcement.md`
+3. **TDD** → `core/tdd-enforcement.md` (project gotchas, không dạy RED-GREEN-REFACTOR)
 4. **Implementation** → (project-specific standards)
 5. **Code Review** → `core/two-stage-code-review.md`
 6. **Push** → `scripts/test-local.sh` → `scripts/check-ci.sh`
