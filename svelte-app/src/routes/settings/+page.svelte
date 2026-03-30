@@ -106,7 +106,7 @@
 <div class="mx-auto max-w-xl p-4 animate-in flex flex-col gap-8">
   <!-- Quiz Settings -->
   <section>
-    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4 flex items-center gap-1.5">
       <Settings2 size={12} aria-hidden="true" /> Quiz Settings
     </h3>
     <div class="bg-card rounded-xl shadow-sm overflow-hidden">
@@ -140,7 +140,7 @@
 
   <!-- Font Settings -->
   <section>
-    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4 flex items-center gap-1.5">
       <Type size={12} aria-hidden="true" /> Japanese Font
     </h3>
     <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-label="Font selection">
@@ -164,7 +164,7 @@
 
   <!-- Progress Summary -->
   <section>
-    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4 flex items-center gap-1.5">
       <BarChart3 size={12} aria-hidden="true" /> Progress Summary
     </h3>
     <div class="grid grid-cols-3 gap-3">
@@ -185,7 +185,7 @@
 
   <!-- Data Management -->
   <section>
-    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+    <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4 flex items-center gap-1.5">
       <Database size={12} aria-hidden="true" /> Data Management
     </h3>
     <div class="flex flex-col gap-3.5">
