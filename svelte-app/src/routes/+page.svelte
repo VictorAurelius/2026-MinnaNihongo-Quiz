@@ -119,6 +119,13 @@
           </div>
         </a>
       </section>
+    {:else}
+      <section class="mb-6 px-4">
+        <div class="p-5 bg-card border border-border rounded-xl text-center">
+          <p class="text-sm font-bold text-foreground mb-1">Chào mừng! 👋</p>
+          <p class="text-xs text-muted-foreground leading-relaxed">Chọn khóa học bên dưới → Chọn bài → Bắt đầu quiz. Gợi ý: bắt đầu từ Minna no Nihongo N5.</p>
+        </div>
+      </section>
     {/if}
   {/if}
 

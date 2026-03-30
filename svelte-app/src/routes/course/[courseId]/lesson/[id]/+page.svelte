@@ -14,6 +14,7 @@
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import { RefreshCw, PenLine, Layers, CheckCircle, Keyboard, BookOpen, Book, ChevronRight } from 'lucide-svelte';
+  import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
   import { progressStore } from '$lib/stores';
   import { getLessonMastery } from '$lib/utils/progressUtils';
   import type { CourseId } from '$lib/types/course';
@@ -71,6 +72,11 @@
     </div>
 
     <div class="px-4 py-6 flex flex-col gap-8">
+      <Breadcrumb items={[
+        { label: 'Courses', href: '/courses' },
+        { label: course.metadata.title, href: `/course/${courseId}` },
+        { label: `Bài ${lesson.lessonNumber}` }
+      ]} />
       <!-- Direction Selector -->
       <section>
         <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/60 mb-6 flex items-center gap-1.5">
@@ -106,7 +112,10 @@
           >
             <Layers size={20} aria-hidden="true" />
             <div class="flex-1 min-w-0">
-              <span class="font-semibold text-sm block">Flashcard Quiz</span>
+              <div class="flex items-center gap-2">
+                <span class="font-semibold text-sm">Flashcard Quiz</span>
+                <span class="text-[0.55rem] font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded-full">Gợi ý</span>
+              </div>
               <span class="text-[0.65rem] opacity-75">Lật thẻ để xem đáp án</span>
             </div>
             <ChevronRight size={16} class="ml-auto opacity-60" aria-hidden="true" />

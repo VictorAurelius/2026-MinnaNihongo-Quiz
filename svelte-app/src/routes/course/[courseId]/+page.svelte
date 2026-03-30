@@ -17,6 +17,7 @@
   import UiButton from '$lib/components/ui/button/button.svelte';
   import { ChevronRight } from 'lucide-svelte';
   import SearchInput from '$lib/components/common/SearchInput.svelte';
+  import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
   import type { CourseId } from '$lib/types/course';
 
   let searchQuery = '';
@@ -60,6 +61,10 @@
 
     <!-- Content -->
     <div class="max-w-2xl mx-auto px-4 py-4">
+      <Breadcrumb items={[
+        { label: 'Courses', href: '/courses' },
+        { label: course.metadata.title }
+      ]} />
       <!-- Continue Button -->
       <UiButton
         size="lg"
