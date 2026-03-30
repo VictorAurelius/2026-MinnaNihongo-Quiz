@@ -42,7 +42,7 @@ Each project can now:
 
 # Option B: Script
 git clone https://github.com/VictorAurelius/claude-starter-kit.git /tmp/kit
-bash /tmp/kit/install-remote.sh /path/to/project
+bash /tmp/kit/bin/install-remote.sh /path/to/project
 ```
 
 ### 6. Remove embedded kit from projects (optional)
@@ -64,5 +64,5 @@ git push origin main --tags
 # 3. Projects update:
 /plugin update claude-starter-kit
 # or
-bash /tmp/kit/install-remote.sh /path/to/project
+bash /tmp/kit/bin/install-remote.sh /path/to/project
 ```

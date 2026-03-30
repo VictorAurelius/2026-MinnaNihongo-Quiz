@@ -209,6 +209,6 @@ Projects that use the kit (like Smart Quiz) have a **local copy** at `.claude/st
 ```
 
 ### Gotchas
-- Remote repo has extra files (`INSTALL.md`, `GETTING-STARTED.md`, `.claude-plugin/`, `install-remote.sh`) not in project copies — these are distribution files, don't delete them when syncing
+- Remote repo has extra files (`docs/INSTALL.md`, `docs/GETTING-STARTED.md`, `.claude-plugin/`, `bin/install-remote.sh`) not in project copies — these are distribution files, don't delete them when syncing
 - Project copies may have project-specific customizations in `core/` skills — don't overwrite remote generic templates with project-specific content
 - Always compare file-by-file, not bulk copy

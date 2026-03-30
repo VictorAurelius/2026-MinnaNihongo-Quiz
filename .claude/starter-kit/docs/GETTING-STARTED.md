@@ -5,19 +5,19 @@
 ### Dự án MỚI
 ```bash
 git clone https://github.com/VictorAurelius/claude-starter-kit.git /tmp/kit
-bash /tmp/kit/init-project.sh /path/to/your-project
+bash /tmp/kit/bin/init-project.sh /path/to/your-project
 ```
 
 ### Dự án ĐÃ CÓ
 ```bash
 git clone https://github.com/VictorAurelius/claude-starter-kit.git /tmp/kit
-bash /tmp/kit/install-remote.sh /path/to/your-project
+bash /tmp/kit/bin/install-remote.sh /path/to/your-project
 ```
 
 ### Xem trước (không thay đổi gì)
 ```bash
 git clone https://github.com/VictorAurelius/claude-starter-kit.git /tmp/kit
-bash /tmp/kit/upgrade-project.sh /path/to/your-project --dry-run
+bash /tmp/kit/bin/upgrade-project.sh /path/to/your-project --dry-run
 ```
 
 ---
@@ -199,7 +199,7 @@ cat .claude/.starter-kit-version
 ```bash
 # Khi có version mới:
 git clone https://github.com/VictorAurelius/claude-starter-kit.git /tmp/kit
-bash /tmp/kit/install-remote.sh /path/to/project
+bash /tmp/kit/bin/install-remote.sh /path/to/project
 
 # Output:
 # "Upgrade v1.1.2 → v1.2.0"
@@ -215,10 +215,10 @@ bash /tmp/kit/install-remote.sh /path/to/project
 A: Không. Từ v1.1.2, templates chỉ apply cho dự án mới (file chưa tồn tại).
 
 **Q: Tôi muốn chỉ cài scripts, không cài skills?**
-A: `bash upgrade-project.sh /path/to/project --scripts`
+A: `bash bin/upgrade-project.sh /path/to/project --scripts`
 
 **Q: Tôi sửa skill trong dự án, làm sao đóng góp lại kit?**
-A: `bash contribute.sh /path/to/project "Mô tả cải tiến"` → tạo proposal → review → apply.
+A: `bash bin/contribute.sh /path/to/project "Mô tả cải tiến"` → tạo proposal → review → apply.
 
 **Q: Nhiều dự án dùng versions khác nhau có sao không?**
 A: Không sao. Mỗi dự án track version riêng tại `.claude/.starter-kit-version`.
