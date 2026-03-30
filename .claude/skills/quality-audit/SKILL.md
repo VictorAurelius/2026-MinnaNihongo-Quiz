@@ -1,6 +1,6 @@
 ---
 name: quality-audit
-description: Run comprehensive quality audit on Smart Quiz — 11 categories, 100-point scoring (tests, build, routing, quiz, TTS, CI/CD, UI/UX, UI aesthetics, data, docs, code quality)
+description: "Use when user says 'audit', 'quality check', 'ready to merge?', 'kiểm tra chất lượng', or before merging v4-dev → main. Runs 11-category automated checks (tests, build, routing, TTS, CI, UI, data, docs, code) with 100-point scoring. Merge gate: ≥95 required."
 disable-model-invocation: true
 user-invocable: true
 ---
@@ -155,11 +155,11 @@ grep -rn 'var(--bg)\|var(--text)\|var(--border)' svelte-app/src/ --include='*.sv
 2. Capture screenshots các trang chính: Home, Courses, Lesson Menu, Quiz, Results
 3. Kiểm tra cả Light mode và Dark mode
 4. Kiểm tra mobile viewport (375px) và desktop (1440px)
-5. **Lưu screenshots vào `documents/04-quality/screenshots/`** — đặt tên theo format:
-   - `[date]-[page]-[mode]-[viewport].png`
-   - Ví dụ: `2026-03-27-home-light-desktop.png`, `2026-03-27-quiz-dark-mobile.png`
+5. **Lưu screenshots vào `documents/04-quality/screenshots/`** — tên không ngày, mỗi màn hình 1 file:
+   - `[page]-[mode]-[viewport].png`
+   - Ví dụ: `home-light-desktop.png`, `quiz-dark-mobile.png`
 6. Screenshots PHẢI commit vào git (không gitignore) làm evidence cho audit
-7. Link screenshots trong report bằng relative path: `![Home Light](screenshots/2026-03-27-home-light-desktop.png)`
+7. Chạy capture script: `cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts`
 
 **Scoring notes:**
 - 0-1 hardcoded colors + 0 legacy vars + 0 emoji = full 3đ Design Consistency

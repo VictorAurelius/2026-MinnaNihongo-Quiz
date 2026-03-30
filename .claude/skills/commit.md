@@ -1,6 +1,10 @@
-# Skill: commit
+---
+name: commit
+description: "Use when user says 'commit', 'save changes', 'tạo commit'. Stages files, writes conventional commit message from diff, adds co-author tag."
+user-invocable: true
+---
 
-Tạo git commit chuẩn format với Claude co-author.
+# Skill: commit
 
 ## Cách dùng
 ```
