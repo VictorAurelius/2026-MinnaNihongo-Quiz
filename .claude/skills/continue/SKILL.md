@@ -1,6 +1,6 @@
 ---
 name: continue
-description: Xác định action ưu tiên nhất từ project plans và thực hiện cho Smart Quiz
+description: "Use when user says 'continue', 'tiếp tục', 'next task', 'what should I do next', or just sends an empty message. Reads project plans, finds highest-priority unfinished task, reports scope, then implements it."
 user-invocable: true
 argument-hint: "[optional context]"
 ---

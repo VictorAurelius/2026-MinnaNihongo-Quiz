@@ -1,108 +1,32 @@
-# Portable Skill — adapt {project} placeholders to your project
+# Debugging — Smart Quiz Gotchas
 
-# Skill: Systematic Debugging
+Claude already knows systematic debugging. This file lists **common failure points** specific to this project.
 
-**Purpose:** 4-phase root cause analysis for faster, more effective debugging.
+## Common Bugs & Root Causes
 
----
+1. **404 on GitHub Pages** → forgot `${base}` in `goto()`, `redirect()`, or `<a href>`
+2. **TTS reads twice** → used `item.japanese` instead of `item.kana`
+3. **Quiz state not resetting** → Svelte reuses component instances; need reactive `$:` reset when props change
+4. **`window is not defined`** → accessing browser APIs without `typeof window` guard in SSR/test
+5. **VocabItem type error `"kaiwa"`** → not in union type, use `"supplementary"` instead
+6. **Dark mode not applying** → localStorage `ui-store` key must have `{ darkMode: true }` before page renders
+7. **Test crash `speechSynthesis`** → mock missing `cancel: vi.fn()`
 
-## When to Use
+## Debug Workflow for This Project
 
-**Use for:** Bug investigations, unexpected test behavior, production issues, integration failures, performance issues.
+```bash
+# 1. Reproduce
+cd svelte-app && npm run dev   # Check browser console
 
-**Skip:** Typos/syntax errors, compiler errors with clear messages, known issues in docs.
+# 2. Check tests
+npx vitest run --reporter verbose 2>&1 | grep FAIL
 
----
+# 3. Check build
+npx vite build 2>&1 | grep -i error
 
-## 4-Phase Process
+# 4. Check types
+npx svelte-check --threshold error
 
-### Phase 1: Reproduce (15-30 min)
-
-**Goal:** Consistently trigger the bug in a controlled environment.
-
-1. **Create failing test case** (Arrange-Act-Assert)
-2. **Document exact steps** (user actions, system state, environment)
-3. **Verify consistency** (run 3+ times, should fail reliably)
-4. **Record environment** (framework version, DB state, cache state, external services)
-
-```markdown
-## Bug Reproduction
-**Test:** {TestClass}#{testMethod}
-**Consistent:** Yes/No (X/Y runs)
-**Steps:**
-1. [Setup step]
-2. [Action step]
-3. Expected: [what should happen]
-4. Actual: [what actually happens]
+# 5. Check routing
+grep -rn 'goto(' src/routes/ --include='*.svelte' | grep -v 'base'
 ```
-
-### Phase 2: Trace (30-60 min)
-
-**Goal:** Follow execution flow to find where behavior diverges from expected.
-
-**Tools:** Debugger (breakpoints, step-through), debug logging at decision points, stack trace analysis (read bottom-up).
-
-```
-Request -> Controller -> Service -> Repository -> Database -> Response
-
-Mark each step: PASS or FAIL
-Find the DIVERGENCE POINT
-```
-
-### Phase 3: Root Cause (30-45 min)
-
-**Goal:** Distinguish symptom from underlying cause using 5 Whys.
-
-```
-Symptom: [What went wrong]
-
-Why 1: Why did [symptom] happen?
--> Because [reason]
-
-Why 2: Why did [reason] happen?
--> Because [deeper reason]
-
-... repeat until ROOT CAUSE found (usually 3-5 levels)
-```
-
-**Validate:** Search past issues, check recent changes in the area, look for similar patterns.
-
-### Phase 4: Defensive Fix (1-2 hours)
-
-**Goal:** Fix root cause AND prevent recurrence.
-
-1. **Fix root cause** (not symptom — no band-aids)
-2. **Add regression test** (proves fix works, prevents recurrence)
-3. **Check related scenarios** (same pattern elsewhere?)
-4. **Update documentation** (troubleshooting docs, known issues)
-
-```markdown
-## Fix Summary
-**Changes:**
-1. [What was fixed and where]
-2. [Regression test added]
-3. [Related fixes applied]
-4. [Docs updated]
-```
-
----
-
-## Quick Reference Checklist
-
-- [ ] **Phase 1:** Can I consistently reproduce the bug? (test case exists)
-- [ ] **Phase 2:** Have I traced execution flow? (found divergence point)
-- [ ] **Phase 3:** Did I identify root cause? (5 Whys applied, not just symptom)
-- [ ] **Phase 4:** Did I add regression test? (prevents recurrence)
-- [ ] **Phase 4:** Did I update documentation? (known issues, troubleshooting)
-
-**If stuck:** Explain the problem out loud (rubber duck debugging) or pair with another developer.
-
----
-
-## Success Metrics
-
-- Time to reproduce: <30 min
-- Time to root cause: <1 hour
-- Time to fix: <1 hour
-- Total debugging time: <2 hours (down from ~3 hours ad-hoc)
-- Bug recurrence rate: <5% (regression tests prevent)

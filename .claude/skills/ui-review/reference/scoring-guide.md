@@ -1,0 +1,114 @@
+# UI Review Scoring Guide
+
+## Screenshots to Review
+
+Read ALL dark-mobile files:
+- `documents/04-quality/screenshots/home-dark-mobile.png`
+- `documents/04-quality/screenshots/courses-dark-mobile.png`
+- `documents/04-quality/screenshots/course-detail-dark-mobile.png`
+- `documents/04-quality/screenshots/lesson-menu-dark-mobile.png`
+- `documents/04-quality/screenshots/kanji-dark-mobile.png`
+- `documents/04-quality/screenshots/hsk-dark-mobile.png`
+- `documents/04-quality/screenshots/settings-dark-mobile.png`
+- `documents/04-quality/screenshots/vocabulary-dark-mobile.png`
+
+---
+
+## 1. Technical Audit (/20)
+
+Score 0-4 per dimension:
+
+| # | Dimension | Criteria |
+|---|-----------|----------|
+| 1 | Accessibility | ARIA roles, keyboard nav, focus indicators, semantic HTML, contrast |
+| 2 | Performance | No layout thrashing, transform/opacity animations, lazy loading |
+| 3 | Responsive Design | Mobile-first, breakpoints, touch targets ≥44px, no overflow |
+| 4 | Theming | Design tokens used, dark mode works, no hardcoded colors |
+| 5 | Anti-Patterns | No AI slop (glassmorphism, gradient text, bounce easing, hero metrics) |
+
+---
+
+## 2. Design Heuristics (/40)
+
+Nielsen's 10 heuristics, score 0-4 each:
+
+| # | Heuristic | What to check |
+|---|-----------|---------------|
+| 1 | Visibility of System Status | Loading states, active states, progress indicators |
+| 2 | Match System / Real World | Natural language, familiar concepts for Vietnamese learners |
+| 3 | User Control and Freedom | Undo, back buttons, exit points, cancel options |
+| 4 | Consistency and Standards | Same patterns across pages, icon consistency |
+| 5 | Error Prevention | Confirm on destructive actions, safe defaults |
+| 6 | Recognition Rather Than Recall | Labels, descriptions, visible options |
+| 7 | Flexibility and Efficiency | Shortcuts, search, filters, power user features |
+| 8 | Aesthetic and Minimalist Design | No clutter, clean layout, relevant info only |
+| 9 | Error Recovery | Helpful error messages, recovery paths, fallback states |
+| 10 | Help and Documentation | Tooltips, descriptions, onboarding |
+
+---
+
+## 3. Visual Aesthetics (/28)
+
+Score 0-4 each. **0**=Ugly/broken, **1**=Amateur, **2**=Passable, **3**=Good/professional, **4**=Beautiful/distinctive
+
+| # | Dimension | What to judge |
+|---|-----------|---------------|
+| 1 | **Color Harmony** | Colors pleasing together? Contrast? Palette cohesive? Dark mode comfortable? |
+| 2 | **Typography** | Clear hierarchy? Readable sizes? Consistent weights? Good line spacing? |
+| 3 | **Element Sizing** | Buttons/rows tall enough for tapping? Icons proportional? Sizes consistent across pages? |
+| 4 | **Spacing & Breathing Room** | Gaps between elements? Internal padding generous? Cramped or too loose? Consistent? |
+| 5 | **Alignment & Grid** | Consistent grid? Left edges aligned? Same width? No floating elements? |
+| 6 | **Visual Hierarchy** | Eye flows naturally? Primary action obvious? Important elements stand out? |
+| 7 | **Polish & Detail** | Corners consistent? Shadows appropriate? Borders tasteful? Hover/active designed? Professional? |
+
+### Layout Checklist (per screen)
+
+| Check | Threshold |
+|-------|-----------|
+| Row height | ≥ 48px (comfortable tap target) |
+| Internal padding | ≥ 16px (text not touching edges) |
+| Sibling gap | ≥ 12px (not stuck together) |
+| Section gap | ≥ 24px (clear separation) |
+| Icon proportion | Proportional to adjacent text |
+| Consistent sizing | Same element type = same height across pages |
+
+---
+
+## 4. User Friendliness (/20)
+
+Score 0-4 as a **first-time Vietnamese learner**. **0**=Confusing, **1**=Difficult, **2**=Usable, **3**=Easy, **4**=Intuitive/delightful
+
+| # | Dimension | What to judge |
+|---|-----------|---------------|
+| 1 | **First Impression** | Does home communicate what app does? Where to start? |
+| 2 | **Navigation Clarity** | Find things in ≤2 taps? Back buttons clear? Location obvious? |
+| 3 | **Action Clarity** | Buttons obviously clickable? Labels describe outcome? Primary action clear? |
+| 4 | **Learning Curve** | Start quiz without instructions? Modes self-explanatory? |
+| 5 | **Delight & Motivation** | Encouraging? Progress indicators? Rewarding? Would user return? |
+
+---
+
+## Report Template
+
+```
+=== UI REVIEW REPORT ===
+Technical:         ??/20 ([band])
+Design Heuristics: ??/40 ([band])
+Visual Aesthetics: ??/28 ([band])
+User Friendliness: ??/20 ([band])
+Combined:          ??/108
+
+Top Issues (P0-P2):
+1. ...
+
+What's Working Well:
+- ...
+
+Score Progression:
+| Run | Tech | Heuristics | Aesthetics | Friendliness | Combined |
+|-----|------|------------|------------|--------------|----------|
+| prev | ? | ? | ? | ? | ? |
+| now  | ? | ? | ? | ? | ? |
+```
+
+Save to `documents/04-quality/ui-review-latest.md`
