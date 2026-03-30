@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    {
+      "name": "claude-starter-kit",
+      "description": "Personal dev workflow kit — brainstorming, TDD, code review, debugging, quality audit, diagrams",
+      "source": {
+        "type": "github",
+        "repo": "VictorAurelius/claude-starter-kit"
+      },
+      "version": "1.1.1",
+      "tags": ["workflow", "tdd", "code-review", "quality", "diagrams"]
+    }
+  ]
+}
