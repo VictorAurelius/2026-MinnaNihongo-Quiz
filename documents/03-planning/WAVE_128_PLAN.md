@@ -6,9 +6,9 @@
 
 ---
 
-## PR 1: WCAG Critical Fixes (+7 WCAG, +2 Technical)
+## PR 1: WCAG Critical Fixes (+7 WCAG, +2 Technical) ✅ PR #98
 **Target: WCAG 13→20, Technical 16→18**
-**Effort: Small**
+**Effort: Small** — MERGED
 
 ### Tasks
 - [ ] Header nav icons: add `min-w-11 min-h-11` padding + `aria-label` on all header buttons (home, settings, dark mode toggle)
