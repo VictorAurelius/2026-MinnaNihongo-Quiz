@@ -33,9 +33,9 @@
 
 ---
 
-## PR 2: Search & Filter for Long Lists (+2 Heuristics)
+## PR 2: Search & Filter for Long Lists (+2 Heuristics) ✅ PR #101
 **Target: Heuristics H7 2→4**
-**Effort: Medium**
+**Effort: Medium** — MERGED
 
 ### Tasks
 - [ ] Add search bar component (`SearchInput.svelte`) with debounce
