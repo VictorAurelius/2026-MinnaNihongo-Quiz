@@ -8,7 +8,6 @@
   import { getAllCourses } from '$lib/data/courses';
   import { getKanjiLessonMetadata } from '$lib/data/kanji/lessons';
   import { HSK5_DATA } from '$lib/data/hsk';
-  import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import PageError from '$lib/components/common/PageError.svelte';
   import { Layers, CheckCircle, Keyboard, ChevronRight, BookOpen, Languages, GraduationCap, Hash, ClipboardCheck } from 'lucide-svelte';
@@ -145,13 +144,13 @@
     <h2 class="text-lg font-bold mb-3">3 Quiz Modes</h2>
     <div class="grid grid-cols-3 gap-3">
       {#each quizModes as mode}
-        <Card class="text-center shadow-md">
-          <CardContent class="p-5 flex flex-col items-center gap-1.5">
-            <svelte:component this={mode.component} size={24} class="text-primary" aria-hidden="true" />
-            <span class="text-xs font-bold">{mode.name}</span>
-            <span class="text-[0.68rem] text-muted-foreground">{mode.desc}</span>
-          </CardContent>
-        </Card>
+        <div class="flex flex-col items-center gap-2 p-5 bg-card rounded-xl shadow-sm text-center">
+          <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10">
+            <svelte:component this={mode.component} size={20} class="text-primary" aria-hidden="true" />
+          </div>
+          <span class="text-xs font-bold">{mode.name}</span>
+          <span class="text-[0.68rem] text-muted-foreground">{mode.desc}</span>
+        </div>
       {/each}
     </div>
   </section>
