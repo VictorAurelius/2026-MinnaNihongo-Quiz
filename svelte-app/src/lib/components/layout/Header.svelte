@@ -75,7 +75,7 @@
   <div class="flex items-center gap-1">
     {#if !isHome}
       <button
-        class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors"
+        class="icon-btn w-11 h-11 flex items-center justify-center rounded-lg hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
         on:click={goHome}
         aria-label="Go to home"
         title="Home"
@@ -86,7 +86,7 @@
 
     <a
       href="{base}/settings"
-      class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors no-underline"
+      class="icon-btn w-11 h-11 flex items-center justify-center rounded-lg hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none no-underline"
       aria-label="Settings"
       title="Settings"
     >
@@ -94,7 +94,7 @@
     </a>
 
     <button
-      class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors"
+      class="icon-btn w-11 h-11 flex items-center justify-center rounded-lg hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
       on:click={toggleDarkMode}
       aria-label="Toggle dark mode"
       title="Toggle dark mode"
