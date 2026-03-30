@@ -10,7 +10,9 @@
   import { HSK5_DATA } from '$lib/data/hsk';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import PageError from '$lib/components/common/PageError.svelte';
-  import { Layers, CheckCircle, Keyboard, ChevronRight, BookOpen, Languages, GraduationCap, Hash, ClipboardCheck } from 'lucide-svelte';
+  import { Layers, CheckCircle, Keyboard, ChevronRight, BookOpen, Languages, GraduationCap, Hash, ClipboardCheck, ArrowRight } from 'lucide-svelte';
+  import { progressStore } from '$lib/stores';
+  import { getNextLesson, getCourseProgress } from '$lib/utils/progressUtils';
 
   let courses: ReturnType<typeof getAllCourses> = [];
   let totalLessons = 0;
@@ -95,6 +97,30 @@
       {/each}
     </div>
   </section>
+
+  <!-- Continue Learning -->
+  {#if courses.length > 0}
+    {@const firstCourse = courses[0]}
+    {@const progress = getCourseProgress($progressStore, firstCourse.metadata.id)}
+    {@const nextL = getNextLesson($progressStore, firstCourse.metadata.id)}
+    {#if progress.completed > 0 || Object.keys($progressStore.lessons).length > 0}
+      <section class="mb-6 px-4">
+        <a
+          href="{base}/course/{firstCourse.metadata.id}/lesson/{nextL}"
+          class="block w-full p-5 bg-primary/10 border border-primary/20 rounded-xl no-underline transition-all hover:bg-primary/15 hover:shadow-md active:scale-[0.98] cursor-pointer"
+        >
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Tiếp tục học</p>
+              <p class="text-sm font-bold text-foreground">{firstCourse.metadata.title} — Bài {nextL}</p>
+              <p class="text-xs text-muted-foreground mt-0.5">{progress.completed}/{progress.total} bài đã hoàn thành</p>
+            </div>
+            <ArrowRight size={20} class="text-primary flex-shrink-0" aria-hidden="true" />
+          </div>
+        </a>
+      </section>
+    {/if}
+  {/if}
 
   <!-- Courses -->
   <section class="mb-6 px-4">

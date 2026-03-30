@@ -66,7 +66,11 @@
         class="w-full mb-5 py-3.5 text-base font-bold shadow-md"
         onclick={() => goto(buildLessonUrl(courseId, nextLesson))}
       >
-        Continue — Bài {nextLesson} →
+        {#if courseProgress.completed === 0}
+          Bắt đầu bài đầu tiên →
+        {:else}
+          Tiếp tục — Bài {nextLesson} →
+        {/if}
       </UiButton>
 
       <div class="flex items-center gap-3 mb-3">

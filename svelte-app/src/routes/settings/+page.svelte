@@ -111,7 +111,10 @@
     </h3>
     <div class="bg-card rounded-xl shadow-sm overflow-hidden border border-border">
       <div class="flex items-center justify-between px-5 py-5">
-        <label for="direction" class="text-sm font-medium">Default Direction</label>
+        <div>
+          <label for="direction" class="text-sm font-medium block">Default Direction</label>
+          <span class="text-[0.65rem] text-muted-foreground">Hướng mặc định khi bắt đầu quiz</span>
+        </div>
         <select
           id="direction"
           value={settings.defaultDirection}
@@ -125,13 +128,19 @@
       </div>
       <div class="h-px bg-border/50 mx-5"></div>
       <div class="flex items-center justify-between px-5 py-5">
-        <label for="autoPlay" class="text-sm font-medium">Auto-speak on new card</label>
+        <div>
+          <label for="autoPlay" class="text-sm font-medium block">Auto-speak on new card</label>
+          <span class="text-[0.65rem] text-muted-foreground">Tự động phát âm khi lật thẻ mới</span>
+        </div>
         <input id="autoPlay" type="checkbox" checked={settings.autoPlay} on:change={handleAutoPlayChange}
           class="w-5 h-5 accent-primary cursor-pointer" />
       </div>
       <div class="h-px bg-border/50 mx-5"></div>
       <div class="flex items-center justify-between px-5 py-5">
-        <label for="showEnglish" class="text-sm font-medium">Show English translations</label>
+        <div>
+          <label for="showEnglish" class="text-sm font-medium block">Show English translations</label>
+          <span class="text-[0.65rem] text-muted-foreground">Hiển thị nghĩa tiếng Anh bên cạnh tiếng Việt</span>
+        </div>
         <input id="showEnglish" type="checkbox" checked={settings.showEnglish} on:change={handleShowEnglishChange}
           class="w-5 h-5 accent-primary cursor-pointer" />
       </div>
