@@ -109,7 +109,7 @@
     <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-6 flex items-center gap-1.5">
       <Settings2 size={12} aria-hidden="true" /> Quiz Settings
     </h3>
-    <div class="bg-card rounded-xl shadow-sm overflow-hidden">
+    <div class="bg-card rounded-xl shadow-sm overflow-hidden border border-border">
       <div class="flex items-center justify-between px-5 py-5">
         <label for="direction" class="text-sm font-medium">Default Direction</label>
         <select

@@ -71,10 +71,10 @@
             <button
               role="radio"
               aria-checked={selectedDirection === dir.value}
-              class="flex flex-col items-center gap-1 py-3 px-4 rounded-xl transition-all cursor-pointer active:scale-[0.97]
+              class="flex flex-col items-center gap-1 py-3.5 px-4 rounded-xl transition-all cursor-pointer active:scale-[0.97]
                 {selectedDirection === dir.value
-                  ? 'bg-primary text-primary-foreground shadow-md'
-                  : 'bg-card text-muted-foreground shadow-sm hover:bg-accent hover:text-foreground'}"
+                  ? 'bg-primary text-primary-foreground shadow-md ring-2 ring-primary/30'
+                  : 'bg-card text-muted-foreground shadow-sm border border-border hover:border-primary hover:text-foreground'}"
               on:click={() => selectedDirection = dir.value}
             >
               <span class="text-sm font-semibold">{dir.label}</span>
@@ -95,7 +95,10 @@
             on:click={() => startQuiz('flashcard')}
           >
             <Layers size={20} aria-hidden="true" />
-            <span class="font-semibold text-sm">Flashcard Quiz</span>
+            <div class="flex-1 min-w-0">
+              <span class="font-semibold text-sm block">Flashcard Quiz</span>
+              <span class="text-[0.65rem] opacity-75">Lật thẻ để xem đáp án</span>
+            </div>
             <ChevronRight size={16} class="ml-auto opacity-60" aria-hidden="true" />
           </button>
           <button
@@ -103,7 +106,10 @@
             on:click={() => startQuiz('multiple-choice')}
           >
             <CheckCircle size={20} class="text-primary" aria-hidden="true" />
-            <span class="font-semibold text-sm">Multiple Choice</span>
+            <div class="flex-1 min-w-0">
+              <span class="font-semibold text-sm block">Multiple Choice</span>
+              <span class="text-[0.65rem] text-muted-foreground">Chọn đáp án đúng trong 4 lựa chọn</span>
+            </div>
             <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-primary" aria-hidden="true" />
           </button>
           <button
@@ -111,7 +117,10 @@
             on:click={() => startQuiz('typing')}
           >
             <Keyboard size={20} class="text-primary" aria-hidden="true" />
-            <span class="font-semibold text-sm">Typing Quiz</span>
+            <div class="flex-1 min-w-0">
+              <span class="font-semibold text-sm block">Typing Quiz</span>
+              <span class="text-[0.65rem] text-muted-foreground">Nhập câu trả lời bằng bàn phím</span>
+            </div>
             <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-primary" aria-hidden="true" />
           </button>
         </div>
