@@ -14,7 +14,6 @@ const __dirname = path.dirname(__filename);
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:5173';
 const OUT_DIR = path.resolve(__dirname, '../../documents/04-quality/screenshots');
-const DATE = new Date().toISOString().slice(0, 10);
 
 const PAGES = [
   { name: 'home', path: '/' },
@@ -58,7 +57,7 @@ async function main() {
           await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
           await page.waitForTimeout(500); // let animations settle
 
-          const filename = `${DATE}-${p.name}-${theme}-${viewport.name}.png`;
+          const filename = `${p.name}-${theme}-${viewport.name}.png`;
           await page.screenshot({
             path: path.join(OUT_DIR, filename),
             fullPage: true,
