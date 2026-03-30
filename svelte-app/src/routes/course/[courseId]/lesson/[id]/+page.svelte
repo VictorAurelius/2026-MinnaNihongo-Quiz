@@ -24,10 +24,10 @@
 
   let selectedDirection: QuizDirection = 'ja-vi';
 
-  const directions: { value: QuizDirection; label: string; icon: string }[] = [
-    { value: 'ja-vi', label: 'JP → VN', icon: 'JP→VN' },
-    { value: 'vi-ja', label: 'VN → JP', icon: 'VN→JP' },
-    { value: 'vi-romaji', label: 'VN → Romaji', icon: 'VN→abc' }
+  const directions: { value: QuizDirection; label: string; desc: string }[] = [
+    { value: 'ja-vi', label: 'JP → VN', desc: 'Xem tiếng Nhật, trả lời tiếng Việt' },
+    { value: 'vi-ja', label: 'VN → JP', desc: 'Xem tiếng Việt, trả lời tiếng Nhật' },
+    { value: 'vi-romaji', label: 'VN → Romaji', desc: 'Xem tiếng Việt, trả lời bằng romaji' }
   ];
 
   function startQuiz(mode: string) {
@@ -71,13 +71,14 @@
             <button
               role="radio"
               aria-checked={selectedDirection === dir.value}
-              class="py-3 px-4 rounded-xl text-sm font-semibold transition-all cursor-pointer active:scale-[0.97]
+              class="flex flex-col items-center gap-1 py-3 px-4 rounded-xl transition-all cursor-pointer active:scale-[0.97]
                 {selectedDirection === dir.value
                   ? 'bg-primary text-primary-foreground shadow-md'
                   : 'bg-card text-muted-foreground shadow-sm hover:bg-accent hover:text-foreground'}"
               on:click={() => selectedDirection = dir.value}
             >
-              {dir.label}
+              <span class="text-sm font-semibold">{dir.label}</span>
+              <span class="text-[0.6rem] opacity-75 leading-tight">{dir.desc}</span>
             </button>
           {/each}
         </div>

@@ -46,7 +46,7 @@ async function main() {
       });
       const page = await context.newPage();
 
-      // Set dark mode via localStorage
+      // Set dark mode via localStorage before each navigation
       await page.addInitScript((isDark: boolean) => {
         localStorage.setItem('ui-store', JSON.stringify({ darkMode: isDark }));
       }, theme === 'dark');
@@ -55,7 +55,12 @@ async function main() {
         const url = `${BASE_URL}${p.path}`;
         try {
           await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
-          await page.waitForTimeout(500); // let animations settle
+          // Re-inject dark mode after navigation and reload to ensure it applies
+          await page.evaluate((isDark: boolean) => {
+            localStorage.setItem('ui-store', JSON.stringify({ darkMode: isDark }));
+          }, theme === 'dark');
+          await page.reload({ waitUntil: 'domcontentloaded' });
+          await page.waitForTimeout(800); // let animations + theme settle
 
           const filename = `${p.name}-${theme}-${viewport.name}.png`;
           await page.screenshot({
