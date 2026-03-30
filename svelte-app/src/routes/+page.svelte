@@ -11,7 +11,7 @@
   import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import PageError from '$lib/components/common/PageError.svelte';
-  import { Layers, CheckCircle, Keyboard, ChevronRight } from 'lucide-svelte';
+  import { Layers, CheckCircle, Keyboard, ChevronRight, BookOpen, Languages, GraduationCap, Hash, ClipboardCheck } from 'lucide-svelte';
 
   let courses: ReturnType<typeof getAllCourses> = [];
   let totalLessons = 0;
@@ -32,20 +32,21 @@
     dataError = true;
   }
 
-  const sections = [
-    ...courses.map(c => ({
-      icon: c.metadata.icon,
-      title: c.metadata.title,
-      desc: c.metadata.description,
-      href: `${base}/course/${c.metadata.id}`,
-      iconClass: '',
-    })),
-    { icon: '漢', title: 'Kanji', desc: `${kanjiCount} kanji — readings, meanings & examples`, href: `${base}/kanji`, iconClass: 'font-jp' },
-    { icon: 'あ', title: 'Alphabet', desc: 'Hiragana & Katakana charts', href: `${base}/alphabet`, iconClass: 'font-jp' },
-    { icon: '文', title: 'Grammar Reference', desc: 'Patterns, comparisons & examples', href: `${base}/grammar-reference`, iconClass: 'font-jp' },
-    { icon: '数', title: 'Counters', desc: 'Japanese counting systems', href: `${base}/counters`, iconClass: 'font-jp' },
-    { icon: '中', title: 'HSK 5 Vocabulary', desc: `${hskWordCount}+ Chinese words`, href: `${base}/hsk`, iconClass: 'font-cn' },
-    { icon: '試', title: 'JLPT Mock Test', desc: '30 questions · 30 min · Pass/Fail', href: `${base}/mock-test`, iconClass: 'font-jp' },
+  const courseSections = courses.map(c => ({
+    icon: c.metadata.icon,
+    title: c.metadata.title,
+    desc: c.metadata.description,
+    href: `${base}/course/${c.metadata.id}`,
+    color: c.metadata.color,
+  }));
+
+  const referenceSections = [
+    { component: BookOpen, title: 'Kanji', desc: `${kanjiCount} kanji — readings, meanings & examples`, href: `${base}/kanji` },
+    { component: Languages, title: 'Alphabet', desc: 'Hiragana & Katakana charts', href: `${base}/alphabet` },
+    { component: GraduationCap, title: 'Grammar Reference', desc: 'Patterns, comparisons & examples', href: `${base}/grammar-reference` },
+    { component: Hash, title: 'Counters', desc: 'Japanese counting systems', href: `${base}/counters` },
+    { component: Languages, title: 'HSK 5 Vocabulary', desc: `${hskWordCount}+ Chinese words`, href: `${base}/hsk` },
+    { component: ClipboardCheck, title: 'JLPT Mock Test', desc: '30 questions · 30 min · Pass/Fail', href: `${base}/mock-test` },
   ];
 
   const quizModes = [
@@ -96,18 +97,38 @@
     </div>
   </section>
 
-  <!-- Section Cards -->
+  <!-- Courses -->
   <section class="mb-6 px-4">
-    <h2 class="text-lg font-bold mb-3">Start Learning</h2>
-
+    <h2 class="text-lg font-bold mb-3">Courses</h2>
     <div class="flex flex-col gap-3.5">
-      {#each sections as section}
+      {#each courseSections as section}
+        <a
+          href={section.href}
+          class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group relative overflow-hidden"
+        >
+          <div class="absolute left-0 inset-y-0 w-1 rounded-l-xl" style="background: {section.color}"></div>
+          <span class="flex-shrink-0 text-2xl pl-1">{section.icon}</span>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-sm font-bold text-foreground">{section.title}</h3>
+            <p class="text-xs text-muted-foreground leading-snug">{section.desc}</p>
+          </div>
+          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
+        </a>
+      {/each}
+    </div>
+  </section>
+
+  <!-- Reference & Tools -->
+  <section class="mb-6 px-4">
+    <h2 class="text-lg font-bold mb-3">Reference & Tools</h2>
+    <div class="flex flex-col gap-3.5">
+      {#each referenceSections as section}
         <a
           href={section.href}
           class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group"
         >
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary text-xl font-bold {section.iconClass}">
-            {section.icon}
+          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <svelte:component this={section.component} size={20} aria-hidden="true" />
           </div>
           <div class="flex-1 min-w-0">
             <h3 class="text-sm font-bold text-foreground">{section.title}</h3>
@@ -137,8 +158,3 @@
 </div>
 {/if}
 
-<style>
-  /* Font family helpers for Japanese/Chinese icon text */
-  .font-jp { font-family: var(--font-jp); }
-  .font-cn { font-family: var(--font-cn); }
-</style>
