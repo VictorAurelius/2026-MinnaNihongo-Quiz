@@ -103,7 +103,7 @@
       {#each courseSections as section}
         <a
           href={section.href}
-          class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group relative overflow-hidden"
+          class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent/50 active:scale-[0.98] cursor-pointer group relative overflow-hidden"
         >
           <div class="absolute left-0 inset-y-0 w-1 rounded-l-xl" style="background: {section.color}"></div>
           <span class="flex-shrink-0 text-2xl pl-1">{section.icon}</span>
@@ -124,7 +124,7 @@
       {#each referenceSections as section}
         <a
           href={section.href}
-          class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group"
+          class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent/50 active:scale-[0.98] cursor-pointer group"
         >
           <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
             <svelte:component this={section.component} size={20} aria-hidden="true" />
@@ -144,7 +144,7 @@
     <h2 class="text-lg font-bold mb-3">3 Quiz Modes</h2>
     <div class="grid grid-cols-3 gap-3">
       {#each quizModes as mode}
-        <div class="flex flex-col items-center gap-2 p-5 bg-card rounded-xl shadow-sm text-center">
+        <div class="flex flex-col items-center gap-2 p-5 bg-card border border-border rounded-xl shadow-sm text-center">
           <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10">
             <svelte:component this={mode.component} size={20} class="text-primary" aria-hidden="true" />
           </div>

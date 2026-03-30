@@ -49,11 +49,11 @@
     </div>
 
     <!-- Content -->
-    <div class="max-w-4xl mx-auto px-3 sm:px-4 py-4">
+    <div class="max-w-2xl mx-auto px-4 py-4">
       <!-- Continue Button -->
       <UiButton
         size="lg"
-        class="w-full mb-4"
+        class="w-full mb-5 py-3.5 text-base font-bold shadow-md"
         onclick={() => goto(buildLessonUrl(courseId, nextLesson))}
       >
         Continue — Bài {nextLesson} →
@@ -62,15 +62,15 @@
       <h2 class="text-base font-bold mb-3">Lessons ({lessons.length})</h2>
 
       <!-- Lesson rows — compact, readable on all screen sizes -->
-      <div class="flex flex-col gap-3">
+      <div class="flex flex-col gap-3.5">
         {#each lessons as lesson}
           {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
           <a
             href={buildLessonUrl(courseId, lesson.lessonNumber)}
-            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-md active:scale-[0.98] cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-md hover:bg-accent/50 active:scale-[0.98] cursor-pointer group"
           >
             <!-- Lesson number -->
-            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
+            <span class="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
               {lesson.lessonNumber}
             </span>
 
