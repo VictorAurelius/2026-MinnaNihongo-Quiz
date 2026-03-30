@@ -89,9 +89,9 @@
 
 ---
 
-## PR 5: Visual Polish to Excellent (+7 Aesthetics)
+## PR 5: Visual Polish to Excellent (+7 Aesthetics) ✅ PR #99
 **Target: All aesthetics dimensions 3→4**
-**Effort: Medium**
+**Effort: Medium** — MERGED
 
 ### Tasks
 - [ ] **Color**: Add subtle accent variations per section (courses=purple, kanji=indigo, HSK=teal). Use `bg-primary/5` tint on alternate rows for visual rhythm
