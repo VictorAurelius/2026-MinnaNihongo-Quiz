@@ -50,9 +50,9 @@
 
 ---
 
-## PR 3: Loading States & Progress Indicators (+3 Heuristics)
+## PR 3: Loading States & Progress Indicators (+3 Heuristics) ✅ PR #100
 **Target: H1 3→4, H9 3→4, Heuristics +3**
-**Effort: Medium**
+**Effort: Medium** — MERGED
 
 ### Tasks
 - [ ] Add skeleton loading states for: course detail, lesson menu, kanji list, HSK groups
