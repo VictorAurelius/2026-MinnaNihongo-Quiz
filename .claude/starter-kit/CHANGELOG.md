@@ -7,6 +7,18 @@ Quản lý theo Semantic Versioning: `MAJOR.MINOR.PATCH`
 
 ---
 
+## [2.0.0] — 2026-03-30
+
+### BREAKING — Root directory restructured
+- **Scripts** moved: `*.sh` → `bin/` (init-project, upgrade-project, install-remote, contribute, publish, test-kit)
+- **Docs** moved: `INSTALL.md`, `GETTING-STARTED.md`, `CONTRIBUTING.md`, `EXTRACTION-GUIDE.md` → `docs/`
+- Root reduced from 14 files → 4 (README, VERSION, CHANGELOG, kit-manifest.yml)
+- All cross-references updated in docs and README
+
+### Migration
+Replace `./init-project.sh` → `./bin/init-project.sh`, etc.
+Replace `/tmp/kit/init-project.sh` → `/tmp/kit/bin/init-project.sh` in install commands.
+
 ## [1.5.0] — 2026-03-30
 
 ### Added

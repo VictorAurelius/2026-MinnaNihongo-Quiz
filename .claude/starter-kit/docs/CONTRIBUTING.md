@@ -63,7 +63,7 @@ main                    ← latest development
 1. **PR → main** (mọi thay đổi)
 2. **Tag** trên main khi release
 3. **Cherry-pick** patches quan trọng → release/v1.x
-4. Projects pin version: `bash /tmp/kit/install-remote.sh . --version 1.1.2`
+4. Projects pin version: `bash /tmp/kit/bin/install-remote.sh . --version 1.1.2`
 
 ## Versioning
 
@@ -93,4 +93,4 @@ merge-required:         # Project thường customize → KHÔNG auto-overwrite
   - scripts/test-local.sh # Test script (project has own paths)
 ```
 
-`install-remote.sh` PHẢI respect phân loại này — default `--plan`, KHÔNG `--force`.
+`bin/install-remote.sh` PHẢI respect phân loại này — default `--plan`, KHÔNG `--force`.
