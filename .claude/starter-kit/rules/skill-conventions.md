@@ -176,3 +176,39 @@ When modifying the starter-kit, follow this checklist **every time**:
 - `README.md` version is in the header line: `**Version:** X.Y.Z`
 - `CHANGELOG.md` entries are newest-first (top = latest)
 - Never skip versions — increment from current, not from memory
+
+## Remote Repo Sync
+
+The starter-kit has a canonical remote repo: `github.com/VictorAurelius/claude-starter-kit` (branch: `main`).
+
+Projects that use the kit (like Smart Quiz) have a **local copy** at `.claude/starter-kit/`.
+
+### Before modifying kit in any project
+
+```
+1. Check remote VERSION:
+   gh api repos/VictorAurelius/claude-starter-kit/contents/VERSION --jq '.content' | base64 -d
+
+2. Check local VERSION:
+   cat .claude/starter-kit/VERSION
+
+3. If remote > local → update local first (pull remote changes)
+4. If local > remote → push local changes to remote after this PR
+5. If versions match → proceed with changes
+```
+
+### After modifying kit in a project
+
+```
+1. Make changes + bump version in project repo
+2. Create PR on remote repo with same changes:
+   - Clone remote: git clone git@github.com:VictorAurelius/claude-starter-kit.git /tmp/kit
+   - Apply changes, bump VERSION/CHANGELOG/README
+   - Push + create PR on remote repo
+3. Both repos must end at same version
+```
+
+### Gotchas
+- Remote repo has extra files (`INSTALL.md`, `GETTING-STARTED.md`, `.claude-plugin/`, `install-remote.sh`) not in project copies — these are distribution files, don't delete them when syncing
+- Project copies may have project-specific customizations in `core/` skills — don't overwrite remote generic templates with project-specific content
+- Always compare file-by-file, not bulk copy
