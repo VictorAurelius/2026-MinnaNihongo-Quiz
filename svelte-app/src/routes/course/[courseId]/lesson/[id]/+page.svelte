@@ -63,7 +63,7 @@
     <div class="px-4 py-6 flex flex-col gap-8">
       <!-- Direction Selector -->
       <section>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4 flex items-center gap-1.5">
           <RefreshCw size={12} aria-hidden="true" /> Direction
         </h3>
         <div class="grid grid-cols-3 gap-3" role="radiogroup" aria-label="Quiz direction">
@@ -85,7 +85,7 @@
 
       <!-- Quiz Modes -->
       <section>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4 flex items-center gap-1.5">
           <PenLine size={12} aria-hidden="true" /> Quiz Modes
         </h3>
         <div class="flex flex-col gap-3.5">
@@ -119,7 +119,7 @@
       <!-- Grammar Quiz -->
       {#if lesson.grammar.length > 0}
         <section>
-          <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4 flex items-center gap-1.5">
             <PenLine size={12} aria-hidden="true" /> Grammar
           </h3>
           <button
@@ -135,7 +135,7 @@
 
       <!-- Study Materials -->
       <section>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4 flex items-center gap-1.5">
           <BookOpen size={12} aria-hidden="true" /> Study Materials
         </h3>
         <div class="flex flex-col gap-3.5">
