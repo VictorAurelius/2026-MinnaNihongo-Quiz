@@ -88,9 +88,9 @@
         <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
           <PenLine size={12} aria-hidden="true" /> Quiz Modes
         </h3>
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-3.5">
           <button
-            class="flex items-center gap-4 w-full px-5 py-4.5 bg-primary text-primary-foreground rounded-xl shadow-md text-left transition-all hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+            class="flex items-center gap-4 w-full px-5 py-5 bg-primary text-primary-foreground rounded-xl shadow-md text-left transition-all hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
             on:click={() => startQuiz('flashcard')}
           >
             <Layers size={20} aria-hidden="true" />
@@ -98,7 +98,7 @@
             <ChevronRight size={16} class="ml-auto opacity-60" aria-hidden="true" />
           </button>
           <button
-            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
             on:click={() => startQuiz('multiple-choice')}
           >
             <CheckCircle size={20} class="text-primary" aria-hidden="true" />
@@ -106,7 +106,7 @@
             <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-primary" aria-hidden="true" />
           </button>
           <button
-            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
             on:click={() => startQuiz('typing')}
           >
             <Keyboard size={20} class="text-primary" aria-hidden="true" />
@@ -123,7 +123,7 @@
             <PenLine size={12} aria-hidden="true" /> Grammar
           </h3>
           <button
-            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
             on:click={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}
           >
             <PenLine size={20} class="text-success" aria-hidden="true" />
@@ -138,9 +138,9 @@
         <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-1.5">
           <BookOpen size={12} aria-hidden="true" /> Study Materials
         </h3>
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-3.5">
           <button
-            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
             on:click={() => goto(buildVocabularyUrl(courseId, lessonId))}
           >
             <BookOpen size={20} class="text-warning" aria-hidden="true" />
@@ -148,7 +148,7 @@
             <ChevronRight size={16} class="ml-auto text-muted-foreground group-hover:text-warning" aria-hidden="true" />
           </button>
           <button
-            class="flex items-center gap-4 w-full px-5 py-4.5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
+            class="flex items-center gap-4 w-full px-5 py-5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer group"
             on:click={() => goto(buildGrammarUrl(courseId, lessonId))}
           >
             <Book size={20} class="text-warning" aria-hidden="true" />
