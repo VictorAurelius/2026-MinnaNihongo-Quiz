@@ -88,6 +88,22 @@ Score 0-4 as a **first-time Vietnamese learner**. **0**=Confusing, **1**=Difficu
 
 ---
 
+## 5. WCAG Accessibility (/20)
+
+Detailed audit per `reference/wcag-audit.md`. Score 0-4 each:
+
+| # | Category | What to check |
+|---|----------|---------------|
+| 1 | **Contrast** | Text ≥4.5:1 (normal), ≥3:1 (large). Hero subtitle, section labels, muted text |
+| 2 | **Touch Targets** | All interactive ≥44×44px. Header icons, checkboxes, small links |
+| 3 | **Labels & ARIA** | Icons have text/aria-label. Proper roles. Form labels |
+| 4 | **Screen Reader** | Heading hierarchy h1→h2→h3. Landmarks. Alt text |
+| 5 | **Keyboard & Focus** | Focus indicators visible. Tab order logical. Skip-to-content |
+
+Output a PASS/WARN/FAIL table for specific elements (see `reference/wcag-audit.md`).
+
+---
+
 ## Report Template
 
 ```
@@ -96,19 +112,22 @@ Technical:         ??/20 ([band])
 Design Heuristics: ??/40 ([band])
 Visual Aesthetics: ??/28 ([band])
 User Friendliness: ??/20 ([band])
-Combined:          ??/108
+WCAG Access:       ??/20 ([band])
+Combined:          ??/128
 
-Top Issues (P0-P2):
-1. ...
+WCAG Audit:
+| Status | Element | Check | Notes |
+|--------|---------|-------|-------|
+| ✅/⚠️/❌ | ... | ... | ... |
 
-What's Working Well:
-- ...
+Top 3 Issues (with code fixes):
+1. ... (before/after code)
 
 Score Progression:
-| Run | Tech | Heuristics | Aesthetics | Friendliness | Combined |
-|-----|------|------------|------------|--------------|----------|
-| prev | ? | ? | ? | ? | ? |
-| now  | ? | ? | ? | ? | ? |
+| Run | Tech | Heuristics | Aesthetics | Friendly | WCAG | Combined |
+|-----|------|------------|------------|----------|------|----------|
+| prev | ? | ? | ? | ? | ? | ? |
+| now  | ? | ? | ? | ? | ? | ? |
 ```
 
 Save to `documents/04-quality/ui-review-latest.md`
