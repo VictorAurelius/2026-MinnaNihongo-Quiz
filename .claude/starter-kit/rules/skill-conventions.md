@@ -148,3 +148,31 @@ Skills can persist state between runs:
 - [ ] Gotchas section with project-specific failure points?
 - [ ] NOT teaching Claude generic knowledge it already has?
 - [ ] Tells Claude what files are in the skill folder?
+
+## Starter-Kit Version Management
+
+When modifying the starter-kit, follow this checklist **every time**:
+
+### Before making changes
+- [ ] Read `VERSION` file — know current version
+- [ ] Read top of `CHANGELOG.md` — verify VERSION matches latest changelog entry
+- [ ] If mismatch, fix sync FIRST before making new changes
+
+### After making changes
+- [ ] Bump `VERSION` file (MAJOR.MINOR.PATCH per semver rules below)
+- [ ] Add entry to top of `CHANGELOG.md` with date and changes
+- [ ] Update version in `README.md` header
+- [ ] **All 3 files must show the same version number**
+
+### Semver rules for starter-kit
+| Change type | Bump | Example |
+|-------------|------|---------|
+| Remove/restructure existing skill or script | MAJOR | 2.0.0 |
+| Add new skill, script, rule, or template | MINOR | 1.4.0 |
+| Fix content, improve wording, update existing | PATCH | 1.4.1 |
+
+### Gotchas
+- `VERSION` file contains ONLY the version number (no other text)
+- `README.md` version is in the header line: `**Version:** X.Y.Z`
+- `CHANGELOG.md` entries are newest-first (top = latest)
+- Never skip versions — increment from current, not from memory
