@@ -139,7 +139,7 @@
           class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent/50 active:scale-[0.98] cursor-pointer group relative overflow-hidden"
         >
           <div class="absolute left-0 inset-y-0 w-1 rounded-l-xl" style="background: {section.color}"></div>
-          <span class="flex-shrink-0 text-2xl pl-1">{section.icon}</span>
+          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center text-2xl pl-0.5">{section.icon}</div>
           <div class="flex-1 min-w-0">
             <h3 class="text-sm font-bold text-foreground">{section.title}</h3>
             <p class="text-xs text-muted-foreground leading-snug">{section.desc}</p>
