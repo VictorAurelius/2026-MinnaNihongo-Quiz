@@ -61,7 +61,7 @@ Score Nielsen's 10 heuristics 0-4:
 | 10 | Help and Documentation | ? | |
 | **Total** | | **??/40** | |
 
-## Step 5: Visual Aesthetics (/20)
+## Step 5: Visual Aesthetics (/28)
 
 Evaluate the **look and feel** purely from screenshots. Score each dimension 0-4:
 
@@ -69,12 +69,22 @@ Evaluate the **look and feel** purely from screenshots. Score each dimension 0-4
 |---|-----------|-------|-------------|
 | 1 | **Color Harmony** | ? | Are colors pleasing together? Enough contrast? Palette cohesive? Dark mode comfortable? |
 | 2 | **Typography** | ? | Clear hierarchy? Readable sizes? Consistent font weights? Good line spacing? |
-| 3 | **Spacing & Alignment** | ? | Consistent padding/margins? Elements aligned? Breathing room between items? Nothing cramped or floating? |
-| 4 | **Visual Hierarchy** | ? | Eye flows naturally? Primary action obvious? Important elements stand out? Clear sections? |
-| 5 | **Polish & Detail** | ? | Rounded corners consistent? Shadows appropriate? Transitions smooth? Borders tasteful? Icons crisp? Overall professional feel? |
-| **Total** | | **??/20** | |
+| 3 | **Element Sizing** | ? | Are buttons/rows/cards tall enough for comfortable tapping? Are icons proportional to text? Do interactive elements feel substantial (not too thin/small)? Are sizes consistent across similar elements on different pages? |
+| 4 | **Spacing & Breathing Room** | ? | Is there enough gap BETWEEN elements (rows, cards, sections)? Is internal padding generous (text not touching edges)? Do elements feel cramped or too loose? Is spacing consistent across pages? |
+| 5 | **Alignment & Grid** | ? | Are elements aligned to a consistent grid? Left edges line up? Content blocks same width? No "floating" or off-center elements? Symmetric where expected? |
+| 6 | **Visual Hierarchy** | ? | Eye flows naturally? Primary action obvious? Important elements stand out? Clear sections? Size/color/position communicate importance? |
+| 7 | **Polish & Detail** | ? | Rounded corners consistent? Shadows appropriate? Borders tasteful? Icons crisp? Hover/active states feel designed? Overall professional feel or "just functional"? |
+| **Total** | | **??/28** | |
 
 **Scoring**: 0=Ugly/broken, 1=Amateur/inconsistent, 2=Passable/generic, 3=Good/professional, 4=Beautiful/distinctive
+
+**Layout checklist** (verify for each screen):
+- [ ] Row height ≥ 48px (comfortable tap target)
+- [ ] Internal padding ≥ 16px (text not touching container edges)
+- [ ] Gap between sibling elements ≥ 12px (not visually stuck together)
+- [ ] Section gap ≥ 24px (clear separation between groups)
+- [ ] Icon size proportional to adjacent text (not oversized or tiny)
+- [ ] Consistent sizing: same element type = same height across pages
 
 ## Step 6: User Friendliness (/20)
 
@@ -97,9 +107,9 @@ Evaluate from perspective of a **first-time Vietnamese learner** opening the app
 === UI REVIEW REPORT ===
 Technical:        ??/20 ([band])
 Design Heuristics:??/40 ([band])
-Visual Aesthetics:??/20 ([band])
+Visual Aesthetics:??/28 ([band])
 User Friendliness:??/20 ([band])
-Combined:         ??/100
+Combined:         ??/108
 
 Top Issues (P0-P2):
 1. ...
@@ -115,9 +125,9 @@ Recommended Next Actions:
 
 **Technical (20):** 18-20 Excellent, 14-17 Good, 10-13 Acceptable, 6-9 Poor, 0-5 Critical
 **Heuristics (40):** 36-40 Excellent, 28-35 Good, 20-27 Acceptable, 12-19 Poor, 0-11 Critical
-**Aesthetics (20):** 18-20 Excellent, 14-17 Good, 10-13 Acceptable, 6-9 Poor, 0-5 Critical
+**Aesthetics (28):** 25-28 Excellent, 20-24 Good, 14-19 Acceptable, 8-13 Poor, 0-7 Critical
 **Friendliness (20):** 18-20 Excellent, 14-17 Good, 10-13 Acceptable, 6-9 Poor, 0-5 Critical
-**Combined (100):** 85+ Excellent, 70-84 Good, 50-69 Acceptable, 30-49 Poor, <30 Critical
+**Combined (108):** 90+ Excellent, 75-89 Good, 55-74 Acceptable, 35-54 Poor, <35 Critical
 
 ## Rules
 
