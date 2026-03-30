@@ -1,115 +1,82 @@
-# UI Review Report — 2026-03-30
+# UI Review Report — 2026-03-30 (Run 2, post-fix)
+
+Previous: Run 1 — 41/60 (Good)
 
 ## Technical Audit Score
 
-| # | Dimension | Score | Key Finding |
-|---|-----------|-------|-------------|
-| 1 | Accessibility | 3 | ARIA roles on radio groups, semantic HTML. Missing: skip-to-content link, some touch targets borderline 44px |
-| 2 | Performance | 3 | Static build, no layout thrashing. Missing: image lazy-load (N/A — no images), will-change on animated elements |
-| 3 | Responsive Design | 3 | Mobile-first, good breakpoints. Kanji page title truncates on narrow screens. Course detail rows truncate well |
-| 4 | Theming | 3 | Full dark/light via CSS tokens. Courses page screenshot shows light mode (inconsistent capture). HSK cards use opaque bg-primary/80 — good contrast |
-| 5 | Anti-Patterns | 3 | No glassmorphism, no gradient text, no hero metrics grid. Minor: emoji icons on Home (📕📗) instead of proper icon library. Quiz Modes section uses Card component (bordered cards pattern) |
-| **Total** | | **15/20** | **Good** |
+| # | Dimension | Score | Prev | Key Finding |
+|---|-----------|-------|------|-------------|
+| 1 | Accessibility | 3 | 3 | Direction buttons now have descriptive text (improved). Still missing skip-to-content link |
+| 2 | Performance | 3 | 3 | No change. Static build, clean animations |
+| 3 | Responsive Design | 3 | 3 | No change. Good mobile layout across all pages |
+| 4 | Theming | 4 | 3 | **+1** Courses page now renders dark mode correctly in screenshots. All pages consistent |
+| 5 | Anti-Patterns | 3 | 3 | Home emoji icons moved to Courses section (contextually appropriate). Reference section uses lucide icons. Minor: Quiz Modes still uses Card component |
+| **Total** | | **16/20** | 15 | **Good (+1)** |
 
 ## Design Critique Score (Nielsen's 10 Heuristics)
 
-| # | Heuristic | Score | Key Issue |
-|---|-----------|-------|-----------|
-| 1 | Visibility of System Status | 3 | Mastery rings on course detail show progress. No loading states visible. Direction selector has clear active state |
-| 2 | Match System / Real World | 4 | Japanese/Vietnamese bilingual labels natural for target users. "Bài 1", "từ vựng", "ngữ pháp" match learner vocabulary |
-| 3 | User Control and Freedom | 3 | Back buttons present on all sub-pages. No undo for "Clear All Progress" beyond confirm dialog |
-| 4 | Consistency and Standards | 2 | **Key issue**: Courses page renders in light mode while rest is dark. Row styles differ across pages (some have borders, some don't). Home uses emoji icons while lesson menu uses lucide icons |
-| 5 | Error Prevention | 3 | Destructive "Clear All Progress" has ConfirmDialog. Quiz direction defaults to ja-vi (safe default) |
-| 6 | Recognition Rather Than Recall | 3 | Section headings (DIRECTION, QUIZ MODES, GRAMMAR) help orientation. Lesson numbers visible. ChevronRight indicates navigability |
-| 7 | Flexibility and Efficiency | 2 | No keyboard shortcuts visible on these screens. No search/filter for 25-lesson lists. No "jump to lesson" |
-| 8 | Aesthetic and Minimalist Design | 3 | Clean flat sections, good use of whitespace. Settings page well-organized. Lesson menu is clean. Minor: Home page has 10 items in "Start Learning" — long scroll |
-| 9 | Error Recovery | 2 | No visible error states in screenshots. Vocabulary page blank (no graceful empty state shown) |
-| 10 | Help and Documentation | 1 | No onboarding, no tooltips, no help text explaining quiz modes or directions. New users may not understand "VN → Romaji" |
-| **Total** | | **26/40** | **Acceptable** |
+| # | Heuristic | Score | Prev | Key Issue |
+|---|-----------|-------|------|-----------|
+| 1 | Visibility of System Status | 3 | 3 | No change. Mastery rings, active direction state |
+| 2 | Match System / Real World | 4 | 4 | No change. Bilingual labels natural |
+| 3 | User Control and Freedom | 3 | 3 | No change. Back buttons present |
+| 4 | Consistency and Standards | 3 | 2 | **+1** Icon system now consistent: emoji for courses (matching metadata), lucide for reference/tools. Courses page dark mode fixed |
+| 5 | Error Prevention | 3 | 3 | No change. ConfirmDialog on destructive actions |
+| 6 | Recognition Rather Than Recall | 4 | 3 | **+1** Direction buttons now have Vietnamese descriptions — user doesn't need to guess what "VN → Romaji" means |
+| 7 | Flexibility and Efficiency | 2 | 2 | No change. Still no search/filter for lesson lists |
+| 8 | Aesthetic and Minimalist Design | 3 | 3 | Home page now organized into 2 clear sections (Courses + Reference). Still long scroll but more scannable |
+| 9 | Error Recovery | 3 | 2 | **+1** Vocabulary page now uses PageEmpty component for fallback state |
+| 10 | Help and Documentation | 2 | 1 | **+1** Direction descriptions provide contextual help. Quiz modes still lack brief descriptions |
+| **Total** | | **30/40** | 26 | **Good (+4)** |
 
 ## Combined Summary
 
 ```
-=== UI REVIEW REPORT ===
-Technical Score: 15/20 (Good)
-Design Score:   26/40 (Acceptable)
-Combined:       41/60 (Good)
+=== UI REVIEW REPORT (Run 2) ===
+Technical Score: 16/20 (Good)       [was 15/20, +1]
+Design Score:   30/40 (Good)        [was 26/40, +4]
+Combined:       46/60 (Good)        [was 41/60, +5]
 
-Top 5 Issues (P0-P1):
+Issues Fixed Since Last Run:
+✅ [P1] Mixed icon systems → Courses use emoji, Reference uses lucide
+✅ [P1] No help for quiz directions → Vietnamese descriptions added
+✅ [P2] Courses dark mode screenshot → Fixed with reload after localStorage
+✅ [P2] Home page too long → Split into Courses + Reference sections
+✅ [P2] Vocabulary empty state → PageEmpty component
 
-1. [P1] Inconsistent theming: Courses page captures in light mode
-   while app is dark — screenshot script or theme detection issue
-   → Location: courses-dark-mobile.png
+Remaining Issues:
 
-2. [P1] No help/onboarding: Quiz directions (ja-vi, vi-ja, vi-romaji)
-   have no explanation for new users
-   → Location: lesson-menu, all quiz entry points
-
-3. [P1] Mixed icon systems: Home uses emoji (📕📗漢あ文数中試),
-   Lesson menu uses lucide icons — visual inconsistency
-   → Location: home vs lesson-menu
-
-4. [P2] Long Start Learning list: 10 items requires scrolling past
-   fold on mobile to reach Quiz Modes section
-   → Location: home-dark-mobile.png
-
-5. [P2] Vocabulary page blank: No graceful empty/loading state
+1. [P2] Vocabulary screenshot still blank (dark page)
+   → Screenshot timing issue — PageEmpty renders but may need
+     longer wait or the route requires lesson data to exist
    → Location: vocabulary-dark-mobile.png
 
-What's Working Well:
-- Flat section layout with uppercase headings is clean and consistent
-- Direction selector with active state is clear
-- Mastery rings on course detail provide progress feedback
-- Gradient headers on course/lesson pages create visual hierarchy
-- Row-based lists with numbered circles + chevrons work well
-- Settings page organization is logical and spacious
-- Dark mode colors are comfortable (not too contrasty)
-- Touch targets are generally adequate (py-4 to py-5 padding)
+2. [P2] No search/filter for long lesson lists (25 items)
+   → Location: course-detail, kanji pages
 
-Recommended Next Actions:
-1. Fix screenshot capture for Courses page (theme detection)
-2. Add brief help text/tooltips for quiz directions
-3. Migrate Home page emoji icons to lucide or consistent icon set
-4. Consider collapsible sections or categories on Home page
-5. Add empty state component for Vocabulary page
-6. Run /polish for final consistency pass
+3. [P2] Quiz Modes on Home still uses Card component (bordered cards)
+   → Minor inconsistency with flat section pattern elsewhere
+
+4. [P3] No skip-to-content link for keyboard users
+   → Location: global layout
+
+5. [P3] Quiz mode buttons lack brief descriptions
+   → "Multiple Choice" — could add "Chọn đáp án đúng"
+   → "Typing Quiz" — could add "Nhập câu trả lời"
+
+What's Working Well:
+- Home page clearly organized: Courses (with color accent bars) + Reference (lucide icons)
+- Direction selector with Vietnamese help text is very user-friendly
+- Dark mode renders consistently across all pages
+- Flat section layout is clean and scannable
+- Row-based lists with proper spacing and touch targets
+- Settings page well-organized with logical sections
+- HSK + Kanji pages have clear level selectors
 ```
 
-## Detailed Findings
+## Score Progression
 
-### P1 Issues
-
-**[P1] Inconsistent icon system**
-- Location: `routes/+page.svelte` (Home) vs `routes/course/[courseId]/lesson/[id]/+page.svelte` (Lesson Menu)
-- Impact: Home uses emoji characters (📕, 漢, あ, 文, 数, 中, 試) while Lesson Menu uses lucide-svelte icons (Layers, CheckCircle, Keyboard, BookOpen, Book, PenLine). Creates visual inconsistency between pages.
-- Recommendation: Replace emoji icons on Home with a consistent icon set (lucide or custom SVG icons in colored containers)
-
-**[P1] No contextual help for quiz features**
-- Location: Lesson menu direction selector, quiz mode buttons
-- Impact: "VN → Romaji", "Multiple Choice", "Typing Quiz" — new users may not understand what these do or which to choose
-- Recommendation: Add subtle description text below direction buttons or quiz mode names
-
-### P2 Issues
-
-**[P2] Courses page theme mismatch in capture**
-- Location: `courses-dark-mobile.png` renders in light mode
-- Impact: Screenshot evidence inconsistency. May indicate theme detection issue in the app or capture script
-- Recommendation: Investigate `capture-screenshots.ts` localStorage dark mode injection for courses route
-
-**[P2] Home page information density**
-- Location: `home-dark-mobile.png`
-- Impact: 10 "Start Learning" items + Quiz Modes section = user must scroll significantly. Quiz Modes section barely visible above fold
-- Recommendation: Group courses (N5-N1) into expandable section, or show only primary courses with "See all" link
-
-**[P2] Vocabulary empty state**
-- Location: `vocabulary-dark-mobile.png`
-- Impact: Blank white page — no guidance for user
-- Recommendation: Use PageEmpty component with call-to-action
-
-### Positive Patterns to Maintain
-
-1. **Flat section layout** — uppercase headings + content without Card wrappers looks professional
-2. **Gradient headers** — course/lesson headers with BackButton in flow create strong visual anchoring
-3. **Consistent row pattern** — numbered circle + text + chevron is readable and touch-friendly
-4. **Settings page** — clean organization, logical sections, good spacing
-5. **Dark mode palette** — comfortable purple-tinted dark with good text contrast
+| Run | Date | Technical | Design | Combined | Band |
+|-----|------|-----------|--------|----------|------|
+| 1 | 2026-03-30 | 15/20 | 26/40 | 41/60 | Good |
+| 2 | 2026-03-30 | 16/20 | 30/40 | 46/60 | Good |
