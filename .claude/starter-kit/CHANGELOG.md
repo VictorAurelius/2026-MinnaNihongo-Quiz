@@ -7,6 +7,16 @@ Quản lý theo Semantic Versioning: `MAJOR.MINOR.PATCH`
 
 ---
 
+## [1.5.0] — 2026-03-30
+
+### Added
+- Full sync with remote repo `VictorAurelius/claude-starter-kit`
+- Pulled from remote: `INSTALL.md`, `GETTING-STARTED.md`, `CONTRIBUTING.md`, `EXTRACTION-GUIDE.md`, `install-remote.sh`, `publish.sh`, `kit-manifest.yml`, `.claude-plugin/` (plugin.json, marketplace.json), `skills/reference/ui-template-guide.md`
+- Remote repo sync rules in `rules/skill-conventions.md`
+
+### Changed
+- VERSION/CHANGELOG/README fully synced (were diverged: remote=1.3.0, local=1.4.0)
+
 ## [1.4.0] — 2026-03-30
 
 ### Added

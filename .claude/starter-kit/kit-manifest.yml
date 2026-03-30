@@ -1,0 +1,30 @@
+# Kit Manifest — File classification for safe upgrades
+#
+# override-safe:   Always safe to overwrite (nobody customizes these)
+# new-only:        Only copy if file does NOT exist
+# merge-required:  Projects customize these → NEVER auto-overwrite
+
+override-safe:
+  - scripts/render-diagrams.sh
+  - templates/*.template
+  - skills/reference/diagrams.md
+  - skills/reference/ide-setup.md
+  - skills/reference/project-structure.md
+  - skills/reference/service-docs-standard.md
+  - skills/_README-skills-index.md
+
+new-only:
+  - memory/*.md
+  - skills/quality/quality-audit.md
+  - skills/reference/business-docs-3-layer.md
+
+merge-required:
+  - skills/core/brainstorming-methodology.md
+  - skills/core/systematic-debugging.md
+  - skills/core/task-breakdown-guide.md
+  - skills/core/tdd-enforcement.md
+  - skills/core/two-stage-code-review.md
+  - skills/workflow/development-workflow.md
+  - scripts/check-ci.sh
+  - scripts/test-local.sh
+  - scripts/pre-commit-check.sh
