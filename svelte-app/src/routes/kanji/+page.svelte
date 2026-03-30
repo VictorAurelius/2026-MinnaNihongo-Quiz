@@ -9,8 +9,10 @@
   import { KANJI_N1_DATA } from '$lib/data/kanji/kanji-n1';
   import { base } from '$app/paths';
   import { BookOpen, ChevronRight } from 'lucide-svelte';
+  import SearchInput from '$lib/components/common/SearchInput.svelte';
 
-  const lessons = getKanjiLessonMetadata();
+  const allLessons = getKanjiLessonMetadata();
+  let searchQuery = '';
   let selectedLevel: 'n5n4' | 'n3' | 'n2' | 'n1' = 'n5n4';
 
   const levels = [
@@ -21,6 +23,13 @@
   ];
 
   $: totalKanji = levels.reduce((s, l) => s + l.count, 0);
+
+  $: lessons = searchQuery
+    ? allLessons.filter(l =>
+        l.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        String(l.lessonNumber).includes(searchQuery)
+      )
+    : allLessons;
 
   function getKanjiList(level: string) {
     switch (level) {
@@ -59,6 +68,9 @@
   </a>
 
   {#if selectedLevel === 'n5n4'}
+    <div class="mb-3">
+      <SearchInput bind:value={searchQuery} placeholder="Tìm bài kanji... (số hoặc tên)" />
+    </div>
     <div class="flex flex-col gap-3.5">
       {#each lessons as lesson}
         <a

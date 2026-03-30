@@ -16,13 +16,23 @@
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import { ChevronRight } from 'lucide-svelte';
+  import SearchInput from '$lib/components/common/SearchInput.svelte';
   import type { CourseId } from '$lib/types/course';
+
+  let searchQuery = '';
 
   $: courseId = $page.params.courseId as CourseId;
   $: course = getCourse(courseId);
-  $: lessons = course?.getLessonMetadata() ?? [];
+  $: allLessons = course?.getLessonMetadata() ?? [];
   $: courseProgress = getCourseProgress($progressStore, courseId);
   $: nextLesson = getNextLesson($progressStore, courseId);
+
+  $: lessons = searchQuery
+    ? allLessons.filter(l =>
+        l.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        String(l.lessonNumber).includes(searchQuery)
+      )
+    : allLessons;
 </script>
 
 <svelte:head>
@@ -59,7 +69,14 @@
         Continue — Bài {nextLesson} →
       </UiButton>
 
-      <h2 class="text-base font-bold mb-3">Lessons ({lessons.length})</h2>
+      <div class="flex items-center gap-3 mb-3">
+        <h2 class="text-base font-bold">Lessons ({allLessons.length})</h2>
+      </div>
+      {#if allLessons.length > 10}
+        <div class="mb-3">
+          <SearchInput bind:value={searchQuery} placeholder="Tìm bài học... (số hoặc tên)" />
+        </div>
+      {/if}
 
       <!-- Lesson rows — compact, readable on all screen sizes -->
       <div class="flex flex-col gap-3.5">
