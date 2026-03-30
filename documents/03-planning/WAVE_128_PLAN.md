@@ -107,9 +107,9 @@
 
 ---
 
-## PR 6: Navigation & Onboarding (+3 Friendliness, +2 Heuristics)
+## PR 6: Navigation & Onboarding (+3 Friendliness, +2 Heuristics) ✅ PR #103
 **Target: Friendliness Nav/Learning 3→4, H3 3→4, H5 3→4**
-**Effort: Medium**
+**Effort: Medium** — MERGED
 
 ### Tasks
 - [ ] Add breadcrumb trail on course-detail and lesson-menu ("Courses > N5 > Bài 1")
