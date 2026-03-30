@@ -69,9 +69,9 @@
 
 ---
 
-## PR 4: Delight & Motivation Features (+3 Friendliness)
+## PR 4: Delight & Motivation Features (+3 Friendliness) ✅ PR #102
 **Target: Friendliness Delight 2→4, First Impression 3→4**
-**Effort: Medium-Large**
+**Effort: Medium-Large** — MERGED
 
 ### Tasks
 - [ ] Quiz completion celebration: confetti animation + encouraging message ("Tuyệt vời! 🎉")
