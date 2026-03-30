@@ -14,6 +14,8 @@
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import { RefreshCw, PenLine, Layers, CheckCircle, Keyboard, BookOpen, Book, ChevronRight } from 'lucide-svelte';
+  import { progressStore } from '$lib/stores';
+  import { getLessonMastery } from '$lib/utils/progressUtils';
   import type { CourseId } from '$lib/types/course';
   import type { QuizDirection } from '$lib/types';
 
@@ -21,6 +23,7 @@
   $: lessonId = parseInt($page.params.id || '0');
   $: course = getCourse(courseId);
   $: lesson = course?.getLessonData(lessonId);
+  $: mastery = getLessonMastery($progressStore, courseId, lessonId);
 
   let selectedDirection: QuizDirection = 'ja-vi';
 
@@ -56,6 +59,13 @@
           <span>{lesson.vocabulary.length} từ vựng</span>
           <span>•</span>
           <span>{lesson.grammar.length} ngữ pháp</span>
+        </div>
+        <!-- Progress bar -->
+        <div class="mt-3 max-w-xs mx-auto">
+          <div class="h-1.5 bg-white/25 rounded-full overflow-hidden">
+            <div class="h-full bg-white rounded-full transition-all duration-500" style="width: {mastery}%"></div>
+          </div>
+          <p class="text-xs text-white/80 mt-1">{mastery}% hoàn thành</p>
         </div>
       </div>
     </div>
