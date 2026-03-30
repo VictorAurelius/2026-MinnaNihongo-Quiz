@@ -24,10 +24,18 @@ Before scoring, identify:
 - Design maturity (prototype/production)
 - Key components visible in screenshots
 
-### 2. Capture screenshots
+### 2. Get screenshots (preferred: capture, fallback: user-provided)
+
+**Option A — Automated capture** (preferred):
 ```bash
 cd svelte-app && npx vite build && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts
 ```
+
+**Option B — Fallback** (if server not running or script fails):
+Ask user to paste screenshots directly. Note in report: "Scored from user-provided screenshots."
+
+**Option C — Use existing screenshots** (if recently captured):
+Check timestamps in `documents/04-quality/screenshots/`. If < 1 hour old, reuse.
 
 ### 3. Read all dark-mobile screenshots
 Read files in `documents/04-quality/screenshots/{page}-dark-mobile.png`
@@ -49,6 +57,7 @@ Identify the 3 most impactful problems. For each, provide:
 
 ### 6. Output report
 Save to `documents/04-quality/ui-review-latest.md`. Include score progression table.
+Read the previous report first to compare scores: if file exists, extract the last row of the progression table.
 
 ## Gotchas
 

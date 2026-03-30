@@ -63,14 +63,16 @@ Score 0-4 each. **0**=Ugly/broken, **1**=Amateur, **2**=Passable, **3**=Good/pro
 
 ### Layout Checklist (per screen)
 
-| Check | Threshold |
-|-------|-----------|
-| Row height | ≥ 48px (comfortable tap target) |
-| Internal padding | ≥ 16px (text not touching edges) |
-| Sibling gap | ≥ 12px (not stuck together) |
-| Section gap | ≥ 24px (clear separation) |
-| Icon proportion | Proportional to adjacent text |
-| Consistent sizing | Same element type = same height across pages |
+| Check | Threshold | Tailwind Class |
+|-------|-----------|----------------|
+| Row height | ≥ 48px (tap target) | `min-h-12` or `py-5` |
+| Internal padding | ≥ 16px | `p-4` or `px-5 py-5` |
+| Sibling gap | ≥ 12px | `gap-3` or `gap-3.5` |
+| Section gap | ≥ 24px | `gap-6` or `gap-8` |
+| Heading to content | ≥ 24px | `mb-6` |
+| Touch target | ≥ 44px | `min-h-11 min-w-11` |
+| Icon proportion | Proportional to text | `size={16-20}` |
+| Consistent sizing | Same type = same height | Verify across pages |
 
 ---
 
