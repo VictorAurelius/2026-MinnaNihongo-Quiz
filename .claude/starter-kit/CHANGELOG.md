@@ -7,6 +7,23 @@ Quản lý theo Semantic Versioning: `MAJOR.MINOR.PATCH`
 
 ---
 
+## [1.4.0] — 2026-03-30
+
+### Added
+- `rules/skill-conventions.md` — How to write skills following Anthropic internal best practices
+  - 9 principles: folder-based, progressive disclosure, trigger descriptions, gotchas > generic, etc.
+  - Anthropic's 9 skill categories reference
+  - Quick checklist for new skills
+- `templates/skill-folder/` — Template for folder-based skills
+  - `SKILL.md` template with trigger description, gotchas, skill contents
+  - `reference/detail.md` template for on-demand loading
+
+### Changed
+- `skills/core/tdd-enforcement.md` — Slimmed from 120 lines generic methodology to gotchas template with `{project}` placeholders
+- `skills/core/brainstorming-methodology.md` — Replaced with decision log template + when-mandatory rules
+- `skills/core/systematic-debugging.md` — Replaced with common bugs template + debug workflow
+- All core skills now follow "don't teach Claude what it knows" principle
+
 ## [1.3.1] — 2026-03-26
 
 ### Changed
