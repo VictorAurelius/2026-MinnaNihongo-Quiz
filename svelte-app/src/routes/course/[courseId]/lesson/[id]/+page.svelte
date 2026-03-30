@@ -52,7 +52,7 @@
       <div class="text-center">
         <Badge class="bg-white/20 text-white border-0 mb-2">Bài {lesson.lessonNumber}</Badge>
         <h1 class="text-xl font-bold mb-2">{lesson.title}</h1>
-        <div class="flex items-center justify-center gap-2 text-sm opacity-90">
+        <div class="flex items-center justify-center gap-2 text-sm opacity-95">
           <span>{lesson.vocabulary.length} từ vựng</span>
           <span>•</span>
           <span>{lesson.grammar.length} ngữ pháp</span>
@@ -63,7 +63,7 @@
     <div class="px-4 py-6 flex flex-col gap-8">
       <!-- Direction Selector -->
       <section>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-6 flex items-center gap-1.5">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/60 mb-6 flex items-center gap-1.5">
           <RefreshCw size={12} aria-hidden="true" /> Direction
         </h3>
         <div class="grid grid-cols-3 gap-3" role="radiogroup" aria-label="Quiz direction">
@@ -74,7 +74,7 @@
               class="flex flex-col items-center gap-1 py-3.5 px-4 rounded-xl transition-all cursor-pointer active:scale-[0.97]
                 {selectedDirection === dir.value
                   ? 'bg-primary text-primary-foreground shadow-md ring-2 ring-primary/30'
-                  : 'bg-card text-muted-foreground shadow-sm border border-border hover:border-primary hover:text-foreground'}"
+                  : 'bg-card text-foreground/70 shadow-sm border border-border hover:border-primary hover:text-foreground'}"
               on:click={() => selectedDirection = dir.value}
             >
               <span class="text-sm font-semibold">{dir.label}</span>
@@ -86,7 +86,7 @@
 
       <!-- Quiz Modes -->
       <section>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-6 flex items-center gap-1.5">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/60 mb-6 flex items-center gap-1.5">
           <PenLine size={12} aria-hidden="true" /> Quiz Modes
         </h3>
         <div class="flex flex-col gap-3.5">
@@ -129,7 +129,7 @@
       <!-- Grammar Quiz -->
       {#if lesson.grammar.length > 0}
         <section>
-          <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-6 flex items-center gap-1.5">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/60 mb-6 flex items-center gap-1.5">
             <PenLine size={12} aria-hidden="true" /> Grammar
           </h3>
           <button
@@ -145,7 +145,7 @@
 
       <!-- Study Materials -->
       <section>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-6 flex items-center gap-1.5">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/60 mb-6 flex items-center gap-1.5">
           <BookOpen size={12} aria-hidden="true" /> Study Materials
         </h3>
         <div class="flex flex-col gap-3.5">

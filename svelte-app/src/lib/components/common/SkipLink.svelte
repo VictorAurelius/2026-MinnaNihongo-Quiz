@@ -1,21 +1,6 @@
-<a href="#main-content" class="skip-link sr-only">
+<a
+  href="#main-content"
+  class="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[9999] focus:px-6 focus:py-3 focus:bg-primary focus:text-primary-foreground focus:font-semibold focus:no-underline focus:rounded-br-lg"
+>
   Skip to main content
 </a>
-
-<style>
-  .skip-link:focus {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    padding: 0.75rem 1.5rem;
-    background: var(--primary);
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
-    clip: auto;
-    width: auto;
-    height: auto;
-    overflow: visible;
-  }
-</style>

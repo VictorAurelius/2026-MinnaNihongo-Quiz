@@ -24,9 +24,9 @@ describe('SkipLink', () => {
     expect(link).toHaveClass('sr-only');
   });
 
-  it('should have skip-link class for focus styling', () => {
+  it('should have focus classes for visibility on focus', () => {
     render(SkipLink);
     const link = screen.getByText('Skip to main content');
-    expect(link).toHaveClass('skip-link');
+    expect(link.className).toContain('focus:not-sr-only');
   });
 });
