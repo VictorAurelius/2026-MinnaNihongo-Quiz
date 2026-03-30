@@ -100,11 +100,11 @@
   <section class="mb-6 px-4">
     <h2 class="text-lg font-bold mb-3">Start Learning</h2>
 
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-3.5">
       {#each sections as section}
         <a
           href={section.href}
-          class="flex items-center gap-4 w-full px-5 py-4 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group"
+          class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border rounded-xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] cursor-pointer group"
         >
           <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary text-xl font-bold {section.iconClass}">
             {section.icon}
