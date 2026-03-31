@@ -52,8 +52,8 @@
       </div>
       <div class="text-center">
         <h1 class="text-xl font-bold mb-1">{course.metadata.title}</h1>
-        <p class="text-xs opacity-95">{course.metadata.description}</p>
-        <p class="text-xs opacity-85 mt-1">
+        <p class="text-xs font-medium text-white drop-shadow-sm">{course.metadata.description}</p>
+        <p class="text-xs font-medium text-white/90 drop-shadow-sm mt-1">
           {courseProgress.completed}/{courseProgress.total} lessons mastered ({courseProgress.percentage}%)
         </p>
       </div>
