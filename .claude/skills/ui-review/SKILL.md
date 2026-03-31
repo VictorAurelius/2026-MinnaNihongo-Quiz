@@ -82,15 +82,33 @@ Save to `documents/04-quality/ui-review-latest.md`. Include:
 - Lowest screen highlighted
 - Score progression
 
-## Strict Scoring Rules
+## Strict Scoring Rubric
 
-- **Score what you SEE, not what code says**
-- **4/4 = genuinely excellent. Most things are 2-3. When in doubt, score LOWER**
-- WCAG contrast: estimate ratio from screenshot colors, not CSS class
-- Touch targets: measure VISIBLE interactive area, not CSS padding
-- ARIA: if unverifiable from screenshot, cap at 2/4
-- **Per-screen scoring exposes weak screens** — no hiding behind averages
-- Previous self-assessment was 35pts too generous vs external audit
+### Score meaning (MUST follow this — no inflating)
+- **0/4** = Missing entirely
+- **1/4** = Present but broken or severely flawed
+- **2/4** = Present and functional, BUT has obvious visible issues (this is where most features land)
+- **3/4** = Works well, no visible issues, consistent across all screens
+- **4/4** = Genuinely excellent — would impress a professional UI designer
+
+### "Has feature" = 2/4, NOT 3/4
+Before giving 3/4, ask: **"Would an external auditor looking ONLY at this screenshot agree this is good?"** If uncertain → 2/4.
+
+Examples of 2/4 (NOT 3):
+- Progress bar shows "0%" with no motivating context → 2
+- Breadcrumbs on 2/7 pages (inconsistent) → 2
+- Search on 2/7 list pages → 2
+- Icon container sizes vary (w-9/w-10/w-11) → 2 consistency
+- Welcome banner exists but page still requires heavy scroll → 2
+- Quiz descriptions exist but Grammar/Materials rows lack them → 2
+
+### Verification rules
+- **Score what you SEE in screenshot, not what code says**
+- WCAG contrast: estimate from screenshot colors. opacity-95 on gradient ≠ guaranteed pass
+- Touch targets: measure VISIBLE area. 18px icon inside 44px button LOOKS small
+- ARIA: unverifiable from screenshot → cap at 2/4
+- Per-screen scoring: no hiding weak screens behind averages
+- Self-assessment has been 12-35pts too generous historically. Default to lower.
 
 ## Gotchas
 

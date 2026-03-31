@@ -49,7 +49,7 @@ Nielsen's 10 heuristics, score 0-4 each:
 
 ## 3. Visual Aesthetics (/28)
 
-Score 0-4 each. **0**=Ugly/broken, **1**=Amateur, **2**=Passable, **3**=Good/professional, **4**=Beautiful/distinctive
+Score 0-4 each. **0**=Missing, **1**=Broken/flawed, **2**=Present but has obvious issues (most features), **3**=Works well + consistent across all screens, **4**=Genuinely excellent
 
 | # | Dimension | What to judge |
 |---|-----------|---------------|
