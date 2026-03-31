@@ -85,17 +85,17 @@
     </p>
 
     <!-- Stats Row -->
-    <div class="flex justify-center items-center gap-4 flex-wrap">
+    <dl class="flex justify-center items-center gap-4 flex-wrap" aria-label="Thống kê nội dung">
       {#each stats as stat, i}
         {#if i > 0}
-          <div class="w-px h-7 bg-border"></div>
+          <div class="w-px h-7 bg-border" aria-hidden="true"></div>
         {/if}
         <div class="flex flex-col items-center">
-          <span class="text-xl font-extrabold text-primary">{stat.value}</span>
-          <span class="text-[0.7rem] font-semibold text-muted-foreground uppercase tracking-wide">{stat.label}</span>
+          <dd class="text-xl font-extrabold text-primary tabular-nums" aria-label="{stat.value} {stat.label}">{stat.value}</dd>
+          <dt class="text-[0.7rem] font-semibold text-muted-foreground uppercase tracking-wide">{stat.label}</dt>
         </div>
       {/each}
-    </div>
+    </dl>
   </section>
 
   <!-- Continue Learning -->
