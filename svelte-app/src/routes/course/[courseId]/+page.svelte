@@ -102,7 +102,7 @@
       <!-- Lesson groups -->
       {#each lessonGroups as group}
         <div>
-          <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3">{group.label}</h3>
+          <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3">{group.label}</h2>
           <div class="flex flex-col gap-3">
             {#each group.items as lesson, i}
               {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
