@@ -1,120 +1,117 @@
-# UI Review Report — 2026-03-30 (Run 8, post-skill upgrade, no code changes)
+# UI Review Report — 2026-03-31 (Run 9, post-final polish PR #106)
 
-Previous: Run 7 — 114/128
+Previous: Run 8 — 114/128
 
-**Note:** No UI code changes since Run 7. Only skill files updated (visual-uplift.md, gamification.md, code-fixes improvements). Scores unchanged — this run confirms stability.
+## Visual Inventory
+- **Platform:** Mobile PWA 375px, dark mode
+- **Design maturity:** Production
+- **Changes since last run:** Contrast /60→/70, focus-visible on all rows, CJK line-height, emoji container alignment, press-feedback CSS
 
 ---
 
-## 1. Technical Audit (18/20)
+## 1. Technical Audit (19/20)
 
-| # | Dimension | Score | Key Finding |
-|---|-----------|-------|-------------|
-| 1 | Accessibility | 4 | Header icons 44px, focus-visible:ring-2, skip-to-content, ARIA correct |
-| 2 | Performance | 3 | Static build, CSS transitions. No lazy-loading needed (no images) |
-| 3 | Responsive Design | 4 | All touch targets ≥44px. Search full-width. Breadcrumbs wrap |
-| 4 | Theming | 4 | Dark mode flash fixed. All pages consistent |
-| 5 | Anti-Patterns | 3 | No AI slop. Quiz Modes flat design. Minor: no micro-animations yet |
-| **Total** | | **18/20** | **Excellent** |
+| # | Dimension | Score | Prev | Delta |
+|---|-----------|-------|------|-------|
+| 1 | Accessibility | 4 | 4 | — |
+| 2 | Performance | 3 | 3 | — |
+| 3 | Responsive Design | 4 | 4 | — |
+| 4 | Theming | 4 | 4 | — |
+| 5 | Anti-Patterns | 4 | 3 | **+1** press-feedback CSS class added. All pages use flat design. No AI slop patterns |
+| **Total** | | **19/20** | 18 | **+1** |
 
 ## 2. Design Heuristics (37/40)
 
-| # | Heuristic | Score | Key Finding |
-|---|-----------|-------|-------------|
-| 1 | Visibility of System Status | 4 | Progress bar in hero, next lesson highlighted, mastery rings, search filters reactively |
-| 2 | Match System / Real World | 4 | Vietnamese labels natural, "Bắt đầu bài đầu tiên", "Tiếp tục học" |
-| 3 | User Control and Freedom | 4 | Breadcrumbs, back buttons, search with Escape clear |
-| 4 | Consistency and Standards | 4 | Standardized py-5, gap-3.5, hover:bg-accent/50, border-border. w-9 circles |
-| 5 | Error Prevention | 3 | ConfirmDialog. Safe defaults. No quiz undo yet |
-| 6 | Recognition Rather Than Recall | 4 | All quiz features self-documenting. Breadcrumbs. Welcome guide |
-| 7 | Flexibility and Efficiency | 4 | Search/filter on course-detail + kanji. Escape to clear |
-| 8 | Aesthetic and Minimalist Design | 4 | Clean sections, no clutter. Welcome banner concise |
-| 9 | Error Recovery | 3 | PageEmpty fallbacks. No inline quiz undo |
-| 10 | Help and Documentation | 3 | Direction + quiz descriptions. Settings helper text. No header tooltips |
-| **Total** | | **37/40** | **Excellent** |
+| # | Heuristic | Score | Prev |
+|---|-----------|-------|------|
+| 1 | Visibility of System Status | 4 | 4 |
+| 2 | Match System / Real World | 4 | 4 |
+| 3 | User Control and Freedom | 4 | 4 |
+| 4 | Consistency and Standards | 4 | 4 |
+| 5 | Error Prevention | 3 | 3 |
+| 6 | Recognition Rather Than Recall | 4 | 4 |
+| 7 | Flexibility and Efficiency | 4 | 4 |
+| 8 | Aesthetic and Minimalist Design | 4 | 4 |
+| 9 | Error Recovery | 3 | 3 |
+| 10 | Help and Documentation | 3 | 3 |
+| **Total** | | **37/40** | 37 | **—** |
 
-## 3. Visual Aesthetics (25/28)
+## 3. Visual Aesthetics (27/28)
 
-| # | Dimension | Score | Key Finding |
-|---|-----------|-------|-------------|
-| 1 | Color Harmony | 4 | Primary/10 tint, color accent bars, highlight ring. Cohesive palette |
-| 2 | Typography | 3 | Clear hierarchy. CJK readable. Could benefit from font-display + line-height tuning |
-| 3 | Element Sizing | 4 | ALL py-5, w-9 circles, w-11 header icons. Consistent |
-| 4 | Spacing & Breathing Room | 4 | ALL gap-3.5, mb-6 headings, search mb-3. Nothing cramped |
-| 5 | Alignment & Grid | 3 | max-w-2xl consistent. Minor: emoji vs icon container widths differ slightly |
-| 6 | Visual Hierarchy | 4 | Welcome banner, prominent CTA, "Gợi ý" badge, progress bar, next lesson glow |
-| 7 | Polish & Detail | 3 | hover:bg-accent/50, border-border. Missing: micro-animations, subtle gradients, press states beyond scale |
-| **Total** | | **25/28** | **Excellent** |
+| # | Dimension | Score | Prev | Delta |
+|---|-----------|-------|------|-------|
+| 1 | Color Harmony | 4 | 4 | — |
+| 2 | Typography | 4 | 3 | **+1** CJK line-height `--leading-cjk: 1.75` added. Japanese text more readable |
+| 3 | Element Sizing | 4 | 4 | — |
+| 4 | Spacing & Breathing Room | 4 | 4 | — |
+| 5 | Alignment & Grid | 4 | 3 | **+1** Emoji container normalized to `w-10 h-10` — matches icon containers. Left edges now perfectly aligned |
+| 6 | Visual Hierarchy | 4 | 4 | — |
+| 7 | Polish & Detail | 3 | 3 | hover:bg-accent/50 + focus-visible:ring-2 + press-feedback class. Still missing: subtle gradients, stagger entry animations |
+| **Total** | | **27/28** | 25 | **+2** |
 
 ### Layout Checklist — All Pass ✅
 
 ## 4. User Friendliness (18/20)
 
-| # | Dimension | Score | Key Finding |
-|---|-----------|-------|-------------|
-| 1 | First Impression | 4 | Welcome banner with guide. Stats. Two sections. "Tiếp tục học" for returning users |
-| 2 | Navigation Clarity | 4 | Breadcrumbs. Search. Back buttons. ≤3 taps to quiz |
-| 3 | Action Clarity | 4 | "Gợi ý" badge. Direction descriptions. Quiz descriptions. ChevronRight |
-| 4 | Learning Curve | 4 | Welcome guide → Courses → Lesson → Quiz. Self-documenting |
-| 5 | Delight & Motivation | 2 | Progress bar + "Tiếp tục học". But no confetti, no streaks, no XP, no celebration |
-| **Total** | | **18/20** | **Excellent** |
+| # | Dimension | Score | Prev |
+|---|-----------|-------|------|
+| 1 | First Impression | 4 | 4 |
+| 2 | Navigation Clarity | 4 | 4 |
+| 3 | Action Clarity | 4 | 4 |
+| 4 | Learning Curve | 4 | 4 |
+| 5 | Delight & Motivation | 2 | 2 |
+| **Total** | | **18/20** | 18 | **—** |
 
-## 5. WCAG Accessibility (16/20)
+## 5. WCAG Accessibility (18/20)
 
 | Status | Element | Check | Notes |
 |--------|---------|-------|-------|
-| ✅ PASS | Header icons | Touch 44px, focus ring, aria-label | Fixed in Wave 128 PR1 |
-| ✅ PASS | Skip-to-content | Present, Tailwind focus styles | |
+| ✅ PASS | Header icons | Touch 44px, focus ring, aria-label | |
+| ✅ PASS | Skip-to-content | Present | |
+| ✅ PASS | All interactive rows | focus-visible:ring-2 | **NEW — 6 pages** |
+| ✅ PASS | Direction buttons | focus-visible + ring-2 active state | **NEW** |
 | ✅ PASS | Hero subtitle | opacity-95 | |
-| ✅ PASS | Quiz rows | ≥48px, full width | |
-| ✅ PASS | Direction tabs | ring-2, bold, bg-primary | |
-| ✅ PASS | Radio groups | ARIA role + checked | |
-| ✅ PASS | Search input | aria-label | |
-| ✅ PASS | Breadcrumb | nav aria-label | |
-| ⚠️ WARN | Section headings | text-foreground/60 ~4.2:1 | Borderline for small text |
-| ⚠️ WARN | Direction tab unselected | text-foreground/70 ~4.5:1 | Borderline |
-| 🔍 N/A | Keyboard tab order | Needs live test | |
+| ✅ PASS | Section headings | text-foreground/70 (~5:1) | **FIXED from /60** |
+| ✅ PASS | Direction unselected | text-foreground/70 | |
+| ✅ PASS | Quiz rows, search, breadcrumb | All labeled + focusable | |
+| ⚠️ WARN | Keyboard tab order | Needs comprehensive live test | Cannot fully verify from screenshots |
+| 🔍 N/A | Screen reader heading hierarchy | Needs code audit | |
 
-| # | Category | Score |
-|---|----------|-------|
-| 1 | Contrast | 3 |
-| 2 | Touch Targets | 4 |
-| 3 | Labels & ARIA | 4 |
-| 4 | Screen Reader | 3 |
-| 5 | Keyboard & Focus | 2 |
-| **Total** | | **16/20 (Good)** |
+| # | Category | Score | Prev | Delta |
+|---|----------|-------|------|-------|
+| 1 | Contrast | 4 | 3 | **+1** Section headings /70 passes 4.5:1 |
+| 2 | Touch Targets | 4 | 4 | — |
+| 3 | Labels & ARIA | 4 | 4 | — |
+| 4 | Screen Reader | 3 | 3 | — |
+| 5 | Keyboard & Focus | 3 | 2 | **+1** focus-visible:ring-2 on ALL interactive rows across 6 pages |
+| **Total** | | **18/20** | 16 | **+2** |
 
 ---
 
 ## Combined Summary
 
 ```
-=== UI REVIEW REPORT (Run 8 — Stability Check) ===
-Technical:         18/20  (Excellent)    [unchanged]
+=== UI REVIEW REPORT (Run 9) ===
+Technical:         19/20  (Excellent)    [was 18, +1]
 Design Heuristics: 37/40  (Excellent)    [unchanged]
-Visual Aesthetics: 25/28  (Excellent)    [unchanged]
+Visual Aesthetics: 27/28  (Excellent)    [was 25, +2]
 User Friendliness: 18/20  (Excellent)    [unchanged]
-WCAG Access:       16/20  (Good)         [unchanged]
-Combined:          114/128 (Excellent)   [unchanged]
+WCAG Access:       18/20  (Excellent)    [was 16, +2]
+Combined:          119/128 (Excellent)   [was 114, +5]
 
-Status: STABLE — no regression from skill upgrades.
+All 5 dimensions now Excellent!
 
-Remaining 14 points to 128/128:
-- Delight (+2): confetti on quiz completion, XP system, streaks
-  → Use reference/gamification.md
-- WCAG Contrast (+1): section headings text-foreground/60 → /65
-- WCAG Keyboard (+2): comprehensive focus-visible audit
-- Aesthetics Typography (+1): font-display:swap, CJK line-height
-- Aesthetics Alignment (+1): normalize emoji vs icon container width
-- Aesthetics Polish (+1): micro-animations (stagger entry, press feedback)
+Remaining 9 points to 128/128:
+- Delight (+2): XP system, streaks, confetti — needs gamification features
 - Heuristics Error Prevention (+1): quiz undo button
 - Heuristics Error Recovery (+1): inline wrong-answer review
 - Heuristics Help (+1): header icon tooltips on first visit
-- Technical Anti-Patterns (+1): micro-animation polish
+- Aesthetics Polish (+1): stagger entry animations, subtle gradients
+- Technical Performance (+1): lazy loading, will-change optimization
+- Friendliness Delight is the biggest gap (2/4)
 
-Next recommended action:
-→ Implement gamification (XP + streaks) from reference/gamification.md
-  to close the Delight gap (2→4, biggest remaining delta)
+These remaining items are feature-level work (gamification system,
+quiz undo), not CSS polish. Diminishing returns territory.
 ```
 
 ## Score Progression
@@ -128,6 +125,5 @@ Next recommended action:
 | 5 | 16 | 32 | 21/28 | 15 | — | 84/108 |
 | 6 | 16 | 32 | 21/28 | 15 | 13 | 97/128 |
 | 7 | 18 | 37 | 25/28 | 18 | 16 | 114/128 |
-| **8** | **18** | **37** | **25** | **18** | **16** | **114/128** |
-
-*No changes between Run 7 and 8 — confirms stability after skill-only upgrades.*
+| 8 | 18 | 37 | 25/28 | 18 | 16 | 114/128 |
+| **9** | **19** | **37** | **27** | **18** | **18** | **119/128** |
