@@ -75,7 +75,7 @@
       {#each lessons as lesson}
         <a
           href="{base}/kanji/{lesson.lessonNumber}"
-          class="flex items-center gap-4 w-full px-5 py-5 bg-card rounded-xl shadow-sm text-left no-underline transition-all duration-150 hover:shadow-md hover:-translate-y-0.5 hover:bg-accent/50 active:scale-[0.98] cursor-pointer group"
+          class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5 hover:bg-accent/30 active:scale-[0.98] cursor-pointer group"
         >
           <span class="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-primary/15 text-primary text-xs font-bold">
             {lesson.lessonNumber}

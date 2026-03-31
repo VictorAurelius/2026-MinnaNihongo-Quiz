@@ -44,18 +44,22 @@
   <div class="animate-in">
     <!-- Course Header -->
     <div
-      class="text-white pt-3 pb-5 px-4"
+      class="relative text-white pt-3 pb-6 px-4 overflow-hidden"
       style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
     >
-      <div class="mb-3">
-        <BackButton href="/courses" variant="overlay" />
-      </div>
-      <div class="text-center">
-        <h1 class="text-xl font-bold mb-1">{course.metadata.title}</h1>
-        <p class="text-xs font-medium text-white drop-shadow-sm">{course.metadata.description}</p>
-        <p class="text-xs font-medium text-white/90 drop-shadow-sm mt-1">
-          {courseProgress.completed}/{courseProgress.total} lessons mastered ({courseProgress.percentage}%)
-        </p>
+      <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-xl pointer-events-none"></div>
+      <div class="relative z-10">
+        <div class="mb-3">
+          <BackButton href="/courses" variant="overlay" />
+        </div>
+        <div class="text-center">
+          <h1 class="text-xl font-bold mb-1 drop-shadow-sm">{course.metadata.title}</h1>
+          <p class="text-sm font-medium text-white drop-shadow-sm">{course.metadata.description}</p>
+          <p class="text-sm font-medium text-white/90 drop-shadow-sm mt-1">
+            {courseProgress.completed}/{courseProgress.total} lessons mastered ({courseProgress.percentage}%)
+          </p>
+        </div>
       </div>
     </div>
 
@@ -93,7 +97,7 @@
           {@const mastery = getLessonMastery($progressStore, courseId, lesson.lessonNumber)}
           <a
             href={buildLessonUrl(courseId, lesson.lessonNumber)}
-            class="flex items-center gap-4 w-full px-5 py-5 bg-card border rounded-xl shadow-sm text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-md hover:bg-accent/50 active:scale-[0.98] cursor-pointer group
+            class="flex items-center gap-4 w-full px-5 py-5 bg-card border rounded-2xl shadow-sm text-left no-underline transition-all duration-150 hover:border-primary hover:shadow-md hover:bg-accent/50 active:scale-[0.98] cursor-pointer group
               {lesson.lessonNumber === nextLesson ? 'border-primary/50 ring-1 ring-primary/20' : 'border-border'}"
           >
             <!-- Lesson number -->
