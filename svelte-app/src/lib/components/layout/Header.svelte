@@ -80,7 +80,7 @@
         aria-label="Go to home"
         title="Home"
       >
-        <Home size={18} aria-hidden="true" />
+        <Home size={20} aria-hidden="true" />
       </button>
     {/if}
 
@@ -90,7 +90,7 @@
       aria-label="Settings"
       title="Settings"
     >
-      <Settings size={18} aria-hidden="true" />
+      <Settings size={20} aria-hidden="true" />
     </a>
 
     <button
@@ -100,9 +100,9 @@
       title="Toggle dark mode"
     >
       {#if $uiStore.darkMode}
-        <Sun size={18} aria-hidden="true" />
+        <Sun size={20} aria-hidden="true" />
       {:else}
-        <Moon size={18} aria-hidden="true" />
+        <Moon size={20} aria-hidden="true" />
       {/if}
     </button>
   </div>
@@ -123,7 +123,7 @@
     ] as link, i}
       <a
         href={link.href}
-        class="inline-flex items-center gap-1 min-h-9 px-2.5 py-1.5 text-[0.7rem] font-semibold text-muted-foreground no-underline border border-border rounded-full hover:text-primary hover:border-primary hover:bg-muted transition-colors whitespace-nowrap flex-shrink-0"
+        class="inline-flex items-center gap-1.5 min-h-11 px-3 py-2 text-xs font-semibold text-muted-foreground no-underline border border-border/50 rounded-full hover:text-primary hover:border-primary hover:bg-muted transition-colors whitespace-nowrap flex-shrink-0"
       >
         {#if link.text}
           <span class="text-xs" style={link.jp ? 'font-family: var(--font-jp)' : ''}>{link.text}</span>

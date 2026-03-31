@@ -19,6 +19,7 @@
   import { showToast } from '$lib/stores/toast';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import { Settings2, Type, BarChart3, Database, Download, Upload, Trash2 } from 'lucide-svelte';
+  import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
 
   const fonts = getAvailableFonts();
   let selectedFont = 'system';
@@ -104,12 +105,17 @@
 </svelte:head>
 
 <div class="mx-auto max-w-xl p-4 animate-in flex flex-col gap-8">
+  <Breadcrumb items={[
+    { label: 'Home', href: '/' },
+    { label: 'Settings' }
+  ]} />
+
   <!-- Quiz Settings -->
   <section>
     <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
       <Settings2 size={12} aria-hidden="true" /> Quiz Settings
     </h3>
-    <div class="bg-card rounded-xl shadow-sm overflow-hidden border border-border">
+    <div class="bg-card rounded-2xl shadow-sm overflow-hidden border border-border/50">
       <div class="flex items-center justify-between px-5 py-5">
         <div>
           <label for="direction" class="text-sm font-medium block">Default Direction</label>
@@ -176,20 +182,26 @@
     <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
       <BarChart3 size={12} aria-hidden="true" /> Progress Summary
     </h3>
-    <div class="grid grid-cols-3 gap-3">
-      <div class="flex flex-col items-center gap-1 p-5 bg-card rounded-xl shadow-sm">
-        <span class="text-2xl font-bold text-primary">{lessonCount}</span>
-        <span class="text-[0.7rem] text-muted-foreground text-center">Lessons studied</span>
+    {#if lessonCount === 0 && totalItems === 0 && hskCount === 0}
+      <div class="p-5 bg-card border border-border/50 rounded-2xl text-center">
+        <p class="text-sm text-muted-foreground">Bắt đầu học để xem tiến trình tại đây!</p>
       </div>
-      <div class="flex flex-col items-center gap-1 p-5 bg-card rounded-xl shadow-sm">
-        <span class="text-2xl font-bold text-primary">{totalItems}</span>
-        <span class="text-[0.7rem] text-muted-foreground text-center">Words practiced</span>
+    {:else}
+      <div class="grid grid-cols-3 gap-3">
+        <div class="flex flex-col items-center gap-1 p-5 bg-card border border-border/50 rounded-2xl shadow-sm">
+          <span class="text-2xl font-bold text-primary">{lessonCount}</span>
+          <span class="text-[0.7rem] text-muted-foreground text-center">Lessons studied</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 p-5 bg-card border border-border/50 rounded-2xl shadow-sm">
+          <span class="text-2xl font-bold text-primary">{totalItems}</span>
+          <span class="text-[0.7rem] text-muted-foreground text-center">Words practiced</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 p-5 bg-card border border-border/50 rounded-2xl shadow-sm">
+          <span class="text-2xl font-bold text-primary">{hskCount}</span>
+          <span class="text-[0.7rem] text-muted-foreground text-center">HSK groups</span>
+        </div>
       </div>
-      <div class="flex flex-col items-center gap-1 p-5 bg-card rounded-xl shadow-sm">
-        <span class="text-2xl font-bold text-primary">{hskCount}</span>
-        <span class="text-[0.7rem] text-muted-foreground text-center">HSK groups</span>
-      </div>
-    </div>
+    {/if}
   </section>
 
   <!-- Data Management -->
