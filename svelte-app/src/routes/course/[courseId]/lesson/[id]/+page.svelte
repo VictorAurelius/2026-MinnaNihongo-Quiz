@@ -58,19 +58,19 @@
         <div class="mb-3">
           <BackButton href={`/course/${courseId}`} variant="overlay" />
         </div>
-        <div class="text-center">
+        <div>
           <Badge class="bg-white/20 text-white border-0 mb-2 backdrop-blur-sm">Bài {lesson.lessonNumber}</Badge>
-          <h1 class="text-xl font-bold mb-2 drop-shadow-sm">{lesson.title}</h1>
-          <p class="text-sm font-medium text-white drop-shadow-sm">
+          <h1 class="text-[22px] font-extrabold leading-tight tracking-tight drop-shadow-sm" style="font-family: var(--font-jp)">{lesson.title}</h1>
+          <p class="text-sm font-medium text-white/80 mt-1 drop-shadow-sm">
             {lesson.vocabulary.length} từ vựng • {lesson.grammar.length} ngữ pháp
           </p>
           <!-- Progress bar -->
-          <div class="mt-4 max-w-xs mx-auto" role="progressbar" aria-valuenow={mastery} aria-valuemin={0} aria-valuemax={100} aria-label="Tiến trình bài học">
-            <div class="flex justify-between text-xs text-white/80 mb-1.5">
-              <span>Tiến độ</span>
+          <div class="mt-4" role="progressbar" aria-valuenow={mastery} aria-valuemin={0} aria-valuemax={100} aria-label="Tiến trình bài học">
+            <div class="flex justify-between text-[10px] text-white/70 mb-1.5">
+              <span>Tiến độ học</span>
               <span>{mastery}%</span>
             </div>
-            <div class="h-2 bg-white/20 rounded-full overflow-hidden">
+            <div class="h-1.5 bg-white/20 rounded-full overflow-hidden">
               <div class="h-full bg-white rounded-full transition-all duration-700" style="width: {mastery}%"></div>
             </div>
           </div>
@@ -114,7 +114,8 @@
         </h3>
         <div class="flex flex-col gap-3">
           <button
-            class="group flex items-center gap-4 w-full px-5 py-5 bg-primary text-primary-foreground rounded-2xl shadow-md text-left transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+            class="stagger-item group flex items-center gap-4 w-full px-5 py-5 bg-primary text-primary-foreground rounded-2xl shadow-md text-left transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+            style="animation-delay: 0ms"
             on:click={() => startQuiz('flashcard')}
           >
             <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center">
@@ -130,7 +131,8 @@
             <ChevronRight size={18} class="ml-auto opacity-60 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
           </button>
           <button
-            class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+            class="stagger-item group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+            style="animation-delay: 50ms"
             on:click={() => startQuiz('multiple-choice')}
           >
             <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -143,7 +145,8 @@
             <ChevronRight size={18} class="ml-auto text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
           </button>
           <button
-            class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+            class="stagger-item group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+            style="animation-delay: 100ms"
             on:click={() => startQuiz('typing')}
           >
             <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -193,11 +196,9 @@
             <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-warning/10 flex items-center justify-center group-hover:bg-warning/20 transition-colors">
               <BookOpen size={22} class="text-warning" aria-hidden="true" />
             </div>
-            <div class="flex-1 min-w-0">
-              <span class="font-semibold block">Vocabulary</span>
-              <span class="text-xs text-muted-foreground">{lesson.vocabulary.length} từ vựng</span>
-            </div>
-            <ChevronRight size={18} class="ml-auto text-muted-foreground group-hover:text-warning group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+            <span class="flex-1 font-semibold">Vocabulary</span>
+            <span class="px-2 py-0.5 rounded-lg bg-muted text-xs text-muted-foreground font-medium">{lesson.vocabulary.length} từ</span>
+            <ChevronRight size={18} class="text-muted-foreground group-hover:text-warning group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
           </button>
           <button
             class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-warning/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
@@ -206,11 +207,9 @@
             <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-warning/10 flex items-center justify-center group-hover:bg-warning/20 transition-colors">
               <Book size={22} class="text-warning" aria-hidden="true" />
             </div>
-            <div class="flex-1 min-w-0">
-              <span class="font-semibold block">Grammar</span>
-              <span class="text-xs text-muted-foreground">{lesson.grammar.length} ngữ pháp</span>
-            </div>
-            <ChevronRight size={18} class="ml-auto text-muted-foreground group-hover:text-warning group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+            <span class="flex-1 font-semibold">Grammar</span>
+            <span class="px-2 py-0.5 rounded-lg bg-muted text-xs text-muted-foreground font-medium">{lesson.grammar.length} mẫu</span>
+            <ChevronRight size={18} class="text-muted-foreground group-hover:text-warning group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
           </button>
         </div>
       </section>
