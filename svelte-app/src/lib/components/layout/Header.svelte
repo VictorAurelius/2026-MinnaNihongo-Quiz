@@ -110,7 +110,7 @@
 
 <!-- Bottom navigation on home page — scrollable on mobile -->
 {#if isHome}
-  <nav class="flex justify-center gap-1.5 px-3 py-2 bg-card border-b border-border overflow-x-auto scrollbar-hide flex-wrap">
+  <nav class="flex gap-1.5 px-3 py-2 bg-card border-b border-border overflow-x-auto scrollbar-hide flex-nowrap" aria-label="Quick navigation">
     {#each [
       { href: `${base}/courses`, label: 'Courses', jp: false, text: '' },
       { href: `${base}/kanji`, label: 'Kanji', jp: true, text: '漢' },
@@ -123,7 +123,7 @@
     ] as link, i}
       <a
         href={link.href}
-        class="inline-flex items-center gap-1 px-2 py-1.5 text-[0.7rem] font-semibold text-muted-foreground no-underline border border-border rounded-full hover:text-primary hover:border-primary hover:bg-muted transition-colors whitespace-nowrap flex-shrink-0"
+        class="inline-flex items-center gap-1 min-h-9 px-2.5 py-1.5 text-[0.7rem] font-semibold text-muted-foreground no-underline border border-border rounded-full hover:text-primary hover:border-primary hover:bg-muted transition-colors whitespace-nowrap flex-shrink-0"
       >
         {#if link.text}
           <span class="text-xs" style={link.jp ? 'font-family: var(--font-jp)' : ''}>{link.text}</span>
