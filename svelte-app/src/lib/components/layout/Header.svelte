@@ -72,7 +72,7 @@
     {/if}
   </div>
 
-  <div class="flex items-center gap-1">
+  <div class="flex items-center gap-0.5">
     {#if !isHome}
       <button
         class="icon-btn w-11 h-11 flex items-center justify-center rounded-lg hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"

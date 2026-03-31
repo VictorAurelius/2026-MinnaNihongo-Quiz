@@ -56,17 +56,15 @@
       <div class="text-center">
         <Badge class="bg-white/20 text-white border-0 mb-2">Bài {lesson.lessonNumber}</Badge>
         <h1 class="text-xl font-bold mb-2">{lesson.title}</h1>
-        <div class="flex items-center justify-center gap-2 text-sm opacity-95">
-          <span>{lesson.vocabulary.length} từ vựng</span>
-          <span>•</span>
-          <span>{lesson.grammar.length} ngữ pháp</span>
-        </div>
+        <p class="text-sm font-medium text-white drop-shadow-sm">
+          {lesson.vocabulary.length} từ vựng • {lesson.grammar.length} ngữ pháp
+        </p>
         <!-- Progress bar -->
-        <div class="mt-3 max-w-xs mx-auto">
+        <div class="mt-3 max-w-xs mx-auto" role="progressbar" aria-valuenow={mastery} aria-valuemin={0} aria-valuemax={100} aria-label="Tiến trình bài học">
           <div class="h-1.5 bg-white/25 rounded-full overflow-hidden">
             <div class="h-full bg-white rounded-full transition-all duration-500" style="width: {mastery}%"></div>
           </div>
-          <p class="text-xs text-white/80 mt-1">{mastery}% hoàn thành</p>
+          <p class="text-xs text-white font-medium drop-shadow-sm mt-1">{mastery}% hoàn thành</p>
         </div>
       </div>
     </div>
@@ -87,7 +85,7 @@
             <button
               role="radio"
               aria-checked={selectedDirection === dir.value}
-              class="flex flex-col items-center gap-1 py-3.5 px-4 rounded-xl transition-all cursor-pointer active:scale-[0.97]
+              class="flex flex-col items-center gap-1 py-4 px-4 rounded-xl transition-all cursor-pointer active:scale-[0.97]
                 {selectedDirection === dir.value
                   ? 'bg-primary text-primary-foreground shadow-md ring-2 ring-primary/30'
                   : 'bg-card text-foreground/70 shadow-sm border border-border hover:border-primary hover:text-foreground'}"
