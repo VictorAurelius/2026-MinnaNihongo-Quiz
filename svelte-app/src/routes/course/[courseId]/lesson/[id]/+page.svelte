@@ -86,9 +86,9 @@
       ]} />
       <!-- Direction Selector -->
       <section>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+        <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
           <RefreshCw size={12} aria-hidden="true" /> Direction
-        </h3>
+        </h2>
         <div class="flex gap-2 p-1.5 bg-muted/50 rounded-2xl" role="radiogroup" aria-label="Quiz direction">
           {#each directions as dir}
             <button
@@ -109,9 +109,9 @@
 
       <!-- Quiz Modes -->
       <section>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+        <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
           <PenLine size={12} aria-hidden="true" /> Quiz Modes
-        </h3>
+        </h2>
         <div class="flex flex-col gap-3">
           <button
             class="stagger-item group flex items-center gap-4 w-full px-5 py-5 bg-primary text-primary-foreground rounded-2xl shadow-md text-left transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
@@ -164,9 +164,9 @@
       <!-- Grammar Quiz -->
       {#if lesson.grammar.length > 0}
         <section>
-          <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+          <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
             <PenLine size={12} aria-hidden="true" /> Grammar
-          </h3>
+          </h2>
           <button
             class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-success/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
             on:click={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}
@@ -185,9 +185,9 @@
 
       <!-- Study Materials -->
       <section>
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+        <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
           <BookOpen size={12} aria-hidden="true" /> Study Materials
-        </h3>
+        </h2>
         <div class="flex flex-col gap-3">
           <button
             class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-warning/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"

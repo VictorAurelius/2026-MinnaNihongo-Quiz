@@ -112,9 +112,9 @@
 
   <!-- Quiz Settings -->
   <section>
-    <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
       <Settings2 size={12} aria-hidden="true" /> Quiz Settings
-    </h3>
+    </h2>
     <div class="bg-card rounded-2xl shadow-sm overflow-hidden border border-border/50">
       <div class="flex items-center justify-between px-5 py-5">
         <div>
@@ -138,8 +138,10 @@
           <label for="autoPlay" class="text-sm font-medium block">Auto-speak on new card</label>
           <span class="text-[0.65rem] text-muted-foreground">Tự động phát âm khi lật thẻ mới</span>
         </div>
-        <input id="autoPlay" type="checkbox" checked={settings.autoPlay} on:change={handleAutoPlayChange}
-          class="w-5 h-5 accent-primary cursor-pointer" />
+        <label for="autoPlay" class="min-w-11 min-h-11 flex items-center justify-center cursor-pointer">
+          <input id="autoPlay" type="checkbox" checked={settings.autoPlay} on:change={handleAutoPlayChange}
+            class="w-5 h-5 accent-primary cursor-pointer" />
+        </label>
       </div>
       <div class="h-px bg-border/50 mx-5"></div>
       <div class="flex items-center justify-between px-5 py-5">
@@ -147,17 +149,19 @@
           <label for="showEnglish" class="text-sm font-medium block">Show English translations</label>
           <span class="text-[0.65rem] text-muted-foreground">Hiển thị nghĩa tiếng Anh bên cạnh tiếng Việt</span>
         </div>
-        <input id="showEnglish" type="checkbox" checked={settings.showEnglish} on:change={handleShowEnglishChange}
-          class="w-5 h-5 accent-primary cursor-pointer" />
+        <label for="showEnglish" class="min-w-11 min-h-11 flex items-center justify-center cursor-pointer">
+          <input id="showEnglish" type="checkbox" checked={settings.showEnglish} on:change={handleShowEnglishChange}
+            class="w-5 h-5 accent-primary cursor-pointer" />
+        </label>
       </div>
     </div>
   </section>
 
   <!-- Font Settings -->
   <section>
-    <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
       <Type size={12} aria-hidden="true" /> Japanese Font
-    </h3>
+    </h2>
     <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-label="Font selection">
       {#each fonts as font}
         <button
@@ -179,9 +183,9 @@
 
   <!-- Progress Summary -->
   <section>
-    <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
       <BarChart3 size={12} aria-hidden="true" /> Progress Summary
-    </h3>
+    </h2>
     {#if lessonCount === 0 && totalItems === 0 && hskCount === 0}
       <div class="p-5 bg-card border border-border/50 rounded-2xl text-center">
         <p class="text-sm text-muted-foreground">Bắt đầu học để xem tiến trình tại đây!</p>
@@ -206,9 +210,9 @@
 
   <!-- Data Management -->
   <section>
-    <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
       <Database size={12} aria-hidden="true" /> Data Management
-    </h3>
+    </h2>
     <div class="flex flex-col gap-3.5">
       <button
         class="flex items-center gap-4 w-full px-5 py-5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md active:scale-[0.98] cursor-pointer group"

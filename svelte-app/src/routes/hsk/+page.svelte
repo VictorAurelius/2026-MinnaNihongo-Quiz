@@ -48,7 +48,7 @@
           role="radio"
           aria-checked={selectedLevel === lvl.level}
           aria-label="HSK {lvl.level} — {lvl.wordCount} từ"
-          class="flex-1 flex flex-col items-center gap-0.5 py-3 px-2 rounded-xl transition-all duration-200 cursor-pointer active:scale-[0.97]
+          class="flex-1 flex flex-col items-center gap-0.5 py-3 px-2 rounded-xl transition-all duration-200 cursor-pointer active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none
             {selectedLevel === lvl.level
               ? 'bg-primary text-primary-foreground shadow-md'
               : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}"
