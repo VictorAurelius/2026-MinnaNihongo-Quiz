@@ -15,6 +15,7 @@ Mỗi PR tuân theo quy trình:
 5. **Self-test** → `./scripts/test-local.sh` (BẮT BUỘC trước push)
 6. **Push + CI** → `./scripts/check-ci.sh`
 7. **Code Review** → `.claude/skills/core/two-stage-code-review.md`
+8. **UI Audit** → `/ui-review` (TỰ ĐỘNG sau mỗi frontend PR — không đợi user yêu cầu)
 
 **KHÔNG BAO GIỜ:**
 - Chạy lệnh ad-hoc thay scripts (xem bảng Scripts bên dưới)

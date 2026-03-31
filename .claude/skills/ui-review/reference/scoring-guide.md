@@ -110,26 +110,34 @@ Output a PASS/WARN/FAIL table for specific elements (see `reference/wcag-audit.m
 
 ```
 === UI REVIEW REPORT ===
-Technical:         ??/20 ([band])
-Design Heuristics: ??/40 ([band])
-Visual Aesthetics: ??/28 ([band])
-User Friendliness: ??/20 ([band])
-WCAG Access:       ??/20 ([band])
-Combined:          ??/128
+Technical (app-wide): ??/20
 
-WCAG Audit:
+Per-Screen Scores:
+| Screen         | Heuristics (/40) | Aesthetics (/28) | Friendly (/20) | WCAG (/20) |
+|----------------|-------------------|-------------------|----------------|------------|
+| Home           | ? | ? | ? | ? |
+| Courses        | ? | ? | ? | ? |
+| Course Detail  | ? | ? | ? | ? |
+| Lesson Menu    | ? | ? | ? | ? |
+| Kanji          | ? | ? | ? | ? |
+| HSK            | ? | ? | ? | ? |
+| Settings       | ? | ? | ? | ? |
+| **Average**    | ? | ? | ? | ? |
+| **Lowest**     | ? (screen) | ? (screen) | ? (screen) | ? (screen) |
+
+Combined: Tech + avg(Heuristics) + avg(Aesthetics) + avg(Friendly) + avg(WCAG) = ??/128
+Weakest screen: [name] at ??/128
+
+WCAG Audit Table:
 | Status | Element | Check | Notes |
 |--------|---------|-------|-------|
 | ✅/⚠️/❌ | ... | ... | ... |
 
-Top 3 Issues (with code fixes):
-1. ... (before/after code)
-
-Score Progression:
-| Run | Tech | Heuristics | Aesthetics | Friendly | WCAG | Combined |
-|-----|------|------------|------------|----------|------|----------|
-| prev | ? | ? | ? | ? | ? | ? |
-| now  | ? | ? | ? | ? | ? | ? |
+Top 3 Issues (with code fixes per reference/code-fixes.md):
+1. [Screen: X] ...
+2. [Screen: Y] ...
+3. [Screen: Z] ...
 ```
 
-Save to `documents/04-quality/ui-review-latest.md`
+**Key rule:** Report the LOWEST screen score separately. This is the real quality bar.
+Screenshots are local only (gitignored). Save report to `documents/04-quality/ui-review-latest.md`.
