@@ -94,8 +94,12 @@ Save to `documents/04-quality/ui-review-latest.md`. Include score progression ta
 - Dev server MUST be running on port 5174 before capture — nhưng có fallback (xem bước 2)
 - Screenshots use `page.reload()` after localStorage injection — increase waitForTimeout if theme wrong
 - Vocabulary page may render blank — not a real bug
-- Score 4 only for genuinely excellent work. Most things score 2-3
+- Score 4 only for genuinely excellent work. Most things score 2-3. When in doubt, score LOWER
 - Judge aesthetics by what you SEE, not what code says
+- **WCAG contrast: never mark PASS just because code has opacity-95 or text-white. Estimate actual ratio from screenshot colors. Gradient backgrounds vary — worst-case spot matters**
+- **Touch targets: measure VISIBLE interactive area in screenshot, not CSS class. 18px icon inside 44px padding still LOOKS 18px to evaluator**
+- **ARIA: if you cannot verify from screenshot (roles, labels, focus), score 2/4 max — not 3 or 4**
+- **Previous self-assessment was 35 points too generous vs external audit. Be strict.**
 - For friendliness, think as Vietnamese student who just downloaded the app
 - Code fixes MUST use project stack: **SvelteKit + Svelte 4 + Tailwind CSS v4 + shadcn-svelte + lucide-svelte**. No React, no raw CSS
 - Spacing fixes: dùng `gap-*`, `space-y-*`, `p-*` — không dùng `mt-`, `mb-` manual trừ khi cần thiết
