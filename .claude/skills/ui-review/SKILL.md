@@ -11,6 +11,7 @@ Captures both local dev AND production screenshots for comparison.
 
 ## Skill Contents
 
+- `reference/fix-checklist.md` — **READ FIRST** — Fix verification protocol, persistent issues, ARIA labels, touch target cheat sheet
 - `reference/scoring-guide.md` — 5 dimensions + layout checklist + Tailwind mapping
 - `reference/wcag-audit.md` — WCAG 2.1 AA PASS/WARN/FAIL checklist
 - `reference/code-fixes.md` — Component locator + spacing patterns
@@ -37,30 +38,63 @@ Do NOT wait for user to say "audit" — do it automatically.
 
 | User says | Mode | References |
 |-----------|------|-----------|
-| "audit", "chấm điểm" | **Full Audit** | scoring-guide, wcag-audit |
+| "audit", "chấm điểm" | **Full Audit** | fix-checklist → scoring-guide, wcag-audit |
+| "audit lại", "re-audit" | **Re-Audit** | fix-checklist (verify fixes) → scoring-guide |
 | "nhạt", "nâng cấp visual" | **Visual Uplift** | visual-uplift |
 | "gamification", "thêm streak" | **Gamification** | gamification |
 | "sửa margin/spacing" | **Fix** | code-fixes |
-| *(auto after frontend PR)* | **Quick Audit** | scoring-guide (changed screens only) |
+| *(auto after frontend PR)* | **Quick Audit** | fix-checklist → scoring-guide (changed screens) |
 | *(auto after deploy)* | **Prod Verify** | capture prod screenshots + compare |
 
 ## Process
 
+### 0. Fix Verification (MANDATORY — read before anything else)
+Read `reference/fix-checklist.md`. If previous report exists:
+- Check each previously reported issue against new screenshots
+- Output FIXED/STILL OPEN/PARTIAL table at TOP of report
+- Issue reported ≥3 times without fix → add -1 penalty score
+- Issue Critical tồn đọng ≥2 reviews → add -1 penalty
+
 ### 1. Capture screenshots
 
-**Local dev** (for scoring — primary):
-```bash
-cd svelte-app && npx vite build && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts
-```
-Output: `documents/04-quality/screenshots/` (gitignored)
+Screenshots organized in labeled folders with per-screen subfolders:
 
-**Production** (for deploy verification — after merge to main):
-```bash
-cd svelte-app && PATH="/c/Program Files/nodejs:$PATH" npx tsx scripts/capture-prod-screenshots.ts
 ```
-Output: `documents/04-quality/screenshots-prod/` (gitignored)
+screenshots/{label}/{page}/{theme}-{viewport}.png
 
-**Fallback:** User pastes screenshot → score from that. Note in report.
+Example:
+  screenshots/after-pr-123/lesson-menu/dark-mobile.png
+  screenshots/before-pr-123/home/light-desktop.png
+```
+
+**Commands:**
+```bash
+# Before fix
+cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts --label before-pr-XXX
+
+# After fix
+cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts --label after-pr-XXX
+
+# Latest (default, overwritten)
+cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts
+
+# Production
+cd svelte-app && BASE_URL=https://victoraurelius.github.io/2026-Smart-Quiz npx tsx scripts/capture-screenshots.ts --label prod
+```
+
+**Note:** Node 18+ required. If default node is 16, prefix: `PATH="/c/Program Files/nodejs:$PATH"`
+
+All output gitignored. **Fallback:** User pastes screenshot → score from that.
+
+### Screenshot Workflow Rules (MANDATORY)
+
+1. **Before starting UI fix**: capture `--label before-pr-XXX`
+2. **After fix merged**: capture `--label after-pr-XXX`
+3. **Compare before/after** per screen in report (open both folders side by side)
+4. **After deploy to main**: capture `--label prod`
+5. **`latest/`** is the most recent capture (default, no --label)
+6. **Browse per screen**: each page has its own subfolder (`home/`, `lesson-menu/`, etc.)
+7. **Read `{page}/dark-mobile.png`** as primary review target per screen
 
 ### 2. Score PER SCREEN (not averaged!)
 
@@ -132,6 +166,8 @@ Before giving 3/4, ask: **"Would an external auditor looking ONLY at this screen
 
 ## Gotchas
 
+- **Fix Verification is Step 0** — always read fix-checklist.md BEFORE scoring
+- Issue reported 3+ times without fix = penalty. Don't let issues slide silently
 - Local screenshots: dev server on port 5174
 - Production screenshots: need Node 18+ (`PATH="/c/Program Files/nodejs:$PATH"`)
 - Both screenshot folders gitignored — local only

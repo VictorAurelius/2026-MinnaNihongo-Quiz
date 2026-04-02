@@ -106,7 +106,7 @@
 
 <div class="mx-auto max-w-xl animate-in">
   <!-- Hero -->
-  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(220 30% 35%), var(--color-primary))">
+  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(245 58% 35%), hsl(262 60% 45%))">
     <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
     <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-xl pointer-events-none"></div>
     <div class="relative z-10">
@@ -123,7 +123,7 @@
 
   <!-- Quiz Settings -->
   <section>
-    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3 flex items-center gap-1.5">
       <Settings2 size={12} aria-hidden="true" /> Quiz Settings
     </h2>
     <div class="bg-card rounded-2xl shadow-sm overflow-hidden border border-border/50">
@@ -170,7 +170,7 @@
 
   <!-- Font Settings -->
   <section>
-    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3 flex items-center gap-1.5">
       <Type size={12} aria-hidden="true" /> Japanese Font
     </h2>
     <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-label="Font selection">
@@ -194,7 +194,7 @@
 
   <!-- Progress Summary -->
   <section>
-    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3 flex items-center gap-1.5">
       <BarChart3 size={12} aria-hidden="true" /> Progress Summary
     </h2>
     {#if lessonCount === 0 && totalItems === 0 && hskCount === 0}
@@ -221,7 +221,7 @@
 
   <!-- Data Management -->
   <section>
-    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3 flex items-center gap-1.5">
       <Database size={12} aria-hidden="true" /> Data Management
     </h2>
     <div class="flex flex-col gap-3">
