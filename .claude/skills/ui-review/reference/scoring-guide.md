@@ -134,6 +134,11 @@ Per-Screen Scores:
 | **Lowest**     | ? (screen) | ? (screen) | ? (screen) | ? (screen) |
 
 Combined: Tech + avg(Heuristics) + avg(Aesthetics) + avg(Friendly) + avg(WCAG) = ??/128
+
+Before/After Comparison (per changed screen):
+| Screen | Before | After | What changed visually |
+|--------|--------|-------|----------------------|
+| {screen} | screenshots/before-pr-XXX/{screen}/dark-mobile.png | screenshots/after-pr-XXX/{screen}/dark-mobile.png | {description} |
 Weakest screen: [name] at ??/128
 
 WCAG Audit Table:
