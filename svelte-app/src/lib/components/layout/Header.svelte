@@ -77,8 +77,8 @@
       <button
         class="icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-muted/30 hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
         on:click={goHome}
-        aria-label="Go to home"
-        title="Home"
+        aria-label="Trang chủ"
+        title="Trang chủ"
       >
         <Home size={22} aria-hidden="true" />
       </button>
@@ -87,8 +87,8 @@
     <a
       href="{base}/settings"
       class="icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-muted/30 hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none no-underline"
-      aria-label="Settings"
-      title="Settings"
+      aria-label="Cài đặt"
+      title="Cài đặt"
     >
       <Settings size={22} aria-hidden="true" />
     </a>
@@ -96,8 +96,8 @@
     <button
       class="icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-muted/30 hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
       on:click={toggleDarkMode}
-      aria-label="Toggle dark mode"
-      title="Toggle dark mode"
+      aria-label="Chuyển chế độ sáng/tối"
+      title="Chuyển chế độ sáng/tối"
     >
       {#if $uiStore.darkMode}
         <Sun size={22} aria-hidden="true" />
