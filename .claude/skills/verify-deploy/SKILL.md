@@ -30,15 +30,14 @@ Base URL: `https://victoraurelius.github.io/2026-Smart-Quiz`
 
 ### 3. Capture production screenshots
 ```bash
-cd svelte-app && npx tsx scripts/capture-prod-screenshots.ts
+cd svelte-app && BASE_URL=https://victoraurelius.github.io/2026-Smart-Quiz npx tsx scripts/capture-screenshots.ts --label prod
 ```
-Saves to `documents/04-quality/screenshots-prod/` (gitignored).
-7 pages × 2 themes × 2 viewports = 28 screenshots.
+Saves to `documents/04-quality/screenshots/prod/` (gitignored).
 
 ### 4. Visual review
 Read key screenshots to verify UI renders correctly on live site:
-- `documents/04-quality/screenshots-prod/home-dark-mobile.png`
-- `documents/04-quality/screenshots-prod/lesson-menu-dark-mobile.png`
+- `documents/04-quality/screenshots/prod/home-dark-mobile.png`
+- `documents/04-quality/screenshots/prod/lesson-menu-dark-mobile.png`
 
 ### 5. Output report
 ```

@@ -48,19 +48,39 @@ Do NOT wait for user to say "audit" — do it automatically.
 
 ### 1. Capture screenshots
 
-**Local dev** (for scoring — primary):
-```bash
-cd svelte-app && npx vite build && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts
-```
-Output: `documents/04-quality/screenshots/` (gitignored)
+Screenshots organized in labeled folders: `screenshots/{label}/`
 
-**Production** (for deploy verification — after merge to main):
+**Before fixing** (capture current state):
 ```bash
-cd svelte-app && PATH="/c/Program Files/nodejs:$PATH" npx tsx scripts/capture-prod-screenshots.ts
+cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts --label before-pr-XXX
 ```
-Output: `documents/04-quality/screenshots-prod/` (gitignored)
+
+**After fixing** (capture result):
+```bash
+cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts --label after-pr-XXX
+```
+
+**Latest** (default, overwritten each run):
+```bash
+cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts
+```
+
+**Production** (after deploy):
+```bash
+cd svelte-app && BASE_URL=https://victoraurelius.github.io/2026-Smart-Quiz npx tsx scripts/capture-screenshots.ts --label prod
+```
+
+All output to `documents/04-quality/screenshots/{label}/` (gitignored).
 
 **Fallback:** User pastes screenshot → score from that. Note in report.
+
+### Screenshot Workflow Rules
+
+1. **Before starting UI fix**: capture `--label before-pr-XXX`
+2. **After fix merged**: capture `--label after-pr-XXX`
+3. **Compare before/after** visually in report
+4. **After deploy to main**: capture `--label prod`
+5. **`latest/`** is always the most recent capture (default)
 
 ### 2. Score PER SCREEN (not averaged!)
 
