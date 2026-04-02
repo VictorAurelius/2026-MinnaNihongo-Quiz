@@ -9,6 +9,7 @@
   import { base } from '$app/paths';
   import { getKanjiLessonData } from '$lib/data/kanji/lessons';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import { kanaToRomaji } from '$lib/utils/kanaUtils';
   import StrokeOrder from '$lib/components/kanji/StrokeOrder.svelte';
   import RadicalBreakdown from '$lib/components/kanji/RadicalBreakdown.svelte';
   import type { KanjiItem } from '$lib/types';
@@ -141,7 +142,11 @@
                 <div class="example-item">
                   <span class="ex-word">{ex.word}</span>
                   <span class="ex-kana">{ex.kana}</span>
+                  <span class="ex-romaji">{kanaToRomaji(ex.kana)}</span>
                   <span class="ex-meaning">{ex.vietnamese} / {ex.meaning}</span>
+                  <button class="ex-audio" on:click|stopPropagation={() => playJapaneseAudio(ex.kana)} title="Phát âm" aria-label="Phát âm {ex.word}">
+                    🔊
+                  </button>
                 </div>
               {/each}
             </div>
@@ -400,9 +405,31 @@
     color: var(--primary);
   }
 
+  .ex-romaji {
+    font-size: 0.78rem;
+    color: var(--color-muted-foreground);
+    font-style: italic;
+  }
+
   .ex-meaning {
     font-size: 0.82rem;
     color: var(--text-muted);
+  }
+
+  .ex-audio {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0.15rem 0.35rem;
+    font-size: 0.75rem;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+
+  .ex-audio:hover {
+    border-color: var(--primary);
+    background: var(--color-muted);
   }
 
   .btn-back {
