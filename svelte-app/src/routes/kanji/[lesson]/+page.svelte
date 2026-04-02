@@ -10,15 +10,26 @@
   import { getKanjiLessonData } from '$lib/data/kanji/lessons';
   import Button from '$lib/components/common/Button.svelte';
 
+  import type { KanjiQuizDirection } from '$lib/utils/kanjiQuizUtils';
+
   $: lessonId = parseInt($page.params.lesson || '0');
   $: lessonData = lessonId > 0 ? getKanjiLessonData(lessonId) : null;
+
+  let selectedDirection: KanjiQuizDirection = 'kanji-vi';
+
+  const directions: { value: KanjiQuizDirection; label: string }[] = [
+    { value: 'kanji-vi', label: 'Kanji → Việt' },
+    { value: 'kanji-en', label: 'Kanji → English' },
+    { value: 'kanji-reading', label: 'Kanji → Reading' },
+    { value: 'kanji-romaji', label: 'Kanji → Romaji' },
+  ];
 
   function goToReference() {
     goto(`${base}/kanji/${lessonId}/reference`);
   }
 
   function startQuiz(mode: 'flashcard' | 'mc' | 'typing') {
-    goto(`${base}/kanji/${lessonId}/quiz/${mode}`);
+    goto(`${base}/kanji/${lessonId}/quiz/${mode}?direction=${selectedDirection}`);
   }
 </script>
 
@@ -45,6 +56,20 @@
       >
         Kanji Reference Table
       </Button>
+
+      <div class="direction-selector">
+        <p class="direction-label">Direction</p>
+        <div class="direction-options">
+          {#each directions as dir}
+            <button
+              class="direction-btn {selectedDirection === dir.value ? 'active' : ''}"
+              on:click={() => selectedDirection = dir.value}
+            >
+              {dir.label}
+            </button>
+          {/each}
+        </div>
+      </div>
 
       <div class="menu-section-divider">
         <hr class="menu-divider-line" />
@@ -95,6 +120,48 @@
     max-width: 500px;
     margin: 0 auto;
     animation: fadeIn 0.25s ease;
+  }
+
+  .direction-selector {
+    margin: 1rem 0;
+  }
+
+  .direction-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-muted-foreground);
+    margin-bottom: 0.5rem;
+  }
+
+  .direction-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .direction-btn {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    color: var(--color-muted-foreground);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .direction-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-foreground);
+  }
+
+  .direction-btn.active {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-color: var(--color-primary);
   }
 
   @keyframes fadeIn {
