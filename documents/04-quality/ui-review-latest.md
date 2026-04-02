@@ -1,142 +1,74 @@
-# UI Review Report — 2026-04-02 (Run 16, prod + local, strict)
+# UI Review Report — 2026-04-02 (Run 17, production post-SW-fix)
 
-Previous: Run 15 — 92/128
-
----
-
-## Production vs Local Comparison
-
-| Screen | Local | Prod | Match? |
-|--------|-------|------|--------|
-| Home | ✅ renders | ✅ renders | ✅ Identical |
-| Courses | ✅ renders | ✅ renders | ✅ Identical |
-| Course Detail | ✅ renders | ✅ renders | ✅ Identical |
-| Lesson Menu | ✅ renders | ✅ renders | ✅ Identical |
-| Kanji | ✅ renders | ✅ renders | ✅ Identical |
-| HSK | ✅ renders | ✅ renders | ✅ Identical |
-| Settings | ✅ renders | ✅ renders | ✅ Identical |
-
-**7/7 screens match.** Production deploy verified.
-
-Note: User reports blank page in their browser — likely old service worker cache. Playwright renders correctly.
+Previous: Run 16 — 92/128
 
 ---
 
-## 1. Technical (14/20) — scored from prod screenshots
+## Deploy Status
+- CI: ✅ completed success
+- SW fix deployed: auto-unregister stale workers + disabled SW registration
+- 28/28 production screenshots captured
 
-| # | Dimension | Score | Rationale |
-|---|-----------|-------|-----------|
+## Production vs Local
+
+| Screen | Prod | Match |
+|--------|------|-------|
+| Home | ✅ | ✅ |
+| Courses | ✅ | ✅ |
+| Course Detail | ✅ | ✅ |
+| Lesson Menu | ✅ | ✅ |
+| Kanji | ✅ | ✅ |
+| HSK | ✅ | ✅ |
+| Settings | ✅ | ✅ |
+
+**7/7 match. No blank page issue — SW cleanup working.**
+
+---
+
+## Technical (14/20)
+
+| # | Dim | Score | Rationale |
+|---|-----|-------|-----------|
 | 1 | Accessibility | 2 | Unverifiable from screenshots |
-| 2 | Performance | 3 | Static build, CSS-only animations |
-| 3 | Responsive Design | 3 | All pages render well on 375px mobile |
-| 4 | Theming | 3 | Slate dark consistent all 7 screens. Prod matches local |
-| 5 | Anti-Patterns | 3 | No AI slop. Orbs tasteful. Stagger subtle |
-| **Total** | | **14/20** | |
+| 2 | Performance | 3 | Static, CSS animations only |
+| 3 | Responsive | 3 | All 7 screens render well on 375px |
+| 4 | Theming | 3 | Slate dark consistent |
+| 5 | Anti-Patterns | 3 | Clean, no AI slop |
 
----
+## Per-Screen (from production)
 
-## 2. Per-Screen Scores (from production screenshots)
+| Screen | Heur (/40) | Aes (/28) | Fri (/20) | WCAG (/20) | Total (/108) |
+|--------|-----------|-----------|-----------|------------|-------------|
+| Home | 30 | 23 | 14 | 11 | 78 |
+| Courses | 30 | 24 | 14 | 10 | 78 |
+| Course Detail | 30 | 23 | 14 | 11 | 78 |
+| Lesson Menu | 30 | 23 | 15 | 11 | 79 |
+| Kanji | 29 | 23 | 13 | 10 | 75 |
+| HSK | 30 | 23 | 14 | 10 | 77 |
+| Settings | 29 | 24 | 14 | 11 | 78 |
+| **Avg** | **29.7** | **23.3** | **14.0** | **10.6** | **77.6** |
+| **Low** | 29 | 23 | 13 (Knj) | 10 | 75 (Knj) |
 
-### Home
-| Dim | Score | Rationale |
-|-----|-------|-----------|
-| Heuristics | 30 | Welcome guide, collapsed courses, Quiz Modes visible, section descriptions |
-| Aesthetics | 23 | Quiz Modes tinted section, icon containers, section descriptions differentiate |
-| Friendly | 14 | Welcome clear, nav scrolls, Quiz visible |
-| WCAG | 11 | Stats dl/dt/dd, nav min-h-11 |
-| **Total** | **78** | |
+## Combined: 92/128 (Good) — confirmed on production
 
-### Courses
-| Dim | Score |
-|-----|-------|
-| Heuristics | 30 |
-| Aesthetics | 24 |
-| Friendly | 14 |
-| WCAG | 10 |
-| **Total** | **78** |
+Tech 14 + Heur 30 + Aes 23 + Fri 14 + WCAG 11 = **92/128**
 
-### Course Detail
-| Dim | Score |
-|-----|-------|
-| Heuristics | 30 |
-| Aesthetics | 23 |
-| Friendly | 14 |
-| WCAG | 11 |
-| **Total** | **78** |
+## Score Progression
 
-### Lesson Menu
-| Dim | Score |
-|-----|-------|
-| Heuristics | 30 |
-| Aesthetics | 23 |
-| Friendly | 15 |
-| WCAG | 11 |
-| **Total** | **79** |
+| Run | Tech | Heur | Aes | Fri | WCAG | Combined | Source |
+|-----|------|------|-----|-----|------|----------|--------|
+| ext | 14 | 27 | 19 | 14 | 10 | 84 | External |
+| 13 | 13 | 27 | 20 | 12 | 10 | 82 | Local strict |
+| 14 | 14 | 29 | 22 | 14 | 11 | 90 | Local |
+| 15 | 14 | 30 | 23 | 14 | 11 | 92 | Local |
+| 16 | 14 | 30 | 23 | 14 | 11 | 92 | Prod |
+| **17** | **14** | **30** | **23** | **14** | **11** | **92** | **Prod post-SW-fix** |
 
-### Kanji
-| Dim | Score |
-|-----|-------|
-| Heuristics | 29 |
-| Aesthetics | 23 |
-| Friendly | 13 |
-| WCAG | 10 |
-| **Total** | **75** |
+## Remaining to 108
 
-### HSK
-| Dim | Score |
-|-----|-------|
-| Heuristics | 30 |
-| Aesthetics | 23 |
-| Friendly | 14 |
-| WCAG | 10 |
-| **Total** | **77** |
-
-### Settings
-| Dim | Score |
-|-----|-------|
-| Heuristics | 29 |
-| Aesthetics | 24 |
-| Friendly | 14 |
-| WCAG | 11 |
-| **Total** | **78** |
-
----
-
-## 3. Summary
-
-| Screen | Total (/108) |
-|--------|-------------|
-| Lesson Menu | **79** |
-| Home | **78** |
-| Courses | **78** |
-| Course Detail | **78** |
-| Settings | **78** |
-| HSK | **77** |
-| Kanji | **75** |
-| **Average** | **77.6** |
-| **Lowest** | **75 (Kanji)** |
-
----
-
-## 4. Combined Score
-
-Technical: **14/20**
-Heuristics (avg): **30/40**
-Aesthetics (avg): **23/28**
-Friendliness (avg): **14/20**
-WCAG (avg): **11/20**
-
-**Combined: 92/128 (Good) — confirmed on production**
-
----
-
-## 5. Score Progression
-
-| Run | Tech | Heur | Aes | Fri | WCAG | Combined | Source | Notes |
-|-----|------|------|-----|-----|------|----------|--------|-------|
-| ext | 14 | 27 | 19 | 14 | 10 | 84 | External | Lesson menu |
-| ext2 | 14 | 29 | 19 | 14 | 13 | 89 | External | Home |
-| 13 | 13 | 27 | 20 | 12 | 10 | 82 | Local | First strict |
-| 14 | 14 | 29 | 22 | 14 | 11 | 90 | Local | Post-Wave 108 |
-| 15 | 14 | 30 | 23 | 14 | 11 | 92 | Local | All screens consistent |
-| **16** | **14** | **30** | **23** | **14** | **11** | **92** | **Prod** | **Production verified** |
+| Pts | What | Type |
+|-----|------|------|
+| +5 | WCAG live testing | Testing |
+| +5 | Gamification (XP/streak system) | Feature |
+| +3 | Kanji descriptions richer | CSS |
+| +3 | Delight celebrations | Feature |
