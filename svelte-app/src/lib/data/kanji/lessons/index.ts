@@ -104,6 +104,7 @@ export function getKanjiLessonMetadata() {
   return ALL_KANJI_LESSONS.map(lesson => ({
     lessonNumber: lesson.lessonNumber,
     title: lesson.title,
-    kanjiCount: lesson.kanji.length
+    kanjiCount: lesson.kanji.length,
+    preview: lesson.kanji.slice(0, 5).map(k => k.character).join(' ')
   }));
 }
