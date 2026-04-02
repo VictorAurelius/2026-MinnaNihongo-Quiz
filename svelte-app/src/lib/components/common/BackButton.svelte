@@ -17,6 +17,10 @@
   // Routes that should go directly to home when back is pressed
   const HOME_PARENTS = new Set(['lesson', 'lessons', 'course', 'courses', 'quiz', 'results', 'alphabet', 'counters', 'grammar-reference', 'hsk', 'kanji']);
 
+  // Known valid routes — segments that are NOT standalone routes
+  // Segments that are NOT standalone routes — must be skipped when navigating back
+  const SKIP_SEGMENTS = new Set(['lesson', 'grammar-quiz']);
+
   function getParentPath(fullPathname: string): string {
     // Strip base path first to get route-only path
     const routePath = fullPathname.startsWith(base) && base
@@ -25,8 +29,13 @@
     const parts = routePath.split('/').filter(Boolean);
     if (parts.length <= 1) return '/';
     if (parts.length === 2 && HOME_PARENTS.has(parts[0])) return '/';
+
+    // Pop until we land on a valid route (skip intermediate segments)
     parts.pop();
-    return '/' + parts.join('/');
+    while (parts.length > 0 && SKIP_SEGMENTS.has(parts[parts.length - 1])) {
+      parts.pop();
+    }
+    return parts.length > 0 ? '/' + parts.join('/') : '/';
   }
 
   function handleBack() {
