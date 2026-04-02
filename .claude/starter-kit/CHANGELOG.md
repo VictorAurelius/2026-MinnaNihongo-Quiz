@@ -7,6 +7,21 @@ Quản lý theo Semantic Versioning: `MAJOR.MINOR.PATCH`
 
 ---
 
+## [2.1.0] — 2026-04-02
+
+### Added
+- `skills/quality/ui-review/SKILL.md` — Portable UI audit skill template
+  - Per-screen /128 scoring, strict rubric, before/after workflow
+  - Fix verification protocol (step 0), scoring bands
+  - Battle-tested through 17 runs + 40 PRs on Smart Quiz
+- `scripts/capture-screenshots.ts` — Portable screenshot capture
+  - Auto-detect dev server, start if needed
+  - Labeled folders with per-page subfolders
+  - Auto-update latest/ when using --label
+  - Configurable PAGES, dark mode key, dev command
+- `rules/skill-conventions.md` — Added "UI Audit Workflow" section
+  - 8 key rules from real mistakes (auto-capture, strict scoring, etc.)
+
 ## [2.0.0] — 2026-03-30
 
 ### BREAKING — Root directory restructured
