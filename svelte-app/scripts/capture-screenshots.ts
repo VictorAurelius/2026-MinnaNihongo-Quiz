@@ -77,9 +77,11 @@ async function main() {
           await page.reload({ waitUntil, timeout });
           await page.waitForTimeout(isProd ? 1500 : 800);
 
-          const filename = `${p.name}-${theme}-${viewport.name}.png`;
+          const pageDir = path.join(OUT_DIR, p.name);
+          fs.mkdirSync(pageDir, { recursive: true });
+          const filename = `${theme}-${viewport.name}.png`;
           await page.screenshot({
-            path: path.join(OUT_DIR, filename),
+            path: path.join(pageDir, filename),
             fullPage: true,
           });
           console.log(`  ✓ ${filename}`);
