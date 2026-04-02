@@ -72,37 +72,37 @@
     {/if}
   </div>
 
-  <div class="flex items-center gap-1">
+  <div class="flex items-center gap-1.5">
     {#if !isHome}
       <button
-        class="icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-muted/30 hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+        class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl hover:bg-muted active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
         on:click={goHome}
         aria-label="Trang chủ"
         title="Trang chủ"
       >
-        <Home size={22} aria-hidden="true" />
+        <Home size={20} class="text-muted-foreground" aria-hidden="true" />
       </button>
     {/if}
 
     <a
       href="{base}/settings"
-      class="icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-muted/30 hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none no-underline"
+      class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl hover:bg-muted active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none no-underline"
       aria-label="Cài đặt"
       title="Cài đặt"
     >
-      <Settings size={22} aria-hidden="true" />
+      <Settings size={20} class="text-muted-foreground" aria-hidden="true" />
     </a>
 
     <button
-      class="icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-muted/30 hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+      class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl hover:bg-muted active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
       on:click={toggleDarkMode}
       aria-label="Chuyển chế độ sáng/tối"
       title="Chuyển chế độ sáng/tối"
     >
       {#if $uiStore.darkMode}
-        <Sun size={22} aria-hidden="true" />
+        <Sun size={20} class="text-muted-foreground" aria-hidden="true" />
       {:else}
-        <Moon size={22} aria-hidden="true" />
+        <Moon size={20} class="text-muted-foreground" aria-hidden="true" />
       {/if}
     </button>
   </div>
