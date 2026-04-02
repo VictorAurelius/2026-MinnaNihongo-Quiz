@@ -7,6 +7,7 @@
   import type { KanjiItem } from '$lib/types';
   import { createEventDispatcher } from 'svelte';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import { checkAnswer } from '$lib/utils/quizUtils';
   import { Volume2, Check, X, Lightbulb, ArrowRight } from 'lucide-svelte';
 
   export let item: KanjiItem;
@@ -35,9 +36,8 @@
     if (answered || !userInput.trim()) return;
 
     answered = true;
-    const normalized = userInput.trim().toLowerCase();
-    const correctAnswer = answer.toLowerCase();
-    isCorrect = normalized === correctAnswer;
+    // Use checkAnswer for romaji normalization (shi/si, chi/ti, etc.)
+    isCorrect = checkAnswer(userInput, answer, true);
     playJapaneseAudio(item.character);
   }
 

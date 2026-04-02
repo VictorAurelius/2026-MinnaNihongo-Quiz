@@ -5,8 +5,9 @@
 
 import type { KanjiItem } from '$lib/types';
 import { shuffleArray } from './quizUtils';
+import { kanaToRomaji } from './kanaUtils';
 
-export type KanjiQuizDirection = 'kanji-vi' | 'kanji-en' | 'kanji-reading';
+export type KanjiQuizDirection = 'kanji-vi' | 'kanji-en' | 'kanji-reading' | 'kanji-romaji';
 
 export interface KanjiQuizQuestion {
   id: string;
@@ -32,6 +33,10 @@ function getKanjiQA(
       // Primary reading: onyomi first, fallback to kunyomi
       const reading = item.onyomi[0] || item.kunyomi[0] || '';
       return { question: item.character, answer: reading };
+    case 'kanji-romaji':
+      // Convert primary reading to romaji
+      const readingKana = item.onyomi[0] || item.kunyomi[0] || '';
+      return { question: item.character, answer: kanaToRomaji(readingKana) };
     default:
       return { question: item.character, answer: item.vietnamese };
   }
