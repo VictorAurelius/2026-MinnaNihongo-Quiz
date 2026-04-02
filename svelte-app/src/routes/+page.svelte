@@ -129,61 +129,66 @@
     {/if}
   {/if}
 
-  <!-- Courses -->
+  <!-- Courses — show top 2, link to all -->
   <section class="mb-6 px-4">
     <h2 class="text-lg font-bold mb-3">Courses</h2>
-    <div class="flex flex-col gap-3.5">
-      {#each courseSections as section}
+    <div class="flex flex-col gap-3">
+      {#each courseSections.slice(0, 2) as section}
         <a
           href={section.href}
-          class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary/50 hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent/30 active:scale-[0.98] cursor-pointer group relative overflow-hidden"
+          class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary/50 hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent/30 active:scale-[0.98] cursor-pointer relative overflow-hidden"
         >
-          <div class="absolute left-0 inset-y-0 w-1 rounded-l-xl" style="background: {section.color}"></div>
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center text-2xl pl-0.5">{section.icon}</div>
+          <div class="absolute left-0 inset-y-0 w-1 rounded-l-2xl" style="background: {section.color}"></div>
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-2xl" style="background: {section.color}20">{section.icon}</div>
           <div class="flex-1 min-w-0">
             <h3 class="text-sm font-bold text-foreground">{section.title}</h3>
             <p class="text-xs text-muted-foreground leading-snug">{section.desc}</p>
           </div>
-          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
+          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform duration-200" aria-hidden="true" />
         </a>
+      {/each}
+      {#if courseSections.length > 2}
+        <a href="{base}/courses" class="text-sm font-semibold text-primary no-underline hover:underline px-1">
+          Xem tất cả {courseSections.length} khóa học →
+        </a>
+      {/if}
+    </div>
+  </section>
+
+  <!-- Quiz Modes — moved above Reference for visibility -->
+  <section class="mb-6 px-4">
+    <h2 class="text-lg font-bold mb-3">3 Quiz Modes</h2>
+    <div class="grid grid-cols-3 gap-3">
+      {#each quizModes as mode}
+        <div class="flex flex-col items-center gap-2 p-5 bg-card border border-border/50 rounded-2xl shadow-sm text-center">
+          <div class="w-11 h-11 flex items-center justify-center rounded-xl bg-primary/10">
+            <svelte:component this={mode.component} size={22} class="text-primary" aria-hidden="true" />
+          </div>
+          <span class="text-xs font-bold">{mode.name}</span>
+          <span class="text-[0.68rem] text-muted-foreground">{mode.desc}</span>
+        </div>
       {/each}
     </div>
   </section>
 
   <!-- Reference & Tools -->
-  <section class="mb-6 px-4">
+  <section class="mb-8 px-4">
     <h2 class="text-lg font-bold mb-3">Reference & Tools</h2>
-    <div class="flex flex-col gap-3.5">
+    <div class="flex flex-col gap-3">
       {#each referenceSections as section}
         <a
           href={section.href}
-          class="flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary/50 hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent/30 active:scale-[0.98] cursor-pointer group"
+          class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary/50 hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent/30 active:scale-[0.98] cursor-pointer"
         >
-          <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
+          <div class="flex-shrink-0 w-11 h-11 flex items-center justify-center rounded-xl bg-primary/10 text-primary">
             <svelte:component this={section.component} size={20} aria-hidden="true" />
           </div>
           <div class="flex-1 min-w-0">
             <h3 class="text-sm font-bold text-foreground">{section.title}</h3>
             <p class="text-xs text-muted-foreground leading-snug">{section.desc}</p>
           </div>
-          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" />
+          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform duration-200" aria-hidden="true" />
         </a>
-      {/each}
-    </div>
-  </section>
-
-  <!-- Quiz Modes -->
-  <section class="mb-8 px-4">
-    <h2 class="text-lg font-bold mb-3">3 Quiz Modes</h2>
-    <div class="grid grid-cols-3 gap-3">
-      {#each quizModes as mode}
-        <div class="flex flex-col items-center gap-2 p-5 bg-card border border-border/50 rounded-2xl shadow-sm text-center">
-          <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10">
-            <svelte:component this={mode.component} size={20} class="text-primary" aria-hidden="true" />
-          </div>
-          <span class="text-xs font-bold">{mode.name}</span>
-          <span class="text-[0.68rem] text-muted-foreground">{mode.desc}</span>
-        </div>
       {/each}
     </div>
   </section>
