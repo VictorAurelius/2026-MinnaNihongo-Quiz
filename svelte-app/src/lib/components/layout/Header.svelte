@@ -75,34 +75,34 @@
   <div class="flex items-center gap-0.5">
     {#if !isHome}
       <button
-        class="icon-btn w-11 h-11 flex items-center justify-center rounded-lg hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+        class="icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-muted/30 hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
         on:click={goHome}
         aria-label="Go to home"
         title="Home"
       >
-        <Home size={20} aria-hidden="true" />
+        <Home size={22} aria-hidden="true" />
       </button>
     {/if}
 
     <a
       href="{base}/settings"
-      class="icon-btn w-11 h-11 flex items-center justify-center rounded-lg hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none no-underline"
+      class="icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-muted/30 hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none no-underline"
       aria-label="Settings"
       title="Settings"
     >
-      <Settings size={20} aria-hidden="true" />
+      <Settings size={22} aria-hidden="true" />
     </a>
 
     <button
-      class="icon-btn w-11 h-11 flex items-center justify-center rounded-lg hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+      class="icon-btn w-12 h-12 flex items-center justify-center rounded-xl bg-muted/30 hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
       on:click={toggleDarkMode}
       aria-label="Toggle dark mode"
       title="Toggle dark mode"
     >
       {#if $uiStore.darkMode}
-        <Sun size={20} aria-hidden="true" />
+        <Sun size={22} aria-hidden="true" />
       {:else}
-        <Moon size={20} aria-hidden="true" />
+        <Moon size={22} aria-hidden="true" />
       {/if}
     </button>
   </div>

@@ -48,7 +48,7 @@
     <!-- Lesson Header -->
     <div
       class="relative text-white pt-3 pb-6 px-4 overflow-hidden"
-      style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
+      style="background: linear-gradient(135deg, color-mix(in srgb, {course.metadata.color} 60%, hsl(262 60% 40%)), var(--color-primary))"
     >
       <!-- Decorative orbs -->
       <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
@@ -76,8 +76,8 @@
           </div>
           <!-- Motivation row -->
           <div class="flex items-center gap-2 mt-3 flex-wrap">
-            <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/90 backdrop-blur-sm">
-              🔥 0 ngày streak
+            <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/80 backdrop-blur-sm">
+              ✨ Bắt đầu streak hôm nay!
             </span>
             <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/90 backdrop-blur-sm">
               ⭐ +50 XP khi hoàn thành
@@ -103,7 +103,7 @@
             <button
               role="radio"
               aria-checked={selectedDirection === dir.value}
-              class="flex-1 flex flex-col items-center gap-1 py-3.5 px-3 rounded-xl text-center transition-all duration-200 cursor-pointer active:scale-[0.97]
+              class="flex-1 flex flex-col items-center gap-1 min-h-12 py-3.5 px-3 rounded-xl text-center transition-all duration-200 cursor-pointer active:scale-[0.97]
                 {selectedDirection === dir.value
                   ? 'bg-primary text-primary-foreground shadow-md'
                   : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}"
