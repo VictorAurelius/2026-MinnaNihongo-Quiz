@@ -104,11 +104,22 @@
   <title>Settings - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl p-4 animate-in flex flex-col gap-8">
-  <Breadcrumb items={[
-    { label: 'Home', href: '/' },
-    { label: 'Settings' }
-  ]} />
+<div class="mx-auto max-w-xl animate-in">
+  <!-- Hero -->
+  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(220 30% 35%), var(--color-primary))">
+    <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
+    <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-xl pointer-events-none"></div>
+    <div class="relative z-10">
+      <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm">Settings</h1>
+      <p class="text-sm font-medium text-white/80 mt-1">Tùy chỉnh trải nghiệm học</p>
+    </div>
+  </div>
+
+  <div class="px-4 py-5 flex flex-col gap-8">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Settings' }
+    ]} />
 
   <!-- Quiz Settings -->
   <section>
@@ -167,10 +178,10 @@
         <button
           role="radio"
           aria-checked={selectedFont === font.id}
-          class="flex flex-col items-center gap-2 p-5 rounded-xl cursor-pointer transition-all text-center active:scale-[0.97]
+          class="flex flex-col items-center gap-2 p-5 rounded-2xl cursor-pointer transition-all text-center active:scale-[0.97]
             {selectedFont === font.id
-              ? 'bg-primary/10 shadow-md ring-2 ring-primary'
-              : 'bg-card shadow-sm hover:shadow-md hover:-translate-y-0.5'}"
+              ? 'bg-primary/10 shadow-md ring-2 ring-primary border border-primary/30'
+              : 'bg-card border border-border/50 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-primary/50'}"
           on:click={() => handleFontChange(font.id)}
         >
           <div class="text-xl leading-snug" style="font-family: {font.family}">{font.preview}</div>
@@ -213,22 +224,26 @@
     <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
       <Database size={12} aria-hidden="true" /> Data Management
     </h2>
-    <div class="flex flex-col gap-3.5">
+    <div class="flex flex-col gap-3">
       <button
-        class="flex items-center gap-4 w-full px-5 py-5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md active:scale-[0.98] cursor-pointer group"
+        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
         on:click={handleExport}
       >
-        <Download size={20} class="text-primary flex-shrink-0" aria-hidden="true" />
+        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+          <Download size={20} class="text-primary" aria-hidden="true" />
+        </div>
         <div class="flex-1 min-w-0">
           <strong class="text-sm block">Export Progress</strong>
           <span class="text-xs text-muted-foreground">Download as JSON</span>
         </div>
       </button>
       <button
-        class="flex items-center gap-4 w-full px-5 py-5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md active:scale-[0.98] cursor-pointer group"
+        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
         on:click={handleImportClick}
       >
-        <Upload size={20} class="text-primary flex-shrink-0" aria-hidden="true" />
+        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+          <Upload size={20} class="text-primary" aria-hidden="true" />
+        </div>
         <div class="flex-1 min-w-0">
           <strong class="text-sm block">Import Progress</strong>
           <span class="text-xs text-muted-foreground">Restore from file</span>
@@ -236,10 +251,12 @@
       </button>
       <input type="file" accept=".json" bind:this={fileInput} on:change={handleFileChange} class="hidden" />
       <button
-        class="flex items-center gap-4 w-full px-5 py-5 bg-card rounded-xl shadow-sm text-left transition-all hover:shadow-md active:scale-[0.98] cursor-pointer group"
+        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-destructive/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
         on:click={() => showClearConfirm = true}
       >
-        <Trash2 size={20} class="text-destructive flex-shrink-0" aria-hidden="true" />
+        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-destructive/10 flex items-center justify-center group-hover:bg-destructive/20 transition-colors">
+          <Trash2 size={20} class="text-destructive" aria-hidden="true" />
+        </div>
         <div class="flex-1 min-w-0">
           <strong class="text-sm block text-destructive">Clear All Progress</strong>
           <span class="text-xs text-muted-foreground">Delete permanently</span>
@@ -247,6 +264,7 @@
       </button>
     </div>
   </section>
+  </div>
 </div>
 
 <ConfirmDialog
