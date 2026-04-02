@@ -74,6 +74,15 @@
               <div class="h-full bg-white rounded-full transition-all duration-700" style="width: {mastery}%"></div>
             </div>
           </div>
+          <!-- Motivation row -->
+          <div class="flex items-center gap-2 mt-3 flex-wrap">
+            <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/90 backdrop-blur-sm">
+              🔥 0 ngày streak
+            </span>
+            <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/90 backdrop-blur-sm">
+              ⭐ +50 XP khi hoàn thành
+            </span>
+          </div>
         </div>
       </div>
     </div>

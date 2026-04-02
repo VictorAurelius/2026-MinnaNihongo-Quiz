@@ -107,21 +107,26 @@
       <section class="mb-6 px-4">
         <a
           href="{base}/course/{firstCourse.metadata.id}/lesson/{nextL}"
-          class="block w-full p-5 bg-primary/10 border border-primary/20 rounded-xl no-underline transition-all hover:bg-primary/15 hover:shadow-md active:scale-[0.98] cursor-pointer"
+          class="group block w-full p-5 bg-primary/10 border border-primary/20 rounded-2xl no-underline transition-all hover:bg-primary/15 hover:shadow-md active:scale-[0.98] cursor-pointer"
         >
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Tiếp tục học</p>
-              <p class="text-sm font-bold text-foreground">{firstCourse.metadata.title} — Bài {nextL}</p>
-              <p class="text-xs text-muted-foreground mt-0.5">{progress.completed}/{progress.total} bài đã hoàn thành</p>
+          <div class="flex items-center gap-4">
+            <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+              <ArrowRight size={20} class="text-primary" aria-hidden="true" />
             </div>
-            <ArrowRight size={20} class="text-primary flex-shrink-0" aria-hidden="true" />
+            <div class="flex-1 min-w-0">
+              <p class="text-xs font-semibold text-primary uppercase tracking-wider mb-0.5">Tiếp tục học</p>
+              <p class="text-sm font-bold text-foreground">{firstCourse.metadata.title} — Bài {nextL}</p>
+              <div class="flex items-center gap-3 mt-1">
+                <span class="text-xs text-muted-foreground">{progress.completed}/{progress.total} bài</span>
+                <span class="text-xs text-muted-foreground">🔥 0 ngày</span>
+              </div>
+            </div>
           </div>
         </a>
       </section>
     {:else}
       <section class="mb-6 px-4">
-        <div class="p-5 bg-card border border-border rounded-xl text-center">
+        <div class="p-5 bg-card border border-border/50 rounded-2xl text-center">
           <p class="text-sm font-bold text-foreground mb-1">Chào mừng! 👋</p>
           <p class="text-xs text-muted-foreground leading-relaxed">Chọn khóa học bên dưới → Chọn bài → Bắt đầu quiz. Gợi ý: bắt đầu từ Minna no Nihongo N5.</p>
         </div>
