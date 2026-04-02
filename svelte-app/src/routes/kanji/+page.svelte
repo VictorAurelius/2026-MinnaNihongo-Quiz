@@ -102,8 +102,9 @@
             </div>
             <div class="flex-1 min-w-0">
               <h3 class="text-sm font-semibold text-foreground leading-snug" style="font-family: var(--font-jp)">{lesson.title}</h3>
-              <span class="text-xs text-muted-foreground">{lesson.kanjiCount} kanji</span>
+              <span class="text-xs text-muted-foreground" style="font-family: var(--font-jp)">{lesson.preview}</span>
             </div>
+            <span class="px-2 py-0.5 rounded-lg bg-muted text-xs text-muted-foreground font-medium flex-shrink-0">{lesson.kanjiCount} chữ</span>
             <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
           </a>
         {/each}
