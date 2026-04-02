@@ -48,7 +48,7 @@
     <!-- Lesson Header -->
     <div
       class="relative text-white pt-3 pb-6 px-4 overflow-hidden"
-      style="background: linear-gradient(135deg, color-mix(in srgb, {course.metadata.color} 60%, hsl(262 60% 40%)), var(--color-primary))"
+      style="background: linear-gradient(135deg, color-mix(in srgb, {course.metadata.color} 30%, hsl(245 58% 35%)), hsl(262 60% 45%))"
     >
       <!-- Decorative orbs -->
       <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>

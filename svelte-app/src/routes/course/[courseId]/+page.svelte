@@ -59,7 +59,7 @@
     <!-- Course Header — left-aligned -->
     <div
       class="relative text-white pt-3 pb-6 px-4 overflow-hidden"
-      style="background: linear-gradient(135deg, {course.metadata.color}, var(--color-primary))"
+      style="background: linear-gradient(135deg, color-mix(in srgb, {course.metadata.color} 30%, hsl(245 58% 35%)), hsl(262 60% 45%))"
     >
       <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
       <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-xl pointer-events-none"></div>
