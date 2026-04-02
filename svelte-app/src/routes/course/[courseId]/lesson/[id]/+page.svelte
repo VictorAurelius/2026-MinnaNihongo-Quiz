@@ -76,10 +76,10 @@
           </div>
           <!-- Motivation row -->
           <div class="flex items-center gap-2 mt-3 flex-wrap">
-            <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/80 backdrop-blur-sm">
+            <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/80 backdrop-blur-sm" aria-label="0 ngày streak liên tiếp">
               ✨ Bắt đầu streak hôm nay!
             </span>
-            <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/90 backdrop-blur-sm">
+            <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/90 backdrop-blur-sm" aria-label="Nhận 50 XP khi hoàn thành bài">
               ⭐ +50 XP khi hoàn thành
             </span>
           </div>
