@@ -129,12 +129,12 @@ Per-screen target: mỗi screen ≥ 3/4 trên tất cả dimensions = consistent
 
 | PR | Focus | Target Screens | Score Impact | Effort |
 |----|-------|---------------|-------------|--------|
-| PR 1 | Kanji + HSK redesign | Kanji, HSK | +13 each | Medium |
-| PR 2 | Course Detail polish | Course Detail | +9 | Medium |
-| PR 3 | Home restructure | Home | +6 | Medium |
-| PR 4 | Settings + consistency | Settings, All | +4 | Small |
-| PR 5 | WCAG hardening | All | +5 | Small-Med |
-| PR 6 | Delight features | All | +5 | Med-Large |
+| PR 1 | Kanji + HSK redesign | Kanji, HSK | +13 each | ✅ #112 |
+| PR 2 | Course Detail polish | Course Detail | +9 | ✅ #114 |
+| PR 3 | Home restructure | Home | +6 | ✅ #116 |
+| PR 4 | Settings + consistency | Settings, All | +4 | ✅ #113 |
+| PR 5 | WCAG hardening | All | +5 | ✅ #115 |
+| PR 6 | Delight features | All | +5 | ✅ #117 |
 | **Total** | | | **+26 (82→108)** | |
 
 ### Recommended Order (impact per effort)
