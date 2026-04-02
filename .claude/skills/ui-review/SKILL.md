@@ -48,39 +48,44 @@ Do NOT wait for user to say "audit" — do it automatically.
 
 ### 1. Capture screenshots
 
-Screenshots organized in labeled folders: `screenshots/{label}/`
+Screenshots organized in labeled folders with per-screen subfolders:
 
-**Before fixing** (capture current state):
+```
+screenshots/{label}/{page}/{theme}-{viewport}.png
+
+Example:
+  screenshots/after-pr-123/lesson-menu/dark-mobile.png
+  screenshots/before-pr-123/home/light-desktop.png
+```
+
+**Commands:**
 ```bash
+# Before fix
 cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts --label before-pr-XXX
-```
 
-**After fixing** (capture result):
-```bash
+# After fix
 cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts --label after-pr-XXX
-```
 
-**Latest** (default, overwritten each run):
-```bash
+# Latest (default, overwritten)
 cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts
-```
 
-**Production** (after deploy):
-```bash
+# Production
 cd svelte-app && BASE_URL=https://victoraurelius.github.io/2026-Smart-Quiz npx tsx scripts/capture-screenshots.ts --label prod
 ```
 
-All output to `documents/04-quality/screenshots/{label}/` (gitignored).
+**Note:** Node 18+ required. If default node is 16, prefix: `PATH="/c/Program Files/nodejs:$PATH"`
 
-**Fallback:** User pastes screenshot → score from that. Note in report.
+All output gitignored. **Fallback:** User pastes screenshot → score from that.
 
-### Screenshot Workflow Rules
+### Screenshot Workflow Rules (MANDATORY)
 
 1. **Before starting UI fix**: capture `--label before-pr-XXX`
 2. **After fix merged**: capture `--label after-pr-XXX`
-3. **Compare before/after** visually in report
+3. **Compare before/after** per screen in report (open both folders side by side)
 4. **After deploy to main**: capture `--label prod`
-5. **`latest/`** is always the most recent capture (default)
+5. **`latest/`** is the most recent capture (default, no --label)
+6. **Browse per screen**: each page has its own subfolder (`home/`, `lesson-menu/`, etc.)
+7. **Read `{page}/dark-mobile.png`** as primary review target per screen
 
 ### 2. Score PER SCREEN (not averaged!)
 

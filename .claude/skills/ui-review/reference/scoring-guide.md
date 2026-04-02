@@ -2,15 +2,23 @@
 
 ## Screenshots to Review
 
-Read ALL dark-mobile files:
-- `documents/04-quality/screenshots/home-dark-mobile.png`
-- `documents/04-quality/screenshots/courses-dark-mobile.png`
-- `documents/04-quality/screenshots/course-detail-dark-mobile.png`
-- `documents/04-quality/screenshots/lesson-menu-dark-mobile.png`
-- `documents/04-quality/screenshots/kanji-dark-mobile.png`
-- `documents/04-quality/screenshots/hsk-dark-mobile.png`
-- `documents/04-quality/screenshots/settings-dark-mobile.png`
-- `documents/04-quality/screenshots/vocabulary-dark-mobile.png`
+Read `dark-mobile.png` from each screen subfolder (use latest label or specific label):
+
+```
+documents/04-quality/screenshots/{label}/
+├── home/dark-mobile.png
+├── courses/dark-mobile.png
+├── course-detail/dark-mobile.png
+├── lesson-menu/dark-mobile.png
+├── kanji/dark-mobile.png
+├── hsk/dark-mobile.png
+├── settings/dark-mobile.png
+└── vocabulary/dark-mobile.png
+```
+
+For before/after comparison, read same screen from both labels:
+- `screenshots/before-pr-XXX/lesson-menu/dark-mobile.png`
+- `screenshots/after-pr-XXX/lesson-menu/dark-mobile.png`
 
 ---
 
