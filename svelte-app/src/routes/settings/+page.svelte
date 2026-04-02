@@ -17,8 +17,9 @@
   import { getAvailableFonts, getCurrentFont, setFont, initFont } from '$lib/utils/fontUtils';
   import ConfirmDialog from '$lib/components/common/ConfirmDialog.svelte';
   import { showToast } from '$lib/stores/toast';
-  import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import { Settings2, Type, BarChart3, Database, Download, Upload, Trash2 } from 'lucide-svelte';
+  import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
 
   const fonts = getAvailableFonts();
   let selectedFont = 'system';
@@ -103,110 +104,167 @@
   <title>Settings - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl p-4 animate-in">
+<div class="mx-auto max-w-xl animate-in">
+  <!-- Hero -->
+  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(220 30% 35%), var(--color-primary))">
+    <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
+    <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-xl pointer-events-none"></div>
+    <div class="relative z-10">
+      <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm">Settings</h1>
+      <p class="text-sm font-medium text-white/80 mt-1">Tùy chỉnh trải nghiệm học</p>
+    </div>
+  </div>
+
+  <div class="px-4 py-5 flex flex-col gap-8">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Settings' }
+    ]} />
+
   <!-- Quiz Settings -->
-  <Card class="mb-3">
-    <CardHeader class="pb-2"><CardTitle class="text-sm">Quiz Settings</CardTitle></CardHeader>
-    <CardContent>
-      <div class="flex items-center justify-between py-2.5 border-b border-border">
-        <label for="direction" class="text-sm font-medium">Default Direction</label>
+  <section>
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+      <Settings2 size={12} aria-hidden="true" /> Quiz Settings
+    </h2>
+    <div class="bg-card rounded-2xl shadow-sm overflow-hidden border border-border/50">
+      <div class="flex items-center justify-between px-5 py-5">
+        <div>
+          <label for="direction" class="text-sm font-medium block">Default Direction</label>
+          <span class="text-[0.65rem] text-muted-foreground">Hướng mặc định khi bắt đầu quiz</span>
+        </div>
         <select
           id="direction"
           value={settings.defaultDirection}
           on:change={handleDirectionChange}
-          class="px-2.5 py-1.5 border border-border rounded-md bg-background text-foreground text-sm"
+          class="px-3 py-1.5 rounded-lg bg-muted text-foreground text-sm font-medium border-0 cursor-pointer"
         >
           {#each directions as d}
             <option value={d.value}>{d.label}</option>
           {/each}
         </select>
       </div>
-      <div class="flex items-center justify-between py-2.5 border-b border-border">
-        <label for="autoPlay" class="text-sm font-medium">Auto-speak on new card</label>
-        <input id="autoPlay" type="checkbox" checked={settings.autoPlay} on:change={handleAutoPlayChange}
-          class="w-5 h-5 accent-primary" />
+      <div class="h-px bg-border/50 mx-5"></div>
+      <div class="flex items-center justify-between px-5 py-5">
+        <div>
+          <label for="autoPlay" class="text-sm font-medium block">Auto-speak on new card</label>
+          <span class="text-[0.65rem] text-muted-foreground">Tự động phát âm khi lật thẻ mới</span>
+        </div>
+        <label for="autoPlay" class="min-w-11 min-h-11 flex items-center justify-center cursor-pointer">
+          <input id="autoPlay" type="checkbox" checked={settings.autoPlay} on:change={handleAutoPlayChange}
+            class="w-5 h-5 accent-primary cursor-pointer" />
+        </label>
       </div>
-      <div class="flex items-center justify-between py-2.5">
-        <label for="showEnglish" class="text-sm font-medium">Show English translations</label>
-        <input id="showEnglish" type="checkbox" checked={settings.showEnglish} on:change={handleShowEnglishChange}
-          class="w-5 h-5 accent-primary" />
+      <div class="h-px bg-border/50 mx-5"></div>
+      <div class="flex items-center justify-between px-5 py-5">
+        <div>
+          <label for="showEnglish" class="text-sm font-medium block">Show English translations</label>
+          <span class="text-[0.65rem] text-muted-foreground">Hiển thị nghĩa tiếng Anh bên cạnh tiếng Việt</span>
+        </div>
+        <label for="showEnglish" class="min-w-11 min-h-11 flex items-center justify-center cursor-pointer">
+          <input id="showEnglish" type="checkbox" checked={settings.showEnglish} on:change={handleShowEnglishChange}
+            class="w-5 h-5 accent-primary cursor-pointer" />
+        </label>
       </div>
-    </CardContent>
-  </Card>
+    </div>
+  </section>
 
   <!-- Font Settings -->
-  <Card class="mb-3">
-    <CardHeader class="pb-2"><CardTitle class="text-sm">Japanese Font</CardTitle></CardHeader>
-    <CardContent>
-      <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-label="Font selection">
-        {#each fonts as font}
-          <button
-            role="radio"
-            aria-checked={selectedFont === font.id}
-            class="flex flex-col items-center gap-1.5 p-3.5 rounded-xl border-2 cursor-pointer transition-all text-center
-              {selectedFont === font.id
-                ? 'border-primary bg-primary/5'
-                : 'border-border bg-muted hover:border-primary'}"
-            on:click={() => handleFontChange(font.id)}
-          >
-            <div class="text-xl leading-snug" style="font-family: {font.family}">{font.preview}</div>
-            <div class="text-xs font-semibold">{font.name}</div>
-            <div class="text-[0.65rem] text-muted-foreground">{font.nameJa}</div>
-          </button>
-        {/each}
-      </div>
-    </CardContent>
-  </Card>
+  <section>
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+      <Type size={12} aria-hidden="true" /> Japanese Font
+    </h2>
+    <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-label="Font selection">
+      {#each fonts as font}
+        <button
+          role="radio"
+          aria-checked={selectedFont === font.id}
+          class="flex flex-col items-center gap-2 p-5 rounded-2xl cursor-pointer transition-all text-center active:scale-[0.97]
+            {selectedFont === font.id
+              ? 'bg-primary/10 shadow-md ring-2 ring-primary border border-primary/30'
+              : 'bg-card border border-border/50 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-primary/50'}"
+          on:click={() => handleFontChange(font.id)}
+        >
+          <div class="text-xl leading-snug" style="font-family: {font.family}">{font.preview}</div>
+          <div class="text-xs font-semibold">{font.name}</div>
+          <div class="text-[0.65rem] text-muted-foreground">{font.nameJa}</div>
+        </button>
+      {/each}
+    </div>
+  </section>
 
   <!-- Progress Summary -->
-  <Card class="mb-3">
-    <CardHeader class="pb-2"><CardTitle class="text-sm">Progress Summary</CardTitle></CardHeader>
-    <CardContent>
+  <section>
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+      <BarChart3 size={12} aria-hidden="true" /> Progress Summary
+    </h2>
+    {#if lessonCount === 0 && totalItems === 0 && hskCount === 0}
+      <div class="p-5 bg-card border border-border/50 rounded-2xl text-center">
+        <p class="text-sm text-muted-foreground">Bắt đầu học để xem tiến trình tại đây!</p>
+      </div>
+    {:else}
       <div class="grid grid-cols-3 gap-3">
-        <div class="flex flex-col items-center gap-0.5 p-3 bg-muted rounded-lg">
+        <div class="flex flex-col items-center gap-1 p-5 bg-card border border-border/50 rounded-2xl shadow-sm">
           <span class="text-2xl font-bold text-primary">{lessonCount}</span>
           <span class="text-[0.7rem] text-muted-foreground text-center">Lessons studied</span>
         </div>
-        <div class="flex flex-col items-center gap-0.5 p-3 bg-muted rounded-lg">
+        <div class="flex flex-col items-center gap-1 p-5 bg-card border border-border/50 rounded-2xl shadow-sm">
           <span class="text-2xl font-bold text-primary">{totalItems}</span>
           <span class="text-[0.7rem] text-muted-foreground text-center">Words practiced</span>
         </div>
-        <div class="flex flex-col items-center gap-0.5 p-3 bg-muted rounded-lg">
+        <div class="flex flex-col items-center gap-1 p-5 bg-card border border-border/50 rounded-2xl shadow-sm">
           <span class="text-2xl font-bold text-primary">{hskCount}</span>
           <span class="text-[0.7rem] text-muted-foreground text-center">HSK groups</span>
         </div>
       </div>
-    </CardContent>
-  </Card>
+    {/if}
+  </section>
 
   <!-- Data Management -->
-  <Card class="mb-3">
-    <CardHeader class="pb-2"><CardTitle class="text-sm">Data Management</CardTitle></CardHeader>
-    <CardContent>
-      <div class="flex items-center justify-between gap-3 py-3 border-b border-border">
-        <div class="min-w-0">
+  <section>
+    <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-6 flex items-center gap-1.5">
+      <Database size={12} aria-hidden="true" /> Data Management
+    </h2>
+    <div class="flex flex-col gap-3">
+      <button
+        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
+        on:click={handleExport}
+      >
+        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+          <Download size={20} class="text-primary" aria-hidden="true" />
+        </div>
+        <div class="flex-1 min-w-0">
           <strong class="text-sm block">Export Progress</strong>
           <span class="text-xs text-muted-foreground">Download as JSON</span>
         </div>
-        <div class="flex-shrink-0"><UiButton size="sm" onclick={handleExport}>Export</UiButton></div>
-      </div>
-      <div class="flex items-center justify-between gap-3 py-3 border-b border-border">
-        <div class="min-w-0">
+      </button>
+      <button
+        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
+        on:click={handleImportClick}
+      >
+        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+          <Upload size={20} class="text-primary" aria-hidden="true" />
+        </div>
+        <div class="flex-1 min-w-0">
           <strong class="text-sm block">Import Progress</strong>
           <span class="text-xs text-muted-foreground">Restore from file</span>
         </div>
-        <div class="flex-shrink-0"><UiButton variant="secondary" size="sm" onclick={handleImportClick}>Import</UiButton></div>
-        <input type="file" accept=".json" bind:this={fileInput} on:change={handleFileChange} class="hidden" />
-      </div>
-      <div class="flex items-center justify-between gap-3 py-3 mt-2">
-        <div class="min-w-0">
+      </button>
+      <input type="file" accept=".json" bind:this={fileInput} on:change={handleFileChange} class="hidden" />
+      <button
+        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-destructive/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
+        on:click={() => showClearConfirm = true}
+      >
+        <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-destructive/10 flex items-center justify-center group-hover:bg-destructive/20 transition-colors">
+          <Trash2 size={20} class="text-destructive" aria-hidden="true" />
+        </div>
+        <div class="flex-1 min-w-0">
           <strong class="text-sm block text-destructive">Clear All Progress</strong>
           <span class="text-xs text-muted-foreground">Delete permanently</span>
         </div>
-        <div class="flex-shrink-0"><UiButton variant="destructive" size="sm" onclick={() => showClearConfirm = true}>Clear</UiButton></div>
-      </div>
-    </CardContent>
-  </Card>
+      </button>
+    </div>
+  </section>
+  </div>
 </div>
 
 <ConfirmDialog

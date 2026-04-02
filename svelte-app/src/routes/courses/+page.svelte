@@ -1,12 +1,14 @@
 <script lang="ts">
   /**
-   * Course Selection Page — compact horizontal cards
+   * Course Selection Page
    */
 
   import { base } from '$app/paths';
   import { getAllCourses } from '$lib/data/courses';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
+  import { ChevronRight } from 'lucide-svelte';
+  import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
 
   const courses = getAllCourses();
 </script>
@@ -15,35 +17,48 @@
   <title>Courses - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-2xl p-4 animate-in">
-  <div class="text-center mb-6">
-    <h1 class="text-2xl font-bold text-foreground mb-1">Japanese Courses</h1>
-    <p class="text-muted-foreground text-sm">Select a course to begin studying</p>
+<div class="mx-auto max-w-2xl animate-in">
+  <!-- Hero -->
+  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(262 60% 45%), var(--color-primary))">
+    <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
+    <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-xl pointer-events-none"></div>
+    <div class="relative z-10">
+      <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm">Japanese Courses</h1>
+      <p class="text-sm font-medium text-white/80 mt-1">Chọn khóa học để bắt đầu</p>
+    </div>
   </div>
 
-  {#if courses.length === 0}
-    <PageEmpty title="No courses available" description="Please check back later." />
-  {/if}
+  <div class="px-4 py-5 flex flex-col gap-5">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Courses' }
+    ]} />
 
-  <div class="flex flex-col gap-3">
-    {#each courses as course}
-      <a
-        href="{base}/course/{course.metadata.id}"
-        class="flex items-center gap-4 w-full p-4 bg-card border border-border rounded-xl text-left no-underline transition-all duration-200 hover:border-primary hover:-translate-y-0.5 hover:shadow-lg cursor-pointer group relative overflow-hidden"
-      >
-        <!-- Color accent -->
-        <div class="absolute left-0 inset-y-0 w-1 rounded-l-xl" style="background: {course.metadata.color}"></div>
+    {#if courses.length === 0}
+      <PageEmpty title="No courses available" description="Please check back later." />
+    {/if}
 
-        <span class="text-3xl pl-2 flex-shrink-0">{course.metadata.icon}</span>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2 mb-0.5">
-            <h2 class="text-base font-bold text-foreground">{course.metadata.title}</h2>
-            <Badge class="text-[0.6rem] px-1.5 py-0" style="background: {course.metadata.color}; color: white">{course.metadata.level}</Badge>
+    <div class="flex flex-col gap-3">
+      {#each courses as course, i}
+        <a
+          href="{base}/course/{course.metadata.id}"
+          class="stagger-item group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary/50 hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent/30 active:scale-[0.98] cursor-pointer relative overflow-hidden"
+          style="animation-delay: {i * 50}ms"
+        >
+          <div class="absolute left-0 inset-y-0 w-1 rounded-l-2xl" style="background: {course.metadata.color}"></div>
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-2xl" style="background: {course.metadata.color}20">
+            {course.metadata.icon}
           </div>
-          <p class="text-xs text-muted-foreground leading-snug">{course.metadata.description}</p>
-        </div>
-        <span class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform">→</span>
-      </a>
-    {/each}
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <h2 class="text-sm font-bold text-foreground">{course.metadata.title}</h2>
+              <Badge class="text-[0.55rem] px-1.5 py-0" style="background: {course.metadata.color}; color: white">{course.metadata.level}</Badge>
+            </div>
+            <p class="text-xs text-muted-foreground leading-snug">{course.metadata.description}</p>
+          </div>
+          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform" aria-hidden="true" />
+        </a>
+      {/each}
+    </div>
   </div>
 </div>

@@ -7,6 +7,45 @@ Quản lý theo Semantic Versioning: `MAJOR.MINOR.PATCH`
 
 ---
 
+## [2.0.0] — 2026-03-30
+
+### BREAKING — Root directory restructured
+- **Scripts** moved: `*.sh` → `bin/` (init-project, upgrade-project, install-remote, contribute, publish, test-kit)
+- **Docs** moved: `INSTALL.md`, `GETTING-STARTED.md`, `CONTRIBUTING.md`, `EXTRACTION-GUIDE.md` → `docs/`
+- Root reduced from 14 files → 4 (README, VERSION, CHANGELOG, kit-manifest.yml)
+- All cross-references updated in docs and README
+
+### Migration
+Replace `./init-project.sh` → `./bin/init-project.sh`, etc.
+Replace `/tmp/kit/init-project.sh` → `/tmp/kit/bin/init-project.sh` in install commands.
+
+## [1.5.0] — 2026-03-30
+
+### Added
+- Full sync with remote repo `VictorAurelius/claude-starter-kit`
+- Pulled from remote: `INSTALL.md`, `GETTING-STARTED.md`, `CONTRIBUTING.md`, `EXTRACTION-GUIDE.md`, `install-remote.sh`, `publish.sh`, `kit-manifest.yml`, `.claude-plugin/` (plugin.json, marketplace.json), `skills/reference/ui-template-guide.md`
+- Remote repo sync rules in `rules/skill-conventions.md`
+
+### Changed
+- VERSION/CHANGELOG/README fully synced (were diverged: remote=1.3.0, local=1.4.0)
+
+## [1.4.0] — 2026-03-30
+
+### Added
+- `rules/skill-conventions.md` — How to write skills following Anthropic internal best practices
+  - 9 principles: folder-based, progressive disclosure, trigger descriptions, gotchas > generic, etc.
+  - Anthropic's 9 skill categories reference
+  - Quick checklist for new skills
+- `templates/skill-folder/` — Template for folder-based skills
+  - `SKILL.md` template with trigger description, gotchas, skill contents
+  - `reference/detail.md` template for on-demand loading
+
+### Changed
+- `skills/core/tdd-enforcement.md` — Slimmed from 120 lines generic methodology to gotchas template with `{project}` placeholders
+- `skills/core/brainstorming-methodology.md` — Replaced with decision log template + when-mandatory rules
+- `skills/core/systematic-debugging.md` — Replaced with common bugs template + debug workflow
+- All core skills now follow "don't teach Claude what it knows" principle
+
 ## [1.3.1] — 2026-03-26
 
 ### Changed

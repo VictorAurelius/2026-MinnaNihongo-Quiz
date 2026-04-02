@@ -72,37 +72,37 @@
     {/if}
   </div>
 
-  <div class="flex items-center gap-1">
+  <div class="flex items-center gap-0.5">
     {#if !isHome}
       <button
-        class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors"
+        class="icon-btn w-11 h-11 flex items-center justify-center rounded-lg hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
         on:click={goHome}
         aria-label="Go to home"
         title="Home"
       >
-        <Home size={18} aria-hidden="true" />
+        <Home size={20} aria-hidden="true" />
       </button>
     {/if}
 
     <a
       href="{base}/settings"
-      class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors no-underline"
+      class="icon-btn w-11 h-11 flex items-center justify-center rounded-lg hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none no-underline"
       aria-label="Settings"
       title="Settings"
     >
-      <Settings size={18} aria-hidden="true" />
+      <Settings size={20} aria-hidden="true" />
     </a>
 
     <button
-      class="icon-btn w-9 h-9 flex items-center justify-center rounded-lg hover:bg-muted transition-colors"
+      class="icon-btn w-11 h-11 flex items-center justify-center rounded-lg hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
       on:click={toggleDarkMode}
       aria-label="Toggle dark mode"
       title="Toggle dark mode"
     >
       {#if $uiStore.darkMode}
-        <Sun size={18} aria-hidden="true" />
+        <Sun size={20} aria-hidden="true" />
       {:else}
-        <Moon size={18} aria-hidden="true" />
+        <Moon size={20} aria-hidden="true" />
       {/if}
     </button>
   </div>
@@ -110,7 +110,7 @@
 
 <!-- Bottom navigation on home page — scrollable on mobile -->
 {#if isHome}
-  <nav class="flex justify-center gap-1.5 px-3 py-2 bg-card border-b border-border overflow-x-auto scrollbar-hide flex-wrap">
+  <nav class="flex gap-1.5 px-3 py-2 bg-card border-b border-border overflow-x-auto scrollbar-hide flex-nowrap" aria-label="Quick navigation">
     {#each [
       { href: `${base}/courses`, label: 'Courses', jp: false, text: '' },
       { href: `${base}/kanji`, label: 'Kanji', jp: true, text: '漢' },
@@ -123,7 +123,7 @@
     ] as link, i}
       <a
         href={link.href}
-        class="inline-flex items-center gap-1 px-2 py-1.5 text-[0.7rem] font-semibold text-muted-foreground no-underline border border-border rounded-full hover:text-primary hover:border-primary hover:bg-muted transition-colors whitespace-nowrap flex-shrink-0"
+        class="inline-flex items-center gap-1.5 min-h-11 px-3 py-2 text-xs font-semibold text-muted-foreground no-underline border border-border/50 rounded-full hover:text-primary hover:border-primary hover:bg-muted transition-colors whitespace-nowrap flex-shrink-0"
       >
         {#if link.text}
           <span class="text-xs" style={link.jp ? 'font-family: var(--font-jp)' : ''}>{link.text}</span>

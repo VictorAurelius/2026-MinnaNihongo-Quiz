@@ -1,6 +1,6 @@
 ---
 name: continue
-description: Xác định action ưu tiên nhất từ project plans và thực hiện cho Smart Quiz
+description: "Use when user says 'continue', 'tiếp tục', 'next task', 'what should I do next', or just sends an empty message. Reads project plans, finds highest-priority unfinished task, reports scope, then implements it."
 user-invocable: true
 argument-hint: "[optional context]"
 ---
@@ -63,7 +63,7 @@ Context bổ sung từ user: $ARGUMENTS
 - `git push -u origin <branch>`
 - `gh pr create --base v4-dev` với Summary + Test plan
 - KHÔNG merge — chờ user approve
-- Sau wave complete: merge `v4-dev` → `main` (audit + regression pass)
+- Sau wave complete: chạy `/quality-audit` — phải ≥ 95/100 trước khi merge `v4-dev` → `main`
 
 ## Step 4: Update Documents
 Sau khi PR tạo xong:

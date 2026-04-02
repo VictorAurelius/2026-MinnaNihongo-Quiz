@@ -1,0 +1,16 @@
+{
+  "name": "claude-starter-kit",
+  "version": "1.1.1",
+  "description": "Personal development workflow kit — skills, scripts, templates, and best practices for Claude Code projects",
+  "author": "VictorAurelius",
+  "license": "MIT",
+  "skills": [
+    "skills/core/*.md",
+    "skills/workflow/*.md",
+    "skills/quality/*.md",
+    "skills/reference/*.md"
+  ],
+  "commands": [],
+  "hooks": [],
+  "agents": []
+}

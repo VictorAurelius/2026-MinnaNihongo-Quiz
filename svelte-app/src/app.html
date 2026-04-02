@@ -33,6 +33,12 @@
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">
+    <script>
+      try {
+        var s = JSON.parse(localStorage.getItem('ui-store') || '{}');
+        if (s.darkMode) document.documentElement.classList.add('dark');
+      } catch(e) {}
+    </script>
     <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>
