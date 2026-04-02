@@ -1,16 +1,18 @@
 ---
 name: verify-deploy
-description: "Use when user says 'check deploy', 'verify production', 'site working?', 'kiểm tra deploy', or after merging v4-dev → main. Fetches live pages, checks HTTP status, verifies key content renders, reports PASS/FAIL per page."
+description: "Use when user says 'check deploy', 'verify production', 'screenshot production', 'site working?', 'kiểm tra deploy', or after merging v4-dev → main. Checks CI, fetches pages, captures production screenshots, reports PASS/FAIL."
 user-invocable: true
 ---
 
 # Verify Deploy
 
-Checks production site after deploy. Fetches live pages, verifies content.
+Checks production site + captures screenshots after deploy.
 
 ## Skill Contents
 
-- `reference/pages.md` — List of pages to check with expected content
+- `reference/pages.md` — Pages to check with expected content
+- `reference/screenshot-prod.md` — Production screenshot capture guide
+- Screenshot script: `svelte-app/scripts/capture-prod-screenshots.ts`
 
 ## Process
 
@@ -20,33 +22,37 @@ gh run list --limit 3 --json status,conclusion,headBranch
 ```
 Verify latest main run = `completed` + `success`.
 
-### 2. Fetch each production page
-
+### 2. Fetch production pages (WebFetch)
 Base URL: `https://victoraurelius.github.io/2026-Smart-Quiz`
+- Verify HTML loads, title contains "Smart Quiz"
+- Verify no `%sveltekit.body%` placeholder (build succeeded)
+- Verify `/_app/` asset references present
 
-For each page, use WebFetch to:
-- Verify page loads (not 404)
-- Check key content exists (title, heading, specific text)
+### 3. Capture production screenshots
+```bash
+cd svelte-app && npx tsx scripts/capture-prod-screenshots.ts
+```
+Saves to `documents/04-quality/screenshots-prod/` (gitignored).
+7 pages × 2 themes × 2 viewports = 28 screenshots.
 
-### 3. Output report
+### 4. Visual review
+Read key screenshots to verify UI renders correctly on live site:
+- `documents/04-quality/screenshots-prod/home-dark-mobile.png`
+- `documents/04-quality/screenshots-prod/lesson-menu-dark-mobile.png`
 
+### 5. Output report
 ```
 === DEPLOY VERIFICATION ===
-CI: ✅ PASS (run #X, completed success)
-
-| Page | URL | Status | Key Content |
-|------|-----|--------|-------------|
-| Home | /2026-Smart-Quiz/ | ✅/❌ | "Learn 日本語" found |
-| Courses | /2026-Smart-Quiz/courses | ✅/❌ | "Japanese Courses" found |
-| ...  | ... | ... | ... |
-
-Result: X/Y pages OK
+CI: ✅/❌
+HTML: ✅/❌ (title, assets, no placeholder)
+Screenshots: ✅/❌ (X/28 captured)
+Visual: ✅/❌ (key pages render correctly)
 ```
 
 ## Gotchas
 
-- GitHub Pages may take 1-2 minutes after CI completes to update
-- SPA routing: all pages serve index.html, content renders client-side
-- WebFetch may not execute JavaScript — check for SSR content or meta tags
-- 404.html = copy of index.html (SPA fallback) — a "200" doesn't mean page works
-- Check `<title>` tag as minimum proof the build includes the page
+- GitHub Pages may take 1-2 min after CI to update
+- SPA: all routes serve index.html, content renders client-side
+- Production uses `networkidle` wait (slower than dev `domcontentloaded`)
+- Screenshots-prod are gitignored — local only
+- First load on prod slower — script uses 30s timeout + 1.5s settle
