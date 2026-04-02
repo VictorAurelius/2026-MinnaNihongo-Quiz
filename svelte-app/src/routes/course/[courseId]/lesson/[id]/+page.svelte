@@ -10,7 +10,6 @@
   import { getCourse } from '$lib/data/courses';
   import { buildQuizUrl, buildVocabularyUrl, buildGrammarUrl } from '$lib/utils/courseUtils';
   import Badge from '$lib/components/ui/badge/badge.svelte';
-  import BackButton from '$lib/components/common/BackButton.svelte';
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import { RefreshCw, PenLine, Layers, CheckCircle, Keyboard, BookOpen, Book, ChevronRight } from 'lucide-svelte';
@@ -55,9 +54,6 @@
       <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-xl pointer-events-none"></div>
 
       <div class="relative z-10">
-        <div class="mb-3">
-          <BackButton href={`/course/${courseId}`} variant="overlay" />
-        </div>
         <div>
           <Badge class="bg-white/20 text-white border-0 mb-2 backdrop-blur-sm">Bài {lesson.lessonNumber}</Badge>
           <h1 class="text-[22px] font-extrabold leading-tight tracking-tight drop-shadow-sm" style="font-family: var(--font-jp)">{lesson.title}</h1>
