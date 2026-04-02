@@ -136,7 +136,8 @@
 
   <!-- Courses — show top 2, link to all -->
   <section class="mb-6 px-4">
-    <h2 class="text-lg font-bold mb-3">Courses</h2>
+    <h2 class="text-lg font-bold mb-1">Courses</h2>
+    <p class="text-xs text-muted-foreground mb-3">Khóa học tiếng Nhật theo cấp độ JLPT</p>
     <div class="flex flex-col gap-3">
       {#each courseSections.slice(0, 2) as section}
         <a
@@ -160,13 +161,14 @@
     </div>
   </section>
 
-  <!-- Quiz Modes — moved above Reference for visibility -->
-  <section class="mb-6 px-4">
-    <h2 class="text-lg font-bold mb-3">3 Quiz Modes</h2>
+  <!-- Quiz Modes — visually distinct section -->
+  <section class="mb-6 mx-4 p-5 bg-primary/5 border border-primary/10 rounded-2xl">
+    <h2 class="text-lg font-bold mb-1">3 Quiz Modes</h2>
+    <p class="text-xs text-muted-foreground mb-4">Chọn cách luyện tập phù hợp</p>
     <div class="grid grid-cols-3 gap-3">
       {#each quizModes as mode}
-        <div class="flex flex-col items-center gap-2 p-5 bg-card border border-border/50 rounded-2xl shadow-sm text-center">
-          <div class="w-11 h-11 flex items-center justify-center rounded-xl bg-primary/10">
+        <div class="flex flex-col items-center gap-2 p-4 bg-card/80 border border-border/30 rounded-2xl text-center backdrop-blur-sm">
+          <div class="w-11 h-11 flex items-center justify-center rounded-xl bg-primary/15">
             <svelte:component this={mode.component} size={22} class="text-primary" aria-hidden="true" />
           </div>
           <span class="text-xs font-bold">{mode.name}</span>
@@ -178,7 +180,8 @@
 
   <!-- Reference & Tools -->
   <section class="mb-8 px-4">
-    <h2 class="text-lg font-bold mb-3">Reference & Tools</h2>
+    <h2 class="text-lg font-bold mb-1">Reference & Tools</h2>
+    <p class="text-xs text-muted-foreground mb-3">Bảng chữ, ngữ pháp, từ điển</p>
     <div class="flex flex-col gap-3">
       {#each referenceSections as section}
         <a
