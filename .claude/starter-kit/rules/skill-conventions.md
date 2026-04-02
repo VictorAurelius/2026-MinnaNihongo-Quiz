@@ -212,3 +212,35 @@ Projects that use the kit (like Smart Quiz) have a **local copy** at `.claude/st
 - Remote repo has extra files (`docs/INSTALL.md`, `docs/GETTING-STARTED.md`, `.claude-plugin/`, `bin/install-remote.sh`) not in project copies — these are distribution files, don't delete them when syncing
 - Project copies may have project-specific customizations in `core/` skills — don't overwrite remote generic templates with project-specific content
 - Always compare file-by-file, not bulk copy
+
+## UI Audit Workflow (for frontend projects)
+
+Battle-tested workflow from 17 audit runs + 40 PRs. Use `skills/quality/ui-review/` skill + `scripts/capture-screenshots.ts`.
+
+### Workflow
+
+```
+BEFORE FIX:  capture --label before-pr-XXX
+FIX CODE:    PR → merge
+AFTER FIX:   capture --label after-pr-XXX (auto, don't wait for user)
+             visual verify → report delta
+DEPLOY:      capture --label prod → verify prod vs local
+```
+
+### Key rules (learned from real mistakes)
+
+1. **Auto-capture after EVERY frontend PR** — don't wait for user to ask (user had to remind 5+ times)
+2. **Always update `latest/` folder** — user browses this in IDE
+3. **Before screenshots are MANDATORY** — without them, can't prove fix improved anything
+4. **Score what you SEE, not what code says** — self-scoring was 35pts too generous vs external audit
+5. **"Has feature" = 2/4** — feature must work WELL + be consistent across ALL screens for 3/4
+6. **Per-screen scoring** — don't average away weak screens
+7. **Fix verification step 0** — check previous issues BEFORE scoring new version
+8. **Screenshots gitignored** — local only, never commit PNGs
+
+### Files provided
+
+| File | Purpose |
+|------|---------|
+| `skills/quality/ui-review/SKILL.md` | Portable audit skill (adapt pages + scoring) |
+| `scripts/capture-screenshots.ts` | Auto dev server + labeled folders + per-page subfolders |
