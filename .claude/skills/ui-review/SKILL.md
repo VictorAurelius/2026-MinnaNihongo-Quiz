@@ -57,26 +57,23 @@ Read `reference/fix-checklist.md`. If previous report exists:
 
 ### 1. Capture screenshots
 
-Screenshots organized in labeled folders with per-screen subfolders:
+Script auto-detects dev server, starts if needed. Also auto-updates `latest/` when using `--label`.
 
 ```
 screenshots/{label}/{page}/{theme}-{viewport}.png
-
-Example:
-  screenshots/after-pr-123/lesson-menu/dark-mobile.png
-  screenshots/before-pr-123/home/light-desktop.png
 ```
 
-**Commands:**
+**BEFORE any UI fix** (MANDATORY — no skipping):
 ```bash
-# Before fix
-cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts --label before-pr-XXX
+cd svelte-app && npx tsx scripts/capture-screenshots.ts --label before-pr-XXX
+```
 
-# After fix
-cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts --label after-pr-XXX
+**AFTER fix merged** (auto-run — do NOT wait for user):
+```bash
+cd svelte-app && npx tsx scripts/capture-screenshots.ts --label after-pr-XXX
+```
 
-# Latest (default, overwritten)
-cd svelte-app && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts
+Both commands also update `latest/` automatically.
 
 # Production
 cd svelte-app && BASE_URL=https://victoraurelius.github.io/2026-Smart-Quiz npx tsx scripts/capture-screenshots.ts --label prod
