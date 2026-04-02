@@ -76,7 +76,17 @@
 <div class="mx-auto max-w-md animate-in px-4">
   <Card>
     <CardHeader class="text-center pb-2">
-      <CardTitle class="text-xl">Quiz Complete!</CardTitle>
+      <CardTitle class="text-xl">
+        {#if stats.percentage === 100}
+          ⭐ Hoàn hảo!
+        {:else if stats.percentage >= 80}
+          🎉 Tuyệt vời!
+        {:else if stats.percentage >= 60}
+          💪 Tốt lắm!
+        {:else}
+          📚 Tiếp tục cố gắng!
+        {/if}
+      </CardTitle>
     </CardHeader>
     <CardContent class="flex flex-col items-center gap-4">
       <!-- Score Circle -->
@@ -124,16 +134,23 @@
       {/if}
 
       <!-- Feedback -->
-      <div class="w-full rounded-lg bg-muted p-3 text-center text-sm font-semibold text-primary">
+      <div class="w-full rounded-2xl bg-muted p-4 text-center text-sm font-semibold text-primary">
         {#if stats.percentage === 100}
-          <PartyPopper size={16} aria-hidden="true" /> Perfect score! Excellent work!
+          <PartyPopper size={16} aria-hidden="true" /> Điểm tuyệt đối! Xuất sắc!
         {:else if stats.percentage >= 80}
-          <ThumbsUp size={16} aria-hidden="true" /> Great job! Keep it up!
+          <ThumbsUp size={16} aria-hidden="true" /> Rất tốt! Tiếp tục nhé!
         {:else if stats.percentage >= 60}
-          <Zap size={16} aria-hidden="true" /> Good effort! Practice makes perfect.
+          <Zap size={16} aria-hidden="true" /> Khá tốt! Luyện thêm sẽ giỏi hơn.
         {:else}
-          <BookOpen size={16} aria-hidden="true" /> Keep practicing! You'll get better.
+          <BookOpen size={16} aria-hidden="true" /> Cố lên! Luyện tập sẽ tiến bộ.
         {/if}
+      </div>
+
+      <!-- XP Preview -->
+      <div class="flex items-center justify-center gap-4 text-xs text-muted-foreground">
+        <span class="flex items-center gap-1">⭐ +{stats.percentage === 100 ? 100 : 50} XP</span>
+        <span>·</span>
+        <span class="flex items-center gap-1">🔥 0 ngày streak</span>
       </div>
 
       <!-- Actions -->
