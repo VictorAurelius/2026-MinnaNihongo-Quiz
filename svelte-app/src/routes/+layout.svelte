@@ -26,8 +26,9 @@
     document.documentElement.classList.toggle('dark', darkMode);
     initFont();
 
-    registerServiceWorker()
-      .catch(e => console.error('[SmartQuiz] SW failed:', e));
+    // SW disabled — causes blank page on deploy due to stale cache
+    // registerServiceWorker()
+    //   .catch(e => console.error('[SmartQuiz] SW failed:', e));
     setupInstallPrompt();
 
     // Show install banner after 30s if not already installed

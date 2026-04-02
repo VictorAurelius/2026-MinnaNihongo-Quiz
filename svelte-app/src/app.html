@@ -38,6 +38,12 @@
         var s = JSON.parse(localStorage.getItem('ui-store') || '{}');
         if (s.darkMode) document.documentElement.classList.add('dark');
       } catch(e) {}
+      // Unregister stale service workers to prevent blank page after deploy
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          regs.forEach(function(r) { r.unregister(); });
+        });
+      }
     </script>
     <div style="display: contents">%sveltekit.body%</div>
   </body>
