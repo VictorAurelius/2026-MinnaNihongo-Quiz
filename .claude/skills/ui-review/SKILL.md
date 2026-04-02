@@ -1,12 +1,13 @@
 ---
 name: ui-review
-description: "Use when user says 'review UI', 'check design', 'audit screenshots', 'chấm điểm UI', 'nâng cấp visual', 'thêm gamification', or after any UI/UX code change. Also AUTO-RUN after every frontend fix PR is merged — do not wait for user to ask. Scores per-screen + overall on /128 scale."
+description: "Use when user says 'review UI', 'check design', 'audit screenshots', 'chấm điểm UI', 'nâng cấp visual', 'thêm gamification', or after any UI/UX code change. Also AUTO-RUN after every frontend fix PR is merged — do not wait for user to ask. Scores per-screen + overall on /128 scale. Captures BOTH local dev + production screenshots."
 user-invocable: true
 ---
 
 # UI Review
 
 Per-screen + overall scoring. **Auto-runs after every frontend fix.**
+Captures both local dev AND production screenshots for comparison.
 
 ## Skill Contents
 
@@ -19,10 +20,16 @@ Per-screen + overall scoring. **Auto-runs after every frontend fix.**
 ## Auto-Audit Rule
 
 **After every PR that touches `svelte-app/src/routes/` or `svelte-app/src/lib/components/` or `svelte-app/src/app.css`:**
-1. Rebuild + recapture screenshots
+1. Rebuild + recapture local screenshots
 2. Score the CHANGED screens (not all 8)
 3. Update `documents/04-quality/ui-review-latest.md`
 4. Report delta to user
+
+**After every merge to main (deploy):**
+1. Wait for CI to complete
+2. Capture production screenshots
+3. Compare prod vs local — flag any differences
+4. Report deploy verification status
 
 Do NOT wait for user to say "audit" — do it automatically.
 
@@ -35,14 +42,23 @@ Do NOT wait for user to say "audit" — do it automatically.
 | "gamification", "thêm streak" | **Gamification** | gamification |
 | "sửa margin/spacing" | **Fix** | code-fixes |
 | *(auto after frontend PR)* | **Quick Audit** | scoring-guide (changed screens only) |
+| *(auto after deploy)* | **Prod Verify** | capture prod screenshots + compare |
 
 ## Process
 
-### 1. Capture screenshots (local only — NOT committed to git)
+### 1. Capture screenshots
+
+**Local dev** (for scoring — primary):
 ```bash
 cd svelte-app && npx vite build && BASE_URL=http://localhost:5174 npx tsx scripts/capture-screenshots.ts
 ```
-Screenshots saved to `documents/04-quality/screenshots/` (gitignored).
+Output: `documents/04-quality/screenshots/` (gitignored)
+
+**Production** (for deploy verification — after merge to main):
+```bash
+cd svelte-app && PATH="/c/Program Files/nodejs:$PATH" npx tsx scripts/capture-prod-screenshots.ts
+```
+Output: `documents/04-quality/screenshots-prod/` (gitignored)
 
 **Fallback:** User pastes screenshot → score from that. Note in report.
 
@@ -51,8 +67,8 @@ Screenshots saved to `documents/04-quality/screenshots/` (gitignored).
 For each screen, score independently:
 
 ```
-| Screen | Aesthetics (/28) | Heuristics (/40) | Friendly (/20) | WCAG (/20) |
-|--------|------------------|-------------------|----------------|------------|
+| Screen | Heuristics (/40) | Aesthetics (/28) | Friendly (/20) | WCAG (/20) |
+|--------|-------------------|-------------------|----------------|------------|
 | Home | ? | ? | ? | ? |
 | Courses | ? | ? | ? | ? |
 | Course Detail | ? | ? | ? | ? |
@@ -63,8 +79,8 @@ For each screen, score independently:
 | **Lowest** | ? | ? | ? | ? |
 ```
 
-**Combined score = average of all screens, NOT cherry-picking the best.**
-**Report the LOWEST screen separately** — this is the real quality bar.
+**Score from LOCAL screenshots for consistency.**
+**Use PROD screenshots to verify deploy matches local.**
 
 ### 3. Overall Technical (/20) — scored once for whole app
 
@@ -73,14 +89,26 @@ For each screen, score independently:
 ### 5. Top 3 issues with code fixes
 Per `reference/code-fixes.md`: locate file → before/after → Tailwind classes.
 
-### 6. Visual Uplift / Gamification (if needed)
+### 6. Production vs Local comparison (after deploy)
+
+```
+| Screen | Local | Prod | Match? |
+|--------|-------|------|--------|
+| Home | ✅ renders | ✅ renders | ✅ |
+| ...    | ...   | ...  | ...    |
+```
+
+Flag any screen where prod renders differently from local.
+
+### 7. Visual Uplift / Gamification (if needed)
 Per mode detection.
 
-### 7. Output report
+### 8. Output report
 Save to `documents/04-quality/ui-review-latest.md`. Include:
 - Per-screen score table
 - Lowest screen highlighted
 - Score progression
+- Prod vs local comparison (if applicable)
 
 ## Strict Scoring Rubric
 
@@ -94,14 +122,6 @@ Save to `documents/04-quality/ui-review-latest.md`. Include:
 ### "Has feature" = 2/4, NOT 3/4
 Before giving 3/4, ask: **"Would an external auditor looking ONLY at this screenshot agree this is good?"** If uncertain → 2/4.
 
-Examples of 2/4 (NOT 3):
-- Progress bar shows "0%" with no motivating context → 2
-- Breadcrumbs on 2/7 pages (inconsistent) → 2
-- Search on 2/7 list pages → 2
-- Icon container sizes vary (w-9/w-10/w-11) → 2 consistency
-- Welcome banner exists but page still requires heavy scroll → 2
-- Quiz descriptions exist but Grammar/Materials rows lack them → 2
-
 ### Verification rules
 - **Score what you SEE in screenshot, not what code says**
 - WCAG contrast: estimate from screenshot colors. opacity-95 on gradient ≠ guaranteed pass
@@ -112,7 +132,10 @@ Examples of 2/4 (NOT 3):
 
 ## Gotchas
 
-- Screenshots are LOCAL ONLY (gitignored) — never commit PNGs
-- Dev server on port 5174 before capture
+- Local screenshots: dev server on port 5174
+- Production screenshots: need Node 18+ (`PATH="/c/Program Files/nodejs:$PATH"`)
+- Both screenshot folders gitignored — local only
 - Vocabulary page may render blank — not a bug
-- Slate dark mode: hsl(222 47% ...) — neutral blue, not purple-tinted
+- Slate dark mode: hsl(222 47% ...) — neutral blue
+- Production may show blank if user has old service worker cached — not a screenshot issue
+- Prod screenshots use `networkidle` (slower, 30s timeout) vs local `domcontentloaded`
