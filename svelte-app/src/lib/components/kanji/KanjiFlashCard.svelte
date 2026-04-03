@@ -7,6 +7,7 @@
   import type { KanjiItem } from '$lib/types';
   import { createEventDispatcher } from 'svelte';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import { kanaToRomaji } from '$lib/utils/kanaUtils';
   import { Volume2, Check, X } from 'lucide-svelte';
 
   export let item: KanjiItem;
@@ -79,7 +80,12 @@
       <div class="fc-english">{item.english}</div>
       {#if item.examples.length > 0}
         <div class="fc-example">
-          {item.examples[0].word} ({item.examples[0].kana}) - {item.examples[0].vietnamese}
+          <span>{item.examples[0].word} ({item.examples[0].kana})</span>
+          <span class="fc-romaji">{kanaToRomaji(item.examples[0].kana)}</span>
+          <span class="fc-ex-meaning">— {item.examples[0].vietnamese}</span>
+          <button class="fc-ex-audio" on:click|stopPropagation={() => playJapaneseAudio(item.examples[0].kana)} aria-label="Phát âm {item.examples[0].word}">
+            🔊
+          </button>
         </div>
       {/if}
     </div>
@@ -214,8 +220,37 @@
     font-family: var(--font-jp);
     font-size: 0.82rem;
     color: var(--text-muted);
-    font-style: italic;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .fc-romaji {
+    font-family: inherit;
+    font-size: 0.75rem;
+    color: var(--color-muted-foreground);
+    font-style: italic;
+  }
+
+  .fc-ex-meaning {
+    font-size: 0.78rem;
+  }
+
+  .fc-ex-audio {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0.1rem 0.3rem;
+    font-size: 0.7rem;
+    transition: all 0.15s;
+  }
+
+  .fc-ex-audio:hover {
+    border-color: var(--primary);
   }
 
   .fc-nav {
