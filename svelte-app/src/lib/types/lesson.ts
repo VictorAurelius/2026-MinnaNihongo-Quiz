@@ -18,7 +18,7 @@ export interface GrammarExample {
   japanese: string;
   vietnamese: string;
   english: string;
-  type: 'main' | 'additional';
+  type?: 'main' | 'additional';
 }
 
 export interface GrammarItem {
@@ -31,6 +31,30 @@ export interface GrammarItem {
   category?: string;
   function?: string;
   lesson?: number;
+}
+
+// Conversation & Dialogue Types
+export interface DialogueLine {
+  speaker: string;
+  japanese: string;
+  kana: string;
+  vietnamese: string;
+}
+
+export interface ConversationPattern {
+  id: string;
+  title: string;           // "Tự giới thiệu" / "Hỏi đường"
+  titleJp: string;         // "自己紹介" / "道を聞く"
+  level: string;           // "N5" / "N4" / etc.
+  situation: string;       // "Gặp người mới lần đầu"
+  patterns: {
+    japanese: string;       // "はじめまして、〜です。よろしくお願いします。"
+    kana: string;
+    vietnamese: string;
+    memoryTip: string;      // "Nhớ: hajimemashite = 'bắt đầu gặp' → lần đầu gặp"
+  }[];
+  dialogue: DialogueLine[];
+  culturalNote?: string;    // "Người Nhật cúi đầu khi chào"
 }
 
 // Lesson Data
