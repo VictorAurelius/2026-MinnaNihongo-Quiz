@@ -73,9 +73,9 @@ Merge `v4-dev` → `main` sau mỗi wave complete + audit pass.
 | 11 | #28 | [Accessibility pass](wave-11/pr-28-accessibility.md) | 12 | 📋 | — |
 | 11 | #29 | [Page states + navigation](wave-11/pr-29-page-states.md) | 10 | 📋 | — |
 | 11 | #30 | [Final polish](wave-11/pr-30-polish.md) | 5 | 📋 | — |
-| 12 | #31 | [N2/N1 Kanji Examples](wave-12/pr-31-kanji-examples.md) | ~20 | 📋 | — |
-| 12 | #32 | [Kanji Component Tests](wave-12/pr-32-kanji-tests.md) | ~40 | 📋 | — |
-| 12 | #33 | [Quiz by Radical](wave-12/pr-33-quiz-by-radical.md) | ~15 | 📋 | — |
+| 12 | #31 | [N2/N1 Kanji Examples](wave-12/pr-31-kanji-examples.md) | 14 | 🔄 PR #140 | #140 |
+| 12 | #32 | [Kanji Component Tests](wave-12/pr-32-kanji-tests.md) | 47 | 🔄 PR #141 | #141 |
+| 12 | #33 | [Quiz by Radical](wave-12/pr-33-quiz-by-radical.md) | 5 | 🔄 PR #142 | #142 |
 
 ---
 
