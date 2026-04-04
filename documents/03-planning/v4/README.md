@@ -25,6 +25,7 @@ Merge `v4-dev` → `main` sau mỗi wave complete + audit pass.
 
 | Wave | Dir | PRs | Deliverable | Checkpoint |
 |------|-----|-----|-------------|-----------|
+| 12 | [wave-12/](wave-12/) | #31 N2/N1 Examples, #32 Kanji Tests, #33 Quiz by Radical | Kanji quality + testability | Examples 100%, tests +40 |
 | 1 | [wave-1/](wave-1/) | #1 SEO, #8 Skeleton, #9 A11y | Discoverable + polished | SEO ≥ 6, audit 100 |
 | 2 | [wave-2/](wave-2/) | #2 Learning path, #3 Mock test | Guided learning | Progression 8/10 |
 | 3 | [wave-3/](wave-3/) | #4 Stroke order, #5 Radicals | Kanji core | Kanji 7/10 |
@@ -72,6 +73,9 @@ Merge `v4-dev` → `main` sau mỗi wave complete + audit pass.
 | 11 | #28 | [Accessibility pass](wave-11/pr-28-accessibility.md) | 12 | 📋 | — |
 | 11 | #29 | [Page states + navigation](wave-11/pr-29-page-states.md) | 10 | 📋 | — |
 | 11 | #30 | [Final polish](wave-11/pr-30-polish.md) | 5 | 📋 | — |
+| 12 | #31 | [N2/N1 Kanji Examples](wave-12/pr-31-kanji-examples.md) | ~20 | 📋 | — |
+| 12 | #32 | [Kanji Component Tests](wave-12/pr-32-kanji-tests.md) | ~40 | 📋 | — |
+| 12 | #33 | [Quiz by Radical](wave-12/pr-33-quiz-by-radical.md) | ~15 | 📋 | — |
 
 ---
 
