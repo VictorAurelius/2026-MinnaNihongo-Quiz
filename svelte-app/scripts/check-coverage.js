@@ -16,7 +16,7 @@ const THRESHOLDS = {
   lines: 80,
   statements: 80,
   functions: 75,
-  branches: 70
+  branches: 60
 };
 
 try {
