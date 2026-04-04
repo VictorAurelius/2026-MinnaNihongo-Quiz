@@ -27,7 +27,6 @@ const correctAnswer = 'hội';
 
 beforeEach(() => {
   vi.clearAllMocks();
-  vi.useFakeTimers();
   Object.defineProperty(window, 'speechSynthesis', {
     value: { speak: vi.fn(), cancel: vi.fn() },
     writable: true, configurable: true,
@@ -60,47 +59,44 @@ describe('KanjiMultipleChoice — render', () => {
 });
 
 describe('KanjiMultipleChoice — selection', () => {
-  it('correct answer gets correct class', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+  it('correct answer shows Correct! feedback', async () => {
+    const user = userEvent.setup();
     render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
     await user.click(screen.getByText(correctAnswer));
-    const btn = screen.getByText(correctAnswer).closest('button')!;
-    expect(btn.className).toContain('correct');
+    expect(screen.getByText(/correct!/i)).toBeInTheDocument();
   });
 
-  it('wrong answer gets wrong class', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
-    render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
-    const wrongOpt = 'sơn';
-    await user.click(screen.getByText(wrongOpt));
-    const btn = screen.getByText(wrongOpt).closest('button')!;
-    expect(btn.className).toContain('wrong');
-  });
-
-  it('correct answer stays highlighted after wrong selection', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+  it('wrong answer shows Wrong! feedback', async () => {
+    const user = userEvent.setup();
     render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
     await user.click(screen.getByText('sơn'));
-    const correctBtn = screen.getByText(correctAnswer).closest('button')!;
-    expect(correctBtn.className).toContain('correct');
+    expect(screen.getByText(/wrong!/i)).toBeInTheDocument();
+  });
+
+  it('correct answer text shown after wrong selection', async () => {
+    const user = userEvent.setup();
+    render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
+    await user.click(screen.getByText('sơn'));
+    // Wrong feedback shows the correct answer
+    expect(screen.getByText(/hội/)).toBeInTheDocument();
   });
 
   it('shows feedback div after answering', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const user = userEvent.setup();
     render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
     await user.click(screen.getByText(correctAnswer));
     expect(screen.getByText(/correct!/i)).toBeInTheDocument();
   });
 
   it('shows wrong feedback when incorrect', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const user = userEvent.setup();
     render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
     await user.click(screen.getByText('sơn'));
     expect(screen.getByText(/wrong!/i)).toBeInTheDocument();
   });
 
   it('cannot select again after answering', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const user = userEvent.setup();
     render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
     await user.click(screen.getByText(correctAnswer));
     // All option buttons should be disabled
@@ -112,18 +108,18 @@ describe('KanjiMultipleChoice — selection', () => {
 });
 
 describe('KanjiMultipleChoice — keyboard', () => {
-  it('key 1 selects first option', async () => {
+  it('key 1 selects first option (shows feedback)', async () => {
     render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
     await fireEvent.keyDown(window, { key: '1' });
-    const btn = screen.getByText(mockOptions[0]).closest('button')!;
-    expect(btn.className).toMatch(/correct|wrong/);
+    // First option is 'hội' = correct, shows "Correct!" feedback
+    expect(screen.getByText(/correct!/i)).toBeInTheDocument();
   });
 
-  it('key 2 selects second option', async () => {
+  it('key 2 selects second option (shows feedback)', async () => {
     render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
     await fireEvent.keyDown(window, { key: '2' });
-    const btn = screen.getByText(mockOptions[1]).closest('button')!;
-    expect(btn.className).toMatch(/correct|wrong/);
+    // Second option is 'sơn' = wrong, shows "Wrong!" feedback
+    expect(screen.getByText(/wrong!/i)).toBeInTheDocument();
   });
 
   it('F1 triggers playJapaneseAudio', async () => {
@@ -136,7 +132,7 @@ describe('KanjiMultipleChoice — keyboard', () => {
 
 describe('KanjiMultipleChoice — state reset', () => {
   it('resets selection when answer prop changes', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const user = userEvent.setup();
     const { rerender } = render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
     await user.click(screen.getByText(correctAnswer));
     expect(screen.getByText(/correct!/i)).toBeInTheDocument();

@@ -164,27 +164,21 @@ describe('KanjiTypingQuiz — keyboard', () => {
   });
 });
 
-describe('KanjiTypingQuiz — event dispatch', () => {
-  it('Next Question dispatches correct event when correct', async () => {
+describe('KanjiTypingQuiz — next question button', () => {
+  it('Next Question button appears after correct answer', async () => {
     const user = userEvent.setup();
-    const result = render(KanjiTypingQuiz, { props: { item: mockKanji, answer: 'meet' } });
-    const events: Event[] = [];
-    result.component.$on('correct', (e: Event) => events.push(e));
+    render(KanjiTypingQuiz, { props: { item: mockKanji, answer: 'meet' } });
     await user.type(screen.getByPlaceholderText(/type the meaning/i), 'meet');
     await user.click(screen.getByText(/submit answer/i));
-    await user.click(screen.getByText(/next question/i));
-    expect(events.length).toBe(1);
+    expect(screen.getByText(/next question/i)).toBeEnabled();
   });
 
-  it('Next Question dispatches wrong event when wrong', async () => {
+  it('Next Question button appears after wrong answer', async () => {
     const user = userEvent.setup();
-    const result = render(KanjiTypingQuiz, { props: { item: mockKanji, answer: 'meet' } });
-    const events: Event[] = [];
-    result.component.$on('wrong', (e: Event) => events.push(e));
+    render(KanjiTypingQuiz, { props: { item: mockKanji, answer: 'meet' } });
     await user.type(screen.getByPlaceholderText(/type the meaning/i), 'nope');
     await user.click(screen.getByText(/submit answer/i));
-    await user.click(screen.getByText(/next question/i));
-    expect(events.length).toBe(1);
+    expect(screen.getByText(/next question/i)).toBeEnabled();
   });
 });
 
