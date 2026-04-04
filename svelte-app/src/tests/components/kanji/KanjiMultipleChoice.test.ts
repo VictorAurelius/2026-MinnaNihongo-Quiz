@@ -73,12 +73,12 @@ describe('KanjiMultipleChoice — selection', () => {
     expect(screen.getByText(/wrong!/i)).toBeInTheDocument();
   });
 
-  it('correct answer text shown after wrong selection', async () => {
+  it('correct answer text shown in wrong feedback', async () => {
     const user = userEvent.setup();
     render(KanjiMultipleChoice, { props: { item: mockKanji, options: mockOptions, answer: correctAnswer } });
     await user.click(screen.getByText('sơn'));
-    // Wrong feedback shows the correct answer
-    expect(screen.getByText(/hội/)).toBeInTheDocument();
+    // Wrong feedback shows "The correct answer is: hội"
+    expect(screen.getByText(/The correct answer is:/i)).toBeInTheDocument();
   });
 
   it('shows feedback div after answering', async () => {
