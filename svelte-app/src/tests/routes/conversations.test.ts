@@ -219,7 +219,8 @@ describe('Conversations Page', () => {
 
       await user.click(screen.getByText('Tự giới thiệu'));
 
-      expect(screen.getByText('はじめまして')).toBeInTheDocument();
+      // Japanese text appears in both pattern and dialogue — use getAllByText
+      expect(screen.getAllByText('はじめまして').length).toBeGreaterThanOrEqual(1);
       expect(screen.getByText('Xin chào lần đầu')).toBeInTheDocument();
     });
 
