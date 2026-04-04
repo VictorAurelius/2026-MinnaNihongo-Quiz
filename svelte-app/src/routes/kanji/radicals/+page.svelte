@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { base } from '$app/paths';
   import { KANGXI_RADICALS, getKanjiByRadical } from '$lib/data/kanji/radicals';
 
   let searchTerm = '';
@@ -50,16 +51,16 @@
 
   <div class="radical-grid">
     {#each filtered as r}
-      <button
+      <a
+        href="{base}/kanji/radicals/{encodeURIComponent(r.character)}"
         class="radical-card"
         class:active={selectedRadical === r.character}
-        on:click={() => selectedRadical = selectedRadical === r.character ? null : r.character}
       >
         <span class="rc-char">{r.character}</span>
         <span class="rc-vi">{r.meaningVi}</span>
         <span class="rc-en">{r.meaningEn}</span>
         <span class="rc-strokes">{r.strokeCount} nét</span>
-      </button>
+      </a>
     {/each}
   </div>
 </div>

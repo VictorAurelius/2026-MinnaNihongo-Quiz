@@ -3,6 +3,28 @@
  * Sources: Kangxi radicals (public domain), KRADFILE (EDRDG license)
  */
 
+import type { KanjiItem } from '$lib/types';
+import { getAllKanjiLessons } from '$lib/data/kanji/lessons';
+import { KANJI_N3_DATA } from '$lib/data/kanji/kanji-n3';
+import { KANJI_N2_DATA } from '$lib/data/kanji/kanji-n2';
+import { KANJI_N1_DATA } from '$lib/data/kanji/kanji-n1';
+
+// Build a map of all kanji items (lazy-initialized)
+let _allKanjiMap: Map<string, KanjiItem> | null = null;
+function getAllKanjiMap(): Map<string, KanjiItem> {
+  if (_allKanjiMap) return _allKanjiMap;
+  _allKanjiMap = new Map();
+  for (const lesson of getAllKanjiLessons()) {
+    for (const item of lesson.kanji) {
+      _allKanjiMap.set(item.character, item);
+    }
+  }
+  for (const item of [...KANJI_N3_DATA, ...KANJI_N2_DATA, ...KANJI_N1_DATA]) {
+    _allKanjiMap.set(item.character, item);
+  }
+  return _allKanjiMap;
+}
+
 export interface KangxiRadical {
   character: string;
   meaningVi: string;
@@ -503,4 +525,13 @@ export function getKanjiByRadical(radical: string): string[] {
   return Object.entries(KANJI_RADICALS)
     .filter(([_, rads]) => rads.includes(radical))
     .map(([kanji]) => kanji);
+}
+
+/** Returns full KanjiItem objects for all kanji containing the given radical */
+export function getKanjiItemsByRadical(radical: string): KanjiItem[] {
+  const chars = getKanjiByRadical(radical);
+  const map = getAllKanjiMap();
+  return chars
+    .map(c => map.get(c))
+    .filter((item): item is KanjiItem => item !== undefined);
 }
