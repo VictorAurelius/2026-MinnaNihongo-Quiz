@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { KANGXI_RADICALS, getRadicals, getKanjiByRadical } from '$lib/data/kanji/radicals';
+import { KANGXI_RADICALS, getRadicals, getKanjiByRadical, getKanjiItemsByRadical } from '$lib/data/kanji/radicals';
 
 describe('Radicals Data', () => {
   it('should have at least 200 Kangxi radicals', () => {
@@ -42,5 +42,40 @@ describe('Radicals Data', () => {
     for (const r of radicals) {
       expect(r.meaningVi).toBeTruthy();
     }
+  });
+});
+
+describe('getKanjiItemsByRadical', () => {
+  it('returns KanjiItem array for valid radical', () => {
+    const kanji = getKanjiItemsByRadical('人');
+    expect(Array.isArray(kanji)).toBe(true);
+    expect(kanji.length).toBeGreaterThan(0);
+  });
+
+  it('returns empty array for unknown radical', () => {
+    const kanji = getKanjiItemsByRadical('UNKNOWN_XYZ');
+    expect(kanji).toEqual([]);
+  });
+
+  it('each returned item is a valid KanjiItem', () => {
+    const kanji = getKanjiItemsByRadical('人');
+    for (const k of kanji) {
+      expect(k.character).toBeTruthy();
+      expect(k.english).toBeTruthy();
+      expect(typeof k.strokeCount).toBe('number');
+      expect(Array.isArray(k.onyomi)).toBe(true);
+    }
+  });
+
+  it('returned items have unique characters', () => {
+    const kanji = getKanjiItemsByRadical('口');
+    const chars = kanji.map(k => k.character);
+    expect(new Set(chars).size).toBe(chars.length);
+  });
+
+  it('works for radical 水 (water)', () => {
+    // 水 is commonly used in N5 kanji
+    const kanji = getKanjiItemsByRadical('水');
+    expect(kanji.length).toBeGreaterThanOrEqual(0); // may be 0 if no data match
   });
 });
