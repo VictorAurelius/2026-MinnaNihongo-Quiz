@@ -61,7 +61,8 @@ svelte-app/src/
 
 | Doc | Purpose |
 |-----|---------|
-| [CLAUDE.md](CLAUDE.md) | Project conventions, patterns, pitfalls |
+| [AGENTS.md](AGENTS.md) | Codex project conventions, patterns, pitfalls |
+| [documents/05-guides/CODEX_MIGRATION.md](documents/05-guides/CODEX_MIGRATION.md) | Codex migration notes |
 | [docs/QUICKSTART.md](docs/QUICKSTART.md) | Setup guide |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System design |
 | [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) | How to contribute |

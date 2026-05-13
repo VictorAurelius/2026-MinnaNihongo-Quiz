@@ -58,11 +58,11 @@ jobs:
           MERGE_DELETE_BRANCH: true
           UPDATE_METHOD: "rebase"
 
-      - name: Update skill stats
+      - name: Update workflow stats
         if: success()
         run: |
-          # Update git-pr-workflow.md with latest stats
-          bash scripts/workflow/update-skill-stats.sh || echo "Skill stats update skipped"
+          # Update Codex workflow stats with latest PR data
+          bash scripts/workflow/update-skill-stats.sh || echo "Workflow stats update skipped"
 
   notify:
     name: Notify on Failure

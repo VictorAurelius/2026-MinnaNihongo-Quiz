@@ -100,7 +100,7 @@ Mỗi wave tuân theo:
 ## Skills mới phát sinh
 
 Khi implement, nếu phát hiện pattern mới cần document:
-→ Tạo file trong `.claude/skills/smart-quiz/`
+→ Document the reusable pattern in `AGENTS.md` or `documents/05-guides/`
 
 | Skill | Tạo khi | File |
 |-------|---------|------|
@@ -112,8 +112,8 @@ Khi implement, nếu phát hiện pattern mới cần document:
 
 **Process khi phát sinh skill mới:**
 1. Gặp pattern lặp lại ≥ 2 lần → tạo skill file
-2. Đặt trong `.claude/skills/smart-quiz/`
-3. Update `.claude/skills/_README-skills-index.md`
+2. Đặt trong `documents/05-guides/` nếu là hướng dẫn dài hạn
+3. Update `AGENTS.md` nếu pattern ảnh hưởng tới workflow hằng ngày
 4. Commit cùng PR đang làm
 
 ---
