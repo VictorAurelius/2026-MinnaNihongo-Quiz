@@ -105,7 +105,7 @@ ELAPSED=0
 while [ $ELAPSED -lt $TIMEOUT_SECONDS ]; do
     RUNS=$(fetch_runs)
 
-    # Use separator instead of clear (clear breaks non-interactive shells like Claude Code)
+    # Use separator instead of clear (clear breaks non-interactive agent shells)
     echo ""
     echo "--- poll $(date +%H:%M:%S) ---"
     display_status "$RUNS"

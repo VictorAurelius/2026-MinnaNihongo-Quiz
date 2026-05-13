@@ -239,7 +239,7 @@ src/lib/data/
 
 ### Adding Vocabulary to a Lesson
 
-Use the `.claude/skills/add-vocab-to-lesson.md` skill or manually:
+Follow the data rules in `AGENTS.md` or add the item manually:
 
 ```typescript
 // src/lib/data/minna/lessons/lesson-XX.ts

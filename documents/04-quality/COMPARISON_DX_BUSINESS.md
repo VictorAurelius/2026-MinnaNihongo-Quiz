@@ -17,7 +17,7 @@
 | **Test/Source ratio** | ~16% |
 | **CI/CD** | 2 GitHub Actions workflows (deploy + auto-merge) |
 | **CI speed** | ~1-2 phút |
-| **Documentation** | 17+ docs (CLAUDE.md, TECHNICAL, ARCHITECTURE, CONTRIBUTING, etc.) |
+| **Documentation** | 17+ docs (AGENTS.md, TECHNICAL, ARCHITECTURE, CONTRIBUTING, etc.) |
 | **Framework** | SvelteKit 2 + TypeScript strict |
 | **Commit convention** | Conventional commits (feat:, fix:, docs:) |
 | **Branch naming** | fix/, feat/, test/, docs/ |

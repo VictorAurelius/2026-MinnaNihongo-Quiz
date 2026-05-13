@@ -186,7 +186,7 @@ describe('SkeletonCard', () => {
 
 **Dự kiến:** `component-patterns.md` — document Skeleton pattern cho future components.
 ```
-.claude/skills/smart-quiz/component-patterns.md
+AGENTS.md
 - Skeleton loading pattern (onMount + {#if loaded})
 - SVG icon component pattern
 - Reusable props interface

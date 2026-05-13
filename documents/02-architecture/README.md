@@ -18,4 +18,4 @@
 - [PWA Guide](PWA.md) — Progressive Web App capabilities
 
 ## AI / Contributor Guide
-- [CLAUDE.md](../CLAUDE.md) — Project conventions, patterns, common pitfalls
+- [AGENTS.md](../../AGENTS.md) — Codex project conventions, patterns, common pitfalls
