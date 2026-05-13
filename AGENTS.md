@@ -29,6 +29,22 @@ For medium or larger tasks:
 5. Run the project scripts listed below before reporting completion.
 6. For frontend changes, review the UI against `.impeccable.md` and `documents/01-business/ui/rules.md`.
 
+Task-specific playbooks live in `documents/05-guides/codex-playbooks/`. Use them as the replacement for the removed task skills:
+
+| Task | Playbook |
+| --- | --- |
+| Implementation, debugging, TDD, code review | `documents/05-guides/codex-playbooks/engineering-workflow.md` |
+| Refactoring | `documents/05-guides/codex-playbooks/refactor.md` |
+| Lesson or vocabulary data | `documents/05-guides/codex-playbooks/lesson-data.md` |
+| HSK or Chinese content | `documents/05-guides/codex-playbooks/chinese-content.md` |
+| OCR content extraction | `documents/05-guides/codex-playbooks/ocr-content.md` |
+| SPA routing / GitHub Pages base path | `documents/05-guides/codex-playbooks/spa-routing.md` |
+| Frontend design | `documents/05-guides/codex-playbooks/frontend-design.md` |
+| UI review | `documents/05-guides/codex-playbooks/ui-review.md` |
+| Quality audit | `documents/05-guides/codex-playbooks/quality-audit.md` |
+| Deploy verification | `documents/05-guides/codex-playbooks/verify-deploy.md` |
+| Git and PR workflow | `documents/05-guides/codex-playbooks/git-pr-workflow.md` |
+
 Do not:
 
 - Commit directly to `main` unless the user explicitly asks for a critical hotfix.
