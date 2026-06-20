@@ -1,3 +1,0 @@
-# Placeholder for 192x192 icon
-# In production, replace with actual PNG icon
-# Generate from logo using: convert logo.png -resize 192x192 icon-192.png

@@ -1,3 +1,0 @@
-# Placeholder for 512x512 icon
-# In production, replace with actual PNG icon
-# Generate from logo using: convert logo.png -resize 512x512 icon-512.png
