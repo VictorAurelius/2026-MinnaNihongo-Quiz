@@ -8,7 +8,7 @@
   import { base } from '$app/paths';
   import { goto } from '$app/navigation';
   import { progressStore } from '$lib/stores';
-  import { getDueItems, reviewItem, recordReviewDay, getReviewStats, type SRSItemType } from '$lib/utils/srsUtils';
+  import { getDueItems, reviewItem, recordReviewDay, getReviewStats, computeQuality, getLeeches, type SRSItemType } from '$lib/utils/srsUtils';
   import SkeletonCard from '$lib/components/common/SkeletonCard.svelte';
   import { recordStudySession } from '$lib/utils/achievementUtils';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
@@ -33,6 +33,9 @@
   let total = 0;
   let loaded = false;
   let filterType: 'all' | SRSItemType = 'all';
+  let questionShownAt = 0;          // timestamp the current card is presented → graded by recall speed
+  let leechIds = new Set<string>(); // SRS items that keep failing (lapses ≥ LEECH_THRESHOLD)
+  let leechCount = 0;
 
   $: currentCard = cards[currentIndex] || null;
   $: isComplete = loaded && currentIndex >= cards.length;
@@ -63,24 +66,38 @@
     score = 0;
     flipped = false;
     loaded = true;
+    refreshLeeches();
+    questionShownAt = Date.now();
+  }
+
+  /** Recompute the set + count of leeches (items that keep failing) from current SRS state. */
+  function refreshLeeches() {
+    const leeches = getLeeches();
+    leechIds = new Set(leeches.map((l) => l.itemId));
+    leechCount = leeches.length;
   }
 
   function handleCorrect() {
     const card = cards[currentIndex];
-    reviewItem(card.itemId, card.lessonNumber, 4, card.itemType);
+    const responseTimeMs = Date.now() - questionShownAt;
+    // Grade by recall speed (fast→5, normal→4, slow→3) so ease factor reflects difficulty.
+    reviewItem(card.itemId, card.lessonNumber, computeQuality(true, responseTimeMs), card.itemType);
     score++;
     advance();
   }
 
   function handleWrong() {
     const card = cards[currentIndex];
-    reviewItem(card.itemId, card.lessonNumber, 1, card.itemType);
+    const responseTimeMs = Date.now() - questionShownAt;
+    reviewItem(card.itemId, card.lessonNumber, computeQuality(false, responseTimeMs), card.itemType);
     advance();
   }
 
   function advance() {
     flipped = false;
     currentIndex++;
+    refreshLeeches();            // a just-failed item may have crossed the leech threshold
+    questionShownAt = Date.now(); // start the response timer for the next card
     if (currentIndex >= cards.length) { recordReviewDay(); recordStudySession(); }
   }
 
@@ -124,6 +141,12 @@
         <div class="text-[0.65rem] uppercase text-muted-foreground tracking-wider">Today</div>
         <div class="text-sm font-semibold">{stats.todayCompleted} done</div>
       </div>
+      {#if leechCount > 0}
+        <div>
+          <div class="text-[0.65rem] uppercase text-muted-foreground tracking-wider">Leeches</div>
+          <div class="text-sm font-semibold text-warning-text">🔁 {leechCount}</div>
+        </div>
+      {/if}
     </CardContent>
   </Card>
 
@@ -192,6 +215,9 @@
               <Badge>{currentCard.courseLabel}</Badge>
             {/if}
             <Badge variant="secondary">{currentCard.itemType}</Badge>
+            {#if leechIds.has(currentCard.itemId)}
+              <Badge variant="outline" class="border-warning/40 bg-warning/10 text-warning-text" title="This item keeps failing — review carefully">🔁 Leech</Badge>
+            {/if}
           </div>
           <div class="text-3xl font-bold text-center mb-1" style="font-family: var(--font-jp)">{currentCard.item.japanese}</div>
           {#if currentCard.item.kana !== currentCard.item.japanese}
