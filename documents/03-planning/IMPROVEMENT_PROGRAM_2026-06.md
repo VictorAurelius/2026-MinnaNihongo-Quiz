@@ -131,21 +131,29 @@ Repo trưởng thành (SvelteKit 2 + Svelte 5 + TS, GitHub Pages SPA) nhưng **�
 
 ## Theo dõi
 
-| Wave | PR | Trạng thái |
-|---|---|---|
-| 0 | 0.1 check→0 | [ ] |
-| 0 | 0.2 build cross-platform | [ ] |
-| 0 | 0.3 quality-audit harden | [ ] |
-| 0 | 0.4 npm audit | [ ] |
-| 1 | 1.1 E2E reconcile | [ ] |
-| 1 | 1.2 CI gate wire | [ ] |
-| 2 | 2.1 a11y warnings | [ ] |
-| 2 | 2.2 contrast/touch | [ ] |
-| 3 | 3.1 SEO/prerender | [ ] |
-| 3 | 3.2 SRS pedagogy | [ ] |
-| 3 | 3.3 kanji N3 vietnamese | [ ] |
-| 4 | 4.1 btn↔shadcn | [ ] |
-| 4 | 4.2 orbs + ui-review | [ ] |
+> Trạng thái 2026-06-21 (branch `chore/quality-gate-stabilization`, 12 commit, local — chưa push). Verified combined: check **0 errors / 0 warnings** · **905 tests pass** · build+404+robots+sitemap · E2E **69 pass** · audit 11 vulns (1 high dev-only).
+
+| Wave | PR | Trạng thái | Commit |
+|---|---|---|---|
+| 0 | 0.1 check 149→0 | ✅ DONE | `6b8d594` |
+| 0 | 0.2 build cross-platform | ✅ DONE | `3c76ebd` |
+| 0 | 0.3 quality-audit harden | ✅ DONE | `3b9bc83` |
+| 0 | 0.4 npm audit (20→11, high 9→1) | ✅ DONE | `2e66502` |
+| 1 | 1.1 E2E reconcile (42→69, 0 regression) | ✅ DONE | `335aed5` |
+| 1 | 1.2 CI `pr-gate` (check+build+e2e) | ✅ DONE | `1183dcb` |
+| 2 | 2.1a a11y (5 component warnings) | ✅ DONE | `732dec2` |
+| 2 | 2.1b a11y (hsk keyboard + kanji answer) → 0 warnings | ✅ DONE | `<2.1b>` |
+| 2 | 2.2 contrast/touch | ⬜ TODO | — |
+| 3 | 3.1 SEO crawler files (robots+sitemap) | ✅ DONE | `accd599` |
+| 3 | 3.1 SEO prerender (content pages) | ⬜ TODO (lớn, đụng build/routes) | — |
+| 3 | 3.2 SRS pedagogy core (graded+leech+tests) | ✅ DONE | `ac5d5a7` |
+| 3 | 3.2b wire review-page (leech badge + response time) | ⬜ TODO | — |
+| 3 | 3.3 kanji N3 vietnamese (140) | ✅ DONE | `ee338b8` |
+| 4 | 4.1 btn↔shadcn | ⬜ TODO | — |
+| 4 | 4.2 orbs + ui-review | ⬜ TODO | — |
+| 4 | 4.3 fix E2E preview-build base-path (incidental, Wave 1 finding) | ⬜ TODO | — |
+
+**Còn lại (next session):** 2.2 contrast/touch · 3.1 prerender (SEO win lớn nhất) · 3.2b review-page wiring · Wave 4 (btn/orbs/E2E-preview-fix). Tất cả đụng routes/build → làm tuần tự với agent/inline-hybrid như Wave 0-3.
 
 ---
 
