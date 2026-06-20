@@ -20,6 +20,7 @@ export interface SRSItem {
   easeFactor: number;    // 1.3 - 2.5
   nextReview: number;    // timestamp
   repetitions: number;
+  lapses?: number;       // lifetime count of failed reviews (for leech detection)
   itemType?: SRSItemType;
 }
 
@@ -84,10 +85,12 @@ export function reviewItem(itemId: string, lessonNumber: number, quality: number
     easeFactor: 2.5,
     nextReview: Date.now(),
     repetitions: 0,
+    lapses: 0,
     itemType: itemType || 'vocab'
   };
 
   let { interval, easeFactor, repetitions } = existing;
+  let lapses = existing.lapses ?? 0;
 
   if (quality >= 3) {
     // Correct
@@ -100,9 +103,10 @@ export function reviewItem(itemId: string, lessonNumber: number, quality: number
     }
     repetitions++;
   } else {
-    // Incorrect — reset
+    // Incorrect — reset schedule and record a lapse (drives leech detection)
     repetitions = 0;
     interval = 1;
+    lapses++;
   }
 
   // Update ease factor
@@ -116,12 +120,52 @@ export function reviewItem(itemId: string, lessonNumber: number, quality: number
     easeFactor,
     nextReview: Date.now() + interval * 86400000,
     repetitions,
+    lapses,
     itemType: itemType || existing.itemType || 'vocab'
   };
 
   srs.items[itemId] = updated;
   saveSRS(srs);
   return updated;
+}
+
+/** SM-2 quality at/above which a review counts as a pass. */
+export const PASS_QUALITY = 3;
+/** Lifetime lapses at which an item is flagged a "leech" (Anki default). */
+export const LEECH_THRESHOLD = 8;
+
+/**
+ * Convert a binary correct/incorrect result (optionally with response time) into
+ * a graded SM-2 quality 0-5, replacing the previous binary 4/1 mapping so the
+ * ease factor reflects recall difficulty:
+ * - incorrect          -> 1 (failed recall, triggers reset + lapse)
+ * - correct + fast     -> 5
+ * - correct + normal   -> 4
+ * - correct + slow     -> 3
+ * Omit responseTimeMs to grade a plain correct answer as 4 (back-compat).
+ */
+export function computeQuality(
+  correct: boolean,
+  responseTimeMs?: number,
+  opts: { fastMs?: number; slowMs?: number } = {}
+): number {
+  if (!correct) return 1;
+  if (responseTimeMs === undefined) return 4;
+  const fast = opts.fastMs ?? 3000;
+  const slow = opts.slowMs ?? 8000;
+  if (responseTimeMs <= fast) return 5;
+  if (responseTimeMs >= slow) return 3;
+  return 4;
+}
+
+/** True when an item has lapsed enough times to be a "leech" needing intervention. */
+export function isLeech(item: Pick<SRSItem, 'lapses'>, threshold: number = LEECH_THRESHOLD): boolean {
+  return (item.lapses ?? 0) >= threshold;
+}
+
+/** All current SRS items flagged as leeches. */
+export function getLeeches(threshold: number = LEECH_THRESHOLD): SRSItem[] {
+  return Object.values(loadSRS().items).filter((i) => isLeech(i, threshold));
 }
 
 /**
