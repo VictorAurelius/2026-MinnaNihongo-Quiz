@@ -143,7 +143,7 @@ export interface KanjiExampleWord {
   word: string;       // "会社"
   kana: string;       // "かいしゃ"
   meaning: string;    // "company"
-  vietnamese: string; // "công ty"
+  vietnamese?: string; // "công ty" — optional interim: kanji-n3 backfill pending (Improvement Program PR 3.3)
 }
 
 export interface KanjiItem {

@@ -12,7 +12,7 @@
     "module": "ESNext",
     "target": "ESNext",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
     "baseUrl": ".",
     "paths": {
       "$lib": ["src/lib"],
