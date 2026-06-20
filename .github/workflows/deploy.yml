@@ -42,6 +42,7 @@ jobs:
   pr-gate:
     name: PR Gate (check + build + e2e)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
@@ -67,6 +68,8 @@ jobs:
 
       - name: Install Playwright browser (chromium)
         run: cd svelte-app && npx playwright install --with-deps chromium
+        env:
+          DEBIAN_FRONTEND: noninteractive
 
       # E2E scope: chromium project only (the trustworthy gate). The other
       # 4 browser projects (firefox/webkit/mobile) are not yet reconciled and
