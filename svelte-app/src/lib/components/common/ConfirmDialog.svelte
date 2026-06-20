@@ -27,7 +27,7 @@
 
 {#if open}
   <div class="overlay" on:click={handleCancel} on:keydown={handleKeydown} role="presentation">
-    <div class="dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" on:click|stopPropagation>
+    <div class="dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" tabindex="-1" on:click|stopPropagation on:keydown|stopPropagation>
       <h3 id="confirm-title">{title}</h3>
       <p>{message}</p>
       <div class="actions">

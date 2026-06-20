@@ -31,16 +31,22 @@
   }
 </script>
 
-<div
-  class={classes}
-  on:click={handleClick}
-  on:keydown={handleKeydown}
-  role={clickable ? 'button' : undefined}
-  tabindex={clickable ? 0 : undefined}
-  {...$$restProps}
->
-  <slot />
-</div>
+{#if clickable}
+  <div
+    class={classes}
+    on:click={handleClick}
+    on:keydown={handleKeydown}
+    role="button"
+    tabindex="0"
+    {...$$restProps}
+  >
+    <slot />
+  </div>
+{:else}
+  <div class={classes} {...$$restProps}>
+    <slot />
+  </div>
+{/if}
 
 <style>
   .card {

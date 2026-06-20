@@ -80,6 +80,7 @@
     <div
       class="modal-content {maxWidthClass}"
       role="dialog"
+      tabindex="-1"
       aria-modal="true"
       aria-labelledby={title ? 'modal-title' : undefined}
       bind:this={modalContentEl}
