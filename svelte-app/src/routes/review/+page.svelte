@@ -152,13 +152,13 @@
       <CardContent class="py-8 text-center">
         <h2 class="text-xl font-bold mb-3">Review Complete!</h2>
         <div class="text-4xl font-bold mb-2">
-          <span class="text-success">{score}</span>
+          <span class="text-success-text">{score}</span>
           <span class="text-muted-foreground mx-1">/</span>
           <span class="text-muted-foreground">{total}</span>
         </div>
         <div class="text-lg text-primary font-semibold mb-2">{Math.round((score / total) * 100)}%</div>
         {#if stats.streak > 0}
-          <div class="text-base font-semibold text-warning mb-4">🔥 {stats.streak} day streak!</div>
+          <div class="text-base font-semibold text-warning-text mb-4">🔥 {stats.streak} day streak!</div>
         {/if}
         <div class="flex gap-3 justify-center flex-wrap">
           <UiButton onclick={() => goto(`${base}/stats`)}>View Stats</UiButton>

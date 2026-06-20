@@ -126,7 +126,7 @@
               style="grid-template-columns: 3rem 2.5rem 3.5rem 3rem 1fr;">
               <span class="font-semibold text-primary">#{ls.lessonNumber}</span>
               <span>{ls.wordCount}</span>
-              <span class="{ls.accuracy >= 80 ? 'text-success font-semibold' : ls.accuracy < 50 ? 'text-destructive font-semibold' : ''}">
+              <span class="{ls.accuracy >= 80 ? 'text-success-text font-semibold' : ls.accuracy < 50 ? 'text-destructive font-semibold' : ''}">
                 {ls.accuracy}%
               </span>
               <span>{ls.avgMastery}</span>

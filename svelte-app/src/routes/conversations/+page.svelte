@@ -116,8 +116,8 @@
                       <p class="text-xs text-muted-foreground italic">{kanaToRomaji(pat.kana)}</p>
                       <p class="text-xs text-foreground/80">{pat.vietnamese}</p>
                       <div class="flex items-start gap-1.5 mt-2 pt-2 border-t border-border/30">
-                        <Lightbulb size={12} class="text-warning flex-shrink-0 mt-0.5" aria-hidden="true" />
-                        <p class="text-[0.7rem] text-warning leading-relaxed">{pat.memoryTip}</p>
+                        <Lightbulb size={12} class="text-warning-text flex-shrink-0 mt-0.5" aria-hidden="true" />
+                        <p class="text-[0.7rem] text-warning-text leading-relaxed">{pat.memoryTip}</p>
                       </div>
                     </div>
                   {/each}
