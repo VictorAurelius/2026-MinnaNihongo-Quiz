@@ -67,9 +67,11 @@ jobs:
           NODE_ENV: production
 
       - name: Install Playwright browser (chromium)
-        run: cd svelte-app && npx playwright install --with-deps chromium
-        env:
-          DEBIAN_FRONTEND: noninteractive
+        # NOTE: `--with-deps` runs `apt-get` via sudo and hung ~indefinitely on
+        # this runner. ubuntu-latest ships the chromium system libs, so install
+        # the browser binary only. If a future runner lacks a lib, the E2E step
+        # fails fast with a clear missing-library error (not a hang).
+        run: cd svelte-app && npx playwright install chromium
 
       # E2E scope: chromium project only (the trustworthy gate). The other
       # 4 browser projects (firefox/webkit/mobile) are not yet reconciled and
