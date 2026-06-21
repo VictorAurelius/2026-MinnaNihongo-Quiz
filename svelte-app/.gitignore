@@ -9,6 +9,9 @@ node_modules
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
+# Exam-fetch pipeline raw-response cache (re-creatable; never committed)
+scripts/fetch-exams/.cache/
+
 # Testing
 coverage/
 coverage-summary.json
