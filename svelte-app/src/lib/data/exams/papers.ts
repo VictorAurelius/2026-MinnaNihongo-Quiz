@@ -125,6 +125,315 @@ export const papers: ExamPaper[] = [
     ]
   },
   {
+    "id": "n5-jamsinclair-vocab",
+    "level": "N5",
+    "title": "N5 — Từ vựng (jamsinclair MIT)",
+    "source": {
+      "name": "jamsinclair/open-anki-jlpt-decks",
+      "url": "https://github.com/jamsinclair/open-anki-jlpt-decks",
+      "license": "MIT",
+      "fetchedAt": "2026-06-21"
+    },
+    "durationMinutes": 20,
+    "sections": [
+      {
+        "type": "vocab",
+        "title": "語彙 (Từ vựng)",
+        "instructions": "Chọn cách đọc (よみかた) hoặc nghĩa đúng. Câu hỏi cách đọc dùng tiếng Nhật; câu hỏi nghĩa dùng tiếng Anh (nguồn không có tiếng Việt).",
+        "questions": [
+          {
+            "id": "n5-jamsinclair-vocab-q1",
+            "prompt": "「そっち」 の よみかた は どれ ですか。",
+            "options": [
+              "そっち",
+              "おしえる",
+              "むっつ",
+              "びょういん"
+            ],
+            "answerIndex": 0,
+            "explanation": "そっち（そっち）= over there"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q2",
+            "prompt": "「妹」 の よみかた は どれ ですか。",
+            "options": [
+              "すき",
+              "いもうと",
+              "なん～",
+              "そうして; そして"
+            ],
+            "answerIndex": 1,
+            "explanation": "妹（いもうと）= younger sister (humble)"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q3",
+            "prompt": "「午後」 の いみ は？",
+            "options": [
+              "half",
+              "to die",
+              "afternoon, P.M.",
+              "to finish, to close"
+            ],
+            "answerIndex": 2,
+            "explanation": "午後（ごご）= afternoon, P.M."
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q4",
+            "prompt": "「郵便局」 の よみかた は どれ ですか。",
+            "options": [
+              "スポーツ",
+              "ようか",
+              "スプーン",
+              "ゆうびんきょく"
+            ],
+            "answerIndex": 3,
+            "explanation": "郵便局（ゆうびんきょく）= post office"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q5",
+            "prompt": "「机」 の よみかた は どれ ですか。",
+            "options": [
+              "つくえ",
+              "ぎゅうにく",
+              "たんじょうび",
+              "わすれる"
+            ],
+            "answerIndex": 0,
+            "explanation": "机（つくえ）= desk"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q6",
+            "prompt": "「牛肉」 の いみ は？",
+            "options": [
+              "lunch, midday meal",
+              "beef",
+              "a song",
+              "counter for cupfuls"
+            ],
+            "answerIndex": 1,
+            "explanation": "牛肉（ぎゅうにく）= beef"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q7",
+            "prompt": "「プール」 の よみかた は どれ ですか。",
+            "options": [
+              "ほんだな",
+              "まいしゅう",
+              "プール",
+              "ここ"
+            ],
+            "answerIndex": 2,
+            "explanation": "プール（プール）= swimming pool"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q8",
+            "prompt": "「渡す」 の よみかた は どれ ですか。",
+            "options": [
+              "くち",
+              "めがね",
+              "～ご",
+              "わたす"
+            ],
+            "answerIndex": 3,
+            "explanation": "渡す（わたす）= to hand (something) over (v.t.); to get across"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q9",
+            "prompt": "「豚肉」 の いみ は？",
+            "options": [
+              "pork",
+              "a telephone",
+              "to buy",
+              "yes"
+            ],
+            "answerIndex": 0,
+            "explanation": "豚肉（ぶたにく）= pork"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q10",
+            "prompt": "「～たち」 の よみかた は どれ ですか。",
+            "options": [
+              "へや",
+              "～たち",
+              "にぎやか",
+              "まいねん; まいとし"
+            ],
+            "answerIndex": 1,
+            "explanation": "～たち（～たち）= plural suffix"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q11",
+            "prompt": "「買う」 の よみかた は どれ ですか。",
+            "options": [
+              "～ずつ",
+              "あそぶ",
+              "かう",
+              "くすり"
+            ],
+            "answerIndex": 2,
+            "explanation": "買う（かう）= to buy"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q12",
+            "prompt": "「黄色」 の いみ は？",
+            "options": [
+              "ten days; tenth day of the month",
+              "to close, to be closed",
+              "to close, to shut",
+              "yellow"
+            ],
+            "answerIndex": 3,
+            "explanation": "黄色（きいろ）= yellow"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q13",
+            "prompt": "「大勢」 の よみかた は どれ ですか。",
+            "options": [
+              "おおぜい",
+              "うまれる",
+              "～さん",
+              "～くらい; ぐらい"
+            ],
+            "answerIndex": 0,
+            "explanation": "大勢（おおぜい）= great number of people"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q14",
+            "prompt": "「作文」 の よみかた は どれ ですか。",
+            "options": [
+              "～がわ",
+              "さくぶん",
+              "いぬ",
+              "あう"
+            ],
+            "answerIndex": 1,
+            "explanation": "作文（さくぶん）= essay; composition"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q15",
+            "prompt": "「茶色」 の いみ は？",
+            "options": [
+              "next year",
+              "foreigner",
+              "brown",
+              "how many, how old"
+            ],
+            "answerIndex": 2,
+            "explanation": "茶色（ちゃいろ）= brown"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q16",
+            "prompt": "「～くらい; ぐらい」 の よみかた は どれ ですか。",
+            "options": [
+              "この",
+              "テレビ",
+              "うすい",
+              "～くらい; ぐらい"
+            ],
+            "answerIndex": 3,
+            "explanation": "～くらい; ぐらい（～くらい; ぐらい）= approximate (quantity)"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q17",
+            "prompt": "「行く」 の よみかた は どれ ですか。",
+            "options": [
+              "いく; ゆく",
+              "まいばん",
+              "よっか",
+              "ときどき"
+            ],
+            "answerIndex": 0,
+            "explanation": "行く（いく; ゆく）= to go"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q18",
+            "prompt": "「昨日」 の いみ は？",
+            "options": [
+              "free time, leisure",
+              "yesterday",
+              "Western-style clothes",
+              "two"
+            ],
+            "answerIndex": 1,
+            "explanation": "昨日（きのう）= yesterday"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q19",
+            "prompt": "「もしもし」 の よみかた は どれ ですか。",
+            "options": [
+              "みせ",
+              "よわい",
+              "もしもし",
+              "まいげつ; まいつき"
+            ],
+            "answerIndex": 2,
+            "explanation": "もしもし（もしもし）= Hello? (used on the phone)"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q20",
+            "prompt": "「月曜日」 の よみかた は どれ ですか。",
+            "options": [
+              "ハンカチ",
+              "くろい",
+              "ひと",
+              "げつようび"
+            ],
+            "answerIndex": 3,
+            "explanation": "月曜日（げつようび）= Monday"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q21",
+            "prompt": "「二十歳」 の いみ は？",
+            "options": [
+              "20 years old",
+              "outside, exterior",
+              "to sing",
+              "tie, necktie"
+            ],
+            "answerIndex": 0,
+            "explanation": "二十歳（はたち）= 20 years old"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q22",
+            "prompt": "「お金」 の よみかた は どれ ですか。",
+            "options": [
+              "よこ",
+              "おかね",
+              "おおきな",
+              "て"
+            ],
+            "answerIndex": 1,
+            "explanation": "お金（おかね）= money"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q23",
+            "prompt": "「朝御飯」 の よみかた は どれ ですか。",
+            "options": [
+              "みっつ",
+              "ともだち",
+              "あさごはん",
+              "いりぐち"
+            ],
+            "answerIndex": 2,
+            "explanation": "朝御飯（あさごはん）= breakfast"
+          },
+          {
+            "id": "n5-jamsinclair-vocab-q24",
+            "prompt": "「まだ」 の いみ は？",
+            "options": [
+              "seven things",
+              "how much, how many",
+              "to read",
+              "yet, still, besides"
+            ],
+            "answerIndex": 3,
+            "explanation": "まだ（まだ）= yet, still, besides"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "n5-sample-1",
     "level": "N5",
     "title": "N5 — Đề mẫu 1",
@@ -355,6 +664,315 @@ export const papers: ExamPaper[] = [
     ]
   },
   {
+    "id": "n4-jamsinclair-vocab",
+    "level": "N4",
+    "title": "N4 — Từ vựng (jamsinclair MIT)",
+    "source": {
+      "name": "jamsinclair/open-anki-jlpt-decks",
+      "url": "https://github.com/jamsinclair/open-anki-jlpt-decks",
+      "license": "MIT",
+      "fetchedAt": "2026-06-21"
+    },
+    "durationMinutes": 20,
+    "sections": [
+      {
+        "type": "vocab",
+        "title": "語彙 (Từ vựng)",
+        "instructions": "Chọn cách đọc (よみかた) hoặc nghĩa đúng. Câu hỏi cách đọc dùng tiếng Nhật; câu hỏi nghĩa dùng tiếng Anh (nguồn không có tiếng Việt).",
+        "questions": [
+          {
+            "id": "n4-jamsinclair-vocab-q1",
+            "prompt": "「褒める」 の よみかた は どれ ですか。",
+            "options": [
+              "ち",
+              "ほめる",
+              "はいしゃ",
+              "うんどうする"
+            ],
+            "answerIndex": 1,
+            "explanation": "褒める（ほめる）= to praise; to say nice things"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q2",
+            "prompt": "「～だす」 の よみかた は どれ ですか。",
+            "options": [
+              "やくにたつ",
+              "あさい",
+              "～だす",
+              "おっしゃる"
+            ],
+            "answerIndex": 2,
+            "explanation": "～だす（～だす）= to start doing ~"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q3",
+            "prompt": "「うまい」 の いみ は？",
+            "options": [
+              "supermarket",
+              "interest (in something)",
+              "information, guidance",
+              "delicious; skillful; fortunate"
+            ],
+            "answerIndex": 3,
+            "explanation": "うまい（うまい）= delicious; skillful; fortunate"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q4",
+            "prompt": "「触る」 の よみかた は どれ ですか。",
+            "options": [
+              "さわる",
+              "うごく",
+              "きょうそう",
+              "うち"
+            ],
+            "answerIndex": 0,
+            "explanation": "触る（さわる）= to touch, to feel"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q5",
+            "prompt": "「捨てる」 の よみかた は どれ ですか。",
+            "options": [
+              "おこる",
+              "すてる",
+              "ひじょうに",
+              "いと"
+            ],
+            "answerIndex": 1,
+            "explanation": "捨てる（すてる）= throw away (trash), dump, discard"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q6",
+            "prompt": "「アメリカ」 の いみ は？",
+            "options": [
+              "never",
+              "a Japanese inn",
+              "America, U.S.A.",
+              "fire"
+            ],
+            "answerIndex": 2,
+            "explanation": "アメリカ（アメリカ）= America, U.S.A."
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q7",
+            "prompt": "「大事」 の よみかた は どれ ですか。",
+            "options": [
+              "カーテン",
+              "ずいぶん",
+              "けがする",
+              "だいじ"
+            ],
+            "answerIndex": 3,
+            "explanation": "大事（だいじ）= important, valuable, serious matter"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q8",
+            "prompt": "「美術館」 の よみかた は どれ ですか。",
+            "options": [
+              "びじゅつかん",
+              "わく",
+              "こわれる",
+              "ようい"
+            ],
+            "answerIndex": 0,
+            "explanation": "美術館（びじゅつかん）= art gallery, art museum"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q9",
+            "prompt": "「おかしい」 の いみ は？",
+            "options": [
+              "first (of all), to start with",
+              "strange; odd; funny",
+              "to advance, to proceed",
+              "I see; I now understand"
+            ],
+            "answerIndex": 1,
+            "explanation": "おかしい（おかしい）= strange; odd; funny"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q10",
+            "prompt": "「展覧会」 の よみかた は どれ ですか。",
+            "options": [
+              "かいわ",
+              "うそ",
+              "てんらんかい",
+              "せん"
+            ],
+            "answerIndex": 2,
+            "explanation": "展覧会（てんらんかい）= exhibition"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q11",
+            "prompt": "「利用」 の よみかた は どれ ですか。",
+            "options": [
+              "きそく",
+              "しょうがっこう",
+              "まわり",
+              "りよう"
+            ],
+            "answerIndex": 3,
+            "explanation": "利用（りよう）= use, utilization"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q12",
+            "prompt": "「忘れ物」 の いみ は？",
+            "options": [
+              "lost article, something forgotten",
+              "to give, to do for",
+              "old days; past",
+              "back (of body)"
+            ],
+            "answerIndex": 0,
+            "explanation": "忘れ物（わすれもの）= lost article, something forgotten"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q13",
+            "prompt": "「最近」 の よみかた は どれ ですか。",
+            "options": [
+              "ごぞんじ",
+              "さいきん",
+              "せんもん",
+              "しょうせつ"
+            ],
+            "answerIndex": 1,
+            "explanation": "最近（さいきん）= recently, nowadays, in recent years, most recent, latest"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q14",
+            "prompt": "「眠い」 の よみかた は どれ ですか。",
+            "options": [
+              "けれど; けれども",
+              "もり",
+              "ねむい",
+              "しらせる"
+            ],
+            "answerIndex": 2,
+            "explanation": "眠い（ねむい）= sleepy, drowsy"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q15",
+            "prompt": "「背中」 の いみ は？",
+            "options": [
+              "to drop, to lose",
+              "daytime, during the day",
+              "swimming",
+              "back (of body)"
+            ],
+            "answerIndex": 3,
+            "explanation": "背中（せなか）= back (of body)"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q16",
+            "prompt": "「入学」 の よみかた は どれ ですか。",
+            "options": [
+              "にゅうがくする",
+              "アクセサリー",
+              "ばしょ",
+              "～おわる"
+            ],
+            "answerIndex": 0,
+            "explanation": "入学（にゅうがくする）= entry to school or university"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q17",
+            "prompt": "「歴史」 の よみかた は どれ ですか。",
+            "options": [
+              "くださる",
+              "れきし",
+              "おいわい",
+              "ぼく"
+            ],
+            "answerIndex": 1,
+            "explanation": "歴史（れきし）= history"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q18",
+            "prompt": "「冷える」 の いみ は？",
+            "options": [
+              "to stop (something)",
+              "shelves, rack",
+              "to grow cold, to cool down",
+              "(humble) (polite) seeing, look at"
+            ],
+            "answerIndex": 2,
+            "explanation": "冷える（ひえる）= to grow cold, to cool down"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q19",
+            "prompt": "「裏」 の よみかた は どれ ですか。",
+            "options": [
+              "せいかつする",
+              "よる",
+              "そう",
+              "うら"
+            ],
+            "answerIndex": 3,
+            "explanation": "裏（うら）= reverse side, back"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q20",
+            "prompt": "「場所」 の よみかた は どれ ですか。",
+            "options": [
+              "ばしょ",
+              "おと",
+              "わらう",
+              "ぶんか"
+            ],
+            "answerIndex": 0,
+            "explanation": "場所（ばしょ）= place, location"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q21",
+            "prompt": "「苦い」 の いみ は？",
+            "options": [
+              "to lose weight",
+              "bitter",
+              "-- extra-modest expression for いる --",
+              "(hon.) good, OK, all right"
+            ],
+            "answerIndex": 1,
+            "explanation": "苦い（にがい）= bitter"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q22",
+            "prompt": "「注意」 の よみかた は どれ ですか。",
+            "options": [
+              "せいよう",
+              "あんしん",
+              "ちゅうい",
+              "うまい"
+            ],
+            "answerIndex": 2,
+            "explanation": "注意（ちゅうい）= caution, attention"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q23",
+            "prompt": "「習慣」 の よみかた は どれ ですか。",
+            "options": [
+              "かたづける",
+              "ひらく",
+              "うつる",
+              "しゅうかん"
+            ],
+            "answerIndex": 3,
+            "explanation": "習慣（しゅうかん）= custom (in reference to culture)"
+          },
+          {
+            "id": "n4-jamsinclair-vocab-q24",
+            "prompt": "「変える」 の いみ は？",
+            "options": [
+              "to change, to alter, to vary",
+              "rich person",
+              "broadcasting",
+              "education"
+            ],
+            "answerIndex": 0,
+            "explanation": "変える（かえる）= to change, to alter, to vary"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "n3-fixture-1",
     "level": "N3",
     "title": "N3 — Đề luyện mẫu A (fixture)",
@@ -464,6 +1082,315 @@ export const papers: ExamPaper[] = [
             "answerIndex": 1,
             "passageId": "n3-fixture-1-s3-p1",
             "explanation": "「いえ で は しゅうちゅう しにくい」."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "n3-jamsinclair-vocab",
+    "level": "N3",
+    "title": "N3 — Từ vựng (jamsinclair MIT)",
+    "source": {
+      "name": "jamsinclair/open-anki-jlpt-decks",
+      "url": "https://github.com/jamsinclair/open-anki-jlpt-decks",
+      "license": "MIT",
+      "fetchedAt": "2026-06-21"
+    },
+    "durationMinutes": 20,
+    "sections": [
+      {
+        "type": "vocab",
+        "title": "語彙 (Từ vựng)",
+        "instructions": "Chọn cách đọc (よみかた) hoặc nghĩa đúng. Câu hỏi cách đọc dùng tiếng Nhật; câu hỏi nghĩa dùng tiếng Anh (nguồn không có tiếng Việt).",
+        "questions": [
+          {
+            "id": "n3-jamsinclair-vocab-q1",
+            "prompt": "「広げる」 の よみかた は どれ ですか。",
+            "options": [
+              "きじ",
+              "にっちゅう",
+              "ひろげる",
+              "のこり"
+            ],
+            "answerIndex": 2,
+            "explanation": "広げる（ひろげる）= to spread, to extend, to expand, to enlarge"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q2",
+            "prompt": "「握手」 の よみかた は どれ ですか。",
+            "options": [
+              "けんり",
+              "てじな",
+              "しよう",
+              "あくしゅ"
+            ],
+            "answerIndex": 3,
+            "explanation": "握手（あくしゅ）= handshake"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q3",
+            "prompt": "「才能」 の いみ は？",
+            "options": [
+              "talent, ability",
+              "to burn, to kindle, to build a fire",
+              "helpless, pity, pathetic",
+              "comfort, ease"
+            ],
+            "answerIndex": 0,
+            "explanation": "才能（さいのう）= talent, ability"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q4",
+            "prompt": "「狩り」 の よみかた は どれ ですか。",
+            "options": [
+              "それとも",
+              "かり",
+              "ようするに",
+              "さ"
+            ],
+            "answerIndex": 1,
+            "explanation": "狩り（かり）= hunting"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q5",
+            "prompt": "「負け」 の よみかた は どれ ですか。",
+            "options": [
+              "まく",
+              "むし",
+              "まけ",
+              "こうえん"
+            ],
+            "answerIndex": 2,
+            "explanation": "負け（まけ）= defeat, loss"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q6",
+            "prompt": "「地下」 の いみ は？",
+            "options": [
+              "a brake",
+              "superiority, high grade",
+              "sharing with, participate in",
+              "basement, underground"
+            ],
+            "answerIndex": 3,
+            "explanation": "地下（ちか）= basement, underground"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q7",
+            "prompt": "「納得」 の よみかた は どれ ですか。",
+            "options": [
+              "なっとく",
+              "すみません (かん)",
+              "しょくもつ",
+              "てつだい"
+            ],
+            "answerIndex": 0,
+            "explanation": "納得（なっとく）= consent, assent, understanding"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q8",
+            "prompt": "「王子」 の よみかた は どれ ですか。",
+            "options": [
+              "じしん",
+              "おうじ",
+              "とうあん",
+              "しきゅう"
+            ],
+            "answerIndex": 1,
+            "explanation": "王子（おうじ）= prince"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q9",
+            "prompt": "「たびたび」 の いみ は？",
+            "options": [
+              "rent",
+              "fish",
+              "often, repeatedly, frequently",
+              "a little, partially, somewhat"
+            ],
+            "answerIndex": 2,
+            "explanation": "たびたび（たびたび）= often, repeatedly, frequently"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q10",
+            "prompt": "「乗せる」 の よみかた は どれ ですか。",
+            "options": [
+              "か",
+              "さかい",
+              "れっしゃ",
+              "のせる"
+            ],
+            "answerIndex": 3,
+            "explanation": "乗せる（のせる）= to place on (something), to take on board"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q11",
+            "prompt": "「温かい」 の よみかた は どれ ですか。",
+            "options": [
+              "あたたかい",
+              "トン",
+              "むちゅう",
+              "かける"
+            ],
+            "answerIndex": 0,
+            "explanation": "温かい（あたたかい）= warm"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q12",
+            "prompt": "「原」 の いみ は？",
+            "options": [
+              "chief, main",
+              "field, plain",
+              "a work, a harvest",
+              "discovery, detection, finding"
+            ],
+            "answerIndex": 1,
+            "explanation": "原（はら）= field, plain"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q13",
+            "prompt": "「図書」 の よみかた は どれ ですか。",
+            "options": [
+              "ひとしい",
+              "ぜったい",
+              "としょ",
+              "かてい"
+            ],
+            "answerIndex": 2,
+            "explanation": "図書（としょ）= books"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q14",
+            "prompt": "「等しい」 の よみかた は どれ ですか。",
+            "options": [
+              "パス",
+              "つり",
+              "ゆうじょう",
+              "ひとしい"
+            ],
+            "answerIndex": 3,
+            "explanation": "等しい（ひとしい）= equal"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q15",
+            "prompt": "「谷」 の いみ は？",
+            "options": [
+              "valley",
+              "violation (of law), infringement",
+              "to abide (by the rules), to obey",
+              "incident happening, event"
+            ],
+            "answerIndex": 0,
+            "explanation": "谷（たに）= valley"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q16",
+            "prompt": "「蚊」 の よみかた は どれ ですか。",
+            "options": [
+              "かんじょう",
+              "か",
+              "のんびり",
+              "しつど"
+            ],
+            "answerIndex": 1,
+            "explanation": "蚊（か）= mosquito"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q17",
+            "prompt": "「器械」 の よみかた は どれ ですか。",
+            "options": [
+              "きゅうに",
+              "たんに",
+              "きかい",
+              "つゆ"
+            ],
+            "answerIndex": 2,
+            "explanation": "器械（きかい）= instrument"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q18",
+            "prompt": "「通り過ぎる」 の いみ は？",
+            "options": [
+              "cavity, tooth decay",
+              "string, cord",
+              "passage through, passing",
+              "to pass, to pass through"
+            ],
+            "answerIndex": 3,
+            "explanation": "通り過ぎる（とおりすぎる）= to pass, to pass through"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q19",
+            "prompt": "「男子」 の よみかた は どれ ですか。",
+            "options": [
+              "だんし",
+              "いた",
+              "おくる",
+              "ミルク"
+            ],
+            "answerIndex": 0,
+            "explanation": "男子（だんし）= young man"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q20",
+            "prompt": "「叩く」 の よみかた は どれ ですか。",
+            "options": [
+              "きげん",
+              "たたく",
+              "きん",
+              "にんげん"
+            ],
+            "answerIndex": 1,
+            "explanation": "叩く（たたく）= to strike, to beat"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q21",
+            "prompt": "「得る」 の いみ は？",
+            "options": [
+              "cheese",
+              "to sniff, to smell",
+              "to get, to gain, to win",
+              "to state, to express, to mention"
+            ],
+            "answerIndex": 2,
+            "explanation": "得る（うる）= to get, to gain, to win"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q22",
+            "prompt": "「腐る」 の よみかた は どれ ですか。",
+            "options": [
+              "こじん",
+              "つける",
+              "おうじる",
+              "くさる"
+            ],
+            "answerIndex": 3,
+            "explanation": "腐る（くさる）= to rot, to go bad"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q23",
+            "prompt": "「臭い」 の よみかた は どれ ですか。",
+            "options": [
+              "くさい",
+              "チーム",
+              "じんこう",
+              "はなす"
+            ],
+            "answerIndex": 0,
+            "explanation": "臭い（くさい）= stinky, smelly, bad-smelling"
+          },
+          {
+            "id": "n3-jamsinclair-vocab-q24",
+            "prompt": "「救助」 の いみ は？",
+            "options": [
+              "declaration, statement, proclamation",
+              "relief, aid, rescue",
+              "circumstances, situation, reasons",
+              "high speed, high gear"
+            ],
+            "answerIndex": 1,
+            "explanation": "救助（きゅうじょ）= relief, aid, rescue"
           }
         ]
       }
@@ -585,6 +1512,315 @@ export const papers: ExamPaper[] = [
     ]
   },
   {
+    "id": "n2-jamsinclair-vocab",
+    "level": "N2",
+    "title": "N2 — Từ vựng (jamsinclair MIT)",
+    "source": {
+      "name": "jamsinclair/open-anki-jlpt-decks",
+      "url": "https://github.com/jamsinclair/open-anki-jlpt-decks",
+      "license": "MIT",
+      "fetchedAt": "2026-06-21"
+    },
+    "durationMinutes": 20,
+    "sections": [
+      {
+        "type": "vocab",
+        "title": "語彙 (Từ vựng)",
+        "instructions": "Chọn cách đọc (よみかた) hoặc nghĩa đúng. Câu hỏi cách đọc dùng tiếng Nhật; câu hỏi nghĩa dùng tiếng Anh (nguồn không có tiếng Việt).",
+        "questions": [
+          {
+            "id": "n2-jamsinclair-vocab-q1",
+            "prompt": "「長～」 の よみかた は どれ ですか。",
+            "options": [
+              "ひとまず",
+              "てつづき",
+              "はりきる",
+              "なが～"
+            ],
+            "answerIndex": 3,
+            "explanation": "長～（なが～）= long ~"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q2",
+            "prompt": "「～ところ」 の よみかた は どれ ですか。",
+            "options": [
+              "～ところ",
+              "かいつう",
+              "マンション",
+              "おがむ"
+            ],
+            "answerIndex": 0,
+            "explanation": "～ところ（～ところ）= about to do ~"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q3",
+            "prompt": "「放る」 の いみ は？",
+            "options": [
+              "to burn, to scorch",
+              "to let go",
+              "before ~",
+              "landlord"
+            ],
+            "answerIndex": 1,
+            "explanation": "放る（ほうる）= to let go"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q4",
+            "prompt": "「先祖」 の よみかた は どれ ですか。",
+            "options": [
+              "ぼっちゃん",
+              "ひので",
+              "せんぞ",
+              "さつえい"
+            ],
+            "answerIndex": 2,
+            "explanation": "先祖（せんぞ）= ancestor"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q5",
+            "prompt": "「面接」 の よみかた は どれ ですか。",
+            "options": [
+              "サークル",
+              "～ぎみ",
+              "しぼる",
+              "めんせつ"
+            ],
+            "answerIndex": 3,
+            "explanation": "面接（めんせつ）= interview"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q6",
+            "prompt": "「欄」 の いみ は？",
+            "options": [
+              "column of text (e.g., as in a newspaper)",
+              "every ~, each ~",
+              "slippers",
+              "draw (in competition), tie game"
+            ],
+            "answerIndex": 0,
+            "explanation": "欄（らん）= column of text (e.g., as in a newspaper)"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q7",
+            "prompt": "「気を付ける」 の よみかた は どれ ですか。",
+            "options": [
+              "すきずき",
+              "きをつける",
+              "にごる",
+              "ふぼ"
+            ],
+            "answerIndex": 1,
+            "explanation": "気を付ける（きをつける）= to be careful, to pay attention, to take care"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q8",
+            "prompt": "「留守番」 の よみかた は どれ ですか。",
+            "options": [
+              "しょ～",
+              "～じ",
+              "るすばん",
+              "うかべる"
+            ],
+            "answerIndex": 2,
+            "explanation": "留守番（るすばん）= care-taking, caretaker, house-watching"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q9",
+            "prompt": "「慰める」 の いみ は？",
+            "options": [
+              "gloss, glaze",
+              "system, genealogy",
+              "first class, leading",
+              "to comfort, to console"
+            ],
+            "answerIndex": 3,
+            "explanation": "慰める（なぐさめる）= to comfort, to console"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q10",
+            "prompt": "「集合」 の よみかた は どれ ですか。",
+            "options": [
+              "しゅうごう",
+              "する",
+              "かいすいよく",
+              "まちあわせる"
+            ],
+            "answerIndex": 0,
+            "explanation": "集合（しゅうごう）= gathering, assembly"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q11",
+            "prompt": "「生意気な」 の よみかた は どれ ですか。",
+            "options": [
+              "どうさ",
+              "なまいきな",
+              "しろうと",
+              "けんきょ"
+            ],
+            "answerIndex": 1,
+            "explanation": "生意気な（なまいきな）= impertinent, saucy, cheeky, impudent, audacious, cocky, pert, brash"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q12",
+            "prompt": "「高等」 の いみ は？",
+            "options": [
+              "to glare at, to stare; to keep an eye on",
+              "rare, seldom",
+              "high class, high grade",
+              "an actual thing"
+            ],
+            "answerIndex": 2,
+            "explanation": "高等（こうとう）= high class, high grade"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q13",
+            "prompt": "「しびれる」 の よみかた は どれ ですか。",
+            "options": [
+              "すきま",
+              "こらえる",
+              "しゅうへん",
+              "しびれる"
+            ],
+            "answerIndex": 3,
+            "explanation": "しびれる（しびれる）= to become numb"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q14",
+            "prompt": "「やむをえない」 の よみかた は どれ ですか。",
+            "options": [
+              "やむをえない",
+              "しき",
+              "おおよそ",
+              "おんしつ"
+            ],
+            "answerIndex": 0,
+            "explanation": "やむをえない（やむをえない）= cannot be helped, unavoidable"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q15",
+            "prompt": "「偶数」 の いみ は？",
+            "options": [
+              "to dislodge, to put something out of the way",
+              "even number",
+              "punctuation marks",
+              "at night, nighttime"
+            ],
+            "answerIndex": 1,
+            "explanation": "偶数（ぐうすう）= even number"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q16",
+            "prompt": "「囁く」 の よみかた は どれ ですか。",
+            "options": [
+              "どう～",
+              "こくりつ",
+              "ささやく",
+              "ちぎる"
+            ],
+            "answerIndex": 2,
+            "explanation": "囁く（ささやく）= to whisper, to murmur"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q17",
+            "prompt": "「乗換」 の よみかた は どれ ですか。",
+            "options": [
+              "くっつける",
+              "コース",
+              "おねがいします",
+              "のりかえ"
+            ],
+            "answerIndex": 3,
+            "explanation": "乗換（のりかえ）= a transfer (e.g., trains, buses)"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q18",
+            "prompt": "「幾～」 の いみ は？",
+            "options": [
+              "several ~",
+              "wire",
+              "figure",
+              "to repay, to pay back"
+            ],
+            "answerIndex": 0,
+            "explanation": "幾～（いく～）= several ~"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q19",
+            "prompt": "「用語」 の よみかた は どれ ですか。",
+            "options": [
+              "ひょうろん",
+              "ようご",
+              "にぶい",
+              "のんき"
+            ],
+            "answerIndex": 1,
+            "explanation": "用語（ようご）= term, terminology"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q20",
+            "prompt": "「日の入り」 の よみかた は どれ ですか。",
+            "options": [
+              "ていか",
+              "そせん",
+              "ひのいり",
+              "じさん"
+            ],
+            "answerIndex": 2,
+            "explanation": "日の入り（ひのいり）= sunset"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q21",
+            "prompt": "「毎度」 の いみ は？",
+            "options": [
+              "exit and entrance",
+              "(the) ground",
+              "entry to a company",
+              "each time, common service-sector greeting"
+            ],
+            "answerIndex": 3,
+            "explanation": "毎度（まいど）= each time, common service-sector greeting"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q22",
+            "prompt": "「こうして」 の よみかた は どれ ですか。",
+            "options": [
+              "こうして",
+              "ろんずる",
+              "しゅじん",
+              "～し"
+            ],
+            "answerIndex": 0,
+            "explanation": "こうして（こうして）= like this, with this"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q23",
+            "prompt": "「中旬」 の よみかた は どれ ですか。",
+            "options": [
+              "けんちょう",
+              "ちゅうじゅん",
+              "ピンク",
+              "なが～"
+            ],
+            "answerIndex": 1,
+            "explanation": "中旬（ちゅうじゅん）= second third of a month"
+          },
+          {
+            "id": "n2-jamsinclair-vocab-q24",
+            "prompt": "「改札」 の いみ は？",
+            "options": [
+              "(in) the evening sun, setting sun",
+              "criterion, aim",
+              "examination of tickets",
+              "integer"
+            ],
+            "answerIndex": 2,
+            "explanation": "改札（かいさつ）= examination of tickets"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "n1-fixture-1",
     "level": "N1",
     "title": "N1 — Đề luyện mẫu A (fixture)",
@@ -694,6 +1930,315 @@ export const papers: ExamPaper[] = [
             "answerIndex": 2,
             "passageId": "n1-fixture-1-s3-p1",
             "explanation": "Văn bản nêu cả mặt lợi (sung túc) và vấn đề (đạo đức)."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "n1-jamsinclair-vocab",
+    "level": "N1",
+    "title": "N1 — Từ vựng (jamsinclair MIT)",
+    "source": {
+      "name": "jamsinclair/open-anki-jlpt-decks",
+      "url": "https://github.com/jamsinclair/open-anki-jlpt-decks",
+      "license": "MIT",
+      "fetchedAt": "2026-06-21"
+    },
+    "durationMinutes": 20,
+    "sections": [
+      {
+        "type": "vocab",
+        "title": "語彙 (Từ vựng)",
+        "instructions": "Chọn cách đọc (よみかた) hoặc nghĩa đúng. Câu hỏi cách đọc dùng tiếng Nhật; câu hỏi nghĩa dùng tiếng Anh (nguồn không có tiếng Việt).",
+        "questions": [
+          {
+            "id": "n1-jamsinclair-vocab-q1",
+            "prompt": "「不可欠」 の よみかた は どれ ですか。",
+            "options": [
+              "ふかけつ",
+              "たぼう",
+              "はんきょう",
+              "はいけい"
+            ],
+            "answerIndex": 0,
+            "explanation": "不可欠（ふかけつ）= indispensable, essential"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q2",
+            "prompt": "「敬具」 の よみかた は どれ ですか。",
+            "options": [
+              "へいし",
+              "けいぐ",
+              "もさく",
+              "みたす"
+            ],
+            "answerIndex": 1,
+            "explanation": "敬具（けいぐ）= Sincerely (used at the end of letter)"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q3",
+            "prompt": "「弛み」 の いみ は？",
+            "options": [
+              "pulse",
+              "verbal statement",
+              "slack, slackening",
+              "exactly, perfectly"
+            ],
+            "answerIndex": 2,
+            "explanation": "弛み（たるみ）= slack, slackening"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q4",
+            "prompt": "「結び付く」 の よみかた は どれ ですか。",
+            "options": [
+              "こうよう",
+              "せんよう",
+              "がいねん",
+              "むすびつく"
+            ],
+            "answerIndex": 3,
+            "explanation": "結び付く（むすびつく）= to be connected or related, to join together"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q5",
+            "prompt": "「勝利」 の よみかた は どれ ですか。",
+            "options": [
+              "しょうり",
+              "なまぬるい",
+              "とうたつ",
+              "おろそか"
+            ],
+            "answerIndex": 0,
+            "explanation": "勝利（しょうり）= victory, triumph, win"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q6",
+            "prompt": "「温和」 の いみ は？",
+            "options": [
+              "minuscule amount, extremely small quantity",
+              "gentle, mild, moderate",
+              "appointment",
+              "right under, directly below"
+            ],
+            "answerIndex": 1,
+            "explanation": "温和（おんわ）= gentle, mild, moderate"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q7",
+            "prompt": "「進出」 の よみかた は どれ ですか。",
+            "options": [
+              "えんかつ",
+              "したう",
+              "しんしゅつ",
+              "ささげる"
+            ],
+            "answerIndex": 2,
+            "explanation": "進出（しんしゅつ）= advancement"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q8",
+            "prompt": "「業績」 の よみかた は どれ ですか。",
+            "options": [
+              "ちょうわ",
+              "だいべん",
+              "ちゅうけい",
+              "ぎょうせき"
+            ],
+            "answerIndex": 3,
+            "explanation": "業績（ぎょうせき）= achievement, work, contribution"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q9",
+            "prompt": "「忠告」 の いみ は？",
+            "options": [
+              "advice, warning",
+              "magnificent, grand, impressive",
+              "dentistry",
+              "majority rule"
+            ],
+            "answerIndex": 0,
+            "explanation": "忠告（ちゅうこく）= advice, warning"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q10",
+            "prompt": "「チームワーク」 の よみかた は どれ ですか。",
+            "options": [
+              "インフレ",
+              "チームワーク",
+              "へいれつ",
+              "さかずき"
+            ],
+            "answerIndex": 1,
+            "explanation": "チームワーク（チームワーク）= teamwork"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q11",
+            "prompt": "「征服」 の よみかた は どれ ですか。",
+            "options": [
+              "りったい",
+              "かりに",
+              "せいふく",
+              "ふよう"
+            ],
+            "answerIndex": 2,
+            "explanation": "征服（せいふく）= conquest, subjugation, overcoming"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q12",
+            "prompt": "「誇張」 の いみ は？",
+            "options": [
+              "(bargain) sale",
+              "friendship",
+              "pimple, acne",
+              "exaggeration"
+            ],
+            "answerIndex": 3,
+            "explanation": "誇張（こちょう）= exaggeration"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q13",
+            "prompt": "「ちょくちょく」 の よみかた は どれ ですか。",
+            "options": [
+              "ちょくちょく",
+              "ございます (かん)",
+              "かいてい",
+              "ひところ"
+            ],
+            "answerIndex": 0,
+            "explanation": "ちょくちょく（ちょくちょく）= often, frequently, now and then, occasionally"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q14",
+            "prompt": "「退化」 の よみかた は どれ ですか。",
+            "options": [
+              "ゆうわく",
+              "たいか",
+              "おおまかな",
+              "すれちがい"
+            ],
+            "answerIndex": 1,
+            "explanation": "退化（たいか）= degeneration, retrogression"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q15",
+            "prompt": "「断然」 の いみ は？",
+            "options": [
+              "heavenly body",
+              "interest (bank)",
+              "firmly, absolutely, definitely",
+              "establishment, founding"
+            ],
+            "answerIndex": 2,
+            "explanation": "断然（だんぜん）= firmly, absolutely, definitely"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q16",
+            "prompt": "「汚れ」 の よみかた は どれ ですか。",
+            "options": [
+              "そこなう",
+              "とりしらべる",
+              "とぐ",
+              "よごれ"
+            ],
+            "answerIndex": 3,
+            "explanation": "汚れ（よごれ）= dirt, filth"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q17",
+            "prompt": "「取り調べる」 の よみかた は どれ ですか。",
+            "options": [
+              "とりしらべる",
+              "りょうしつ",
+              "せつりつ",
+              "スチーム"
+            ],
+            "answerIndex": 0,
+            "explanation": "取り調べる（とりしらべる）= to investigate, to examine"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q18",
+            "prompt": "「工学」 の いみ は？",
+            "options": [
+              "examination, careful investigation",
+              "engineering",
+              "battery",
+              "persuasion"
+            ],
+            "answerIndex": 1,
+            "explanation": "工学（こうがく）= engineering"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q19",
+            "prompt": "「進み」 の よみかた は どれ ですか。",
+            "options": [
+              "おっかない",
+              "ソロ",
+              "すすみ",
+              "てつぼう"
+            ],
+            "answerIndex": 2,
+            "explanation": "進み（すすみ）= progress"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q20",
+            "prompt": "「製法」 の よみかた は どれ ですか。",
+            "options": [
+              "やみ",
+              "みなり",
+              "のうこう",
+              "せいほう"
+            ],
+            "answerIndex": 3,
+            "explanation": "製法（せいほう）= manufacturing method, recipe, formula"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q21",
+            "prompt": "「証言」 の いみ は？",
+            "options": [
+              "evidence, testimony",
+              "to disagree, to dispute",
+              "quality",
+              "restoration, restitution, rehabilitation"
+            ],
+            "answerIndex": 0,
+            "explanation": "証言（しょうげん）= evidence, testimony"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q22",
+            "prompt": "「肉親」 の よみかた は どれ ですか。",
+            "options": [
+              "ばらまく",
+              "にくしん",
+              "へきえき",
+              "かきまわす"
+            ],
+            "answerIndex": 1,
+            "explanation": "肉親（にくしん）= blood relationship, blood relative"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q23",
+            "prompt": "「詐欺」 の よみかた は どれ ですか。",
+            "options": [
+              "おり",
+              "うめぼし",
+              "さぎ",
+              "ひび (かべの～)"
+            ],
+            "answerIndex": 2,
+            "explanation": "詐欺（さぎ）= fraud, swindle"
+          },
+          {
+            "id": "n1-jamsinclair-vocab-q24",
+            "prompt": "「不意」 の いみ は？",
+            "options": [
+              "to present, to submit, to hold out",
+              "middle, midway",
+              "growth, development, breeding",
+              "sudden, abrupt, unexpected"
+            ],
+            "answerIndex": 3,
+            "explanation": "不意（ふい）= sudden, abrupt, unexpected"
           }
         ]
       }

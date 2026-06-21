@@ -20,7 +20,7 @@
 
 import { getSource, listSources } from './sources/index.js';
 import { validateAll, formatIssues } from './validate.js';
-import { writePapersFile, sortPapers, PAPERS_FILE } from './generate.js';
+import { writePapersFile, sortPapers, readExistingPapers, mergePapers } from './generate.js';
 
 /**
  * @param {string[]} argv
@@ -45,7 +45,12 @@ Usage:
   node scripts/fetch-exams/fetch-exams.js [options]
 
 Options:
-  --source=<name>      Source adapter (default: fixture). Available: ${listSources().join(', ')}
+  --source=<name>      Source adapter(s), comma-separated (default: fixture).
+                       Available: ${listSources().join(', ')}
+                       e.g. --source=jamsinclair-mit  or  --source=fixture,jamsinclair-mit
+  --no-merge           Clean rebuild: write ONLY the produced sources' papers.
+                       (Default: MERGE produced papers into papers.ts by id, so a
+                        single-source run keeps papers contributed by other sources.)
   --delay=<ms>         Min delay between live HTTP requests (default 1000). HTTP sources only.
   --user-agent=<str>   Override the bot User-Agent. HTTP sources only.
   --dry-run            Fetch + validate but do NOT write papers.ts.
@@ -60,35 +65,62 @@ async function main() {
     return 0;
   }
 
-  const sourceName = typeof args.source === 'string' ? args.source : 'fixture';
+  const sourceArg = typeof args.source === 'string' ? args.source : 'fixture';
+  const sourceNames = sourceArg
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
   const delayMs = typeof args.delay === 'string' ? Number(args.delay) : undefined;
   const userAgent = typeof args['user-agent'] === 'string' ? args['user-agent'] : undefined;
   const dryRun = args['dry-run'] === true;
+  const merge = args['no-merge'] !== true;
   const fetchedAt = new Date().toISOString().slice(0, 10);
 
-  console.log(`[fetch-exams] source=${sourceName}${dryRun ? ' (dry-run)' : ''}`);
+  console.log(
+    `[fetch-exams] source=${sourceNames.join(',')}${merge ? '' : ' (no-merge)'}${dryRun ? ' (dry-run)' : ''}`
+  );
 
-  let source;
+  /** @type {import('./sources/types.js').ExamSourceAdapter[]} */
+  const sources = [];
   try {
-    source = getSource(sourceName, { delayMs, userAgent, fetchedAt });
+    for (const name of sourceNames) {
+      sources.push(getSource(name, { delayMs, userAgent, fetchedAt }));
+    }
   } catch (err) {
     console.error(`[fetch-exams] ${(err instanceof Error ? err.message : String(err))}`);
     return 1;
   }
 
+  // Run every requested source; concatenate the papers they produce.
   /** @type {ExamPaper[]} */
-  let papers;
+  let produced;
   try {
-    const refs = await source.fetchPaperList();
-    console.log(`[fetch-exams] discovered ${refs.length} paper(s) from "${source.name}"`);
-    papers = [];
-    for (const ref of refs) {
-      const paper = await source.fetchAndParse(ref);
-      papers.push(paper);
+    produced = [];
+    for (const source of sources) {
+      const refs = await source.fetchPaperList();
+      console.log(`[fetch-exams] discovered ${refs.length} paper(s) from "${source.name}"`);
+      for (const ref of refs) {
+        produced.push(await source.fetchAndParse(ref));
+      }
     }
   } catch (err) {
     console.error(`[fetch-exams] fetch/parse failed: ${(err instanceof Error ? err.message : String(err))}`);
     return 1;
+  }
+
+  // MERGE (default): keep papers contributed by other sources, replace by id.
+  // --no-merge: clean rebuild from only the produced papers.
+  /** @type {ExamPaper[]} */
+  let papers;
+  try {
+    papers = merge ? mergePapers(readExistingPapers(), produced) : produced;
+  } catch (err) {
+    console.error(`[fetch-exams] merge failed: ${(err instanceof Error ? err.message : String(err))}`);
+    return 1;
+  }
+  if (merge) {
+    const kept = papers.length - produced.length;
+    console.log(`[fetch-exams] merged: ${produced.length} produced + ${kept} kept from papers.ts`);
   }
 
   // Validate — pipeline FAILS on any malformed paper.
