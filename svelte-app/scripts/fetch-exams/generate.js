@@ -11,7 +11,7 @@
  * @typedef {import('../../src/lib/types/exam').JlptLevel} JlptLevel
  */
 
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -36,6 +36,51 @@ export function sortPapers(papers) {
   });
 }
 
+/** Marker the rendered file uses to introduce the data array. */
+const PAPERS_MARKER = 'export const papers: ExamPaper[] = ';
+
+/**
+ * Read back the papers currently committed in `papers.ts`. Used by the
+ * orchestrator's MERGE mode so a single-source run can add/replace only the
+ * papers it owns (keyed by id) without dropping papers contributed by other
+ * sources. The generated file is machine-owned with exactly the shape emitted by
+ * {@link renderPapersFile}, so the data array is plain JSON.
+ *
+ * @param {string} [file]
+ * @returns {ExamPaper[]}  `[]` when the file does not exist yet.
+ */
+export function readExistingPapers(file = PAPERS_FILE) {
+  if (!existsSync(file)) return [];
+  const src = readFileSync(file, 'utf8');
+  const at = src.indexOf(PAPERS_MARKER);
+  if (at === -1) {
+    throw new Error(`cannot read existing papers: marker not found in ${file} (corrupted machine file?)`);
+  }
+  let tail = src.slice(at + PAPERS_MARKER.length).trimEnd();
+  if (tail.endsWith(';')) tail = tail.slice(0, -1);
+  try {
+    const parsed = JSON.parse(tail);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (err) {
+    throw new Error(`cannot parse existing papers in ${file}: ${err instanceof Error ? err.message : String(err)}`);
+  }
+}
+
+/**
+ * Merge freshly-produced papers into an existing set, keyed by paper `id`:
+ * any existing paper whose id collides with a produced paper is replaced; all
+ * other existing papers are kept. Deterministic + idempotent (re-running a
+ * source replaces exactly its own ids).
+ *
+ * @param {ExamPaper[]} existing
+ * @param {ExamPaper[]} produced
+ * @returns {ExamPaper[]}
+ */
+export function mergePapers(existing, produced) {
+  const producedIds = new Set(produced.map((p) => p.id));
+  return existing.filter((p) => !producedIds.has(p.id)).concat(produced);
+}
+
 /**
  * Render the full `papers.ts` source for a set of papers.
  * @param {ExamPaper[]} papers
@@ -53,7 +98,7 @@ export function renderPapersFile(papers) {
     ` * The UI must import only from \`./index.ts\`, never this file directly.\n` +
     ` */\n\n` +
     `import type { ExamPaper } from '$lib/types/exam';\n\n` +
-    `export const papers: ExamPaper[] = ${json};\n`
+    `${PAPERS_MARKER}${json};\n`
   );
 }
 

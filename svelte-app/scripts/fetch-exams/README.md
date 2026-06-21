@@ -34,6 +34,7 @@ file directly, so the data layer and UI stay decoupled.
 | `sources/types.js` | The `ExamSourceAdapter` + `PaperRef` contract (JSDoc). |
 | `sources/fixture.js` | Local, no-network source — parses `fixtures/*.json` → `ExamPaper`. |
 | `sources/example-http.js` | Template for a real HTTP source (good-citizen demo). |
+| `sources/jamsinclair-mit.js` | Real MIT source — fetches the jamsinclair JLPT vocab CSVs → generated vocab papers. |
 | `sources/index.js` | Registry mapping `--source=<name>` → adapter. |
 | `http.js` `robots.js` `cache.js` | Good-citizen HTTP layer (see below). |
 | `fixtures/*.json` | Committed original sample papers (one+ per level). |
@@ -43,7 +44,8 @@ file directly, so the data layer and UI stay decoupled.
 
 | Flag | Default | Notes |
 |------|---------|-------|
-| `--source=<name>` | `fixture` | Registered sources: `fixture`, `example-http`. |
+| `--source=<name>` | `fixture` | One or more registered sources, comma-separated. Registered: `fixture`, `example-http`, `jamsinclair-mit`. |
+| `--no-merge` | off (merge **on**) | Clean rebuild — write ONLY the produced sources' papers. By default a run **merges** its papers into the existing `papers.ts` by id (see below). |
 | `--delay=<ms>` | `1000` | Min delay between live HTTP requests (HTTP sources only). |
 | `--user-agent=<str>` | built-in bot UA | Override the bot User-Agent (HTTP sources only). |
 | `--dry-run` | off | Fetch + validate, but don't write `papers.ts`. |
@@ -51,6 +53,26 @@ file directly, so the data layer and UI stay decoupled.
 
 The pipeline exits **non-zero** if any paper fails validation, and never writes a
 partial/invalid `papers.ts`.
+
+### Merge vs. clean rebuild
+
+`papers.ts` aggregates papers from **multiple sources** (the bundled originals +
+real sources like `jamsinclair-mit`). To keep them all without one source
+clobbering another, a run **merges by default**: it reads the current
+`papers.ts`, replaces only the papers whose `id` it just produced, and keeps the
+rest. This makes every run **idempotent** (deterministic data + stable sort +
+replace-by-id ⇒ running twice yields no diff) and order-independent:
+
+```bash
+npm run fetch-exams -- --source=jamsinclair-mit          # add/refresh jamsinclair papers, keep the originals
+npm run fetch-exams -- --source=fixture                  # refresh the originals, keep jamsinclair papers
+npm run fetch-exams -- --source=fixture,jamsinclair-mit  # run both in one pass (full set)
+npm run fetch-exams -- --source=fixture --no-merge        # CLEAN rebuild: originals only (drops other sources)
+```
+
+> Note: with `npm run`, script flags must come after `--` so npm forwards them
+> (`npm run fetch-exams -- --source=…`), otherwise npm swallows them as its own
+> config.
 
 ## Validation rules (`validate.js`)
 
@@ -86,6 +108,62 @@ parse work:
 Fixtures ship one or more **original** sample papers for **every level N5→N1**
 (`source.license: "original"`). They are short, hand-authored samples — not
 copies of real exams (see the legal caveat).
+
+## The `jamsinclair-mit` source (real, MIT)
+
+`sources/jamsinclair-mit.js` is a **real** source adapter. It fetches the
+**MIT-licensed** JLPT vocabulary CSVs from
+[`jamsinclair/open-anki-jlpt-decks`](https://github.com/jamsinclair/open-anki-jlpt-decks)
+(`src/{n5,n4,n3,n2,n1}.csv`, columns `expression,reading,meaning,tags,guid`) and
+**generates** one vocab paper per level (N5→N1).
+
+```bash
+# Fetch + generate the five jamsinclair papers, merged with the originals:
+npm run fetch-exams -- --source=jamsinclair-mit
+```
+
+What it does:
+
+1. **Fetch** — each level's CSV is fetched through the good-citizen `http.js`
+   layer (robots.txt check + rate-limit + bot User-Agent + raw cache).
+2. **Parse** — a proper RFC-4180-ish CSV parser handles quoted fields with
+   embedded commas, escaped quotes (`""`), and even a `guid` column that itself
+   contains commas.
+3. **Generate** — ~24 multiple-choice questions per paper in a single `vocab`
+   section, mixing:
+   - **~2/3 reading questions** (language-neutral): `「会う」 の よみかた は どれ ですか。`
+     — options are the correct kana reading + 3 distractor readings from other
+     words in the SAME level;
+   - **~1/3 meaning questions**: `「会う」 の いみ は？` — options are the correct
+     English gloss + 3 distractor glosses.
+   Distractors are de-duplicated (distinct from the answer and from each other),
+   and the answer position varies per question.
+
+**Determinism / idempotency.** Generation uses **no `Math.random`** and does not
+depend on CSV row order: the word pool is sorted by `guid`, de-duplicated by
+`expression`, questions are picked by a fixed stride, and distractor starts +
+answer positions are derived from the question index and a per-level offset.
+Re-running the pipeline produces byte-identical papers, and the merge step
+(replace-by-id) keeps it idempotent against `papers.ts`.
+
+### Attribution
+
+Data: **[jamsinclair/open-anki-jlpt-decks](https://github.com/jamsinclair/open-anki-jlpt-decks)**,
+licensed **MIT**. Every generated paper carries this in its required `source`
+field (`name` / `url` / `license: "MIT"` / `fetchedAt`), so provenance stays
+traceable per the schema contract.
+
+### ⚠️ Limitation — meanings are English
+
+The source dataset has **no Vietnamese**. Therefore:
+
+- **Reading questions** are language-neutral (Japanese only) — the recommended,
+  fully-localized question type.
+- **Meaning questions** use the dataset's **English** glosses as options.
+
+Vietnamese meaning enrichment (translating/curating the glosses, or sourcing a
+JLPT vocab dataset with Vietnamese) is **future work**. Until then, reading
+questions carry the localization weight and meaning questions remain English.
 
 ## Adding a real source adapter
 

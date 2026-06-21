@@ -9,6 +9,7 @@
 
 import { createFixtureAdapter } from './fixture.js';
 import { createExampleHttpAdapter } from './example-http.js';
+import { createJamsinclairAdapter } from './jamsinclair-mit.js';
 
 /**
  * @typedef {Object} SourceContext
@@ -20,7 +21,9 @@ import { createExampleHttpAdapter } from './example-http.js';
 /** @type {Record<string, (ctx: SourceContext) => ExamSourceAdapter>} */
 const REGISTRY = {
   fixture: (ctx) => createFixtureAdapter({ fetchedAt: ctx.fetchedAt }),
-  'example-http': (ctx) => createExampleHttpAdapter({ delayMs: ctx.delayMs, userAgent: ctx.userAgent })
+  'example-http': (ctx) => createExampleHttpAdapter({ delayMs: ctx.delayMs, userAgent: ctx.userAgent }),
+  'jamsinclair-mit': (ctx) =>
+    createJamsinclairAdapter({ delayMs: ctx.delayMs, userAgent: ctx.userAgent, fetchedAt: ctx.fetchedAt })
 };
 
 /** @returns {string[]} */
