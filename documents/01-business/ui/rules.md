@@ -2,7 +2,7 @@
 
 > **Module:** UI Redesign — shadcn-svelte + Tailwind CSS v4
 > **Approach:** Component library as design system (no Figma templates)
-> **Skill ref:** `.claude/skills/reference/ui-template-guide.md`
+> **Agent ref:** `AGENTS.md` and `.impeccable.md`
 
 ---
 

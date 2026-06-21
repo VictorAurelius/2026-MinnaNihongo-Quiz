@@ -80,6 +80,6 @@ git checkout HEAD -- src/icon.svg src/manifest.json src/index.html
 
 ---
 
-**Thiết kế:** Claude Sonnet 4.5
+**Thiết kế:** AI-assisted design
 **Ngày:** 2026-03-13
 **Mục đích:** Tạo logo đẹp và kích thích hứng thú học tập hơn

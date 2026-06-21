@@ -108,7 +108,7 @@ Checklist xác nhận:
 - [ ] Table `leaderboard_profiles` tồn tại
 - [ ] RLS enabled trên cả 2 tables (check Policies tab)
 
-## Step 6: Cung cấp cho Claude
+## Step 6: Cung cấp cho Codex
 
 Khi xong, gửi 2 giá trị này:
 
@@ -117,7 +117,7 @@ VITE_SUPABASE_URL=https://xxxxx.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGciOi...
 ```
 
-Claude sẽ:
+Codex sẽ:
 1. Tạo `.env` file
 2. Install `@supabase/supabase-js`
 3. Implement PR #12 (Auth + Cloud Sync) + PR #13 (Leaderboard)

@@ -65,9 +65,7 @@ Scripts automatically format commits:
 ```
 <type>: <description>
 
-Automated commit via workflow script.
-
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+Automated commit via Smart Quiz workflow script.
 ```
 
 Types: `feat`, `fix`, `docs`, `test`, `chore`, `refactor`
@@ -92,7 +90,7 @@ chmod +x .git/hooks/commit-msg
 
 ## 📊 Stats Tracking
 
-`update-skill-stats.sh` automatically updates `.claude/skills/git-pr-workflow.md` with:
+`update-skill-stats.sh` automatically updates `documents/05-guides/CODEX_WORKFLOW_STATS.md` with:
 - Total PRs merged
 - Total branches created
 - Last PR info

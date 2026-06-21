@@ -1,11 +1,11 @@
 #!/bin/bash
-# Update git-pr-workflow.md with latest stats
+# Update Codex workflow stats with latest PR data
 # Called after PR merge by GitHub Action
 
 set -e
 
-SKILL_FILE=".claude/skills/git-pr-workflow.md"
-STATS_MARKER="## 📊 Workflow Statistics"
+STATS_FILE="documents/05-guides/CODEX_WORKFLOW_STATS.md"
+STATS_MARKER="## Workflow Statistics"
 
 # Get git stats
 TOTAL_PRS=$(gh pr list --state merged --limit 1000 --json number | jq length)
@@ -28,24 +28,24 @@ STATS_SECTION="$STATS_MARKER
 
 ---"
 
-# Check if skill file exists
-if [ ! -f "$SKILL_FILE" ]; then
-  echo "Warning: $SKILL_FILE not found"
+# Check if stats file exists
+if [ ! -f "$STATS_FILE" ]; then
+  echo "Warning: $STATS_FILE not found"
   exit 0
 fi
 
 # Check if stats section exists
-if grep -q "$STATS_MARKER" "$SKILL_FILE"; then
+if grep -q "$STATS_MARKER" "$STATS_FILE"; then
   # Update existing stats section
   # Remove old stats section and append new one
-  sed -i "/$STATS_MARKER/,/^---$/d" "$SKILL_FILE"
-  echo "$STATS_SECTION" >> "$SKILL_FILE"
+  sed -i "/$STATS_MARKER/,/^---$/d" "$STATS_FILE"
+  echo "$STATS_SECTION" >> "$STATS_FILE"
 else
   # Add stats section at the end
-  echo "" >> "$SKILL_FILE"
-  echo "$STATS_SECTION" >> "$SKILL_FILE"
+  echo "" >> "$STATS_FILE"
+  echo "$STATS_SECTION" >> "$STATS_FILE"
 fi
 
-echo "✅ Skill stats updated successfully"
+echo "✅ Workflow stats updated successfully"
 echo "📊 Total PRs: $TOTAL_PRS"
 echo "🌿 Total Branches: $TOTAL_BRANCHES"

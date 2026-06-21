@@ -201,7 +201,7 @@ score "Data" $S
 section "9/10" "Documentation"
 
 S=0
-[[ -f "$ROOT/CLAUDE.md" ]]              && { S=$((S+3)); pass "CLAUDE.md"; }          || fail "CLAUDE.md missing"
+[[ -f "$ROOT/AGENTS.md" ]]              && { S=$((S+3)); pass "AGENTS.md"; }          || fail "AGENTS.md missing"
 [[ -f "$ROOT/documents/02-architecture/TECHNICAL.md" ]] && { S=$((S+2)); pass "TECHNICAL.md"; }       || fail "missing"
 [[ -f "$ROOT/documents/01-business/BUSINESS_LOGIC.md" ]] && { S=$((S+2)); pass "BUSINESS_LOGIC.md"; }  || fail "missing"
 [[ -f "$ROOT/README.md" ]]              && { S=$((S+3)); pass "README.md"; }           || fail "missing"
