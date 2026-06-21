@@ -49,9 +49,6 @@
       class="relative text-white pt-3 pb-6 px-4 overflow-hidden"
       style="background: linear-gradient(135deg, color-mix(in srgb, {course.metadata.color} 30%, hsl(245 58% 35%)), hsl(262 60% 45%))"
     >
-      <!-- Decorative orbs -->
-      <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
-      <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-xl pointer-events-none"></div>
 
       <div class="relative z-10">
         <div>
@@ -177,13 +174,13 @@
             on:click={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}
           >
             <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-success/10 flex items-center justify-center group-hover:bg-success/20 transition-colors">
-              <PenLine size={22} class="text-success" aria-hidden="true" />
+              <PenLine size={22} class="text-success-text" aria-hidden="true" />
             </div>
             <div class="flex-1 min-w-0">
               <span class="font-semibold block">Grammar Quiz</span>
               <span class="text-xs text-muted-foreground">{lesson.grammar.length} patterns</span>
             </div>
-            <ChevronRight size={18} class="ml-auto text-muted-foreground group-hover:text-success group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+            <ChevronRight size={18} class="ml-auto text-muted-foreground group-hover:text-success-text group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
           </button>
         </section>
       {/if}
@@ -199,22 +196,22 @@
             on:click={() => goto(buildVocabularyUrl(courseId, lessonId))}
           >
             <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-warning/10 flex items-center justify-center group-hover:bg-warning/20 transition-colors">
-              <BookOpen size={22} class="text-warning" aria-hidden="true" />
+              <BookOpen size={22} class="text-warning-text" aria-hidden="true" />
             </div>
             <span class="flex-1 font-semibold">Vocabulary</span>
             <span class="px-2 py-0.5 rounded-lg bg-muted text-xs text-muted-foreground font-medium">{lesson.vocabulary.length} từ</span>
-            <ChevronRight size={18} class="text-muted-foreground group-hover:text-warning group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+            <ChevronRight size={18} class="text-muted-foreground group-hover:text-warning-text group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
           </button>
           <button
             class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-warning/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
             on:click={() => goto(buildGrammarUrl(courseId, lessonId))}
           >
             <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-warning/10 flex items-center justify-center group-hover:bg-warning/20 transition-colors">
-              <Book size={22} class="text-warning" aria-hidden="true" />
+              <Book size={22} class="text-warning-text" aria-hidden="true" />
             </div>
             <span class="flex-1 font-semibold">Grammar</span>
             <span class="px-2 py-0.5 rounded-lg bg-muted text-xs text-muted-foreground font-medium">{lesson.grammar.length} mẫu</span>
-            <ChevronRight size={18} class="text-muted-foreground group-hover:text-warning group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+            <ChevronRight size={18} class="text-muted-foreground group-hover:text-warning-text group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
           </button>
         </div>
       </section>

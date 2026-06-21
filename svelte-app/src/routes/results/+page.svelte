@@ -33,9 +33,9 @@
   $: strokeDasharray = `${stats.percentage}, 100`;
 
   $: gradeColor = stats.percentage >= 80
-    ? 'text-success'
+    ? 'text-success-text'
     : stats.percentage >= 60
-      ? 'text-warning'
+      ? 'text-warning-text'
       : 'text-destructive';
 
   function retryAll() {

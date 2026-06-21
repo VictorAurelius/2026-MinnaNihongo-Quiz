@@ -26,7 +26,10 @@ test.describe('User Flow: Quiz Pages Load Correctly', () => {
 
   test('should redirect to home for invalid lesson in quiz', async ({ page }) => {
     await page.goto('/quiz/flashcard?lesson=999');
-    await expect(page).toHaveURL('/', { timeout: 10000 });
+    // Home is `/` on the dev server and `/2026-Smart-Quiz/` on the production
+    // build (GitHub Pages base path) — assert "landed on home root" in a way that
+    // holds for both. The hero-heading check below is the substantive assertion.
+    await expect(page).toHaveURL(/\/(2026-Smart-Quiz\/)?$/, { timeout: 10000 });
     // Home redesigned — assert the hero heading instead of old "Choose a Lesson"
     await expect(page.getByRole('heading', { level: 1, name: /Learn/i })).toBeVisible();
   });

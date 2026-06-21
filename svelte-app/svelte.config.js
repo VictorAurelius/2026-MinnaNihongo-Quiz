@@ -9,7 +9,13 @@ const config = {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: 'index.html',
+      // Use a dedicated SPA-fallback filename (NOT index.html) so the
+      // prerendered home page (`/` -> build/index.html) is not overwritten by
+      // the neutral fallback shell. postbuild.js copies 200.html -> 404.html
+      // for the GitHub Pages SPA deep-link fallback. Netlify/Vercel rewrite
+      // unknown routes to /index.html (static files keep filesystem precedence,
+      // so prerendered pages still serve directly).
+      fallback: '200.html',
       precompress: true,
       strict: true
     }),

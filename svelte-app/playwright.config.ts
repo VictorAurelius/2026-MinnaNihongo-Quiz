@@ -72,11 +72,16 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
+    // CI serves the real production build under its GitHub Pages base path
+    // (`/2026-Smart-Quiz/`) via a small static server that mirrors the deployed
+    // layout — `serve build -s` would expose the build at root, 404-ing the
+    // base-prefixed asset URLs. See scripts/preview-server.mjs. Assumes
+    // `npm run build` already ran (the pr-gate builds before E2E).
     command: process.env.CI
-      ? 'npx serve build -l 4173 -s'
+      ? 'node scripts/preview-server.mjs'
       : 'npm run dev',
     url: process.env.CI
-      ? 'http://127.0.0.1:4173'
+      ? 'http://127.0.0.1:4173/2026-Smart-Quiz/'
       : 'http://localhost:5173',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,

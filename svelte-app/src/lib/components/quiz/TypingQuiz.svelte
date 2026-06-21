@@ -298,7 +298,7 @@
 
   .feedback.correct {
     background: color-mix(in srgb, var(--color-success) 12%, var(--color-background));
-    color: var(--color-success);
+    color: var(--color-success-text);
   }
 
   .feedback.wrong {

@@ -1,12 +1,17 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { base } from '$app/paths';
+  import { browser } from '$app/environment';
   import { KANGXI_RADICALS, getKanjiByRadical } from '$lib/data/kanji/radicals';
 
   let searchTerm = '';
   let selectedRadical: string | null = null;
 
-  $: query = $page.url.searchParams.get('q') || '';
+  // Guard searchParams behind `browser`: accessing url.searchParams during
+  // prerender is unsafe (the static HTML can't depend on the query string), so
+  // the full radical grid prerenders unfiltered; the ?q= deep-link still
+  // pre-selects a radical after hydration in the browser.
+  $: query = browser ? ($page.url.searchParams.get('q') || '') : '';
   $: if (query) selectedRadical = query;
 
   $: filtered = searchTerm
