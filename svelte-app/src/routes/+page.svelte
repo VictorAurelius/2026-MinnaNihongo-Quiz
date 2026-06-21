@@ -10,7 +10,7 @@
   import { HSK5_DATA } from '$lib/data/hsk';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import PageError from '$lib/components/common/PageError.svelte';
-  import { Layers, CheckCircle, Keyboard, ChevronRight, BookOpen, Languages, GraduationCap, Hash, ClipboardCheck, ArrowRight, MessageCircle } from 'lucide-svelte';
+  import { Layers, CheckCircle, Keyboard, ChevronRight, BookOpen, Languages, GraduationCap, Hash, ClipboardCheck, ArrowRight, MessageCircle, FileText } from 'lucide-svelte';
   import { progressStore } from '$lib/stores';
   import { getNextLesson, getCourseProgress } from '$lib/utils/progressUtils';
 
@@ -48,6 +48,7 @@
     { component: Hash, title: 'Counters', desc: 'Japanese counting systems', href: `${base}/counters` },
     { component: Languages, title: 'HSK 5 Vocabulary', desc: `${hskWordCount}+ Chinese words`, href: `${base}/hsk` },
     { component: ClipboardCheck, title: 'JLPT Mock Test', desc: '30 questions · 30 min · Pass/Fail', href: `${base}/mock-test` },
+    { component: FileText, title: 'Luyện đề JLPT', desc: 'Làm đề mẫu · tính giờ · xem lại đáp án', href: `${base}/exams` },
     { component: MessageCircle, title: 'Mẫu câu giao tiếp', desc: '110 hội thoại thực tế N5–N1', href: `${base}/conversations` },
   ];
 
