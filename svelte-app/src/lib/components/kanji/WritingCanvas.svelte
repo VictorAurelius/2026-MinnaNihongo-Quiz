@@ -100,7 +100,6 @@
     width={size}
     height={size}
     aria-label="Draw kanji here"
-    role="img"
     on:mousedown={startDraw}
     on:mousemove={draw}
     on:mouseup={endDraw}

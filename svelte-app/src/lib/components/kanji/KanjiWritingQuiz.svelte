@@ -48,6 +48,7 @@
   {:else}
     <div class="answer-section">
       <div class="answer-kanji">{item.character}</div>
+      <div class="answer-reading">{answer}</div>
       <StrokeOrder character={item.character} size={120} />
 
       <div class="rate-buttons">

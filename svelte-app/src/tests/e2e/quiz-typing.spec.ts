@@ -18,12 +18,13 @@ test.describe('Typing Quiz', () => {
     await expect(page.locator('.quiz-question-card')).toBeVisible();
   });
 
-  test('should display "Type the Japanese reading" label', async ({ page }) => {
-    await expect(page.getByText('Type the Japanese reading:')).toBeVisible();
+  test('should display the answer prompt label', async ({ page }) => {
+    // Label is now direction-agnostic: "Type the answer:" (ja-vi answer is Vietnamese)
+    await expect(page.getByText('Type the answer:')).toBeVisible();
   });
 
   test('should display text input', async ({ page }) => {
-    await expect(page.getByPlaceholder('Type in Japanese...')).toBeVisible();
+    await expect(page.getByPlaceholder('Type your answer...')).toBeVisible();
   });
 
   test('should have submit button initially disabled', async ({ page }) => {
@@ -31,12 +32,12 @@ test.describe('Typing Quiz', () => {
   });
 
   test('should enable submit button after typing', async ({ page }) => {
-    await page.getByPlaceholder('Type in Japanese...').fill('test');
+    await page.getByPlaceholder('Type your answer...').fill('test');
     await expect(page.getByText('Submit Answer')).toBeEnabled();
   });
 
   test('should show feedback after submitting', async ({ page }) => {
-    await page.getByPlaceholder('Type in Japanese...').fill('test');
+    await page.getByPlaceholder('Type your answer...').fill('test');
     await page.getByText('Submit Answer').click();
 
     // Should show either Correct or Wrong feedback
@@ -45,7 +46,7 @@ test.describe('Typing Quiz', () => {
   });
 
   test('should submit on Enter key', async ({ page }) => {
-    const input = page.getByPlaceholder('Type in Japanese...');
+    const input = page.getByPlaceholder('Type your answer...');
     await input.fill('test');
     await input.press('Enter');
 
@@ -54,16 +55,15 @@ test.describe('Typing Quiz', () => {
   });
 
   test('should disable input after answering', async ({ page }) => {
-    await page.getByPlaceholder('Type in Japanese...').fill('test');
+    await page.getByPlaceholder('Type your answer...').fill('test');
     await page.getByText('Submit Answer').click();
 
-    await expect(page.getByPlaceholder('Type in Japanese...')).toBeDisabled();
+    await expect(page.getByPlaceholder('Type your answer...')).toBeDisabled();
   });
 
   test('should display keyboard toggle button', async ({ page }) => {
-    // The keyboard button contains ⌨️
-    const kbButton = page.locator('button', { hasText: '⌨' });
-    await expect(kbButton).toBeVisible();
+    // Keyboard toggle now uses a lucide icon exposed via aria-label
+    await expect(page.getByRole('button', { name: 'Toggle keyboard' })).toBeVisible();
   });
 
   test('should display hint button', async ({ page }) => {
