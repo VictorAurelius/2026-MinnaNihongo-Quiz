@@ -11,7 +11,8 @@ test.describe('Lesson Menu Page', () => {
   });
 
   test('should display lesson header with lesson number', async ({ page }) => {
-    await expect(page.getByText('Bài 1')).toBeVisible();
+    // /lesson/1 redirects to /course/n5/lesson/1 — "Bài 1" appears in badge + breadcrumb
+    await expect(page.getByText('Bài 1').first()).toBeVisible();
   });
 
   test('should display lesson title', async ({ page }) => {
@@ -31,8 +32,10 @@ test.describe('Lesson Menu Page', () => {
   });
 
   test('should display study material buttons', async ({ page }) => {
-    await expect(page.getByText('View Vocabulary List')).toBeVisible();
-    await expect(page.getByText('View Grammar Patterns')).toBeVisible();
+    // Study material labels simplified to "Vocabulary" / "Grammar" under the Study Materials section
+    await expect(page.getByText('Study Materials')).toBeVisible();
+    await expect(page.getByRole('button', { name: /Vocabulary/ })).toBeVisible();
+    await expect(page.getByRole('button', { name: /mẫu/ })).toBeVisible();
   });
 
   test('should display Quiz Modes section title', async ({ page }) => {
@@ -48,14 +51,15 @@ test.describe('Lesson Menu Page', () => {
     await expect(page.getByText(/Lesson Not Found/i)).toBeVisible();
   });
 
-  test('should display Back to Home button on error page', async ({ page }) => {
+  test('should display back-to-courses link on error page', async ({ page }) => {
+    // /lesson/999 → /course/n5/lesson/999 → PageEmpty with "Back to Courses" action
     await page.goto('/lesson/999');
-    await expect(page.getByText('Back to Home')).toBeVisible();
+    await expect(page.getByText('Back to Courses')).toBeVisible();
   });
 
   test('should load different lessons via URL', async ({ page }) => {
     await page.goto('/lesson/2');
-    await expect(page.getByText('Bài 2')).toBeVisible();
+    await expect(page.getByText('Bài 2').first()).toBeVisible();
   });
 
   test('should navigate to flashcard quiz via URL', async ({ page }) => {
@@ -70,6 +74,6 @@ test.describe('Lesson Menu Page', () => {
 
   test('should navigate to typing quiz via URL', async ({ page }) => {
     await page.goto('/quiz/typing?lesson=1');
-    await expect(page.getByPlaceholder('Type in Japanese...')).toBeVisible();
+    await expect(page.getByPlaceholder('Type your answer...')).toBeVisible();
   });
 });

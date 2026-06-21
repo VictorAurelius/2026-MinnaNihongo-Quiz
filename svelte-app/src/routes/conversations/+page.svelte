@@ -37,8 +37,6 @@
 <div class="mx-auto max-w-2xl animate-in">
   <!-- Hero -->
   <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(245 58% 35%), hsl(262 60% 45%))">
-    <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
-    <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-xl pointer-events-none"></div>
     <div class="relative z-10">
       <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm">Mẫu câu giao tiếp</h1>
       <p class="text-sm font-medium text-white/80 mt-1">Hội thoại thực tế + cách ghi nhớ</p>
@@ -116,8 +114,8 @@
                       <p class="text-xs text-muted-foreground italic">{kanaToRomaji(pat.kana)}</p>
                       <p class="text-xs text-foreground/80">{pat.vietnamese}</p>
                       <div class="flex items-start gap-1.5 mt-2 pt-2 border-t border-border/30">
-                        <Lightbulb size={12} class="text-warning flex-shrink-0 mt-0.5" aria-hidden="true" />
-                        <p class="text-[0.7rem] text-warning leading-relaxed">{pat.memoryTip}</p>
+                        <Lightbulb size={12} class="text-warning-text flex-shrink-0 mt-0.5" aria-hidden="true" />
+                        <p class="text-[0.7rem] text-warning-text leading-relaxed">{pat.memoryTip}</p>
                       </div>
                     </div>
                   {/each}

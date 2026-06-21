@@ -143,7 +143,7 @@
                   <span class="ex-word">{ex.word}</span>
                   <span class="ex-kana">{ex.kana}</span>
                   <span class="ex-romaji">{kanaToRomaji(ex.kana)}</span>
-                  <span class="ex-meaning">{ex.vietnamese} / {ex.meaning}</span>
+                  <span class="ex-meaning">{ex.vietnamese ? ex.vietnamese + ' / ' : ''}{ex.meaning}</span>
                   <button class="ex-audio" on:click|stopPropagation={() => playJapaneseAudio(ex.kana)} title="Phát âm" aria-label="Phát âm {ex.word}">
                     🔊
                   </button>

@@ -17,6 +17,7 @@ CYAN='\033[0;36m'; BOLD='\033[1m'; NC='\033[0m'
 DATE=$(date +%Y-%m-%d)
 COMMIT=$(git -C "$ROOT" rev-parse --short HEAD)
 TOTAL=0
+GATE_FAIL=0   # set to 1 when a required command fails to run or zero tests execute
 
 declare -A SCORES
 score() { SCORES["$1"]=$2; TOTAL=$((TOTAL + $2)); }
@@ -38,14 +39,23 @@ echo "Date: $DATE | Commit: $COMMIT"
 section "1/10" "Unit & Component Tests"
 cd "$APP"
 
-TEST_OUT=$(npx vitest run 2>&1) || true
+set +e; TEST_OUT=$(npx vitest run 2>&1); TEST_RC=$?; set -e
 TEST_COUNT=$(count "$(echo "$TEST_OUT" | grep "Tests" | grep -oP '\d+ passed' | grep -oP '\d+')")
 TEST_FAIL=$(count "$(echo "$TEST_OUT" | grep "Tests" | grep -oP '\d+ failed' | grep -oP '\d+')")
 TEST_SKIP=$(count "$(echo "$TEST_OUT" | grep "Tests" | grep -oP '\d+ skipped' | grep -oP '\d+')")
 MOCK_BAD=$(count "$(grep -rn "speak: vi.fn()" "$APP/src/tests/" 2>/dev/null | grep -vc cancel 2>/dev/null)")
 
 S=0
-(( TEST_FAIL == 0 )) && { S=$((S+4)); pass "$TEST_COUNT tests pass, 0 failures"; } || fail "$TEST_FAIL failures"
+# Gate: vitest must run cleanly AND execute >0 tests. A failed run or zero-test
+# run parses as "0 failures" and previously scored full points (audit P1 false-positive).
+if (( TEST_RC != 0 )) || (( TEST_COUNT == 0 )); then
+  fail "vitest did not run cleanly (rc=$TEST_RC, $TEST_COUNT tests counted) — GATE FAIL"
+  GATE_FAIL=1
+elif (( TEST_FAIL == 0 )); then
+  S=$((S+4)); pass "$TEST_COUNT tests pass, 0 failures"
+else
+  fail "$TEST_FAIL failures"; GATE_FAIL=1
+fi
 (( TEST_SKIP == 0 )) && { S=$((S+2)); pass "0 skipped"; } || warn "$TEST_SKIP skipped"
 S=$((S+2)); pass "No unhandled errors"
 (( MOCK_BAD == 0 )) && { S=$((S+2)); pass "Test mocks OK"; } || warn "$MOCK_BAD mocks missing cancel"
@@ -56,10 +66,11 @@ score "Tests" $S
 # =============================================================================
 section "2/10" "Build & TypeScript"
 
-BUILD_OUT=$(npx vite build 2>&1) || true
+set +e; BUILD_OUT=$(npx vite build 2>&1); BUILD_RC=$?; set -e
 BUILD_OK=$(count "$(echo "$BUILD_OUT" | grep -c "done")")
 
-SVELTE_OUT=$(npx svelte-check --threshold error 2>&1) || true
+set +e; SVELTE_OUT=$(npx svelte-check --threshold error 2>&1); set -e
+SVELTE_RAN=$(count "$(echo "$SVELTE_OUT" | grep -c "COMPLETED")")
 SVELTE_ERRORS=$(count "$(echo "$SVELTE_OUT" | grep -oP '\d+ ERRORS' | grep -oP '\d+')")
 SVELTE_WARNINGS=$(count "$(echo "$SVELTE_OUT" | grep -oP '\d+ WARNINGS' | grep -oP '\d+')")
 
@@ -67,8 +78,11 @@ npm run build >/dev/null 2>&1 || true
 FOUR04=$([[ -f "$APP/build/404.html" ]] && echo 1 || echo 0)
 
 S=0
-(( BUILD_OK >= 1 )) && { S=$((S+4)); pass "vite build pass"; } || fail "vite build failed"
-(( SVELTE_ERRORS == 0 )) && { S=$((S+3)); pass "svelte-check 0 errors ($SVELTE_WARNINGS warnings)"; } || fail "$SVELTE_ERRORS errors"
+# Gate: distinguish "build failed" (rc!=0) from "ran". A failed build must not score.
+if (( BUILD_RC == 0 && BUILD_OK >= 1 )); then S=$((S+4)); pass "vite build pass"; else fail "vite build failed (rc=$BUILD_RC)"; GATE_FAIL=1; fi
+# Gate: svelte-check must actually run (emit COMPLETED). If it never ran, 0-errors is a false pass.
+if (( SVELTE_RAN == 0 )); then fail "svelte-check did not run — GATE FAIL"; GATE_FAIL=1
+elif (( SVELTE_ERRORS == 0 )); then S=$((S+3)); pass "svelte-check 0 errors ($SVELTE_WARNINGS warnings)"; else fail "$SVELTE_ERRORS errors"; GATE_FAIL=1; fi
 (( FOUR04 == 1 )) && { S=$((S+3)); pass "404.html OK"; } || fail "404.html missing"
 score "Build" $S
 
@@ -265,4 +279,12 @@ if $SAVE_REPORT; then
     echo "- Kanji lessons: $KANJI_LESSONS | HSK words: $HSK_WORDS"
   } > "$OUT"
   echo -e "\n${GREEN}Saved: $OUT${NC}"
+fi
+
+# Gate enforcement: a non-trustworthy run must fail loudly (exit non-zero) so CI /
+# callers cannot treat a swallowed command failure as a passing audit (audit P1).
+if (( GATE_FAIL == 1 )); then
+  echo -e "\n${RED}${BOLD}✗ GATE FAILED${NC} — a required command failed to run or zero tests executed."
+  echo -e "  ${RED}The score above is NOT trustworthy. Fix the failing command first.${NC}"
+  exit 1
 fi

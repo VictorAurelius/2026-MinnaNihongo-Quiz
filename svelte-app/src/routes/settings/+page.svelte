@@ -107,8 +107,6 @@
 <div class="mx-auto max-w-xl animate-in">
   <!-- Hero -->
   <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(245 58% 35%), hsl(262 60% 45%))">
-    <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
-    <div class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-xl pointer-events-none"></div>
     <div class="relative z-10">
       <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm">Settings</h1>
       <p class="text-sm font-medium text-white/80 mt-1">Tùy chỉnh trải nghiệm học</p>

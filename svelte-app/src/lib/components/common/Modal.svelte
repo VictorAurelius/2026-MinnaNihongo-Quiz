@@ -80,6 +80,7 @@
     <div
       class="modal-content {maxWidthClass}"
       role="dialog"
+      tabindex="-1"
       aria-modal="true"
       aria-labelledby={title ? 'modal-title' : undefined}
       bind:this={modalContentEl}
@@ -194,8 +195,9 @@
   }
 
   .modal-close {
-    width: 32px;
-    height: 32px;
+    /* WCAG 2.1 AA: interactive controls ≥44×44px touch target */
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;

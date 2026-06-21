@@ -23,7 +23,8 @@ test.describe('Flashcard Quiz', () => {
   });
 
   test('should show flip hint', async ({ page }) => {
-    await expect(page.getByText(/Click or press Space to flip/)).toBeVisible();
+    // Flip hint reworded to "Space to flip · F1 to speak"
+    await expect(page.getByText(/Space to flip/)).toBeVisible();
   });
 
   test('should flip card on click', async ({ page }) => {
@@ -48,7 +49,8 @@ test.describe('Flashcard Quiz', () => {
     // Get initial progress text
     const progressText = await page.locator('.progress-text').textContent();
 
-    await page.getByText(/✓ Correct/).click();
+    // "Correct" button now uses a lucide icon (no ✓ glyph)
+    await page.getByRole('button', { name: 'Correct' }).click();
 
     // Wait for next question - progress should change
     await page.waitForTimeout(500);

@@ -39,7 +39,8 @@ test.describe('Multiple Choice Quiz', () => {
   });
 
   test('should show keyboard hint', async ({ page }) => {
-    await expect(page.getByText(/Press 1-4 on your keyboard/)).toBeVisible();
+    // Hint reworded to "Press 1-4 to choose · F1 to speak"
+    await expect(page.getByText(/Press 1-4 to choose/)).toBeVisible();
   });
 
   test('should show feedback after selecting an option', async ({ page }) => {

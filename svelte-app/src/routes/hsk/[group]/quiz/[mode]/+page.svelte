@@ -129,7 +129,7 @@
     <ProgressBar current={currentIndex + 1} total={questions.length} showText={true} />
 
     {#if mode === 'flashcard'}
-      <div class="flashcard" class:flipped tabindex="0" role="button" aria-label="Flip card" on:click={toggleFlip}>
+      <div class="flashcard" class:flipped tabindex="0" role="button" aria-label="Flip card" on:click={toggleFlip} on:keydown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFlip(); } }}>
         <div class="flashcard-inner">
           <div class="flashcard-front">
             <div class="fc-text">{currentQ.question}</div>

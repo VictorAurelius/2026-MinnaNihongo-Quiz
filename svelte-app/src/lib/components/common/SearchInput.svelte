@@ -34,7 +34,7 @@
   {#if value}
     <button
       on:click={clear}
-      class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+      class="absolute right-1 top-1/2 -translate-y-1/2 min-w-11 min-h-11 inline-flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
       aria-label="Clear search"
     >
       <X size={16} aria-hidden="true" />
