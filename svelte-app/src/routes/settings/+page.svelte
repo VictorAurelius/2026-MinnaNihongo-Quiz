@@ -15,15 +15,25 @@
   } from '$lib/stores';
   import type { QuizDirection } from '$lib/types';
   import { getAvailableFonts, getCurrentFont, setFont, initFont } from '$lib/utils/fontUtils';
-  import ConfirmDialog from '$lib/components/common/ConfirmDialog.svelte';
+  import { AlertDialog } from '$lib/components/ui/alert-dialog';
   import { showToast } from '$lib/stores/toast';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import { Select } from '$lib/components/ui/select';
+  import { Switch } from '$lib/components/ui/switch';
   import { Settings2, Type, BarChart3, Database, Download, Upload, Trash2 } from 'lucide-svelte';
   import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
 
   const fonts = getAvailableFonts();
   let selectedFont = 'system';
   let showClearConfirm = false;
+  let saveMessage = '';
+  let saveTimer: ReturnType<typeof setTimeout>;
+
+  function announceSaved() {
+    saveMessage = 'Đã lưu trên thiết bị';
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => saveMessage = '', 2500);
+  }
 
   onMount(() => {
     selectedFont = getCurrentFont();
@@ -33,6 +43,7 @@
   function handleFontChange(fontId: string) {
     selectedFont = fontId;
     setFont(fontId);
+    announceSaved();
   }
 
   $: settings = $progressStore.settings;
@@ -47,16 +58,17 @@
   function handleDirectionChange(e: Event) {
     const target = e.target as HTMLSelectElement;
     updateSettings({ defaultDirection: target.value as QuizDirection });
+    announceSaved();
   }
 
-  function handleAutoPlayChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    updateSettings({ autoPlay: target.checked });
+  function handleAutoPlayChange(checked: boolean) {
+    updateSettings({ autoPlay: checked });
+    announceSaved();
   }
 
-  function handleShowEnglishChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    updateSettings({ showEnglish: target.checked });
+  function handleShowEnglishChange(checked: boolean) {
+    updateSettings({ showEnglish: checked });
+    announceSaved();
   }
 
   function handleExport() {
@@ -104,9 +116,9 @@
   <title>Settings - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl animate-in">
+<div class="mx-auto max-w-xl ">
   <!-- Hero -->
-  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(245 58% 35%), hsl(262 60% 45%))">
+  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: var(--color-shell)">
     <div class="relative z-10">
       <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm">Settings</h1>
       <p class="text-sm font-medium text-white/80 mt-1">Tùy chỉnh trải nghiệm học</p>
@@ -114,6 +126,7 @@
   </div>
 
   <div class="px-4 py-5 flex flex-col gap-8">
+    <p class="sr-only" aria-live="polite">{saveMessage}</p>
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'Settings' }
@@ -130,16 +143,16 @@
           <label for="direction" class="text-sm font-medium block">Default Direction</label>
           <span class="text-[0.65rem] text-muted-foreground">Hướng mặc định khi bắt đầu quiz</span>
         </div>
-        <select
+        <Select
           id="direction"
           value={settings.defaultDirection}
-          on:change={handleDirectionChange}
-          class="px-3 py-1.5 rounded-lg bg-muted text-foreground text-sm font-medium border-0 cursor-pointer"
+          onchange={handleDirectionChange}
+          class="w-auto min-w-44 bg-muted font-medium"
         >
           {#each directions as d}
             <option value={d.value}>{d.label}</option>
           {/each}
-        </select>
+        </Select>
       </div>
       <div class="h-px bg-border/50 mx-5"></div>
       <div class="flex items-center justify-between px-5 py-5">
@@ -147,10 +160,7 @@
           <label for="autoPlay" class="text-sm font-medium block">Auto-speak on new card</label>
           <span class="text-[0.65rem] text-muted-foreground">Tự động phát âm khi lật thẻ mới</span>
         </div>
-        <label for="autoPlay" class="min-w-11 min-h-11 flex items-center justify-center cursor-pointer">
-          <input id="autoPlay" type="checkbox" checked={settings.autoPlay} on:change={handleAutoPlayChange}
-            class="w-5 h-5 accent-primary cursor-pointer" />
-        </label>
+        <Switch checked={settings.autoPlay} label="Auto-speak on new card" onchange={handleAutoPlayChange} />
       </div>
       <div class="h-px bg-border/50 mx-5"></div>
       <div class="flex items-center justify-between px-5 py-5">
@@ -158,10 +168,7 @@
           <label for="showEnglish" class="text-sm font-medium block">Show English translations</label>
           <span class="text-[0.65rem] text-muted-foreground">Hiển thị nghĩa tiếng Anh bên cạnh tiếng Việt</span>
         </div>
-        <label for="showEnglish" class="min-w-11 min-h-11 flex items-center justify-center cursor-pointer">
-          <input id="showEnglish" type="checkbox" checked={settings.showEnglish} on:change={handleShowEnglishChange}
-            class="w-5 h-5 accent-primary cursor-pointer" />
-        </label>
+        <Switch checked={settings.showEnglish} label="Show English translations" onchange={handleShowEnglishChange} />
       </div>
     </div>
   </section>
@@ -176,7 +183,7 @@
         <button
           role="radio"
           aria-checked={selectedFont === font.id}
-          class="flex flex-col items-center gap-2 p-5 rounded-2xl cursor-pointer transition-all text-center active:scale-[0.97]
+          class="flex flex-col items-center gap-2 p-5 rounded-2xl cursor-pointer transition-colors text-center active:scale-[0.97]
             {selectedFont === font.id
               ? 'bg-primary/10 shadow-md ring-2 ring-primary border border-primary/30'
               : 'bg-card border border-border/50 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-primary/50'}"
@@ -223,8 +230,9 @@
       <Database size={12} aria-hidden="true" /> Data Management
     </h2>
     <div class="flex flex-col gap-3">
+      <p class="text-sm text-muted-foreground rounded-control border border-border bg-muted p-3">Tiến trình được lưu cục bộ và hoạt động ngoại tuyến. Dữ liệu chỉ rời thiết bị khi bạn chủ động xuất tệp.</p>
       <button
-        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
+        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-colors duration-200 hover:border-primary/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
         on:click={handleExport}
       >
         <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -236,7 +244,7 @@
         </div>
       </button>
       <button
-        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
+        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-colors duration-200 hover:border-primary/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
         on:click={handleImportClick}
       >
         <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -249,7 +257,7 @@
       </button>
       <input type="file" accept=".json" bind:this={fileInput} on:change={handleFileChange} class="hidden" />
       <button
-        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-destructive/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
+        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-colors duration-200 hover:border-destructive/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
         on:click={() => showClearConfirm = true}
       >
         <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-destructive/10 flex items-center justify-center group-hover:bg-destructive/20 transition-colors">
@@ -265,15 +273,11 @@
   </div>
 </div>
 
-<ConfirmDialog
+<AlertDialog
   bind:open={showClearConfirm}
   title="Clear All Progress"
-  message="Are you sure you want to clear all progress? This cannot be undone."
+  description="Are you sure you want to clear all progress? This cannot be undone."
   confirmText="Clear All"
   destructive
-  on:confirm={() => { clearProgress(); showToast('Progress cleared', 'success'); }}
+  onconfirm={() => { clearProgress(); showToast('Progress cleared', 'success'); }}
 />
-
-<style>
-  .accent-primary { accent-color: var(--color-primary); }
-</style>

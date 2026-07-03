@@ -151,12 +151,12 @@ describe('KanjiFlashCard — navigation buttons', () => {
   it('Correct button has success styling', () => {
     render(KanjiFlashCard, { props: { item: mockKanji } });
     const btn = screen.getByText(/correct/i).closest('button')!;
-    expect(btn.className).toContain('btn-success');
+    expect(btn).toHaveAttribute('data-variant', 'success');
   });
 
   it('Wrong button has danger styling', () => {
     render(KanjiFlashCard, { props: { item: mockKanji } });
     const btn = screen.getByText(/wrong/i).closest('button')!;
-    expect(btn.className).toContain('btn-danger');
+    expect(btn).toHaveAttribute('data-variant', 'destructive');
   });
 });

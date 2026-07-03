@@ -5,6 +5,7 @@
    */
 
   import { progressStore } from '$lib/stores';
+  import { base } from '$app/paths';
   import {
     computeOverviewStats,
     computeLessonStats,
@@ -22,20 +23,30 @@
   $: achievements = checkAchievements($progressStore, streak);
   $: unlockedCount = achievements.filter(a => a.unlocked).length;
   $: maxMastery = Math.max(...overview.masteryDistribution, 1);
+  $: weakestLesson = [...lessonStats].sort((a, b) => a.accuracy - b.accuracy)[0];
 </script>
 
 <svelte:head>
   <title>Statistics - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl p-4 animate-in">
+<div class="mx-auto max-w-xl p-4 ">
   {#if !hasData}
     <div class="text-center py-12 text-muted-foreground">
       <div class="text-5xl mb-3">📊</div>
       <h2 class="text-lg font-bold text-foreground mb-2">No data yet</h2>
       <p class="text-sm">Start studying to see your statistics here!</p>
+      <a class="ui-button mt-4" data-variant="default" href="{base}/courses">Chọn bài để học</a>
     </div>
   {:else}
+    {#if weakestLesson}
+      <section class="mb-4 rounded-surface border border-border bg-card p-4" aria-labelledby="next-action-title">
+        <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nên học tiếp</p>
+        <h2 id="next-action-title" class="text-lg font-bold">Củng cố bài {weakestLesson.lessonNumber}</h2>
+        <p class="text-sm text-muted-foreground mb-3">Độ chính xác hiện tại {weakestLesson.accuracy}%. Một lượt flashcard ngắn sẽ giúp tìm phần cần ôn.</p>
+        <a class="ui-button" data-variant="default" href="{base}/quiz/flashcard?lesson={weakestLesson.lessonNumber}">Ôn bài này</a>
+      </section>
+    {/if}
     <!-- Overview Cards -->
     <div class="grid grid-cols-2 gap-3 mb-4">
       {#each [
@@ -99,8 +110,10 @@
                 {getMasteryLabel(level)}
               </span>
               <div class="h-4 bg-muted rounded-full overflow-hidden">
-                <div
-                  class="h-full rounded-full transition-all duration-500"
+              <div
+                  role="img"
+                  aria-label={`${getMasteryLabel(level)}: ${count} từ`}
+                  class="h-full rounded-full transition-colors duration-500"
                   style="width: {(count / maxMastery) * 100}%; background: {getMasteryColor(level)}; min-width: 2px"
                 ></div>
               </div>

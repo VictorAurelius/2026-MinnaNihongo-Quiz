@@ -20,7 +20,7 @@ describe('BackButton Component', () => {
 
       const button = screen.getByRole('button', { name: 'Go back' });
       expect(button).toBeInTheDocument();
-      expect(button).toHaveClass('back-btn');
+      expect(button).toHaveClass('ui-button');
     });
 
     it('should render icon by default', () => {

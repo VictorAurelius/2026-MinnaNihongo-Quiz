@@ -50,7 +50,7 @@
           <p class="no-data">No kanji found</p>
         {/if}
       </div>
-      <button class="btn btn-secondary" on:click={() => selectedRadical = null}>Back to all radicals</button>
+      <button class="ui-button" data-variant="secondary" on:click={() => selectedRadical = null}>Back to all radicals</button>
     </div>
   {/if}
 
@@ -75,12 +75,6 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem;
-    animation: fadeIn 0.25s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   h1 { font-size: 1.3rem; margin-bottom: 1rem; }
@@ -88,21 +82,21 @@
   .search-input {
     width: 100%;
     padding: 0.6rem 1rem;
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: var(--bg-card);
-    color: var(--text);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-card);
+    color: var(--color-foreground);
     font-size: 0.95rem;
     margin-bottom: 1rem;
     outline: none;
   }
 
-  .search-input:focus { border-color: var(--primary); }
+  .search-input:focus { border-color: var(--color-primary); }
 
   .selected-radical {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-surface);
     padding: 1rem;
     margin-bottom: 1rem;
   }
@@ -117,11 +111,11 @@
   }
 
   .kanji-chip {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.3rem;
     padding: 0.3rem 0.5rem;
-    background: var(--bg);
-    border-radius: var(--radius-sm);
+    background: var(--color-background);
+    border-radius: var(--radius-control);
   }
 
   .radical-grid {
@@ -136,24 +130,24 @@
     align-items: center;
     gap: 0.15rem;
     padding: 0.6rem;
-    background: var(--bg-card);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-sm);
+    background: var(--color-card);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-control);
     cursor: pointer;
     transition: all 0.15s;
     font-family: inherit;
-    color: var(--text);
+    color: var(--color-foreground);
   }
 
-  .radical-card:hover { border-color: var(--primary); }
-  .radical-card.active { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 8%, var(--bg-card)); }
+  .radical-card:hover { border-color: var(--color-primary); }
+  .radical-card.active { border-color: var(--color-primary); background: color-mix(in srgb, var(--color-primary) 8%, var(--color-card)); }
 
-  .rc-char { font-family: var(--font-jp); font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+  .rc-char { font-family: var(--font-japanese); font-size: 1.5rem; font-weight: 700; color: var(--color-primary); }
   .rc-vi { font-size: 0.75rem; font-weight: 600; }
-  .rc-en { font-size: 0.65rem; color: var(--text-muted); }
-  .rc-strokes { font-size: 0.6rem; color: var(--text-muted); }
+  .rc-en { font-size: 0.65rem; color: var(--color-muted-foreground); }
+  .rc-strokes { font-size: 0.6rem; color: var(--color-muted-foreground); }
 
-  .no-data { color: var(--text-muted); font-size: 0.85rem; }
+  .no-data { color: var(--color-muted-foreground); font-size: 0.85rem; }
 
   @media (max-width: 600px) {
     .radical-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }

@@ -178,7 +178,7 @@
   .btn-back {
     background: none;
     border: none;
-    color: var(--color-primary, #6366f1);
+    color: var(--color-primary);
     cursor: pointer;
     font-size: 0.95rem;
     padding: 0.25rem 0;
@@ -199,8 +199,8 @@
     color: white;
   }
 
-  .level-badge.n2 { background: var(--accent); }
-  .level-badge.n1 { background: var(--danger); }
+  .level-badge.n2 { background: var(--color-primary); }
+  .level-badge.n1 { background: var(--color-destructive); }
 
   h1 {
     font-size: 1.3rem;
@@ -208,7 +208,7 @@
   }
 
   .word-count {
-    color: var(--color-text-secondary, #6b7280);
+    color: var(--color-muted-foreground);
     margin: 0.25rem 0 0;
     font-size: 0.9rem;
   }
@@ -225,23 +225,23 @@
   .search-input, .group-select {
     width: 100%;
     padding: 0.6rem 0.75rem;
-    border: 1px solid var(--color-border, #d1d5db);
+    border: 1px solid var(--color-border);
     border-radius: 0.5rem;
     font-size: 0.9rem;
     background: var(--color-surface, white);
-    color: var(--color-text, #111);
+    color: var(--color-foreground);
   }
 
   .results-count {
     font-size: 0.85rem;
-    color: var(--color-text-secondary, #6b7280);
+    color: var(--color-muted-foreground);
     margin-bottom: 0.5rem;
   }
 
   .table-wrapper {
     overflow-x: auto;
     border-radius: 0.5rem;
-    border: 1px solid var(--color-border, #e5e7eb);
+    border: 1px solid var(--color-border);
   }
 
   .vocab-table {
@@ -251,26 +251,26 @@
   }
 
   .vocab-table th {
-    background: var(--color-surface-alt, #f9fafb);
+    background: var(--color-muted);
     padding: 0.6rem 0.75rem;
     text-align: left;
     font-weight: 600;
-    border-bottom: 2px solid var(--color-border, #e5e7eb);
+    border-bottom: 2px solid var(--color-border);
     white-space: nowrap;
   }
 
   .vocab-table td {
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid var(--color-border, #f3f4f6);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .vocab-table tbody tr:hover {
-    background: var(--color-surface-alt, #f9fafb);
+    background: var(--color-muted);
   }
 
-  .col-num { width: 3rem; text-align: center; color: var(--color-text-secondary, #9ca3af); }
+  .col-num { width: 3rem; text-align: center; color: var(--color-muted-foreground); }
   .col-jp { font-size: 1.1rem; font-weight: 500; }
-  .col-kana { color: var(--color-text-secondary, #6b7280); }
+  .col-kana { color: var(--color-muted-foreground); }
   .col-audio { width: 3rem; text-align: center; }
 
   .btn-speak {
@@ -282,7 +282,7 @@
   }
 
   .btn-primary {
-    background: var(--color-primary, #6366f1);
+    background: var(--color-primary);
     color: white;
     border: none;
     padding: 0.6rem 1.2rem;

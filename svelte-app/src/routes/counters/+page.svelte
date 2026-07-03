@@ -23,7 +23,7 @@
   <title>Trợ số từ - Japanese Counters</title>
 </svelte:head>
 
-<div class="mx-auto max-w-4xl px-4 py-6 sm:px-6 animate-in">
+<div class="mx-auto max-w-4xl px-4 py-6 sm:px-6 ">
   <header class="text-center mb-6">
     <h1 class="text-2xl font-bold mb-1">Số đếm & Trợ số từ</h1>
     <p class="text-sm text-muted-foreground">Numbers & Japanese Counter Words</p>
@@ -32,12 +32,12 @@
   <!-- Tabs -->
   <div class="flex gap-2 mb-6 border-b-2 border-border">
     <button
-      class="px-5 py-3 bg-transparent border-none border-b-[3px] text-base font-medium cursor-pointer transition-all
+      class="px-5 py-3 bg-transparent border-none border-b-[3px] text-base font-medium cursor-pointer transition-colors
         {activeTab === 'numbers' ? 'text-primary border-primary' : 'text-muted-foreground border-transparent hover:text-foreground hover:bg-muted'}"
       on:click={() => activeTab = 'numbers'}
     >📊 Số cơ bản</button>
     <button
-      class="px-5 py-3 bg-transparent border-none border-b-[3px] text-base font-medium cursor-pointer transition-all
+      class="px-5 py-3 bg-transparent border-none border-b-[3px] text-base font-medium cursor-pointer transition-colors
         {activeTab === 'counters' ? 'text-primary border-primary' : 'text-muted-foreground border-transparent hover:text-foreground hover:bg-muted'}"
       on:click={() => activeTab = 'counters'}
     >🔢 Trợ số từ ({COUNTERS_DATA.length})</button>
@@ -60,8 +60,8 @@
             {#each NUMBERS_DATA as num}
               <tr class:irregular={num.note === 'irregular'}>
                 <td class="font-semibold font-mono">{num.number.toLocaleString()}</td>
-                <td class="text-lg" style="font-family: var(--font-jp)">{num.kanji}</td>
-                <td class="text-lg" style="font-family: var(--font-jp)">
+                <td class="text-lg" style="font-family: var(--font-japanese)">{num.kanji}</td>
+                <td class="text-lg" style="font-family: var(--font-japanese)">
                   {num.kana}
                   {#if num.alt}<span class="text-sm text-muted-foreground"> / {num.alt.kana}</span>{/if}
                 </td>
@@ -88,10 +88,10 @@
       <div class="flex flex-col gap-3">
         {#each COUNTERS_DATA as counter, index}
           {@const isExpanded = expandedCounters.has(index)}
-          <div class="bg-card border border-border rounded-xl overflow-hidden transition-all hover:shadow-md" class:border-primary={isExpanded}>
+          <div class="bg-card border border-border rounded-xl overflow-hidden transition-colors hover:shadow-md" class:border-primary={isExpanded}>
             <button class="w-full flex items-center gap-4 p-4 bg-transparent border-none cursor-pointer text-left hover:bg-muted transition-colors" on:click={() => toggleCounter(index)}>
               <div class="flex-1 flex items-center gap-4 sm:flex-row flex-col sm:items-center items-start">
-                <span class="text-4xl font-bold text-primary min-w-[60px] text-center" style="font-family: var(--font-jp)">{counter.counter}</span>
+                <span class="text-4xl font-bold text-primary min-w-[60px] text-center" style="font-family: var(--font-japanese)">{counter.counter}</span>
                 <div class="flex flex-col gap-1">
                   <span class="text-lg font-medium">{counter.kana} ({counter.romaji})</span>
                   <span class="text-sm text-muted-foreground">{counter.vietnamese}</span>
@@ -114,7 +114,7 @@
                   {#each counter.readings as reading}
                     <div class="reading-item" class:irregular={reading.irregular}>
                       <span class="text-sm font-bold text-muted-foreground">{reading.number}</span>
-                      <span class="font-semibold text-lg" style="font-family: var(--font-jp)">{reading.form}</span>
+                      <span class="font-semibold text-lg" style="font-family: var(--font-japanese)">{reading.form}</span>
                       <span class="text-sm">{reading.kana}</span>
                       <span class="text-xs text-muted-foreground col-span-full">({reading.romaji})</span>
                       {#if hasAudio}
@@ -126,7 +126,7 @@
 
                 <div class="p-3 bg-card rounded-lg mb-3">
                   <h4 class="text-base font-semibold mb-2">Ví dụ:</h4>
-                  <p class="text-lg mb-1" style="font-family: var(--font-jp)">{counter.example.japanese}</p>
+                  <p class="text-lg mb-1" style="font-family: var(--font-japanese)">{counter.example.japanese}</p>
                   <p class="text-sm text-muted-foreground">{counter.example.vietnamese}</p>
                 </div>
 
@@ -145,7 +145,7 @@
   {/if}
 
   <!-- Info Panel -->
-  <div class="bg-muted border-l-4 border-primary p-5 rounded-lg mt-6">
+  <div class="bg-muted border border-border p-5 rounded-surface mt-6">
     <h3 class="text-lg font-bold mb-3">💡 Ghi chú</h3>
     <ul class="list-none p-0 space-y-3 text-sm leading-relaxed">
       <li><strong>Trợ số từ (Counter words)</strong> là từ đặc biệt dùng khi đếm vật trong tiếng Nhật</li>
@@ -175,7 +175,7 @@
     gap: 0.5rem;
     padding: 0.5rem;
     background: var(--color-card);
-    border-radius: 0.25rem;
+    border-radius: var(--radius-control);
     border: 1px solid var(--color-border);
   }
   .reading-item.irregular {

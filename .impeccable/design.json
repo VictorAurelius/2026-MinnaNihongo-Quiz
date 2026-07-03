@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-02T00:00:00.000Z",
+  "title": "Design System: Smart Quiz",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Study Violet",
+        "canonical": "hsl(262 80% 60%)"
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Study Canvas",
+        "canonical": "hsl(240 20% 96%)"
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Clear Paper",
+        "canonical": "hsl(0 0% 100%)"
+      },
+      "shell-ink": {
+        "role": "neutral",
+        "displayName": "Shell Ink",
+        "canonical": "#121821"
+      },
+      "progress-teal": {
+        "role": "secondary",
+        "displayName": "Progress Teal",
+        "canonical": "#169c93"
+      }
+    },
+    "typographyMeta": {
+      "japanese": {
+        "displayName": "Japanese Learning Text",
+        "purpose": "Primary Japanese prompts, vocabulary, and kanji readings."
+      },
+      "chinese": {
+        "displayName": "Chinese Learning Text",
+        "purpose": "Primary hanzi and HSK vocabulary."
+      }
+    },
+    "shadows": [
+      {
+        "name": "surface",
+        "value": "0 1px 3px rgba(0,0,0,.08)",
+        "purpose": "Restrained separation when a border is insufficient."
+      },
+      {
+        "name": "lifted",
+        "value": "0 4px 16px rgba(0,0,0,.10)",
+        "purpose": "Popovers, dialogs, and intentional hover lift."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state",
+        "value": "200ms ease-out",
+        "purpose": "Default feedback and state transitions."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [],
+  "narrative": {
+    "northStar": "The Immersive Language Desk",
+    "overview": "A content-first language workspace combining persistent desktop context with editorial restraint and deliberate mobile sequencing.",
+    "keyCharacteristics": [
+      "Content-first hierarchy",
+      "Restrained semantic color",
+      "Stable quiz interactions",
+      "Mobile-first accessible study flows",
+      "Persistent learning context without dashboard clutter"
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Purple identifies actions, selection, focus, or progress; it is never ambient decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat-by-Default Rule",
+        "body": "A card does not receive a shadow merely because it is a card.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Shell-and-Desk Rule",
+        "body": "A dark shell may establish persistent context, but the study workspace remains quiet and high-contrast.",
+        "section": "colors"
+      }
+    ],
+    "dos": ["Do make learning content the strongest content on screen."],
+    "donts": ["Don't use generic AI aesthetics or entertainment-first gamification."]
+  }
+}

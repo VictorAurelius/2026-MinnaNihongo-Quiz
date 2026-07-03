@@ -45,7 +45,7 @@
 </svelte:head>
 
 {#if lessonData && course}
-  <div class="mx-auto max-w-3xl p-4 animate-in">
+  <div class="mx-auto max-w-3xl p-4 ">
     <!-- Header -->
     <div class="text-center mb-5 relative">
       <div class="sm:absolute top-0 left-0 mb-3 sm:mb-0">
@@ -80,12 +80,12 @@
     <!-- Grammar Cards -->
     <div class="flex flex-col gap-3">
       {#each filteredGrammar as item, index}
-        <Card class="{expandedIndex === index ? 'border-primary' : ''} hover:border-primary transition-all">
+        <Card class="{expandedIndex === index ? 'border-primary' : ''} hover:border-primary transition-colors">
           <!-- svelte-ignore a11y_click_events_have_key_events -->
           <!-- svelte-ignore a11y_no_static_element_interactions -->
           <div class="p-4 cursor-pointer flex justify-between items-start gap-4" on:click={() => toggleExpand(index)}>
             <div class="flex-1 flex flex-col gap-1">
-              <div class="text-lg font-bold text-primary" style="font-family: var(--font-jp)">{item.pattern}</div>
+              <div class="text-lg font-bold text-primary" style="font-family: var(--font-japanese)">{item.pattern}</div>
               <div class="text-sm font-semibold text-foreground">{item.vietnamese}</div>
               <div class="text-sm text-muted-foreground">{item.english}</div>
             </div>
@@ -107,7 +107,7 @@
                   <h4 class="text-sm font-bold text-primary mb-2">Examples:</h4>
                   {#each item.examples as example}
                     <div class="p-3 bg-card rounded-lg mb-2 last:mb-0">
-                      <div class="text-sm font-semibold text-foreground mb-1" style="font-family: var(--font-jp)">{example.japanese}</div>
+                      <div class="text-sm font-semibold text-foreground mb-1" style="font-family: var(--font-japanese)">{example.japanese}</div>
                       <div class="text-sm text-foreground mb-0.5">{example.vietnamese}</div>
                       <div class="text-xs text-muted-foreground">{example.english}</div>
                     </div>

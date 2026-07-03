@@ -1,48 +1,20 @@
-/**
- * Tests for Skeleton and SkeletonCard components
- */
-
 import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/svelte/svelte5';
-import Skeleton from '$lib/components/common/Skeleton.svelte';
+import { Skeleton } from '$lib/components/ui/skeleton';
 import SkeletonCard from '$lib/components/common/SkeletonCard.svelte';
 
-describe('Skeleton', () => {
-  it('should render with default dimensions', () => {
-    const { container } = render(Skeleton);
-    const el = container.querySelector('.skeleton');
-    expect(el).toBeInTheDocument();
+describe('Skeleton primitive', () => {
+  it('maps dimensions and accessibility to the canonical skeleton', () => {
+    const { container } = render(Skeleton as any, { props: { width: '200px', height: '2rem', rounded: true } });
+    const el = container.querySelector('[data-slot="skeleton"]');
+    expect(el).toHaveStyle({ width: '200px', height: '2rem' });
+    expect(el).toHaveAttribute('role', 'status');
+    expect(el).toHaveAttribute('aria-label', 'Loading');
+    expect(el).toHaveClass('rounded-pill');
   });
 
-  it('should accept custom width and height props', () => {
-    const { container } = render(Skeleton, { props: { width: '200px', height: '2rem' } });
-    const el = container.querySelector('.skeleton');
-    expect(el?.getAttribute('style')).toContain('width: 200px');
-    expect(el?.getAttribute('style')).toContain('height: 2rem');
-  });
-
-  it('should have shimmer animation class', () => {
-    const { container } = render(Skeleton);
-    expect(container.querySelector('.skeleton-shimmer')).toBeInTheDocument();
-  });
-
-  it('should have role="status" and aria-label', () => {
-    const { container } = render(Skeleton);
-    const el = container.querySelector('.skeleton');
-    expect(el?.getAttribute('role')).toBe('status');
-    expect(el?.getAttribute('aria-label')).toBe('Loading');
-  });
-});
-
-describe('SkeletonCard', () => {
-  it('should render title + lines + button skeleton', () => {
+  it('keeps composed skeleton cards on the canonical primitive', () => {
     const { container } = render(SkeletonCard);
-    const skeletons = container.querySelectorAll('.skeleton');
-    expect(skeletons.length).toBeGreaterThanOrEqual(4);
-  });
-
-  it('should have card container', () => {
-    const { container } = render(SkeletonCard);
-    expect(container.querySelector('.skeleton-card')).toBeInTheDocument();
+    expect(container.querySelectorAll('[data-slot="skeleton"]').length).toBeGreaterThanOrEqual(4);
   });
 });

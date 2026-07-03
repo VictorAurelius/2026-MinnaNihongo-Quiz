@@ -6,6 +6,7 @@
 
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
+  import { Pause, Play, SkipBack, SkipForward } from 'lucide-svelte';
 
   export let character: string;
   export let autoPlay = false;
@@ -88,7 +89,7 @@
     <div class="stroke-fallback">Stroke data not available</div>
   {:else}
     {#if loaded}
-      <div class="stroke-display" style="width: {size}px; height: {size}px">
+      <div class="stroke-display" style="width: {size}px; height: {size}px" role="img" aria-label={`Thứ tự nét chữ ${character}: đang hiển thị ${currentStroke} trên ${totalStrokes} nét`}>
         {@html svgContent}
       </div>
     {:else}
@@ -96,17 +97,17 @@
     {/if}
 
     <div class="stroke-info">
-      Stroke {currentStroke}/{totalStrokes}
+      Nét {currentStroke}/{totalStrokes}
     </div>
 
     <div class="stroke-controls">
-      <button class="ctrl-btn" on:click={stepBack} aria-label="Previous stroke" disabled={!loaded}>⏮</button>
+      <button class="ctrl-btn" on:click={stepBack} aria-label="Nét trước" disabled={!loaded}><SkipBack size={16} aria-hidden="true" /></button>
       {#if playing}
-        <button class="ctrl-btn ctrl-main" on:click={pause} aria-label="Pause">⏸</button>
+        <button class="ctrl-btn ctrl-main" on:click={pause} aria-label="Tạm dừng"><Pause size={20} aria-hidden="true" /></button>
       {:else}
-        <button class="ctrl-btn ctrl-main" on:click={play} aria-label="Play" disabled={!loaded}>▶</button>
+        <button class="ctrl-btn ctrl-main" on:click={play} aria-label="Phát thứ tự nét" disabled={!loaded}><Play size={20} aria-hidden="true" /></button>
       {/if}
-      <button class="ctrl-btn" on:click={stepForward} aria-label="Next stroke" disabled={!loaded}>⏭</button>
+      <button class="ctrl-btn" on:click={stepForward} aria-label="Nét tiếp theo" disabled={!loaded}><SkipForward size={16} aria-hidden="true" /></button>
 
       <div class="speed-control">
         {#each [0.5, 1, 2] as s}
@@ -130,9 +131,9 @@
   }
 
   .stroke-display {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-card);
     padding: 0.5rem;
     display: flex;
     align-items: center;
@@ -147,13 +148,13 @@
   .stroke-fallback {
     padding: 1rem;
     text-align: center;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-size: 0.85rem;
   }
 
   .stroke-info {
     font-size: 0.78rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-weight: 600;
   }
 
@@ -164,11 +165,11 @@
   }
 
   .ctrl-btn {
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: var(--bg-card);
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-card);
     cursor: pointer;
     font-size: 0.85rem;
     display: flex;
@@ -177,8 +178,8 @@
     transition: background 0.15s;
   }
 
-  .ctrl-btn:hover { background: var(--border); }
-  .ctrl-main { width: 2.5rem; height: 2.5rem; font-size: 1rem; }
+  .ctrl-btn:hover { background: var(--color-border); }
+  .ctrl-main { width: 48px; height: 48px; }
 
   .speed-control {
     display: flex;
@@ -187,20 +188,21 @@
   }
 
   .speed-btn {
-    padding: 0.2rem 0.4rem;
+    min-height: 44px;
+    padding: 0.2rem 0.5rem;
     font-size: 0.7rem;
     font-weight: 600;
     font-family: inherit;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    background: var(--bg);
-    color: var(--text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-background);
+    color: var(--color-muted-foreground);
     cursor: pointer;
   }
 
   .speed-btn.active {
-    background: var(--primary);
+    background: var(--color-primary);
     color: white;
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 </style>

@@ -63,21 +63,21 @@
 
 <style>
   .comparison-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-surface);
     padding: 1.25rem;
     cursor: pointer;
-    transition: border-color var(--transition), box-shadow var(--transition);
+    transition: border-color var(--motion-standard), box-shadow var(--motion-standard);
   }
 
   .comparison-card:hover {
-    border-color: var(--primary);
-    box-shadow: var(--shadow);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-surface);
   }
 
   .comparison-card:focus {
-    outline: 2px solid var(--primary);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 
@@ -89,10 +89,10 @@
   }
 
   .comparison-card-title {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin: 0;
   }
 
@@ -106,23 +106,23 @@
   .comparison-pattern-badge {
     padding: 0.375rem 0.75rem;
     background: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    font-family: var(--font-jp);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    font-family: var(--font-japanese);
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--color-primary);
   }
 
   .comparison-card-description {
     font-size: 0.95rem;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.5rem;
   }
 
   .comparison-card-description-en {
     font-style: italic;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
   }
 
   .comparison-card-meta {
@@ -141,13 +141,13 @@
   }
 
   .tag-jlpt {
-    background: var(--accent-bg);
-    color: var(--accent);
+    background: var(--color-primary-subtle);
+    color: var(--color-primary);
   }
 
   .tag-difficulty {
-    background: var(--success-bg);
-    color: var(--success);
+    background: var(--color-success-subtle);
+    color: var(--color-success);
   }
 
   /* Mobile Responsive */

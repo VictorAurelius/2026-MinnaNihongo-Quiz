@@ -152,8 +152,11 @@ Romaji mode should preserve the existing flexible matching for pairs such as `sh
 
 Before UI changes, review:
 
-- `.impeccable.md`
+- `PRODUCT.md`
+- `DESIGN.md`
 - `documents/01-business/ui/rules.md`
+
+Run `./scripts/impeccable-audit.sh` for deterministic design checks. Existing findings are tracked in `.impeccable/baseline.json`; new findings above that baseline are regressions. Use `/impeccable critique`, `/impeccable audit`, or `/impeccable polish` for agent-assisted UI work.
 
 UI expectations:
 

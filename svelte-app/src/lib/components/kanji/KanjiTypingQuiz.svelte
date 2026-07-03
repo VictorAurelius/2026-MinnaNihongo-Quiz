@@ -98,7 +98,7 @@
 <div class="hint-wrapper">
   {#if !showHint}
     <button class="btn-hint" on:click={toggleHint}>
-      <Lightbulb size={14} aria-hidden="true" /> Show Hint
+      <Lightbulb size={16} aria-hidden="true" /> Show Hint
     </button>
   {:else}
     <div class="hint-content">
@@ -120,35 +120,35 @@
       <X size={16} aria-hidden="true" /> Wrong! The correct answer is: {answer}
     {/if}
   </div>
-  <button class="btn btn-primary btn-lg" on:click={advance}>
+  <button class="ui-button" data-variant="default" data-size="lg" on:click={advance}>
     Next Question <ArrowRight size={16} aria-hidden="true" />
   </button>
   <div class="hint-text">Press Enter to continue</div>
 {:else}
-  <button class="btn btn-primary btn-lg" on:click={submitAnswer} disabled={!userInput.trim()}>
+  <button class="ui-button" data-variant="default" data-size="lg" on:click={submitAnswer} disabled={!userInput.trim()}>
     Submit Answer
   </button>
 {/if}
 
 <style>
   .quiz-question-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-surface);
     padding: 1.5rem;
     margin-bottom: 1.25rem;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-surface);
     text-align: center;
   }
 
   .question-label {
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 0.4rem;
   }
 
   .question-kanji {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 3.5rem;
     font-weight: 700;
     line-height: 1.3;
@@ -165,24 +165,24 @@
     flex: 1;
     padding: 0.75rem 1rem;
     font-size: 1.1rem;
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: var(--bg-card);
-    color: var(--text);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-card);
+    color: var(--color-foreground);
     outline: none;
-    transition: border-color var(--transition);
+    transition: border-color var(--motion-standard);
   }
 
   .typing-input:focus {
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .typing-input.correct {
-    border-color: var(--success);
+    border-color: var(--color-success);
   }
 
   .typing-input.wrong {
-    border-color: var(--danger);
+    border-color: var(--color-destructive);
   }
 
   .hint-wrapper {
@@ -203,32 +203,32 @@
     font-weight: 500;
     font-family: inherit;
     background: transparent;
-    color: var(--text-muted);
-    border: 1.5px dashed var(--border);
-    border-radius: var(--radius-sm);
+    color: var(--color-muted-foreground);
+    border: 1.5px dashed var(--color-border);
+    border-radius: var(--radius-control);
     cursor: pointer;
-    transition: all var(--transition);
+    transition: all var(--motion-standard);
   }
 
   .btn-hint:hover {
-    background: var(--border);
-    color: var(--text);
+    background: var(--color-border);
+    color: var(--color-foreground);
   }
 
   .hint-content {
     display: flex;
     gap: 1rem;
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 0.9rem;
-    color: var(--primary);
+    color: var(--color-primary);
     padding: 0.4rem 0.8rem;
-    background: var(--bg);
-    border-radius: var(--radius-sm);
+    background: var(--color-background);
+    border-radius: var(--radius-control);
   }
 
   .feedback {
     padding: 0.8rem 1rem;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-control);
     margin-bottom: 1rem;
     font-weight: 600;
     font-size: 0.95rem;
@@ -236,13 +236,13 @@
   }
 
   .feedback.correct {
-    background: var(--success-bg);
-    color: var(--success);
+    background: var(--color-success-subtle);
+    color: var(--color-success);
   }
 
   .feedback.wrong {
-    background: var(--danger-bg);
-    color: var(--danger);
+    background: var(--color-destructive-subtle);
+    color: var(--color-destructive);
   }
 
   @media (max-width: 600px) {

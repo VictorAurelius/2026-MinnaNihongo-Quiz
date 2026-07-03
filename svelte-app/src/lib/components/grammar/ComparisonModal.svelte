@@ -162,36 +162,24 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--color-overlay);
     backdrop-filter: blur(2px);
   }
 
   .modal-content {
     position: relative;
-    background: var(--bg-card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
+    background: var(--color-card);
+    border-radius: var(--radius-surface);
+    box-shadow: var(--shadow-lifted);
     max-height: 85vh;
     width: 90%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    animation: modalSlideUp 0.3s ease;
   }
 
   .modal-content-xl {
     max-width: 1000px;
-  }
-
-  @keyframes modalSlideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   .modal-header {
@@ -199,8 +187,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-bottom: 1px solid var(--color-border);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary));
     color: white;
   }
 
@@ -208,7 +196,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
   }
 
   .modal-close {
@@ -223,7 +211,7 @@
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: background var(--transition);
+    transition: background var(--motion-standard);
   }
 
   .modal-close:hover {
@@ -239,27 +227,27 @@
   /* Introduction/Tips */
   .comparison-intro {
     padding: 1rem;
-    background: var(--warning-bg);
-    border-left: 3px solid var(--warning);
-    border-radius: var(--radius-sm);
+    background: var(--color-warning-subtle);
+    border: 1px solid var(--color-warning);
+    border-radius: var(--radius-control);
     margin-bottom: 1.5rem;
   }
 
   :global([data-theme="dark"]) .comparison-intro {
-    background: rgba(255, 149, 0, 0.1);
+    background: var(--color-warning-subtle);
   }
 
   .comparison-intro-title {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.5rem;
   }
 
   .comparison-intro-text {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--text-primary);
+    color: var(--color-foreground);
   }
 
   /* Comparison Table */
@@ -275,7 +263,7 @@
   }
 
   .comparison-table th {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary));
     color: white;
     font-weight: 700;
     padding: 0.875rem;
@@ -284,18 +272,18 @@
   }
 
   .comparison-table th:first-child {
-    border-top-left-radius: var(--radius-sm);
+    border-top-left-radius: var(--radius-control);
   }
 
   .comparison-table th:last-child {
-    border-top-right-radius: var(--radius-sm);
+    border-top-right-radius: var(--radius-control);
   }
 
   .comparison-table td {
     padding: 0.875rem;
-    border: 1px solid var(--border);
-    background: var(--bg-card);
-    color: var(--text-primary);
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    color: var(--color-foreground);
     vertical-align: top;
   }
 
@@ -305,7 +293,7 @@
 
   .comparison-table td:first-child {
     font-weight: 600;
-    color: var(--primary);
+    color: var(--color-primary);
     min-width: 120px;
   }
 
@@ -317,7 +305,7 @@
   .comparison-examples-title {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.75rem;
     display: flex;
     align-items: center;
@@ -333,50 +321,50 @@
   .comparison-example-card {
     padding: 1rem;
     background: var(--bg-primary);
-    border-radius: var(--radius-sm);
-    border-left: 3px solid var(--success);
+    border-radius: var(--radius-control);
+    border: 1px solid var(--color-success);
   }
 
   .comparison-example-pattern {
     font-weight: 700;
-    color: var(--primary);
+    color: var(--color-primary);
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
   }
 
   .comparison-example-jp {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.375rem;
   }
 
   .comparison-example-vi {
     font-size: 0.95rem;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.25rem;
   }
 
   .comparison-example-explanation {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
   }
 
   /* Common Mistakes */
   .comparison-mistakes {
     padding: 1rem;
-    background: var(--danger-bg);
-    border-left: 3px solid var(--danger);
-    border-radius: var(--radius-sm);
+    background: var(--color-destructive-subtle);
+    border: 1px solid var(--color-destructive);
+    border-radius: var(--radius-control);
     margin-bottom: 1.5rem;
   }
 
   .comparison-mistakes-title {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.5rem;
   }
 
@@ -388,7 +376,7 @@
 
   .comparison-mistakes-list li {
     font-size: 0.95rem;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.5rem;
     padding-left: 1.5rem;
     position: relative;

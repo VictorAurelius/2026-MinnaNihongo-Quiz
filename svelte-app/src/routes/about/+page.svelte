@@ -11,13 +11,14 @@
   <title>About - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl p-4 animate-in">
+<div class="mx-auto max-w-xl p-4 ">
   <header class="text-center mb-6">
     <img src="{base}/logo.svg" alt="Smart Quiz" class="mx-auto mb-3" height="48" />
     <h1 class="text-2xl font-bold">
       {info.name} <span class="text-sm font-normal text-muted-foreground">v{info.version}</span>
     </h1>
     <p class="text-sm text-muted-foreground leading-relaxed">{info.description}</p>
+    <p class="mt-3 text-sm text-muted-foreground">Ứng dụng offline-first: nội dung học và tiến trình cốt lõi nằm trên thiết bị; liên kết cộng đồng là phần trực tuyến tùy chọn.</p>
   </header>
 
   <Card class="mb-3">

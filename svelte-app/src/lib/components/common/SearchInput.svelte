@@ -28,7 +28,7 @@
     type="text"
     {placeholder}
     on:keydown={handleKeydown}
-    class="w-full pl-10 pr-9 py-2.5 bg-card border border-border rounded-xl text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+    class="w-full pl-10 pr-9 py-2.5 bg-card border border-border rounded-xl text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
     aria-label={placeholder}
   />
   {#if value}

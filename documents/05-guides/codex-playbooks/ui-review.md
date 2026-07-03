@@ -20,5 +20,6 @@ When reviewing, list findings first by severity with file references. If no issu
 Run:
 
 ```bash
+./scripts/impeccable-audit.sh
 ./scripts/test-local.sh --quick
 ```

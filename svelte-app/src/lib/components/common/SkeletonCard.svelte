@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Skeleton from './Skeleton.svelte';
+  import { Skeleton } from '$lib/components/ui/skeleton';
 </script>
 
 <div class="skeleton-card">
@@ -15,9 +15,9 @@
     flex-direction: column;
     gap: 0.75rem;
     padding: 1.25rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-surface);
+    box-shadow: var(--shadow-surface);
   }
 </style>

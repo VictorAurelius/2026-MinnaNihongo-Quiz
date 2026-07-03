@@ -7,6 +7,7 @@
   import { onMount } from 'svelte';
 
   export let size = 250;
+  export let character = '';
 
   let canvas: HTMLCanvasElement;
   let ctx: CanvasRenderingContext2D | null = null;
@@ -14,10 +15,14 @@
   let strokes: { x: number; y: number }[][] = [];
   let currentStroke: { x: number; y: number }[] = [];
 
+  function canvasColor(token: string) {
+    return getComputedStyle(canvas).getPropertyValue(token).trim();
+  }
+
   onMount(() => {
     ctx = canvas.getContext('2d');
     if (ctx) {
-      ctx.strokeStyle = '#1d1d1f';
+      ctx.strokeStyle = canvasColor('--color-foreground');
       ctx.lineWidth = 4;
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
@@ -59,7 +64,7 @@
     if (!ctx) return;
     ctx.clearRect(0, 0, size, size);
     // Draw grid
-    ctx.strokeStyle = '#e5e5e5';
+    ctx.strokeStyle = canvasColor('--color-border');
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -68,7 +73,7 @@
     ctx.stroke();
     ctx.setLineDash([]);
     // Draw strokes
-    ctx.strokeStyle = '#1d1d1f';
+    ctx.strokeStyle = canvasColor('--color-foreground');
     ctx.lineWidth = 4;
     for (const stroke of [...strokes, currentStroke]) {
       if (stroke.length < 2) continue;
@@ -99,7 +104,8 @@
     bind:this={canvas}
     width={size}
     height={size}
-    aria-label="Draw kanji here"
+    aria-label={character ? `Vùng luyện viết Kanji ${character}` : 'Vùng luyện viết Kanji'}
+    aria-describedby="canvas-alternative"
     on:mousedown={startDraw}
     on:mousemove={draw}
     on:mouseup={endDraw}
@@ -108,8 +114,12 @@
     on:touchmove={draw}
     on:touchend={endDraw}
   ></canvas>
+  <p id="canvas-alternative" class="canvas-alternative">
+    {#if character}Mẫu cần viết: <strong>{character}</strong>.{/if}
+    Canvas là bài luyện tùy chọn; người dùng bàn phím có thể học thứ tự nét trong phần mô tả nét. Đã vẽ {strokes.length} nét.
+  </p>
   <div class="canvas-controls">
-    <button class="ctrl-btn" on:click={undo}>Undo</button>
+    <button class="ctrl-btn" on:click={undo} disabled={strokes.length === 0}>Undo</button>
     <button class="ctrl-btn" on:click={clear}>Clear</button>
   </div>
 </div>
@@ -123,9 +133,9 @@
   }
 
   canvas {
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: white;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-card);
     cursor: crosshair;
     touch-action: none;
   }
@@ -135,18 +145,21 @@
     gap: 0.5rem;
   }
 
+  .canvas-alternative { max-width: 42ch; margin: 0; color: var(--color-muted-foreground); font-size: .75rem; line-height: 1.5; text-align: center; }
+
   .ctrl-btn {
+    min-height: 44px;
     padding: 0.4rem 1rem;
     font-size: 0.85rem;
     font-family: inherit;
     font-weight: 500;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: var(--bg-card);
-    color: var(--text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-card);
+    color: var(--color-foreground);
     cursor: pointer;
     transition: background 0.15s;
   }
 
-  .ctrl-btn:hover { background: var(--border); }
+  .ctrl-btn:hover { background: var(--color-border); }
 </style>

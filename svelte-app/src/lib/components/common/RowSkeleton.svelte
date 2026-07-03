@@ -9,7 +9,7 @@
   export let rows = 5;
 </script>
 
-<div class="flex flex-col gap-3.5 animate-in" role="status" aria-label="Loading">
+<div class="flex flex-col gap-3.5 " role="status" aria-label="Loading">
   {#each Array(rows) as _}
     <div class="flex items-center gap-4 px-5 py-5 bg-card border border-border rounded-xl">
       <Skeleton class="w-9 h-9 rounded-full flex-shrink-0" />

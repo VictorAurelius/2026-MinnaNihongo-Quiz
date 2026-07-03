@@ -27,7 +27,7 @@
 
     <link rel="icon" href="%sveltekit.assets%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#6366f1" />
+    <meta name="theme-color" content="#8b4fe6" />
     <link rel="apple-touch-icon" href="%sveltekit.assets%/icon-192.png" />
     <link rel="manifest" href="%sveltekit.assets%/manifest.json" />
     %sveltekit.head%
@@ -38,12 +38,6 @@
         var s = JSON.parse(localStorage.getItem('ui-store') || '{}');
         if (s.darkMode) document.documentElement.classList.add('dark');
       } catch(e) {}
-      // Unregister stale service workers to prevent blank page after deploy
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(regs) {
-          regs.forEach(function(r) { r.unregister(); });
-        });
-      }
     </script>
     <div style="display: contents">%sveltekit.body%</div>
   </body>

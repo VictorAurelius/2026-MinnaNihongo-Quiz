@@ -13,9 +13,9 @@
   } from '$lib/utils/grammarUtils';
   import type { GrammarPattern, GrammarFilters, GrammarViewMode, GrammarComparison } from '$lib/types';
   import GrammarCard from '$lib/components/grammar/GrammarCard.svelte';
-  import GrammarDetailModal from '$lib/components/grammar/GrammarDetailModal.svelte';
+  import GrammarInlineDetail from '$lib/components/grammar/GrammarInlineDetail.svelte';
   import ComparisonCard from '$lib/components/grammar/ComparisonCard.svelte';
-  import ComparisonModal from '$lib/components/grammar/ComparisonModal.svelte';
+  import ComparisonInlineDetail from '$lib/components/grammar/ComparisonInlineDetail.svelte';
   import BackButton from '$lib/components/common/BackButton.svelte';
 
   let allPatterns: GrammarPattern[] = [];
@@ -27,8 +27,6 @@
 
   let selectedPattern: GrammarPattern | null = null;
   let selectedComparison: GrammarComparison | null = null;
-  let showDetailModal = false;
-  let showComparisonModal = false;
   let searchTimeout: ReturnType<typeof setTimeout>;
 
   onMount(() => {
@@ -53,8 +51,8 @@
     selectedPatterns = selectedPatterns;
   }
 
-  function showPattern(pattern: GrammarPattern) { selectedPattern = pattern; showDetailModal = true; }
-  function showComparison(comparison: GrammarComparison) { selectedComparison = comparison; showComparisonModal = true; }
+  function showPattern(pattern: GrammarPattern) { selectedPattern = selectedPattern?.pattern === pattern.pattern ? null : pattern; }
+  function showComparison(comparison: GrammarComparison) { selectedComparison = selectedComparison?.id === comparison.id ? null : comparison; }
 
   $: groupedData = (() => {
     switch (currentView) {
@@ -118,7 +116,7 @@
   <div class="flex px-6 bg-card border-b-2 border-border overflow-x-auto">
     {#each viewTabs as tab}
       <button
-        class="px-5 py-3 bg-transparent border-none border-b-[3px] border-transparent text-muted-foreground text-sm font-semibold cursor-pointer whitespace-nowrap transition-all hover:text-foreground hover:bg-muted
+        class="px-5 py-3 bg-transparent border-none border-b-[3px] border-transparent text-muted-foreground text-sm font-semibold cursor-pointer whitespace-nowrap transition-colors hover:text-foreground hover:bg-muted
           {currentView === tab.id ? '!text-primary !border-primary' : ''}"
         on:click={() => handleViewChange(tab.id)}
       >
@@ -137,6 +135,7 @@
       <div class="grid gap-4">
         {#each comparisons as comparison}
           <ComparisonCard {comparison} on:click={() => showComparison(comparison)} />
+          {#if selectedComparison?.id === comparison.id}<ComparisonInlineDetail {comparison} onclose={() => selectedComparison = null} />{/if}
         {/each}
       </div>
     {:else}
@@ -165,6 +164,7 @@
                 on:toggle={() => togglePatternSelection(pattern.pattern)}
                 on:detail={() => showPattern(pattern)}
               />
+              {#if selectedPattern?.pattern === pattern.pattern}<GrammarInlineDetail {pattern} onclose={() => selectedPattern = null} />{/if}
             {/each}
           </div>
         {/each}
@@ -178,23 +178,7 @@
       <div class="text-base">
         <span class="text-xl font-bold text-primary">{selectedPatterns.size}</span> patterns đã chọn
       </div>
-      <button class="btn btn-primary">🎯 Quiz các pattern đã chọn</button>
+      <button class="ui-button" data-variant="default">🎯 Quiz các pattern đã chọn</button>
     </div>
   {/if}
 </div>
-
-{#if showDetailModal && selectedPattern}
-  <GrammarDetailModal
-    pattern={selectedPattern}
-    {allPatterns}
-    on:close={() => { showDetailModal = false; selectedPattern = null; }}
-    on:showRelated={(e) => showPattern(e.detail)}
-  />
-{/if}
-
-{#if showComparisonModal && selectedComparison}
-  <ComparisonModal
-    comparison={selectedComparison}
-    on:close={() => { showComparisonModal = false; selectedComparison = null; }}
-  />
-{/if}

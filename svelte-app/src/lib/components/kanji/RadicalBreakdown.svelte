@@ -32,7 +32,7 @@
   .rb-header {
     font-size: 0.78rem;
     font-weight: 600;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 0.4rem;
   }
 
@@ -47,24 +47,24 @@
     align-items: center;
     gap: 0.3rem;
     padding: 0.3rem 0.5rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
     text-decoration: none;
-    color: var(--text);
+    color: var(--color-foreground);
     font-size: 0.8rem;
     transition: border-color 0.15s;
   }
 
   .radical-item:hover {
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .radical-char {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--color-primary);
   }
 
   .radical-name {
@@ -72,13 +72,13 @@
   }
 
   .radical-en {
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-size: 0.7rem;
   }
 
   .no-data {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
   }
 </style>

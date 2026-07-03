@@ -77,7 +77,7 @@
 >
   <div class="flashcard-inner">
     <!-- Front Side (Question) -->
-    <div class="flashcard-front">
+    <div class="flashcard-front" aria-hidden={flipped}>
       <div class="fc-japanese">{frontText}</div>
       <div class="hint-text">Space to flip · F1 to speak</div>
       <button class="btn-speak btn-speak--fc" on:click|stopPropagation={() => playJapaneseAudio(item.kana || item.japanese)}>
@@ -86,7 +86,7 @@
     </div>
 
     <!-- Back Side (Answer) -->
-    <div class="flashcard-back">
+    <div class="flashcard-back" aria-hidden={!flipped}>
       <div class="fc-meaning">{backText}</div>
       {#if item.example}
         <div class="fc-example">{item.example}</div>
@@ -97,18 +97,16 @@
 
 <!-- Navigation Controls -->
 <div class="fc-nav">
-  <button class="btn btn-danger" on:click={handleWrong}>
+  <button class="ui-button" data-variant="destructive" on:click={handleWrong}>
     <X size={16} aria-hidden="true" /> Wrong
   </button>
-  <button class="btn btn-success" on:click={handleCorrect}>
+  <button class="ui-button" data-variant="success" on:click={handleCorrect}>
     <Check size={16} aria-hidden="true" /> Correct
   </button>
 </div>
 
 <style>
-  /* 3D Flip Animation - Critical: preserve-3d */
   .flashcard {
-    perspective: 800px;
     width: 100%;
     max-width: 480px;
     height: 280px;
@@ -121,12 +119,6 @@
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.5s ease;
-    transform-style: preserve-3d;
-  }
-
-  .flashcard.flipped .flashcard-inner {
-    transform: rotateY(180deg);
   }
 
   .flashcard-front,
@@ -140,19 +132,25 @@
     padding: 1.5rem;
     background: var(--color-card);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    border-radius: var(--radius-surface);
+    box-shadow: var(--shadow-lifted);
   }
 
   .flashcard-back {
-    transform: rotateY(180deg);
+    display: none;
+  }
+
+  .flashcard.flipped .flashcard-front {
+    display: none;
+  }
+
+  .flashcard.flipped .flashcard-back {
+    display: flex;
   }
 
   /* Front Side Styles */
   .fc-japanese {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.875rem; /* text-3xl — consistent across all quiz modes */
     font-weight: 700;
     text-align: center;
@@ -176,7 +174,7 @@
   }
 
   .fc-example {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 0.85rem;
     color: var(--color-muted-foreground);
     font-style: italic;
@@ -207,7 +205,7 @@
       gap: 0.4rem;
     }
 
-    .fc-nav .btn {
+    .fc-nav .ui-button {
       padding: 0.5rem 0.8rem;
       font-size: 0.85rem;
     }
