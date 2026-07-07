@@ -6,6 +6,7 @@
   --color-foreground: #2d3037;
   --color-card: #ffffff;
   --color-card-foreground: #2d3037;
+  --color-surface: var(--color-card);
   --color-primary: #8b4fe6;
   --color-primary-foreground: #ffffff;
   --color-secondary: #f3f4f6;
@@ -41,6 +42,11 @@
   --color-warning-subtle: color-mix(in oklab, var(--color-warning) 12%, var(--color-background));
   --color-destructive-subtle: color-mix(in oklab, var(--color-destructive) 12%, var(--color-background));
   --color-info-subtle: color-mix(in oklab, var(--color-info) 12%, var(--color-background));
+  --bg-primary: var(--color-primary-subtle);
+  --bg-secondary: var(--color-muted);
+  --bg-tertiary: var(--color-secondary);
+  --border-color: var(--color-border);
+  --error: var(--color-destructive);
   --color-course-n5: #c0392b;
   --color-course-n4: #e67e22;
   --color-course-n3: #6366f1;
@@ -54,6 +60,11 @@
   --text-headline: 1.5rem;
   --text-japanese: 1.875rem;
   --text-chinese: 1.25rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
   --spacing-touch: 2.75rem;
   --icon-xs: 0.75rem;
   --icon-sm: 1rem;
