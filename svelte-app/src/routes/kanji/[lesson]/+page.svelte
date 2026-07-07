@@ -8,7 +8,7 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { getKanjiLessonData } from '$lib/data/kanji/lessons';
-  import Button from '$lib/components/common/Button.svelte';
+  import Button from '$lib/components/ui/button/button.svelte';
 
   import type { KanjiQuizDirection } from '$lib/utils/kanjiQuizUtils';
 
@@ -52,7 +52,7 @@
         variant="outline"
         size="lg"
         icon="📖"
-        on:click={goToReference}
+        onclick={goToReference}
       >
         Kanji Reference Table
       </Button>
@@ -63,7 +63,7 @@
           {#each directions as dir}
             <button
               class="direction-btn {selectedDirection === dir.value ? 'active' : ''}"
-              on:click={() => selectedDirection = dir.value}
+              onclick={() => selectedDirection = dir.value}
             >
               {dir.label}
             </button>
@@ -81,7 +81,7 @@
         variant="primary"
         size="lg"
         icon="🎴"
-        on:click={() => startQuiz('flashcard')}
+        onclick={() => startQuiz('flashcard')}
       >
         Flashcard Quiz
       </Button>
@@ -90,7 +90,7 @@
         variant="accent"
         size="lg"
         icon="✓"
-        on:click={() => startQuiz('mc')}
+        onclick={() => startQuiz('mc')}
       >
         Multiple Choice
       </Button>
@@ -99,7 +99,7 @@
         variant="success"
         size="lg"
         icon="⌨️"
-        on:click={() => startQuiz('typing')}
+        onclick={() => startQuiz('typing')}
       >
         Typing Quiz
       </Button>
@@ -109,7 +109,7 @@
   <div class="error-state">
     <h2>Kanji Lesson Not Found</h2>
     <p>The kanji lesson you're looking for doesn't exist.</p>
-    <Button variant="primary" on:click={() => goto(`${base}/kanji`)}>
+    <Button variant="primary" onclick={() => goto(`${base}/kanji`)}>
       Back to Kanji
     </Button>
   </div>
@@ -119,7 +119,6 @@
   .lesson-menu {
     max-width: 500px;
     margin: 0 auto;
-    animation: fadeIn 0.25s ease;
   }
 
   .direction-selector {
@@ -164,17 +163,12 @@
     border-color: var(--color-primary);
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
   .lesson-header {
     text-align: center;
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary));
+    border-radius: var(--radius-surface);
     color: white;
   }
 
@@ -193,7 +187,7 @@
   .lesson-title-large {
     font-size: 1.5rem;
     font-weight: 700;
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     margin: 0 0 0.75rem 0;
   }
 
@@ -222,7 +216,7 @@
   }
 
   .error-state p {
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 1.5rem;
   }
 

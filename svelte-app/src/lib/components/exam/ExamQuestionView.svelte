@@ -44,7 +44,7 @@
 <div class="exam-question" data-question-id={question.id}>
   <p class="prompt">
     <span class="q-number">{number}.</span>
-    <span style="font-family: var(--font-jp)">{question.prompt}</span>
+    <span style="font-family: var(--font-japanese)">{question.prompt}</span>
   </p>
 
   {#if question.audioUrl}

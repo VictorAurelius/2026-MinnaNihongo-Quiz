@@ -94,10 +94,10 @@
 
 <!-- Navigation Controls -->
 <div class="fc-nav">
-  <button class="btn btn-danger" on:click={handleWrong}>
+  <button class="ui-button" data-variant="destructive" on:click={handleWrong}>
     <X size={16} aria-hidden="true" /> Wrong
   </button>
-  <button class="btn btn-success" on:click={handleCorrect}>
+  <button class="ui-button" data-variant="success" on:click={handleCorrect}>
     <Check size={16} aria-hidden="true" /> Correct
   </button>
 </div>
@@ -134,10 +134,10 @@
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-surface);
+    box-shadow: var(--shadow-lifted);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
@@ -147,7 +147,7 @@
   }
 
   .fc-kanji {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 4rem;
     font-weight: 700;
     text-align: center;
@@ -157,14 +157,14 @@
 
   .fc-stroke {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 0.5rem;
   }
 
   .hint-text {
     text-align: center;
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-top: 0.5rem;
   }
 
@@ -179,7 +179,7 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.1rem;
   }
 
@@ -187,18 +187,18 @@
     font-size: 0.65rem;
     font-weight: 700;
     padding: 0.1rem 0.3rem;
-    border-radius: 3px;
-    background: var(--border);
-    color: var(--text-muted);
+    border-radius: var(--radius-control);
+    background: var(--color-border);
+    color: var(--color-muted-foreground);
   }
 
   .reading-on {
-    color: var(--primary);
+    color: var(--color-primary);
     font-weight: 500;
   }
 
   .reading-kun {
-    color: var(--accent);
+    color: var(--color-primary);
     font-weight: 500;
   }
 
@@ -211,15 +211,15 @@
 
   .fc-english {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 0.5rem;
     text-align: center;
   }
 
   .fc-example {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     text-align: center;
     display: flex;
     align-items: center;
@@ -241,8 +241,8 @@
 
   .fc-ex-audio {
     background: none;
-    border: 1px solid var(--border);
-    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
     cursor: pointer;
     padding: 0.1rem 0.3rem;
     font-size: 0.7rem;
@@ -250,7 +250,7 @@
   }
 
   .fc-ex-audio:hover {
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .fc-nav {
@@ -274,7 +274,7 @@
       gap: 0.4rem;
     }
 
-    .fc-nav .btn {
+    .fc-nav .ui-button {
       padding: 0.5rem 0.8rem;
       font-size: 0.85rem;
     }

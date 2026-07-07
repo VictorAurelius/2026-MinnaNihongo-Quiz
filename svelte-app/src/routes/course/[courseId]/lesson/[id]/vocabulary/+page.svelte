@@ -15,6 +15,7 @@
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import BackButton from '$lib/components/common/BackButton.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import { IconButton } from '$lib/components/ui/icon-button';
   import { BookOpen, X, CheckSquare, Square, Volume2, Layers, CheckCircle, Keyboard } from 'lucide-svelte';
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
   import type { CourseId } from '$lib/types/course';
@@ -88,7 +89,7 @@
 </svelte:head>
 
 {#if lessonData && course}
-  <div class="mx-auto max-w-3xl p-4 animate-in" class:pb-24={selectedSet.size > 0}>
+  <div class="mx-auto max-w-3xl p-4 " class:pb-24={selectedSet.size > 0}>
     <!-- Header -->
     <div class="text-center mb-5 relative">
       <div class="sm:absolute top-0 left-0 mb-3 sm:mb-0">
@@ -166,7 +167,7 @@
             <span class="w-7 h-7 flex items-center justify-center bg-primary text-white rounded-full text-xs font-bold">{index + 1}</span>
           </div>
           <div class="flex flex-col gap-0.5">
-            <div class="text-lg font-semibold text-foreground" style="font-family: var(--font-jp)">{item.japanese}</div>
+            <div class="text-lg font-semibold text-foreground" style="font-family: var(--font-japanese)">{item.japanese}</div>
             {#if item.kana && item.kana !== item.japanese}
               <div class="text-sm text-muted-foreground">{item.kana}</div>
             {/if}
@@ -212,11 +213,11 @@
   <div class="practice-bar fixed bottom-0 inset-x-0 bg-card border-t-2 border-primary px-4 py-2.5 flex items-center gap-3 z-50 shadow-lg">
     <span class="text-sm text-muted-foreground whitespace-nowrap"><strong class="text-primary text-base">{selectedSet.size}</strong> từ</span>
     <div class="flex gap-2 flex-1 justify-center flex-wrap">
-      <button class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-primary text-white border-none rounded-xl cursor-pointer text-sm font-semibold whitespace-nowrap hover:brightness-90 transition-all" on:click={() => practice('flashcard')}><Layers size={14} aria-hidden="true" /> Flashcard</button>
-      <button class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-primary text-white border-none rounded-xl cursor-pointer text-sm font-semibold whitespace-nowrap hover:brightness-90 transition-all" on:click={() => practice('multiple-choice')}><CheckCircle size={14} aria-hidden="true" /> Trắc nghiệm</button>
-      <button class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-primary text-white border-none rounded-xl cursor-pointer text-sm font-semibold whitespace-nowrap hover:brightness-90 transition-all" on:click={() => practice('typing')}><Keyboard size={14} aria-hidden="true" /> Nhập chữ</button>
+      <UiButton size="sm" onclick={() => practice('flashcard')}><Layers class="size-4" strokeWidth={2} aria-hidden="true" /> Flashcard</UiButton>
+      <UiButton size="sm" onclick={() => practice('multiple-choice')}><CheckCircle class="size-4" strokeWidth={2} aria-hidden="true" /> Trắc nghiệm</UiButton>
+      <UiButton size="sm" onclick={() => practice('typing')}><Keyboard class="size-4" strokeWidth={2} aria-hidden="true" /> Nhập chữ</UiButton>
     </div>
-    <button class="border border-border rounded-lg px-2 py-1 cursor-pointer text-muted-foreground text-sm hover:border-destructive hover:text-destructive transition-colors bg-transparent flex-shrink-0" on:click={clearSelection} title="Bỏ chọn tất cả"><X size={14} aria-hidden="true" /></button>
+    <IconButton icon={X} label="Clear selection" title="Bỏ chọn tất cả" variant="outline" onclick={clearSelection} />
   </div>
 {/if}
 
@@ -235,7 +236,7 @@
     user-select: none;
   }
   .vocab-card:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow-surface);
     border-color: var(--color-primary);
   }
   .vocab-card.selected {

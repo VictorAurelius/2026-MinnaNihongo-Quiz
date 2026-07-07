@@ -11,10 +11,7 @@
   import { parseCourseFromUrl } from '$lib/utils/courseUtils';
   import { quizStore, startQuiz, answerCorrect, answerWrong, nextQuestion, isComplete, progress, currentQuestion } from '$lib/stores';
   import { generateQuestions, generateMCOptions } from '$lib/utils/quizUtils';
-  import FlashCard from '$lib/components/quiz/FlashCard.svelte';
-  import MultipleChoice from '$lib/components/quiz/MultipleChoice.svelte';
-  import TypingQuiz from '$lib/components/quiz/TypingQuiz.svelte';
-  import ProgressBar from '$lib/components/common/ProgressBar.svelte';
+  import { FlashCard, MultipleChoice, TypingQuiz, QuizFrame } from '$lib/components/quiz';
   import { Skeleton } from '$lib/components/ui/skeleton';
   import type { QuizMode, QuizDirection, CourseId } from '$lib/types';
   import { showToast } from '$lib/stores/toast';
@@ -26,6 +23,8 @@
 
   $: course = getCourse(courseId);
   $: lessonData = course?.getLessonData(lessonId) ?? null;
+  $: directionLabel = direction === 'ja-vi' ? 'Nhật → Việt' : direction === 'vi-ja' ? 'Việt → Nhật' : direction === 'vi-romaji' ? 'Việt → Romaji' : 'Nhật → Romaji';
+  $: shortcutLabels = mode === 'flashcard' ? ['Space / Enter: lật thẻ', 'F1: nghe'] : mode === 'multiple-choice' ? ['1–4: chọn đáp án', 'F1: nghe'] : ['Enter: trả lời / tiếp tục', 'F1: nghe'];
 
   let mcOptions: string[] = [];
   let flipped = false;
@@ -87,13 +86,7 @@
 </svelte:head>
 
 {#if lessonData && $currentQuestion}
-  <div class="mx-auto max-w-xl px-4 animate-in">
-    <ProgressBar
-      current={$progress.current}
-      total={$progress.total}
-      showText={true}
-    />
-
+  <QuizFrame title={mode === 'flashcard' ? 'Flashcard' : mode === 'multiple-choice' ? 'Chọn đáp án' : 'Nhập câu trả lời'} context={`${course?.metadata.level ?? courseId.toUpperCase()} · Bài ${lessonId}`} direction={directionLabel} current={$progress.current} total={$progress.total} shortcuts={shortcutLabels}>
     {#if mode === 'flashcard' && 'japanese' in $currentQuestion.item}
       <FlashCard
         item={$currentQuestion.item}
@@ -122,9 +115,9 @@
         on:wrong={handleWrong}
       />
     {/if}
-  </div>
+  </QuizFrame>
 {:else}
-  <div class="mx-auto max-w-xl px-4 space-y-4 animate-in">
+  <div class="mx-auto max-w-xl px-4 space-y-4 ">
     <Skeleton class="h-2 w-full rounded-full" />
     <Skeleton class="h-64 w-full rounded-lg" />
     <div class="flex gap-2">

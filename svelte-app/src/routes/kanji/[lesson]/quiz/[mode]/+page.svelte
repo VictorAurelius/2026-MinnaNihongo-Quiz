@@ -15,8 +15,9 @@
   import KanjiMultipleChoice from '$lib/components/kanji/KanjiMultipleChoice.svelte';
   import KanjiTypingQuiz from '$lib/components/kanji/KanjiTypingQuiz.svelte';
   import KanjiWritingQuiz from '$lib/components/kanji/KanjiWritingQuiz.svelte';
-  import ProgressBar from '$lib/components/common/ProgressBar.svelte';
+  import { QuizFrame, QuizSummary } from '$lib/components/quiz';
   import SkeletonCard from '$lib/components/common/SkeletonCard.svelte';
+  import { recordKanjiLesson } from '$lib/stores/kanjiProgress';
 
   $: mode = $page.params.mode as 'flashcard' | 'mc' | 'typing';
   $: lessonId = parseInt($page.params.lesson || '0');
@@ -33,11 +34,16 @@
 
   // All kanji items for MC option generation (pool from all lessons)
   let allKanjiItems: KanjiItem[] = [];
+  let progressRecorded = false;
 
   $: currentQuestion = questions[currentIndex] || null;
   $: isComplete = quizStarted && currentIndex >= questions.length;
   $: progressCurrent = currentIndex + 1;
   $: progressTotal = questions.length;
+  $: if (isComplete && !progressRecorded) {
+    progressRecorded = true;
+    recordKanjiLesson(lessonId, score, questions.length);
+  }
 
   onMount(() => {
     if (!lessonData) {
@@ -86,6 +92,7 @@
     questions = generateKanjiQuestions(lessonData.kanji, direction);
     currentIndex = 0;
     score = 0;
+    progressRecorded = false;
     flipped = false;
 
     if (mode === 'mc' && questions.length > 0) {
@@ -103,34 +110,16 @@
 </svelte:head>
 
 {#if isComplete}
-  <div class="results-container">
-    <div class="results-card">
-      <h2>Quiz Complete!</h2>
-      <div class="results-score">
-        <span class="score-number">{score}</span>
-        <span class="score-divider">/</span>
-        <span class="score-total">{questions.length}</span>
-      </div>
-      <div class="results-percentage">
-        {Math.round((score / questions.length) * 100)}%
-      </div>
-      <div class="results-actions">
-        <button class="btn btn-primary" on:click={restartQuiz}>
-          Try Again
+  <QuizSummary title="Hoàn thành luyện Kanji" {score} total={questions.length}>
+        <button class="ui-button" data-variant="default" on:click={restartQuiz}>
+          Làm lại
         </button>
-        <button class="btn btn-secondary" on:click={goBack}>
-          Back to Lesson
+        <button class="ui-button" data-variant="secondary" on:click={goBack}>
+          Về bài Kanji
         </button>
-      </div>
-    </div>
-  </div>
+  </QuizSummary>
 {:else if currentQuestion}
-  <div class="quiz-container">
-    <ProgressBar
-      current={progressCurrent}
-      total={progressTotal}
-      showText={true}
-    />
+  <QuizFrame title={mode === 'flashcard' ? 'Flashcard Kanji' : mode === 'mc' ? 'Chọn đáp án Kanji' : 'Nhập đáp án Kanji'} context={`Kanji · Bài ${lessonId}`} direction={direction} current={progressCurrent} total={progressTotal} shortcuts={mode === 'mc' ? ['1–4: chọn đáp án', 'F1: nghe'] : mode === 'flashcard' ? ['Space / Enter: lật thẻ', 'F1: nghe'] : ['Enter: trả lời / tiếp tục']}>
 
     {#if mode === 'flashcard'}
       {#key currentQuestion.id}
@@ -170,7 +159,7 @@
         />
       {/key}
     {/if}
-  </div>
+  </QuizFrame>
 {:else}
   <div class="loading">
     <SkeletonCard />
@@ -178,73 +167,9 @@
 {/if}
 
 <style>
-  .quiz-container {
-    max-width: 600px;
-    margin: 0 auto;
-    animation: fadeIn 0.25s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
   .loading {
     text-align: center;
     padding: 3rem;
-    color: var(--text-muted);
-  }
-
-  .results-container {
-    max-width: 500px;
-    margin: 2rem auto;
-    animation: fadeIn 0.25s ease;
-  }
-
-  .results-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 2rem;
-    text-align: center;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .results-card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .results-score {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .score-number {
-    color: var(--success);
-  }
-
-  .score-divider {
-    color: var(--text-muted);
-    margin: 0 0.25rem;
-  }
-
-  .score-total {
-    color: var(--text-muted);
-  }
-
-  .results-percentage {
-    font-size: 1.2rem;
-    color: var(--primary);
-    font-weight: 600;
-    margin-bottom: 2rem;
-  }
-
-  .results-actions {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    color: var(--color-muted-foreground);
   }
 </style>

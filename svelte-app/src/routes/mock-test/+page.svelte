@@ -9,7 +9,7 @@
   import { generateMockTest, calculateJLPTScore } from '$lib/utils/mockTestUtils';
   import type { MockTestQuestion, JLPTScoreResult } from '$lib/utils/mockTestUtils';
   import { recordStudySession } from '$lib/utils/achievementUtils';
-  import ProgressBar from '$lib/components/common/ProgressBar.svelte';
+  import { Progress as ProgressBar } from '$lib/components/ui/progress';
   import { Card, CardContent } from '$lib/components/ui/card';
   import UiButton from '$lib/components/ui/button/button.svelte';
 
@@ -94,7 +94,7 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="mx-auto max-w-xl p-4 animate-in min-h-[70vh] flex flex-col">
+<div class="mx-auto max-w-xl p-4  min-h-[70vh] flex flex-col">
   {#if !started}
     <Card class="flex-1 flex flex-col justify-center">
       <CardContent class="py-10 text-center">
@@ -105,7 +105,7 @@
         <div class="flex gap-3 justify-center mb-6">
           {#each ['n5', 'n4', 'n3'] as lvl}
             <button
-              class="px-5 py-3 text-lg font-bold border-2 rounded-xl cursor-pointer transition-all
+              class="px-5 py-3 text-lg font-bold border-2 rounded-xl cursor-pointer transition-colors
                 {selectedLevel === lvl ? 'border-primary bg-primary/10 text-primary' : 'border-border bg-card text-foreground hover:border-primary'}"
               on:click={() => selectedLevel = lvl}
             >
@@ -179,7 +179,7 @@
         <div class="text-xs text-muted-foreground mb-2">
           {currentQ.section === 'vocab' ? 'What is the meaning of:' : 'Which meaning matches:'}
         </div>
-        <div class="text-xl font-bold" style="font-family: var(--font-jp)">{currentQ.question}</div>
+        <div class="text-xl font-bold" style="font-family: var(--font-japanese)">{currentQ.question}</div>
       </CardContent>
     </Card>
 

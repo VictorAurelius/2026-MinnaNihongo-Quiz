@@ -11,10 +11,12 @@
   import { BookOpen, ChevronRight } from 'lucide-svelte';
   import SearchInput from '$lib/components/common/SearchInput.svelte';
   import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
+  import { kanjiProgressStore, getKanjiMastery, getRecentKanjiLesson } from '$lib/stores/kanjiProgress';
 
   const allLessons = getKanjiLessonMetadata();
   let searchQuery = '';
   let selectedLevel: 'n5n4' | 'n3' | 'n2' | 'n1' = 'n5n4';
+  let masteryFilter: 'all' | 'started' | 'mastered' = 'all';
 
   const levels = [
     { id: 'n5n4' as const, label: 'N5/N4', count: 255, desc: '25 bài Minna no Nihongo' },
@@ -26,12 +28,19 @@
   $: totalKanji = levels.reduce((s, l) => s + l.count, 0);
   $: selectedLevelData = levels.find(l => l.id === selectedLevel);
 
-  $: lessons = searchQuery
+  $: recentLesson = getRecentKanjiLesson($kanjiProgressStore);
+  $: searchedLessons = searchQuery
     ? allLessons.filter(l =>
         l.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         String(l.lessonNumber).includes(searchQuery)
       )
     : allLessons;
+  $: lessons = searchedLessons.filter(lesson => {
+    const mastery = getKanjiMastery($kanjiProgressStore, lesson.lessonNumber);
+    if (masteryFilter === 'started') return mastery > 0 && mastery < 80;
+    if (masteryFilter === 'mastered') return mastery >= 80;
+    return true;
+  });
 
   function getKanjiList(level: string) {
     switch (level) {
@@ -47,11 +56,11 @@
   <title>Kanji ({totalKanji} chữ) | Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-2xl animate-in">
+<div class="mx-auto max-w-2xl ">
   <!-- Hero -->
-  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(245 58% 35%), hsl(262 60% 45%))">
+  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: var(--color-shell)">
     <div class="relative z-10">
-      <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm" style="font-family: var(--font-jp)">漢字 Kanji</h1>
+      <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm" style="font-family: var(--font-japanese)">漢字 Kanji</h1>
       <p class="text-sm font-medium text-white/80 mt-1">{totalKanji} chữ Hán — N5 đến N1</p>
     </div>
   </div>
@@ -69,7 +78,7 @@
           role="radio"
           aria-checked={selectedLevel === lvl.id}
           aria-label="{lvl.label} — {lvl.count} kanji, {lvl.desc}"
-          class="flex-1 flex flex-col items-center gap-0.5 py-3 px-2 rounded-xl transition-all duration-200 cursor-pointer active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none
+          class="flex-1 flex flex-col items-center gap-0.5 py-3 px-2 rounded-xl transition-colors duration-200 cursor-pointer active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none
             {selectedLevel === lvl.id
               ? 'bg-primary text-primary-foreground shadow-md'
               : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}"
@@ -82,36 +91,49 @@
     </div>
 
     <a href="{base}/kanji/radicals" class="inline-flex items-center gap-1.5 text-sm text-primary font-semibold no-underline hover:underline">
-      <BookOpen size={14} aria-hidden="true" /> 214 Bộ Thủ →
+      <BookOpen size={16} aria-hidden="true" /> 214 Bộ Thủ →
     </a>
 
     {#if selectedLevel === 'n5n4'}
+      {#if recentLesson}
+        <a href="{base}/kanji/{recentLesson}/reference" class="flex items-center justify-between gap-4 p-4 bg-primary text-primary-foreground rounded-surface no-underline">
+          <span><small class="block opacity-75">Tiếp tục bàn học Kanji</small><strong>Bài {recentLesson} · {getKanjiMastery($kanjiProgressStore, recentLesson)}% thành thạo</strong></span><ChevronRight size={20} aria-hidden="true" />
+        </a>
+      {/if}
       <SearchInput bind:value={searchQuery} placeholder="Tìm bài kanji... (số hoặc tên)" />
+
+      <div class="flex gap-2" role="radiogroup" aria-label="Lọc theo mức thành thạo">
+        {#each [{ id: 'all', label: 'Tất cả' }, { id: 'started', label: 'Đang học' }, { id: 'mastered', label: 'Đã vững' }] as filter}
+          <button role="radio" aria-checked={masteryFilter === filter.id} class="ui-button" data-variant={masteryFilter === filter.id ? 'default' : 'outline'} data-size="sm" on:click={() => masteryFilter = filter.id as typeof masteryFilter}>{filter.label}</button>
+        {/each}
+      </div>
 
       <div class="flex flex-col gap-3">
         {#each lessons as lesson, i}
           <a
             href="{base}/kanji/{lesson.lessonNumber}"
-            class="stagger-item group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5 hover:bg-accent/30 active:scale-[0.98] cursor-pointer"
+            class=" group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left no-underline transition-colors duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5 hover:bg-accent/30 active:scale-[0.98] cursor-pointer"
             style="animation-delay: {Math.min(i * 30, 300)}ms"
           >
             <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
               <span class="text-sm font-bold text-primary">{lesson.lessonNumber}</span>
             </div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-sm font-semibold text-foreground leading-snug" style="font-family: var(--font-jp)">{lesson.title}</h3>
-              <span class="text-xs text-muted-foreground" style="font-family: var(--font-jp)">{lesson.preview}</span>
+              <h3 class="text-sm font-semibold text-foreground leading-snug" style="font-family: var(--font-japanese)">{lesson.title}</h3>
+              <span class="text-xs text-muted-foreground" style="font-family: var(--font-japanese)">{lesson.preview}</span>
             </div>
             <span class="px-2 py-0.5 rounded-lg bg-muted text-xs text-muted-foreground font-medium flex-shrink-0">{lesson.kanjiCount} chữ</span>
-            <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
+            <span class="text-xs text-primary font-semibold">{getKanjiMastery($kanjiProgressStore, lesson.lessonNumber)}%</span>
+            <ChevronRight size={20} class="flex-shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-colors" aria-hidden="true" />
           </a>
         {/each}
+        {#if lessons.length === 0}<p class="py-8 text-center text-muted-foreground">Không có bài Kanji phù hợp với bộ lọc.</p>{/if}
       </div>
     {:else}
       <div class="grid gap-2.5" style="grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));">
         {#each getKanjiList(selectedLevel) as k}
           <div class="flex flex-col items-center gap-1 p-3 bg-card border border-border/50 rounded-xl cursor-default" title="{k.english} — {k.onyomi.join(', ')}">
-            <span class="text-3xl font-bold" style="font-family: var(--font-jp)">{k.character}</span>
+            <span class="text-3xl font-bold" style="font-family: var(--font-japanese)">{k.character}</span>
             <span class="text-[0.6rem] text-muted-foreground text-center overflow-hidden text-ellipsis whitespace-nowrap max-w-full">{k.english.split(',')[0]}</span>
           </div>
         {/each}

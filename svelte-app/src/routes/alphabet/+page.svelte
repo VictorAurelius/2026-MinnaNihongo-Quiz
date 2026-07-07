@@ -4,7 +4,7 @@
   import { HIRAGANA_DATA, KATAKANA_DATA } from '$lib/data/minna/alphabet';
   import type { AlphabetData, AlphabetChar } from '$lib/types';
   import BackButton from '$lib/components/common/BackButton.svelte';
-  import Button from '$lib/components/common/Button.svelte';
+  import Button from '$lib/components/ui/button/button.svelte';
 
   type AlphabetScript = 'hiragana' | 'katakana';
 
@@ -65,14 +65,14 @@
   <!-- Tabs -->
   <div class="flex bg-background border-b-2 border-border px-6 overflow-x-auto">
     <button
-      class="tab flex-1 px-6 py-4 bg-transparent border-b-3 border-transparent text-muted-foreground text-[0.95rem] font-semibold cursor-pointer whitespace-nowrap transition-all duration-200 hover:text-foreground hover:bg-muted"
+      class="tab flex-1 px-6 py-4 bg-transparent border-b-3 border-transparent text-muted-foreground text-[0.95rem] font-semibold cursor-pointer whitespace-nowrap transition-colors duration-200 hover:text-foreground hover:bg-muted"
       class:active={currentScript === 'hiragana'}
       on:click={() => switchScript('hiragana')}
     >
       Hiragana (ひらがな)
     </button>
     <button
-      class="tab flex-1 px-6 py-4 bg-transparent border-b-3 border-transparent text-muted-foreground text-[0.95rem] font-semibold cursor-pointer whitespace-nowrap transition-all duration-200 hover:text-foreground hover:bg-muted"
+      class="tab flex-1 px-6 py-4 bg-transparent border-b-3 border-transparent text-muted-foreground text-[0.95rem] font-semibold cursor-pointer whitespace-nowrap transition-colors duration-200 hover:text-foreground hover:bg-muted"
       class:active={currentScript === 'katakana'}
       on:click={() => switchScript('katakana')}
     >
@@ -82,6 +82,9 @@
 
   <!-- Content -->
   <div class="p-6">
+    <p class="mb-4 text-sm text-muted-foreground" role="status">
+      {hasAudioSupport ? 'Phát âm dùng giọng đọc trên thiết bị và có thể hoạt động ngoại tuyến.' : 'Thiết bị này không hỗ trợ phát âm tự động; bảng chữ vẫn dùng được đầy đủ.'}
+    </p>
     <!-- Basic Characters Table -->
     <div class="mb-12">
       <h2 class="text-xl font-bold text-foreground mb-6">Bảng cơ bản (46 ký tự)</h2>
@@ -107,7 +110,7 @@
                   {#each row as cell}
                     {#if cell}
                       <td
-                        class="alpha-cell py-4 px-2 text-center border border-border bg-background transition-all duration-200"
+                        class="alpha-cell py-4 px-2 text-center border border-border bg-background transition-colors duration-200"
                         class:alpha-cell--audio={hasAudioSupport}
                         title={hasAudioSupport ? `Phát âm: ${cell.romaji}` : cell.romaji}
                         on:click={() => speakKana(cell.kana)}
@@ -141,7 +144,7 @@
           {#each currentData.combo as cell}
             <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
             <div
-              class="alpha-cell py-5 px-3 text-center border border-border bg-background rounded-lg transition-all duration-200"
+              class="alpha-cell py-5 px-3 text-center border border-border bg-background rounded-lg transition-colors duration-200"
               class:alpha-cell--audio={hasAudioSupport}
               title={hasAudioSupport ? `Phát âm: ${cell.romaji}` : cell.romaji}
               on:click={() => speakKana(cell.kana)}

@@ -133,12 +133,6 @@
   .grammar-page {
     max-width: 800px;
     margin: 0 auto;
-    animation: fadeIn 0.25s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   .page-header {
@@ -159,13 +153,13 @@
   }
 
   .subtitle {
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
   }
 
   .pattern-count {
-    color: var(--primary);
+    color: var(--color-primary);
     font-size: 0.85rem;
     font-weight: 600;
   }
@@ -181,16 +175,16 @@
   .search-input {
     width: 100%;
     padding: 0.6rem 2rem 0.6rem 0.75rem;
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-control);
     font-size: 0.9rem;
-    background: var(--bg-card);
-    color: var(--text);
+    background: var(--color-card);
+    color: var(--color-foreground);
   }
 
   .search-input:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .clear-search {
@@ -200,14 +194,14 @@
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     cursor: pointer;
     font-size: 1rem;
   }
 
   .results-info {
     margin-bottom: 0.75rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-size: 0.82rem;
   }
 
@@ -218,20 +212,20 @@
   }
 
   .grammar-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
     overflow: hidden;
-    transition: border-color var(--transition);
+    transition: border-color var(--motion-standard);
   }
 
   .grammar-card:hover {
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .grammar-card.expanded {
-    border-color: var(--primary);
-    box-shadow: var(--shadow);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-surface);
   }
 
   .grammar-header {
@@ -244,7 +238,7 @@
   }
 
   .grammar-pattern {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 0.15rem;
@@ -257,7 +251,7 @@
 
   .grammar-english {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
   }
 
@@ -272,34 +266,34 @@
     font-size: 0.65rem;
     font-weight: 600;
     padding: 0.15rem 0.5rem;
-    border-radius: 10px;
+    border-radius: var(--radius-surface);
     text-transform: uppercase;
   }
 
-  .type-main { background: var(--primary-bg, #e3f2fd); color: var(--primary); }
-  .type-additional { background: var(--success-bg, #e8f5e9); color: var(--success); }
+  .type-main { background: var(--color-primary-subtle); color: var(--color-primary); }
+  .type-additional { background: var(--color-success-subtle); color: var(--color-success); }
 
   .expand-icon {
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
   }
 
   .grammar-details {
     padding: 0 1rem 1rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--color-border);
   }
 
   .grammar-details h4 {
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--color-primary);
     margin: 0.75rem 0 0.4rem;
   }
 
   .explanation p {
     font-size: 0.88rem;
     line-height: 1.6;
-    color: var(--text);
+    color: var(--color-foreground);
   }
 
   .examples {
@@ -309,13 +303,13 @@
   .example-item {
     padding: 0.5rem 0.75rem;
     margin-bottom: 0.4rem;
-    background: var(--bg);
-    border-radius: var(--radius-sm);
-    border-left: 3px solid var(--accent);
+    background: var(--color-background);
+    border-radius: var(--radius-control);
+    border: 1px solid var(--color-primary);
   }
 
   .example-jp {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 0.15rem;
@@ -323,36 +317,36 @@
 
   .example-vi {
     font-size: 0.85rem;
-    color: var(--text);
+    color: var(--color-foreground);
   }
 
   .example-en {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
   }
 
   .btn-back {
     padding: 0.4rem 0.8rem;
     background: none;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
     cursor: pointer;
     font-size: 0.85rem;
-    color: var(--text);
+    color: var(--color-foreground);
     transition: all 0.2s;
   }
 
   .btn-back:hover {
-    background: var(--border);
-    border-color: var(--primary);
-    color: var(--primary);
+    background: var(--color-border);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
   }
 
   .empty-state, .error-state {
     text-align: center;
     padding: 3rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
   }
 
   @media (max-width: 600px) {

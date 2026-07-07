@@ -10,7 +10,7 @@
   export let cards = 0;
 </script>
 
-<div class="space-y-4 animate-in" role="status" aria-label="Loading">
+<div class="space-y-4 " role="status" aria-label="Loading">
   {#each Array(lines) as _}
     <Skeleton class="h-4 w-full" />
   {/each}

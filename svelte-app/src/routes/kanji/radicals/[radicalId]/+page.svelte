@@ -38,7 +38,7 @@
   {#if kanjiItems.length === 0}
     <div class="no-data">
       <p>Không tìm thấy kanji nào chứa bộ thủ này trong dữ liệu hiện tại.</p>
-      <a href="{base}/kanji/radicals" class="btn btn-secondary">Quay lại</a>
+      <a href="{base}/kanji/radicals" class="ui-button" data-variant="secondary">Quay lại</a>
     </div>
   {:else}
     <div class="kanji-section">
@@ -92,28 +92,28 @@
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     text-decoration: none;
     font-size: 0.9rem;
     margin-bottom: 1rem;
-    transition: color var(--transition);
+    transition: color var(--motion-standard);
   }
 
   .back-link:hover {
-    color: var(--primary);
+    color: var(--color-primary);
   }
 
   .radical-hero {
     text-align: center;
     padding: 1.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-surface);
     margin-bottom: 1.5rem;
   }
 
   .radical-char {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 4rem;
     font-weight: 700;
     line-height: 1.2;
@@ -122,13 +122,13 @@
 
   .radical-meaning {
     font-size: 1.1rem;
-    color: var(--text);
+    color: var(--color-foreground);
     margin-bottom: 0.25rem;
   }
 
   .radical-strokes {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
   }
 
   .kanji-section {
@@ -139,7 +139,7 @@
   .quiz-section h2 {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 0.75rem;
@@ -156,22 +156,22 @@
     flex-direction: column;
     align-items: center;
     padding: 0.75rem 0.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
     text-decoration: none;
-    color: var(--text);
-    transition: border-color var(--transition), transform var(--transition);
+    color: var(--color-foreground);
+    transition: border-color var(--motion-standard), transform var(--motion-standard);
     cursor: pointer;
   }
 
   .kanji-card:hover {
-    border-color: var(--primary);
+    border-color: var(--color-primary);
     transform: translateY(-2px);
   }
 
   .kanji-char {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 1.2;
@@ -179,7 +179,7 @@
 
   .kanji-en {
     font-size: 0.7rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     text-align: center;
     margin-top: 0.25rem;
     overflow: hidden;
@@ -190,7 +190,7 @@
 
   .kanji-vi {
     font-size: 0.7rem;
-    color: var(--primary);
+    color: var(--color-primary);
     text-align: center;
   }
 
@@ -206,16 +206,16 @@
     align-items: center;
     gap: 0.25rem;
     padding: 1rem;
-    background: var(--bg-card);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius);
+    background: var(--color-card);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-surface);
     cursor: pointer;
-    transition: border-color var(--transition), transform var(--transition);
+    transition: border-color var(--motion-standard), transform var(--motion-standard);
     font-family: inherit;
   }
 
   .quiz-mode-btn:hover:not(:disabled) {
-    border-color: var(--primary);
+    border-color: var(--color-primary);
     transform: translateY(-2px);
   }
 
@@ -235,13 +235,13 @@
 
   .mode-desc {
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     text-align: center;
   }
 
   .no-data {
     text-align: center;
     padding: 3rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
   }
 </style>

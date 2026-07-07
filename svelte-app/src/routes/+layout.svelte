@@ -2,7 +2,7 @@
   import '../app.css';
   import { uiStore } from '$lib/stores';
   import { onMount } from 'svelte';
-  import Header from '$lib/components/layout/Header.svelte';
+  import AppShell from '$lib/components/layout/AppShell.svelte';
   import SkipLink from '$lib/components/common/SkipLink.svelte';
   import {
     registerServiceWorker,
@@ -14,9 +14,10 @@
     isPWA
   } from '$lib/utils/pwa';
   import { initFont } from '$lib/utils/fontUtils';
-  import Toast from '$lib/components/common/Toast.svelte';
+  import { Toast } from '$lib/components/ui/toast';
   import { toastStore } from '$lib/stores/toast';
   import { X } from 'lucide-svelte';
+  import { Button } from '$lib/components/ui/button';
 
   let showInstallBanner = false;
 
@@ -26,9 +27,7 @@
     document.documentElement.classList.toggle('dark', darkMode);
     initFont();
 
-    // SW disabled — causes blank page on deploy due to stale cache
-    // registerServiceWorker()
-    //   .catch(e => console.error('[SmartQuiz] SW failed:', e));
+    registerServiceWorker();
     setupInstallPrompt();
 
     // Show install banner after 30s if not already installed
@@ -58,12 +57,12 @@
 
 <div class="app min-h-screen bg-background text-foreground">
   <SkipLink />
-  <Header />
+  <AppShell>
 
   {#if $updateAvailable}
     <div class="update-banner">
       <span>A new version is available!</span>
-      <button class="banner-btn" on:click={applyUpdate}>Update now</button>
+      <Button size="sm" variant="ghost" class="text-primary-foreground hover:bg-primary-foreground/15" onclick={applyUpdate}>Update now</Button>
     </div>
   {/if}
 
@@ -71,19 +70,18 @@
     <div class="install-banner">
       <span>Install Smart Quiz for offline access</span>
       <div class="banner-actions">
-        <button class="banner-btn" on:click={handleInstall}>Install</button>
-        <button class="banner-dismiss" on:click={dismissInstall}><X size={16} aria-hidden="true" /></button>
+        <Button size="sm" variant="ghost" class="text-primary-foreground hover:bg-primary-foreground/15" onclick={handleInstall}>Install</Button>
+        <Button size="icon" variant="ghost" class="text-primary-foreground hover:bg-primary-foreground/15" onclick={dismissInstall} aria-label="Dismiss install prompt"><X class="size-4" strokeWidth={2} aria-hidden="true" /></Button>
       </div>
     </div>
   {/if}
 
-  <main id="main-content" class="flex-1">
     <slot />
-  </main>
 
-  {#if $toastStore}
-    <Toast message={$toastStore.message} type={$toastStore.type} />
-  {/if}
+    {#if $toastStore}
+      <Toast message={$toastStore.message} type={$toastStore.type} />
+    {/if}
+  </AppShell>
 </div>
 
 <style>
@@ -95,21 +93,15 @@
     padding: 0.6rem 1.25rem;
     font-size: 0.85rem;
     font-weight: 500;
-    animation: slideDown 0.3s ease;
-  }
-
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-100%); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   .update-banner {
-    background: var(--primary);
+    background: var(--color-primary);
     color: white;
   }
 
   .install-banner {
-    background: var(--accent);
+    background: var(--color-primary);
     color: white;
   }
 
@@ -119,33 +111,4 @@
     gap: 0.5rem;
   }
 
-  .banner-btn {
-    padding: 0.3rem 0.75rem;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: var(--radius-sm);
-    font-size: 0.8rem;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background 0.15s;
-  }
-
-  .banner-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
-
-  .banner-dismiss {
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0.2rem;
-  }
-
-  .banner-dismiss:hover {
-    color: white;
-  }
 </style>

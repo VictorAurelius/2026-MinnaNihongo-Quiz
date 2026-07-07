@@ -6,6 +6,10 @@
 
 set -euo pipefail
 
+# Git for Windows can inherit a non-UTF-8 locale from the host. GNU grep then
+# rejects every `-P` parser below and turns successful commands into false zeroes.
+export LC_ALL=C.utf8
+
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 APP="$ROOT/svelte-app"
 SAVE_REPORT=false
@@ -69,10 +73,13 @@ section "2/10" "Build & TypeScript"
 set +e; BUILD_OUT=$(npx vite build 2>&1); BUILD_RC=$?; set -e
 BUILD_OK=$(count "$(echo "$BUILD_OUT" | grep -c "done")")
 
-set +e; SVELTE_OUT=$(npx svelte-check --threshold error 2>&1); set -e
-SVELTE_RAN=$(count "$(echo "$SVELTE_OUT" | grep -c "COMPLETED")")
-SVELTE_ERRORS=$(count "$(echo "$SVELTE_OUT" | grep -oP '\d+ ERRORS' | grep -oP '\d+')")
-SVELTE_WARNINGS=$(count "$(echo "$SVELTE_OUT" | grep -oP '\d+ WARNINGS' | grep -oP '\d+')")
+set +e; SVELTE_OUT=$(npx svelte-check --threshold error 2>&1); SVELTE_RC=$?; set -e
+# Current svelte-check reports "found N errors and N warnings"; older releases
+# emitted an uppercase COMPLETED summary. Accept both formats, while retaining
+# the exit code as the authoritative gate.
+SVELTE_RAN=$(count "$(echo "$SVELTE_OUT" | grep -Ec "svelte-check found|COMPLETED")")
+SVELTE_ERRORS=$(count "$(echo "$SVELTE_OUT" | grep -ioP '\d+ errors' | grep -oP '\d+')")
+SVELTE_WARNINGS=$(count "$(echo "$SVELTE_OUT" | grep -ioP '\d+ warnings' | grep -oP '\d+')")
 
 npm run build >/dev/null 2>&1 || true
 FOUR04=$([[ -f "$APP/build/404.html" ]] && echo 1 || echo 0)
@@ -81,7 +88,7 @@ S=0
 # Gate: distinguish "build failed" (rc!=0) from "ran". A failed build must not score.
 if (( BUILD_RC == 0 && BUILD_OK >= 1 )); then S=$((S+4)); pass "vite build pass"; else fail "vite build failed (rc=$BUILD_RC)"; GATE_FAIL=1; fi
 # Gate: svelte-check must actually run (emit COMPLETED). If it never ran, 0-errors is a false pass.
-if (( SVELTE_RAN == 0 )); then fail "svelte-check did not run — GATE FAIL"; GATE_FAIL=1
+if (( SVELTE_RC != 0 || SVELTE_RAN == 0 )); then fail "svelte-check did not run cleanly (rc=$SVELTE_RC) — GATE FAIL"; GATE_FAIL=1
 elif (( SVELTE_ERRORS == 0 )); then S=$((S+3)); pass "svelte-check 0 errors ($SVELTE_WARNINGS warnings)"; else fail "$SVELTE_ERRORS errors"; GATE_FAIL=1; fi
 (( FOUR04 == 1 )) && { S=$((S+3)); pass "404.html OK"; } || fail "404.html missing"
 score "Build" $S
@@ -168,6 +175,15 @@ DARK=$(count "$(grep -c "toggleDarkMode\|darkMode" svelte-app/src/lib/stores/ui.
 MEDIA=$(count "$(grep -rn "@media.*max-width" svelte-app/src/ --include='*.svelte' 2>/dev/null | wc -l)")
 F1=$(count "$(grep -rn "event.key === 'F1'" svelte-app/src/lib/components/ --include='*.svelte' 2>/dev/null | wc -l)")
 A11Y=$SVELTE_WARNINGS
+
+set +e; IMPECCABLE_OUT=$("$ROOT/scripts/impeccable-audit.sh" 2>&1); IMPECCABLE_RC=$?; set -e
+if (( IMPECCABLE_RC == 0 )); then
+  pass "$(echo "$IMPECCABLE_OUT" | head -1)"
+else
+  fail "Impeccable detector exceeded baseline"
+  echo "$IMPECCABLE_OUT" | sed 's/^/    /'
+  GATE_FAIL=1
+fi
 
 S=0
 (( DARK >= 2 )) && { S=$((S+2)); pass "Dark/light mode OK"; } || warn "Missing"

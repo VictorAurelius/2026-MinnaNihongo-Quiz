@@ -39,21 +39,21 @@
     align-items: center;
     min-height: 100vh;
     padding: 2rem;
-    background: var(--background-color);
+    background: var(--color-background);
   }
 
   .error-card {
     text-align: center;
     max-width: 500px;
     padding: 2rem;
-    background: var(--card-background);
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: var(--color-card);
+    border-radius: var(--radius-surface);
+    box-shadow: var(--shadow-lifted);
   }
 
   h1 {
     font-size: 4rem;
-    color: var(--primary-color);
+    color: var(--color-primary);
     margin: 0;
     font-weight: 700;
   }
@@ -61,11 +61,11 @@
   h2 {
     font-size: 1.5rem;
     margin: 1rem 0;
-    color: var(--text-primary);
+    color: var(--color-foreground);
   }
 
   .error-message {
-    color: var(--text-secondary);
+    color: var(--color-muted-foreground);
     margin: 2rem 0;
     line-height: 1.6;
   }
@@ -79,17 +79,16 @@
 
   .btn-primary {
     padding: 0.75rem 1.5rem;
-    background: var(--primary-color);
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
     text-decoration: none;
     border-radius: 0.5rem;
     font-weight: 500;
-    transition: all 0.2s;
+    transition: background 0.2s;
   }
 
   .btn-primary:hover {
-    background: var(--primary-hover);
-    transform: translateY(-2px);
+    background: var(--color-primary-hover);
   }
 
   @media (max-width: 640px) {

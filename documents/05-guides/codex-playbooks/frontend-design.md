@@ -4,7 +4,8 @@ Use this before frontend UI work.
 
 ## Read First
 
-- `.impeccable.md`
+- `PRODUCT.md`
+- `DESIGN.md`
 - `documents/01-business/ui/rules.md`
 
 ## Principles
@@ -29,5 +30,6 @@ Use this before frontend UI work.
 For UI changes, run the project checks and manually inspect affected viewports.
 
 ```bash
+./scripts/impeccable-audit.sh
 ./scripts/test-local.sh --quick
 ```

@@ -8,8 +8,8 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { getLessonData } from '$lib/data/minna/lessons';
-  import Button from '$lib/components/common/Button.svelte';
-  import Card from '$lib/components/common/Card.svelte';
+  import Button from '$lib/components/ui/button/button.svelte';
+  import Card from '$lib/components/ui/card/card.svelte';
 
   $: lessonId = parseInt($page.params.id || '0');
   $: lessonData = lessonId > 0 ? getLessonData(lessonId) : null;
@@ -50,7 +50,7 @@
         variant="primary"
         size="lg"
         icon="🎴"
-        on:click={() => startQuiz('flashcard')}
+        onclick={() => startQuiz('flashcard')}
       >
         Flashcard Quiz
       </Button>
@@ -59,7 +59,7 @@
         variant="accent"
         size="lg"
         icon="✓"
-        on:click={() => startQuiz('multiple-choice')}
+        onclick={() => startQuiz('multiple-choice')}
       >
         Multiple Choice
       </Button>
@@ -68,7 +68,7 @@
         variant="success"
         size="lg"
         icon="⌨️"
-        on:click={() => startQuiz('typing')}
+        onclick={() => startQuiz('typing')}
       >
         Typing Quiz
       </Button>
@@ -83,7 +83,7 @@
         variant="outline"
         size="md"
         icon="📚"
-        on:click={viewVocabulary}
+        onclick={viewVocabulary}
       >
         View Vocabulary List
       </Button>
@@ -92,7 +92,7 @@
         variant="outline"
         size="md"
         icon="📖"
-        on:click={viewGrammar}
+        onclick={viewGrammar}
       >
         View Grammar Patterns
       </Button>
@@ -102,7 +102,7 @@
   <div class="error-state">
     <h2>Lesson Not Found</h2>
     <p>The lesson you're looking for doesn't exist.</p>
-    <Button variant="primary" on:click={() => goto(`${base}/`)}>
+    <Button variant="primary" onclick={() => goto(`${base}/`)}>
       Back to Home
     </Button>
   </div>
@@ -112,26 +112,14 @@
   .lesson-menu {
     max-width: 500px;
     margin: 0 auto;
-    animation: fadeIn 0.25s ease;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   .lesson-header {
     text-align: center;
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary));
+    border-radius: var(--radius-surface);
     color: white;
   }
 
@@ -172,7 +160,7 @@
     font-size: 1.05rem;
     font-weight: 700;
     margin: 0.5rem 0;
-    color: var(--text);
+    color: var(--color-foreground);
   }
 
   .error-state {
@@ -185,7 +173,7 @@
   }
 
   .error-state p {
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 1.5rem;
   }
 

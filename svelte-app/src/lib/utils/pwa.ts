@@ -9,6 +9,7 @@ export interface BeforeInstallPromptEvent extends Event {
 }
 
 import { writable } from 'svelte/store';
+import { base } from '$app/paths';
 
 let deferredPrompt: BeforeInstallPromptEvent | null = null;
 
@@ -25,8 +26,8 @@ export async function registerServiceWorker(): Promise<ServiceWorkerRegistration
   }
 
   try {
-    const registration = await navigator.serviceWorker.register('/service-worker.js', {
-      scope: '/'
+    const registration = await navigator.serviceWorker.register(`${base}/sw.js`, {
+      scope: `${base}/`
     });
 
     // Check for updates periodically

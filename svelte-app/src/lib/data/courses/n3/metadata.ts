@@ -12,5 +12,5 @@ export const N3_METADATA: CourseMetadata = {
   level: 'N3',
   lessonCount: 15,
   icon: '📘',
-  color: '#6366f1'
+  color: 'var(--color-course-n3)'
 };

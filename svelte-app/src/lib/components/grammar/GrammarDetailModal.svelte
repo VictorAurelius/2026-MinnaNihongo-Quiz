@@ -195,36 +195,24 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--color-overlay);
     backdrop-filter: blur(2px);
   }
 
   .modal-content {
     position: relative;
-    background: var(--bg-card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
+    background: var(--color-card);
+    border-radius: var(--radius-surface);
+    box-shadow: var(--shadow-lifted);
     max-height: 85vh;
     width: 90%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    animation: modalSlideUp 0.3s ease;
   }
 
   .modal-content-lg {
     max-width: 800px;
-  }
-
-  @keyframes modalSlideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   .modal-header {
@@ -232,8 +220,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-bottom: 1px solid var(--color-border);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary));
     color: white;
   }
 
@@ -241,7 +229,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
   }
 
   .modal-close {
@@ -256,7 +244,7 @@
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: background var(--transition);
+    transition: background var(--motion-standard);
   }
 
   .modal-close:hover {
@@ -281,7 +269,7 @@
   .detail-section-title {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.75rem;
     display: flex;
     align-items: center;
@@ -292,13 +280,13 @@
   .detail-meaning {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.5rem;
   }
 
   .detail-meaning-en {
     font-size: 0.95rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
   }
 
@@ -324,70 +312,70 @@
   }
 
   .tag-jlpt {
-    background: var(--accent-bg);
-    color: var(--accent);
+    background: var(--color-primary-subtle);
+    color: var(--color-primary);
   }
 
   .tag-lesson {
-    background: var(--primary-bg);
-    color: var(--primary);
+    background: var(--color-primary-subtle);
+    color: var(--color-primary);
   }
 
   .tag-difficulty {
-    background: var(--success-bg);
-    color: var(--success);
+    background: var(--color-success-subtle);
+    color: var(--color-success);
   }
 
   /* Explanation */
   .detail-explanation {
     font-size: 0.95rem;
     line-height: 1.7;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     padding: 1rem;
     background: var(--bg-primary);
-    border-left: 3px solid var(--accent);
-    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-control);
   }
 
   /* Tips */
   .detail-tip {
     padding: 1rem;
-    background: var(--warning-bg);
-    border-left: 3px solid var(--warning);
-    border-radius: var(--radius-sm);
+    background: var(--color-warning-subtle);
+    border: 1px solid var(--color-warning);
+    border-radius: var(--radius-control);
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--text-primary);
+    color: var(--color-foreground);
   }
 
   :global([data-theme="dark"]) .detail-tip {
-    background: rgba(255, 149, 0, 0.1);
+    background: var(--color-warning-subtle);
   }
 
   /* Mnemonics */
   .detail-mnemonic {
     padding: 1rem;
-    background: var(--info-bg);
-    border-left: 3px solid var(--primary);
-    border-radius: var(--radius-sm);
+    background: var(--color-info-subtle);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-control);
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--text-primary);
+    color: var(--color-foreground);
   }
 
   :global([data-theme="dark"]) .detail-mnemonic {
-    background: rgba(0, 113, 227, 0.1);
+    background: var(--color-info-subtle);
   }
 
   /* Common Mistakes */
   .detail-mistake {
     padding: 1rem;
-    background: var(--danger-bg);
-    border-left: 3px solid var(--danger);
-    border-radius: var(--radius-sm);
+    background: var(--color-destructive-subtle);
+    border: 1px solid var(--color-destructive);
+    border-radius: var(--radius-control);
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--text-primary);
+    color: var(--color-foreground);
   }
 
   /* Examples */
@@ -400,27 +388,27 @@
   .detail-example {
     padding: 1rem;
     background: var(--bg-primary);
-    border-radius: var(--radius-sm);
-    border-left: 2px solid var(--success);
+    border-radius: var(--radius-control);
+    border: 1px solid var(--color-success);
   }
 
   .detail-example-jp {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.375rem;
   }
 
   .detail-example-vi {
     font-size: 0.95rem;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.25rem;
   }
 
   .detail-example-en {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
   }
 
@@ -435,20 +423,20 @@
     display: inline-block;
     padding: 0.5rem 0.875rem;
     background: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--primary);
-    font-family: var(--font-jp);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    color: var(--color-primary);
+    font-family: var(--font-japanese);
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: background var(--transition), border-color var(--transition);
+    transition: background var(--motion-standard), border-color var(--motion-standard);
   }
 
   .related-pattern-link:hover {
-    background: var(--primary);
-    border-color: var(--primary);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
     color: white;
   }
 

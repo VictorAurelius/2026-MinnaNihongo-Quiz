@@ -37,11 +37,11 @@
     selectedOption = option;
     answered = true;
 
-    const isCorrect = option === answer;
+  }
 
-    setTimeout(() => {
-      dispatch(isCorrect ? 'correct' : 'wrong', { item: question });
-    }, 1500);
+  function advance() {
+    if (!answered || selectedOption === null) return;
+    dispatch(selectedOption === answer ? 'correct' : 'wrong', { item: question });
   }
 
   function handleKeydown(event: KeyboardEvent) {
@@ -50,7 +50,13 @@
       playJapaneseAudio(question.kana || question.japanese);
       return;
     }
-    if (answered) return;
+    if (answered) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        advance();
+      }
+      return;
+    }
 
     const key = event.key;
     if (['1', '2', '3', '4'].includes(key)) {
@@ -100,6 +106,8 @@
       <X size={16} aria-hidden="true" /> Wrong! The correct answer is: {answer}
     {/if}
   </div>
+  <button class="ui-button next-action" data-variant="default" data-size="lg" on:click={advance}>Câu tiếp theo</button>
+  <div class="hint-text">Nhấn Enter để tiếp tục</div>
 {/if}
 
 {#if !answered}
@@ -112,10 +120,10 @@
   .quiz-question-card {
     background: var(--color-card);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-surface);
     padding: 1.5rem;
     margin-bottom: 1.25rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-surface);
     text-align: center;
   }
 
@@ -126,7 +134,7 @@
   }
 
   .question-text {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.875rem; /* text-3xl — consistent across all quiz modes */
     font-weight: 700;
     line-height: 1.4;
@@ -227,6 +235,8 @@
     font-size: 0.82rem;
     color: var(--color-muted-foreground);
   }
+
+  .next-action { width: 100%; margin-bottom: var(--spacing-sm); }
 
   @media (max-width: 600px) {
     .question-text {

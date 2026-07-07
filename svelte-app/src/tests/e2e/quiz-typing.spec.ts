@@ -8,10 +8,11 @@ import { test, expect } from '@playwright/test';
 test.describe('Typing Quiz', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/quiz/typing?lesson=1');
+    await expect(page.locator('html')).toHaveAttribute('data-hydrated', 'true', { timeout: 20000 });
   });
 
-  test('should display progress bar', async ({ page }) => {
-    await expect(page.locator('.progress-bar')).toBeVisible();
+  test('should display shared quiz frame progress', async ({ page }) => {
+    await expect(page.locator('.quiz-frame progress')).toBeVisible();
   });
 
   test('should display question card', async ({ page }) => {

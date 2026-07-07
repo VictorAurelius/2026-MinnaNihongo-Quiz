@@ -13,8 +13,8 @@ export default defineConfig({
         name: 'Smart Quiz - Japanese & Chinese Learning',
         short_name: 'Smart Quiz',
         description: 'Master Japanese (JLPT) and Chinese (HSK) vocabulary with interactive quizzes',
-        theme_color: '#4a90e2',
-        background_color: '#ffffff',
+        theme_color: '#8b4fe6',
+        background_color: '#f4f4f8',
         display: 'standalone',
         icons: [
           {

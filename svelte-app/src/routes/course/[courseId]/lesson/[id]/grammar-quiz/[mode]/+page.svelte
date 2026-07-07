@@ -12,7 +12,7 @@
   import { generateGrammarQuestions } from '$lib/utils/grammarQuizUtils';
   import type { GrammarQuizQuestion } from '$lib/utils/grammarQuizUtils';
   import type { CourseId } from '$lib/types/course';
-  import ProgressBar from '$lib/components/common/ProgressBar.svelte';
+  import { QuizFrame, QuizSummary } from '$lib/components/quiz';
 
   $: courseId = $page.params.courseId as CourseId;
   $: lessonId = parseInt($page.params.id || '0');
@@ -49,7 +49,6 @@
     answered = true;
     const correct = option === currentQ?.answer;
     if (correct) score++;
-    setTimeout(advance, 1500);
   }
 
   function submitFillBlank() {
@@ -73,6 +72,10 @@
         const idx = parseInt(key) - 1;
         if (currentQ.options[idx]) selectOption(currentQ.options[idx]);
       }
+    }
+    if (currentQ?.type === 'pattern-match' && answered && event.key === 'Enter') {
+      event.preventDefault();
+      advance();
     }
     if (currentQ?.type === 'fill-blank' && event.key === 'Enter') {
       event.preventDefault();
@@ -112,23 +115,13 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <div class="quiz-page">
-  {#if isComplete}
-    <div class="results-card">
-      <h2>Grammar Quiz Complete!</h2>
-      <div class="results-score">
-        <span class="score-num">{score}</span>
-        <span class="score-div">/</span>
-        <span class="score-total">{questions.length}</span>
-      </div>
-      <div class="results-pct">{Math.round((score / questions.length) * 100)}%</div>
-      <div class="results-actions">
-        <button class="btn btn-primary" on:click={restart}>Try Again</button>
-        <a href="{base}/course/{courseId}/lesson/{lessonId}" class="btn btn-secondary">Back to Lesson</a>
-      </div>
-    </div>
+{#if isComplete}
+    <QuizSummary title="Hoàn thành luyện ngữ pháp" {score} total={questions.length}>
+        <button class="ui-button" data-variant="default" on:click={restart}>Try Again</button>
+        <a href="{base}/course/{courseId}/lesson/{lessonId}" class="ui-button" data-variant="secondary">Back to Lesson</a>
+    </QuizSummary>
   {:else if currentQ}
-    <ProgressBar current={currentIndex + 1} total={questions.length} showText={true} />
-
+    <QuizFrame title={currentQ.type === 'fill-blank' ? 'Điền mẫu ngữ pháp' : 'Chọn mẫu ngữ pháp'} context={`${courseId.toUpperCase()} · Bài ${lessonId}`} current={currentIndex + 1} total={questions.length} shortcuts={currentQ.type === 'fill-blank' ? ['Enter: trả lời / tiếp tục'] : ['1–4: chọn đáp án']}>
     <div class="question-card">
       {#if currentQ.type === 'fill-blank'}
         <div class="q-label">Fill in the blank:</div>
@@ -158,9 +151,9 @@
               ✗ Answer: {currentQ.answer}
             {/if}
           </div>
-          <button class="btn btn-primary" on:click={advance}>Next →</button>
+          <button class="ui-button" data-variant="default" on:click={advance}>Next →</button>
         {:else}
-          <button class="btn btn-primary" on:click={submitFillBlank} disabled={!userInput.trim()}>Submit</button>
+          <button class="ui-button" data-variant="default" on:click={submitFillBlank} disabled={!userInput.trim()}>Submit</button>
         {/if}
 
       {:else}
@@ -184,6 +177,13 @@
           {/each}
         </div>
 
+        {#if answered}
+          <div class="feedback" class:correct={selectedOption === currentQ.answer} class:wrong={selectedOption !== currentQ.answer} aria-live="polite">
+            {selectedOption === currentQ.answer ? 'Chính xác.' : `Đáp án đúng: ${currentQ.answer}`}
+          </div>
+          <button class="ui-button" data-variant="default" on:click={advance}>Câu tiếp theo</button>
+        {/if}
+
         {#if !answered}
           <div class="hint-text">Press 1-4 to choose</div>
         {/if}
@@ -197,6 +197,7 @@
         <p>{currentQ.grammarItem.explanation}</p>
       </div>
     {/if}
+    </QuizFrame>
   {/if}
 </div>
 
@@ -205,27 +206,21 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 1rem;
-    animation: fadeIn 0.25s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   .question-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-surface);
     padding: 1.5rem;
     margin-bottom: 1rem;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-surface);
     text-align: center;
   }
 
   .q-label {
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 0.5rem;
   }
 
@@ -237,13 +232,13 @@
   }
 
   .q-japanese {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.4rem;
   }
 
   .q-hint {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
     margin-bottom: 1rem;
   }
@@ -257,18 +252,18 @@
     width: 100%;
     padding: 0.75rem 1rem;
     font-size: 1.1rem;
-    font-family: var(--font-jp);
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: var(--bg);
-    color: var(--text);
+    font-family: var(--font-japanese);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-background);
+    color: var(--color-foreground);
     outline: none;
     text-align: center;
   }
 
-  .fill-input:focus { border-color: var(--primary); }
-  .fill-input.correct { border-color: var(--success); }
-  .fill-input.wrong { border-color: var(--danger); }
+  .fill-input:focus { border-color: var(--color-primary); }
+  .fill-input.correct { border-color: var(--color-success); }
+  .fill-input.wrong { border-color: var(--color-destructive); }
 
   /* MC options */
   .mc-options {
@@ -286,51 +281,51 @@
     width: 100%;
     padding: 0.8rem 1rem;
     font-size: 0.95rem;
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-weight: 500;
-    background: var(--bg-card);
-    color: var(--text);
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
+    background: var(--color-card);
+    color: var(--color-foreground);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-control);
     cursor: pointer;
-    transition: border-color var(--transition), background var(--transition);
+    transition: border-color var(--motion-standard), background var(--motion-standard);
   }
 
-  .mc-option:hover:not(:disabled):not(.disabled) { border-color: var(--primary); }
-  .mc-option.correct { border-color: var(--success); background: var(--success-bg); }
-  .mc-option.wrong { border-color: var(--danger); background: var(--danger-bg); }
+  .mc-option:hover:not(:disabled):not(.disabled) { border-color: var(--color-primary); }
+  .mc-option.correct { border-color: var(--color-success); background: var(--color-success-subtle); }
+  .mc-option.wrong { border-color: var(--color-destructive); background: var(--color-destructive-subtle); }
   .mc-option.disabled { cursor: default; opacity: 0.7; }
   .mc-option.correct.disabled { opacity: 1; }
 
   .mc-num {
     min-width: 1.5rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--color-primary);
   }
 
   .hint-text {
     font-size: 0.78rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     text-align: center;
   }
 
   .feedback {
     padding: 0.6rem;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-control);
     font-weight: 600;
     font-size: 0.9rem;
     text-align: center;
     margin-bottom: 0.75rem;
   }
 
-  .feedback.correct { background: var(--success-bg); color: var(--success); }
-  .feedback.wrong { background: var(--danger-bg); color: var(--danger); }
+  .feedback.correct { background: var(--color-success-subtle); color: var(--color-success); }
+  .feedback.wrong { background: var(--color-destructive-subtle); color: var(--color-destructive); }
 
   /* Grammar reference */
   .grammar-ref {
-    background: var(--bg);
-    border: 1px dashed var(--border);
-    border-radius: var(--radius-sm);
+    background: var(--color-background);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-control);
     padding: 0.75rem 1rem;
     margin-top: 0.5rem;
     font-size: 0.85rem;
@@ -338,48 +333,13 @@
   }
 
   .grammar-ref strong {
-    font-family: var(--font-jp);
-    color: var(--primary);
+    font-family: var(--font-japanese);
+    color: var(--color-primary);
   }
 
   .grammar-ref p {
     margin: 0.3rem 0 0;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
   }
 
-  /* Results */
-  .results-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 2rem;
-    text-align: center;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .results-card h2 { margin-bottom: 1rem; }
-
-  .results-score {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .score-num { color: var(--success); }
-  .score-div { color: var(--text-muted); margin: 0 0.2rem; }
-  .score-total { color: var(--text-muted); }
-
-  .results-pct {
-    font-size: 1.2rem;
-    color: var(--primary);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-  }
-
-  .results-actions {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
 </style>

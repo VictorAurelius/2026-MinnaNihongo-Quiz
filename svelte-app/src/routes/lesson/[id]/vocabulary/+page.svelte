@@ -139,12 +139,6 @@
   .vocab-page {
     max-width: 800px;
     margin: 0 auto;
-    animation: fadeIn 0.25s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   .page-header {
@@ -165,13 +159,13 @@
   }
 
   .subtitle {
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
   }
 
   .word-count {
-    color: var(--primary);
+    color: var(--color-primary);
     font-size: 0.85rem;
     font-weight: 600;
   }
@@ -192,16 +186,16 @@
   .search-input {
     width: 100%;
     padding: 0.6rem 2rem 0.6rem 0.75rem;
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-control);
     font-size: 0.9rem;
-    background: var(--bg-card);
-    color: var(--text);
+    background: var(--color-card);
+    color: var(--color-foreground);
   }
 
   .search-input:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .clear-search {
@@ -211,23 +205,23 @@
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     cursor: pointer;
     font-size: 1rem;
   }
 
   .filter-select {
     padding: 0.6rem 0.75rem;
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-control);
     font-size: 0.85rem;
-    background: var(--bg-card);
-    color: var(--text);
+    background: var(--color-card);
+    color: var(--color-foreground);
   }
 
   .results-info {
     margin-bottom: 0.75rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-size: 0.82rem;
   }
 
@@ -243,38 +237,38 @@
     gap: 0.75rem;
     align-items: center;
     padding: 0.75rem 1rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    transition: border-color var(--transition);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    transition: border-color var(--motion-standard);
   }
 
   .vocab-card:hover {
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .vocab-index {
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-size: 0.8rem;
     font-weight: 600;
     text-align: center;
   }
 
   .vocab-japanese {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.2rem;
     font-weight: 700;
   }
 
   .vocab-kana {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 0.85rem;
-    color: var(--primary);
+    color: var(--color-primary);
   }
 
   .vocab-romaji {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
     letter-spacing: 0.02em;
   }
@@ -286,7 +280,7 @@
 
   .vocab-english {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
   }
 
   .vocab-meta {
@@ -299,19 +293,19 @@
     font-size: 0.65rem;
     font-weight: 600;
     padding: 0.15rem 0.5rem;
-    border-radius: 10px;
+    border-radius: var(--radius-surface);
     text-transform: uppercase;
   }
 
-  .type-main { background: var(--primary-bg, #e3f2fd); color: var(--primary); }
-  .type-additional { background: var(--success-bg, #e8f5e9); color: var(--success); }
-  .type-kanji { background: var(--accent-bg, #fff3e0); color: var(--accent); }
-  .type-supplementary { background: var(--border); color: var(--text-muted); }
+  .type-main { background: var(--color-primary-subtle); color: var(--color-primary); }
+  .type-additional { background: var(--color-success-subtle); color: var(--color-success); }
+  .type-kanji { background: var(--color-warning-subtle); color: var(--color-primary); }
+  .type-supplementary { background: var(--color-border); color: var(--color-muted-foreground); }
 
   .btn-speak {
     background: none;
-    border: 1px solid var(--border);
-    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
     padding: 0.2rem 0.4rem;
     cursor: pointer;
     font-size: 0.9rem;
@@ -319,44 +313,44 @@
   }
 
   .btn-speak:hover {
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .vocab-example {
     grid-column: 2 / -1;
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
   }
 
   .example-label {
     font-weight: 600;
     font-style: normal;
-    color: var(--accent);
+    color: var(--color-primary);
   }
 
   .btn-back {
     padding: 0.4rem 0.8rem;
     background: none;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
     cursor: pointer;
     font-size: 0.85rem;
-    color: var(--text);
+    color: var(--color-foreground);
     transition: all 0.2s;
   }
 
   .btn-back:hover {
-    background: var(--border);
-    border-color: var(--primary);
-    color: var(--primary);
+    background: var(--color-border);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
   }
 
   .empty-state, .error-state {
     text-align: center;
     padding: 3rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
   }
 
   @media (max-width: 600px) {

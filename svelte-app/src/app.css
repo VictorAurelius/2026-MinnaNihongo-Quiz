@@ -1,38 +1,82 @@
 @import "tailwindcss";
 
-/* ====================================================
-   shadcn-svelte Design Tokens (CANONICAL — single source of truth)
-   ==================================================== */
+/* Smart Quiz semantic design tokens — the sole visual source of truth. */
 @theme {
-  --color-background: hsl(240 20% 96%);
-  --color-foreground: hsl(220 13% 20%);
-  --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(220 13% 20%);
-  --color-primary: hsl(262 80% 60%);
-  --color-primary-foreground: hsl(0 0% 100%);
-  --color-secondary: hsl(220 14% 96%);
-  --color-secondary-foreground: hsl(220 13% 20%);
-  --color-muted: hsl(220 14% 96%);
-  --color-muted-foreground: hsl(220 9% 46%);
-  --color-accent: hsl(220 14% 96%);
-  --color-accent-foreground: hsl(220 13% 20%);
-  --color-destructive: hsl(0 72% 63%);
-  --color-destructive-foreground: hsl(0 0% 100%);
-  --color-border: hsl(240 10% 90%);
-  --color-input: hsl(240 10% 90%);
-  --color-ring: hsl(262 80% 60%);
-  --color-success: hsl(150 60% 40%);
-  --color-success-foreground: hsl(0 0% 100%);
+  --color-background: #f4f4f8;
+  --color-foreground: #2d3037;
+  --color-card: #ffffff;
+  --color-card-foreground: #2d3037;
+  --color-primary: #8b4fe6;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f3f4f6;
+  --color-secondary-foreground: #2d3037;
+  --color-muted: #f3f4f6;
+  --color-muted-foreground: #6b707a;
+  --color-accent: #f3f4f6;
+  --color-accent-foreground: #2d3037;
+  --color-destructive: #e05b5b;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #e3e2e8;
+  --color-input: #e3e2e8;
+  --color-ring: #8b4fe6;
+  --color-success: #299e5f;
+  --color-success-foreground: #ffffff;
   /* AA-compliant darker variant for SUCCESS used as TEXT on light surfaces
      (≥4.5:1 on white, page bg, and 12% success tint). Backgrounds keep --color-success. */
   --color-success-text: hsl(150 78% 23%);
-  --color-warning: hsl(38 92% 50%);
-  --color-warning-foreground: hsl(0 0% 100%);
+  --color-warning: #f59e0b;
+  --color-warning-foreground: #ffffff;
   /* AA-compliant darker variant for WARNING used as TEXT on light surfaces (≥4.5:1). */
   --color-warning-text: hsl(32 100% 30%);
-  --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(220 13% 20%);
-  --radius: 0.75rem;
+  --color-info: #3399e6;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #2d3037;
+  --color-shell: #121821;
+  --color-shell-foreground: #f4f4f8;
+  --color-progress: #169c93;
+  --color-overlay: hsl(220 20% 10% / 55%);
+  --color-primary-hover: color-mix(in oklab, var(--color-primary) 88%, black);
+  --color-primary-subtle: color-mix(in oklab, var(--color-primary) 12%, var(--color-background));
+  --color-success-subtle: color-mix(in oklab, var(--color-success) 12%, var(--color-background));
+  --color-warning-subtle: color-mix(in oklab, var(--color-warning) 12%, var(--color-background));
+  --color-destructive-subtle: color-mix(in oklab, var(--color-destructive) 12%, var(--color-background));
+  --color-info-subtle: color-mix(in oklab, var(--color-info) 12%, var(--color-background));
+  --color-course-n5: #c0392b;
+  --color-course-n4: #e67e22;
+  --color-course-n3: #6366f1;
+  --color-course-n2: #10b981;
+  --color-course-n1: #ef4444;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+  --font-japanese: "Noto Sans JP", "Hiragino Kaku Gothic Pro", "Yu Gothic", sans-serif;
+  --font-chinese: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "SimHei", sans-serif;
+  --text-label: 0.875rem;
+  --text-title: 1.125rem;
+  --text-headline: 1.5rem;
+  --text-japanese: 1.875rem;
+  --text-chinese: 1.25rem;
+  --spacing-touch: 2.75rem;
+  --icon-xs: 0.75rem;
+  --icon-sm: 1rem;
+  --icon-md: 1.25rem;
+  --icon-lg: 1.5rem;
+  --radius-control: 0.5rem;
+  --radius-surface: 0.75rem;
+  --radius-pill: 9999px;
+  --shadow-surface: 0 1px 3px hsl(220 20% 10% / 8%);
+  --shadow-lifted: 0 4px 16px hsl(220 20% 10% / 10%);
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 20;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-duration-fast: 150ms;
+  --motion-duration-normal: 200ms;
+  --motion-duration-slow: 250ms;
+  --motion-standard: var(--motion-duration-normal) var(--ease-standard);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
 }
 
 .dark {
@@ -63,60 +107,9 @@
   --color-warning-text: hsl(38 92% 50%);
   --color-popover: hsl(222 47% 11%);
   --color-popover-foreground: hsl(210 40% 96%);
-}
-
-/* ====================================================
-   Legacy CSS Variable Aliases
-   Maps old var names → Tailwind tokens for backward compat.
-   Components still reference these; migrate to Tailwind classes over time.
-   ==================================================== */
-:root {
-  /* Colors — alias to Tailwind tokens */
-  --bg:            var(--color-background);
-  --bg-card:       var(--color-card);
-  --bg-header:     var(--color-card);
-  --text:          var(--color-foreground);
-  --text-muted:    var(--color-muted-foreground);
-  --border:        var(--color-border);
-  --primary:       var(--color-primary);
-  --primary-hover: color-mix(in srgb, var(--color-primary) 80%, black);
-  --primary-dark:  color-mix(in srgb, var(--color-primary) 85%, black);
-  --primary-bg:    color-mix(in srgb, var(--color-primary) 12%, var(--color-background));
-  --accent:        hsl(262 70% 50%);
-  --accent-hover:  hsl(262 70% 40%);
-  --accent-bg:     color-mix(in srgb, hsl(262 70% 50%) 12%, var(--color-background));
-  --success:       var(--color-success);
-  --success-bg:    color-mix(in srgb, var(--color-success) 12%, var(--color-background));
-  --danger:        var(--color-destructive);
-  --danger-bg:     color-mix(in srgb, var(--color-destructive) 12%, var(--color-background));
-  --warning:       var(--color-warning);
-  --warning-dark:  color-mix(in srgb, var(--color-warning) 85%, black);
-  --warning-bg:    color-mix(in srgb, var(--color-warning) 12%, var(--color-background));
-  --info-bg:       color-mix(in srgb, hsl(210 80% 55%) 12%, var(--color-background));
-  --surface:       var(--color-muted);
-
-  /* Shadows */
-  --shadow:        0 1px 3px rgba(0,0,0,.08);
-  --shadow-lg:     0 4px 16px rgba(0,0,0,.10);
-
-  /* Radii */
-  --radius-sm:     8px;
-
-  /* Typography */
-  --font:          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
-  --font-jp:       "Noto Sans JP", "Hiragino Kaku Gothic Pro", "Yu Gothic", sans-serif;
-  --font-cn:       "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "SimHei", sans-serif;
-  --leading-cjk:   1.75;
-
-  /* Animation */
-  --transition:    .2s ease;
-}
-
-.dark {
-  --accent:        hsl(262 70% 65%);
-  --accent-hover:  hsl(262 70% 55%);
-  --shadow:        0 1px 3px rgba(0,0,0,.3);
-  --shadow-lg:     0 4px 16px rgba(0,0,0,.4);
+  --color-overlay: hsl(220 30% 2% / 70%);
+  --shadow-surface: 0 1px 3px hsl(220 40% 2% / 30%);
+  --shadow-lifted: 0 4px 16px hsl(220 40% 2% / 40%);
 }
 
 /* ====================================================
@@ -134,20 +127,20 @@ html {
 }
 
 body {
-  font-family: var(--font);
+  font-family: var(--font-sans);
   background: var(--color-background);
   color: var(--color-foreground);
   line-height: 1.6;
   min-height: 100vh;
-  transition: background var(--transition), color var(--transition);
+  transition: background var(--motion-standard), color var(--motion-standard);
 }
 
 /* ====================================================
    Accessibility
    ==================================================== */
 :focus-visible {
-  outline: 2px solid var(--color-ring);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width) solid var(--color-ring);
+  outline-offset: var(--focus-ring-offset);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -170,18 +163,6 @@ body {
   border: 0;
 }
 
-/* ====================================================
-   Shared Animation (extracted from per-page duplicates)
-   ==================================================== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.animate-in {
-  animation: fadeIn .25s ease;
-}
-
 /* Press feedback for interactive elements */
 .press-feedback {
   transition: transform 0.1s ease, box-shadow 0.15s ease;
@@ -189,15 +170,6 @@ body {
 .press-feedback:active {
   transform: scale(0.97);
   box-shadow: none;
-}
-
-/* Stagger animation for list items */
-@keyframes staggerIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.stagger-item {
-  animation: staggerIn 0.3s ease both;
 }
 
 /* ====================================================
@@ -212,12 +184,12 @@ body {
   border: none;
   border-radius: 50%;
   background: transparent;
-  color: var(--text);
+  color: var(--color-foreground);
   cursor: pointer;
-  transition: background var(--transition);
+  transition: background var(--motion-standard);
 }
 .icon-btn:hover {
-  background: var(--border);
+  background: var(--color-border);
 }
 
 #main-content {
@@ -233,7 +205,7 @@ body {
 }
 
 .text-muted {
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   font-size: .9rem;
   margin-bottom: 1.25rem;
 }
@@ -252,23 +224,23 @@ body {
   display: flex;
   flex-direction: column;
   padding: 1rem 1.1rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-surface);
   cursor: pointer;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  transition: transform var(--motion-standard), box-shadow var(--motion-standard), border-color var(--motion-standard);
   text-decoration: none;
-  color: var(--text);
+  color: var(--color-foreground);
 }
 .lesson-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary);
+  box-shadow: var(--shadow-lifted);
+  border-color: var(--color-primary);
 }
 .lesson-card .lesson-number {
   font-size: .8rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: .04em;
   margin-bottom: .25rem;
@@ -280,21 +252,21 @@ body {
 }
 .lesson-card .lesson-meta {
   font-size: .78rem;
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   margin-top: .4rem;
 }
 .lesson-card .lesson-progress-bar {
   margin-top: .5rem;
   height: 4px;
-  background: var(--border);
-  border-radius: 2px;
+  background: var(--color-border);
+  border-radius: var(--radius-control);
   overflow: hidden;
 }
 .lesson-card .lesson-progress-bar .fill {
   height: 100%;
-  background: var(--success);
-  border-radius: 2px;
-  transition: width .3s ease;
+  background: var(--color-success);
+  border-radius: var(--radius-control);
+  transition: none;
 }
 
 /* ====================================================
@@ -317,93 +289,92 @@ body {
 .menu-divider-line {
   flex: 1;
   height: 1px;
-  background: var(--border);
+  background: var(--color-border);
   border: none;
 }
 
 .menu-divider-text {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-/* ====================================================
-   Global Buttons (.btn system)
-   Used by 23+ files. Will be replaced by shadcn Button in PR #26.
-   ==================================================== */
-.btn {
+/* Canonical button contract. Prefer the Button component; data attributes allow
+   progressive migration of behavior-heavy quiz controls without parallel CSS. */
+.ui-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: .5rem;
-  padding: .6rem 1.2rem;
-  font-size: .95rem;
+  min-height: var(--spacing-touch);
+  min-width: var(--spacing-touch);
+  padding: .5rem 1rem;
+  font-size: var(--text-label);
   font-weight: 600;
   font-family: inherit;
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-control);
   cursor: pointer;
-  transition: background var(--transition), transform .1s ease, box-shadow var(--transition);
+  transition: background var(--motion-standard), color var(--motion-standard), border-color var(--motion-standard);
   text-decoration: none;
   line-height: 1.4;
 }
-.btn:active {
-  transform: scale(.97);
-}
-.btn:disabled {
+.ui-button:disabled,
+.ui-button[aria-disabled="true"] {
   opacity: .5;
+  pointer-events: none;
   cursor: not-allowed;
 }
 
-.btn-lg {
-  padding: .85rem 1.5rem;
+.ui-button[data-size="lg"] {
+  padding-inline: 2rem;
   font-size: 1rem;
 }
 
-.btn-sm {
-  padding: .45rem .75rem;
+.ui-button[data-size="sm"] {
+  padding-inline: .75rem;
   font-size: .85rem;
 }
+.ui-button[data-size="icon"] { width: var(--spacing-touch); padding: 0; }
 
-.btn-primary {
-  background: var(--primary);
-  color: white;
+.ui-button[data-variant="default"] {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
 }
-.btn-primary:hover { background: var(--primary-hover); }
+.ui-button[data-variant="default"]:hover { background: var(--color-primary-hover); }
 
-.btn-accent {
-  background: var(--accent);
-  color: white;
+.ui-button[data-variant="success"] {
+  background: var(--color-success);
+  color: var(--color-success-foreground);
 }
-.btn-accent:hover { background: var(--accent-hover); }
+.ui-button[data-variant="success"]:hover { opacity: .9; }
 
-.btn-success {
-  background: var(--success);
-  color: white;
+.ui-button[data-variant="destructive"] {
+  background: var(--color-destructive);
+  color: var(--color-destructive-foreground);
 }
-.btn-success:hover { opacity: .85; }
+.ui-button[data-variant="destructive"]:hover { opacity: .9; }
 
-.btn-danger {
-  background: var(--danger);
-  color: white;
+.ui-button[data-variant="secondary"] {
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
 }
-.btn-danger:hover { opacity: .85; }
+.ui-button[data-variant="secondary"]:hover { background: var(--color-muted); }
 
-.btn-secondary {
-  background: var(--border);
-  color: var(--text);
-}
-.btn-secondary:hover { opacity: .8; }
-
-.btn-outline {
+.ui-button[data-variant="outline"] {
   background: transparent;
-  color: var(--text);
-  border: 1.5px solid var(--border);
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
 }
-.btn-outline:hover {
-  background: var(--border);
+.ui-button[data-variant="outline"]:hover,
+.ui-button[data-variant="ghost"]:hover { background: var(--color-muted); }
+.ui-button[data-variant="ghost"] { background: transparent; color: var(--color-foreground); }
+.ui-button[data-variant="link"] { min-height: auto; padding: 0; background: transparent; color: var(--color-primary); text-decoration: underline; text-underline-offset: 4px; }
+
+@media (min-width: 768px) {
+  .ui-button[data-size="sm"] { min-height: 2.25rem; }
 }
 
 /* ====================================================
@@ -416,16 +387,16 @@ body {
 }
 
 .grammar-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-surface);
   overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: box-shadow var(--transition);
+  box-shadow: var(--shadow-surface);
+  transition: box-shadow var(--motion-standard);
 }
 
 .grammar-card:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lifted);
 }
 
 .grammar-card-header {
@@ -433,7 +404,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 1.25rem;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary));
   color: white;
 }
 
@@ -450,7 +421,7 @@ body {
 }
 
 .grammar-pattern {
-  font-family: var(--font-jp);
+  font-family: var(--font-japanese);
   font-size: 1.3rem;
   font-weight: 700;
   margin: 0;
@@ -463,15 +434,15 @@ body {
 .grammar-meaning {
   font-size: 1rem;
   margin-bottom: 0.75rem;
-  color: var(--text);
+  color: var(--color-foreground);
 }
 
 .grammar-meaning strong {
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 .grammar-meaning-en {
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   font-size: 0.9rem;
   font-style: italic;
 }
@@ -479,12 +450,12 @@ body {
 .grammar-explanation {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: var(--text);
+  color: var(--color-foreground);
   margin-bottom: 1rem;
   padding: 0.75rem;
-  background: var(--bg);
-  border-left: 3px solid var(--accent);
-  border-radius: var(--radius-sm);
+  background: var(--color-background);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-control);
 }
 
 .grammar-examples {
@@ -493,7 +464,7 @@ body {
 
 .grammar-examples > strong {
   display: block;
-  color: var(--primary);
+  color: var(--color-primary);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
@@ -501,9 +472,9 @@ body {
 .grammar-example {
   padding: 0.75rem;
   margin-bottom: 0.75rem;
-  background: var(--bg);
-  border-radius: var(--radius-sm);
-  border-left: 2px solid var(--success);
+  background: var(--color-background);
+  border-radius: var(--radius-control);
+  border: 1px solid var(--color-success);
 }
 
 .grammar-example:last-child {
@@ -511,22 +482,22 @@ body {
 }
 
 .grammar-example-jp {
-  font-family: var(--font-jp);
+  font-family: var(--font-japanese);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--color-foreground);
   margin-bottom: 0.3rem;
 }
 
 .grammar-example-vi {
   font-size: 0.9rem;
-  color: var(--text);
+  color: var(--color-foreground);
   margin-bottom: 0.2rem;
 }
 
 .grammar-example-en {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   font-style: italic;
 }
 
@@ -535,11 +506,11 @@ body {
    ==================================================== */
 .results-card {
   text-align: center;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-surface);
   padding: 2rem 1.5rem;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lifted);
   max-width: 420px;
   margin: 0 auto;
 }
@@ -561,12 +532,12 @@ body {
 }
 .score-ring-bg {
   fill: none;
-  stroke: var(--border);
+  stroke: var(--color-border);
   stroke-width: 3;
 }
 .score-ring-fill {
   fill: none;
-  stroke: var(--success);
+  stroke: var(--color-success);
   stroke-width: 3;
   stroke-linecap: round;
   stroke-dasharray: 0, 100;
@@ -584,7 +555,7 @@ body {
 
 .results-detail {
   font-size: 1rem;
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   margin-bottom: 1.5rem;
 }
 
@@ -610,33 +581,33 @@ body {
 #vocab-table td {
   padding: .6rem .75rem;
   text-align: left;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
 }
 #vocab-table th {
   font-weight: 700;
   font-size: .8rem;
   text-transform: uppercase;
   letter-spacing: .03em;
-  color: var(--text-muted);
-  background: var(--bg-card);
+  color: var(--color-muted-foreground);
+  background: var(--color-card);
   position: sticky;
   top: 0;
 }
 #vocab-table td:nth-child(3) {
-  font-family: var(--font-jp);
+  font-family: var(--font-japanese);
   font-weight: 600;
 }
 #vocab-table td:nth-child(4) {
-  font-family: var(--font-jp);
-  color: var(--primary);
+  font-family: var(--font-japanese);
+  color: var(--color-primary);
 }
 #vocab-table td:nth-child(5) {
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   font-size: 0.85rem;
 }
 #vocab-table tbody tr:hover {
-  background: var(--bg-card);
+  background: var(--color-card);
 }
 
 /* Vocabulary Selection Controls */
@@ -646,9 +617,9 @@ body {
   gap: 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
-  background: var(--bg-card);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
+  background: var(--color-card);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-surface);
   flex-wrap: wrap;
 }
 
@@ -668,7 +639,7 @@ body {
 }
 
 #vocab-selected-count {
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   font-size: .9rem;
   margin-left: auto;
 }
@@ -680,7 +651,7 @@ body {
   flex-wrap: wrap;
 }
 
-.vocab-quiz-buttons .btn {
+.vocab-quiz-buttons .ui-button {
   padding: .5rem 1rem;
   font-size: .85rem;
 }
@@ -699,19 +670,19 @@ body {
   align-items: center;
   gap: .35rem;
   padding: .25rem .55rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
   background: transparent;
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   font-size: .8rem;
   cursor: pointer;
   transition: color .15s, border-color .15s, background .15s;
 }
 
 .btn-speak:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
 }
 
 .btn-speak:active {
@@ -740,13 +711,13 @@ body {
    HSK Vocabulary Table
    ==================================================== */
 .cn-text {
-  font-family: var(--font-cn);
+  font-family: var(--font-chinese);
   font-weight: 600;
   font-size: 1.15em;
 }
 
 .hsk-pinyin {
-  color: var(--primary);
+  color: var(--color-primary);
   font-size: .9rem;
 }
 
@@ -760,7 +731,7 @@ body {
 #hsk-vocab-table td {
   padding: .55rem .75rem;
   text-align: left;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 #hsk-vocab-table th {
@@ -768,25 +739,25 @@ body {
   font-size: .8rem;
   text-transform: uppercase;
   letter-spacing: .03em;
-  color: var(--text-muted);
-  background: var(--bg-card);
+  color: var(--color-muted-foreground);
+  background: var(--color-card);
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
 #hsk-vocab-table tbody tr:hover {
-  background: var(--bg-card);
+  background: var(--color-card);
 }
 
 #hsk-vocab-table td:nth-child(2) {
-  font-family: var(--font-cn);
+  font-family: var(--font-chinese);
   font-weight: 600;
   font-size: 1.1em;
 }
 
 #hsk-vocab-table td:nth-child(3) {
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 #hsk-vocab-table td:last-child {
@@ -809,24 +780,24 @@ body {
 
 .alpha-table th,
 .alpha-table td {
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   padding: .35rem .5rem;
   text-align: center;
   min-width: 3.2rem;
 }
 
 .alpha-table thead th {
-  background: var(--surface);
+  background: var(--color-muted);
   font-size: .75rem;
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   text-transform: uppercase;
   letter-spacing: .05em;
 }
 
 .alpha-row-label {
   font-size: .75rem;
-  color: var(--text-muted);
-  background: var(--surface);
+  color: var(--color-muted-foreground);
+  background: var(--color-muted);
   white-space: nowrap;
 }
 
@@ -841,16 +812,16 @@ body {
 }
 
 .alpha-cell--audio:hover {
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
 }
 
 .alpha-cell--empty {
-  background: var(--surface);
+  background: var(--color-muted);
 }
 
 .alpha-kana {
   display: block;
-  font-family: var(--font-jp);
+  font-family: var(--font-japanese);
   font-size: 1.3rem;
   line-height: 1.2;
 }
@@ -858,14 +829,14 @@ body {
 .alpha-romaji {
   display: block;
   font-size: .65rem;
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   margin-top: .1rem;
 }
 
 .alpha-section-heading {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--color-muted-foreground);
   margin: 1rem 0 .6rem;
 }
 
@@ -877,8 +848,8 @@ body {
 }
 
 .alpha-combo-cell {
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
   padding: .3rem .2rem;
 }
 

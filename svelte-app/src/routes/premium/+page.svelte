@@ -20,10 +20,10 @@
   <title>Premium - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl p-4 animate-in">
+<div class="mx-auto max-w-xl p-4 ">
   <header class="text-center mb-6">
     <h1 class="text-2xl font-bold mb-1">Smart Quiz Premium</h1>
-    <p class="text-sm text-muted-foreground">Unlock advanced features for serious learners</p>
+    <p class="text-sm text-muted-foreground">Không có thanh toán trong phiên bản hiện tại. Chế độ beta chỉ mở các tính năng đã có sẵn trên thiết bị.</p>
   </header>
 
   <div class="text-center mb-6">
@@ -50,7 +50,7 @@
   </Card>
 
   <Card class="mb-3">
-    <CardHeader class="pb-2"><CardTitle class="text-sm">Premium Features</CardTitle></CardHeader>
+    <CardHeader class="pb-2"><CardTitle class="text-sm">Tính năng thử nghiệm</CardTitle></CardHeader>
     <CardContent class="flex flex-col gap-2">
       {#each premiumFeatures as feature}
         <div class="flex items-center gap-3 py-1 {premium ? '' : 'opacity-60'}">
@@ -67,7 +67,7 @@
   <Card class="mb-3">
     <CardHeader class="pb-2"><CardTitle class="text-sm">Activation</CardTitle></CardHeader>
     <CardContent>
-      <p class="text-sm text-muted-foreground mb-3">Premium is currently free during beta. Toggle below to try premium features.</p>
+      <p class="text-sm text-muted-foreground mb-3">Kích hoạt miễn phí và được lưu cục bộ. Không tạo tài khoản, không gửi dữ liệu và không cam kết đây là gói thương mại tương lai.</p>
       <UiButton
         variant={premium ? 'destructive' : 'default'}
         onclick={togglePremium}

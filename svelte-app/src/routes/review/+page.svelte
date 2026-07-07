@@ -77,20 +77,19 @@
     leechCount = leeches.length;
   }
 
-  function handleCorrect() {
+  function handleRating(quality: 1 | 3 | 4 | 5) {
     const card = cards[currentIndex];
-    const responseTimeMs = Date.now() - questionShownAt;
-    // Grade by recall speed (fast→5, normal→4, slow→3) so ease factor reflects difficulty.
-    reviewItem(card.itemId, card.lessonNumber, computeQuality(true, responseTimeMs), card.itemType);
-    score++;
+    reviewItem(card.itemId, card.lessonNumber, quality, card.itemType);
+    if (quality >= 4) score++;
     advance();
   }
 
+  function handleCorrect() {
+    handleRating(computeQuality(true, Date.now() - questionShownAt) as 3 | 4 | 5);
+  }
+
   function handleWrong() {
-    const card = cards[currentIndex];
-    const responseTimeMs = Date.now() - questionShownAt;
-    reviewItem(card.itemId, card.lessonNumber, computeQuality(false, responseTimeMs), card.itemType);
-    advance();
+    handleRating(computeQuality(false, Date.now() - questionShownAt) as 1);
   }
 
   function advance() {
@@ -129,7 +128,7 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="mx-auto max-w-md p-4 animate-in">
+<div class="mx-auto max-w-md p-4 ">
   <!-- Stats Bar -->
   <Card class="mb-3">
     <CardContent class="py-3 flex gap-6">
@@ -154,7 +153,7 @@
   <div class="flex gap-2 mb-4">
     {#each [{ type: 'all' as const, label: 'All' }, { type: 'vocab' as const, label: 'Vocab' }, { type: 'kanji' as const, label: 'Kanji' }] as f}
       <button
-        class="px-3.5 py-1.5 rounded-full border text-sm cursor-pointer transition-all
+        class="px-3.5 py-1.5 rounded-full border text-sm cursor-pointer transition-colors
           {filterType === f.type ? 'bg-primary text-white border-primary' : 'bg-card text-muted-foreground border-border hover:border-primary'}"
         on:click={() => setFilter(f.type)}
       >{f.label}</button>
@@ -193,7 +192,7 @@
     <!-- Progress bar -->
     <div class="flex items-center gap-3 mb-4">
       <div class="flex-1 h-2 bg-border rounded-full overflow-hidden">
-        <div class="h-full bg-primary rounded-full transition-all duration-300" style="width: {progressPct}%"></div>
+        <div class="h-full bg-primary rounded-full transition-colors duration-300" style="width: {progressPct}%"></div>
       </div>
       <span class="text-xs font-semibold text-muted-foreground whitespace-nowrap">{currentIndex + 1} / {cards.length}</span>
     </div>
@@ -209,7 +208,7 @@
       on:keydown={handleKeydown}
     >
       <div class="flashcard-inner">
-        <div class="flashcard-front">
+        <div class="flashcard-front" aria-hidden={flipped}>
           <div class="flex gap-1.5 mb-2">
             {#if currentCard.courseLabel}
               <Badge>{currentCard.courseLabel}</Badge>
@@ -219,7 +218,7 @@
               <Badge variant="outline" class="border-warning/40 bg-warning/10 text-warning-text" title="This item keeps failing — review carefully">🔁 Leech</Badge>
             {/if}
           </div>
-          <div class="text-3xl font-bold text-center mb-1" style="font-family: var(--font-jp)">{currentCard.item.japanese}</div>
+          <div class="text-3xl font-bold text-center mb-1" style="font-family: var(--font-japanese)">{currentCard.item.japanese}</div>
           {#if currentCard.item.kana !== currentCard.item.japanese}
             <div class="text-base text-primary mb-1">{currentCard.item.kana}</div>
           {/if}
@@ -229,7 +228,7 @@
             🔊 Speak (F1)
           </button>
         </div>
-        <div class="flashcard-back">
+        <div class="flashcard-back" aria-hidden={!flipped}>
           <div class="text-xl font-semibold mb-2 text-center">{currentCard.item.vietnamese}</div>
           <div class="text-sm text-muted-foreground text-center">{currentCard.item.english}</div>
         </div>
@@ -237,17 +236,17 @@
     </div>
 
     <!-- Nav buttons -->
-    <div class="flex justify-center gap-3 mt-4">
-      <button class="btn btn-danger" on:click={handleWrong}>✗ Again</button>
-      <button class="btn btn-success" on:click={handleCorrect}>✓ Got it</button>
+    <div class="rating-grid mt-4" aria-label="Mức độ ghi nhớ">
+      <button class="ui-button" data-variant="destructive" on:click={handleWrong}><strong>Chưa nhớ</strong><small>Ôn lại sớm</small></button>
+      <button class="ui-button" data-variant="secondary" on:click={() => handleRating(3)}><strong>Khó</strong><small>Cần củng cố</small></button>
+      <button class="ui-button" data-variant="default" on:click={() => handleRating(4)}><strong>Nhớ</strong><small>Đúng nhịp</small></button>
+      <button class="ui-button" data-variant="success" on:click={() => handleRating(5)}><strong>Dễ</strong><small>Giãn lịch ôn</small></button>
     </div>
   {/if}
 </div>
 
 <style>
-  /* 3D Flashcard — must be scoped CSS for preserve-3d to work */
   .flashcard {
-    perspective: 800px;
     width: 100%;
     height: 280px;
     margin: 0 auto;
@@ -258,10 +257,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.5s ease;
-    transform-style: preserve-3d;
   }
-  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
   .flashcard-front, .flashcard-back {
     position: absolute;
     inset: 0;
@@ -273,9 +269,11 @@
     background: var(--color-card);
     border: 1px solid var(--color-border);
     border-radius: 0.75rem;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    box-shadow: var(--shadow-lifted);
   }
-  .flashcard-back { transform: rotateY(180deg); }
+  .flashcard-front[aria-hidden="true"], .flashcard-back[aria-hidden="true"] { display: none; }
+  .rating-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
+  .rating-grid button { min-height: 56px; display: flex; flex-direction: column; gap: 0.125rem; }
+  .rating-grid small { font-size: 0.68rem; opacity: 0.8; }
+  @media (max-width: 520px) { .rating-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 </style>

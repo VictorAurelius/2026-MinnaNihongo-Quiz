@@ -39,10 +39,10 @@
     <div class="q-hint">{item.strokeCount} stroke{item.strokeCount > 1 ? 's' : ''}</div>
   </div>
 
-  <WritingCanvas bind:this={canvasRef} size={220} />
+  <WritingCanvas bind:this={canvasRef} size={220} character={item.character} />
 
   {#if !showAnswer}
-    <button class="btn btn-primary btn-lg" on:click={reveal}>
+    <button class="ui-button" data-variant="default" data-size="lg" on:click={reveal}>
       Show Answer
     </button>
   {:else}
@@ -52,8 +52,8 @@
       <StrokeOrder character={item.character} size={120} />
 
       <div class="rate-buttons">
-        <button class="btn btn-danger" on:click={handleWrong}>✗ Wrong</button>
-        <button class="btn btn-success" on:click={handleCorrect}>✓ Correct</button>
+        <button class="ui-button" data-variant="destructive" on:click={handleWrong}>✗ Wrong</button>
+        <button class="ui-button" data-variant="success" on:click={handleCorrect}>✓ Correct</button>
       </div>
     </div>
   {/if}
@@ -71,16 +71,16 @@
 
   .question-card {
     text-align: center;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-surface);
     padding: 1.25rem;
     width: 100%;
   }
 
-  .q-label { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+  .q-label { font-size: 0.82rem; color: var(--color-muted-foreground); margin-bottom: 0.3rem; }
   .q-meaning { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem; }
-  .q-hint { font-size: 0.8rem; color: var(--text-muted); }
+  .q-hint { font-size: 0.8rem; color: var(--color-muted-foreground); }
 
   .answer-section {
     display: flex;
@@ -90,7 +90,7 @@
   }
 
   .answer-kanji {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 4rem;
     font-weight: 700;
   }
