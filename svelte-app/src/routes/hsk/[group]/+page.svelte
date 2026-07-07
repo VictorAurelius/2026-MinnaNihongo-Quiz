@@ -65,9 +65,9 @@
 
     <!-- Quiz Modes -->
     <div class="quiz-modes">
-      <a href="{base}/hsk/{groupId}/quiz/flashcard?direction=chinese-vi" class="btn btn-primary">🎴 Flashcard</a>
-      <a href="{base}/hsk/{groupId}/quiz/mc?direction=chinese-vi" class="btn btn-accent">✓ Multiple Choice</a>
-      <a href="{base}/hsk/{groupId}/quiz/typing?direction=chinese-vi" class="btn btn-success">⌨️ Typing</a>
+      <a href="{base}/hsk/{groupId}/quiz/flashcard?direction=chinese-vi" class="ui-button" data-variant="default">🎴 Flashcard</a>
+      <a href="{base}/hsk/{groupId}/quiz/mc?direction=chinese-vi" class="ui-button" data-variant="default">✓ Multiple Choice</a>
+      <a href="{base}/hsk/{groupId}/quiz/typing?direction=chinese-vi" class="ui-button" data-variant="success">⌨️ Typing</a>
     </div>
 
     <!-- Controls -->
@@ -172,7 +172,7 @@
   .btn-primary {
     margin-top: 1.5rem;
     padding: 0.75rem 1.5rem;
-    background: var(--primary);
+    background: var(--color-primary);
     color: white;
     border: none;
     border-radius: 8px;
@@ -182,7 +182,7 @@
   }
 
   .btn-primary:hover {
-    background: var(--primary-dark);
+    background: var(--color-primary-hover);
   }
 
   .page-header {
@@ -193,18 +193,18 @@
     padding: 0.5rem 1rem;
     background: none;
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: var(--radius-control);
     cursor: pointer;
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    color: var(--color-muted-foreground);
     margin-bottom: 1rem;
     transition: all 0.2s;
   }
 
   .btn-back:hover {
     background: var(--bg-secondary);
-    border-color: var(--primary);
-    color: var(--primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
   }
 
   .header-content {
@@ -219,7 +219,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
     color: white;
     font-size: 1.75rem;
     font-weight: 700;
@@ -233,7 +233,7 @@
   }
 
   .word-count {
-    color: var(--text-secondary);
+    color: var(--color-muted-foreground);
     font-size: 0.875rem;
   }
 
@@ -261,7 +261,7 @@
 
   .search-input:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .clear-search {
@@ -271,14 +271,14 @@
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: var(--text-tertiary);
+    color: var(--color-muted-foreground);
     cursor: pointer;
     font-size: 1.25rem;
     padding: 0.25rem;
   }
 
   .clear-search:hover {
-    color: var(--text-primary);
+    color: var(--color-foreground);
   }
 
   .sort-controls {
@@ -290,13 +290,13 @@
   .sort-controls label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: var(--color-muted-foreground);
   }
 
   .sort-select {
     padding: 0.5rem 2rem 0.5rem 0.75rem;
     border: 2px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: var(--radius-control);
     font-size: 0.875rem;
     background: white;
     cursor: pointer;
@@ -304,14 +304,14 @@
 
   .results-info {
     margin-bottom: 1rem;
-    color: var(--text-secondary);
+    color: var(--color-muted-foreground);
     font-size: 0.875rem;
   }
 
   .table-wrapper {
     overflow-x: auto;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-lifted);
   }
 
   .vocab-table {
@@ -332,7 +332,7 @@
     text-align: left;
     font-weight: 600;
     border-bottom: 2px solid var(--border-color);
-    color: var(--text-primary);
+    color: var(--color-foreground);
   }
 
   .vocab-table td {
@@ -347,7 +347,7 @@
   .col-index {
     width: 60px;
     text-align: center;
-    color: var(--text-tertiary);
+    color: var(--color-muted-foreground);
     font-family: monospace;
   }
 
@@ -364,7 +364,7 @@
   .col-pinyin {
     width: 180px;
     font-style: italic;
-    color: var(--text-secondary);
+    color: var(--color-muted-foreground);
   }
 
   .col-vietnamese {
@@ -379,7 +379,7 @@
   .btn-speak {
     background: none;
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: var(--radius-control);
     padding: 0.25rem 0.5rem;
     cursor: pointer;
     font-size: 1rem;
@@ -387,14 +387,14 @@
   }
 
   .btn-speak:hover {
-    background: var(--primary-light);
-    border-color: var(--primary);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
   }
 
   .empty-state {
     text-align: center;
     padding: 3rem;
-    color: var(--text-secondary);
+    color: var(--color-muted-foreground);
     font-style: italic;
   }
 

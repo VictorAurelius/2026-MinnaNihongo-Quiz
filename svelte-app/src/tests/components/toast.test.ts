@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { showToast, toastStore } from '$lib/stores/toast';
+import { Toast } from '$lib/components/ui/toast';
 
 describe('Toast Store', () => {
   it('showToast sets store value', () => {
@@ -18,8 +19,7 @@ describe('Toast Store', () => {
     unsub();
   });
 
-  it('Toast component exports correctly', async () => {
-    const mod = await import('$lib/components/common/Toast.svelte');
-    expect(mod.default).toBeDefined();
+  it('Toast component exports correctly', () => {
+    expect(Toast).toBeDefined();
   });
 });

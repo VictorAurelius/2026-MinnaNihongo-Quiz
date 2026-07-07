@@ -87,12 +87,12 @@
   <h3 class="review-heading">Xem lại bài làm</h3>
   {#each reviewSections as { section, startNumber }, si (si)}
     <section class="review-section">
-      <h4 class="review-section__title" style="font-family: var(--font-jp)">{section.title}</h4>
+      <h4 class="review-section__title" style="font-family: var(--font-japanese)">{section.title}</h4>
 
       {#if section.passages}
         {#each section.passages as psg (psg.id)}
           <div class="passage">
-            <p class="passage__text" style="font-family: var(--font-jp)">{psg.text}</p>
+            <p class="passage__text" style="font-family: var(--font-japanese)">{psg.text}</p>
             {#if psg.translation}
               <p class="passage__translation">{psg.translation}</p>
             {/if}
@@ -121,7 +121,7 @@
   .summary {
     text-align: center;
     padding: 1.75rem 1.25rem;
-    border-radius: 1rem;
+    border-radius: var(--radius-surface);
     border: 1px solid var(--color-border);
   }
   .summary--pass {
@@ -220,7 +220,7 @@
   .passage {
     padding: 0.9rem 1rem;
     background: var(--color-muted);
-    border-left: 3px solid var(--color-primary);
+    border: 1px solid var(--color-primary);
     border-radius: 0.5rem;
   }
   .passage__text {

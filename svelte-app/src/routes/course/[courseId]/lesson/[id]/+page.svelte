@@ -1,226 +1,116 @@
 <script lang="ts">
-  /**
-   * Course Lesson Menu
-   * Shows quiz modes with direction selector, and study materials
-   */
-
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { getCourse } from '$lib/data/courses';
   import { buildQuizUrl, buildVocabularyUrl, buildGrammarUrl } from '$lib/utils/courseUtils';
-  import Badge from '$lib/components/ui/badge/badge.svelte';
-  import PageEmpty from '$lib/components/common/PageEmpty.svelte';
-  import UiButton from '$lib/components/ui/button/button.svelte';
-  import { RefreshCw, PenLine, Layers, CheckCircle, Keyboard, BookOpen, Book, ChevronRight } from 'lucide-svelte';
-  import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
   import { progressStore } from '$lib/stores';
   import { getLessonMastery } from '$lib/utils/progressUtils';
+  import PageEmpty from '$lib/components/common/PageEmpty.svelte';
+  import { Progress } from '$lib/components/ui/progress';
   import type { CourseId } from '$lib/types/course';
   import type { QuizDirection } from '$lib/types';
+  import { ArrowRight, BookOpen, CheckCircle2, Keyboard, Languages, Layers, Library, MessageCircle, PenLine } from 'lucide-svelte';
 
   $: courseId = $page.params.courseId as CourseId;
-  $: lessonId = parseInt($page.params.id || '0');
+  $: lessonId = Number($page.params.id || 0);
   $: course = getCourse(courseId);
   $: lesson = course?.getLessonData(lessonId);
   $: mastery = getLessonMastery($progressStore, courseId, lessonId);
-
   let selectedDirection: QuizDirection = 'ja-vi';
 
-  const directions: { value: QuizDirection; label: string; desc: string }[] = [
-    { value: 'ja-vi', label: 'JP → VN', desc: 'Xem tiếng Nhật, trả lời tiếng Việt' },
-    { value: 'vi-ja', label: 'VN → JP', desc: 'Xem tiếng Việt, trả lời tiếng Nhật' },
-    { value: 'vi-romaji', label: 'VN → Romaji', desc: 'Xem tiếng Việt, trả lời bằng romaji' }
+  const directions: { value: QuizDirection; label: string; description: string }[] = [
+    { value: 'ja-vi', label: 'Nhật → Việt', description: 'Nhận diện nghĩa' },
+    { value: 'vi-ja', label: 'Việt → Nhật', description: 'Gợi nhớ từ Nhật' },
+    { value: 'vi-romaji', label: 'Việt → Romaji', description: 'Luyện cách đọc' }
   ];
 
-  function startQuiz(mode: string) {
-    goto(buildQuizUrl(courseId, mode, lessonId, selectedDirection));
-  }
+  function startQuiz(mode: string) { goto(buildQuizUrl(courseId, mode, lessonId, selectedDirection)); }
 </script>
 
-<svelte:head>
-  <title>{lesson?.title || 'Lesson'} - {course?.metadata.title || 'Smart Quiz'}</title>
-</svelte:head>
+<svelte:head><title>{lesson?.title || 'Bài học'} · {course?.metadata.title || 'Smart Quiz'}</title></svelte:head>
 
 {#if lesson && course}
-  <div class="mx-auto max-w-xl animate-in">
-    <!-- Lesson Header -->
-    <div
-      class="relative text-white pt-3 pb-6 px-4 overflow-hidden"
-      style="background: linear-gradient(135deg, color-mix(in srgb, {course.metadata.color} 30%, hsl(245 58% 35%)), hsl(262 60% 45%))"
-    >
+  <div class="lesson-workspace">
+    <header class="lesson-heading">
+      <p class="eyebrow">{course.metadata.level} · Bài {lesson.lessonNumber}</p>
+      <h1>{lesson.title}</h1>
+      <p>{lesson.vocabulary.length} từ vựng · {lesson.grammar.length} mẫu ngữ pháp</p>
+      <div class="mastery"><span>Tiến trình bài học</span><strong>{mastery}%</strong></div>
+      <Progress value={mastery} label={`Tiến trình bài ${lesson.lessonNumber}: ${mastery}%`} />
+    </header>
 
-      <div class="relative z-10">
-        <div>
-          <Badge class="bg-white/20 text-white border-0 mb-2 backdrop-blur-sm">Bài {lesson.lessonNumber}</Badge>
-          <h1 class="text-[22px] font-extrabold leading-tight tracking-tight drop-shadow-sm" style="font-family: var(--font-jp)">{lesson.title}</h1>
-          <p class="text-sm font-medium text-white/80 mt-1 drop-shadow-sm">
-            {lesson.vocabulary.length} từ vựng • {lesson.grammar.length} ngữ pháp
-          </p>
-          <!-- Progress bar -->
-          <div class="mt-4" role="progressbar" aria-valuenow={mastery} aria-valuemin={0} aria-valuemax={100} aria-label="Tiến trình bài học">
-            <div class="flex justify-between text-[10px] text-white/70 mb-1.5">
-              <span>Tiến độ học</span>
-              <span>{mastery}%</span>
-            </div>
-            <div class="h-1.5 bg-white/20 rounded-full overflow-hidden">
-              <div class="h-full bg-white rounded-full transition-all duration-700" style="width: {mastery}%"></div>
-            </div>
-          </div>
-          <!-- Motivation row -->
-          <div class="flex items-center gap-2 mt-3 flex-wrap">
-            <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/80 backdrop-blur-sm" aria-label="0 ngày streak liên tiếp">
-              ✨ Bắt đầu streak hôm nay!
-            </span>
-            <span class="inline-flex items-center gap-1 bg-white/15 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white/90 backdrop-blur-sm" aria-label="Nhận 50 XP khi hoàn thành bài">
-              ⭐ +50 XP khi hoàn thành
-            </span>
-          </div>
-        </div>
+    <section class="next-step" aria-labelledby="next-title">
+      <div><p class="eyebrow">Nên học tiếp</p><h2 id="next-title">{mastery === 0 ? 'Làm quen từ vựng bằng flashcard' : 'Củng cố phần đang học'}</h2><p>{mastery === 0 ? 'Xem từng từ trước, chưa cần nhớ hoàn hảo.' : 'Một lượt ngắn giúp xác định chính xác phần cần ôn.'}</p></div>
+      <button class="primary-study" on:click={() => startQuiz('flashcard')}>Bắt đầu flashcard <ArrowRight size={20} aria-hidden="true" /></button>
+    </section>
+
+    <section class="direction" aria-labelledby="direction-title">
+      <div class="section-title"><Languages size={20} aria-hidden="true" /><div><h2 id="direction-title">Chiều luyện tập</h2><p>Áp dụng cho các quiz bên dưới</p></div></div>
+      <div class="direction-options" role="radiogroup" aria-label="Chiều luyện tập">
+        {#each directions as direction}
+          <button role="radio" aria-checked={selectedDirection === direction.value} class:active={selectedDirection === direction.value} on:click={() => selectedDirection = direction.value}>
+            <strong>{direction.label}</strong><span>{direction.description}</span>
+          </button>
+        {/each}
       </div>
-    </div>
+    </section>
 
-    <div class="px-4 py-6 flex flex-col gap-8">
-      <Breadcrumb items={[
-        { label: 'Courses', href: '/courses' },
-        { label: course.metadata.title, href: `/course/${courseId}` },
-        { label: `Bài ${lesson.lessonNumber}` }
-      ]} />
-      <!-- Direction Selector -->
-      <section>
-        <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3 flex items-center gap-1.5">
-          <RefreshCw size={12} aria-hidden="true" /> Direction
-        </h2>
-        <div class="flex gap-2 p-1.5 bg-muted/50 rounded-2xl" role="radiogroup" aria-label="Quiz direction">
-          {#each directions as dir}
-            <button
-              role="radio"
-              aria-checked={selectedDirection === dir.value}
-              class="flex-1 flex flex-col items-center gap-1 min-h-12 py-3.5 px-3 rounded-xl text-center transition-all duration-200 cursor-pointer active:scale-[0.97]
-                {selectedDirection === dir.value
-                  ? 'bg-primary text-primary-foreground shadow-md'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}"
-              on:click={() => selectedDirection = dir.value}
-            >
-              <span class="text-sm font-semibold">{dir.label}</span>
-              <span class="text-[0.6rem] opacity-75 leading-tight">{dir.desc}</span>
-            </button>
-          {/each}
-        </div>
-      </section>
+    <section class="study-sections" aria-labelledby="materials-title">
+      <div class="section-title"><BookOpen size={20} aria-hidden="true" /><div><h2 id="materials-title">Nội dung bài học</h2><p>Đọc trước, luyện tập sau</p></div></div>
+      <div class="study-list">
+        <button on:click={() => goto(buildVocabularyUrl(courseId, lessonId))}><Library size={20} aria-hidden="true" /><span><strong>Từ vựng</strong><small>{lesson.vocabulary.length} từ · nghe, tìm kiếm và chọn để luyện</small></span><ArrowRight size={16} aria-hidden="true" /></button>
+        <button on:click={() => goto(buildGrammarUrl(courseId, lessonId))}><PenLine size={20} aria-hidden="true" /><span><strong>Ngữ pháp</strong><small>{lesson.grammar.length} mẫu · giải thích và ví dụ</small></span><ArrowRight size={16} aria-hidden="true" /></button>
+        <a href="{base}/kanji"><Layers size={20} aria-hidden="true" /><span><strong>Kanji liên quan</strong><small>Mở bàn học Kanji theo cấp độ</small></span><ArrowRight size={16} aria-hidden="true" /></a>
+        <a href="{base}/conversations"><MessageCircle size={20} aria-hidden="true" /><span><strong>Hội thoại</strong><small>Đặt từ và mẫu câu vào ngữ cảnh</small></span><ArrowRight size={16} aria-hidden="true" /></a>
+      </div>
+    </section>
 
-      <!-- Quiz Modes -->
-      <section>
-        <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3 flex items-center gap-1.5">
-          <PenLine size={12} aria-hidden="true" /> Quiz Modes
-        </h2>
-        <div class="flex flex-col gap-3">
-          <button
-            class="stagger-item group flex items-center gap-4 w-full px-5 py-5 bg-primary text-primary-foreground rounded-2xl shadow-md text-left transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
-            style="animation-delay: 0ms"
-            on:click={() => startQuiz('flashcard')}
-          >
-            <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center">
-              <Layers size={22} aria-hidden="true" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2">
-                <span class="font-semibold">Flashcard Quiz</span>
-                <span class="text-[0.55rem] font-bold uppercase tracking-wider bg-white/20 px-1.5 py-0.5 rounded-full">Gợi ý</span>
-              </div>
-              <span class="text-xs opacity-75">Lật thẻ để xem đáp án</span>
-            </div>
-            <ChevronRight size={18} class="ml-auto opacity-60 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
-          </button>
-          <button
-            class="stagger-item group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
-            style="animation-delay: 50ms"
-            on:click={() => startQuiz('multiple-choice')}
-          >
-            <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              <CheckCircle size={22} class="text-primary" aria-hidden="true" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <span class="font-semibold block">Multiple Choice</span>
-              <span class="text-xs text-muted-foreground">Chọn đáp án đúng trong 4 lựa chọn</span>
-            </div>
-            <ChevronRight size={18} class="ml-auto text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
-          </button>
-          <button
-            class="stagger-item group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
-            style="animation-delay: 100ms"
-            on:click={() => startQuiz('typing')}
-          >
-            <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              <Keyboard size={22} class="text-primary" aria-hidden="true" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <span class="font-semibold block">Typing Quiz</span>
-              <span class="text-xs text-muted-foreground">Nhập câu trả lời bằng bàn phím</span>
-            </div>
-            <ChevronRight size={18} class="ml-auto text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
-          </button>
-        </div>
-      </section>
-
-      <!-- Grammar Quiz -->
-      {#if lesson.grammar.length > 0}
-        <section>
-          <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3 flex items-center gap-1.5">
-            <PenLine size={12} aria-hidden="true" /> Grammar
-          </h2>
-          <button
-            class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-success/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
-            on:click={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}
-          >
-            <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-success/10 flex items-center justify-center group-hover:bg-success/20 transition-colors">
-              <PenLine size={22} class="text-success-text" aria-hidden="true" />
-            </div>
-            <div class="flex-1 min-w-0">
-              <span class="font-semibold block">Grammar Quiz</span>
-              <span class="text-xs text-muted-foreground">{lesson.grammar.length} patterns</span>
-            </div>
-            <ChevronRight size={18} class="ml-auto text-muted-foreground group-hover:text-success-text group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
-          </button>
-        </section>
-      {/if}
-
-      <!-- Study Materials -->
-      <section>
-        <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3 flex items-center gap-1.5">
-          <BookOpen size={12} aria-hidden="true" /> Study Materials
-        </h2>
-        <div class="flex flex-col gap-3">
-          <button
-            class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-warning/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
-            on:click={() => goto(buildVocabularyUrl(courseId, lessonId))}
-          >
-            <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-warning/10 flex items-center justify-center group-hover:bg-warning/20 transition-colors">
-              <BookOpen size={22} class="text-warning-text" aria-hidden="true" />
-            </div>
-            <span class="flex-1 font-semibold">Vocabulary</span>
-            <span class="px-2 py-0.5 rounded-lg bg-muted text-xs text-muted-foreground font-medium">{lesson.vocabulary.length} từ</span>
-            <ChevronRight size={18} class="text-muted-foreground group-hover:text-warning-text group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
-          </button>
-          <button
-            class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-all duration-200 hover:border-warning/50 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
-            on:click={() => goto(buildGrammarUrl(courseId, lessonId))}
-          >
-            <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-warning/10 flex items-center justify-center group-hover:bg-warning/20 transition-colors">
-              <Book size={22} class="text-warning-text" aria-hidden="true" />
-            </div>
-            <span class="flex-1 font-semibold">Grammar</span>
-            <span class="px-2 py-0.5 rounded-lg bg-muted text-xs text-muted-foreground font-medium">{lesson.grammar.length} mẫu</span>
-            <ChevronRight size={18} class="text-muted-foreground group-hover:text-warning-text group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
-          </button>
-        </div>
-      </section>
-    </div>
+    <section class="practice" aria-labelledby="practice-title">
+      <div class="section-title"><CheckCircle2 size={20} aria-hidden="true" /><div><h2 id="practice-title">Luyện tập</h2><p>Chọn cách nhớ phù hợp</p></div></div>
+      <div class="practice-list">
+        <button on:click={() => startQuiz('multiple-choice')}><CheckCircle2 size={20} aria-hidden="true" /><span><strong>Chọn đáp án</strong><small>Nhận phản hồi ngay, dùng phím 1–4</small></span><ArrowRight size={16} aria-hidden="true" /></button>
+        <button on:click={() => startQuiz('typing')}><Keyboard size={20} aria-hidden="true" /><span><strong>Nhập câu trả lời</strong><small>Gợi nhớ chủ động bằng bàn phím</small></span><ArrowRight size={16} aria-hidden="true" /></button>
+        {#if lesson.grammar.length > 0}<button on:click={() => goto(`${base}/course/${courseId}/lesson/${lessonId}/grammar-quiz/mixed`)}><PenLine size={20} aria-hidden="true" /><span><strong>Quiz ngữ pháp</strong><small>Điền chỗ trống và nhận diện mẫu câu</small></span><ArrowRight size={16} aria-hidden="true" /></button>{/if}
+      </div>
+    </section>
   </div>
 {:else}
-  <PageEmpty
-    title="Lesson Not Found"
-    description="The lesson you're looking for doesn't exist."
-    action={{ label: 'Back to Courses', href: '/courses' }}
-  />
+  <PageEmpty title="Không tìm thấy bài học" description="Bài học này không tồn tại hoặc chưa sẵn sàng." action={{ label: 'Về danh sách khóa học', href: '/courses' }} />
 {/if}
+
+<style>
+  .lesson-workspace { width: min(100% - 2rem, 820px); margin: 0 auto; padding: clamp(2rem, 6vw, 4rem) 0; }
+  .lesson-heading { max-width: 680px; margin-bottom: clamp(2.5rem, 7vw, 4.5rem); }
+  .eyebrow { margin: 0 0 5px; color: var(--color-primary); font-size: .72rem; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+  h1, h2, p { margin-top: 0; }
+  h1 { margin-bottom: var(--spacing-sm); font-family: var(--font-japanese); font-size: clamp(1.75rem, 5vw, 2.75rem); line-height: 1.25; }
+  h2 { margin-bottom: 3px; font-size: 1.15rem; }
+  .lesson-heading > p:not(.eyebrow), .next-step p, .section-title p { color: var(--color-muted-foreground); }
+  .mastery { display: flex; justify-content: space-between; margin-top: var(--spacing-lg); font-size: .78rem; }
+  .next-step { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: var(--spacing-xl); padding: var(--spacing-lg); margin-bottom: clamp(2.5rem, 7vw, 4rem); color: var(--color-shell-foreground); background: var(--color-shell); border-radius: var(--radius-surface); }
+  .next-step .eyebrow { color: color-mix(in srgb, var(--color-primary) 70%, white); }
+  .next-step p { margin-bottom: 0; color: color-mix(in srgb, var(--color-shell-foreground) 72%, transparent); }
+  .primary-study { min-height: 48px; display: inline-flex; align-items: center; gap: var(--spacing-sm); padding: 0 var(--spacing-md); color: var(--color-primary-foreground); background: var(--color-primary); border: 0; border-radius: var(--radius-control); font-weight: 700; cursor: pointer; }
+  section:not(.next-step) { margin-bottom: clamp(2.5rem, 7vw, 4rem); }
+  .section-title { display: flex; align-items: flex-start; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); }
+  .section-title :global(svg) { color: var(--color-primary); margin-top: 2px; }
+  .section-title p { margin-bottom: 0; font-size: .78rem; }
+  .direction-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-sm); }
+  .direction-options button { min-height: 70px; display: grid; align-content: center; gap: 2px; padding: var(--spacing-sm); color: var(--color-muted-foreground); background: transparent; border: 1px solid var(--color-border); border-radius: var(--radius-control); cursor: pointer; }
+  .direction-options button.active { color: var(--color-primary); background: var(--color-primary-subtle); border-color: var(--color-primary); }
+  .direction-options span { font-size: .7rem; }
+  .study-list, .practice-list { border-block: 1px solid var(--color-border); }
+  .study-list button, .study-list a, .practice-list button { width: 100%; min-height: 72px; display: flex; align-items: center; gap: var(--spacing-md); padding: var(--spacing-sm) 0; color: var(--color-foreground); background: transparent; border: 0; border-bottom: 1px solid var(--color-border); text-align: left; text-decoration: none; cursor: pointer; }
+  .study-list > :last-child, .practice-list > :last-child { border-bottom: 0; }
+  .study-list > * > :global(svg:first-child), .practice-list > * > :global(svg:first-child) { color: var(--color-primary); }
+  .study-list span, .practice-list span { flex: 1; display: grid; }
+  .study-list small, .practice-list small { color: var(--color-muted-foreground); line-height: 1.45; }
+  @media (max-width: 620px) {
+    .lesson-workspace { width: min(100% - 1.25rem, 820px); }
+    .next-step { grid-template-columns: 1fr; align-items: start; }
+    .primary-study { justify-content: center; }
+    .direction-options { grid-template-columns: 1fr; }
+    .direction-options button { min-height: 58px; }
+  }
+</style>

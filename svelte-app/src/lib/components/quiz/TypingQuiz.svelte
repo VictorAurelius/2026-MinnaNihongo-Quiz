@@ -135,8 +135,8 @@
     disabled={answered}
     autocomplete="off"
   />
-  <button class="btn btn-secondary" on:click={toggleKeyboard} aria-label="Toggle keyboard">
-    <Keyboard size={18} aria-hidden="true" />
+  <button class="ui-button" data-variant="secondary" on:click={toggleKeyboard} aria-label="Toggle keyboard">
+    <Keyboard size={20} aria-hidden="true" />
   </button>
 </div>
 
@@ -159,7 +159,7 @@
 <div class="romaji-hint-wrapper">
   {#if !showHint}
     <button class="btn-hint" on:click={toggleHint}>
-      <Lightbulb size={14} aria-hidden="true" /> Show Romaji Hint
+      <Lightbulb size={16} aria-hidden="true" /> Show Romaji Hint
     </button>
   {:else if question.kana}
     <div class="hint-romaji">{question.kana}</div>
@@ -174,12 +174,12 @@
       <X size={16} aria-hidden="true" /> Wrong! The correct answer is: {answer}
     {/if}
   </div>
-  <button class="btn btn-primary btn-lg" on:click={advance}>
+  <button class="ui-button" data-variant="default" data-size="lg" on:click={advance}>
     Next Question <ArrowRight size={16} aria-hidden="true" />
   </button>
   <div class="hint-text">Press Enter to continue</div>
 {:else}
-  <button class="btn btn-primary btn-lg" on:click={submitAnswer} disabled={!userInput.trim()}>
+  <button class="ui-button" data-variant="default" data-size="lg" on:click={submitAnswer} disabled={!userInput.trim()}>
     Submit Answer
   </button>
 {/if}
@@ -188,10 +188,10 @@
   .quiz-question-card {
     background: var(--color-card);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-surface);
     padding: 1.5rem;
     margin-bottom: 1.25rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-surface);
     text-align: center;
   }
 
@@ -202,7 +202,7 @@
   }
 
   .question-text {
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     font-size: 1.875rem; /* text-3xl — consistent across all quiz modes */
     font-weight: 700;
     line-height: 1.4;
@@ -226,7 +226,7 @@
     flex: 1;
     padding: 0.75rem 1rem;
     font-size: 1.1rem;
-    font-family: var(--font-jp);
+    font-family: var(--font-japanese);
     border: 2px solid var(--color-border);
     border-radius: 8px;
     background: var(--color-card);

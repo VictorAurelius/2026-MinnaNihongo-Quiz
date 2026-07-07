@@ -212,7 +212,7 @@ describe('FlashCard Component', () => {
       render(FlashCard, { props: { item } });
 
       const correctBtn = screen.getByText(/Correct/);
-      expect(correctBtn).toHaveClass('btn-success');
+      expect(correctBtn).toHaveAttribute('data-variant', 'success');
     });
 
     it('should have wrong button with danger class', () => {
@@ -220,7 +220,7 @@ describe('FlashCard Component', () => {
       render(FlashCard, { props: { item } });
 
       const wrongBtn = screen.getByText(/Wrong/);
-      expect(wrongBtn).toHaveClass('btn-danger');
+      expect(wrongBtn).toHaveAttribute('data-variant', 'destructive');
     });
   });
 

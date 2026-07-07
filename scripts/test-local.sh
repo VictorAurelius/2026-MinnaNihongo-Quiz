@@ -11,6 +11,7 @@
 #   ./scripts/test-local.sh --quick            # Compile/lint only (no full tests)
 
 set -e
+set -o pipefail
 
 # =============================================================================
 # CONFIGURE THESE FOR YOUR PROJECT
@@ -66,10 +67,10 @@ run_step() {
     echo -e "${BLUE}> $name${NC}"
     if (cd "$dir" && eval "$cmd") 2>&1 | tail -5; then
         echo -e "${GREEN}  [OK] $name passed${NC}"
-        ((PASSED++))
+        PASSED=$((PASSED + 1))
     else
         echo -e "${RED}  [!!] $name FAILED${NC}"
-        ((FAILED++))
+        FAILED=$((FAILED + 1))
     fi
     echo ""
 }
@@ -82,7 +83,7 @@ run_tests_for() {
 
     if [ ! -d "$dir" ]; then
         echo -e "${YELLOW}  [SKIP] $label: directory not found ($dir)${NC}"
-        ((SKIPPED++))
+        SKIPPED=$((SKIPPED + 1))
         return
     fi
 
@@ -103,7 +104,7 @@ run_tests_for() {
                 fi
             else
                 echo -e "${YELLOW}  [SKIP] $label: no mvnw or gradlew found${NC}"
-                ((SKIPPED++))
+                SKIPPED=$((SKIPPED + 1))
             fi
             ;;
         node)
@@ -125,12 +126,12 @@ run_tests_for() {
                         run_step "$label: Tests" "npm test 2>&1" "$dir"
                     else
                         echo -e "${YELLOW}  [SKIP] $label: no test runner found${NC}"
-                        ((SKIPPED++))
+                        SKIPPED=$((SKIPPED + 1))
                     fi
                 fi
             else
                 echo -e "${YELLOW}  [SKIP] $label: no package.json found${NC}"
-                ((SKIPPED++))
+                SKIPPED=$((SKIPPED + 1))
             fi
             ;;
         python)
@@ -148,17 +149,17 @@ run_tests_for() {
                         run_step "$label: Django Tests" "python manage.py test 2>&1" "$dir"
                     else
                         echo -e "${YELLOW}  [SKIP] $label: no test runner found${NC}"
-                        ((SKIPPED++))
+                        SKIPPED=$((SKIPPED + 1))
                     fi
                 fi
             else
                 echo -e "${YELLOW}  [SKIP] $label: no Python project found${NC}"
-                ((SKIPPED++))
+                SKIPPED=$((SKIPPED + 1))
             fi
             ;;
         *)
             echo -e "${YELLOW}  [SKIP] $label: unknown type '$type'${NC}"
-            ((SKIPPED++))
+            SKIPPED=$((SKIPPED + 1))
             ;;
     esac
 }

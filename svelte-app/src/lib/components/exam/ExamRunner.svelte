@@ -10,7 +10,7 @@
   import { onMount, onDestroy } from 'svelte';
   import { base } from '$app/paths';
   import type { ExamPaper, ExamResult } from '$lib/types/exam';
-  import { computeExamResult, saveAttempt, sectionTypeLabel } from '$lib/utils/examUtils';
+  import { clearExamDraft, computeExamResult, getExamDraft, saveAttempt, saveExamDraft, sectionTypeLabel } from '$lib/utils/examUtils';
   import ExamQuestionView from './ExamQuestionView.svelte';
   import ExamResultView from './ExamResultView.svelte';
   import { Badge } from '$lib/components/ui/badge';
@@ -45,6 +45,7 @@
   let showConfirm = $state(false);
   // Becomes true after client hydration — exposed via data-ready for reliable testing.
   let hydrated = $state(false);
+  let resumable = $state(false);
   let timer: ReturnType<typeof setInterval> | undefined;
 
   const answeredCount = $derived(Object.keys(answers).length);
@@ -78,20 +79,44 @@
         submit();
       }
     }, 1000);
+    persistDraft();
+  }
+
+  function persistDraft() {
+    if (phase !== 'running' || !startedAt) return;
+    saveExamDraft({ paperId: paper.id, answers: { ...answers }, currentSection, startedAt, expiresAt: startedAt + paper.durationMinutes * 60_000 });
+  }
+
+  function resume() {
+    const draft = getExamDraft(paper.id);
+    if (!draft) { resumable = false; return; }
+    answers = { ...draft.answers };
+    currentSection = Math.min(draft.currentSection, paper.sections.length - 1);
+    startedAt = draft.startedAt;
+    timeRemaining = Math.max(1, Math.ceil((draft.expiresAt - Date.now()) / 1000));
+    phase = 'running';
+    resumable = false;
+    stopTimer();
+    timer = setInterval(() => {
+      timeRemaining -= 1;
+      if (timeRemaining <= 0) { timeRemaining = 0; submit(); }
+    }, 1000);
   }
 
   function selectAnswer(questionId: string, optionIndex: number) {
     answers = { ...answers, [questionId]: optionIndex };
+    persistDraft();
   }
 
   function goPrev() {
-    if (!isFirstSection) currentSection -= 1;
+    if (!isFirstSection) { currentSection -= 1; persistDraft(); }
   }
   function goNext() {
-    if (!isLastSection) currentSection += 1;
+    if (!isLastSection) { currentSection += 1; persistDraft(); }
   }
   function jumpTo(index: number) {
     currentSection = index;
+    persistDraft();
   }
 
   function requestSubmit() {
@@ -114,6 +139,7 @@
       answers: { ...answers },
       result: r
     });
+    clearExamDraft(paper.id);
     showConfirm = false;
     phase = 'result';
   }
@@ -129,6 +155,7 @@
 
   onMount(() => {
     hydrated = true;
+    resumable = getExamDraft(paper.id) !== null;
   });
   onDestroy(stopTimer);
 </script>
@@ -149,7 +176,7 @@
         {#each paper.sections as s, i (i)}
           <li>
             <span class="intro__sec-label">{sectionTypeLabel(s.type)}</span>
-            <span class="intro__sec-title" style="font-family: var(--font-jp)">{s.title}</span>
+            <span class="intro__sec-title" style="font-family: var(--font-japanese)">{s.title}</span>
             <span class="intro__sec-count">{s.questions.length} câu</span>
           </li>
         {/each}
@@ -162,6 +189,7 @@
       {/if}
 
       <div class="intro__actions">
+        {#if resumable}<Button size="lg" onclick={resume}>Tiếp tục bài đang làm</Button>{/if}
         <Button size="lg" onclick={start}>Bắt đầu làm bài</Button>
         <a class="intro__back" href="{base}/exams">Quay lại danh sách</a>
       </div>
@@ -202,7 +230,7 @@
       {/each}
     </div>
 
-    <h2 class="section-title" style="font-family: var(--font-jp)">{section.title}</h2>
+    <h2 class="section-title" style="font-family: var(--font-japanese)">{section.title}</h2>
     {#if section.instructions}
       <p class="section-instructions">{section.instructions}</p>
     {/if}
@@ -211,7 +239,7 @@
     {#if section.passages}
       {#each section.passages as psg (psg.id)}
         <div class="passage">
-          <p class="passage__text" style="font-family: var(--font-jp)">{psg.text}</p>
+          <p class="passage__text" style="font-family: var(--font-japanese)">{psg.text}</p>
         </div>
       {/each}
     {/if}
@@ -311,7 +339,7 @@
     padding: 0.7rem 0.9rem;
     background: var(--color-card);
     border: 1px solid var(--color-border);
-    border-radius: 0.6rem;
+    border-radius: var(--radius-surface);
   }
   .intro__sec-label {
     font-size: 0.72rem;
@@ -435,7 +463,7 @@
   .passage {
     padding: 0.9rem 1rem;
     background: var(--color-muted);
-    border-left: 3px solid var(--color-primary);
+    border: 1px solid var(--color-primary);
     border-radius: 0.5rem;
   }
   .passage__text {
@@ -479,15 +507,15 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--color-overlay);
   }
   .confirm {
     width: 100%;
     max-width: 360px;
     padding: 1.5rem;
     background: var(--color-card);
-    border-radius: 1rem;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius-surface);
+    box-shadow: var(--shadow-lifted);
     text-align: center;
   }
   .confirm__title {

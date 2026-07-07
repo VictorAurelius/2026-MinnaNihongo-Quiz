@@ -4,11 +4,11 @@
 
 import { describe, it, expect } from 'vitest';
 
-describe('ConfirmDialog', () => {
+describe('AlertDialog', () => {
   it('exports required props interface', async () => {
     // Verify the module exports correctly
-    const mod = await import('$lib/components/common/ConfirmDialog.svelte');
-    expect(mod.default).toBeDefined();
+    const mod = await import('$lib/components/ui/alert-dialog');
+    expect(mod.AlertDialog).toBeDefined();
   });
 });
 

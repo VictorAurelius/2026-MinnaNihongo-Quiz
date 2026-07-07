@@ -9,6 +9,9 @@ import {
   saveAttempt,
   getAttempts,
   getAttemptsForPaper,
+  saveExamDraft,
+  getExamDraft,
+  clearExamDraft,
   PASS_PERCENT
 } from '$lib/utils/examUtils';
 import { loadPaper } from '$lib/data/exams';
@@ -214,5 +217,22 @@ describe('attempt persistence', () => {
   it('recovers gracefully from corrupt storage', () => {
     localStorage.setItem('smart_quiz_exam_attempts', 'not-json{');
     expect(getAttempts()).toEqual([]);
+  });
+});
+
+describe('exam draft persistence', () => {
+  beforeEach(() => localStorage.clear());
+
+  it('saves, restores, and clears an active exam', () => {
+    const draft = { paperId: 'n5-sample-1', answers: { q1: 2 }, currentSection: 1, startedAt: Date.now(), expiresAt: Date.now() + 60_000 };
+    saveExamDraft(draft);
+    expect(getExamDraft(draft.paperId)).toEqual(draft);
+    clearExamDraft(draft.paperId);
+    expect(getExamDraft(draft.paperId)).toBeNull();
+  });
+
+  it('discards an expired draft', () => {
+    saveExamDraft({ paperId: 'expired', answers: {}, currentSection: 0, startedAt: 1, expiresAt: Date.now() - 1 });
+    expect(getExamDraft('expired')).toBeNull();
   });
 });

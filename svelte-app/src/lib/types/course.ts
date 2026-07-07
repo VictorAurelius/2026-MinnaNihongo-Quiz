@@ -14,7 +14,7 @@ export interface CourseMetadata {
   level: string;           // "N5", "N4"
   lessonCount: number;     // 25
   icon: string;            // "📕", "📗"
-  color: string;           // Hex color for UI theming
+  color: string;           // Semantic CSS token for course identity
 }
 
 export interface LessonMetadata {

@@ -18,6 +18,15 @@ import type {
 
 /** localStorage key for saved exam attempts. */
 const ATTEMPTS_KEY = 'smart_quiz_exam_attempts';
+const DRAFTS_KEY = 'smart_quiz_exam_drafts';
+
+export interface ExamDraft {
+  paperId: string;
+  answers: Record<string, number>;
+  currentSection: number;
+  startedAt: number;
+  expiresAt: number;
+}
 
 /** JLPT-style overall pass threshold (percentage). */
 export const PASS_PERCENT = 60;
@@ -101,4 +110,41 @@ export function saveAttempt(attempt: ExamAttempt): void {
 /** Saved attempts for a single paper (newest first). */
 export function getAttemptsForPaper(paperId: string): ExamAttempt[] {
   return getAttempts().filter((a) => a.paperId === paperId);
+}
+
+export function saveExamDraft(draft: ExamDraft): void {
+  if (!browser) return;
+  try {
+    const drafts = JSON.parse(localStorage.getItem(DRAFTS_KEY) || '{}') as Record<string, ExamDraft>;
+    drafts[draft.paperId] = draft;
+    localStorage.setItem(DRAFTS_KEY, JSON.stringify(drafts));
+  } catch {
+    /* The exam remains usable when storage is unavailable. */
+  }
+}
+
+export function getExamDraft(paperId: string): ExamDraft | null {
+  if (!browser) return null;
+  try {
+    const drafts = JSON.parse(localStorage.getItem(DRAFTS_KEY) || '{}') as Record<string, ExamDraft>;
+    const draft = drafts[paperId];
+    if (!draft || draft.expiresAt <= Date.now()) {
+      if (draft) clearExamDraft(paperId);
+      return null;
+    }
+    return draft;
+  } catch {
+    return null;
+  }
+}
+
+export function clearExamDraft(paperId: string): void {
+  if (!browser) return;
+  try {
+    const drafts = JSON.parse(localStorage.getItem(DRAFTS_KEY) || '{}') as Record<string, ExamDraft>;
+    delete drafts[paperId];
+    localStorage.setItem(DRAFTS_KEY, JSON.stringify(drafts));
+  } catch {
+    /* ignore unavailable storage */
+  }
 }

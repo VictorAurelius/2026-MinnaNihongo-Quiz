@@ -17,9 +17,9 @@
   <title>Courses - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-2xl animate-in">
+<div class="mx-auto max-w-2xl ">
   <!-- Hero -->
-  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(245 58% 35%), hsl(262 60% 45%))">
+  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: var(--color-shell)">
     <div class="relative z-10">
       <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm">Japanese Courses</h1>
       <p class="text-sm font-medium text-white/80 mt-1">Chọn khóa học để bắt đầu</p>
@@ -40,11 +40,11 @@
       {#each courses as course, i}
         <a
           href="{base}/course/{course.metadata.id}"
-          class="stagger-item group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left no-underline transition-all duration-200 hover:border-primary/50 hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent/30 active:scale-[0.98] cursor-pointer relative overflow-hidden"
+          class=" group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left no-underline transition-colors duration-200 hover:border-primary/50 hover:-translate-y-0.5 hover:shadow-lg hover:bg-accent/30 active:scale-[0.98] cursor-pointer relative overflow-hidden"
           style="animation-delay: {i * 50}ms"
         >
           <div class="absolute left-0 inset-y-0 w-1 rounded-l-2xl" style="background: {course.metadata.color}"></div>
-          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-2xl" style="background: {course.metadata.color}20">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-2xl" style="background: color-mix(in srgb, {course.metadata.color} 12%, transparent)">
             {course.metadata.icon}
           </div>
           <div class="flex-1 min-w-0">
@@ -54,7 +54,7 @@
             </div>
             <p class="text-xs text-muted-foreground leading-snug">{course.metadata.description}</p>
           </div>
-          <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform" aria-hidden="true" />
+          <ChevronRight size={20} class="flex-shrink-0 text-muted-foreground group-hover:translate-x-1 group-hover:text-primary transition-transform" aria-hidden="true" />
         </a>
       {/each}
     </div>

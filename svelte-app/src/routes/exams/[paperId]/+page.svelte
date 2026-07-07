@@ -16,7 +16,7 @@
   <title>{paper ? `${paper.title} - Smart Quiz` : 'Đề không tồn tại - Smart Quiz'}</title>
 </svelte:head>
 
-<div class="mx-auto max-w-2xl p-4 animate-in fade-in duration-300">
+<div class="mx-auto max-w-2xl p-4   duration-300">
   {#if paper}
     {#key paper.id}
       <ExamRunner {paper} />

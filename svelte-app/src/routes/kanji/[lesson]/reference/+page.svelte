@@ -1,9 +1,4 @@
 <script lang="ts">
-  /**
-   * Kanji Reference Table
-   * Shows all kanji for a lesson with readings, meanings, and examples
-   */
-
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
@@ -12,466 +7,133 @@
   import { kanaToRomaji } from '$lib/utils/kanaUtils';
   import StrokeOrder from '$lib/components/kanji/StrokeOrder.svelte';
   import RadicalBreakdown from '$lib/components/kanji/RadicalBreakdown.svelte';
-  import type { KanjiItem } from '$lib/types';
+  import PageEmpty from '$lib/components/common/PageEmpty.svelte';
+  import { ArrowLeft, ArrowRight, Search, Volume2 } from 'lucide-svelte';
 
   let searchTerm = '';
-  let expandedKanji: string | null = null;
-  let showStrokes: string | null = null;
-
-  $: lessonId = parseInt($page.params.lesson || '0');
+  let selectedCharacter = '';
+  $: lessonId = Number($page.params.lesson || 0);
   $: lessonData = lessonId > 0 ? getKanjiLessonData(lessonId) : null;
-  $: kanjiList = lessonData?.kanji || [];
-
+  $: kanjiList = lessonData?.kanji ?? [];
   $: filteredKanji = kanjiList.filter(item => {
-    if (!searchTerm) return true;
-    const search = searchTerm.toLowerCase();
-    return (
-      item.character.includes(search) ||
-      item.onyomi.some(r => r.toLowerCase().includes(search)) ||
-      item.kunyomi.some(r => r.toLowerCase().includes(search)) ||
-      item.vietnamese.toLowerCase().includes(search) ||
-      item.english.toLowerCase().includes(search)
-    );
+    const query = searchTerm.trim().toLowerCase();
+    return !query || item.character.includes(query) || item.onyomi.some(value => value.toLowerCase().includes(query)) || item.kunyomi.some(value => value.toLowerCase().includes(query)) || item.vietnamese.toLowerCase().includes(query) || item.english.toLowerCase().includes(query);
   });
+  $: if (filteredKanji.length && !filteredKanji.some(item => item.character === selectedCharacter)) selectedCharacter = filteredKanji[0].character;
+  $: selected = kanjiList.find(item => item.character === selectedCharacter) ?? filteredKanji[0] ?? null;
+  $: selectedIndex = selected ? kanjiList.findIndex(item => item.character === selected.character) : -1;
 
-  function toggleExpand(character: string) {
-    expandedKanji = expandedKanji === character ? null : character;
+  function move(offset: number) {
+    const next = kanjiList[selectedIndex + offset];
+    if (next) selectedCharacter = next.character;
   }
-
-  function speak(text: string, event?: MouseEvent) {
-    event?.stopPropagation();
-    playJapaneseAudio(text);
-  }
-
-  const hasAudio = typeof window !== 'undefined' && 'speechSynthesis' in window;
 </script>
 
-<svelte:head>
-  <title>Kanji Reference - Bài {lessonId} | Smart Quiz</title>
-</svelte:head>
+<svelte:head><title>Bàn học Kanji · Bài {lessonId} · Smart Quiz</title></svelte:head>
 
-{#if lessonData}
-  <div class="reference-page">
-    <div class="page-header">
-      <h2>Kanji Reference - Bài {lessonData.lessonNumber}</h2>
-      <p class="subtitle">{lessonData.title}</p>
-      <p class="word-count">{kanjiList.length} kanji</p>
-    </div>
-
-    <!-- Search -->
-    <div class="controls">
-      <div class="search-box">
-        <input
-          type="text"
-          placeholder="Search kanji, reading, meaning..."
-          bind:value={searchTerm}
-          class="search-input"
-        />
-        {#if searchTerm}
-          <button class="clear-search" on:click={() => searchTerm = ''}>✕</button>
-        {/if}
+{#if lessonData && selected}
+  <div class="kanji-desk">
+    <aside class="lesson-timeline" aria-label="Kanji trong bài">
+      <div class="timeline-heading"><p>Bài {lessonData.lessonNumber}</p><h1>{lessonData.title}</h1><span>{kanjiList.length} chữ</span></div>
+      <label class="search"><Search size={16} aria-hidden="true" /><span class="sr-only">Tìm Kanji</span><input bind:value={searchTerm} placeholder="Chữ, âm đọc, nghĩa..." /></label>
+      <div class="glyph-list">
+        {#each filteredKanji as item, index}
+          <button class:active={selected.character === item.character} on:click={() => selectedCharacter = item.character} aria-current={selected.character === item.character ? 'true' : undefined}>
+            <span class="glyph">{item.character}</span><span><strong>{item.vietnamese}</strong><small>{item.onyomi[0] || item.kunyomi[0] || '—'}</small></span><em>{index + 1}</em>
+          </button>
+        {/each}
+        {#if filteredKanji.length === 0}<p class="no-result">Không tìm thấy Kanji phù hợp.</p>{/if}
       </div>
-    </div>
+    </aside>
 
-    <div class="results-info">
-      {#if searchTerm}
-        <p>Showing <strong>{filteredKanji.length}</strong> of {kanjiList.length} kanji</p>
-      {:else}
-        <p>All <strong>{kanjiList.length}</strong> kanji</p>
+    <main class="glyph-focus">
+      <div class="focus-nav">
+        <button on:click={() => move(-1)} disabled={selectedIndex <= 0} aria-label="Kanji trước"><ArrowLeft size={20} aria-hidden="true" /></button>
+        <span>{selectedIndex + 1} / {kanjiList.length}</span>
+        <button on:click={() => move(1)} disabled={selectedIndex >= kanjiList.length - 1} aria-label="Kanji tiếp theo"><ArrowRight size={20} aria-hidden="true" /></button>
+      </div>
+      <div class="hero-glyph" aria-label={`Kanji ${selected.character}`}>{selected.character}</div>
+      <button class="speak" on:click={() => playJapaneseAudio(selected.character)}><Volume2 size={20} aria-hidden="true" /> Nghe chữ này</button>
+      <dl class="readings">
+        <div><dt>Âm On</dt><dd>{selected.onyomi.join('、') || '—'}</dd></div>
+        <div><dt>Âm Kun</dt><dd>{selected.kunyomi.join('、') || '—'}</dd></div>
+        <div><dt>Số nét</dt><dd>{selected.strokeCount}</dd></div>
+      </dl>
+      <div class="meaning"><strong>{selected.vietnamese}</strong><span>{selected.english}</span></div>
+      <div class="mobile-actions"><a href="{base}/kanji/{lessonId}/quiz/flashcard?direction=kanji-vi">Luyện chữ này <ArrowRight size={16} aria-hidden="true" /></a></div>
+    </main>
+
+    <section class="study-panel" aria-label="Chi tiết Kanji">
+      <section><div class="panel-heading"><p>Thứ tự nét</p><span>{selected.strokeCount} nét</span></div><StrokeOrder character={selected.character} size={180} /></section>
+      <section><div class="panel-heading"><p>Thành phần</p></div><RadicalBreakdown character={selected.character} /></section>
+      {#if selected.examples.length}
+        <section><div class="panel-heading"><p>Từ ví dụ</p><span>{selected.examples.length} từ</span></div><div class="examples">{#each selected.examples as example}<article><button on:click={() => playJapaneseAudio(example.kana)} aria-label={`Phát âm ${example.word}`}><Volume2 size={16} aria-hidden="true" /></button><div><strong>{example.word}</strong><span>{example.kana} · {kanaToRomaji(example.kana)}</span></div><p>{example.vietnamese || example.meaning}</p></article>{/each}</div></section>
       {/if}
-    </div>
-
-    <!-- Kanji Cards -->
-    <div class="kanji-list">
-      {#each filteredKanji as item, index}
-        <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <!-- svelte-ignore a11y_no_static_element_interactions -->
-        <div
-          class="kanji-card"
-          class:expanded={expandedKanji === item.character}
-          on:click={() => toggleExpand(item.character)}
-        >
-          <div class="kanji-row">
-            <div class="kanji-character">{item.character}</div>
-            <div class="kanji-info">
-              <div class="kanji-readings">
-                {#if item.onyomi.length > 0}
-                  <span class="reading-label">音</span>
-                  <span class="reading-on">{item.onyomi.join('、')}</span>
-                {/if}
-                {#if item.kunyomi.length > 0}
-                  <span class="reading-label">訓</span>
-                  <span class="reading-kun">{item.kunyomi.join('、')}</span>
-                {/if}
-              </div>
-              <div class="kanji-meanings">
-                <span class="meaning-vi">{item.vietnamese}</span>
-                <span class="meaning-en">{item.english}</span>
-              </div>
-            </div>
-            <div class="kanji-meta">
-              <span class="stroke-count">{item.strokeCount} nét</span>
-              <span class="jlpt-badge">N{item.jlpt}</span>
-              {#if hasAudio}
-                <button class="btn-speak" on:click|stopPropagation={(e) => speak(item.character, e)} title="Listen">
-                  🔊
-                </button>
-              {/if}
-            </div>
-          </div>
-
-          {#if expandedKanji === item.character}
-            <!-- Stroke Order -->
-            <div class="kanji-stroke-section">
-              <button class="btn-toggle-strokes" on:click|stopPropagation={() => showStrokes = showStrokes === item.character ? null : item.character}>
-                {showStrokes === item.character ? 'Hide' : 'Show'} Strokes
-              </button>
-              {#if showStrokes === item.character}
-                <StrokeOrder character={item.character} size={120} />
-              {/if}
-            </div>
-
-            <!-- Radical Breakdown -->
-            <RadicalBreakdown character={item.character} />
-
-            <!-- Examples -->
-            {#if item.examples.length > 0}
-            <div class="kanji-examples">
-              <div class="examples-title">Examples:</div>
-              {#each item.examples as ex}
-                <div class="example-item">
-                  <span class="ex-word">{ex.word}</span>
-                  <span class="ex-kana">{ex.kana}</span>
-                  <span class="ex-romaji">{kanaToRomaji(ex.kana)}</span>
-                  <span class="ex-meaning">{ex.vietnamese ? ex.vietnamese + ' / ' : ''}{ex.meaning}</span>
-                  <button class="ex-audio" on:click|stopPropagation={() => playJapaneseAudio(ex.kana)} title="Phát âm" aria-label="Phát âm {ex.word}">
-                    🔊
-                  </button>
-                </div>
-              {/each}
-            </div>
-            {/if}
-          {/if}
-        </div>
-      {/each}
-
-      {#if filteredKanji.length === 0}
-        <div class="empty-state">
-          No kanji found matching "{searchTerm}"
-        </div>
-      {/if}
-    </div>
+    </section>
   </div>
 {:else}
-  <div class="error-state">
-    <h2>Kanji Lesson Not Found</h2>
-    <p>Lesson {lessonId} does not exist.</p>
-    <button class="btn-back" on:click={() => goto(`${base}/kanji`)}>Back to Kanji</button>
-  </div>
+  <PageEmpty title="Không tìm thấy bài Kanji" description={`Bài ${lessonId} chưa có dữ liệu Kanji.`} action={{ label: 'Về danh sách Kanji', href: '/kanji' }} />
 {/if}
 
 <style>
-  .reference-page {
-    max-width: 800px;
-    margin: 0 auto;
-    animation: fadeIn 0.25s ease;
+  .kanji-desk { min-height: calc(100svh - 76px); display: grid; grid-template-columns: minmax(210px, 260px) minmax(300px, .85fr) minmax(340px, 1.15fr); background: var(--color-card); }
+  .lesson-timeline, .glyph-focus, .study-panel { min-width: 0; padding: clamp(1rem, 3vw, 2rem); }
+  .lesson-timeline { border-right: 1px solid var(--color-border); background: var(--color-background); }
+  .timeline-heading p { margin: 0; color: var(--color-primary); font-size: .72rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+  .timeline-heading h1 { margin: 4px 0; font-family: var(--font-japanese); font-size: 1.05rem; line-height: 1.35; }
+  .timeline-heading span { color: var(--color-muted-foreground); font-size: .75rem; }
+  .search { min-height: 44px; display: flex; align-items: center; gap: var(--spacing-xs); margin: var(--spacing-lg) 0 var(--spacing-sm); padding: 0 var(--spacing-sm); background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-control); }
+  .search input { min-width: 0; flex: 1; background: transparent; border: 0; outline: 0; }
+  .glyph-list { display: grid; gap: 2px; }
+  .glyph-list button { min-height: 58px; display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-xs) var(--spacing-sm); color: var(--color-foreground); background: transparent; border: 0; border-radius: var(--radius-control); text-align: left; cursor: pointer; }
+  .glyph-list button:hover, .glyph-list button.active { background: var(--color-primary-subtle); }
+  .glyph-list button.active { color: var(--color-primary); }
+  .glyph-list .glyph { font-family: var(--font-japanese); font-size: 1.65rem; }
+  .glyph-list button > span:nth-child(2) { min-width: 0; display: grid; }
+  .glyph-list strong, .glyph-list small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .glyph-list small, .glyph-list em { color: var(--color-muted-foreground); font-size: .68rem; font-style: normal; }
+  .no-result { color: var(--color-muted-foreground); font-size: .82rem; }
+  .glyph-focus { display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 1px solid var(--color-border); text-align: center; }
+  .focus-nav { width: 100%; display: flex; align-items: center; justify-content: space-between; color: var(--color-muted-foreground); font-size: .75rem; }
+  .focus-nav button { width: 44px; height: 44px; display: grid; place-items: center; color: inherit; background: transparent; border: 0; border-radius: var(--radius-control); cursor: pointer; }
+  .focus-nav button:hover:not(:disabled) { background: var(--color-muted); }
+  .hero-glyph { margin: clamp(1rem, 4vw, 2.5rem) 0; font-family: var(--font-japanese); font-size: clamp(7rem, 15vw, 11rem); font-weight: 600; line-height: .9; }
+  .speak { min-height: 44px; display: inline-flex; align-items: center; gap: var(--spacing-xs); padding: 0 var(--spacing-md); color: var(--color-primary); background: transparent; border: 1px solid var(--color-border); border-radius: var(--radius-control); cursor: pointer; }
+  .readings { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); margin: var(--spacing-xl) 0 var(--spacing-md); border-block: 1px solid var(--color-border); }
+  .readings div { padding: var(--spacing-md) var(--spacing-xs); border-right: 1px solid var(--color-border); }
+  .readings div:last-child { border-right: 0; }
+  .readings dt { color: var(--color-muted-foreground); font-size: .68rem; }
+  .readings dd { margin: 4px 0 0; font-family: var(--font-japanese); font-size: .9rem; font-weight: 650; }
+  .meaning { display: grid; }
+  .meaning strong { font-size: 1.25rem; }
+  .meaning span { color: var(--color-muted-foreground); }
+  .mobile-actions { margin-top: var(--spacing-lg); }
+  .mobile-actions a { min-height: 44px; display: inline-flex; align-items: center; gap: var(--spacing-sm); color: var(--color-primary); font-weight: 700; text-decoration: none; }
+  .study-panel { display: grid; align-content: start; gap: var(--spacing-xl); overflow-y: auto; }
+  .study-panel > section { padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--color-border); }
+  .study-panel > section:last-child { border-bottom: 0; }
+  .panel-heading { display: flex; justify-content: space-between; margin-bottom: var(--spacing-md); }
+  .panel-heading p { margin: 0; font-weight: 750; }
+  .panel-heading span { color: var(--color-muted-foreground); font-size: .75rem; }
+  .examples article { display: grid; grid-template-columns: 44px minmax(0, 1fr); align-items: center; padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--color-border); }
+  .examples article > button { width: 40px; height: 40px; display: grid; place-items: center; color: var(--color-primary); background: transparent; border: 0; border-radius: var(--radius-control); cursor: pointer; }
+  .examples article > div { min-width: 0; display: grid; }
+  .examples strong { font-family: var(--font-japanese); font-size: 1.05rem; }
+  .examples span { color: var(--color-muted-foreground); font-size: .72rem; }
+  .examples article > p { grid-column: 2; margin: 2px 0 0; }
+  @media (max-width: 1050px) {
+    .kanji-desk { grid-template-columns: 220px minmax(0, 1fr); }
+    .glyph-focus { border-right: 0; }
+    .study-panel { grid-column: 2; border-top: 1px solid var(--color-border); overflow: visible; }
   }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .page-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .page-header h2 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-  }
-
-  .subtitle {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-family: var(--font-jp);
-    margin-bottom: 0.25rem;
-  }
-
-  .word-count {
-    color: var(--primary);
-    font-size: 0.85rem;
-    font-weight: 600;
-  }
-
-  .controls {
-    margin-bottom: 1rem;
-  }
-
-  .search-box {
-    position: relative;
-  }
-
-  .search-input {
-    width: 100%;
-    padding: 0.6rem 2rem 0.6rem 0.75rem;
-    border: 2px solid var(--border);
-    border-radius: var(--radius-sm);
-    font-size: 0.9rem;
-    background: var(--bg-card);
-    color: var(--text);
-  }
-
-  .search-input:focus {
-    outline: none;
-    border-color: var(--primary);
-  }
-
-  .clear-search {
-    position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .results-info {
-    margin-bottom: 0.75rem;
-    color: var(--text-muted);
-    font-size: 0.82rem;
-  }
-
-  .kanji-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .kanji-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-    transition: border-color var(--transition);
-  }
-
-  .kanji-card:hover {
-    border-color: var(--primary);
-  }
-
-  .kanji-card.expanded {
-    border-color: var(--primary);
-    box-shadow: var(--shadow);
-  }
-
-  .kanji-row {
-    display: grid;
-    grid-template-columns: 3.5rem 1fr auto;
-    gap: 0.75rem;
-    align-items: center;
-  }
-
-  .kanji-character {
-    font-family: var(--font-jp);
-    font-size: 2.2rem;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1;
-  }
-
-  .kanji-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .kanji-readings {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-    font-family: var(--font-jp);
-    font-size: 0.9rem;
-  }
-
-  .reading-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 0.1rem 0.3rem;
-    border-radius: 3px;
-    background: var(--border);
-    color: var(--text-muted);
-  }
-
-  .reading-on {
-    color: var(--primary);
-    font-weight: 500;
-  }
-
-  .reading-kun {
-    color: var(--accent);
-    font-weight: 500;
-  }
-
-  .kanji-meanings {
-    display: flex;
-    gap: 0.5rem;
-    align-items: baseline;
-  }
-
-  .meaning-vi {
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-
-  .meaning-en {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-
-  .kanji-meta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.3rem;
-  }
-
-  .stroke-count {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-  }
-
-  .jlpt-badge {
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 0.1rem 0.4rem;
-    border-radius: 8px;
-    background: var(--primary);
-    color: white;
-  }
-
-  .btn-speak {
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 0.2rem 0.4rem;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-  }
-
-  .btn-speak:hover {
-    border-color: var(--primary);
-  }
-
-  /* Examples section */
-  .kanji-examples {
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .examples-title {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 0.4rem;
-  }
-
-  .example-item {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    padding: 0.25rem 0;
-    flex-wrap: wrap;
-  }
-
-  .ex-word {
-    font-family: var(--font-jp);
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .ex-kana {
-    font-family: var(--font-jp);
-    font-size: 0.85rem;
-    color: var(--primary);
-  }
-
-  .ex-romaji {
-    font-size: 0.78rem;
-    color: var(--color-muted-foreground);
-    font-style: italic;
-  }
-
-  .ex-meaning {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-  }
-
-  .ex-audio {
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 0.15rem 0.35rem;
-    font-size: 0.75rem;
-    transition: all 0.15s;
-    flex-shrink: 0;
-  }
-
-  .ex-audio:hover {
-    border-color: var(--primary);
-    background: var(--color-muted);
-  }
-
-  .btn-back {
-    padding: 0.4rem 0.8rem;
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    font-size: 0.85rem;
-    color: var(--text);
-    transition: all 0.2s;
-  }
-
-  .btn-back:hover {
-    background: var(--border);
-    border-color: var(--primary);
-    color: var(--primary);
-  }
-
-  .empty-state, .error-state {
-    text-align: center;
-    padding: 3rem;
-    color: var(--text-muted);
-  }
-
-  @media (max-width: 600px) {
-    .kanji-row {
-      grid-template-columns: 3rem 1fr auto;
-      gap: 0.5rem;
-    }
-
-    .kanji-character {
-      font-size: 1.8rem;
-    }
-
-    .kanji-readings {
-      font-size: 0.82rem;
-    }
-
-    .example-item {
-      flex-direction: column;
-      gap: 0.15rem;
-    }
+  @media (max-width: 700px) {
+    .kanji-desk { display: flex; flex-direction: column; }
+    .lesson-timeline { position: static; border-right: 0; border-bottom: 1px solid var(--color-border); }
+    .glyph-list { display: flex; overflow-x: auto; padding-bottom: var(--spacing-xs); }
+    .glyph-list button { min-width: 72px; grid-template-columns: 1fr; justify-items: center; }
+    .glyph-list button > span:nth-child(2), .glyph-list em { display: none; }
+    .glyph-focus { order: 2; min-height: 520px; border-bottom: 1px solid var(--color-border); }
+    .study-panel { order: 3; border-top: 0; }
+    .hero-glyph { font-size: 8rem; }
   }
 </style>

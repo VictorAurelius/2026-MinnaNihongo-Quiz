@@ -19,7 +19,7 @@
   <meta name="description" content="Làm đề thi thử JLPT theo cấp độ — chấm điểm, xem lại đáp án và giải thích." />
 </svelte:head>
 
-<div class="mx-auto max-w-2xl p-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
+<div class="mx-auto max-w-2xl p-4    duration-300">
   <header class="text-center mb-6">
     <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
       <ClipboardList size={24} class="text-primary" aria-hidden="true" />

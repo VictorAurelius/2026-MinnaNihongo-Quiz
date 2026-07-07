@@ -12,7 +12,7 @@
   import type { HSKQuizQuestion, HSKQuizDirection } from '$lib/utils/hskQuizUtils';
   import type { HSKWord } from '$lib/types/hsk';
   import { playChineseAudio } from '$lib/utils/audioUtils';
-  import ProgressBar from '$lib/components/common/ProgressBar.svelte';
+  import { QuizFrame, QuizSummary } from '$lib/components/quiz';
 
   $: groupId = $page.params.group;
   $: mode = $page.params.mode as 'flashcard' | 'mc' | 'typing';
@@ -28,6 +28,7 @@
   let mcOptions: string[] = [];
   let started = false;
   let allWords: HSKWord[] = [];
+  let groupWords: HSKWord[] = [];
 
   $: currentQ = questions[currentIndex] || null;
   $: isComplete = started && currentIndex >= questions.length;
@@ -37,6 +38,7 @@
     if (!group) { goto(`${base}/hsk`); return; }
 
     allWords = HSK5_DATA.flatMap(g => g.words);
+    groupWords = group.words;
     questions = generateHSKQuestions(group.words, direction, 10);
     started = true;
 
@@ -67,7 +69,6 @@
     selectedOption = option;
     answered = true;
     if (option === currentQ?.answer) score++;
-    setTimeout(advance, 1200);
   }
 
   function submitTyping() {
@@ -78,6 +79,17 @@
   }
 
   function advanceTyping() { advance(); }
+
+  function restart() {
+    questions = generateHSKQuestions(groupWords, direction, 10);
+    currentIndex = 0;
+    score = 0;
+    flipped = false;
+    answered = false;
+    selectedOption = null;
+    userInput = '';
+    if (mode === 'mc' && questions[0]) mcOptions = generateHSKMCOptions(questions[0].answer, allWords, direction);
+  }
 
   function handleKeydown(event: KeyboardEvent) {
     if (event.key === 'F1' && currentQ) {
@@ -92,6 +104,10 @@
     if (mode === 'mc' && !answered && ['1','2','3','4'].includes(event.key)) {
       const idx = parseInt(event.key) - 1;
       if (mcOptions[idx]) selectOption(mcOptions[idx]);
+    }
+    if (mode === 'mc' && answered && event.key === 'Enter') {
+      event.preventDefault();
+      advance();
     }
     if (mode === 'typing' && event.key === 'Enter') {
       event.preventDefault();
@@ -116,17 +132,12 @@
 
 <div class="quiz-page">
   {#if isComplete}
-    <div class="results-card">
-      <h2>Quiz Complete!</h2>
-      <div class="score">{score}/{questions.length}</div>
-      <div class="pct">{Math.round((score / questions.length) * 100)}%</div>
-      <div class="actions">
-        <button class="btn btn-primary" on:click={() => location.reload()}>Try Again</button>
-        <a href="{base}/hsk/{groupId}" class="btn btn-secondary">Back</a>
-      </div>
-    </div>
+    <QuizSummary title="Hoàn thành luyện HSK" {score} total={questions.length}>
+      <button class="ui-button" data-variant="default" on:click={restart}>Làm lại</button>
+      <a href="{base}/hsk/{groupId}" class="ui-button" data-variant="secondary">Về nhóm từ</a>
+    </QuizSummary>
   {:else if currentQ}
-    <ProgressBar current={currentIndex + 1} total={questions.length} showText={true} />
+    <QuizFrame title={mode === 'flashcard' ? 'Flashcard HSK' : mode === 'mc' ? 'Chọn đáp án HSK' : 'Nhập đáp án HSK'} context={`HSK 5 · ${groupId}`} direction={direction} current={currentIndex + 1} total={questions.length} shortcuts={mode === 'mc' ? ['1–4: chọn đáp án', 'F1: nghe'] : mode === 'flashcard' ? ['Space / Enter: lật thẻ', 'F1: nghe'] : ['Enter: trả lời / tiếp tục', 'F1: nghe']}>
 
     {#if mode === 'flashcard'}
       <div class="flashcard" class:flipped tabindex="0" role="button" aria-label="Flip card" on:click={toggleFlip} on:keydown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFlip(); } }}>
@@ -143,8 +154,8 @@
         </div>
       </div>
       <div class="nav-btns">
-        <button class="btn btn-danger" on:click={handleWrong}>✗ Wrong</button>
-        <button class="btn btn-success" on:click={handleCorrect}>✓ Correct</button>
+        <button class="ui-button" data-variant="destructive" on:click={handleWrong}>✗ Wrong</button>
+        <button class="ui-button" data-variant="success" on:click={handleCorrect}>✓ Correct</button>
       </div>
 
     {:else if mode === 'mc'}
@@ -159,6 +170,12 @@
           </button>
         {/each}
       </div>
+      {#if answered}
+        <div class="feedback" class:correct={selectedOption === currentQ.answer} class:wrong={selectedOption !== currentQ.answer} aria-live="polite">
+          {selectedOption === currentQ.answer ? 'Chính xác.' : `Đáp án đúng: ${currentQ.answer}`}
+        </div>
+        <button class="ui-button" data-variant="default" on:click={advance}>Câu tiếp theo</button>
+      {/if}
 
     {:else if mode === 'typing'}
       <div class="question-card">
@@ -170,49 +187,49 @@
         <div class="feedback" class:correct={userInput.trim().toLowerCase() === currentQ.answer.toLowerCase()} class:wrong={userInput.trim().toLowerCase() !== currentQ.answer.toLowerCase()} aria-live="polite">
           {userInput.trim().toLowerCase() === currentQ.answer.toLowerCase() ? '✓ Correct!' : `✗ Answer: ${currentQ.answer}`}
         </div>
-        <button class="btn btn-primary" on:click={advanceTyping}>Next →</button>
+        <button class="ui-button" data-variant="default" on:click={advanceTyping}>Next →</button>
       {:else}
-        <button class="btn btn-primary" on:click={submitTyping} disabled={!userInput.trim()}>Submit</button>
+        <button class="ui-button" data-variant="default" on:click={submitTyping} disabled={!userInput.trim()}>Submit</button>
       {/if}
     {/if}
+    </QuizFrame>
   {/if}
 </div>
 
 <style>
-  .quiz-page { max-width: 600px; margin: 0 auto; padding: 1rem; animation: fadeIn 0.25s ease; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .quiz-page { max-width: 600px; margin: 0 auto; padding: 1rem; }
 
-  .results-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; text-align: center; }
-  .score { font-size: 3rem; font-weight: 700; color: var(--primary); }
-  .pct { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .results-card { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-surface); padding: 2rem; text-align: center; }
+  .score { font-size: 3rem; font-weight: 700; color: var(--color-primary); }
+  .pct { font-size: 1.2rem; color: var(--color-muted-foreground); margin-bottom: 1.5rem; }
   .actions { display: flex; gap: 0.75rem; justify-content: center; }
 
-  .question-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1rem; text-align: center; }
-  .q-text { font-family: var(--font-cn); font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .question-card { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-surface); padding: 1.5rem; margin-bottom: 1rem; text-align: center; }
+  .q-text { font-family: var(--font-chinese); font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
 
   .flashcard { perspective: 800px; width: 100%; height: 250px; margin: 0 auto 1rem; cursor: pointer; outline: none; }
   .flashcard-inner { position: relative; width: 100%; height: 100%; transition: transform 0.5s; transform-style: preserve-3d; }
   .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
-  .flashcard-front, .flashcard-back { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); backface-visibility: hidden; }
+  .flashcard-front, .flashcard-back { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-surface); backface-visibility: hidden; }
   .flashcard-back { transform: rotateY(180deg); }
-  .fc-text { font-family: var(--font-cn); font-size: 2.5rem; font-weight: 700; }
+  .fc-text { font-family: var(--font-chinese); font-size: 2.5rem; font-weight: 700; }
   .fc-answer { font-size: 1.5rem; font-weight: 600; }
-  .fc-pinyin { font-size: 1rem; color: var(--text-muted); margin-top: 0.3rem; }
-  .hint-text { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; }
+  .fc-pinyin { font-size: 1rem; color: var(--color-muted-foreground); margin-top: 0.3rem; }
+  .hint-text { font-size: 0.78rem; color: var(--color-muted-foreground); margin-top: 0.5rem; }
   .nav-btns { display: flex; justify-content: center; gap: 0.75rem; }
 
   .mc-options { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
-  .mc-option { display: flex; align-items: center; gap: 0.75rem; width: 100%; padding: 0.8rem 1rem; font-size: 0.95rem; font-family: inherit; font-weight: 500; text-align: left; background: var(--bg-card); color: var(--text); border: 2px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; transition: border-color 0.15s; }
-  .mc-option:hover:not(:disabled) { border-color: var(--primary); }
-  .mc-option.correct { border-color: var(--success); background: var(--success-bg); }
-  .mc-option.wrong { border-color: var(--danger); background: var(--danger-bg); }
+  .mc-option { display: flex; align-items: center; gap: 0.75rem; width: 100%; padding: 0.8rem 1rem; font-size: 0.95rem; font-family: inherit; font-weight: 500; text-align: left; background: var(--color-card); color: var(--color-foreground); border: 2px solid var(--color-border); border-radius: var(--radius-control); cursor: pointer; transition: border-color 0.15s; }
+  .mc-option:hover:not(:disabled) { border-color: var(--color-primary); }
+  .mc-option.correct { border-color: var(--color-success); background: var(--color-success-subtle); }
+  .mc-option.wrong { border-color: var(--color-destructive); background: var(--color-destructive-subtle); }
   .mc-option.disabled { cursor: default; opacity: 0.7; }
-  .mc-num { font-weight: 700; color: var(--primary); }
+  .mc-num { font-weight: 700; color: var(--color-primary); }
 
-  .typing-input { width: 100%; padding: 0.75rem 1rem; font-size: 1.1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-card); color: var(--text); margin-bottom: 1rem; outline: none; }
-  .typing-input:focus { border-color: var(--primary); }
+  .typing-input { width: 100%; padding: 0.75rem 1rem; font-size: 1.1rem; border: 2px solid var(--color-border); border-radius: var(--radius-control); background: var(--color-card); color: var(--color-foreground); margin-bottom: 1rem; outline: none; }
+  .typing-input:focus { border-color: var(--color-primary); }
 
-  .feedback { padding: 0.6rem; border-radius: var(--radius-sm); font-weight: 600; text-align: center; margin-bottom: 0.75rem; }
-  .feedback.correct { background: var(--success-bg); color: var(--success); }
-  .feedback.wrong { background: var(--danger-bg); color: var(--danger); }
+  .feedback { padding: 0.6rem; border-radius: var(--radius-control); font-weight: 600; text-align: center; margin-bottom: 0.75rem; }
+  .feedback.correct { background: var(--color-success-subtle); color: var(--color-success); }
+  .feedback.wrong { background: var(--color-destructive-subtle); color: var(--color-destructive); }
 </style>

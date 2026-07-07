@@ -4,7 +4,7 @@
    */
 
   import { getLessonMetadata } from '$lib/data/minna/lessons';
-  import Card from '$lib/components/common/Card.svelte';
+  import Card from '$lib/components/ui/card/card.svelte';
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
 
@@ -29,7 +29,7 @@
 
   <div class="lesson-grid">
     {#each lessons as lesson}
-      <Card hover clickable on:click={() => handleLessonClick(lesson.lessonNumber)}>
+      <Card hover clickable onclick={() => handleLessonClick(lesson.lessonNumber)}>
         <div class="lesson-number">Bài {lesson.lessonNumber}</div>
         <div class="lesson-title">{lesson.title}</div>
         <div class="lesson-meta">
@@ -44,14 +44,6 @@
 </div>
 
 <style>
-  .lessons-page {
-    animation: fadeIn 0.25s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
 
   .screen-heading h2 {
     font-size: 1.35rem;
@@ -62,7 +54,7 @@
   .lesson-number {
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--color-primary);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     margin-bottom: 0.25rem;
@@ -77,22 +69,22 @@
 
   .lesson-meta {
     font-size: 0.78rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     margin-bottom: 0.5rem;
   }
 
   .lesson-progress-bar {
     height: 4px;
-    background: var(--border);
-    border-radius: 2px;
+    background: var(--color-border);
+    border-radius: var(--radius-control);
     overflow: hidden;
   }
 
   .lesson-progress-bar .fill {
     height: 100%;
-    background: var(--success);
-    border-radius: 2px;
-    transition: width 0.3s ease;
+    background: var(--color-success);
+    border-radius: var(--radius-control);
+    transition: none;
   }
 
   @media (max-width: 600px) {

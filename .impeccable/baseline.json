@@ -1,0 +1,38 @@
+{
+  "target": "svelte-app/src",
+  "capturedAt": "2026-07-02",
+  "total": 0,
+  "bySeverity": {
+    "warning": 0,
+    "advisory": 0
+  },
+  "byRule": {
+    "design-system-color": 0,
+    "design-system-radius": 0,
+    "side-tab": 0,
+    "design-system-font": 0,
+    "layout-transition": 0
+  },
+  "targets": {
+    "wave1": {
+      "design-system-color": 0,
+      "design-system-radius": 0,
+      "layout-transition": 0
+    },
+    "wave4": {
+      "side-tab": 0
+    },
+    "wave8": {
+      "warning": 0,
+      "advisory": 0
+    }
+  },
+  "ownership": {
+    "design-system-color": "Wave 1 — tokens and legacy CSS retirement",
+    "design-system-radius": "Wave 1 — radius scale consolidation",
+    "layout-transition": "Wave 1 — motion contract",
+    "side-tab": "Waves 1 and 4 — component and grammar/content migration",
+    "design-system-font": "Wave 1 — CJK typography roles"
+  },
+  "policy": "Existing findings are categorized migration debt, not permanent waivers. New findings above this baseline fail immediately; each wave must meet its owned target before closing."
+}

@@ -9,7 +9,7 @@ test.describe('User Flow: Quiz Pages Load Correctly', () => {
   test('should load flashcard quiz for lesson 1', async ({ page }) => {
     await page.goto('/quiz/flashcard?lesson=1');
     await expect(page.locator('.flashcard')).toBeVisible();
-    await expect(page.locator('.progress-bar')).toBeVisible();
+    await expect(page.locator('.quiz-frame progress')).toBeVisible();
   });
 
   test('should load multiple choice quiz for lesson 1', async ({ page }) => {

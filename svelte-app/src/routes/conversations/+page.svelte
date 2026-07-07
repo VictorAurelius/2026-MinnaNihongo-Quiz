@@ -11,9 +11,12 @@
   import { ChevronRight, Volume2, MessageCircle, Lightbulb, Globe } from 'lucide-svelte';
   import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
   import type { ConversationPattern } from '$lib/types/lesson';
+  import { onMount } from 'svelte';
 
   let selectedLevel = 'n5';
   let expandedId: string | null = null;
+  let hasAudioSupport = false;
+  onMount(() => { hasAudioSupport = 'speechSynthesis' in window; });
 
   const levels = [
     { id: 'n5', label: 'N5', desc: 'Cơ bản' },
@@ -34,9 +37,9 @@
   <title>Mẫu câu giao tiếp — Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-2xl animate-in">
+<div class="mx-auto max-w-2xl ">
   <!-- Hero -->
-  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: linear-gradient(135deg, hsl(245 58% 35%), hsl(262 60% 45%))">
+  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: var(--color-shell)">
     <div class="relative z-10">
       <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm">Mẫu câu giao tiếp</h1>
       <p class="text-sm font-medium text-white/80 mt-1">Hội thoại thực tế + cách ghi nhớ</p>
@@ -49,13 +52,17 @@
       { label: 'Giao tiếp' }
     ]} />
 
+    <p class="text-sm text-muted-foreground" role="status">
+      {hasAudioSupport ? 'Hội thoại dùng giọng đọc trên thiết bị; khả năng ngoại tuyến phụ thuộc gói giọng tiếng Nhật đã cài.' : 'Thiết bị này không hỗ trợ phát âm tự động; nội dung hội thoại vẫn khả dụng ngoại tuyến.'}
+    </p>
+
     <!-- Level Selector -->
     <div class="flex gap-0 p-1.5 bg-muted/50 rounded-2xl" role="radiogroup" aria-label="JLPT level">
       {#each levels as lvl}
         <button
           role="radio"
           aria-checked={selectedLevel === lvl.id}
-          class="flex-1 flex flex-col items-center gap-0.5 py-3 px-2 rounded-xl transition-all duration-200 cursor-pointer active:scale-[0.97]
+          class="flex-1 flex flex-col items-center gap-0.5 py-3 px-2 rounded-xl transition-colors duration-200 cursor-pointer active:scale-[0.97]
             {selectedLevel === lvl.id
               ? 'bg-primary text-primary-foreground shadow-md'
               : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}"
@@ -71,7 +78,7 @@
     <div class="flex flex-col gap-3">
       {#each conversations as conv, i}
         <div
-          class="stagger-item bg-card border border-border/50 rounded-2xl shadow-sm overflow-hidden transition-all duration-200"
+          class=" bg-card border border-border/50 rounded-2xl shadow-sm overflow-hidden transition-colors duration-200"
           style="animation-delay: {i * 50}ms"
         >
           <!-- Header (clickable) -->
@@ -87,7 +94,7 @@
               <h3 class="text-sm font-bold text-foreground">{conv.title}</h3>
               <p class="text-xs text-muted-foreground">{conv.titleJp} — {conv.situation}</p>
             </div>
-            <ChevronRight size={18} class="flex-shrink-0 text-muted-foreground transition-transform duration-200 {expandedId === conv.id ? 'rotate-90' : ''}" aria-hidden="true" />
+            <ChevronRight size={20} class="flex-shrink-0 text-muted-foreground transition-transform duration-200 {expandedId === conv.id ? 'rotate-90' : ''}" aria-hidden="true" />
           </button>
 
           <!-- Expanded content -->
@@ -102,13 +109,13 @@
                   {#each conv.patterns as pat}
                     <div class="bg-muted/30 rounded-xl p-4 space-y-1.5">
                       <div class="flex items-center gap-2">
-                        <p class="text-sm font-semibold" style="font-family: var(--font-jp)">{pat.japanese}</p>
+                        <p class="text-sm font-semibold" style="font-family: var(--font-japanese)">{pat.japanese}</p>
                         <button
                           class="flex-shrink-0 p-1 rounded hover:bg-muted transition-colors"
                           on:click|stopPropagation={() => playJapaneseAudio(pat.kana)}
                           aria-label="Phát âm"
                         >
-                          <Volume2 size={14} class="text-muted-foreground" aria-hidden="true" />
+                          <Volume2 size={16} class="text-muted-foreground" aria-hidden="true" />
                         </button>
                       </div>
                       <p class="text-xs text-muted-foreground italic">{kanaToRomaji(pat.kana)}</p>
@@ -133,7 +140,7 @@
                       <span class="flex-shrink-0 text-xs font-bold text-primary min-w-[2rem]">{line.speaker}:</span>
                       <div class="space-y-0.5">
                         <div class="flex items-center gap-2">
-                          <p class="text-sm" style="font-family: var(--font-jp)">{line.japanese}</p>
+                          <p class="text-sm" style="font-family: var(--font-japanese)">{line.japanese}</p>
                           <button
                             class="flex-shrink-0 p-0.5 rounded hover:bg-muted transition-colors"
                             on:click|stopPropagation={() => playJapaneseAudio(line.kana)}

@@ -108,7 +108,7 @@ export function applyFont(fontId: string): void {
   }
 
   // Set CSS variable
-  document.documentElement.style.setProperty('--font-jp', font.family);
+  document.documentElement.style.setProperty('--font-japanese', font.family);
 }
 
 /**

@@ -171,26 +171,14 @@
   .virtual-keyboard {
     margin: 0.5rem 0;
     padding: 0.5rem;
-    background: var(--bg-card);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow);
-    animation: slideDown 0.25s ease;
-  }
-
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-5px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    background: var(--color-card);
+    border-radius: var(--radius-control);
+    box-shadow: var(--shadow-surface);
   }
 
   .keyboard-header {
     margin-bottom: 0.4rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border);
     padding-bottom: 0.35rem;
   }
 
@@ -202,27 +190,27 @@
 
   .keyboard-tab {
     padding: 0.3rem 0.6rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    font-family: var(--font-jp);
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    font-family: var(--font-japanese);
     font-size: 0.7rem;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
-    color: var(--text-muted);
+    transition: var(--motion-standard);
+    color: var(--color-muted-foreground);
   }
 
   .keyboard-tab:hover {
-    background: var(--primary);
+    background: var(--color-primary);
     color: white;
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .keyboard-tab.active {
-    background: var(--primary);
+    background: var(--color-primary);
     color: white;
-    border-color: var(--primary);
+    border-color: var(--color-primary);
   }
 
   .keyboard-grid {
@@ -247,14 +235,14 @@
   .keyboard-key {
     aspect-ratio: 1;
     padding: 0;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-family: var(--font-jp);
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    font-family: var(--font-japanese);
     font-size: 1.2rem;
     font-weight: 500;
     cursor: pointer;
-    transition: var(--transition);
+    transition: var(--motion-standard);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -264,9 +252,9 @@
   }
 
   .keyboard-key:hover:not(.empty) {
-    background: var(--primary);
+    background: var(--color-primary);
     color: white;
-    border-color: var(--primary);
+    border-color: var(--color-primary);
     transform: scale(1.05);
   }
 
@@ -283,32 +271,32 @@
 
   .keyboard-key.small {
     font-size: 0.95rem;
-    background: var(--bg-card);
+    background: var(--color-card);
   }
 
   .keyboard-key.accent {
-    background: var(--warning);
+    background: var(--color-warning);
     color: white;
-    border-color: var(--warning);
+    border-color: var(--color-warning);
     font-size: 1.35rem;
   }
 
   .keyboard-key.accent:hover {
-    background: var(--warning-dark);
-    border-color: var(--warning-dark);
+    background: var(--color-warning-text);
+    border-color: var(--color-warning-text);
   }
 
   .keyboard-key.special {
-    background: var(--accent);
+    background: var(--color-primary);
     color: white;
-    border-color: var(--accent);
+    border-color: var(--color-primary);
     font-size: 0.8rem;
     font-weight: 600;
   }
 
   .keyboard-key.special:hover {
-    background: var(--accent-hover);
-    border-color: var(--accent-hover);
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
   }
 
   /* Mobile optimization */

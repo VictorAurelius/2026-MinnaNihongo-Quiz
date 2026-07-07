@@ -4,8 +4,8 @@
   "description": "Interactive quiz app for learning Japanese JLPT vocabulary, grammar, Hiragana, Katakana, and Chinese HSK vocabulary",
   "start_url": "/2026-Smart-Quiz/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#6366f1",
+  "background_color": "#f4f4f8",
+  "theme_color": "#8b4fe6",
   "orientation": "portrait-primary",
   "icons": [
     {

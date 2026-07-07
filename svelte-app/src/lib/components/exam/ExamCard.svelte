@@ -30,9 +30,9 @@
     </div>
 
     <div class="exam-card__meta">
-      <span class="meta"><FileText size={14} aria-hidden="true" /> {summary.questionCount} câu</span>
-      <span class="meta"><Clock size={14} aria-hidden="true" /> {summary.durationMinutes} phút</span>
-      <span class="meta"><ListChecks size={14} aria-hidden="true" /> {uniqueTypes.length} phần</span>
+      <span class="meta"><FileText size={16} aria-hidden="true" /> {summary.questionCount} câu</span>
+      <span class="meta"><Clock size={16} aria-hidden="true" /> {summary.durationMinutes} phút</span>
+      <span class="meta"><ListChecks size={16} aria-hidden="true" /> {uniqueTypes.length} phần</span>
     </div>
 
     <div class="exam-card__types">
@@ -46,7 +46,7 @@
     {/if}
   </div>
 
-  <ChevronRight size={18} class="exam-card__chevron" aria-hidden="true" />
+  <ChevronRight size={20} class="exam-card__chevron" aria-hidden="true" />
 </a>
 
 <style>
@@ -58,8 +58,8 @@
     padding: 1.1rem 1.25rem;
     background: var(--color-card);
     border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
-    border-radius: 1rem;
-    box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.05));
+    border-radius: var(--radius-surface);
+    box-shadow: var(--shadow-surface);
     text-decoration: none;
     color: inherit;
     transition:
@@ -70,7 +70,7 @@
   .exam-card:hover {
     border-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-surface);
   }
   .exam-card__body {
     flex: 1;

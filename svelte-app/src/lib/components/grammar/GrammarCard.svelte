@@ -56,11 +56,11 @@
 
   <div class="pattern-card-actions">
     <button class="btn-text" on:click={handleDetail}>
-      <Lightbulb size={14} aria-hidden="true" /> Chi tiết
+      <Lightbulb size={16} aria-hidden="true" /> Chi tiết
     </button>
     {#if pattern.meta?.tips}
       <button class="btn-text btn-tips">
-        <Brain size={14} aria-hidden="true" /> Tips
+        <Brain size={16} aria-hidden="true" /> Tips
       </button>
     {/if}
   </div>
@@ -69,7 +69,7 @@
 <style>
   .grammar-card {
     background: var(--bg-secondary);
-    border: 2px solid var(--border);
+    border: 2px solid var(--color-border);
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 0.75rem;
@@ -77,12 +77,12 @@
   }
 
   .grammar-card:hover {
-    border-color: var(--primary-light);
+    border-color: var(--color-primary);
   }
 
   .grammar-card.selected {
-    border-color: var(--primary);
-    background: var(--primary-bg);
+    border-color: var(--color-primary);
+    background: var(--color-primary-subtle);
   }
 
   .pattern-card-header {
@@ -110,19 +110,19 @@
   .pattern-text {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.5rem;
   }
 
   .pattern-meaning {
     font-size: 0.95rem;
-    color: var(--text-primary);
+    color: var(--color-foreground);
     margin-bottom: 0.25rem;
   }
 
   .pattern-meaning-en {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--color-muted-foreground);
     font-style: italic;
   }
 
@@ -142,26 +142,26 @@
   }
 
   .tag-jlpt {
-    background: var(--accent-bg);
-    color: var(--accent);
+    background: var(--color-primary-subtle);
+    color: var(--color-primary);
   }
 
   .tag-lesson {
-    background: var(--primary-bg);
-    color: var(--primary);
+    background: var(--color-primary-subtle);
+    color: var(--color-primary);
   }
 
   .pattern-card-actions {
     display: flex;
     gap: 1rem;
     padding-top: 0.5rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--color-border);
   }
 
   .btn-text {
     background: none;
     border: none;
-    color: var(--primary);
+    color: var(--color-primary);
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -170,15 +170,15 @@
   }
 
   .btn-text:hover {
-    color: var(--primary-dark);
+    color: var(--color-primary-hover);
     text-decoration: underline;
   }
 
   .btn-tips {
-    color: var(--accent);
+    color: var(--color-primary);
   }
 
   .btn-tips:hover {
-    color: var(--accent-dark);
+    color: var(--color-primary-hover);
   }
 </style>

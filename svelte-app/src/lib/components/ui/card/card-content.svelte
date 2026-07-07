@@ -9,6 +9,6 @@
   let { class: className, children, ...props }: Props = $props();
 </script>
 
-<div class={cn('p-6 pt-0', className)} {...props}>
+<div data-slot="card-content" class={cn('p-6 pt-0', className)} {...props}>
   {@render children?.()}
 </div>
