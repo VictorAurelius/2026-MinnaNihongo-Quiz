@@ -5,6 +5,7 @@
 
 import type { GrammarItem } from '$lib/types';
 import { getAllLessons } from '../lessons';
+import { SUPPLEMENTAL_MINNA_N4_GRAMMAR } from './supplemental-minna-md';
 
 /**
  * Get all grammar patterns from all N4 lessons
@@ -22,7 +23,7 @@ export function getAllGrammar(): GrammarItem[] {
     }
   }
 
-  return grammar;
+  return [...grammar, ...SUPPLEMENTAL_MINNA_N4_GRAMMAR];
 }
 
 /**
