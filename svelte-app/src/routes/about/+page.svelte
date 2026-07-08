@@ -2,6 +2,8 @@
   import { base } from '$app/paths';
   import { getProjectInfo, getCommunityLinks } from '$lib/utils/communityUtils';
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
+  import PageHero from '$lib/components/common/PageHero.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
 
   const info = getProjectInfo();
   const links = getCommunityLinks();
@@ -11,15 +13,16 @@
   <title>About - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl p-4 ">
-  <header class="text-center mb-6">
-    <img src="{base}/logo.svg" alt="Smart Quiz" class="mx-auto mb-3" height="48" />
-    <h1 class="text-2xl font-bold">
-      {info.name} <span class="text-sm font-normal text-muted-foreground">v{info.version}</span>
-    </h1>
-    <p class="text-sm text-muted-foreground leading-relaxed">{info.description}</p>
-    <p class="mt-3 text-sm text-muted-foreground">Ứng dụng offline-first: nội dung học và tiến trình cốt lõi nằm trên thiết bị; liên kết cộng đồng là phần trực tuyến tùy chọn.</p>
-  </header>
+<PageWorkspace size="md">
+  <PageHero
+    eyebrow={`v${info.version}`}
+    title={info.name}
+    subtitle={`${info.description} Ứng dụng offline-first: nội dung học và tiến trình cốt lõi nằm trên thiết bị; liên kết cộng đồng là phần trực tuyến tùy chọn.`}
+  >
+    {#snippet actions()}
+      <img src="{base}/logo.svg" alt="Smart Quiz" height="32" />
+    {/snippet}
+  </PageHero>
 
   <Card class="mb-3">
     <CardHeader class="pb-2"><CardTitle class="text-sm">Features</CardTitle></CardHeader>
@@ -70,4 +73,4 @@
   </Card>
 
   <a href="{base}/" class="inline-block mt-3 text-primary text-sm no-underline hover:underline">← Back to Home</a>
-</div>
+</PageWorkspace>

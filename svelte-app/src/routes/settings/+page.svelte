@@ -21,7 +21,8 @@
   import { Select } from '$lib/components/ui/select';
   import { Switch } from '$lib/components/ui/switch';
   import { Settings2, Type, BarChart3, Database, Download, Upload, Trash2 } from 'lucide-svelte';
-  import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
+  import PageHero from '$lib/components/common/PageHero.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
 
   const fonts = getAvailableFonts();
   let selectedFont = 'system';
@@ -116,28 +117,22 @@
   <title>Settings - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl ">
-  <!-- Hero -->
-  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: var(--color-shell)">
-    <div class="relative z-10">
-      <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm">Settings</h1>
-      <p class="text-sm font-medium text-white/80 mt-1">Tùy chỉnh trải nghiệm học</p>
-    </div>
-  </div>
+<PageWorkspace size="md">
+  <PageHero
+    eyebrow="Preferences"
+    title="Settings"
+    subtitle="Tùy chỉnh trải nghiệm học, font chữ, dữ liệu tiến trình và các lựa chọn quiz mặc định."
+  />
 
-  <div class="px-4 py-5 flex flex-col gap-8">
+  <div class="flex flex-col gap-8">
     <p class="sr-only" aria-live="polite">{saveMessage}</p>
-    <Breadcrumb items={[
-      { label: 'Home', href: '/' },
-      { label: 'Settings' }
-    ]} />
 
   <!-- Quiz Settings -->
   <section>
     <h2 class="text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-3 flex items-center gap-1.5">
       <Settings2 size={12} aria-hidden="true" /> Quiz Settings
     </h2>
-    <div class="bg-card rounded-2xl shadow-sm overflow-hidden border border-border/50">
+    <div class="overflow-hidden rounded-surface border border-border bg-card">
       <div class="flex items-center justify-between px-5 py-5">
         <div>
           <label for="direction" class="text-sm font-medium block">Default Direction</label>
@@ -186,7 +181,7 @@
           class="flex flex-col items-center gap-2 p-5 rounded-2xl cursor-pointer transition-colors text-center active:scale-[0.97]
             {selectedFont === font.id
               ? 'bg-primary/10 shadow-md ring-2 ring-primary border border-primary/30'
-              : 'bg-card border border-border/50 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-primary/50'}"
+              : 'bg-card border border-border hover:-translate-y-0.5 hover:border-primary'}"
           on:click={() => handleFontChange(font.id)}
         >
           <div class="text-xl leading-snug" style="font-family: {font.family}">{font.preview}</div>
@@ -203,20 +198,20 @@
       <BarChart3 size={12} aria-hidden="true" /> Progress Summary
     </h2>
     {#if lessonCount === 0 && totalItems === 0 && hskCount === 0}
-      <div class="p-5 bg-card border border-border/50 rounded-2xl text-center">
+      <div class="rounded-surface border border-border bg-card p-5 text-center">
         <p class="text-sm text-muted-foreground">Bắt đầu học để xem tiến trình tại đây!</p>
       </div>
     {:else}
       <div class="grid grid-cols-3 gap-3">
-        <div class="flex flex-col items-center gap-1 p-5 bg-card border border-border/50 rounded-2xl shadow-sm">
+        <div class="flex flex-col items-center gap-1 rounded-surface border border-border bg-card p-5">
           <span class="text-2xl font-bold text-primary">{lessonCount}</span>
           <span class="text-[0.7rem] text-muted-foreground text-center">Lessons studied</span>
         </div>
-        <div class="flex flex-col items-center gap-1 p-5 bg-card border border-border/50 rounded-2xl shadow-sm">
+        <div class="flex flex-col items-center gap-1 rounded-surface border border-border bg-card p-5">
           <span class="text-2xl font-bold text-primary">{totalItems}</span>
           <span class="text-[0.7rem] text-muted-foreground text-center">Words practiced</span>
         </div>
-        <div class="flex flex-col items-center gap-1 p-5 bg-card border border-border/50 rounded-2xl shadow-sm">
+        <div class="flex flex-col items-center gap-1 rounded-surface border border-border bg-card p-5">
           <span class="text-2xl font-bold text-primary">{hskCount}</span>
           <span class="text-[0.7rem] text-muted-foreground text-center">HSK groups</span>
         </div>
@@ -232,7 +227,7 @@
     <div class="flex flex-col gap-3">
       <p class="text-sm text-muted-foreground rounded-control border border-border bg-muted p-3">Tiến trình được lưu cục bộ và hoạt động ngoại tuyến. Dữ liệu chỉ rời thiết bị khi bạn chủ động xuất tệp.</p>
       <button
-        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-colors duration-200 hover:border-primary/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
+        class="group flex w-full cursor-pointer items-center gap-4 rounded-surface border border-border bg-card px-5 py-5 text-left transition-colors duration-200 hover:border-primary active:scale-[0.98]"
         on:click={handleExport}
       >
         <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -244,7 +239,7 @@
         </div>
       </button>
       <button
-        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-colors duration-200 hover:border-primary/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
+        class="group flex w-full cursor-pointer items-center gap-4 rounded-surface border border-border bg-card px-5 py-5 text-left transition-colors duration-200 hover:border-primary active:scale-[0.98]"
         on:click={handleImportClick}
       >
         <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -257,7 +252,7 @@
       </button>
       <input type="file" accept=".json" bind:this={fileInput} on:change={handleFileChange} class="hidden" />
       <button
-        class="group flex items-center gap-4 w-full px-5 py-5 bg-card border border-border/50 rounded-2xl shadow-sm text-left transition-colors duration-200 hover:border-destructive/50 hover:shadow-md active:scale-[0.98] cursor-pointer"
+        class="group flex w-full cursor-pointer items-center gap-4 rounded-surface border border-border bg-card px-5 py-5 text-left transition-colors duration-200 hover:border-destructive active:scale-[0.98]"
         on:click={() => showClearConfirm = true}
       >
         <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-destructive/10 flex items-center justify-center group-hover:bg-destructive/20 transition-colors">
@@ -271,7 +266,7 @@
     </div>
   </section>
   </div>
-</div>
+</PageWorkspace>
 
 <AlertDialog
   bind:open={showClearConfirm}

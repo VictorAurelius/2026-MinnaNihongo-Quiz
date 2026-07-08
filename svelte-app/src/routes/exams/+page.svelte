@@ -1,10 +1,11 @@
 <script lang="ts">
   /**
    * /exams — list available mock JLPT papers grouped by level.
-   */
+  */
   import { getAvailableLevels, getPaperSummariesByLevel } from '$lib/data/exams';
   import ExamCard from '$lib/components/exam/ExamCard.svelte';
-  import { ClipboardList } from 'lucide-svelte';
+  import PageHero from '$lib/components/common/PageHero.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
 
   const levels = getAvailableLevels();
   const byLevel = levels.map((level) => ({
@@ -19,19 +20,15 @@
   <meta name="description" content="Làm đề thi thử JLPT theo cấp độ — chấm điểm, xem lại đáp án và giải thích." />
 </svelte:head>
 
-<div class="mx-auto max-w-2xl p-4    duration-300">
-  <header class="text-center mb-6">
-    <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-      <ClipboardList size={24} class="text-primary" aria-hidden="true" />
-    </div>
-    <h1 class="text-2xl font-extrabold">Luyện đề JLPT</h1>
-    <p class="text-sm text-muted-foreground mt-1">
-      Làm đề thi thử có tính giờ, chấm điểm và xem lại đáp án.
-    </p>
-  </header>
+<PageWorkspace size="lg">
+  <PageHero
+    eyebrow="Exam practice"
+    title="Luyện đề JLPT"
+    subtitle="Làm đề thi thử có tính giờ, chấm điểm và xem lại đáp án."
+  />
 
   {#if totalPapers === 0}
-    <div class="rounded-2xl border border-border/50 bg-card p-8 text-center">
+    <div class="rounded-surface border border-border bg-card p-8 text-center">
       <p class="text-sm font-bold mb-1">Chưa có đề thi</p>
       <p class="text-xs text-muted-foreground">Các đề thi thử sẽ sớm được bổ sung.</p>
     </div>
@@ -50,4 +47,4 @@
       </section>
     {/each}
   {/if}
-</div>
+</PageWorkspace>

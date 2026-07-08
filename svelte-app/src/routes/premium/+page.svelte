@@ -4,6 +4,8 @@
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import PageHero from '$lib/components/common/PageHero.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
 
   $: premium = isPremium();
   $: features = getPremiumFeatures();
@@ -20,11 +22,12 @@
   <title>Premium - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl p-4 ">
-  <header class="text-center mb-6">
-    <h1 class="text-2xl font-bold mb-1">Smart Quiz Premium</h1>
-    <p class="text-sm text-muted-foreground">Không có thanh toán trong phiên bản hiện tại. Chế độ beta chỉ mở các tính năng đã có sẵn trên thiết bị.</p>
-  </header>
+<PageWorkspace size="md">
+  <PageHero
+    eyebrow="Beta access"
+    title="Smart Quiz Premium"
+    subtitle="Không có thanh toán trong phiên bản hiện tại. Chế độ beta chỉ mở các tính năng đã có sẵn trên thiết bị."
+  />
 
   <div class="text-center mb-6">
     {#if premium}
@@ -78,4 +81,4 @@
   </Card>
 
   <a href="{base}/" class="inline-block mt-3 text-primary text-sm no-underline hover:underline">← Back to Home</a>
-</div>
+</PageWorkspace>
