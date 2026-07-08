@@ -16,6 +16,9 @@
   import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import FilterTabs from '$lib/components/common/FilterTabs.svelte';
+  import PageHero from '$lib/components/common/PageHero.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
   import type { VocabItem } from '$lib/types';
 
   interface ReviewCard {
@@ -128,9 +131,15 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="mx-auto max-w-md p-4 ">
+<PageWorkspace size="md">
+  <PageHero
+    eyebrow="Spaced repetition"
+    title="Ôn tập"
+    subtitle="Ôn những mục đến hạn, lật thẻ bằng Space/Enter và nghe phát âm bằng F1."
+  />
+
   <!-- Stats Bar -->
-  <Card class="mb-3">
+  <Card>
     <CardContent class="py-3 flex gap-6">
       <div>
         <div class="text-[0.65rem] uppercase text-muted-foreground tracking-wider">Streak</div>
@@ -150,15 +159,17 @@
   </Card>
 
   <!-- Type Filter -->
-  <div class="flex gap-2 mb-4">
-    {#each [{ type: 'all' as const, label: 'All' }, { type: 'vocab' as const, label: 'Vocab' }, { type: 'kanji' as const, label: 'Kanji' }] as f}
-      <button
-        class="px-3.5 py-1.5 rounded-full border text-sm cursor-pointer transition-colors
-          {filterType === f.type ? 'bg-primary text-white border-primary' : 'bg-card text-muted-foreground border-border hover:border-primary'}"
-        on:click={() => setFilter(f.type)}
-      >{f.label}</button>
-    {/each}
-  </div>
+  <FilterTabs
+    bind:value={filterType}
+    options={[
+      { id: 'all', label: 'All' },
+      { id: 'vocab', label: 'Vocab' },
+      { id: 'kanji', label: 'Kanji' }
+    ]}
+    ariaLabel="Review item type"
+    class="sm:w-fit"
+    onchange={(value) => setFilter(value as 'all' | SRSItemType)}
+  />
 
   {#if !loaded}
     <div class="space-y-3"><SkeletonCard /><SkeletonCard /></div>
@@ -243,7 +254,7 @@
       <button class="ui-button" data-variant="success" on:click={() => handleRating(5)}><strong>Dễ</strong><small>Giãn lịch ôn</small></button>
     </div>
   {/if}
-</div>
+</PageWorkspace>
 
 <style>
   .flashcard {

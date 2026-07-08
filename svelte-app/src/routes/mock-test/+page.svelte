@@ -12,6 +12,7 @@
   import { Progress as ProgressBar } from '$lib/components/ui/progress';
   import { Card, CardContent } from '$lib/components/ui/card';
   import UiButton from '$lib/components/ui/button/button.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
 
   let selectedLevel = 'n5';
   let started = false;
@@ -94,7 +95,7 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="mx-auto max-w-xl p-4  min-h-[70vh] flex flex-col">
+<PageWorkspace size="md" class="min-h-[70vh]">
   {#if !started}
     <Card class="flex-1 flex flex-col justify-center">
       <CardContent class="py-10 text-center">
@@ -200,7 +201,7 @@
       <p class="text-center text-xs text-muted-foreground">Press 1-4 to choose</p>
     {/if}
   {/if}
-</div>
+</PageWorkspace>
 
 <style>
   .mc-option {

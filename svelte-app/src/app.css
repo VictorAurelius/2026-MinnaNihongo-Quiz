@@ -117,8 +117,6 @@
    ==================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -127,6 +125,7 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: var(--font-sans);
   background: var(--color-background);
   color: var(--color-foreground);
@@ -192,7 +191,7 @@ body {
   background: var(--color-border);
 }
 
-#main-content {
+#main-content:not(.shell-content) {
   max-width: 800px;
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
@@ -864,7 +863,7 @@ body {
    Responsive
    ==================================================== */
 @media (max-width: 600px) {
-  #main-content {
+  #main-content:not(.shell-content) {
     padding: 1rem .75rem 2rem;
   }
   .lesson-grid {
