@@ -485,7 +485,702 @@ export const LESSON_23_DATA: LessonData = {
       english: 'warning',
       type: 'supplementary',
       example: '警告が出ました。'
-    }
+    },
+    // BEGIN_IMPORTED_MINNA_N4_MD
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | b416adaa68e3bd6f
+    {
+      japanese: "降ろします / 下ろします",
+      kana: "おろします",
+      vietnamese: "cho xuống, hạ xuống",
+      english: "cho xuống, hạ xuống",
+      type: "main",
+      example: "荷物を車から下ろします。\nNimotsu o kuruma kara oroshimasu.\nTôi hạ hành lý từ xe xuống."
+    },
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | 29bfc5aa7d9a4fca
+    {
+      japanese: "届けます",
+      kana: "とどけます",
+      vietnamese: "gửi đến, chuyển đến",
+      english: "gửi đến, chuyển đến",
+      type: "main",
+      example: "書類を会社へ届けます。\nShorui o kaisha e todokemasu.\nTôi chuyển tài liệu đến công ty."
+    },
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | 22de150171f3da05
+    {
+      japanese: "世話をします",
+      kana: "せわをします",
+      vietnamese: "chăm sóc",
+      english: "chăm sóc",
+      type: "main",
+      example: "母は犬の世話をします。\nHaha wa inu no sewa o shimasu.\nMẹ tôi chăm sóc con chó."
+    },
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | 795fd9e809fee10d
+    {
+      japanese: "録音します",
+      kana: "ろくおんします",
+      vietnamese: "ghi âm",
+      english: "ghi âm",
+      type: "main",
+      example: "授業を録音します。\nJugyou o rokuon shimasu.\nTôi ghi âm tiết học."
+    },
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | 71eb80fca27bb1d0
+    {
+      japanese: "嫌な",
+      kana: "いやな",
+      vietnamese: "khó chịu, không thích, đáng ghét",
+      english: "khó chịu, không thích, đáng ghét",
+      type: "main",
+      example: "嫌な音がします。\nIya na oto ga shimasu.\nCó âm thanh khó chịu."
+    },
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | 9b7f1b8d33a9b01e
+    {
+      japanese: "塾",
+      kana: "じゅく",
+      vietnamese: "lớp học thêm, trung tâm luyện thi",
+      english: "lớp học thêm, trung tâm luyện thi",
+      type: "main",
+      example: "子どもは塾へ行きます。\nKodomo wa juku e ikimasu.\nĐứa trẻ đi học thêm."
+    },
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | 6e075fbf21b6a7d0
+    {
+      japanese: "生徒",
+      kana: "せいと",
+      vietnamese: "học sinh, học trò",
+      english: "học sinh, học trò",
+      type: "main",
+      example: "この学校には生徒が多いです。\nKono gakkou ni wa seito ga ooi desu.\nTrường này có nhiều học sinh."
+    },
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | 47143ae6e157e67b
+    {
+      japanese: "ファイル",
+      kana: "ファイル",
+      vietnamese: "file, kẹp tài liệu",
+      english: "file, kẹp tài liệu",
+      type: "main",
+      example: "ファイルを机の上に置きます。\nFairu o tsukue no ue ni okimasu.\nTôi đặt file lên bàn."
+    },
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | 7eddfa8aeca80f2b
+    {
+      japanese: "自由に",
+      kana: "じゆうに",
+      vietnamese: "một cách tự do, thoải mái",
+      english: "một cách tự do, thoải mái",
+      type: "main",
+      example: "自由に話してください。\nJiyuu ni hanashite kudasai.\nHãy nói chuyện tự do nhé."
+    },
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | b20a3117c4a25201
+    {
+      japanese: "〜間",
+      kana: "〜かん",
+      vietnamese: "trong khoảng, trong vòng, suốt",
+      english: "trong khoảng, trong vòng, suốt",
+      type: "main",
+      example: "一時間勉強します。\nIchi-jikan benkyou shimasu.\nTôi học trong một tiếng."
+    },
+    // source: review_tu_vung_bai_48.md | 1. Từ vựng chính | 9f7ce142e34c4bf4
+    {
+      japanese: "いいことですね。",
+      kana: "いいことですね。",
+      vietnamese: "hay nhỉ, tốt nhỉ, được đấy nhỉ",
+      english: "hay nhỉ, tốt nhỉ, được đấy nhỉ",
+      type: "main",
+      example: "毎日日本語を勉強しています。いいことですね。\nMainichi Nihongo o benkyou shite imasu. Ii koto desu ne.\nTôi học tiếng Nhật mỗi ngày. Hay đấy nhỉ."
+    },
+    // source: review_tu_vung_bai_48.md | 2. Từ vựng hội thoại | 270c69d3b8814987
+    {
+      japanese: "お忙しいですか。",
+      kana: "おいそがしいですか。",
+      vietnamese: "Anh/chị có bận không?",
+      english: "Anh/chị có bận không?",
+      type: "supplementary",
+      example: "今、お忙しいですか。\nIma, oisogashii desu ka.\nBây giờ anh/chị có bận không ạ?"
+    },
+    // source: review_tu_vung_bai_48.md | 2. Từ vựng hội thoại | 5309c0d0107826df
+    {
+      japanese: "営業",
+      kana: "えいぎょう",
+      vietnamese: "kinh doanh, bán hàng",
+      english: "kinh doanh, bán hàng",
+      type: "supplementary",
+      example: "兄は営業の仕事をしています。\nAni wa eigyou no shigoto o shite imasu.\nAnh trai tôi làm công việc kinh doanh/bán hàng."
+    },
+    // source: review_tu_vung_bai_48.md | 2. Từ vựng hội thoại | 089381f916c277fe
+    {
+      japanese: "それまでに",
+      kana: "それまでに",
+      vietnamese: "trước lúc đó, trước thời điểm đó",
+      english: "trước lúc đó, trước thời điểm đó",
+      type: "supplementary",
+      example: "会議は三時です。それまでに来てください。\nKaigi wa san-ji desu. Sore made ni kite kudasai.\nCuộc họp lúc 3 giờ. Hãy đến trước lúc đó."
+    },
+    // source: review_tu_vung_bai_48.md | 2. Từ vựng hội thoại | f02f63e15bf15907
+    {
+      japanese: "構いません",
+      kana: "かまいません",
+      vietnamese: "không sao, không có vấn đề gì",
+      english: "không sao, không có vấn đề gì",
+      type: "supplementary",
+      example: "ここで写真を撮ってもかまいません。\nKoko de shashin o totte mo kamaimasen.\nChụp ảnh ở đây cũng không sao."
+    },
+    // source: review_tu_vung_bai_48.md | 2. Từ vựng hội thoại | 43d432340ba22f4d
+    {
+      japanese: "楽しみます",
+      kana: "たのしみます",
+      vietnamese: "vui, tận hưởng",
+      english: "vui, tận hưởng",
+      type: "supplementary",
+      example: "旅行を楽しみます。\nRyokou o tanoshimimasu.\nTôi tận hưởng chuyến du lịch."
+    },
+    // source: review_tu_vung_bai_48.md | 3. Từ vựng đọc hiểu | 085fcc94024f415d
+    {
+      japanese: "親",
+      kana: "おや",
+      vietnamese: "bố mẹ, cha mẹ",
+      english: "bố mẹ, cha mẹ",
+      type: "supplementary",
+      example: "親に相談します。\nOya ni soudan shimasu.\nTôi hỏi ý kiến bố mẹ."
+    },
+    // source: review_tu_vung_bai_48.md | 3. Từ vựng đọc hiểu | 2c9239749b0c346d
+    {
+      japanese: "小学生",
+      kana: "しょうがくせい",
+      vietnamese: "học sinh tiểu học",
+      english: "học sinh tiểu học",
+      type: "supplementary",
+      example: "弟は小学生です。\nOtouto wa shougakusei desu.\nEm trai tôi là học sinh tiểu học."
+    },
+    // source: review_tu_vung_bai_48.md | 3. Từ vựng đọc hiểu | 81282503e6b98bf4
+    {
+      japanese: "一パーセント",
+      kana: "いちパーセント",
+      vietnamese: "một phần trăm",
+      english: "một phần trăm",
+      type: "supplementary",
+      example: "一パーセントの人が答えました。\nIchi paasento no hito ga kotaemashita.\nMột phần trăm số người đã trả lời."
+    },
+    // source: review_tu_vung_bai_48.md | 3. Từ vựng đọc hiểu | 421ea88a3e098ecd
+    {
+      japanese: "その次",
+      kana: "そのつぎ",
+      vietnamese: "tiếp theo đó",
+      english: "tiếp theo đó",
+      type: "supplementary",
+      example: "その次に名前を書きます。\nSono tsugi ni namae o kakimasu.\nTiếp theo đó, viết tên."
+    },
+    // source: review_tu_vung_bai_48.md | 3. Từ vựng đọc hiểu | b22e004bfb8b8acd
+    {
+      japanese: "習字",
+      kana: "しゅうじ",
+      vietnamese: "học viết chữ bằng bút lông",
+      english: "học viết chữ bằng bút lông",
+      type: "supplementary",
+      example: "小学生は習字を習います。\nShougakusei wa shuuji o naraimasu.\nHọc sinh tiểu học học viết chữ bằng bút lông."
+    },
+    // source: review_tu_vung_bai_48.md | 3. Từ vựng đọc hiểu | fc12a474d60388a1
+    {
+      japanese: "普通の",
+      kana: "ふつうの",
+      vietnamese: "thông thường, bình thường",
+      english: "thông thường, bình thường",
+      type: "supplementary",
+      example: "普通の生活をしています。\nFutsuu no seikatsu o shite imasu.\nTôi đang sống một cuộc sống bình thường."
+    },
+    // source: review_tu_vung_bai_48.md | 4. Cụm cần nhớ | 72606f0527fe2a9a
+    {
+      japanese: "荷物を下ろします",
+      kana: "荷物を下ろします",
+      vietnamese: "hạ hành lý xuống",
+      english: "hạ hành lý xuống",
+      type: "supplementary",
+      example: "Dùng 下ろします / oroshimasu khi hạ đồ vật từ trên xuống."
+    },
+    // source: review_tu_vung_bai_48.md | 4. Cụm cần nhớ | f9067543df553f07
+    {
+      japanese: "人を車から降ろします",
+      kana: "人を車から降ろします",
+      vietnamese: "cho người xuống xe",
+      english: "cho người xuống xe",
+      type: "supplementary",
+      example: "Dùng 降ろします / oroshimasu khi cho người xuống khỏi phương tiện."
+    },
+    // source: review_tu_vung_bai_48.md | 4. Cụm cần nhớ | 7317e4a3acdaac49
+    {
+      japanese: "書類を届けます",
+      kana: "書類を届けます",
+      vietnamese: "chuyển tài liệu đến",
+      english: "chuyển tài liệu đến",
+      type: "supplementary",
+      example: "届けます / todokemasu là ngoại động từ, nghĩa là mình đem/gửi cái gì đến nơi nào đó."
+    },
+    // source: review_tu_vung_bai_48.md | 4. Cụm cần nhớ | d4bec169fc719f9e
+    {
+      japanese: "子どもの世話をします",
+      kana: "子どもの世話をします",
+      vietnamese: "chăm sóc trẻ em",
+      english: "chăm sóc trẻ em",
+      type: "supplementary",
+      example: "世話をします / sewa o shimasu thường đi với người, động vật hoặc người cần chăm sóc."
+    },
+    // source: review_tu_vung_bai_48.md | 4. Cụm cần nhớ | 318323a536761703
+    {
+      japanese: "授業を録音します",
+      kana: "授業を録音します",
+      vietnamese: "ghi âm tiết học",
+      english: "ghi âm tiết học",
+      type: "supplementary",
+      example: "録音します / rokuon shimasu là ghi lại âm thanh, không phải quay video."
+    },
+    // source: review_tu_vung_bai_48.md | 4. Cụm cần nhớ | e92fa0ac4034edd6
+    {
+      japanese: "自由に使います",
+      kana: "自由に使います",
+      vietnamese: "dùng tự do, dùng thoải mái",
+      english: "dùng tự do, dùng thoải mái",
+      type: "supplementary",
+      example: "自由に / jiyuu ni đứng trước động từ để nói làm một cách tự do."
+    },
+    // source: review_tu_vung_bai_48.md | 4. Cụm cần nhớ | 4c4de1906edaa8ab
+    {
+      japanese: "一時間",
+      kana: "一時間",
+      vietnamese: "một tiếng",
+      english: "một tiếng",
+      type: "supplementary",
+      example: "〜間 / ~kan dùng để chỉ khoảng thời gian kéo dài."
+    },
+    // source: review_tu_vung_bai_48.md | 4. Cụm cần nhớ | c9337d91ff78f375
+    {
+      japanese: "それまでに来ます",
+      kana: "それまでに来ます",
+      vietnamese: "đến trước lúc đó",
+      english: "đến trước lúc đó",
+      type: "supplementary",
+      example: "までに / made ni nhấn mạnh hạn chót phải hoàn thành trước thời điểm đó."
+    },
+    // source: review_tu_vung_bai_48.md | 4. Cụm cần nhớ | d8b9bf6263473c2a
+    {
+      japanese: "〜てもかまいません",
+      kana: "〜てもかまいません",
+      vietnamese: "làm gì cũng không sao",
+      english: "làm gì cũng không sao",
+      type: "supplementary",
+      example: "Mẫu lịch sự để cho phép hoặc nói không vấn đề gì."
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 3fc7b1495531cfb9
+    {
+      japanese: "下",
+      kana: "カ / ka, ゲ / ge",
+      vietnamese: "Hạ — dưới, hạ xuống",
+      english: "dưới, hạ xuống",
+      type: "kanji",
+      example: "下ろします / oroshimasu"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 4a82164cc095780e
+    {
+      japanese: "世",
+      kana: "セ / se, セイ / sei",
+      vietnamese: "Thế — đời, thế gian",
+      english: "đời, thế gian",
+      type: "kanji",
+      example: "世話 / sewa"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | da872f75ad9049c7
+    {
+      japanese: "話",
+      kana: "ワ / wa",
+      vietnamese: "Thoại — nói chuyện",
+      english: "nói chuyện",
+      type: "kanji",
+      example: "世話 / sewa"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 4c1be285f27bb086
+    {
+      japanese: "音",
+      kana: "オン / on",
+      vietnamese: "Âm — âm thanh",
+      english: "âm thanh",
+      type: "kanji",
+      example: "録音 / rokuon"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 309ce0452cdae8ba
+    {
+      japanese: "生",
+      kana: "セイ / sei, ショウ / shou",
+      vietnamese: "Sinh — sống, sinh ra, học sinh",
+      english: "sống, sinh ra, học sinh",
+      type: "kanji",
+      example: "生徒 / seito"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 743bc4cf6c0a0f46
+    {
+      japanese: "自",
+      kana: "ジ / ji, シ / shi",
+      vietnamese: "Tự — bản thân, tự mình",
+      english: "bản thân, tự mình",
+      type: "kanji",
+      example: "自由 / jiyuu"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 1d18abc650604f6f
+    {
+      japanese: "由",
+      kana: "ユ / yu, ユウ / yuu",
+      vietnamese: "Do — lý do, nguồn gốc",
+      english: "lý do, nguồn gốc",
+      type: "kanji",
+      example: "自由 / jiyuu"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 391a367e0d413174
+    {
+      japanese: "間",
+      kana: "カン / kan, ケン / ken",
+      vietnamese: "Gian — khoảng giữa, khoảng thời gian",
+      english: "khoảng giữa, khoảng thời gian",
+      type: "kanji",
+      example: "〜間 / ~kan"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 276ff0e2f8566a5e
+    {
+      japanese: "親",
+      kana: "シン / shin",
+      vietnamese: "Thân — cha mẹ, thân thiết",
+      english: "cha mẹ, thân thiết",
+      type: "kanji",
+      example: "親 / oya"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 045ccc857d1d16cc
+    {
+      japanese: "小",
+      kana: "ショウ / shou",
+      vietnamese: "Tiểu — nhỏ",
+      english: "nhỏ",
+      type: "kanji",
+      example: "小学生 / shougakusei"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 2594d324f6e8fa6d
+    {
+      japanese: "学",
+      kana: "ガク / gaku",
+      vietnamese: "Học — học",
+      english: "học",
+      type: "kanji",
+      example: "小学生 / shougakusei"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 2b928aa896ca5515
+    {
+      japanese: "次",
+      kana: "ジ / ji, シ / shi",
+      vietnamese: "Thứ — tiếp theo",
+      english: "tiếp theo",
+      type: "kanji",
+      example: "その次 / sono tsugi"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 46c598833d44a92b
+    {
+      japanese: "習",
+      kana: "シュウ / shuu",
+      vietnamese: "Tập — học, luyện tập",
+      english: "học, luyện tập",
+      type: "kanji",
+      example: "習字 / shuuji"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 944ad56cd8925f26
+    {
+      japanese: "字",
+      kana: "ジ / ji",
+      vietnamese: "Tự — chữ",
+      english: "chữ",
+      type: "kanji",
+      example: "習字 / shuuji"
+    },
+    // source: review_tu_vung_bai_48.md | 5. Kanji N5–N4 cần học kỹ | 46fd0e04a42e0109
+    {
+      japanese: "通",
+      kana: "ツウ / tsuu, ツ / tsu",
+      vietnamese: "Thông — đi qua, thông thường",
+      english: "đi qua, thông thường",
+      type: "kanji",
+      example: "普通 / futsuu"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 60eb927be8ea123c
+    {
+      japanese: "下ろします",
+      kana: "お.ろす / orosu",
+      vietnamese: "Hạ — 下 = dưới, hạ xuống",
+      english: "下 = dưới, hạ xuống",
+      type: "kanji",
+      example: "下ろします"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | fb30e9a886713e2f
+    {
+      japanese: "下",
+      kana: "した / shita",
+      vietnamese: "Hạ — 下 = dưới",
+      english: "下 = dưới",
+      type: "kanji",
+      example: "下"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 8034b411f33157f6
+    {
+      japanese: "地下鉄",
+      kana: "カ / ka",
+      vietnamese: "Hạ — 地 = đất; 下 = dưới",
+      english: "地 = đất; 下 = dưới",
+      type: "kanji",
+      example: "地下鉄"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 93d03d601551a87c
+    {
+      japanese: "世界",
+      kana: "セ / se",
+      vietnamese: "Thế — 世 = đời, thế gian",
+      english: "世 = đời, thế gian",
+      type: "kanji",
+      example: "世界"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 027bf1b764585d5c
+    {
+      japanese: "世話",
+      kana: "セ / se",
+      vietnamese: "Thế — 世 = đời; 話 = lời nói, nói chuyện",
+      english: "世 = đời; 話 = lời nói, nói chuyện",
+      type: "kanji",
+      example: "世話"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 27760aa2c9f25d05
+    {
+      japanese: "話します",
+      kana: "はな.す / hanasu",
+      vietnamese: "Thoại — 話 = nói chuyện",
+      english: "話 = nói chuyện",
+      type: "kanji",
+      example: "話します"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 673eac1feeaceb48
+    {
+      japanese: "会話",
+      kana: "ワ / wa",
+      vietnamese: "Thoại — 会 = gặp; 話 = nói chuyện",
+      english: "会 = gặp; 話 = nói chuyện",
+      type: "kanji",
+      example: "会話"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 9eebe11f2f433258
+    {
+      japanese: "電話",
+      kana: "ワ / wa",
+      vietnamese: "Thoại — 電 = điện; 話 = nói chuyện",
+      english: "電 = điện; 話 = nói chuyện",
+      type: "kanji",
+      example: "電話"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | cd820f79c7b9509f
+    {
+      japanese: "音",
+      kana: "おと / oto",
+      vietnamese: "Âm — 音 = âm thanh",
+      english: "音 = âm thanh",
+      type: "kanji",
+      example: "音"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | ad8c4d24686362dd
+    {
+      japanese: "発音",
+      kana: "オン / on",
+      vietnamese: "Âm — 発 = phát ra; 音 = âm thanh",
+      english: "発 = phát ra; 音 = âm thanh",
+      type: "kanji",
+      example: "発音"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | edf92e1abf8267c6
+    {
+      japanese: "生徒",
+      kana: "セイ / sei",
+      vietnamese: "Sinh — 生 = học sinh; 徒 = người theo học",
+      english: "生 = học sinh; 徒 = người theo học",
+      type: "kanji",
+      example: "生徒"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | d7c2266183bdd084
+    {
+      japanese: "学生",
+      kana: "セイ / sei",
+      vietnamese: "Sinh — 学 = học; 生 = người học",
+      english: "学 = học; 生 = người học",
+      type: "kanji",
+      example: "学生"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | be2018a70463ec17
+    {
+      japanese: "生まれます",
+      kana: "う.まれる / umareru",
+      vietnamese: "Sinh — 生 = sinh ra",
+      english: "生 = sinh ra",
+      type: "kanji",
+      example: "生まれます"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | d0899612b6674bce
+    {
+      japanese: "自分",
+      kana: "ジ / ji",
+      vietnamese: "Tự — 自 = tự mình; 分 = phần",
+      english: "自 = tự mình; 分 = phần",
+      type: "kanji",
+      example: "自分"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 2314657c9a49de9f
+    {
+      japanese: "自由",
+      kana: "ジ / ji",
+      vietnamese: "Tự — 自 = tự mình; 由 = lý do, nguồn gốc",
+      english: "自 = tự mình; 由 = lý do, nguồn gốc",
+      type: "kanji",
+      example: "自由"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | b9073158e27cf19a
+    {
+      japanese: "時間",
+      kana: "カン / kan",
+      vietnamese: "Gian — 時 = giờ; 間 = khoảng",
+      english: "時 = giờ; 間 = khoảng",
+      type: "kanji",
+      example: "時間"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 4b49fa4fbbd2913c
+    {
+      japanese: "間",
+      kana: "あいだ / aida",
+      vietnamese: "Gian — 間 = khoảng giữa",
+      english: "間 = khoảng giữa",
+      type: "kanji",
+      example: "間"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 40eba4cad983e455
+    {
+      japanese: "一週間",
+      kana: "カン / kan",
+      vietnamese: "Gian — 一 = một; 週 = tuần; 間 = khoảng",
+      english: "一 = một; 週 = tuần; 間 = khoảng",
+      type: "kanji",
+      example: "一週間"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 84328293b605181a
+    {
+      japanese: "親",
+      kana: "おや / oya",
+      vietnamese: "Thân — 親 = cha mẹ",
+      english: "親 = cha mẹ",
+      type: "kanji",
+      example: "親"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | b04d67ff45a3c610
+    {
+      japanese: "両親",
+      kana: "シン / shin",
+      vietnamese: "Thân — 両 = cả hai; 親 = cha mẹ",
+      english: "両 = cả hai; 親 = cha mẹ",
+      type: "kanji",
+      example: "両親"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | c9e54e00b16d3f10
+    {
+      japanese: "小さい",
+      kana: "ちい.さい / chiisai",
+      vietnamese: "Tiểu — 小 = nhỏ",
+      english: "小 = nhỏ",
+      type: "kanji",
+      example: "小さい"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | ae015afcfa030df7
+    {
+      japanese: "小学校",
+      kana: "ショウ / shou",
+      vietnamese: "Tiểu — 小 = nhỏ; 学 = học; 校 = trường",
+      english: "小 = nhỏ; 学 = học; 校 = trường",
+      type: "kanji",
+      example: "小学校"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 25edd95d77bd6b8c
+    {
+      japanese: "学校",
+      kana: "ガク / gaku",
+      vietnamese: "Học — 学 = học; 校 = trường",
+      english: "学 = học; 校 = trường",
+      type: "kanji",
+      example: "学校"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 5a0db74e2ff93b99
+    {
+      japanese: "学生",
+      kana: "ガク / gaku",
+      vietnamese: "Học — 学 = học; 生 = người học",
+      english: "学 = học; 生 = người học",
+      type: "kanji",
+      example: "学生"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 30c8e779de230c3b
+    {
+      japanese: "次",
+      kana: "つぎ / tsugi",
+      vietnamese: "Thứ — 次 = tiếp theo",
+      english: "次 = tiếp theo",
+      type: "kanji",
+      example: "次"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 16e6ef0d40931c8b
+    {
+      japanese: "次回",
+      kana: "ジ / ji",
+      vietnamese: "Thứ — 次 = lần tiếp theo; 回 = lần",
+      english: "次 = lần tiếp theo; 回 = lần",
+      type: "kanji",
+      example: "次回"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | d570c7d6f6ccb5f4
+    {
+      japanese: "習います",
+      kana: "なら.う / narau",
+      vietnamese: "Tập — 習 = học, luyện",
+      english: "習 = học, luyện",
+      type: "kanji",
+      example: "習います"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 14c8fd27c58b24a2
+    {
+      japanese: "習字",
+      kana: "シュウ / shuu",
+      vietnamese: "Tập — 習 = học; 字 = chữ",
+      english: "習 = học; 字 = chữ",
+      type: "kanji",
+      example: "習字"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | dbffdf3079df3f36
+    {
+      japanese: "漢字",
+      kana: "ジ / ji",
+      vietnamese: "Tự — 漢 = Hán; 字 = chữ",
+      english: "漢 = Hán; 字 = chữ",
+      type: "kanji",
+      example: "漢字"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 21107672b06c8b3b
+    {
+      japanese: "通ります",
+      kana: "とお.る / tooru",
+      vietnamese: "Thông — 通 = đi qua",
+      english: "通 = đi qua",
+      type: "kanji",
+      example: "通ります"
+    },
+    // source: review_tu_vung_bai_48.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 5bf8f037644da597
+    {
+      japanese: "普通",
+      kana: "ツウ / tsuu",
+      vietnamese: "Thông — 普 = phổ biến; 通 = thông thường",
+      english: "普 = phổ biến; 通 = thông thường",
+      type: "kanji",
+      example: "普通"
+    },
+    // END_IMPORTED_MINNA_N4_MD
   ],
   grammar: [
     {
