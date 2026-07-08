@@ -13,6 +13,7 @@
   import { generateQuestions, generateMCOptions } from '$lib/utils/quizUtils';
   import { FlashCard, MultipleChoice, TypingQuiz, QuizFrame } from '$lib/components/quiz';
   import { Skeleton } from '$lib/components/ui/skeleton';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
   import type { QuizMode, QuizDirection, CourseId } from '$lib/types';
   import { showToast } from '$lib/stores/toast';
 
@@ -117,12 +118,12 @@
     {/if}
   </QuizFrame>
 {:else}
-  <div class="mx-auto max-w-xl px-4 space-y-4 ">
+  <PageWorkspace size="md">
     <Skeleton class="h-2 w-full rounded-full" />
     <Skeleton class="h-64 w-full rounded-lg" />
     <div class="flex gap-2">
       <Skeleton class="h-10 flex-1 rounded-md" />
       <Skeleton class="h-10 flex-1 rounded-md" />
     </div>
-  </div>
+  </PageWorkspace>
 {/if}

@@ -16,8 +16,11 @@
   import BackButton from '$lib/components/common/BackButton.svelte';
   import UiButton from '$lib/components/ui/button/button.svelte';
   import { IconButton } from '$lib/components/ui/icon-button';
-  import { BookOpen, X, CheckSquare, Square, Volume2, Layers, CheckCircle, Keyboard } from 'lucide-svelte';
+  import { X, CheckSquare, Square, Volume2, Layers, CheckCircle, Keyboard } from 'lucide-svelte';
   import PageEmpty from '$lib/components/common/PageEmpty.svelte';
+  import PageHero from '$lib/components/common/PageHero.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
+  import SearchInput from '$lib/components/common/SearchInput.svelte';
   import type { CourseId } from '$lib/types/course';
   import type { QuizMode, VocabItem } from '$lib/types';
 
@@ -89,31 +92,21 @@
 </svelte:head>
 
 {#if lessonData && course}
-  <div class="mx-auto max-w-3xl p-4 " class:pb-24={selectedSet.size > 0}>
-    <!-- Header -->
-    <div class="text-center mb-5 relative">
-      <div class="sm:absolute top-0 left-0 mb-3 sm:mb-0">
+  <PageWorkspace size="lg" class={selectedSet.size > 0 ? 'pb-28' : ''}>
+    <PageHero
+      eyebrow={`${course.metadata.level} · Bài ${lessonData.lessonNumber}`}
+      title="Vocabulary"
+      subtitle={`${lessonData.title} · ${vocabulary.length} từ vựng`}
+    >
+      {#snippet actions()}
         <BackButton href={`/course/${courseId}/lesson/${lessonId}`} text="Back to Lesson" />
-      </div>
-      <h2 class="text-xl font-bold mb-1 inline-flex items-center gap-1.5"><BookOpen size={20} aria-hidden="true" /> Vocabulary - Bài {lessonData.lessonNumber}</h2>
-      <p class="text-sm text-muted-foreground">{lessonData.title}</p>
-      <p class="text-sm font-semibold text-primary">{vocabulary.length} từ vựng</p>
-    </div>
+      {/snippet}
+    </PageHero>
 
     <!-- Controls -->
-    <div class="flex gap-3 mb-3 flex-wrap">
-      <div class="flex-1 min-w-[200px] relative">
-        <label for="vocab-search" class="sr-only">Search vocabulary</label>
-        <input
-          id="vocab-search"
-          type="text"
-          placeholder="Search Japanese, Kana, Vietnamese, English..."
-          bind:value={searchTerm}
-          class="w-full py-2.5 pl-3 pr-10 border border-border rounded-xl text-sm bg-card text-foreground focus:outline-none focus:border-primary transition-colors"
-        />
-        {#if searchTerm}
-          <button class="absolute right-2.5 top-1/2 -translate-y-1/2 bg-transparent border-none text-muted-foreground cursor-pointer hover:text-foreground" on:click={() => searchTerm = ''}><X size={16} aria-hidden="true" /></button>
-        {/if}
+    <div class="flex gap-3 flex-wrap">
+      <div class="flex-1 min-w-[220px]">
+        <SearchInput bind:value={searchTerm} placeholder="Search Japanese, Kana, Vietnamese, English..." />
       </div>
       <select bind:value={filterType} class="py-2.5 px-3 border border-border rounded-xl bg-card text-foreground text-sm cursor-pointer">
         <option value="all">All types</option>
@@ -125,7 +118,7 @@
     </div>
 
     <!-- Selection bar -->
-    <div class="flex items-center gap-2 mb-3 flex-wrap text-sm">
+    <div class="flex items-center gap-2 flex-wrap text-sm">
       <button class="inline-flex items-center gap-1.5 px-3 py-1 border border-border rounded-lg text-sm cursor-pointer hover:border-primary hover:text-primary transition-colors bg-transparent" on:click={toggleFiltered}>
         <span class="leading-none">{#if allFilteredSelected}<CheckSquare size={16} aria-hidden="true" />{:else}<Square size={16} aria-hidden="true" />{/if}</span>
         {allFilteredSelected ? 'Bỏ chọn' : 'Chọn tất cả'}
@@ -199,7 +192,7 @@
         </div>
       {/if}
     </div>
-  </div>
+  </PageWorkspace>
 {:else}
   <PageEmpty
     title="Lesson Not Found"

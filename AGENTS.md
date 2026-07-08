@@ -84,6 +84,8 @@ npx playwright test
 - Commit format: conventional commits, for example `feat(quiz): add retry summary`.
 - Feature PRs merge into `v4-dev`.
 - Stable release waves merge from `v4-dev` into `main` after audit passes.
+- Local credential note: `.env.txt` is a raw GitHub `access_token`, not a `KEY=value` env file. Never print it; load it directly into a temporary process env var when needed.
+- Review/comment rule: only comment on GitHub content authored by Victor Aurelius. Do not comment on other authors' PR comments, issues, or review threads unless the user explicitly overrides this rule.
 
 ## Architecture Rules
 

@@ -2,17 +2,17 @@
   /**
    * Course Grammar Patterns Page
    * Shows all grammar patterns for a specific lesson in a course
-   */
+  */
 
   import { page } from '$app/stores';
-  import { goto } from '$app/navigation';
-  import { base } from '$app/paths';
   import { getCourse } from '$lib/data/courses';
   import { Card, CardContent } from '$lib/components/ui/card';
   import Badge from '$lib/components/ui/badge/badge.svelte';
   import BackButton from '$lib/components/common/BackButton.svelte';
-  import UiButton from '$lib/components/ui/button/button.svelte';
-  import { BookOpen, X } from 'lucide-svelte';
+  import PageEmpty from '$lib/components/common/PageEmpty.svelte';
+  import PageHero from '$lib/components/common/PageHero.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
+  import SearchInput from '$lib/components/common/SearchInput.svelte';
   import type { CourseId } from '$lib/types/course';
 
   let searchTerm = '';
@@ -45,31 +45,19 @@
 </svelte:head>
 
 {#if lessonData && course}
-  <div class="mx-auto max-w-3xl p-4 ">
-    <!-- Header -->
-    <div class="text-center mb-5 relative">
-      <div class="sm:absolute top-0 left-0 mb-3 sm:mb-0">
+  <PageWorkspace size="lg">
+    <PageHero
+      eyebrow={`${course.metadata.level} · Bài ${lessonData.lessonNumber}`}
+      title="Grammar"
+      subtitle={`${lessonData.title} · ${grammar.length} mẫu ngữ pháp`}
+    >
+      {#snippet actions()}
         <BackButton href={`/course/${courseId}/lesson/${lessonId}`} text="Back to Lesson" />
-      </div>
-      <h2 class="text-xl font-bold mb-1 inline-flex items-center gap-1.5"><BookOpen size={20} aria-hidden="true" /> Grammar - Bài {lessonData.lessonNumber}</h2>
-      <p class="text-sm text-muted-foreground">{lessonData.title}</p>
-      <p class="text-sm font-semibold text-primary">{grammar.length} ngữ pháp</p>
-    </div>
+      {/snippet}
+    </PageHero>
 
     <!-- Search -->
-    <div class="relative mb-4">
-      <label for="grammar-search" class="sr-only">Search grammar patterns</label>
-      <input
-        id="grammar-search"
-        type="text"
-        placeholder="Search patterns, meanings..."
-        bind:value={searchTerm}
-        class="w-full py-2.5 pl-3 pr-10 border border-border rounded-xl text-sm bg-card text-foreground focus:outline-none focus:border-primary transition-colors"
-      />
-      {#if searchTerm}
-        <button class="absolute right-2.5 top-1/2 -translate-y-1/2 bg-transparent border-none text-muted-foreground cursor-pointer hover:text-foreground" on:click={() => searchTerm = ''}><X size={16} aria-hidden="true" /></button>
-      {/if}
-    </div>
+    <SearchInput bind:value={searchTerm} placeholder="Search patterns, meanings..." />
 
     {#if searchTerm}
       <p class="text-center text-sm text-muted-foreground mb-4">
@@ -125,11 +113,13 @@
         </div>
       {/if}
     </div>
-  </div>
+  </PageWorkspace>
 {:else}
-  <div class="text-center py-12 px-6">
-    <h2 class="text-xl font-bold mb-3">Lesson Not Found</h2>
-    <p class="text-muted-foreground mb-4">The lesson you're looking for doesn't exist.</p>
-    <UiButton onclick={() => goto(`${base}/courses`)}>Back to Courses</UiButton>
-  </div>
+  <PageWorkspace size="md">
+    <PageEmpty
+      title="Lesson Not Found"
+      description="The lesson you're looking for doesn't exist."
+      action={{ label: 'Back to Courses', href: '/courses' }}
+    />
+  </PageWorkspace>
 {/if}

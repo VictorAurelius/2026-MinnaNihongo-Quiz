@@ -39,3 +39,14 @@ PR body should include:
 - Notes or risks when relevant
 
 Use scripts in `scripts/workflow/` only when their behavior matches the task.
+
+## Local Credentials
+
+- `.env.txt` is a raw GitHub `access_token`, not a `KEY=value` env file.
+- Never print the token or include it in logs.
+- Load it only into a temporary process environment variable when needed.
+
+## Comment Safety
+
+- Only comment on GitHub content authored by Victor Aurelius.
+- Do not comment on other authors' PR comments, issues, or review threads unless the user explicitly overrides this rule.

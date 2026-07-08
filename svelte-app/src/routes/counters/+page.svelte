@@ -1,6 +1,9 @@
 <script lang="ts">
   import { NUMBERS_DATA, COUNTERS_DATA } from '$lib/data/minna/counters';
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
+  import FilterTabs from '$lib/components/common/FilterTabs.svelte';
+  import PageHero from '$lib/components/common/PageHero.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
   import type { NumberData, CounterType } from '$lib/types/lesson';
 
   let activeTab: 'numbers' | 'counters' = 'counters';
@@ -23,25 +26,24 @@
   <title>Trợ số từ - Japanese Counters</title>
 </svelte:head>
 
-<div class="mx-auto max-w-4xl px-4 py-6 sm:px-6 ">
-  <header class="text-center mb-6">
-    <h1 class="text-2xl font-bold mb-1">Số đếm & Trợ số từ</h1>
-    <p class="text-sm text-muted-foreground">Numbers & Japanese Counter Words</p>
-  </header>
+<PageWorkspace size="xl">
+  <PageHero
+    eyebrow="Reference"
+    title="Số đếm & Trợ số từ"
+    subtitle="Numbers & Japanese Counter Words — tra nhanh cách đọc số và counter trong tiếng Nhật."
+    script="japanese"
+  />
 
   <!-- Tabs -->
-  <div class="flex gap-2 mb-6 border-b-2 border-border">
-    <button
-      class="px-5 py-3 bg-transparent border-none border-b-[3px] text-base font-medium cursor-pointer transition-colors
-        {activeTab === 'numbers' ? 'text-primary border-primary' : 'text-muted-foreground border-transparent hover:text-foreground hover:bg-muted'}"
-      on:click={() => activeTab = 'numbers'}
-    >📊 Số cơ bản</button>
-    <button
-      class="px-5 py-3 bg-transparent border-none border-b-[3px] text-base font-medium cursor-pointer transition-colors
-        {activeTab === 'counters' ? 'text-primary border-primary' : 'text-muted-foreground border-transparent hover:text-foreground hover:bg-muted'}"
-      on:click={() => activeTab = 'counters'}
-    >🔢 Trợ số từ ({COUNTERS_DATA.length})</button>
-  </div>
+  <FilterTabs
+    bind:value={activeTab}
+    ariaLabel="Counters reference section"
+    class="sm:w-fit"
+    options={[
+      { id: 'numbers', label: '📊 Số cơ bản' },
+      { id: 'counters', label: `🔢 Trợ số từ (${COUNTERS_DATA.length})` }
+    ]}
+  />
 
   {#if activeTab === 'numbers'}
     <section class="mb-6">
@@ -154,7 +156,7 @@
       <li>Click vào mỗi counter để xem chi tiết cách đọc từ 1-10</li>
     </ul>
   </div>
-</div>
+</PageWorkspace>
 
 <style>
   .numbers-table { width: 100%; border-collapse: collapse; background: var(--color-card); }

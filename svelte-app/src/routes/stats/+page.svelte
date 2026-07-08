@@ -15,6 +15,8 @@
   } from '$lib/utils/statsUtils';
   import { loadStreak, checkAchievements } from '$lib/utils/achievementUtils';
   import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
+  import PageHero from '$lib/components/common/PageHero.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
 
   $: overview = computeOverviewStats($progressStore);
   $: lessonStats = computeLessonStats($progressStore);
@@ -30,7 +32,13 @@
   <title>Statistics - Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-xl p-4 ">
+<PageWorkspace size="md">
+  <PageHero
+    eyebrow="Learning analytics"
+    title="Tiến trình"
+    subtitle="Theo dõi độ chính xác, streak, mastery và bài học nên ôn tiếp."
+  />
+
   {#if !hasData}
     <div class="text-center py-12 text-muted-foreground">
       <div class="text-5xl mb-3">📊</div>
@@ -150,4 +158,4 @@
       </Card>
     {/if}
   {/if}
-</div>
+</PageWorkspace>

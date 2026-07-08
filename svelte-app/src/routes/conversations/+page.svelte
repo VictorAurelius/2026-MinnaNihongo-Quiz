@@ -9,7 +9,9 @@
   import { playJapaneseAudio } from '$lib/utils/audioUtils';
   import { kanaToRomaji } from '$lib/utils/kanaUtils';
   import { ChevronRight, Volume2, MessageCircle, Lightbulb, Globe } from 'lucide-svelte';
-  import Breadcrumb from '$lib/components/common/Breadcrumb.svelte';
+  import FilterTabs from '$lib/components/common/FilterTabs.svelte';
+  import PageHero from '$lib/components/common/PageHero.svelte';
+  import PageWorkspace from '$lib/components/common/PageWorkspace.svelte';
   import type { ConversationPattern } from '$lib/types/lesson';
   import { onMount } from 'svelte';
 
@@ -37,48 +39,31 @@
   <title>Mẫu câu giao tiếp — Smart Quiz</title>
 </svelte:head>
 
-<div class="mx-auto max-w-2xl ">
-  <!-- Hero -->
-  <div class="relative text-white pt-3 pb-6 px-4 overflow-hidden" style="background: var(--color-shell)">
-    <div class="relative z-10">
-      <h1 class="text-[22px] font-extrabold tracking-tight drop-shadow-sm">Mẫu câu giao tiếp</h1>
-      <p class="text-sm font-medium text-white/80 mt-1">Hội thoại thực tế + cách ghi nhớ</p>
-    </div>
-  </div>
+<PageWorkspace size="lg">
+  <PageHero
+    eyebrow="Conversation patterns"
+    title="Mẫu câu giao tiếp"
+    subtitle="Hội thoại thực tế, mẫu câu, mẹo ghi nhớ và phát âm để biến kiến thức bài học thành phản xạ."
+  />
 
-  <div class="px-4 py-5 flex flex-col gap-6">
-    <Breadcrumb items={[
-      { label: 'Home', href: '/' },
-      { label: 'Giao tiếp' }
-    ]} />
+  <div class="flex flex-col gap-6">
 
     <p class="text-sm text-muted-foreground" role="status">
       {hasAudioSupport ? 'Hội thoại dùng giọng đọc trên thiết bị; khả năng ngoại tuyến phụ thuộc gói giọng tiếng Nhật đã cài.' : 'Thiết bị này không hỗ trợ phát âm tự động; nội dung hội thoại vẫn khả dụng ngoại tuyến.'}
     </p>
 
-    <!-- Level Selector -->
-    <div class="flex gap-0 p-1.5 bg-muted/50 rounded-2xl" role="radiogroup" aria-label="JLPT level">
-      {#each levels as lvl}
-        <button
-          role="radio"
-          aria-checked={selectedLevel === lvl.id}
-          class="flex-1 flex flex-col items-center gap-0.5 py-3 px-2 rounded-xl transition-colors duration-200 cursor-pointer active:scale-[0.97]
-            {selectedLevel === lvl.id
-              ? 'bg-primary text-primary-foreground shadow-md'
-              : 'text-muted-foreground hover:text-foreground hover:bg-background/50'}"
-          on:click={() => { selectedLevel = lvl.id; expandedId = null; }}
-        >
-          <span class="text-xs font-bold">{lvl.label}</span>
-          <span class="text-[0.6rem] opacity-75">{lvl.desc}</span>
-        </button>
-      {/each}
-    </div>
+    <FilterTabs
+      bind:value={selectedLevel}
+      options={levels.map((lvl) => ({ id: lvl.id, label: lvl.label, description: lvl.desc }))}
+      ariaLabel="JLPT level"
+      onchange={() => expandedId = null}
+    />
 
     <!-- Conversation Cards -->
     <div class="flex flex-col gap-3">
       {#each conversations as conv, i}
         <div
-          class=" bg-card border border-border/50 rounded-2xl shadow-sm overflow-hidden transition-colors duration-200"
+          class="overflow-hidden rounded-surface border border-border bg-card transition-colors duration-200"
           style="animation-delay: {i * 50}ms"
         >
           <!-- Header (clickable) -->
@@ -170,4 +155,4 @@
       {/each}
     </div>
   </div>
-</div>
+</PageWorkspace>
