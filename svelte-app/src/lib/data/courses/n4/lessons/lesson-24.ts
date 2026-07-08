@@ -510,7 +510,840 @@ export const LESSON_24_DATA: LessonData = {
       english: 'occasionally',
       type: 'supplementary',
       example: 'たまに外食します。'
-    }
+    },
+    // BEGIN_IMPORTED_MINNA_N4_MD
+    // source: review_tu_vung_bai_49.md | 1. Nhóm kính ngữ quan trọng | 4d9da93f877d6499
+    {
+      japanese: "いらっしゃいます",
+      kana: "いらっしゃいます",
+      vietnamese: "có, ở, đi, đến — kính ngữ của います / 行きます / 来ます",
+      english: "có, ở, đi, đến — kính ngữ của います / 行きます / 来ます",
+      type: "supplementary"
+    },
+    // source: review_tu_vung_bai_49.md | 1. Nhóm kính ngữ quan trọng | ae296684afdaac7c
+    {
+      japanese: "召し上がります",
+      kana: "めしあがります",
+      vietnamese: "ăn, uống — kính ngữ của 食べます / 飲みます",
+      english: "ăn, uống — kính ngữ của 食べます / 飲みます",
+      type: "supplementary"
+    },
+    // source: review_tu_vung_bai_49.md | 1. Nhóm kính ngữ quan trọng | 5f49bd52557393c3
+    {
+      japanese: "おっしゃいます",
+      kana: "おっしゃいます",
+      vietnamese: "nói — kính ngữ của 言います",
+      english: "nói — kính ngữ của 言います",
+      type: "supplementary"
+    },
+    // source: review_tu_vung_bai_49.md | 1. Nhóm kính ngữ quan trọng | 040a620445912279
+    {
+      japanese: "なさいます",
+      kana: "なさいます",
+      vietnamese: "làm — kính ngữ của します",
+      english: "làm — kính ngữ của します",
+      type: "supplementary"
+    },
+    // source: review_tu_vung_bai_49.md | 1. Nhóm kính ngữ quan trọng | ea6a5c907be5f3f6
+    {
+      japanese: "ご覧になります",
+      kana: "ごらんになります",
+      vietnamese: "xem, nhìn — kính ngữ của 見ます",
+      english: "xem, nhìn — kính ngữ của 見ます",
+      type: "supplementary"
+    },
+    // source: review_tu_vung_bai_49.md | 1. Nhóm kính ngữ quan trọng | ec05e0fcd9e957db
+    {
+      japanese: "ご存じです",
+      kana: "ごぞんじです",
+      vietnamese: "biết — kính ngữ của 知っています",
+      english: "biết — kính ngữ của 知っています",
+      type: "supplementary"
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | 3d6a542b8ade492b
+    {
+      japanese: "利用します",
+      kana: "りようします",
+      vietnamese: "sử dụng, tận dụng",
+      english: "sử dụng, tận dụng",
+      type: "main",
+      example: "図書館を利用します。\nToshokan o riyou shimasu.\nTôi sử dụng thư viện."
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | bc94c0271aa84d59
+    {
+      japanese: "勤めます",
+      kana: "つとめます",
+      vietnamese: "làm việc ở công ty/cơ quan",
+      english: "làm việc ở công ty/cơ quan",
+      type: "main",
+      example: "会社に勤めています。\nKaisha ni tsutomete imasu.\nTôi đang làm việc ở công ty."
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | 775ae7c6a0e9cc68
+    {
+      japanese: "掛けます",
+      kana: "かけます",
+      vietnamese: "ngồi, treo, gọi điện; trong bài: ngồi ghế",
+      english: "ngồi, treo, gọi điện; trong bài: ngồi ghế",
+      type: "main",
+      example: "いすに掛けます。\nIsu ni kakemasu.\nTôi ngồi vào ghế."
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | 1d92a8b189fa98eb
+    {
+      japanese: "過ごします",
+      kana: "すごします",
+      vietnamese: "trải qua, tiêu thời gian",
+      english: "trải qua, tiêu thời gian",
+      type: "main",
+      example: "家で週末を過ごします。\nIe de shuumatsu o sugoshimasu.\nTôi trải qua cuối tuần ở nhà."
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | c866c8c1c2336409
+    {
+      japanese: "挨拶",
+      kana: "あいさつ",
+      vietnamese: "chào hỏi",
+      english: "chào hỏi",
+      type: "main",
+      example: "先生にあいさつします。\nSensei ni aisatsu shimasu.\nTôi chào thầy/cô."
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | d1f1a0f783ab782a
+    {
+      japanese: "旅館",
+      kana: "りょかん",
+      vietnamese: "nhà trọ kiểu Nhật",
+      english: "nhà trọ kiểu Nhật",
+      type: "main",
+      example: "京都の旅館に泊まります。\nKyouto no ryokan ni tomarimasu.\nTôi ở ryokan tại Kyoto."
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | 679126ecb489a8fb
+    {
+      japanese: "バス停",
+      kana: "バスてい",
+      vietnamese: "bến xe buýt",
+      english: "bến xe buýt",
+      type: "main",
+      example: "バス停で待ちます。\nBasu tei de machimasu.\nTôi đợi ở bến xe buýt."
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | e61f983b2f5e71eb
+    {
+      japanese: "奥様",
+      kana: "おくさま",
+      vietnamese: "vợ của người khác, cách nói kính trọng",
+      english: "vợ của người khác, cách nói kính trọng",
+      type: "main",
+      example: "奥様はお元気ですか。\nOkusama wa ogenki desu ka.\nPhu nhân của anh có khỏe không ạ?"
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | 69a7af335aa2bbb0
+    {
+      japanese: "～様",
+      kana: "～さま",
+      vietnamese: "ngài, ông, bà — kính trọng hơn さん",
+      english: "ngài, ông, bà — kính trọng hơn さん",
+      type: "main",
+      example: "田中様はいらっしゃいますか。\nTanaka-sama wa irasshaimasu ka.\nNgài Tanaka có ở đây không ạ?"
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | 7300a379f455099c
+    {
+      japanese: "たまに",
+      kana: "たまに",
+      vietnamese: "thỉnh thoảng",
+      english: "thỉnh thoảng",
+      type: "main",
+      example: "たまに映画を見ます。\nTama ni eiga o mimasu.\nThỉnh thoảng tôi xem phim."
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | 39c7e8314183f79b
+    {
+      japanese: "どなたでも",
+      kana: "どなたでも",
+      vietnamese: "vị nào cũng, bất kỳ ai cũng",
+      english: "vị nào cũng, bất kỳ ai cũng",
+      type: "main",
+      example: "どなたでも参加できます。\nDonata demo sanka dekimasu.\nBất kỳ ai cũng có thể tham gia."
+    },
+    // source: review_tu_vung_bai_49.md | 2. Từ vựng chính | b114d0c30e82042b
+    {
+      japanese: "～といいます",
+      kana: "～といいます",
+      vietnamese: "tên là ~",
+      english: "tên là ~",
+      type: "main",
+      example: "山田といいます。\nYamada to iimasu.\nTôi tên là Yamada."
+    },
+    // source: review_tu_vung_bai_49.md | 3. Từ vựng hội thoại | 73a455ee0a854b2b
+    {
+      japanese: "一年組",
+      kana: "いちねんぐみ",
+      vietnamese: "lớp/năm thứ nhất",
+      english: "lớp/năm thứ nhất",
+      type: "supplementary",
+      example: "一年組の学生です。\nIchinen-gumi no gakusei desu.\nTôi là học sinh lớp/năm thứ nhất."
+    },
+    // source: review_tu_vung_bai_49.md | 3. Từ vựng hội thoại | a527c4a0dc380aec
+    {
+      japanese: "出します",
+      kana: "だします",
+      vietnamese: "đưa ra; trong cụm 熱を出します = bị sốt",
+      english: "đưa ra; trong cụm 熱を出します = bị sốt",
+      type: "supplementary",
+      example: "熱を出しました。\nNetsu o dashimashita.\nTôi bị sốt rồi."
+    },
+    // source: review_tu_vung_bai_49.md | 3. Từ vựng hội thoại | 51720bcb5e63ffef
+    {
+      japanese: "よろしくお伝えください",
+      kana: "よろしくおつたえください",
+      vietnamese: "Cho tôi gửi lời hỏi thăm.",
+      english: "Cho tôi gửi lời hỏi thăm.",
+      type: "supplementary",
+      example: "お母様によろしくお伝えください。\nOkaasama ni yoroshiku otsutae kudasai.\nCho tôi gửi lời hỏi thăm mẹ anh/chị."
+    },
+    // source: review_tu_vung_bai_49.md | 3. Từ vựng hội thoại | f28f9a032cf919fa
+    {
+      japanese: "失礼いたします",
+      kana: "しつれいいたします",
+      vietnamese: "Xin phép, tôi xin thất lễ",
+      english: "Xin phép, tôi xin thất lễ",
+      type: "supplementary",
+      example: "では、失礼いたします。\nDewa, shitsurei itashimasu.\nVậy tôi xin phép ạ."
+    },
+    // source: review_tu_vung_bai_49.md | 3. Từ vựng hội thoại | 70f6181ab49ecbfe
+    {
+      japanese: "ひまわり小学校",
+      kana: "ひまわりしょうがっこう",
+      vietnamese: "Trường tiểu học Himawari",
+      english: "Trường tiểu học Himawari",
+      type: "supplementary",
+      example: "ひまわり小学校に通っています。\nHimawari Shougakkou ni kayotte imasu.\nTôi đang học ở Trường Tiểu học Himawari."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | 59d90a38a4737403
+    {
+      japanese: "経歴",
+      kana: "けいれき",
+      vietnamese: "lý lịch, quá trình học/làm",
+      english: "lý lịch, quá trình học/làm",
+      type: "supplementary",
+      example: "経歴を紹介します。\nKeireki o shoukai shimasu.\nTôi giới thiệu lý lịch."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | da2d4c7f50536532
+    {
+      japanese: "医学部",
+      kana: "いがくぶ",
+      vietnamese: "khoa y",
+      english: "khoa y",
+      type: "supplementary",
+      example: "医学部で勉強しています。\nIgakubu de benkyou shite imasu.\nTôi đang học ở khoa y."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | 6d2c9afa5c42bfaa
+    {
+      japanese: "目指します",
+      kana: "めざします",
+      vietnamese: "hướng đến, đặt mục tiêu trở thành",
+      english: "hướng đến, đặt mục tiêu trở thành",
+      type: "supplementary",
+      example: "医者を目指しています。\nIsha o mezashite imasu.\nTôi đang hướng tới mục tiêu trở thành bác sĩ."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | 2d207152ced44ce2
+    {
+      japanese: "進みます",
+      kana: "すすみます",
+      vietnamese: "tiến lên, học lên",
+      english: "tiến lên, học lên",
+      type: "supplementary",
+      example: "大学院に進みます。\nDaigakuin ni susumimasu.\nTôi học tiếp lên cao học."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | 4fe5e0cf2b04e7b6
+    {
+      japanese: "iPS細胞",
+      kana: "iPSさいぼう",
+      vietnamese: "tế bào iPS",
+      english: "tế bào iPS",
+      type: "supplementary",
+      example: "iPS細胞を研究します。\niPS saibou o kenkyuu shimasu.\nTôi nghiên cứu tế bào iPS."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | 8be072d41b5ceacb
+    {
+      japanese: "開発します",
+      kana: "かいはつします",
+      vietnamese: "phát triển, khai phát",
+      english: "phát triển, khai phát",
+      type: "supplementary",
+      example: "新しい薬を開発します。\nAtarashii kusuri o kaihatsu shimasu.\nPhát triển thuốc mới."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | 153de527190d245d
+    {
+      japanese: "マウス",
+      kana: "マウス",
+      vietnamese: "chuột thí nghiệm",
+      english: "chuột thí nghiệm",
+      type: "supplementary",
+      example: "マウスで実験します。\nMausu de jikken shimasu.\nLàm thí nghiệm trên chuột."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | dc3b14fe2e61ee84
+    {
+      japanese: "ヒト",
+      kana: "ヒト",
+      vietnamese: "người, con người",
+      english: "người, con người",
+      type: "supplementary",
+      example: "ヒトの細胞を使います。\nHito no saibou o tsukaimasu.\nSử dụng tế bào người."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | eeeffc0175009412
+    {
+      japanese: "受賞します",
+      kana: "じゅしょうします",
+      vietnamese: "nhận giải thưởng",
+      english: "nhận giải thưởng",
+      type: "supplementary",
+      example: "ノーベル賞を受賞しました。\nNooberu-shou o jushou shimashita.\nĐã nhận giải Nobel."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | fc89a44405efe058
+    {
+      japanese: "講演会",
+      kana: "こうえんかい",
+      vietnamese: "buổi diễn thuyết, buổi nói chuyện",
+      english: "buổi diễn thuyết, buổi nói chuyện",
+      type: "supplementary",
+      example: "講演会に参加します。\nKouenkai ni sanka shimasu.\nTôi tham gia buổi nói chuyện."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | b82a08d74e115cde
+    {
+      japanese: "山中伸弥",
+      kana: "やまなかしんや",
+      vietnamese: "Yamanaka Shinya",
+      english: "Yamanaka Shinya",
+      type: "supplementary",
+      example: "山中伸弥先生は研究者です。\nYamanaka Shin’ya sensei wa kenkyuusha desu.\nGiáo sư Yamanaka Shinya là nhà nghiên cứu."
+    },
+    // source: review_tu_vung_bai_49.md | 4. Từ vựng bài đọc | 7599e6d5d4ff0173
+    {
+      japanese: "ノーベル賞",
+      kana: "ノーベルしょう",
+      vietnamese: "giải Nobel",
+      english: "giải Nobel",
+      type: "supplementary",
+      example: "ノーベル賞をもらいました。\nNooberu-shou o moraimashita.\nĐã nhận giải Nobel."
+    },
+    // source: review_tu_vung_bai_49.md | 5. Cụm cần nhớ trong bài 49 | de64e83743fe8f5e
+    {
+      japanese: "会社に勤めます",
+      kana: "会社に勤めます",
+      vietnamese: "làm việc ở công ty",
+      english: "làm việc ở công ty",
+      type: "supplementary",
+      example: "Dùng trợ từ に / ni"
+    },
+    // source: review_tu_vung_bai_49.md | 5. Cụm cần nhớ trong bài 49 | 8bbd5d7758d4af57
+    {
+      japanese: "いすに掛けます",
+      kana: "いすに掛けます",
+      vietnamese: "ngồi vào ghế",
+      english: "ngồi vào ghế",
+      type: "supplementary",
+      example: "Cách nói lịch sự/trang trọng hơn 座ります"
+    },
+    // source: review_tu_vung_bai_49.md | 5. Cụm cần nhớ trong bài 49 | a815f785b795dbbb
+    {
+      japanese: "時間を過ごします",
+      kana: "時間を過ごします",
+      vietnamese: "trải qua thời gian",
+      english: "trải qua thời gian",
+      type: "supplementary",
+      example: "Hay dùng với cuối tuần, kỳ nghỉ"
+    },
+    // source: review_tu_vung_bai_49.md | 5. Cụm cần nhớ trong bài 49 | c3dbeeddfcfbd966
+    {
+      japanese: "熱を出します",
+      kana: "熱を出します",
+      vietnamese: "bị sốt",
+      english: "bị sốt",
+      type: "supplementary",
+      example: "Không dịch là “đưa sốt ra”"
+    },
+    // source: review_tu_vung_bai_49.md | 5. Cụm cần nhớ trong bài 49 | 14b6b8294822dd83
+    {
+      japanese: "よろしくお伝えください",
+      kana: "よろしくお伝えください",
+      vietnamese: "cho tôi gửi lời hỏi thăm",
+      english: "cho tôi gửi lời hỏi thăm",
+      type: "supplementary",
+      example: "Câu lịch sự khi nhờ chuyển lời"
+    },
+    // source: review_tu_vung_bai_49.md | 5. Cụm cần nhớ trong bài 49 | ad99a692ffc9ad8f
+    {
+      japanese: "失礼いたします",
+      kana: "失礼いたします",
+      vietnamese: "tôi xin phép",
+      english: "tôi xin phép",
+      type: "supplementary",
+      example: "Hay dùng khi kết thúc cuộc gọi, rời đi"
+    },
+    // source: review_tu_vung_bai_49.md | 5. Cụm cần nhớ trong bài 49 | 7e1e6102c4ac4947
+    {
+      japanese: "医者を目指します",
+      kana: "医者を目指します",
+      vietnamese: "hướng tới mục tiêu làm bác sĩ",
+      english: "hướng tới mục tiêu làm bác sĩ",
+      type: "supplementary",
+      example: "Dùng を với mục tiêu"
+    },
+    // source: review_tu_vung_bai_49.md | 5. Cụm cần nhớ trong bài 49 | 13cce03994eff0a8
+    {
+      japanese: "大学院に進みます",
+      kana: "大学院に進みます",
+      vietnamese: "học tiếp lên cao học",
+      english: "học tiếp lên cao học",
+      type: "supplementary",
+      example: "Dùng に chỉ hướng/đích đến"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 9aa02ddb946daa34
+    {
+      japanese: "利",
+      kana: "リ / ri",
+      vietnamese: "Lợi — lợi ích, có ích",
+      english: "lợi ích, có ích",
+      type: "kanji",
+      example: "利用 / riyou"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | d0b4eede785debb0
+    {
+      japanese: "用",
+      kana: "ヨウ / you",
+      vietnamese: "Dụng — dùng, việc cần làm",
+      english: "dùng, việc cần làm",
+      type: "kanji",
+      example: "利用 / riyou"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 746d9915645d6382
+    {
+      japanese: "会",
+      kana: "カイ / kai",
+      vietnamese: "Hội — gặp, hội, công ty",
+      english: "gặp, hội, công ty",
+      type: "kanji",
+      example: "会社 / kaisha, 講演会 / kouenkai"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | a5e1096d58be0b66
+    {
+      japanese: "社",
+      kana: "シャ / sha",
+      vietnamese: "Xã — công ty, xã hội",
+      english: "công ty, xã hội",
+      type: "kanji",
+      example: "会社 / kaisha"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | a4bdec1f3fe9c74c
+    {
+      japanese: "上",
+      kana: "ジョウ / jou",
+      vietnamese: "Thượng — trên, lên",
+      english: "trên, lên",
+      type: "kanji",
+      example: "召し上がります / meshiagarimasu"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 5d46cc3ee6e4f506
+    {
+      japanese: "出",
+      kana: "シュツ / shutsu",
+      vietnamese: "Xuất — ra, đưa ra",
+      english: "ra, đưa ra",
+      type: "kanji",
+      example: "出します / dashimasu"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 38193950543f95e2
+    {
+      japanese: "年",
+      kana: "ネン / nen",
+      vietnamese: "Niên — năm",
+      english: "năm",
+      type: "kanji",
+      example: "一年組 / ichinen-gumi"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 217450aea00eb9e9
+    {
+      japanese: "小",
+      kana: "ショウ / shou",
+      vietnamese: "Tiểu — nhỏ",
+      english: "nhỏ",
+      type: "kanji",
+      example: "小学校 / shougakkou"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 809b0acf26555d9b
+    {
+      japanese: "学",
+      kana: "ガク / gaku",
+      vietnamese: "Học — học",
+      english: "học",
+      type: "kanji",
+      example: "小学校 / shougakkou, 医学部 / igakubu"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 16dda3f4b6eef8ea
+    {
+      japanese: "校",
+      kana: "コウ / kou",
+      vietnamese: "Hiệu — trường học",
+      english: "trường học",
+      type: "kanji",
+      example: "小学校 / shougakkou"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 9a92da4826758f80
+    {
+      japanese: "目",
+      kana: "モク / moku",
+      vietnamese: "Mục — mắt, mục tiêu",
+      english: "mắt, mục tiêu",
+      type: "kanji",
+      example: "目指します / mezashimasu"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 932266649290b44e
+    {
+      japanese: "開",
+      kana: "カイ / kai",
+      vietnamese: "Khai — mở, khai mở",
+      english: "mở, khai mở",
+      type: "kanji",
+      example: "開発 / kaihatsu"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 8eb66539fda4adf7
+    {
+      japanese: "発",
+      kana: "ハツ / hatsu",
+      vietnamese: "Phát — phát ra, phát triển",
+      english: "phát ra, phát triển",
+      type: "kanji",
+      example: "開発 / kaihatsu"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | f441256afb161f24
+    {
+      japanese: "受",
+      kana: "ジュ / ju",
+      vietnamese: "Thụ — nhận",
+      english: "nhận",
+      type: "kanji",
+      example: "受賞 / jushou"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | aa97e2297f76a9ab
+    {
+      japanese: "山",
+      kana: "サン / san",
+      vietnamese: "Sơn — núi",
+      english: "núi",
+      type: "kanji",
+      example: "山中伸弥 / Yamanaka Shin’ya"
+    },
+    // source: review_tu_vung_bai_49.md | 6. Kanji N5–N4 cần học kỹ | 481005be0ea4dbe4
+    {
+      japanese: "中",
+      kana: "チュウ / chuu",
+      vietnamese: "Trung — trong, giữa",
+      english: "trong, giữa",
+      type: "kanji",
+      example: "山中伸弥 / Yamanaka Shin’ya"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 61152d2b62dfa2ee
+    {
+      japanese: "利用",
+      kana: "リ / ri",
+      vietnamese: "Lợi — 利 = lợi ích; 用 = dùng",
+      english: "利 = lợi ích; 用 = dùng",
+      type: "kanji",
+      example: "利用"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | a0cc10718144a493
+    {
+      japanese: "便利",
+      kana: "リ / ri",
+      vietnamese: "Lợi — 便 = tiện; 利 = lợi",
+      english: "便 = tiện; 利 = lợi",
+      type: "kanji",
+      example: "便利"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 4edd52278fb542fa
+    {
+      japanese: "用事",
+      kana: "ヨウ / you",
+      vietnamese: "Dụng — 用 = dùng, việc cần làm",
+      english: "用 = dùng, việc cần làm",
+      type: "kanji",
+      example: "用事"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 24cbba959f50eade
+    {
+      japanese: "利用",
+      kana: "ヨウ / you",
+      vietnamese: "Dụng — 利 = lợi; 用 = dùng",
+      english: "利 = lợi; 用 = dùng",
+      type: "kanji",
+      example: "利用"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 3c4d270ca2012426
+    {
+      japanese: "会う",
+      kana: "あ.う / au",
+      vietnamese: "Hội — 会 = gặp",
+      english: "会 = gặp",
+      type: "kanji",
+      example: "会う"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 44f447d04d29c4fe
+    {
+      japanese: "会社",
+      kana: "カイ / kai",
+      vietnamese: "Hội — 会 = hội; 社 = công ty",
+      english: "会 = hội; 社 = công ty",
+      type: "kanji",
+      example: "会社"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 110b7afc00bd0e25
+    {
+      japanese: "講演会",
+      kana: "カイ / kai",
+      vietnamese: "Hội — 講 = giảng; 演 = diễn thuyết; 会 = buổi hội",
+      english: "講 = giảng; 演 = diễn thuyết; 会 = buổi hội",
+      type: "kanji",
+      example: "講演会"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 05c0876c88392d52
+    {
+      japanese: "会社",
+      kana: "シャ / sha",
+      vietnamese: "Xã — 会 = hội; 社 = công ty",
+      english: "会 = hội; 社 = công ty",
+      type: "kanji",
+      example: "会社"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 493214cf83533811
+    {
+      japanese: "社長",
+      kana: "シャ / sha",
+      vietnamese: "Xã — 社 = công ty; 長 = người đứng đầu",
+      english: "社 = công ty; 長 = người đứng đầu",
+      type: "kanji",
+      example: "社長"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 017b2314113bb85a
+    {
+      japanese: "上",
+      kana: "うえ / ue",
+      vietnamese: "Thượng — 上 = trên",
+      english: "上 = trên",
+      type: "kanji",
+      example: "上"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 3444888824c3adf7
+    {
+      japanese: "上手",
+      kana: "ジョウ / jou",
+      vietnamese: "Thượng — 上 = lên, phía trên; 手 = tay/kỹ năng",
+      english: "上 = lên, phía trên; 手 = tay/kỹ năng",
+      type: "kanji",
+      example: "上手"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 1834797b0c938300
+    {
+      japanese: "出る",
+      kana: "で.る / deru",
+      vietnamese: "Xuất — 出 = ra",
+      english: "出 = ra",
+      type: "kanji",
+      example: "出る"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | f10669c80d09df4f
+    {
+      japanese: "出す",
+      kana: "だ.す / dasu",
+      vietnamese: "Xuất — 出 = đưa ra",
+      english: "出 = đưa ra",
+      type: "kanji",
+      example: "出す"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 4b451ac23093fbc5
+    {
+      japanese: "一年組",
+      kana: "ネン / nen",
+      vietnamese: "Niên — 年 = năm; 組 = nhóm/lớp",
+      english: "年 = năm; 組 = nhóm/lớp",
+      type: "kanji",
+      example: "一年組"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 69e2af199121ecc9
+    {
+      japanese: "来年",
+      kana: "ネン / nen",
+      vietnamese: "Niên — 来 = tới; 年 = năm",
+      english: "来 = tới; 年 = năm",
+      type: "kanji",
+      example: "来年"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 41b9459a77248d4f
+    {
+      japanese: "小学校",
+      kana: "ショウ / shou",
+      vietnamese: "Tiểu — 小 = nhỏ; 学 = học; 校 = trường",
+      english: "小 = nhỏ; 学 = học; 校 = trường",
+      type: "kanji",
+      example: "小学校"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 077837aa7e97c55d
+    {
+      japanese: "小さい",
+      kana: "ちい.さい / chiisai",
+      vietnamese: "Tiểu — 小 = nhỏ",
+      english: "小 = nhỏ",
+      type: "kanji",
+      example: "小さい"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | b9a5ef6e42254bc8
+    {
+      japanese: "学校",
+      kana: "ガク / gaku",
+      vietnamese: "Học — 学 = học; 校 = trường",
+      english: "学 = học; 校 = trường",
+      type: "kanji",
+      example: "学校"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 9799c85406bce151
+    {
+      japanese: "小学校",
+      kana: "ガク / gaku",
+      vietnamese: "Học — 小 = nhỏ; 学 = học; 校 = trường",
+      english: "小 = nhỏ; 学 = học; 校 = trường",
+      type: "kanji",
+      example: "小学校"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | f652f14cbd383ff5
+    {
+      japanese: "学ぶ",
+      kana: "まな.ぶ / manabu",
+      vietnamese: "Học — 学 = học",
+      english: "学 = học",
+      type: "kanji",
+      example: "学ぶ"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 8496db387a5881a4
+    {
+      japanese: "学校",
+      kana: "コウ / kou",
+      vietnamese: "Hiệu — 学 = học; 校 = trường",
+      english: "学 = học; 校 = trường",
+      type: "kanji",
+      example: "学校"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 1b26879028dcf206
+    {
+      japanese: "小学校",
+      kana: "コウ / kou",
+      vietnamese: "Hiệu — 小 = nhỏ; 学 = học; 校 = trường",
+      english: "小 = nhỏ; 学 = học; 校 = trường",
+      type: "kanji",
+      example: "小学校"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 547457fc6c14e5d5
+    {
+      japanese: "目",
+      kana: "め / me",
+      vietnamese: "Mục — 目 = mắt",
+      english: "目 = mắt",
+      type: "kanji",
+      example: "目"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | de4a5aebbdd5599a
+    {
+      japanese: "目指す",
+      kana: "め / me",
+      vietnamese: "Mục — 目 = mục tiêu; 指 = chỉ/hướng",
+      english: "目 = mục tiêu; 指 = chỉ/hướng",
+      type: "kanji",
+      example: "目指す"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 728d96b913a24bf6
+    {
+      japanese: "開発",
+      kana: "カイ / kai",
+      vietnamese: "Khai — 開 = mở; 発 = phát triển",
+      english: "開 = mở; 発 = phát triển",
+      type: "kanji",
+      example: "開発"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 0d022d2bbe4cb1f5
+    {
+      japanese: "開ける",
+      kana: "あ.ける / akeru",
+      vietnamese: "Khai — 開 = mở",
+      english: "開 = mở",
+      type: "kanji",
+      example: "開ける"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | b99972456e44322c
+    {
+      japanese: "開発",
+      kana: "ハツ / hatsu",
+      vietnamese: "Phát — 開 = mở; 発 = phát triển",
+      english: "開 = mở; 発 = phát triển",
+      type: "kanji",
+      example: "開発"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 6b5dbbceef5d6fdc
+    {
+      japanese: "出発",
+      kana: "ハツ / hatsu",
+      vietnamese: "Phát — 出 = ra; 発 = khởi hành",
+      english: "出 = ra; 発 = khởi hành",
+      type: "kanji",
+      example: "出発"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 2292d015a939a75c
+    {
+      japanese: "受賞",
+      kana: "ジュ / ju",
+      vietnamese: "Thụ — 受 = nhận; 賞 = giải thưởng",
+      english: "受 = nhận; 賞 = giải thưởng",
+      type: "kanji",
+      example: "受賞"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | b408c9bafceb9c78
+    {
+      japanese: "受ける",
+      kana: "う.ける / ukeru",
+      vietnamese: "Thụ — 受 = nhận",
+      english: "受 = nhận",
+      type: "kanji",
+      example: "受ける"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 6c59776a3a5f9f50
+    {
+      japanese: "山",
+      kana: "やま / yama",
+      vietnamese: "Sơn — 山 = núi",
+      english: "山 = núi",
+      type: "kanji",
+      example: "山"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | bd13a6e3667f6c53
+    {
+      japanese: "火山",
+      kana: "サン / san",
+      vietnamese: "Sơn — 火 = lửa; 山 = núi",
+      english: "火 = lửa; 山 = núi",
+      type: "kanji",
+      example: "火山"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | 4a9b6f276ff62389
+    {
+      japanese: "中",
+      kana: "なか / naka",
+      vietnamese: "Trung — 中 = trong, giữa",
+      english: "中 = trong, giữa",
+      type: "kanji",
+      example: "中"
+    },
+    // source: review_tu_vung_bai_49.md | 7. Từ ghép On/Kun của Kanji N5–N4 | b7e59c4739081029
+    {
+      japanese: "山中",
+      kana: "なか / naka",
+      vietnamese: "Trung — 山 = núi; 中 = trong/giữa",
+      english: "山 = núi; 中 = trong/giữa",
+      type: "kanji",
+      example: "山中"
+    },
+    // END_IMPORTED_MINNA_N4_MD
   ],
   grammar: [
     {

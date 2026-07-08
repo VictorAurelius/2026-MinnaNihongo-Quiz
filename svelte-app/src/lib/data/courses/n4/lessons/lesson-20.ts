@@ -581,7 +581,729 @@ export const LESSON_20_DATA: LessonData = {
       english: 'apparently, it seems',
       type: 'supplementary',
       example: 'どうやら雨が降りそうです。'
-    }
+    },
+    // BEGIN_IMPORTED_MINNA_N4_MD
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | e9655d81b08727fd
+    {
+      japanese: "信じます",
+      kana: "しんじます",
+      vietnamese: "tin, tin tưởng",
+      english: "tin, tin tưởng",
+      type: "main",
+      example: "友達を信じます。\nTomodachi o shinjimasu.\nTôi tin bạn bè."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | 83d2e1b67d9f0f1f
+    {
+      japanese: "キャンセルします",
+      kana: "キャンセルします",
+      vietnamese: "hủy bỏ, hủy",
+      english: "hủy bỏ, hủy",
+      type: "main",
+      example: "予約をキャンセルします。\nYoyaku o kyanseru shimasu.\nTôi hủy đặt chỗ."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | 78f7b9eefcc55d80
+    {
+      japanese: "知らせます",
+      kana: "しらせます",
+      vietnamese: "thông báo, báo cho biết",
+      english: "thông báo, báo cho biết",
+      type: "main",
+      example: "先生に予定を知らせます。\nSensei ni yotei o shirasemasu.\nTôi báo lịch trình cho thầy/cô."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | 12f8c3cfbd1a55b6
+    {
+      japanese: "保証書",
+      kana: "ほしょうしょ",
+      vietnamese: "giấy bảo hành",
+      english: "giấy bảo hành",
+      type: "main",
+      example: "保証書をなくしました。\nHoshousho o nakushimashita.\nTôi đã làm mất giấy bảo hành."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | 73878e072f8b8e38
+    {
+      japanese: "領収書",
+      kana: "りょうしゅうしょ",
+      vietnamese: "hóa đơn, biên lai",
+      english: "hóa đơn, biên lai",
+      type: "main",
+      example: "領収書をください。\nRyoushuusho o kudasai.\nLàm ơn cho tôi hóa đơn/biên lai."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | 12be539a97ac09e2
+    {
+      japanese: "キャンプ",
+      kana: "キャンプ",
+      vietnamese: "trại, cắm trại",
+      english: "trại, cắm trại",
+      type: "main",
+      example: "夏休みにキャンプへ行きます。\nNatsuyasumi ni kyanpu e ikimasu.\nKỳ nghỉ hè tôi đi cắm trại."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | 30d091d46f4a0fb6
+    {
+      japanese: "中止",
+      kana: "ちゅうし",
+      vietnamese: "dừng, đình chỉ, hủy tổ chức",
+      english: "dừng, đình chỉ, hủy tổ chức",
+      type: "main",
+      example: "雨で試合は中止になりました。\nAme de shiai wa chuushi ni narimashita.\nTrận đấu đã bị hủy do mưa."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | 97ee2f7738d21c5b
+    {
+      japanese: "点",
+      kana: "てん",
+      vietnamese: "điểm",
+      english: "điểm",
+      type: "main",
+      example: "テストで九十点を取りました。\nTesuto de kyuujuu-ten o torimashita.\nTôi đã đạt 90 điểm trong bài kiểm tra."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | bb9cab747ee727d3
+    {
+      japanese: "梅",
+      kana: "うめ",
+      vietnamese: "hoa mơ, cây mơ",
+      english: "hoa mơ, cây mơ",
+      type: "main",
+      example: "梅の花が咲きました。\nUme no hana ga sakimashita.\nHoa mơ đã nở."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | c2b27b6cf3d68e73
+    {
+      japanese: "110番",
+      kana: "110ばん",
+      vietnamese: "số 110, số gọi cảnh sát ở Nhật",
+      english: "số 110, số gọi cảnh sát ở Nhật",
+      type: "main",
+      example: "事故のとき、110番に電話します。\nJiko no toki, hyaku-touban ni denwa shimasu.\nKhi có tai nạn/sự cố, gọi số 110."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | 1c1a4b4f864c8a35
+    {
+      japanese: "119番",
+      kana: "119ばん",
+      vietnamese: "số 119, số báo cháy/cấp cứu ở Nhật",
+      english: "số 119, số báo cháy/cấp cứu ở Nhật",
+      type: "main",
+      example: "火事のとき、119番に電話します。\nKaji no toki, hyaku-juukyuu-ban ni denwa shimasu.\nKhi có hỏa hoạn, gọi số 119."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | aa9c2f5a9548da3d
+    {
+      japanese: "急に",
+      kana: "きゅうに",
+      vietnamese: "đột nhiên, bất ngờ",
+      english: "đột nhiên, bất ngờ",
+      type: "main",
+      example: "急に雨が降りました。\nKyuu ni ame ga furimashita.\nTrời đột nhiên mưa."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | f2a136602701d920
+    {
+      japanese: "無理に",
+      kana: "むりに",
+      vietnamese: "cố làm một cách quá sức/không hợp lý",
+      english: "cố làm một cách quá sức/không hợp lý",
+      type: "main",
+      example: "無理に食べなくてもいいです。\nMuri ni tabenakute mo ii desu.\nKhông cần cố ăn đâu."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | e2fa0e82c924bb49
+    {
+      japanese: "楽しみにしています",
+      kana: "たのしみにしています",
+      vietnamese: "đang mong đợi, rất háo hức",
+      english: "đang mong đợi, rất háo hức",
+      type: "main",
+      example: "旅行を楽しみにしています。\nRyokou o tanoshimi ni shite imasu.\nTôi đang rất mong chuyến du lịch."
+    },
+    // source: review_tu_vung_bai_45.md | 1. Từ vựng chính | c578be8f4ca8f727
+    {
+      japanese: "以上です",
+      kana: "いじょうです",
+      vietnamese: "xin hết, trên đây là hết",
+      english: "xin hết, trên đây là hết",
+      type: "main",
+      example: "発表は以上です。\nHappyou wa ijou desu.\nPhần phát biểu của tôi xin hết."
+    },
+    // source: review_tu_vung_bai_45.md | 2. Từ vựng hội thoại | aff6d886b251806b
+    {
+      japanese: "係員",
+      kana: "かかりいん",
+      vietnamese: "nhân viên phụ trách",
+      english: "nhân viên phụ trách",
+      type: "supplementary",
+      example: "係員に道を聞きます。\nKakariin ni michi o kikimasu.\nTôi hỏi đường nhân viên phụ trách."
+    },
+    // source: review_tu_vung_bai_45.md | 2. Từ vựng hội thoại | a0dfeb4f6ed13f6b
+    {
+      japanese: "コース",
+      kana: "コース",
+      vietnamese: "đường chạy, lộ trình, khóa học",
+      english: "đường chạy, lộ trình, khóa học",
+      type: "supplementary",
+      example: "マラソンのコースを確認します。\nMarason no koosu o kakunin shimasu.\nTôi xác nhận đường chạy marathon."
+    },
+    // source: review_tu_vung_bai_45.md | 2. Từ vựng hội thoại | 37a8f61aede0de66
+    {
+      japanese: "スタート",
+      kana: "スタート",
+      vietnamese: "xuất phát, bắt đầu",
+      english: "xuất phát, bắt đầu",
+      type: "supplementary",
+      example: "スタートは九時です。\nSutaato wa ku-ji desu.\nGiờ xuất phát là 9 giờ."
+    },
+    // source: review_tu_vung_bai_45.md | 2. Từ vựng hội thoại | 565fe3d81152f9bf
+    {
+      japanese: "一位",
+      kana: "いちい",
+      vietnamese: "vị trí thứ nhất, giải nhất",
+      english: "vị trí thứ nhất, giải nhất",
+      type: "supplementary",
+      example: "彼は一位になりました。\nKare wa ichii ni narimashita.\nAnh ấy đã đạt giải nhất."
+    },
+    // source: review_tu_vung_bai_45.md | 2. Từ vựng hội thoại | 7b7a10ce9f04e5ab
+    {
+      japanese: "優勝します",
+      kana: "ゆうしょうします",
+      vietnamese: "vô địch, đoạt giải nhất",
+      english: "vô địch, đoạt giải nhất",
+      type: "supplementary",
+      example: "チームは大会で優勝しました。\nChiimu wa taikai de yuushou shimashita.\nĐội đã vô địch trong đại hội/cuộc thi."
+    },
+    // source: review_tu_vung_bai_45.md | 3. Từ vựng đọc hiểu | 2737b30e88561aa9
+    {
+      japanese: "悩み",
+      kana: "なやみ",
+      vietnamese: "nỗi lo, trăn trở, phiền muộn",
+      english: "nỗi lo, trăn trở, phiền muộn",
+      type: "supplementary",
+      example: "悩みがあります。\nNayami ga arimasu.\nTôi có nỗi lo."
+    },
+    // source: review_tu_vung_bai_45.md | 3. Từ vựng đọc hiểu | 01693adab18add1e
+    {
+      japanese: "目覚まし時計",
+      kana: "めざましどけい",
+      vietnamese: "đồng hồ báo thức",
+      english: "đồng hồ báo thức",
+      type: "supplementary",
+      example: "目覚まし時計をセットします。\nMezamashi-dokei o setto shimasu.\nTôi cài đồng hồ báo thức."
+    },
+    // source: review_tu_vung_bai_45.md | 3. Từ vựng đọc hiểu | 3c7e679eec6cc966
+    {
+      japanese: "目が覚めます",
+      kana: "めがさめます",
+      vietnamese: "tỉnh giấc",
+      english: "tỉnh giấc",
+      type: "supplementary",
+      example: "六時に目が覚めました。\nRoku-ji ni me ga samemashita.\nTôi tỉnh giấc lúc 6 giờ."
+    },
+    // source: review_tu_vung_bai_45.md | 3. Từ vựng đọc hiểu | 86f501db468472d9
+    {
+      japanese: "大学生",
+      kana: "だいがくせい",
+      vietnamese: "sinh viên đại học",
+      english: "sinh viên đại học",
+      type: "supplementary",
+      example: "姉は大学生です。\nAne wa daigakusei desu.\nChị gái tôi là sinh viên đại học."
+    },
+    // source: review_tu_vung_bai_45.md | 3. Từ vựng đọc hiểu | 235f043a96312996
+    {
+      japanese: "回答",
+      kana: "かいとう",
+      vietnamese: "câu trả lời, lời giải",
+      english: "câu trả lời, lời giải",
+      type: "supplementary",
+      example: "回答を書いてください。\nKaitou o kaite kudasai.\nHãy viết câu trả lời."
+    },
+    // source: review_tu_vung_bai_45.md | 3. Từ vựng đọc hiểu | f63a13103cb25d65
+    {
+      japanese: "鳴ります",
+      kana: "なります",
+      vietnamese: "reo, kêu, phát ra âm thanh",
+      english: "reo, kêu, phát ra âm thanh",
+      type: "supplementary",
+      example: "ベルが鳴りました。\nBeru ga narimashita.\nChuông đã reo."
+    },
+    // source: review_tu_vung_bai_45.md | 3. Từ vựng đọc hiểu | fe993dfa75fd4b91
+    {
+      japanese: "セットします",
+      kana: "セットします",
+      vietnamese: "cài đặt, đặt sẵn",
+      english: "cài đặt, đặt sẵn",
+      type: "supplementary",
+      example: "アラームをセットします。\nAraamu o setto shimasu.\nTôi cài báo thức."
+    },
+    // source: review_tu_vung_bai_45.md | 3. Từ vựng đọc hiểu | 2ca6ff035fbf580a
+    {
+      japanese: "それでも",
+      kana: "それでも",
+      vietnamese: "tuy vậy, mặc dù thế",
+      english: "tuy vậy, mặc dù thế",
+      type: "supplementary",
+      example: "眠いです。それでも勉強します。\nNemui desu. Sore demo benkyou shimasu.\nTôi buồn ngủ. Dù vậy, tôi vẫn học."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | 5bdf4876443b11ab
+    {
+      japanese: "人を信じます",
+      kana: "人を信じます",
+      vietnamese: "tin người khác",
+      english: "tin người khác",
+      type: "supplementary",
+      example: "信じます / shinjimasu thường đi với trợ từ を / o."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | 868d88ff25f4b086
+    {
+      japanese: "予約をキャンセルします",
+      kana: "予約をキャンセルします",
+      vietnamese: "hủy đặt chỗ",
+      english: "hủy đặt chỗ",
+      type: "supplementary",
+      example: "Dùng khi hủy lịch hẹn, khách sạn, vé, lớp học."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | 03822e7cddff24d6
+    {
+      japanese: "人に知らせます",
+      kana: "人に知らせます",
+      vietnamese: "báo cho ai biết",
+      english: "báo cho ai biết",
+      type: "supplementary",
+      example: "Người nhận thông tin dùng に / ni."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | b70df230d782b4f3
+    {
+      japanese: "予定を知らせます",
+      kana: "予定を知らせます",
+      vietnamese: "thông báo lịch trình",
+      english: "thông báo lịch trình",
+      type: "supplementary",
+      example: "Nội dung được thông báo dùng を / o."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | 3661d50cd9ec7d9f
+    {
+      japanese: "領収書をください",
+      kana: "領収書をください",
+      vietnamese: "làm ơn cho tôi hóa đơn/biên lai",
+      english: "làm ơn cho tôi hóa đơn/biên lai",
+      type: "supplementary",
+      example: "Câu rất hay dùng khi mua đồ, thanh toán."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | 5481115573723960
+    {
+      japanese: "〜は中止になりました",
+      kana: "〜は中止になりました",
+      vietnamese: "~ đã bị hủy/dừng",
+      english: "~ đã bị hủy/dừng",
+      type: "supplementary",
+      example: "Thường dùng với sự kiện, trận đấu, chuyến đi."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | 058557e4f673325a
+    {
+      japanese: "110番に電話します",
+      kana: "110番に電話します",
+      vietnamese: "gọi số 110",
+      english: "gọi số 110",
+      type: "supplementary",
+      example: "110 ở Nhật thường dùng khi cần cảnh sát."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | 273bf885e49a8b38
+    {
+      japanese: "119番に電話します",
+      kana: "119番に電話します",
+      vietnamese: "gọi số 119",
+      english: "gọi số 119",
+      type: "supplementary",
+      example: "119 ở Nhật thường dùng khi cháy/cấp cứu."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | a268c85d4441498e
+    {
+      japanese: "急に雨が降ります",
+      kana: "急に雨が降ります",
+      vietnamese: "trời đột nhiên mưa",
+      english: "trời đột nhiên mưa",
+      type: "supplementary",
+      example: "急に / kyuu ni nhấn mạnh việc xảy ra bất ngờ."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | a5ff197ecc6e12aa
+    {
+      japanese: "無理に〜しません",
+      kana: "無理に〜しません",
+      vietnamese: "không cố làm ~",
+      english: "không cố làm ~",
+      type: "supplementary",
+      example: "Dùng khi không ép bản thân/người khác làm quá sức."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | e4923b8815ba63ba
+    {
+      japanese: "〜を楽しみにしています",
+      kana: "〜を楽しみにしています",
+      vietnamese: "đang mong đợi ~",
+      english: "đang mong đợi ~",
+      type: "supplementary",
+      example: "Mẫu cố định, trước を / o là điều mình mong chờ."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | 390295a1b2c0efcb
+    {
+      japanese: "発表は以上です",
+      kana: "発表は以上です",
+      vietnamese: "bài phát biểu xin hết",
+      english: "bài phát biểu xin hết",
+      type: "supplementary",
+      example: "Dùng khi kết thúc thuyết trình/phát biểu."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | f4bbae49cb9834af
+    {
+      japanese: "目覚まし時計をセットします",
+      kana: "目覚まし時計をセットします",
+      vietnamese: "cài đồng hồ báo thức",
+      english: "cài đồng hồ báo thức",
+      type: "supplementary",
+      example: "セットします / setto shimasu = cài đặt."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | 50f7571e5e61a656
+    {
+      japanese: "目が覚めます",
+      kana: "目が覚めます",
+      vietnamese: "tỉnh giấc",
+      english: "tỉnh giấc",
+      type: "supplementary",
+      example: "Không dùng を / o; cụm cố định là 目が覚めます / me ga samemasu."
+    },
+    // source: review_tu_vung_bai_45.md | 4. Cụm cần nhớ | 4e6951306ed67bc4
+    {
+      japanese: "ベルが鳴ります",
+      kana: "ベルが鳴ります",
+      vietnamese: "chuông reo",
+      english: "chuông reo",
+      type: "supplementary",
+      example: "Chủ ngữ âm thanh/chuông dùng が / ga."
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | 3504e7c8e3879f27
+    {
+      japanese: "信",
+      kana: "シン / shin",
+      vietnamese: "Tín — tin, niềm tin",
+      english: "tin, niềm tin",
+      type: "kanji",
+      example: "信じます / shinjimasu"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | 48e24391e0b7cf9c
+    {
+      japanese: "知",
+      kana: "チ / chi",
+      vietnamese: "Tri — biết, thông báo",
+      english: "biết, thông báo",
+      type: "kanji",
+      example: "知らせます / shirasemasu"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | 6235ed38ea387d4f
+    {
+      japanese: "中",
+      kana: "チュウ / chuu",
+      vietnamese: "Trung — giữa, bên trong, đang",
+      english: "giữa, bên trong, đang",
+      type: "kanji",
+      example: "中止 / chuushi"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | e0b6dae794e583cd
+    {
+      japanese: "止",
+      kana: "シ / shi",
+      vietnamese: "Chỉ — dừng, ngừng",
+      english: "dừng, ngừng",
+      type: "kanji",
+      example: "中止 / chuushi"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | c1bc702d536c3f7b
+    {
+      japanese: "点",
+      kana: "テン / ten",
+      vietnamese: "Điểm — điểm, chấm",
+      english: "điểm, chấm",
+      type: "kanji",
+      example: "点 / ten"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | c92da0f898faf1fa
+    {
+      japanese: "急",
+      kana: "キュウ / kyuu",
+      vietnamese: "Cấp — gấp, đột ngột",
+      english: "gấp, đột ngột",
+      type: "kanji",
+      example: "急に / kyuu ni"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | 47b3497b22bc75d8
+    {
+      japanese: "無",
+      kana: "ム / mu, ブ / bu",
+      vietnamese: "Vô — không, không có",
+      english: "không, không có",
+      type: "kanji",
+      example: "無理に / muri ni"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | 8e253f8bc16aca17
+    {
+      japanese: "理",
+      kana: "リ / ri",
+      vietnamese: "Lí — lý lẽ, lý do",
+      english: "lý lẽ, lý do",
+      type: "kanji",
+      example: "無理に / muri ni"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | 941cc5ee0a529c43
+    {
+      japanese: "楽",
+      kana: "ガク / gaku, ラク / raku",
+      vietnamese: "Lạc / Nhạc — vui, dễ chịu, âm nhạc",
+      english: "vui, dễ chịu, âm nhạc",
+      type: "kanji",
+      example: "楽しみにしています / tanoshimi ni shite imasu"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | c37bb365ad4817ce
+    {
+      japanese: "上",
+      kana: "ジョウ / jou",
+      vietnamese: "Thượng — trên, lên",
+      english: "trên, lên",
+      type: "kanji",
+      example: "以上です / ijou desu"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | c0c97b5a9f48b148
+    {
+      japanese: "目",
+      kana: "モク / moku",
+      vietnamese: "Mục — mắt, mục",
+      english: "mắt, mục",
+      type: "kanji",
+      example: "目が覚めます / me ga samemasu"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | e5de67310760080c
+    {
+      japanese: "時",
+      kana: "ジ / ji",
+      vietnamese: "Thời — thời gian, giờ",
+      english: "thời gian, giờ",
+      type: "kanji",
+      example: "時計 / tokei"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | 1cc8f20ec86377dc
+    {
+      japanese: "計",
+      kana: "ケイ / kei",
+      vietnamese: "Kế — đo, tính toán",
+      english: "đo, tính toán",
+      type: "kanji",
+      example: "時計 / tokei"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | ca56cd71ef1006c8
+    {
+      japanese: "大",
+      kana: "ダイ / dai, タイ / tai",
+      vietnamese: "Đại — to, lớn",
+      english: "to, lớn",
+      type: "kanji",
+      example: "大学生 / daigakusei"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | 92f86115999087e2
+    {
+      japanese: "学",
+      kana: "ガク / gaku",
+      vietnamese: "Học — học",
+      english: "học",
+      type: "kanji",
+      example: "大学生 / daigakusei"
+    },
+    // source: review_tu_vung_bai_45.md | 5. Kanji N5–N4 cần học kỹ | 0643ccbc9349becf
+    {
+      japanese: "生",
+      kana: "セイ / sei, ショウ / shou",
+      vietnamese: "Sinh — sinh, sống, học sinh",
+      english: "sinh, sống, học sinh",
+      type: "kanji",
+      example: "大学生 / daigakusei"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | cd7baa5abdcbf403
+    {
+      japanese: "信じる",
+      kana: "しん.じる / shinjiru",
+      vietnamese: "Tín — 信 = tin",
+      english: "信 = tin",
+      type: "kanji",
+      example: "信じる"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 444d6beebdb58f5b
+    {
+      japanese: "信用",
+      kana: "シン / shin",
+      vietnamese: "Tín — 信 = tin; 用 = dùng, tác dụng",
+      english: "信 = tin; 用 = dùng, tác dụng",
+      type: "kanji",
+      example: "信用"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | d69b723ad6cab02e
+    {
+      japanese: "知る",
+      kana: "し.る / shiru",
+      vietnamese: "Tri — 知 = biết",
+      english: "知 = biết",
+      type: "kanji",
+      example: "知る"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 62eb1dd1edf20d05
+    {
+      japanese: "知人",
+      kana: "チ / chi",
+      vietnamese: "Tri — 知 = biết; 人 = người",
+      english: "知 = biết; 人 = người",
+      type: "kanji",
+      example: "知人"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | e10b39b77e39e7a8
+    {
+      japanese: "中",
+      kana: "なか / naka",
+      vietnamese: "Trung — 中 = trong, giữa",
+      english: "中 = trong, giữa",
+      type: "kanji",
+      example: "中"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | d2dfcc654b5af6bc
+    {
+      japanese: "中止",
+      kana: "チュウ / chuu",
+      vietnamese: "Trung — 中 = giữa; 止 = dừng",
+      english: "中 = giữa; 止 = dừng",
+      type: "kanji",
+      example: "中止"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 1e7a4b7f70911d7e
+    {
+      japanese: "止まる",
+      kana: "と.まる / tomaru",
+      vietnamese: "Chỉ — 止 = dừng",
+      english: "止 = dừng",
+      type: "kanji",
+      example: "止まる"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 80d7c38f39ff94a2
+    {
+      japanese: "禁止",
+      kana: "シ / shi",
+      vietnamese: "Chỉ — 禁 = cấm; 止 = dừng",
+      english: "禁 = cấm; 止 = dừng",
+      type: "kanji",
+      example: "禁止"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 659d169b7f058616
+    {
+      japanese: "急に",
+      kana: "キュウ / kyuu",
+      vietnamese: "Cấp — 急 = gấp",
+      english: "急 = gấp",
+      type: "kanji",
+      example: "急に"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 7adac38c4e3c3f10
+    {
+      japanese: "急行",
+      kana: "キュウ / kyuu",
+      vietnamese: "Cấp — 急 = gấp; 行 = đi",
+      english: "急 = gấp; 行 = đi",
+      type: "kanji",
+      example: "急行"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 08417414e4870549
+    {
+      japanese: "無理",
+      kana: "ム / mu",
+      vietnamese: "Vô — 無 = không; 理 = lý lẽ",
+      english: "無 = không; 理 = lý lẽ",
+      type: "kanji",
+      example: "無理"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | c223adbfa4ef2d96
+    {
+      japanese: "理由",
+      kana: "リ / ri",
+      vietnamese: "Lí — 理 = lý lẽ; 由 = nguyên do",
+      english: "理 = lý lẽ; 由 = nguyên do",
+      type: "kanji",
+      example: "理由"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 5aa3072a9e10b167
+    {
+      japanese: "楽しい",
+      kana: "たの.しい / tanoshii",
+      vietnamese: "Lạc / Nhạc — 楽 = vui",
+      english: "楽 = vui",
+      type: "kanji",
+      example: "楽しい"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 0316e144d6011223
+    {
+      japanese: "音楽",
+      kana: "ガク / gaku",
+      vietnamese: "Lạc / Nhạc — 音 = âm thanh; 楽 = nhạc",
+      english: "音 = âm thanh; 楽 = nhạc",
+      type: "kanji",
+      example: "音楽"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 8364609ef6a2e006
+    {
+      japanese: "上",
+      kana: "うえ / ue",
+      vietnamese: "Thượng — 上 = trên",
+      english: "上 = trên",
+      type: "kanji",
+      example: "上"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | b56aead510feb306
+    {
+      japanese: "以上",
+      kana: "ジョウ / jou",
+      vietnamese: "Thượng — 以 = lấy làm mốc; 上 = trên",
+      english: "以 = lấy làm mốc; 上 = trên",
+      type: "kanji",
+      example: "以上"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | cbcd81f0c2c39a2d
+    {
+      japanese: "目",
+      kana: "め / me",
+      vietnamese: "Mục — 目 = mắt",
+      english: "目 = mắt",
+      type: "kanji",
+      example: "目"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 15c01ce288d2f40f
+    {
+      japanese: "時計",
+      kana: "ジ / ji",
+      vietnamese: "Thời — 時 = giờ, thời gian; 計 = đo",
+      english: "時 = giờ, thời gian; 計 = đo",
+      type: "kanji",
+      example: "時計"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 20e97323294412c2
+    {
+      japanese: "大学",
+      kana: "ダイ / dai",
+      vietnamese: "Đại — 大 = lớn; 学 = học",
+      english: "大 = lớn; 学 = học",
+      type: "kanji",
+      example: "大学"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 8452be5b4f2f09f0
+    {
+      japanese: "学生",
+      kana: "ガク / gaku",
+      vietnamese: "Học — 学 = học; 生 = người sinh/học sinh",
+      english: "学 = học; 生 = người sinh/học sinh",
+      type: "kanji",
+      example: "学生"
+    },
+    // source: review_tu_vung_bai_45.md | 6. Từ ghép On/Kun của Kanji N5–N4 | e6d6219ce867ceb0
+    {
+      japanese: "先生",
+      kana: "セイ / sei",
+      vietnamese: "Sinh — 先 = trước; 生 = sinh",
+      english: "先 = trước; 生 = sinh",
+      type: "kanji",
+      example: "先生"
+    },
+    // END_IMPORTED_MINNA_N4_MD
   ],
   grammar: [
     {

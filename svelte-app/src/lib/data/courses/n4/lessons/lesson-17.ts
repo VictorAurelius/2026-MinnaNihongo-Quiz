@@ -541,7 +541,1125 @@ export const LESSON_17_DATA: LessonData = {
       english: 'continuation',
       type: 'supplementary',
       example: '継続して勉強します。'
-    }
+    },
+    // BEGIN_IMPORTED_MINNA_N4_MD
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | c5b3ffb1b3cc46fe
+    {
+      japanese: "包みます",
+      kana: "つつみます",
+      vietnamese: "bọc, gói",
+      english: "bọc, gói",
+      type: "main",
+      example: "プレゼントを紙で包みます。\nPurezento o kami de tsutsumimasu.\nTôi gói quà bằng giấy."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | e419ac924b372844
+    {
+      japanese: "沸かします",
+      kana: "わかします",
+      vietnamese: "đun sôi",
+      english: "đun sôi",
+      type: "main",
+      example: "やかんでお湯を沸かします。\nYakan de oyu o wakashimasu.\nTôi đun nước nóng bằng ấm."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | e06cc173a03cba85
+    {
+      japanese: "混ぜます",
+      kana: "まぜます",
+      vietnamese: "trộn, khuấy",
+      english: "trộn, khuấy",
+      type: "main",
+      example: "材料をよく混ぜます。\nZairyou o yoku mazemasu.\nTôi trộn kỹ nguyên liệu."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 93aebe878dea4c9e
+    {
+      japanese: "計算します",
+      kana: "けいさんします",
+      vietnamese: "tính toán, làm tính",
+      english: "tính toán, làm tính",
+      type: "main",
+      example: "値段を計算します。\nNedan o keisan shimasu.\nTôi tính giá tiền."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 4b476b1047e562c7
+    {
+      japanese: "並びます",
+      kana: "ならびます",
+      vietnamese: "xếp hàng",
+      english: "xếp hàng",
+      type: "main",
+      example: "駅で人が並んでいます。\nEki de hito ga narande imasu.\nMọi người đang xếp hàng ở ga."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 236ba292538b0c24
+    {
+      japanese: "丈夫[な]",
+      kana: "じょうぶ[な]",
+      vietnamese: "chắc, bền; khỏe mạnh",
+      english: "chắc, bền; khỏe mạnh",
+      type: "main",
+      example: "このかばんは丈夫です。\nKono kaban wa joubu desu.\nCái cặp này bền."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 99411f60247ee66f
+    {
+      japanese: "ー",
+      kana: "アパート",
+      vietnamese: "phòng trọ, căn hộ",
+      english: "phòng trọ, căn hộ",
+      type: "main",
+      example: "アパートに住んでいます。\nApaato ni sunde imasu.\nTôi đang sống ở căn hộ/phòng trọ."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | b5e3f933da5d62d3
+    {
+      japanese: "弁護士",
+      kana: "べんごし",
+      vietnamese: "luật sư",
+      english: "luật sư",
+      type: "main",
+      example: "兄は弁護士です。\nAni wa bengoshi desu.\nAnh trai tôi là luật sư."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 32ba72abb92caee2
+    {
+      japanese: "音楽家",
+      kana: "おんがくか",
+      vietnamese: "nhạc sĩ",
+      english: "nhạc sĩ",
+      type: "main",
+      example: "ベートーベンは有名な音楽家です。\nBeetooben wa yuumei na ongakuka desu.\nBeethoven là một nhạc sĩ nổi tiếng."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 3f28b3de13076f73
+    {
+      japanese: "子どもたち",
+      kana: "こどもたち",
+      vietnamese: "trẻ em, bọn trẻ",
+      english: "trẻ em, bọn trẻ",
+      type: "main",
+      example: "子どもたちは公園で遊んでいます。\nKodomotachi wa kouen de asonde imasu.\nBọn trẻ đang chơi ở công viên."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 420354b55858453a
+    {
+      japanese: "自然",
+      kana: "しぜん",
+      vietnamese: "tự nhiên, thiên nhiên",
+      english: "tự nhiên, thiên nhiên",
+      type: "main",
+      example: "自然を大切にします。\nShizen o taisetsu ni shimasu.\nTôi coi trọng thiên nhiên."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 22e5ee441b7d8a60
+    {
+      japanese: "教育",
+      kana: "きょういく",
+      vietnamese: "giáo dục, việc học hành",
+      english: "giáo dục, việc học hành",
+      type: "main",
+      example: "教育はとても大切です。\nKyouiku wa totemo taisetsu desu.\nGiáo dục rất quan trọng."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 540dd20171fd9dbe
+    {
+      japanese: "文化",
+      kana: "ぶんか",
+      vietnamese: "văn hóa",
+      english: "văn hóa",
+      type: "main",
+      example: "日本の文化を勉強しています。\nNihon no bunka o benkyou shite imasu.\nTôi đang học văn hóa Nhật Bản."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 53510bc2c754a17f
+    {
+      japanese: "社会",
+      kana: "しゃかい",
+      vietnamese: "xã hội",
+      english: "xã hội",
+      type: "main",
+      example: "社会の問題について考えます。\nShakai no mondai ni tsuite kangaemasu.\nTôi suy nghĩ về các vấn đề xã hội."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | a66b50ada00314ee
+    {
+      japanese: "政治",
+      kana: "せいじ",
+      vietnamese: "chính trị",
+      english: "chính trị",
+      type: "main",
+      example: "政治に興味があります。\nSeiji ni kyoumi ga arimasu.\nTôi có hứng thú với chính trị."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 938625a9544a962b
+    {
+      japanese: "法律",
+      kana: "ほうりつ",
+      vietnamese: "pháp luật",
+      english: "pháp luật",
+      type: "main",
+      example: "法律を守らなければなりません。\nHouritsu o mamoranakereba narimasen.\nPhải tuân thủ pháp luật."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 19e3263027ebc8de
+    {
+      japanese: "戦争",
+      kana: "せんそう",
+      vietnamese: "chiến tranh",
+      english: "chiến tranh",
+      type: "main",
+      example: "戦争はよくないです。\nSensou wa yokunai desu.\nChiến tranh là không tốt."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 3481f66b54f857c8
+    {
+      japanese: "平和",
+      kana: "へいわ",
+      vietnamese: "hòa bình",
+      english: "hòa bình",
+      type: "main",
+      example: "世界の平和を願います。\nSekai no heiwa o negaimasu.\nTôi cầu mong hòa bình thế giới."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 89e247a234e39500
+    {
+      japanese: "目的",
+      kana: "もくてき",
+      vietnamese: "mục đích",
+      english: "mục đích",
+      type: "main",
+      example: "旅行の目的は何ですか。\nRyokou no mokuteki wa nan desu ka.\nMục đích của chuyến du lịch là gì?"
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 3afa3d251751cc81
+    {
+      japanese: "論文",
+      kana: "ろんぶん",
+      vietnamese: "luận văn, bài báo học thuật",
+      english: "luận văn, bài báo học thuật",
+      type: "main",
+      example: "大学で論文を書きます。\nDaigaku de ronbun o kakimasu.\nTôi viết luận văn ở đại học."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | f3993f50fe607b36
+    {
+      japanese: "楽しみ",
+      kana: "たのしみ",
+      vietnamese: "niềm vui; điều mong đợi",
+      english: "niềm vui; điều mong đợi",
+      type: "main",
+      example: "旅行が楽しみです。\nRyokou ga tanoshimi desu.\nTôi rất mong chờ chuyến du lịch."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | dcfa1a54f08ebd67
+    {
+      japanese: "ー",
+      kana: "ミキサー",
+      vietnamese: "máy trộn, máy xay",
+      english: "máy trộn, máy xay",
+      type: "main",
+      example: "ミキサーでジュースを作ります。\nMikisaa de juusu o tsukurimasu.\nTôi làm nước ép bằng máy xay."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 367897f2987a4fa6
+    {
+      japanese: "ー",
+      kana: "やかん",
+      vietnamese: "cái ấm nước",
+      english: "cái ấm nước",
+      type: "main",
+      example: "やかんに水を入れます。\nYakan ni mizu o iremasu.\nTôi cho nước vào ấm."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 05351fa3f3a85ed7
+    {
+      japanese: "ー",
+      kana: "ふた",
+      vietnamese: "cái nắp",
+      english: "cái nắp",
+      type: "main",
+      example: "ふたを開けてください。\nFuta o akete kudasai.\nHãy mở nắp ra."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 0ae0dbfe46c7396f
+    {
+      japanese: "栓抜き",
+      kana: "せんぬき",
+      vietnamese: "cái mở nắp chai",
+      english: "cái mở nắp chai",
+      type: "main",
+      example: "栓抜きで瓶を開けます。\nSennuki de bin o akemasu.\nTôi mở chai bằng cái mở nắp chai."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 559274427190e06e
+    {
+      japanese: "缶切り",
+      kana: "かんきり",
+      vietnamese: "cái mở đồ hộp",
+      english: "cái mở đồ hộp",
+      type: "main",
+      example: "缶切りで缶詰を開けます。\nKankiri de kanzume o akemasu.\nTôi mở đồ hộp bằng cái mở hộp."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | c92cf39432184939
+    {
+      japanese: "缶詰",
+      kana: "かんづめ",
+      vietnamese: "đồ hộp",
+      english: "đồ hộp",
+      type: "main",
+      example: "缶詰を買いました。\nKanzume o kaimashita.\nTôi đã mua đồ hộp."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | b896fcebb86c9050
+    {
+      japanese: "のし袋",
+      kana: "のしぶくろ",
+      vietnamese: "phong bì bỏ tiền mừng, bao lì xì",
+      english: "phong bì bỏ tiền mừng, bao lì xì",
+      type: "main",
+      example: "のし袋にお金を入れます。\nNoshibukuro ni okane o iremasu.\nTôi cho tiền vào phong bì mừng."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 4da75a506fe636f8
+    {
+      japanese: "ー",
+      kana: "ふろしき",
+      vietnamese: "tấm vải để gói đồ",
+      english: "tấm vải để gói đồ",
+      type: "main",
+      example: "ふろしきで荷物を包みます。\nFuroshiki de nimotsu o tsutsumimasu.\nTôi gói hành lý bằng khăn gói đồ."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 2ee61ffdeaa3349f
+    {
+      japanese: "ー",
+      kana: "そろばん",
+      vietnamese: "bàn tính",
+      english: "bàn tính",
+      type: "main",
+      example: "そろばんで計算します。\nSoroban de keisan shimasu.\nTôi tính toán bằng bàn tính."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 0d1234101a27d245
+    {
+      japanese: "体温計",
+      kana: "たいおんけい",
+      vietnamese: "máy đo nhiệt độ cơ thể",
+      english: "máy đo nhiệt độ cơ thể",
+      type: "main",
+      example: "体温計で熱を測ります。\nTaionkei de netsu o hakarimasu.\nTôi đo sốt bằng nhiệt kế."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 62d5a4525a7bcc2b
+    {
+      japanese: "材料",
+      kana: "ざいりょう",
+      vietnamese: "nguyên liệu, vật liệu",
+      english: "nguyên liệu, vật liệu",
+      type: "main",
+      example: "カレーの材料を買います。\nKaree no zairyou o kaimasu.\nTôi mua nguyên liệu làm cà ri."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 2304c24da3b42d9a
+    {
+      japanese: "ー",
+      kana: "ある〜",
+      vietnamese: "có một ~, một ~ nào đó",
+      english: "có một ~, một ~ nào đó",
+      type: "main",
+      example: "ある日、男が来ました。\nAru hi, otoko ga kimashita.\nMột ngày nọ, có một người đàn ông đến."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 8a656a7911bc4ad2
+    {
+      japanese: "一生懸命",
+      kana: "いっしょうけんめい",
+      vietnamese: "hết sức, chăm chỉ",
+      english: "hết sức, chăm chỉ",
+      type: "main",
+      example: "一生懸命日本語を勉強します。\nIsshoukenmei Nihongo o benkyou shimasu.\nTôi học tiếng Nhật hết sức chăm chỉ."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 952de6e41e358b45
+    {
+      japanese: "ー",
+      kana: "なぜ",
+      vietnamese: "tại sao",
+      english: "tại sao",
+      type: "main",
+      example: "なぜ日本語を勉強していますか。\nNaze Nihongo o benkyou shite imasu ka.\nTại sao bạn đang học tiếng Nhật?"
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 031dee6bba6039f2
+    {
+      japanese: "ー",
+      kana: "どのくらい",
+      vietnamese: "bao nhiêu, khoảng bao lâu",
+      english: "bao nhiêu, khoảng bao lâu",
+      type: "main",
+      example: "日本語をどのくらい勉強しましたか。\nNihongo o dono kurai benkyou shimashita ka.\nBạn đã học tiếng Nhật khoảng bao lâu rồi?"
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 2a5cefbcda926082
+    {
+      japanese: "国連",
+      kana: "こくれん",
+      vietnamese: "Liên Hợp Quốc",
+      english: "Liên Hợp Quốc",
+      type: "main",
+      example: "国連で働きたいです。\nKokuren de hatarakitai desu.\nTôi muốn làm việc ở Liên Hợp Quốc."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 8a419a82e2b0a06a
+    {
+      japanese: "ー",
+      kana: "エリーゼのために",
+      vietnamese: "Für Elise / Dành cho Elise",
+      english: "Für Elise / Dành cho Elise",
+      type: "main",
+      example: "「エリーゼのために」は有名な曲です。\n“Eriize no tame ni” wa yuumei na kyoku desu.\n“Für Elise” là một bản nhạc nổi tiếng."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 1fa2e70f6668c257
+    {
+      japanese: "ー",
+      kana: "ベートーベン",
+      vietnamese: "Beethoven",
+      english: "Beethoven",
+      type: "main",
+      example: "ベートーベンはドイツの音楽家です。\nBeetooben wa Doitsu no ongakuka desu.\nBeethoven là nhạc sĩ người Đức."
+    },
+    // source: review_tu_vung_bai_42.md | 1. Từ vựng chính | 574caf9b308bcef0
+    {
+      japanese: "子どもニュース",
+      kana: "こどもニュース",
+      vietnamese: "bản tin thiếu nhi",
+      english: "bản tin thiếu nhi",
+      type: "main",
+      example: "子どもニュースを見ます。\nKodomo nyuusu o mimasu.\nTôi xem bản tin thiếu nhi."
+    },
+    // source: review_tu_vung_bai_42.md | 2. Từ vựng hội thoại | 2181f2d7aceca377
+    {
+      japanese: "出ます［ボーナスが〜］",
+      kana: "でます［ボーナスが〜］",
+      vietnamese: "có thưởng, tiền thưởng được phát",
+      english: "có thưởng, tiền thưởng được phát",
+      type: "supplementary",
+      example: "今年はボーナスが出ます。\nKotoshi wa boonasu ga demasu.\nNăm nay có thưởng."
+    },
+    // source: review_tu_vung_bai_42.md | 2. Từ vựng hội thoại | 37c8d2894526d44d
+    {
+      japanese: "半分",
+      kana: "はんぶん",
+      vietnamese: "một nửa",
+      english: "một nửa",
+      type: "supplementary",
+      example: "ケーキを半分食べました。\nKeeki o hanbun tabemashita.\nTôi đã ăn một nửa cái bánh."
+    },
+    // source: review_tu_vung_bai_42.md | 2. Từ vựng hội thoại | 55cdb5816ed6abbb
+    {
+      japanese: "ー",
+      kana: "ローン",
+      vietnamese: "khoản vay trả góp, tiền vay góp",
+      english: "khoản vay trả góp, tiền vay góp",
+      type: "supplementary",
+      example: "ローンで車を買いました。\nRoon de kuruma o kaimashita.\nTôi đã mua xe bằng khoản vay trả góp."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | 99450fd4cd311e2f
+    {
+      japanese: "ー",
+      kana: "カップめん",
+      vietnamese: "mì ly, mì ăn liền đựng trong cốc",
+      english: "mì ly, mì ăn liền đựng trong cốc",
+      type: "supplementary",
+      example: "カップめんにお湯を注ぎます。\nKappu men ni oyu o sosogimasu.\nTôi đổ nước nóng vào mì ly."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | f892b10f0357b188
+    {
+      japanese: "世界初",
+      kana: "せかいはつ",
+      vietnamese: "đầu tiên trên thế giới",
+      english: "đầu tiên trên thế giới",
+      type: "supplementary",
+      example: "これは世界初のカップめんです。\nKore wa sekai hatsu no kappu men desu.\nĐây là mì ly đầu tiên trên thế giới."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | b96928aa7d33cb23
+    {
+      japanese: "ー",
+      kana: "〜によって",
+      vietnamese: "bởi ~, do ~",
+      english: "bởi ~, do ~",
+      type: "supplementary",
+      example: "カップめんは安藤百福によって作られました。\nKappu men wa Andou Momofuku ni yotte tsukuraremashita.\nMì ly được tạo ra bởi Ando Momofuku."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | 3597be9502fdafcf
+    {
+      japanese: "ー",
+      kana: "どんぶり",
+      vietnamese: "cái bát tô",
+      english: "cái bát tô",
+      type: "supplementary",
+      example: "どんぶりにめんを入れます。\nDonburi ni men o iremasu.\nTôi cho mì vào bát tô."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | 2cfebd4736c9c0f9
+    {
+      japanese: "ー",
+      kana: "めん",
+      vietnamese: "mì sợi",
+      english: "mì sợi",
+      type: "supplementary",
+      example: "めんをゆでます。\nMen o yudemasu.\nTôi luộc mì."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | 9274baa4591f8ef4
+    {
+      japanese: "広めます",
+      kana: "ひろめます",
+      vietnamese: "nhân rộng, mở rộng, truyền bá",
+      english: "nhân rộng, mở rộng, truyền bá",
+      type: "supplementary",
+      example: "日本の文化を世界に広めます。\nNihon no bunka o sekai ni hiromemasu.\nTôi truyền bá văn hóa Nhật ra thế giới."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | 80d9bc243c72f94e
+    {
+      japanese: "市場調査",
+      kana: "しじょうちょうさ",
+      vietnamese: "điều tra thị trường",
+      english: "điều tra thị trường",
+      type: "supplementary",
+      example: "新しい商品について市場調査をします。\nAtarashii shouhin ni tsuite shijou chousa o shimasu.\nTôi điều tra thị trường về sản phẩm mới."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | d9b5e3e5d91559da
+    {
+      japanese: "割ります",
+      kana: "わります",
+      vietnamese: "bẻ ra, chia nhỏ; làm vỡ",
+      english: "bẻ ra, chia nhỏ; làm vỡ",
+      type: "supplementary",
+      example: "卵を割ります。\nTamago o warimasu.\nTôi đập trứng."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | a57bbef2649ceabb
+    {
+      japanese: "注ぎます",
+      kana: "そそぎます",
+      vietnamese: "đổ vào, rót vào",
+      english: "đổ vào, rót vào",
+      type: "supplementary",
+      example: "コップに水を注ぎます。\nKoppu ni mizu o sosogimasu.\nTôi rót nước vào cốc."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | 75f8fd7a418aa011
+    {
+      japanese: "ー",
+      kana: "チキンラーメン",
+      vietnamese: "tên một loại mì ăn liền",
+      english: "tên một loại mì ăn liền",
+      type: "supplementary",
+      example: "チキンラーメンを食べました。\nChikin raamen o tabemashita.\nTôi đã ăn Chikin Ramen."
+    },
+    // source: review_tu_vung_bai_42.md | 3. Từ vựng đọc hiểu | 1adcbf02b573d1e0
+    {
+      japanese: "安藤百福",
+      kana: "あんどうももふく",
+      vietnamese: "Ando Momofuku, nhà kinh doanh/nhà phát minh người Nhật",
+      english: "Ando Momofuku, nhà kinh doanh/nhà phát minh người Nhật",
+      type: "supplementary",
+      example: "安藤百福はチキンラーメンを作りました。\nAndou Momofuku wa Chikin raamen o tsukurimashita.\nAndo Momofuku đã tạo ra Chikin Ramen."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | 2f200ac6e054df23
+    {
+      japanese: "プレゼントを包みます",
+      kana: "プレゼントを包みます",
+      vietnamese: "gói quà",
+      english: "gói quà",
+      type: "supplementary",
+      example: "Dùng を / o với vật được gói."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | 64a34c76de661161
+    {
+      japanese: "お湯を沸かします",
+      kana: "お湯を沸かします",
+      vietnamese: "đun nước nóng",
+      english: "đun nước nóng",
+      type: "supplementary",
+      example: "沸かします / wakashimasu là ngoại động từ: mình đun cho nước sôi."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | 1d8f7859b91dfe27
+    {
+      japanese: "材料を混ぜます",
+      kana: "材料を混ぜます",
+      vietnamese: "trộn nguyên liệu",
+      english: "trộn nguyên liệu",
+      type: "supplementary",
+      example: "Hay dùng trong nấu ăn."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | 41ff0cf1ac89c975
+    {
+      japanese: "値段を計算します",
+      kana: "値段を計算します",
+      vietnamese: "tính giá tiền",
+      english: "tính giá tiền",
+      type: "supplementary",
+      example: "計算します / keisan shimasu dùng cho tính toán số liệu."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | f6bd9e704836b97e
+    {
+      japanese: "列に並びます",
+      kana: "列に並びます",
+      vietnamese: "xếp vào hàng",
+      english: "xếp vào hàng",
+      type: "supplementary",
+      example: "Dùng に / ni với “hàng” mình xếp vào."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | e382a4a047b15873
+    {
+      japanese: "ボーナスが出ます",
+      kana: "ボーナスが出ます",
+      vietnamese: "có tiền thưởng",
+      english: "có tiền thưởng",
+      type: "supplementary",
+      example: "Chủ ngữ là ボーナス / boonasu; dùng が / ga."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | 241b191ecdf07061
+    {
+      japanese: "ローンで買います",
+      kana: "ローンで買います",
+      vietnamese: "mua bằng khoản vay trả góp",
+      english: "mua bằng khoản vay trả góp",
+      type: "supplementary",
+      example: "で / de chỉ phương tiện/cách thức thanh toán."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | a5b0a2d00b7fe331
+    {
+      japanese: "一生懸命勉強します",
+      kana: "一生懸命勉強します",
+      vietnamese: "học hết sức chăm chỉ",
+      english: "học hết sức chăm chỉ",
+      type: "supplementary",
+      example: "一生懸命 / isshoukenmei thường đứng trước động từ."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | 64822589d6e8a22a
+    {
+      japanese: "〜によって作られます",
+      kana: "〜によって作られます",
+      vietnamese: "được tạo ra bởi ~",
+      english: "được tạo ra bởi ~",
+      type: "supplementary",
+      example: "Dùng trong câu bị động để nói tác giả/người tạo ra."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | aed35c008126deb0
+    {
+      japanese: "お湯を注ぎます",
+      kana: "お湯を注ぎます",
+      vietnamese: "rót/đổ nước nóng vào",
+      english: "rót/đổ nước nóng vào",
+      type: "supplementary",
+      example: "注ぎます / sosogimasu thường dùng với chất lỏng."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | d5cfc677f9191658
+    {
+      japanese: "文化を広めます",
+      kana: "文化を広めます",
+      vietnamese: "truyền bá văn hóa",
+      english: "truyền bá văn hóa",
+      type: "supplementary",
+      example: "広めます / hiromemasu là “làm cho lan rộng”."
+    },
+    // source: review_tu_vung_bai_42.md | 4. Cụm cần nhớ | cfd3a636aa161e3a
+    {
+      japanese: "市場調査をします",
+      kana: "市場調査をします",
+      vietnamese: "điều tra thị trường",
+      english: "điều tra thị trường",
+      type: "supplementary",
+      example: "Cụm danh từ + します / shimasu."
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 9c73d8231ed5c0ad
+    {
+      japanese: "計",
+      kana: "ケイ / kei",
+      vietnamese: "Kế — tính toán, kế hoạch",
+      english: "tính toán, kế hoạch",
+      type: "kanji",
+      example: "計算します / keisan shimasu"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | e30897d1702e65e5
+    {
+      japanese: "算",
+      kana: "サン / san",
+      vietnamese: "Toán — tính toán",
+      english: "tính toán",
+      type: "kanji",
+      example: "計算します / keisan shimasu"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 1e6a98f550fdf0c7
+    {
+      japanese: "子",
+      kana: "シ / shi, ス / su",
+      vietnamese: "Tử — con, đứa trẻ",
+      english: "con, đứa trẻ",
+      type: "kanji",
+      example: "子どもたち / kodomotachi"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 992c11201a006f5e
+    {
+      japanese: "自",
+      kana: "ジ / ji, シ / shi",
+      vietnamese: "Tự — bản thân, tự mình",
+      english: "bản thân, tự mình",
+      type: "kanji",
+      example: "自然 / shizen"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 90555627909a2bda
+    {
+      japanese: "然",
+      kana: "ゼン / zen, ネン / nen",
+      vietnamese: "Nhiên — như vậy, tự nhiên",
+      english: "như vậy, tự nhiên",
+      type: "kanji",
+      example: "自然 / shizen"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 8cc822dc39411174
+    {
+      japanese: "教",
+      kana: "キョウ / kyou",
+      vietnamese: "Giáo — dạy",
+      english: "dạy",
+      type: "kanji",
+      example: "教育 / kyouiku"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | b5a037ababf721eb
+    {
+      japanese: "育",
+      kana: "イク / iku",
+      vietnamese: "Dục — nuôi dưỡng",
+      english: "nuôi dưỡng",
+      type: "kanji",
+      example: "教育 / kyouiku"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | ca3dd2ca8e1124cf
+    {
+      japanese: "文",
+      kana: "ブン / bun, モン / mon",
+      vietnamese: "Văn — văn, chữ, văn hóa",
+      english: "văn, chữ, văn hóa",
+      type: "kanji",
+      example: "文化 / bunka"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 35e15676efccf020
+    {
+      japanese: "化",
+      kana: "カ / ka, ケ / ke",
+      vietnamese: "Hóa — biến hóa, văn hóa",
+      english: "biến hóa, văn hóa",
+      type: "kanji",
+      example: "文化 / bunka"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 3992b78210aa86a4
+    {
+      japanese: "社",
+      kana: "シャ / sha",
+      vietnamese: "Xã — xã hội, công ty, đền",
+      english: "xã hội, công ty, đền",
+      type: "kanji",
+      example: "社会 / shakai"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | eabe9b321efb2471
+    {
+      japanese: "会",
+      kana: "カイ / kai, エ / e",
+      vietnamese: "Hội — gặp, hội",
+      english: "gặp, hội",
+      type: "kanji",
+      example: "社会 / shakai"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | aa28a0eb4a8ba07e
+    {
+      japanese: "国",
+      kana: "コク / koku",
+      vietnamese: "Quốc — nước, quốc gia",
+      english: "nước, quốc gia",
+      type: "kanji",
+      example: "国連 / Kokuren"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | ba61b2fedbb63b0a
+    {
+      japanese: "出",
+      kana: "シュツ / shutsu, スイ / sui",
+      vietnamese: "Xuất — ra, xuất hiện",
+      english: "ra, xuất hiện",
+      type: "kanji",
+      example: "出ます / demasu"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 1983445437ad6cc6
+    {
+      japanese: "半",
+      kana: "ハン / han",
+      vietnamese: "Bán — một nửa",
+      english: "một nửa",
+      type: "kanji",
+      example: "半分 / hanbun"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 12d67743bfe7c1c5
+    {
+      japanese: "分",
+      kana: "ブン / bun, フン / fun, ブ / bu",
+      vietnamese: "Phân — phần, chia, phút",
+      english: "phần, chia, phút",
+      type: "kanji",
+      example: "半分 / hanbun"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 4c2552fe25b2da63
+    {
+      japanese: "体",
+      kana: "タイ / tai, テイ / tei",
+      vietnamese: "Thể — cơ thể",
+      english: "cơ thể",
+      type: "kanji",
+      example: "体温計 / taionkei"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 6dfe149e50d4eccf
+    {
+      japanese: "温",
+      kana: "オン / on",
+      vietnamese: "Ôn — ấm, nhiệt độ",
+      english: "ấm, nhiệt độ",
+      type: "kanji",
+      example: "体温計 / taionkei"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 21e769812e1f589e
+    {
+      japanese: "目",
+      kana: "モク / moku, ボク / boku",
+      vietnamese: "Mục — mắt, mục tiêu",
+      english: "mắt, mục tiêu",
+      type: "kanji",
+      example: "目的 / mokuteki"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | c2f5a758ae83aac4
+    {
+      japanese: "的",
+      kana: "テキ / teki",
+      vietnamese: "Đích — đích, mục tiêu, tính chất",
+      english: "đích, mục tiêu, tính chất",
+      type: "kanji",
+      example: "目的 / mokuteki"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | c6fde96ba080558d
+    {
+      japanese: "楽",
+      kana: "ガク / gaku, ラク / raku",
+      vietnamese: "Lạc — vui, âm nhạc",
+      english: "vui, âm nhạc",
+      type: "kanji",
+      example: "楽しみ / tanoshimi"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 5880e5d8af51b226
+    {
+      japanese: "平",
+      kana: "ヘイ / hei, ビョウ / byou",
+      vietnamese: "Bình — bằng phẳng, hòa bình",
+      english: "bằng phẳng, hòa bình",
+      type: "kanji",
+      example: "平和 / heiwa"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 7ed5a60c8437221e
+    {
+      japanese: "和",
+      kana: "ワ / wa, オ / o",
+      vietnamese: "Hòa — hòa hợp, Nhật Bản",
+      english: "hòa hợp, Nhật Bản",
+      type: "kanji",
+      example: "平和 / heiwa"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | a86748a81d26aed4
+    {
+      japanese: "世",
+      kana: "セイ / sei, セ / se",
+      vietnamese: "Thế — thế gian, đời",
+      english: "thế gian, đời",
+      type: "kanji",
+      example: "世界 / sekai"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | bd922f8963f4acfe
+    {
+      japanese: "界",
+      kana: "カイ / kai",
+      vietnamese: "Giới — thế giới, ranh giới",
+      english: "thế giới, ranh giới",
+      type: "kanji",
+      example: "世界 / sekai"
+    },
+    // source: review_tu_vung_bai_42.md | 5. Kanji N5–N4 cần học kỹ | 88ba20fda98285f7
+    {
+      japanese: "男",
+      kana: "ダン / dan, ナン / nan",
+      vietnamese: "Nam — đàn ông, nam giới",
+      english: "đàn ông, nam giới",
+      type: "kanji",
+      example: "男 / otoko"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | b1854a44a0fe5adf
+    {
+      japanese: "計算",
+      kana: "ケイ / kei",
+      vietnamese: "Kế — 計 = tính toán, kế hoạch",
+      english: "計 = tính toán, kế hoạch",
+      type: "kanji",
+      example: "計算"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 2bb715c7c4777513
+    {
+      japanese: "計算",
+      kana: "サン / san",
+      vietnamese: "Toán — 算 = tính toán",
+      english: "算 = tính toán",
+      type: "kanji",
+      example: "計算"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | d03e22a6863b0f91
+    {
+      japanese: "子ども",
+      kana: "こ / ko",
+      vietnamese: "Tử — 子 = con, trẻ em",
+      english: "子 = con, trẻ em",
+      type: "kanji",
+      example: "子ども"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | d397e36b6bc38e35
+    {
+      japanese: "親子",
+      kana: "シ / shi",
+      vietnamese: "Tử — 親 = cha mẹ; 子 = con",
+      english: "親 = cha mẹ; 子 = con",
+      type: "kanji",
+      example: "親子"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | eb25a868b63c6f36
+    {
+      japanese: "自然",
+      kana: "ジ / ji",
+      vietnamese: "Tự — 自 = tự mình; 然 = tự nhiên",
+      english: "自 = tự mình; 然 = tự nhiên",
+      type: "kanji",
+      example: "自然"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 79f5273ecc2ece0a
+    {
+      japanese: "自分",
+      kana: "ジ / ji",
+      vietnamese: "Tự — 自 = tự mình; 分 = phần/bản thân",
+      english: "自 = tự mình; 分 = phần/bản thân",
+      type: "kanji",
+      example: "自分"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 48a6a24a259ad002
+    {
+      japanese: "教育",
+      kana: "キョウ / kyou",
+      vietnamese: "Giáo — 教 = dạy; 育 = nuôi dưỡng",
+      english: "教 = dạy; 育 = nuôi dưỡng",
+      type: "kanji",
+      example: "教育"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 0a77e13962ddde19
+    {
+      japanese: "教える",
+      kana: "おし.える / oshieru",
+      vietnamese: "Giáo — 教 = dạy",
+      english: "教 = dạy",
+      type: "kanji",
+      example: "教える"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 5bfa6d4f73d4f67c
+    {
+      japanese: "育てる",
+      kana: "そだ.てる / sodateru",
+      vietnamese: "Dục — 育 = nuôi dưỡng",
+      english: "育 = nuôi dưỡng",
+      type: "kanji",
+      example: "育てる"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | fb24485db928bd96
+    {
+      japanese: "文化",
+      kana: "ブン / bun",
+      vietnamese: "Văn — 文 = văn; 化 = biến hóa",
+      english: "文 = văn; 化 = biến hóa",
+      type: "kanji",
+      example: "文化"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 203b40ac6f8540ad
+    {
+      japanese: "文法",
+      kana: "ブン / bun",
+      vietnamese: "Văn — 文 = chữ, văn",
+      english: "文 = chữ, văn",
+      type: "kanji",
+      example: "文法"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 716c8d96ff53ac0d
+    {
+      japanese: "文化",
+      kana: "カ / ka",
+      vietnamese: "Hóa — 文 = văn; 化 = hóa",
+      english: "文 = văn; 化 = hóa",
+      type: "kanji",
+      example: "文化"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 2778360ac0d8fc12
+    {
+      japanese: "社会",
+      kana: "シャ / sha",
+      vietnamese: "Xã — 社 = xã hội/công ty; 会 = hội",
+      english: "社 = xã hội/công ty; 会 = hội",
+      type: "kanji",
+      example: "社会"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 12edda9b51646252
+    {
+      japanese: "会社",
+      kana: "シャ / sha",
+      vietnamese: "Xã — 会 = hội; 社 = công ty",
+      english: "会 = hội; 社 = công ty",
+      type: "kanji",
+      example: "会社"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | bf82f7a42f9f2159
+    {
+      japanese: "会う",
+      kana: "あ.う / au",
+      vietnamese: "Hội — 会 = gặp",
+      english: "会 = gặp",
+      type: "kanji",
+      example: "会う"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 6498e370796bc22f
+    {
+      japanese: "国連",
+      kana: "コク / koku",
+      vietnamese: "Quốc — 国 = nước; 連 = liên kết",
+      english: "国 = nước; 連 = liên kết",
+      type: "kanji",
+      example: "国連"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | dde9b2fa5a1a94ee
+    {
+      japanese: "国",
+      kana: "くに / kuni",
+      vietnamese: "Quốc — 国 = nước",
+      english: "国 = nước",
+      type: "kanji",
+      example: "国"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 35e40bead40408d4
+    {
+      japanese: "出る",
+      kana: "で.る / deru",
+      vietnamese: "Xuất — 出 = ra",
+      english: "出 = ra",
+      type: "kanji",
+      example: "出る"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 98313aba7b0c0230
+    {
+      japanese: "出す",
+      kana: "だ.す / dasu",
+      vietnamese: "Xuất — 出 = đưa ra",
+      english: "出 = đưa ra",
+      type: "kanji",
+      example: "出す"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | ef1e9478fba586a1
+    {
+      japanese: "半分",
+      kana: "ハン / han",
+      vietnamese: "Bán — 半 = một nửa; 分 = phần",
+      english: "半 = một nửa; 分 = phần",
+      type: "kanji",
+      example: "半分"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | d20588687bcee2c4
+    {
+      japanese: "分ける",
+      kana: "わ.ける / wakeru",
+      vietnamese: "Phân — 分 = phần, chia",
+      english: "分 = phần, chia",
+      type: "kanji",
+      example: "分ける"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 259426354122fc16
+    {
+      japanese: "体温計",
+      kana: "タイ / tai",
+      vietnamese: "Thể — 体 = cơ thể; 温 = nhiệt độ; 計 = máy đo",
+      english: "体 = cơ thể; 温 = nhiệt độ; 計 = máy đo",
+      type: "kanji",
+      example: "体温計"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | bc218becda2c3c62
+    {
+      japanese: "温かい",
+      kana: "あたた.かい / atatakai",
+      vietnamese: "Ôn — 温 = ấm, nhiệt độ",
+      english: "温 = ấm, nhiệt độ",
+      type: "kanji",
+      example: "温かい"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 0dd017dee4b5d71c
+    {
+      japanese: "目的",
+      kana: "モク / moku",
+      vietnamese: "Mục — 目 = mắt, mục; 的 = đích",
+      english: "目 = mắt, mục; 的 = đích",
+      type: "kanji",
+      example: "目的"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | cbcd81f0c2c39a2d
+    {
+      japanese: "目",
+      kana: "め / me",
+      vietnamese: "Mục — 目 = mắt",
+      english: "目 = mắt",
+      type: "kanji",
+      example: "目"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 504023b2dc1d4a13
+    {
+      japanese: "目的",
+      kana: "テキ / teki",
+      vietnamese: "Đích — 的 = mục tiêu/tính chất",
+      english: "的 = mục tiêu/tính chất",
+      type: "kanji",
+      example: "目的"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | d2bbd706eab94486
+    {
+      japanese: "楽しい",
+      kana: "たの.しい / tanoshii",
+      vietnamese: "Lạc — 楽 = vui",
+      english: "楽 = vui",
+      type: "kanji",
+      example: "楽しい"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 8b5f04d91d0cc066
+    {
+      japanese: "音楽",
+      kana: "ガク / gaku",
+      vietnamese: "Lạc — 音 = âm thanh; 楽 = nhạc",
+      english: "音 = âm thanh; 楽 = nhạc",
+      type: "kanji",
+      example: "音楽"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 63f839e2412f6ebb
+    {
+      japanese: "平和",
+      kana: "ヘイ / hei",
+      vietnamese: "Bình — 平 = bình; 和 = hòa",
+      english: "平 = bình; 和 = hòa",
+      type: "kanji",
+      example: "平和"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | da7aacf14d77afcb
+    {
+      japanese: "平和",
+      kana: "ワ / wa",
+      vietnamese: "Hòa — 平 = bình; 和 = hòa",
+      english: "平 = bình; 和 = hòa",
+      type: "kanji",
+      example: "平和"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 1ea34daffc088918
+    {
+      japanese: "世界",
+      kana: "セ / se",
+      vietnamese: "Thế — 世 = thế gian; 界 = giới",
+      english: "世 = thế gian; 界 = giới",
+      type: "kanji",
+      example: "世界"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | faad01a716a8de69
+    {
+      japanese: "世界",
+      kana: "カイ / kai",
+      vietnamese: "Giới — 世 = thế gian; 界 = giới",
+      english: "世 = thế gian; 界 = giới",
+      type: "kanji",
+      example: "世界"
+    },
+    // source: review_tu_vung_bai_42.md | 6. Từ ghép On/Kun của Kanji N5–N4 | 8055bf42aa7395df
+    {
+      japanese: "男",
+      kana: "おとこ / otoko",
+      vietnamese: "Nam — 男 = đàn ông",
+      english: "男 = đàn ông",
+      type: "kanji",
+      example: "男"
+    },
+    // END_IMPORTED_MINNA_N4_MD
   ],
   grammar: [
     {
